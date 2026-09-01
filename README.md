@@ -1,2 +1,85 @@
-# rk3568-logos2-distortion-correction
-Real-time arbitrary-angle video distortion correction on RK3568_MES2L100H and Logos-2 FPGA; extensible multi-video and neural-network processing.
+# 骁流正像队｜RK3568_MES2L100H 任意角度实时视频畸变矫正
+
+本项目面向全国大学生嵌入式芯片与系统设计竞赛 2026 FPGA 创新设计赛道，当前选择：
+
+> **选题二：基于紫光同创 FPGA 的任意角度的畸变矫正**
+
+目标平台：
+
+> **RK3568_MES2L100H（RK3568J + Logos-2 FPGA）**
+
+## 项目目标
+
+构建一套面向机器视觉、智能交通和工业检测的实时视频畸变矫正系统。系统以摄像头或 HDMI 视频作为输入，在 FPGA 端完成视频缓存、坐标映射、定点化运算和双线性插值，在 RK3568J 端完成相机标定参数、姿态参数和系统配置管理。
+
+## 计划完成范围
+
+### 基础功能
+
+- 单路摄像头/HDMI 视频采集、缓存与显示；
+- 二阶径向畸变和切向畸变模型；
+- FPGA 定点坐标映射；
+- 双线性插值、边界和空洞处理；
+- 实时输出以及端到端延迟、帧率测试。
+
+### 高阶功能
+
+- 通过上位机指令或姿态传感器动态更新旋转/倾斜参数；
+- 任意角度下的动态畸变矫正和仿射变换；
+- 面向强光、夜间等场景的自适应图像增强；
+- 直线度误差、MTF50/SFR、资源占用和时序分析。
+
+### 可选扩展
+
+系统将预留多路视频并行处理和神经网络推理接口。在基础及高阶功能稳定通过后，再根据 RK3568_MES2L100H 的资源、时序和实际测试结果决定是否加入。多路视频与神经网络属于探索性扩展，不作为当前已完成能力或基础验收前提。
+
+## 现有工程基础
+
+已有 Xilinx Zynq/Vivado/Vitis 工程可作为视频链路和软硬件协同设计参考：
+
+- `E:\FPGA_Project\2020_2\cnn_PS_PL_ACC_final\cam_vdma_hdmi_true`
+- `E:\FPGA_Project\2020_2\cnn_PS_final\cam_vdma_hdmi_true`
+
+现有资产包括 OV5640、VDMA、HDMI、PL 图像预处理、BRAM/DDR 数据交换和 PS+PL CNN 加速经验。Xilinx 工程不能直接视为 Logos-2/PDS 已通过版本，后续需要完成平台迁移和验证。
+
+## 目录约定
+
+```text
+competition/
+├─ 1_log/       # 唯一工程日志根目录，按 YYYY-MM-DD 分目录
+├─ 2_skill/     # 工具、脚本和流程辅助资料
+├─ 3_doc/       # 赛题、板卡和平台文档
+├─ 4_cpu/       # RK3568/处理器端软件与控制代码
+└─ 5_FPGA/      # Logos-2 FPGA RTL、约束、仿真和综合工程
+```
+
+所有后续计划、执行记录、仿真/综合/板测原始日志和交接记录统一放在：
+
+`C:\Users\Administrator\Desktop\competition\1_log`
+
+每个日期目录使用：
+
+- `01_daily_plan.md`
+- `02_execution_plan.md`
+- `03_validation_summary.md`
+- `04_next_start_guide.md`
+
+## 当前状态
+
+- 赛题二和 RK3568_MES2L100H 已确定；
+- GitHub 私有仓库已创建；
+- 现有 Zynq 工程已完成初步资产盘点；
+- Logos-2/PDS 移植、真实相机标定和 FPGA 畸变矫正 RTL 尚未开始；
+- 多路视频和神经网络功能仍处于可选扩展阶段。
+
+## GitHub
+
+远程仓库：<https://github.com/pipidandan-superman/rk3568-logos2-distortion-correction>
+
+## 开发原则
+
+1. 区分赛题文件中的要求、当前工程已验证事实和未来计划。
+2. 每次验证保存完整原始日志，不以摘要替代证据。
+3. 先完成单路实时矫正闭环，再评估多路视频和神经网络扩展。
+4. 不将未通过 PDS 综合、时序和板级验证的功能描述为已实现。
+
