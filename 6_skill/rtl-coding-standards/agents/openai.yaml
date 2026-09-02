@@ -1,0 +1,4 @@
+interface:
+  display_name: "RTL Coding Standards"
+  short_description: "Enforce strict Verilog and SystemVerilog RTL conventions."
+  default_prompt: "Use $rtl-coding-standards to create, modify, or review this RTL code."
