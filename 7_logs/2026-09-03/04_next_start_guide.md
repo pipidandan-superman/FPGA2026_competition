@@ -29,3 +29,4 @@
 ## 2026-09-03 BD 连线清单更新
 
 OV5640+HDMI 显示链路已对照 2020 参考工程完成静态核对，清单在 `2_fpga/0_diaplay_test/doc/bd_ov5640_hdmi_connection_checklist.md`。核心连线一致；当前 HDMI 输出按 ADV7511 并口方案处理，不再接 `pclk_x5` 或 TMDS。板测时按清单顺序检查 Clocking Wizard locked、SCCB 配置完成、VDMA S2MM 写 DDR、VDMA MM2S 读 DDR 和显示器输出。VDMA S2MM line buffer 当前为 512，参考为 1024；先保持当前通过实现，板测稳定后再决定是否完全对齐。
+UART self-test build PASS; board test pending.

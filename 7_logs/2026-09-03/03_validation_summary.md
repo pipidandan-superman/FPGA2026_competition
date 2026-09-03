@@ -241,3 +241,4 @@ Messages 中的 3 个综合 error 来自 OOC 子 run：`util_vector_logic`、`rs
 `cam_captrue_data`、`ov5640_cfg_top` 和 `pix_frame_display` 的源文件在两侧 SHA256 相同。Clocking Wizard 的 25/125/24.03846/50 MHz 输出配置一致；外部输入分别为 50 MHz 和 100 MHz，属于工程基线差异。VTC 两侧均为 480p、640x800、480x525、HSYNC/VSYNC High、RGB。VDMA 配置基本一致，仅当前 S2MM line buffer 生成值为 512，参考为 1024。
 
 当前 HDMI 边界按 ADV7511 并口方案替换旧 TMDS 直驱方案，因此 `PIX_CLK/RST_N/RGB888/DE/H_SYNC/V_SYNC` 连接正确，无 `pclk_x5` 和 TMDS 差分口是预期。`pix_frame_display/rom_data` 当前接常量 0，参考工程接 ROM 输出；该差异只影响局部图案/OSD 显示，不阻断相机视频主链路。完整清单见 `2_fpga/0_diaplay_test/doc/bd_ov5640_hdmi_connection_checklist.md`。
+UART self-test build PASS; board test pending.

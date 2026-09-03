@@ -1,0 +1,11 @@
+# Vitis UART Self-Test Build Evidence
+- Date: 2026-09-03
+- Target: Zynq PS UART1 / MIO48-49
+- Expected terminal format: 115200-8-N1
+- Source: `E:/competition/2_fpga/0_diaplay_test/vitis/app_component/src/main.c`
+- Build result: PASS
+- ELF: `C:/vws_app_b12/app_component.elf`
+- Size result: text=28517, data=1428, bss=22996, total=52941 (0xcecd)
+- Hardware result: PENDING
+- Required board test: observe three heartbeat messages, then verify one-character RX echo.
+- Note: Vitis 2025.2 CLI had a local platform-repository scan issue; the final application was configured directly with the Vitis CMake/Ninja flow against the generated FSBL BSP.

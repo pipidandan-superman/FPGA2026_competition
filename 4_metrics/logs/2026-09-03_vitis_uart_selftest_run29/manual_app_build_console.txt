@@ -1,0 +1,20 @@
+ninja: Entering directory `C:\vws_app_b12'
+[1/3] ==========Application Build Information ==========
+
+Compiler Flags:  -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard  -MMD -MP -specs=F:/vivado2025/2
+025.2/Vitis/data/embeddedsw/scripts/specs/arm/Xilinx.spec -IC:/vws_uart_s5/display_test_platform/zyn
+q_fsbl/zynq_fsbl_bsp/include -Wall -Wextra      -O0  -g3     -U__clang__  
+
+Linker Flags:       -Wl,-T -Wl,"E:/competition/2_fpga/0_diaplay_test/vitis/app_component/src/lscript
+.ld" -L"E:/competition/2_fpga/0_diaplay_test/vitis/app_component/src/" -L"C:/vws_uart_s5/display_tes
+t_platform/zynq_fsbl/zynq_fsbl_bsp/lib/" -L"/" -Wl,--start-group,-lxilstandalone,-lxiltimer,-lxil,-l
+gcc,-lc -Wl,--end-group
+
+===========================================
+[2/3] Building C object CMakeFiles/app_component.elf.dir/main.c.obj
+[3/3] Linking C executable app_component.elf
+FAILED: app_component.elf 
+cmd.exe /C "cd . && F:\vivado2025\2025.2\Vitis\gnu\aarch32\nt\gcc-arm-none-eabi\bin\arm-none-eabi-gcc.exe -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard  -MMD -MP -specs=F:/vivado2025/2025.2/Vitis/data/embeddedsw/scripts/specs/arm/Xilinx.spec -IC:/vws_uart_s5/display_test_platform/zynq_fsbl/zynq_fsbl_bsp/include -Wall -Wextra      -O0  -g3     -U__clang__        CMakeFiles/app_component.elf.dir/main.c.obj -o app_component.elf -LC:/vws_uart_s5/display_test_platform/zynq_fsbl/zynq_fsbl_bsp/lib -Wl,-T -Wl,"E:/competition/2_fpga/0_diaplay_test/vitis/app_component/src/lscript.ld" -L"E:/competition/2_fpga/0_diaplay_test/vitis/app_component/src/" -L"C:/vws_uart_s5/display_test_platform/zynq_fsbl/zynq_fsbl_bsp/lib/" -L"/" -Wl,--start-group,-lxilstandalone,-lxiltimer,-lxil,-lgcc,-lc -Wl,--end-group && cmd.exe /C "cd /D C:\vws_app_b12 && arm-none-eabi-size --format=berkeley app_component.elf && arm-none-eabi-size --format=berkeley app_component.elf > C:/vws_app_b12/app_component.elf.size""
+'arm-none-eabi-size' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+ninja: build stopped: subcommand failed.

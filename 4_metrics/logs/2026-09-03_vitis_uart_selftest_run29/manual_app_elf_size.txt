@@ -1,0 +1,2 @@
+   text	   data	    bss	    dec	    hex	filename
+  28517	   1428	  22996	  52941	   cecd	C:\vws_app_b12\app_component.elf

@@ -52,3 +52,4 @@ Vivado 2025.2 顶层 `synth_1` 和 `impl_1` 均已完成，`place_design`、`rou
 ## 2026-09-03 OV5640+HDMI BD 连线清单
 
 已静态解析参考 `design_1.bd` 和当前 `display_test.bd`，核对 OV5640 配置/采集、Video In、VDMA S2MM/MM2S、HP0/HP1、SmartConnect/AXI Interconnect 控制面、Video Out、VTC、`pix_frame_display` 和新 HDMI 前端连接。清单位于 `E:\competition\2_fpga\0_diaplay_test\doc\bd_ov5640_hdmi_connection_checklist.md`，证据位于 `4_metrics/logs/2026-09-03_bd_connection_check_run28/bd_comparison_evidence.md`。结论：核心采集/DDR/视频输出连线一致；Zynq、50/100 MHz 外部时钟、PS FCLK0、HDMI 架构和 IP 版本差异均为工程基线差异；VDMA S2MM line buffer 当前为 512、参考为 1024，`rom_data` 当前接常量 0，这两项需理解但不阻断当前板测。
+UART self-test build PASS; board test pending.

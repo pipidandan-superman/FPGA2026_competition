@@ -41,3 +41,4 @@ RTL、Verilog 顶层、testbench、EES-331 XDC、原始仿真日志、验证摘�
 - [x] 执行 BD 集成、综合、实现和时序验证。
 - [x] 分析 OOC 综合 error 与已通过实现/比特流并存的原因。
 - [x] 对照 2020 参考工程生成 OV5640+HDMI BD 关键连线清单。
+UART self-test build PASS; board test pending.
