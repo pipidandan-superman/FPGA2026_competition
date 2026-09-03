@@ -57,3 +57,18 @@ UART header dependency removed and rebuild pass.
 UART delay and print headers now declared locally and rebuild pass.
 GUI build and run log check pass; serial retry with COM6 open before Run.
 XSCT target check complete after direct UART attempt; board power cycle required before next Run.
+## 2026-09-03 DDR 根因记录
+
+用户确认 Vitis UART 无输出的根因是 Zynq DDR 型号/配置与 EES-331 板卡不匹配，并已完成配置修改。当前记录只表示根因确认和软件侧修正动作；必须重新导出 XSA、更新 Vitis 平台、重建应用并板级复测后，才能重新评估 UART PASS/FAIL。证据记录见 `4_metrics/logs/2026-09-03_vitis_uart_ddr_root_cause_run31/ddr_root_cause.md`。
+## 2026-09-03 最小 UART Raw TX 固件
+
+用户完成 DDR/XSA/platform/BSP 更新并重建后仍无打印。应用已简化为直接写 PS UART1 TX FIFO 的裸 TX 测试，移除 `xil_printf`、BSP 头文件、heartbeat 和 RX echo。程序持续输出固定文本 `UART OK\r\n`。源码更新完成，`app_component.elf` 编译 PASS（text 25600/data 1420/bss 22952），板级复测状态为 PENDING。证据见 `4_metrics/logs/2026-09-03_vitis_uart_minimal_raw_tx_run32/minimal_raw_tx.md`。
+## 2026-09-03 XSCT 直接 UART1 分流
+
+Vitis Run 日志只记录连接/断开，未稳定出现完整 `ps7_init + download + con` 流程；用户调试器反汇编显示无效内容。已改用 XSCT 直接执行新 XSA 的 `ps7_init.tcl`。寄存器回读确认 `MIO48_CTRL=0x12E0`、`MIO49_CTRL=0x12E1`、`UART_BAUDGEN=0x7C`、`UART_BAUDDIV=6`，随后直写 `XSCT OK\r\n` 并下载运行最小 ELF。等待用户确认 COM6 是否看到 `XSCT OK` 与重复 `UART OK`。证据见 `4_metrics/logs/2026-09-03_vitis_uart_minimal_raw_tx_run32/direct_xsct_uart_result.md`。
+## 2026-09-03 TXFULL 位修正
+
+用户确认 COM6 只出现 XSCT 直写的 `XSCT OK`，应用未输出 `UART OK`。XSCT 停机后确认 CPU 停在 `main.c:9` 的 UART 状态等待循环。根因是最小代码把 `0x00000008` 误当作 TX FULL；该值实际是 `TXEMPTY`，BSP 定义 `TXFULL=0x00000010`。已改为 `bit4`，重新编译 PASS，并通过 XSCT 下载运行。等待 COM6 确认重复 `UART OK`。证据见 `4_metrics/logs/2026-09-03_vitis_uart_minimal_raw_tx_run32/txfull_bitfix_result.md`。
+## 2026-09-03 UART Raw TX 板级通过
+
+修正 TXFULL 位后，用户 COM6 出现连续 `UART OK`，XSCT 下载日志显示 ELF 已加载到 `0x00100000` 并运行。结合前一步 `XSCT OK`，COM6/UART1/MIO48/49/115200 波特率硬件路径确认可用；结合 DDR 修正后可正常执行应用。当前结论是 RAW UART TX BOARD PASS；UART RX echo 与 HDMI 显示仍未验证。证据见 `4_metrics/logs/2026-09-03_vitis_uart_minimal_raw_tx_run32/uart_board_tx_pass.md`。

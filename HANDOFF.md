@@ -3,7 +3,7 @@
 ## 状态
 
 - 日期：2026-09-03
-- 状态：HDMI TOP MODEL SIM PASS / CAM PCLK PLAN A IMPLEMENT PASS / BITSTREAM GENERATED / OOC ERRORS NONBLOCKING / BD CONNECTION CHECK PASS
+- 状态：HDMI TOP MODEL SIM PASS / CAM PCLK PLAN A IMPLEMENT PASS / BITSTREAM GENERATED / OOC ERRORS NONBLOCKING / BD CONNECTION CHECK PASS / RAW UART TX BOARD PASS
 - GitHub：关键 RTL、集中后的测试台/仿真脚本、文档和最终证据已发布到 `main@d9dd5b4`
 - 最新顶层归档：`main@12d31e1`，活跃顶层已改为 `hdmi_out_adv7511.v`
 - 最新 XDC 归档：`main@c52e72b`，EES-331 HDMI/ADV7511 引脚约束已补齐
@@ -64,3 +64,18 @@ UART header dependency removed and rebuild pass.
 UART delay and print headers now declared locally and rebuild pass.
 GUI build and run log check pass; serial retry with COM6 open before Run.
 XSCT target check complete after direct UART attempt; board power cycle required before next Run.
+## 2026-09-03 UART 无输出根因更新
+
+用户确认 Zynq DDR 型号/配置未按 EES-331 板卡正确选择，并已完成修改。该根因可解释 FSBL/应用进入 DDR 后跑飞、debug session 提前断开、自动 COM6 终端关闭且 UART 无输出。当前仍是根因记录，不是 UART 板级 PASS；必须重新生成/导出 XSA，更新 Vitis platform/BSP/FSBL，重建应用，重新上电后在唯一 COM6 `115200-8-N1` 终端验证 header、heartbeat 和 RX echo。证据见 `4_metrics/logs/2026-09-03_vitis_uart_ddr_root_cause_run31/ddr_root_cause.md`。
+## 2026-09-03 最小 UART Raw TX 测试
+
+用户已完成 DDR 修正、XSA 更新、platform/BSP 更新和重新编译，但 UART 仍无输出。`app_component/src/main.c` 已简化为直接写 PS UART1 TX FIFO（`0xE0001030`），仅检查 TX FULL（`0xE000102C` bit3），并持续输出 `UART OK\r\n`；不再依赖 `xil_printf`、BSP API、heartbeat 或 RX echo。SOURCE UPDATE COMPLETE / BUILD PASS / BOARD TEST PENDING；ELF text/data/bss 为 `25600/1420/22952`。复测需唯一 COM6 `115200-8-N1` 终端；若无输出，排查 UART1 MIO、时钟/波特率、初始化、COM 端口映射和硬件路径。证据见 `4_metrics/logs/2026-09-03_vitis_uart_minimal_raw_tx_run32/minimal_raw_tx.md`。
+## 2026-09-03 XSCT 直接 UART 分流结果
+
+Vitis Run 日志缺少完整下载/运行流程，调试器反汇编出现无效内容，不能证明应用执行。改用 XSCT 直接执行新 XSA 的 `ps7_init.tcl` 后，寄存器回读确认 `MIO48_CTRL=0x12E0`、`MIO49_CTRL=0x12E1`、`UART_BAUDGEN=0x7C`、`UART_BAUDDIV=6`；已直写 `XSCT OK\r\n`，并下载运行最小 `app_component.elf`。当前等待 COM6 确认是否出现 `XSCT OK` 和重复 `UART OK`。若两者都出现，UART 硬件路径正常，问题收敛为 Vitis Run 流程；若都没有，继续排查 COM6 与板卡 UART 的硬件映射。证据见 `4_metrics/logs/2026-09-03_vitis_uart_minimal_raw_tx_run32/direct_xsct_uart_result.md`。
+## 2026-09-03 UART TXFULL 位修正
+
+用户确认 COM6 只出现 XSCT 直写的 `XSCT OK`，证明 COM6/UART1 硬件路径可用。XSCT 停机确认应用卡在 `main.c:9` 的错误等待循环：原掩码使用 `0x08`，但 Zynq UART 状态寄存器 `0x08` 是 `TXEMPTY`，BSP 定义的 `TXFULL` 是 `0x10`。已改为 `UART1_STATUS_TX_FULL=(1UL << 4)` 并重建 ELF（text/data/bss `25600/1420/22952`），随后通过 XSCT 下载运行。当前 UART BOARD TX 为 FIX APPLIED / COM6 REPEAT CONFIRMATION PENDING。证据见 `4_metrics/logs/2026-09-03_vitis_uart_minimal_raw_tx_run32/txfull_bitfix_result.md`。
+## 2026-09-03 UART Raw TX Board PASS
+
+修正 Zynq UART1 `TXFULL` 位后，COM6 已连续输出 `UART OK`，`app_component.elf` 经 XSCT 加载到 `0x00100000` 并运行；调试反汇编也显示有效 `_start/main/uart_puts/uart_putc/exception` 代码。结合 DDR 修正，最小 UART 应用的板级执行链路已通过。当前结论为 `RAW UART TX BOARD PASS`；UART RX echo 和 HDMI 显示仍待验证。当前 `main.c` 仍是最小 TX 固件。证据见 `4_metrics/logs/2026-09-03_vitis_uart_minimal_raw_tx_run32/uart_board_tx_pass.md`。

@@ -46,3 +46,8 @@ UART header dependency removed and rebuild pass.
 UART delay and print headers now declared locally and rebuild pass.
 GUI build and run log check pass; serial retry with COM6 open before Run.
 XSCT target check complete after direct UART attempt; board power cycle required before next Run.
+- [x] Record user-confirmed DDR model/configuration root cause for UART no-output; board retest remains pending after platform regeneration.
+- [x] Replace UART self-test with minimal raw TX-only firmware; build PASS, board retest pending.
+- [x] Run XSCT direct UART1 initialization/FIFO-write test and bypass the broken Vitis Run flow; COM6 confirmation pending.
+- [x] Correct UART TXFULL mask from bit 3 to bit 4 and rebuild; target previously confirmed stopped in the faulty wait loop.
+- [x] Confirm repeated `UART OK` on COM6; raw UART board TX PASS.

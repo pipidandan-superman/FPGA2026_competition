@@ -246,3 +246,18 @@ UART header dependency removed and rebuild pass.
 UART delay and print headers now declared locally and rebuild pass.
 GUI build and run log check pass; serial retry with COM6 open before Run.
 XSCT target check complete after direct UART attempt; board power cycle required before next Run.
+## 2026-09-03 UART DDR 根因确认
+
+用户确认 DDR 型号/配置未按板卡正确选择，且已经修改该配置。该问题可以解释 FSBL/应用进入 DDR 后跑飞、debug session 提前断开、自动 COM6 终端随会话关闭且 UART 无输出的现象。当前仍不能标记 UART 板级 PASS；必须完成 BD/XSA/平台/应用重建并重新上电后，在唯一打开的 COM6 `115200-8-N1` 终端中验证 header、heartbeat 和 RX echo。根因记录见 `4_metrics/logs/2026-09-03_vitis_uart_ddr_root_cause_run31/ddr_root_cause.md`。
+## 2026-09-03 最小 Raw UART TX 记录
+
+已将 `app_component/src/main.c` 简化为直接写 `0xE0001030` 的 `UART OK\r\n` 循环输出，唯一检查是 `0xE000102C` 的 TX FULL 位。该测试不依赖 `xil_printf` 或 UART BSP API。`app_component.elf` 编译 PASS，text/data/bss 分别为 `25600/1420/22952`；尚未板级验证，不能记录 UART PASS。预期唯一输出为重复的 `UART OK`。证据见 `4_metrics/logs/2026-09-03_vitis_uart_minimal_raw_tx_run32/minimal_raw_tx.md`。
+## 2026-09-03 XSCT UART1 寄存器/下载证据
+
+XSCT 直连目标 2 并执行新 XSA 的 `ps7_init.tcl` 后，回读 `MIO48_CTRL=0x12E0`、`MIO49_CTRL=0x12E1`，证明 UART1 已映射到 MIO48/49；`UART_BAUDGEN=0x7C`、`UART_BAUDDIV=6` 与 115200 配置一致。随后 UART1 FIFO 直写完成，`app_component.elf` 下载到 `0x00100000` 并运行。该证据已将问题从“打印函数/DDR”推进到“Vitis Run/COM6 显示路径确认”；尚不能最终标记 BOARD PASS，等待 COM6 观察结果。证据见 `4_metrics/logs/2026-09-03_vitis_uart_minimal_raw_tx_run32/direct_xsct_uart_result.md`。
+## 2026-09-03 TXFULL 位根因验证
+
+用户 COM6 只看到 XSCT 直写文本，证明 COM6/UART1 物理路径可用。CPU 后续停机位置 `main.c:9` 直接证明应用卡在错误的 TX FULL 等待循环。当前工程状态寄存器回读 `0x0A`，其中 bit3 是 `TXEMPTY`；BSP 明确定义 `TXFULL=0x10`。已修改掩码并重建 ELF（text/data/bss 为 `25600/1420/22952`），XSCT 下载后目标已运行。在用户确认重复 `UART OK` 前，仍记录为 BOARD CONFIRMATION PENDING。证据见 `4_metrics/logs/2026-09-03_vitis_uart_minimal_raw_tx_run32/txfull_bitfix_result.md`。
+## 2026-09-03 Raw UART TX BOARD PASS
+
+用户 COM6 截图显示修正后应用连续输出 `UART OK`，XSCT 日志确认 `app_component.elf` 已加载至 `0x00100000` 并运行；反汇编也从无效零值变为有效 `_start/main/uart_puts/uart_putc/exception` 代码。本次验证通过范围是 RAW UART TX，不等价于完整 UART self-test；RX echo 和 HDMI 板级显示仍未验证。板级结论为 `UART RAW TX BOARD PASS`。证据见 `4_metrics/logs/2026-09-03_vitis_uart_minimal_raw_tx_run32/uart_board_tx_pass.md`。
