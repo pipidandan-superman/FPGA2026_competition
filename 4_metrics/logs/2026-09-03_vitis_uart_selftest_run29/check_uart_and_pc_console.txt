@@ -1,0 +1,54 @@
+
+****** Software Commandline Tool (XSCT) v2025.2.0
+  **** SW Build 6298600 on Thu Nov 13 01:12:30 MST 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+Warning: XSCT is deprecated and will be removed in future releases.
+We recommend using the new Python command-line tool for project management and debugging:
+- Run "vitis -i" for interactive mode.
+- Run "vitis -s <script>" for script mode.
+attempting to launch hw_server
+
+****** Xilinx hw_server v2025.2
+  **** Build date : Oct 28 2025 at 10:03:13
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+INFO: hw_server application started
+INFO: Use Ctrl-C to exit hw_server application
+
+
+
+****** Xilinx hw_server v2025.2
+
+  **** Build date : Oct 28 2025 at 10:03:13
+
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+INFO: hw_server application started
+
+INFO: Use Ctrl-C to exit hw_server application
+
+
+
+
+INFO: To connect to this hw_server instance use url: TCP:127.0.0.1:3121
+
+
+
+AP transaction timeout
+    invoked from within
+"::tcf::eval -progress {apply {{msg} {puts $msg}}} {tcf_send_command tcfchan#0 RunControl suspend s e JTAG-jsn-TUL-1234-tulA-4ba00477-0.0}"
+    (procedure "::tcf::send_command" line 4)
+    invoked from within
+"::tcf::send_command $chan RunControl suspend s e [list $ctx]"
+    (procedure "stop" line 14)
+    invoked from within
+"stop"
+    (file "E:\competition\4_metrics\logs\2026-09-03_vitis_uart_selftest_run29\check_uart_and_pc.tcl" line 3)
