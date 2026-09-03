@@ -82,3 +82,10 @@
 ### 最新整体判定
 
 整体 HDMI 新模块当前状态为 `HDMI TOP MODEL SIM PASS`。该结论仅覆盖 RTL/ModelSim 仿真，不覆盖 Vivado 综合、时序和板级显示。
+
+## GitHub 选择性归档记录
+
+- 提交：`main@efaad7c`；
+- 推送目标：`origin/main`，远端已从 `3f3bca5` 更新到 `efaad7c`；
+- 提交内容：活跃 HDMI/ADV7511 RTL、三个仿真文件、最终 ModelSim 命令和 transcript、关键 Markdown 文档、当日日志、handoff、README 和 `.gitignore`；
+- 未提交：Vivado 工程目录、旧 TMDS/摄像头模块、旧 ADV7511 初始化模块、非活跃 `iic_multi_byte.v`、中间仿真目录、PDF 和其他构建产物。

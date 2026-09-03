@@ -23,6 +23,12 @@
 
 `E:\competition\4_metrics\logs\2026-09-03_hdmi_480p_adv7511_overall_sim_run19_final\run_modelsim.do`
 
+## 归档入口
+
+- `E:\competition\README.md`
+- `E:\competition\.gitignore`
+- GitHub 提交：`efaad7c`
+
 ## 风险
 
-ADV7511 寄存器表首版来源于公开推荐配置和方案文档关键项，尚未板级验证。若黑屏，优先检查 I2C ACK、HPD 延时、Cb/Cr 顺序和 DE 对齐。
+ADV7511 寄存器表首版来源于公开推荐配置和方案文档关键项，尚未板级验证。若黑屏，优先检查 I2C ACK、HPD 延时、Cb/Cr 顺序和 DE 对齐。构建产物、仿真库和波形已通过 `.gitignore` 排除。

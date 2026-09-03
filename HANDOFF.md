@@ -4,6 +4,7 @@
 
 - 日期：2026-09-03
 - 状态：HDMI TOP MODEL SIM PASS
+- GitHub：关键 RTL、测试台、文档和最终证据已发布到 `main@efaad7c`
 - 分辨率：480p / 640x480@60
 - 像素时钟：25.175 MHz
 - 颜色空间：BT.709，RGB888 转 YCbCr422
@@ -29,6 +30,12 @@
 ## 下一步
 
 进行 BD 集成和 XDC：替换 `HDMI_top`，删除 `pix_clk_x5`，按 480p/25.175MHz 与 EES-331 引脚约束，然后综合实现并检查时序。整体仿真最终证据见 `4_metrics/logs/2026-09-03_hdmi_480p_adv7511_overall_sim_run19_final`。
+
+## 归档记录
+
+- 已更新 `README.md` 的 HDMI 架构、验证状态和未验证边界。
+- 已新增 `.gitignore`，排除 Vivado/ModelSim 缓存、库文件、波形和构建产物。
+- 已选择性提交活跃 RTL、testbench、关键 Markdown、最终 ModelSim 命令与原始 transcript；未提交工程目录、旧架构和非活跃突发 IIC 资产。
 
 ## 固定流程
 
