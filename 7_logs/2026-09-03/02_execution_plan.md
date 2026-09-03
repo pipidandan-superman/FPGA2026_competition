@@ -19,10 +19,16 @@
 - `E:\competition\2_fpga\0_diaplay_test\sim\adv7511_cfg_top_tb.sv`
 - `E:\competition\2_fpga\0_diaplay_test\sim\hdmi_out_adv7511_tb.sv`
 - `E:\competition\2_fpga\0_diaplay_test\sim\oddr_sim_model.sv`
+- `E:\competition\2_fpga\0_diaplay_test\proj\display_test_zynq7020_school\display_test_zynq7020_school.srcs\constrs_1\new\pin_zynq7020_cam.xdc`
+- `E:\competition\1_docs\pdf\EES-331 User Guide.pdf`
 
 ## 整体仿真入口
 
 `E:\competition\2_fpga\0_diaplay_test\sim\run_modelsim.do`
+
+## XDC 校验入口
+
+`E:\competition\4_metrics\logs\2026-09-03_hdmi_xdc_constraint_check_run24\xdc_validation.txt`
 
 ## 归档入口
 
@@ -32,4 +38,4 @@
 
 ## 风险
 
-ADV7511 寄存器表首版来源于公开推荐配置和方案文档关键项，尚未板级验证。若黑屏，优先检查 I2C ACK、HPD 延时、Cb/Cr 顺序和 DE 对齐。构建产物、仿真库和波形已通过 `.gitignore` 排除。活跃顶层已直接改为 Verilog；正式工程必须移除旧 `.sv` 顶层引用并加入新 `.v` 顶层。
+ADV7511 寄存器表首版来源于公开推荐配置和方案文档关键项，尚未板级验证。若黑屏，优先检查 I2C ACK、HPD 延时、Cb/Cr 顺序和 DE 对齐。构建产物、仿真库和波形已通过 `.gitignore` 排除。活跃顶层已直接改为 Verilog；正式工程必须移除旧 `.sv` 顶层引用并加入新 `.v` 顶层。XDC 引脚已核对，但综合、时序和板级显示尚未验证。

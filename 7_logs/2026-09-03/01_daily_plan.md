@@ -24,6 +24,7 @@ EES-331 HDMI 末级必须由 FPGA 直驱 TMDS 改为 ADV7511 并行总线驱动�
 - [x] 将 HDMI 测试台和 ModelSim 脚本集中到 `2_fpga/0_diaplay_test/sim`，并完成迁移后回归。
 - [x] 复现并记录 `hdmi_out_adv7511` 无法直接加入 BD 的原因。
 - [x] 将 HDMI 活跃顶层改为等价 Verilog，并完成 ModelSim 回归和 Vivado Module Reference 检查。
+- [x] 按 EES-331 手册补齐 HDMI/ADV7511 引脚约束，并完成 XDC 端口与引脚检查。
 - [ ] 执行 BD 集成、综合、实现和时序验证。
 
 ## 非目标
@@ -34,4 +35,4 @@ EES-331 HDMI 末级必须由 FPGA 直驱 TMDS 改为 ADV7511 并行总线驱动�
 
 ## 预期交付
 
-RTL、Verilog 顶层、testbench、原始仿真日志、验证摘要、README 归档说明、BD 集成限制证据和当前顶层 handoff。
+RTL、Verilog 顶层、testbench、EES-331 XDC、原始仿真日志、验证摘要、README 归档说明、BD 集成限制证据和当前顶层 handoff。

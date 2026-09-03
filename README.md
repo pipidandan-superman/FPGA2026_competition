@@ -96,6 +96,7 @@ hdmi_out_adv7511
 | IIC 首个 START | 约 120.843 ms |
 | Verilog 顶层最终复现证据 | `4_metrics/logs/2026-09-03_hdmi_top_verilog_run22/modelsim_transcript.txt` |
 | BD Module Reference 顶层检查 | PASS（`.v` 顶层可创建 RTL cell） |
+| EES-331 HDMI XDC 引脚检查 | PASS，23/23；Vivado 综合尚未执行 |
 | Vivado 综合 | 未验证 |
 | 时序收敛 | 未验证 |
 | EES-331 板级显示 | 未验证 |

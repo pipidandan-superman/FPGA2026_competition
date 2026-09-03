@@ -157,6 +157,36 @@ Vivado 返回 `MODULE_REF_OK: top_file_type=verilog`，确认 BD 可以创建该
 
 Verilog 顶层转换、仿真证据和 BD Module Reference 检查已提交并推送为 `origin/main@12d31e1`。
 
+## 2026-09-03 EES-331 HDMI XDC 补齐检查
+
+检查工程 XDC `pin_zynq7020_cam.xdc` 后确认：原文件已有 PL 100MHz 时钟 `M19`、复位 `L18` 和摄像头约束，但没有 HDMI/ADV7511 引脚约束，也没有系统输入时钟周期约束。
+
+已根据 `EES-331 User Guide.pdf` 第 32/33 页 HDMI 引脚表和工程 BD wrapper 实际端口名补齐：
+
+- 16 位 `HDMI_DATA_0[15:0]`；
+- `HDMI_CLK_0`、`HDMI_DE_0`、`HDMI_HSYNC_0`、`HDMI_VSYNC_0`；
+- I2C 配置 `HDMI_SCL_0` 与双向 `HDMI_SDA_0`；
+- 可选状态输入 `HDMI_INT_0`；
+- 全部新增 HDMI IO 设置为 `LVCMOS33`；
+- 补充 `clk_in1_0` 的 `create_clock -period 10.000`；
+- 补充 `CFGBVS=VCCO` 和 `CONFIG_VOLTAGE=3.3`。
+
+自动检查结果：
+
+- HDMI 手册引脚映射：23/23 PASS；
+- BD wrapper HDMI 端口集合：匹配 PASS；
+- 物理引脚重复检查：PASS；
+- 每个约束端口电平标准检查：PASS；
+- 当前 XDC 共 40 条 `PACKAGE_PIN` 和 40 条 `IOSTANDARD`；
+- 稳定标记：`XDC_VALIDATION_PASS`。
+
+### 证据
+
+- `E:\competition\4_metrics\logs\2026-09-03_hdmi_xdc_constraint_check_run24\xdc_validation.txt`
+- `E:\competition\2_fpga\0_diaplay_test\proj\display_test_zynq7020_school\display_test_zynq7020_school.srcs\constrs_1\new\pin_zynq7020_cam.xdc`
+
+该结论仅覆盖静态 XDC 引脚/端口检查；Vivado 综合、实现、时序和板级显示仍待验证。
+
 历史 run19 transcript 保留在原证据目录；其启动脚本已按当前目录规范迁移到 `sim/run_modelsim.do`，历史版本可通过 Git 历史回溯。
 
 ## GitHub 选择性归档记录

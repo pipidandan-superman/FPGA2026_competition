@@ -7,10 +7,11 @@
 3. `E:\competition\1_docs\EES-331_HDMI显示适配修正方案.md`。
 4. `E:\competition\2_fpga\0_diaplay_test\rtl\hdmi_new\hdmi_out_adv7511.v`。
 5. `E:\competition\2_fpga\0_diaplay_test\sim\run_modelsim.do`。
+6. `E:\competition\2_fpga\0_diaplay_test\proj\display_test_zynq7020_school\display_test_zynq7020_school.srcs\constrs_1\new\pin_zynq7020_cam.xdc`。
 
 ## 第一动作
 
-整体 ModelSim 仿真已 PASS，活跃顶层已是 `hdmi_out_adv7511.v`，Vivado Module Reference 检查通过。在正式工程中移除旧 `.sv` 顶层引用，加入新 `.v` 顶层和既有 SV 子模块，然后加入 BD 替换 `HDMI_top`。随后删除 `pix_clk_x5`，更新 480p 引脚约束与顶层端口映射，执行综合、实现和时序检查。
+整体 ModelSim 仿真已 PASS，活跃顶层已是 `hdmi_out_adv7511.v`，Vivado Module Reference 检查通过，EES-331 HDMI XDC 引脚检查也已 PASS。在 Vivado 中重新加载工程和 XDC，校验 BD 连接后依次执行综合、实现和时序检查。
 
 ## 暂不要做
 
