@@ -38,7 +38,7 @@
 
 - `E:\competition\README.md`
 - `E:\competition\.gitignore`
-- GitHub 提交：`c52e72b`（EES-331 HDMI XDC 补齐后的最新归档）
+- GitHub 提交：`92a9bdc`（布局失败分析后的最新归档）
 
 ## 风险
 

@@ -206,6 +206,8 @@ EES-331 HDMI XDC 补齐和静态检查证据已提交并推送为 `origin/main@c
 - 分析记录：`E:\competition\4_metrics\logs\2026-09-03_hdmi_impl_place_failure_analysis_run25\place_failure_analysis.md`
 - 引脚能力查询：`E:\competition\4_metrics\logs\2026-09-03_hdmi_impl_place_failure_analysis_run25\pin_capability_vivado.txt`
 
+布局失败原因、修复方案和原始证据已提交并推送为 `origin/main@92a9bdc`。
+
 历史 run19 transcript 保留在原证据目录；其启动脚本已按当前目录规范迁移到 `sim/run_modelsim.do`，历史版本可通过 Git 历史回溯。
 
 ## GitHub 选择性归档记录
