@@ -1,6 +1,6 @@
 # Vivado OOC synthesis error impact analysis
 
-Date: 2026-09-03  
+Date: 2026-09-03
 Status: IMPLEMENT_AND_BITSTREAM_PASS / OOC_ERRORS_NONBLOCKING
 
 ## Observed condition
