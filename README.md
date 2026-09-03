@@ -70,6 +70,37 @@
 
 现有资产包括 OV5640 采集、VDMA 帧缓存、HDMI 输出、PL 图像预处理、BRAM/DDR 数据交换和 PS+PL CNN 硬件加速经验。
 
+## HDMI / ADV7511 适配进展
+
+EES-331 显示适配按 **480p60（640×480@60，25.175 MHz）** 完成 RTL 与 ModelSim 仿真。FPGA 不再直接输出五倍频像素时钟和 TMDS，而是将 RGB888 转换为 **BT.709 YCbCr422**，通过 ADV7511 寄存器配置和 16 位视频总线输出。
+
+### 活跃模块层级
+
+```text
+hdmi_out_adv7511
+├─ rgb2ycbcr422
+└─ adv7511_cfg_top
+   ├─ adv7511_controller
+   ├─ adv7511_iic_data_xfer
+   └─ iic_protocal
+```
+
+源码位于 `2_fpga/0_diaplay_test/rtl/hdmi_new`，底层 IIC 协议复用 `2_fpga/0_diaplay_test/rtl/iic/iic_protocal.v`。测试台位于 `2_fpga/0_diaplay_test/sim/hdmi_new`。
+
+### 验证状态
+
+| 项目 | 结果 |
+|------|------|
+| 视频像素检查 | PASS，16/16 |
+| ADV7511 寄存器写入检查 | PASS，18/18 |
+| IIC 首个 START | 约 120.843 ms |
+| 最终证据 | `4_metrics/logs/2026-09-03_hdmi_480p_adv7511_overall_sim_run19_final/modelsim_transcript.txt` |
+| Vivado 综合 | 未验证 |
+| 时序收敛 | 未验证 |
+| EES-331 板级显示 | 未验证 |
+
+当前结论只覆盖 RTL/ModelSim 行为验证；综合、时序和板级显示验证完成前，不将硬件显示描述为已实现。
+
 ## 归档目录
 
 ```text
@@ -98,8 +129,9 @@ competition/
 - GitHub 私有仓库已创建并同步；
 - 现有 Zynq 工程已完成初步资产盘点；
 - 已按赛道归档结构建立目录及必要模板；
-- 具体应用场景、Ryzen AI PC 机型和 FPGA 板卡选型尚未确定；
-- AI 推理部署、FPGA 实时控制 RTL 和两端通信方案尚未开始。
+- EES-331 HDMI 480p/ADV7511 RTL 和 ModelSim 整体仿真已完成；
+- Vivado 综合、时序分析和板级显示验证尚未开始；
+- 具体应用场景、Ryzen AI PC 机型、AI 推理部署和两端通信方案仍在推进中。
 
 ## GitHub
 

@@ -1,0 +1,28 @@
+# Vivado / ModelSim / generated artifacts
+*.jou
+*.log
+*.str
+*.wdb
+*.wlf
+*.wcfg.bak
+transcript
+.Xil/
+xsim.dir/
+*.sim/
+*.runs/
+*.cache/
+*.hw/
+*.ip_user_files/
+*.gen/
+hdmi_*_lib/
+*_lib/
+
+# Build outputs and local archives
+*.bit
+*.bin
+*.ltx
+*.xsa
+*.hwh
+*.zip
+*.7z
+*.rar
