@@ -1,5 +1,4 @@
 #include <stdint.h>
-#include "bspconfig.h"
 #include "sleep.h"
 #include "xil_printf.h"
 #include "xparameters.h"
@@ -14,7 +13,7 @@ static void print_uart_self_test_header(void)
     xil_printf(" EES-331 HDMI UART SELF TEST\r\n");
     xil_printf("========================================\r\n");
     xil_printf("UART instance : ps7_uart_1\r\n");
-    xil_printf("UART base     : 0x%08lx\r\n", (unsigned long)STDIN_BASEADDRESS);
+    xil_printf("UART base     : 0x%08lx\r\n", (unsigned long)XPAR_XUARTPS_0_BASEADDR);
     xil_printf("Expected fmt  : 115200-8-N1\r\n");
     xil_printf("Test          : TX heartbeat + RX echo\r\n");
 }
