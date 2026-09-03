@@ -28,7 +28,7 @@
 
 - `E:\competition\README.md`
 - `E:\competition\.gitignore`
-- GitHub 提交：`efaad7c`
+- GitHub 提交：`d9dd5b4`（测试台和仿真脚本集中后的最新归档）
 
 ## 风险
 

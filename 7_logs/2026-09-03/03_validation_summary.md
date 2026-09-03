@@ -99,6 +99,8 @@
 
 - `E:\competition\4_metrics\logs\2026-09-03_hdmi_sim_relocation_run20\modelsim_transcript.txt`
 
+迁移结果已提交并推送为 `origin/main@d9dd5b4`。
+
 历史 run19 transcript 保留在原证据目录；其启动脚本已按当前目录规范迁移到 `sim/run_modelsim.do`，历史版本可通过 Git 历史回溯。
 
 ## GitHub 选择性归档记录

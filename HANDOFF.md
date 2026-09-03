@@ -4,7 +4,7 @@
 
 - 日期：2026-09-03
 - 状态：HDMI TOP MODEL SIM PASS
-- GitHub：关键 RTL、测试台、文档和最终证据已发布到 `main@efaad7c`
+- GitHub：关键 RTL、集中后的测试台/仿真脚本、文档和最终证据已发布到 `main@d9dd5b4`
 - 分辨率：480p / 640x480@60
 - 像素时钟：25.175 MHz
 - 颜色空间：BT.709，RGB888 转 YCbCr422
@@ -38,6 +38,7 @@
 - 已更新 `README.md` 的 HDMI 架构、验证状态和未验证边界。
 - 已新增 `.gitignore`，排除 Vivado/ModelSim 缓存、库文件、波形和构建产物。
 - 已选择性提交活跃 RTL、testbench、关键 Markdown、最终 ModelSim 命令与原始 transcript；未提交工程目录、旧架构和非活跃突发 IIC 资产。
+- 已将三个测试台和 `run_modelsim.do` 集中到 `2_fpga/0_diaplay_test/sim`，迁移后整体 ModelSim 回归 PASS，提交为 `main@d9dd5b4`。
 
 ## 固定流程
 
