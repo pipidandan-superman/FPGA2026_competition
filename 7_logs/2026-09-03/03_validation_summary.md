@@ -229,3 +229,8 @@ EES-331 HDMI XDC 补齐和静态检查证据已提交并推送为 `origin/main@c
 - 当前状态：`PLAN_A_APPLIED / REIMPLEMENT_PENDING`。
 
 本结论是约束静态校验，不替代实现结果。必须在 Vivado 2025.2 中重新加载 XDC 后重跑实现，并重点检查 `cam_pclk` 域 setup/hold 的 WNS/TNS。若该时钟域时序失败，先向用户汇报，再确认是否转向方案 B。原始证据在 `E:\competition\4_metrics\logs\2026-09-03_hdmi_cam_pclk_plan_a_apply_run26\plan_a_constraint_validation.txt`。
+## 2026-09-03 Vivado 实现、比特流与 OOC error 判定
+
+本次实现已通过：`place_design`、`route_design` 和 `write_bitstream` 均成功，最终比特流为 `display_test_wrapper.bit`。Route Status 显示 10,921 个 routable net 全部连通且 0 个 routing error。全局时序为 WNS `10.551 ns`、TNS `0.000 ns`、WHS `0.023 ns`、THS `0.000 ns`；`cam_pclk` 域 WNS `35.138 ns`、WHS `0.070 ns`。方案 A 的布局/时序风险已由实现结果关闭。
+
+Messages 中的 3 个综合 error 来自 OOC 子 run：`util_vector_logic`、`rst_ps7_0_50M` 和 `axi_mem_intercon_imp_xbar`。错误是 `create_project -in_memory` 阶段的 `Failed to create directory 'C'.`，但相关 run 目录均存在最终 DCP 和 `__synthesis_is_complete__` 标记；`v_tc` 的当前日志中也保留同类错误记录。因此 GUI 的 error 计数是 OOC 子 run 日志中的历史/过程错误，不是顶层综合失败，也不使已生成的比特流无效。如需 Messages 清零，后续可单独 reset/regenerate 这些 OOC run；板级验证前不是必须动作。详细证据见 `4_metrics/logs/2026-09-03_hdmi_ooc_synthesis_error_analysis_run27/ooc_error_analysis.md`。

@@ -46,3 +46,6 @@ ADV7511 寄存器表首版来源于公开推荐配置和方案文档关键项，
 ## 2026-09-03 方案 A 执行结果
 
 方案 A 约束和 run26 证据已提交并推送为 `main@7e52714`。
+## 2026-09-03 实现与 OOC error 判定
+
+Vivado 2025.2 顶层 `synth_1` 和 `impl_1` 均已完成，`place_design`、`route_design`、`write_bitstream` 成功；`display_test_wrapper.bit` 已生成。布线报告为 10,921/10,921 全连通、0 routing errors；全局 WNS/TNS 为 `10.551/0.000 ns`，WHS/THS 为 `0.023/0.000 ns`。`cam_pclk` 域 WNS/WHS 为 `35.138/0.070 ns`。Messages 中 3 个 `[Common 17-1257] Failed to create directory 'C'.` 来自 OOC 子 run 的 `create_project -in_memory` 阶段，但对应子 run 后续完成并生成 DCP 和完成标记，因此判定为非阻塞项目卫生问题，不影响本次有效比特流。证据见 `4_metrics/logs/2026-09-03_hdmi_ooc_synthesis_error_analysis_run27/ooc_error_analysis.md`。

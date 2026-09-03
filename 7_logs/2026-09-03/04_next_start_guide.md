@@ -23,3 +23,6 @@
 ## 2026-09-03 方案 A 更新
 
 相机 PCLK 方案 A 约束已按实际 `xclk=24.03846 MHz` 修正为 41.600 ns；主时钟 `clk_in1_0` 保持不添加外部 `create_clock`，`cam_pclk_0_IBUF` 已设置 `CLOCK_DEDICATED_ROUTE FALSE`。下一动作是在 Vivado 2025.2 中重新加载工程和 XDC，重跑实现，并重点检查 `cam_pclk` 域 setup/hold WNS/TNS。若实现后该域时序失败，先暂停并向用户汇报，再确认是否转向方案 B。方案 A 静态校验证据在 `4_metrics/logs/2026-09-03_hdmi_cam_pclk_plan_a_apply_run26`。
+## 2026-09-03 实现通过后的更新
+
+实现和比特流已通过：全局 WNS/TNS 为 `10.551/0.000 ns`，WHS/THS 为 `0.023/0.000 ns`；`cam_pclk` 域 WNS/WHS 为 `35.138/0.070 ns`，route error 为 0。Messages 中 3 个 OOC `Failed to create directory 'C'.` 是子 run 过程错误；相关 DCP 和完成标记存在，顶层比特流有效。下一动作是下载比特流并做板级 HDMI 显示验证；OOC error 清理可选，待用户确认后再执行。
