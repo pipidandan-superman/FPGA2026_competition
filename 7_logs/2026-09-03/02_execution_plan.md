@@ -16,12 +16,13 @@
 - `E:\competition\2_fpga\0_diaplay_test\rtl\hdmi_new\adv7511_cfg_top.sv`
 - `E:\competition\2_fpga\0_diaplay_test\rtl\iic\iic_protocal.v`
 - `E:\competition\2_fpga\0_diaplay_test\rtl\hdmi_new\hdmi_out_adv7511.sv`
-- `E:\competition\2_fpga\0_diaplay_test\sim\hdmi_new\adv7511_cfg_top_tb.sv`
-- `E:\competition\2_fpga\0_diaplay_test\sim\hdmi_new\hdmi_out_adv7511_tb.sv`
+- `E:\competition\2_fpga\0_diaplay_test\sim\adv7511_cfg_top_tb.sv`
+- `E:\competition\2_fpga\0_diaplay_test\sim\hdmi_out_adv7511_tb.sv`
+- `E:\competition\2_fpga\0_diaplay_test\sim\oddr_sim_model.sv`
 
 ## 整体仿真入口
 
-`E:\competition\4_metrics\logs\2026-09-03_hdmi_480p_adv7511_overall_sim_run19_final\run_modelsim.do`
+`E:\competition\2_fpga\0_diaplay_test\sim\run_modelsim.do`
 
 ## 归档入口
 

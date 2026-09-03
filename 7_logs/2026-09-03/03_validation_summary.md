@@ -83,6 +83,24 @@
 
 整体 HDMI 新模块当前状态为 `HDMI TOP MODEL SIM PASS`。该结论仅覆盖 RTL/ModelSim 仿真，不覆盖 Vivado 综合、时序和板级显示。
 
+## 2026-09-03 仿真文件迁移回归
+
+已按目录集中要求将 `adv7511_cfg_top_tb.sv`、`hdmi_out_adv7511_tb.sv`、`oddr_sim_model.sv` 和 `run_modelsim.do` 从旧位置迁移到 `E:\competition\2_fpga\0_diaplay_test\sim`。脚本改用绝对源路径和独立 run20 输出目录，避免覆盖历史证据。
+
+迁移后使用 ModelSim 10.1c 命令行重新执行整体仿真：
+
+- 视频检查：16/16 像素 PASS；
+- ADV7511 配置：18/18 项寄存器写入 PASS；
+- 首个 IIC START：约 120.843ms；
+- 最终仿真时间：126.09378ms；
+- 磁盘 transcript 稳定标记：`TEST_PASS: pixels=16 writes=18`。
+
+### 迁移后原始证据
+
+- `E:\competition\4_metrics\logs\2026-09-03_hdmi_sim_relocation_run20\modelsim_transcript.txt`
+
+历史 run19 transcript 保留在原证据目录；其启动脚本已按当前目录规范迁移到 `sim/run_modelsim.do`，历史版本可通过 Git 历史回溯。
+
 ## GitHub 选择性归档记录
 
 - 提交：`main@efaad7c`；

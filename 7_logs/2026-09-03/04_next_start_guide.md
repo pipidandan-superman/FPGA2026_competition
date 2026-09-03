@@ -6,10 +6,11 @@
 2. 本日 `03_validation_summary.md`。
 3. `E:\competition\1_docs\EES-331_HDMI显示适配修正方案.md`。
 4. `E:\competition\2_fpga\0_diaplay_test\rtl\hdmi_new\hdmi_out_adv7511.sv`。
+5. `E:\competition\2_fpga\0_diaplay_test\sim\run_modelsim.do`。
 
 ## 第一动作
 
-整体 ModelSim 仿真已 PASS。下一步将 `hdmi_out_adv7511` 替换 BD 中的 `HDMI_top`，删除 `pix_clk_x5`，更新 480p 引脚约束与顶层端口映射，然后执行综合、实现和时序检查。
+整体 ModelSim 仿真已 PASS，测试台和脚本集中在 `sim` 根目录。下一步将 `hdmi_out_adv7511` 替换 BD 中的 `HDMI_top`，删除 `pix_clk_x5`，更新 480p 引脚约束与顶层端口映射，然后执行综合、实现和时序检查。
 
 ## 暂不要做
 

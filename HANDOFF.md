@@ -23,13 +23,15 @@
 | `hdmi_out_adv7511` | 整体 ModelSim 仿真 PASS | 顶层集成、输出寄存与 ODDR 时钟转发 |
 | `iic_multi_byte` | 非活跃资产 | 保留用于后续连续寄存器突发扩展 |
 
+当前可复现仿真入口：`E:\competition\2_fpga\0_diaplay_test\sim\run_modelsim.do`；测试台位于 `E:\competition\2_fpga\0_diaplay_test\sim`。迁移后的最终复现证据见 `4_metrics/logs/2026-09-03_hdmi_sim_relocation_run20`。
+
 ## 顶层接口冻结
 
 `PIX_CLK`、`RST_N`、`RGB888[23:0]`、`DE`、`H_SYNC`、`V_SYNC`、`HDMI_INT`；`HDMI_SDA`；`HDMI_DATA[15:0]`、`HDMI_CLK`、`HDMI_HSYNC`、`HDMI_VSYNC`、`HDMI_DE`、`HDMI_SCL`。
 
 ## 下一步
 
-进行 BD 集成和 XDC：替换 `HDMI_top`，删除 `pix_clk_x5`，按 480p/25.175MHz 与 EES-331 引脚约束，然后综合实现并检查时序。整体仿真最终证据见 `4_metrics/logs/2026-09-03_hdmi_480p_adv7511_overall_sim_run19_final`。
+进行 BD 集成和 XDC：替换 `HDMI_top`，删除 `pix_clk_x5`，按 480p/25.175MHz 与 EES-331 引脚约束，然后综合实现并检查时序。迁移后整体仿真最终证据见 `4_metrics/logs/2026-09-03_hdmi_sim_relocation_run20`。
 
 ## 归档记录
 

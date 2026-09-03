@@ -85,7 +85,7 @@ hdmi_out_adv7511
    └─ iic_protocal
 ```
 
-源码位于 `2_fpga/0_diaplay_test/rtl/hdmi_new`，底层 IIC 协议复用 `2_fpga/0_diaplay_test/rtl/iic/iic_protocal.v`。测试台位于 `2_fpga/0_diaplay_test/sim/hdmi_new`。
+源码位于 `2_fpga/0_diaplay_test/rtl/hdmi_new`，底层 IIC 协议复用 `2_fpga/0_diaplay_test/rtl/iic/iic_protocal.v`。测试台和可复现 ModelSim 脚本位于 `2_fpga/0_diaplay_test/sim`。
 
 ### 验证状态
 
@@ -94,7 +94,7 @@ hdmi_out_adv7511
 | 视频像素检查 | PASS，16/16 |
 | ADV7511 寄存器写入检查 | PASS，18/18 |
 | IIC 首个 START | 约 120.843 ms |
-| 最终证据 | `4_metrics/logs/2026-09-03_hdmi_480p_adv7511_overall_sim_run19_final/modelsim_transcript.txt` |
+| 迁移后最终复现证据 | `4_metrics/logs/2026-09-03_hdmi_sim_relocation_run20/modelsim_transcript.txt` |
 | Vivado 综合 | 未验证 |
 | 时序收敛 | 未验证 |
 | EES-331 板级显示 | 未验证 |
