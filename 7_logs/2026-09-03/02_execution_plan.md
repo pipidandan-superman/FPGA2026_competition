@@ -32,4 +32,4 @@
 
 ## 风险
 
-ADV7511 寄存器表首版来源于公开推荐配置和方案文档关键项，尚未板级验证。若黑屏，优先检查 I2C ACK、HPD 延时、Cb/Cr 顺序和 DE 对齐。构建产物、仿真库和波形已通过 `.gitignore` 排除。
+ADV7511 寄存器表首版来源于公开推荐配置和方案文档关键项，尚未板级验证。若黑屏，优先检查 I2C ACK、HPD 延时、Cb/Cr 顺序和 DE 对齐。构建产物、仿真库和波形已通过 `.gitignore` 排除。BD Module Reference 顶层必须使用 Verilog wrapper，不能直接引用 `.sv` 顶层。

@@ -101,6 +101,29 @@
 
 迁移结果已提交并推送为 `origin/main@d9dd5b4`。
 
+## 2026-09-03 BD Module Reference 限制验证
+
+在独立临时工程中使用 Vivado 2020.2 和 `xc7z020clg484-1` 执行：
+
+```tcl
+create_bd_cell -type module -reference hdmi_out_adv7511 u_hdmi_out_adv7511
+```
+
+Vivado 明确返回：
+
+```text
+ERROR: [filemgmt 56-195] Reference 'hdmi_out_adv7511' contains top file
+'.../hdmi_out_adv7511.sv' of type SystemVerilog. This type is not allowed
+as the top file in the reference.
+```
+
+因此这不是依赖缺失，而是当前 Vivado 版本对 BD Module Reference 顶层文件类型的限制。旧 `HDMI_top`、`data_gen`、`pix_frame_dispaly` 等模块顶层是 `.v` 文件，所以可以直接拖入 BD。
+
+### 证据
+
+- `E:\competition\4_metrics\logs\2026-09-03_hdmi_bd_module_ref_check_run21\vivado_module_ref_check.txt`
+- `E:\competition\4_metrics\logs\2026-09-03_hdmi_bd_module_ref_check_run21\check_hdmi_module_ref.tcl`
+
 历史 run19 transcript 保留在原证据目录；其启动脚本已按当前目录规范迁移到 `sim/run_modelsim.do`，历史版本可通过 Git 历史回溯。
 
 ## GitHub 选择性归档记录
