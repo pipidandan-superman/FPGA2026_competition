@@ -1,0 +1,54 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Sep  3 14:41:19 2026
+# Process ID: 26772
+# Current directory: E:/competition
+# Command line: vivado.exe -mode batch -source 4_metrics\logs\2026-09-03_hdmi_impl_place_failure_analysis_run25\pin_capability_query.tcl -log 4_metrics\logs\2026-09-03_hdmi_impl_place_failure_analysis_run25\pin_capability_vivado.txt -journal 4_metrics\logs\2026-09-03_hdmi_impl_place_failure_analysis_run25\pin_capability_vivado.jou
+# Log file: E:/competition/4_metrics/logs/2026-09-03_hdmi_impl_place_failure_analysis_run25/pin_capability_vivado.txt
+# Journal file: E:/competition\4_metrics\logs\2026-09-03_hdmi_impl_place_failure_analysis_run25\pin_capability_vivado.jou
+#-----------------------------------------------------------
+source {4_metrics\logs\2026-09-03_hdmi_impl_place_failure_analysis_run25\pin_capability_query.tcl}
+# create_project -in_memory -part xc7z020clg484-1
+# link_design -part xc7z020clg484-1
+Command: link_design -part xc7z020clg484-1
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1147.594 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1147.594 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+4 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+# foreach pin {M19 AA22 Y8} {
+#     puts "=== PIN $pin ==="
+#     set obj [get_package_pins -quiet $pin]
+#     if {[llength $obj] == 0} { puts "NOT_FOUND"; continue }
+#     puts "BANK=[get_property BANK $obj]"
+#     puts "PIN_FUNC=[get_property PIN_FUNC $obj]"
+# }
+=== PIN M19 ===
+BANK=34
+PIN_FUNC=IO_L13P_T2_MRCC_34
+=== PIN AA22 ===
+BANK=33
+PIN_FUNC=IO_L7P_T1_33
+=== PIN Y8 ===
+BANK=13
+PIN_FUNC=IO_L12N_T1_MRCC_13
+# puts "=== MRCC PINS RELEVANT BANKS ==="
+=== MRCC PINS RELEVANT BANKS ===
+# foreach bank {33 34 13} {
+#     set pins [get_package_pins -quiet -filter "PIN_FUNC =~ *MRCC* && BANK == $bank"]
+#     puts "BANK $bank: [join [lsort $pins] {, }]"
+# }
+BANK 33: AA18, W17, W18, Y18
+BANK 34: L18, L19, M19, M20
+BANK 13: Y5, Y6, Y8, Y9
+# exit
+INFO: [Common 17-206] Exiting Vivado at Thu Sep  3 14:41:26 2026...

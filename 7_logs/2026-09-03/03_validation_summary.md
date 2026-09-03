@@ -189,6 +189,23 @@ Verilog 顶层转换、仿真证据和 BD Module Reference 检查已提交并推
 
 EES-331 HDMI XDC 补齐和静态检查证据已提交并推送为 `origin/main@c52e72b`。
 
+## 2026-09-03 综合后布局失败分析
+
+综合通过后，`impl_1/place_design` 在 IO Clock Placer 阶段失败。日志显示 `cam_pclk_0_IBUF` 到 `BUFGCTRL_X0Y0` 不满足 `rule_gclkio_bufg`，Vivado 建议的临时约束是 `CLOCK_DEDICATED_ROUTE FALSE [get_nets cam_pclk_0_IBUF]`。
+
+进一步查询 XC7Z020 CLG484 器件库确认：`AA22/Bank 33` 的封装功能是 `IO_L7P_T1_33`，不是 `MRCC/SRCC` 时钟能力引脚。同时 RTL 中 `cam_pclk` 是相机采集寄存器的实际采样时钟。因此失败根因是“普通 IO 被用作全局时钟输入”，不是 HDMI 新增引脚冲突或资源不足。
+
+已形成两个待确认方案：
+
+1. 方案 A：按 Vivado 建议为 `cam_pclk_0_IBUF` 添加 `CLOCK_DEDICATED_ROUTE FALSE`，并补充相机 PCLK `create_clock`；可快速解除阻塞，但时钟路径不理想，必须检查时序。
+2. 方案 B：重构相机 PCLK 采样架构，不把 `AA22` 普通 IO 当全局时钟；更规范，但涉及采集 RTL/BD 重新验证。
+
+### 证据
+
+- 失败日志：`E:\competition\4_metrics\logs\2026-09-03_hdmi_impl_place_failure_analysis_run25\vivado_impl_runme.txt`
+- 分析记录：`E:\competition\4_metrics\logs\2026-09-03_hdmi_impl_place_failure_analysis_run25\place_failure_analysis.md`
+- 引脚能力查询：`E:\competition\4_metrics\logs\2026-09-03_hdmi_impl_place_failure_analysis_run25\pin_capability_vivado.txt`
+
 历史 run19 transcript 保留在原证据目录；其启动脚本已按当前目录规范迁移到 `sim/run_modelsim.do`，历史版本可通过 Git 历史回溯。
 
 ## GitHub 选择性归档记录

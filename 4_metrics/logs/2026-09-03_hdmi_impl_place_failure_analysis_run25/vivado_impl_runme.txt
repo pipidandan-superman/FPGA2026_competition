@@ -1,0 +1,418 @@
+
+*** Running vivado
+    with args -log display_test_wrapper.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source display_test_wrapper.tcl -notrace
+
+
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Thu Sep  3 14:35:54 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source display_test_wrapper.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'F:/vivado2025/2025.2/Vivado/data/ip'.
+Command: link_design -top display_test_wrapper -part xc7z020clg484-1
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Project 1-5699] Read binary netlist with skipMacroContent - 1
+INFO: [Project 1-454] Reading design checkpoint 'e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_axi_smc_0/display_test_axi_smc_0.dcp' for cell 'display_test_i/axi_smc'
+INFO: [Project 1-454] Reading design checkpoint 'e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_axi_vdma_0_0/display_test_axi_vdma_0_0.dcp' for cell 'display_test_i/axi_vdma_0'
+INFO: [Project 1-454] Reading design checkpoint 'e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_cam_captrue_data_0_0/display_test_cam_captrue_data_0_0.dcp' for cell 'display_test_i/cam_captrue_data_0'
+INFO: [Project 1-454] Reading design checkpoint 'e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_clk_wiz_0_0/display_test_clk_wiz_0_0.dcp' for cell 'display_test_i/clk_wiz_0'
+INFO: [Project 1-454] Reading design checkpoint 'e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_hdmi_out_adv7511_0_0/display_test_hdmi_out_adv7511_0_0.dcp' for cell 'display_test_i/hdmi_out_adv7511_0'
+INFO: [Project 1-454] Reading design checkpoint 'e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_ov5640_cfg_top_0_0/display_test_ov5640_cfg_top_0_0.dcp' for cell 'display_test_i/ov5640_cfg_top_0'
+INFO: [Project 1-454] Reading design checkpoint 'e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_pix_frame_display_0_0/display_test_pix_frame_display_0_0.dcp' for cell 'display_test_i/pix_frame_display_0'
+INFO: [Project 1-454] Reading design checkpoint 'e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_processing_system7_0_0/display_test_processing_system7_0_0.dcp' for cell 'display_test_i/processing_system7_0'
+INFO: [Project 1-454] Reading design checkpoint 'e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_rst_ps7_0_50M_0/display_test_rst_ps7_0_50M_0.dcp' for cell 'display_test_i/rst_ps7_0_50M'
+INFO: [Project 1-454] Reading design checkpoint 'e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_util_vector_logic_0_0/display_test_util_vector_logic_0_0.dcp' for cell 'display_test_i/util_vector_logic_0'
+INFO: [Project 1-454] Reading design checkpoint 'e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_v_axi4s_vid_out_0_0/display_test_v_axi4s_vid_out_0_0.dcp' for cell 'display_test_i/v_axi4s_vid_out_0'
+INFO: [Project 1-454] Reading design checkpoint 'e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_v_tc_0_0/display_test_v_tc_0_0.dcp' for cell 'display_test_i/v_tc_0'
+INFO: [Project 1-454] Reading design checkpoint 'e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_v_vid_in_axi4s_0_0/display_test_v_vid_in_axi4s_0_0.dcp' for cell 'display_test_i/v_vid_in_axi4s_0'
+INFO: [Project 1-454] Reading design checkpoint 'e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_axi_mem_intercon_imp_xbar_0/display_test_axi_mem_intercon_imp_xbar_0.dcp' for cell 'display_test_i/axi_mem_intercon/xbar'
+INFO: [Project 1-454] Reading design checkpoint 'e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_axi_mem_intercon_imp_auto_pc_0/display_test_axi_mem_intercon_imp_auto_pc_0.dcp' for cell 'display_test_i/axi_mem_intercon/s00_couplers/auto_pc'
+INFO: [Project 1-454] Reading design checkpoint 'e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_axi_mem_intercon_imp_auto_pc_1/display_test_axi_mem_intercon_imp_auto_pc_1.dcp' for cell 'display_test_i/axi_mem_intercon/s01_couplers/auto_pc'
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.244 . Memory (MB): peak = 912.742 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 409 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-141] Inserted 2 OBUFs to IO ports without IO buffers.
+Parsing XDC File [e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_processing_system7_0_0/display_test_processing_system7_0_0.xdc] for cell 'display_test_i/processing_system7_0/inst'
+Finished Parsing XDC File [e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_processing_system7_0_0/display_test_processing_system7_0_0.xdc] for cell 'display_test_i/processing_system7_0/inst'
+Parsing XDC File [e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_axi_vdma_0_0/display_test_axi_vdma_0_0.xdc] for cell 'display_test_i/axi_vdma_0/U0'
+Finished Parsing XDC File [e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_axi_vdma_0_0/display_test_axi_vdma_0_0.xdc] for cell 'display_test_i/axi_vdma_0/U0'
+Parsing XDC File [e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_clk_wiz_0_0/display_test_clk_wiz_0_0_board.xdc] for cell 'display_test_i/clk_wiz_0/inst'
+Finished Parsing XDC File [e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_clk_wiz_0_0/display_test_clk_wiz_0_0_board.xdc] for cell 'display_test_i/clk_wiz_0/inst'
+Parsing XDC File [e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_clk_wiz_0_0/display_test_clk_wiz_0_0.xdc] for cell 'display_test_i/clk_wiz_0/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_clk_wiz_0_0/display_test_clk_wiz_0_0.xdc:54]
+INFO: [Timing 38-2] Deriving generated clocks [e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_clk_wiz_0_0/display_test_clk_wiz_0_0.xdc:54]
+Finished Parsing XDC File [e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_clk_wiz_0_0/display_test_clk_wiz_0_0.xdc] for cell 'display_test_i/clk_wiz_0/inst'
+Parsing XDC File [e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_axi_smc_0/bd_0/ip/ip_1/bd_6668_psr_aclk_0_board.xdc] for cell 'display_test_i/axi_smc/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_axi_smc_0/bd_0/ip/ip_1/bd_6668_psr_aclk_0_board.xdc] for cell 'display_test_i/axi_smc/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_axi_smc_0/smartconnect.xdc] for cell 'display_test_i/axi_smc/inst'
+Finished Parsing XDC File [e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_axi_smc_0/smartconnect.xdc] for cell 'display_test_i/axi_smc/inst'
+Parsing XDC File [e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_rst_ps7_0_50M_0/display_test_rst_ps7_0_50M_0_board.xdc] for cell 'display_test_i/rst_ps7_0_50M/U0'
+Finished Parsing XDC File [e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_rst_ps7_0_50M_0/display_test_rst_ps7_0_50M_0_board.xdc] for cell 'display_test_i/rst_ps7_0_50M/U0'
+Parsing XDC File [E:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.srcs/constrs_1/new/pin_zynq7020_cam.xdc]
+Finished Parsing XDC File [E:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.srcs/constrs_1/new/pin_zynq7020_cam.xdc]
+Parsing XDC File [e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_axi_vdma_0_0/display_test_axi_vdma_0_0_clocks.xdc] for cell 'display_test_i/axi_vdma_0/U0'
+Finished Parsing XDC File [e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_axi_vdma_0_0/display_test_axi_vdma_0_0_clocks.xdc] for cell 'display_test_i/axi_vdma_0/U0'
+Parsing XDC File [e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_v_vid_in_axi4s_0_0/display_test_v_vid_in_axi4s_0_0_clocks.xdc] for cell 'display_test_i/v_vid_in_axi4s_0/inst'
+Finished Parsing XDC File [e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_v_vid_in_axi4s_0_0/display_test_v_vid_in_axi4s_0_0_clocks.xdc] for cell 'display_test_i/v_vid_in_axi4s_0/inst'
+Parsing XDC File [e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_v_axi4s_vid_out_0_0/display_test_v_axi4s_vid_out_0_0_clocks.xdc] for cell 'display_test_i/v_axi4s_vid_out_0/inst'
+Finished Parsing XDC File [e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_v_axi4s_vid_out_0_0/display_test_v_axi4s_vid_out_0_0_clocks.xdc] for cell 'display_test_i/v_axi4s_vid_out_0/inst'
+Parsing XDC File [e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_v_tc_0_0/display_test_v_tc_0_0_clocks.xdc] for cell 'display_test_i/v_tc_0/U0'
+Finished Parsing XDC File [e:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.gen/sources_1/bd/display_test/ip/display_test_v_tc_0_0/display_test_v_tc_0_0_clocks.xdc] for cell 'display_test_i/v_tc_0/U0'
+WARNING: [XPM_CDC_SINGLE: TCL-1000] The source and destination clocks are the same. 
+     Instance: display_test_i/axi_vdma_0/U0/I_RST_MODULE/GEN_RESET_FOR_S2MM.RESET_I/GEN_RESET_FOR_ASYNC.AXIS_RESET_CDC_I 
+  This will add unnecessary latency to the design. Please check the design for the following: 
+ 1) Manually instantiated XPM_CDC modules: AMD recommends that you remove these modules. 
+ 2) AMD IP that contains XPM_CDC modules: Verify the connections to the IP to determine whether you can safely ignore this message.
+ [F:/vivado2025/2025.2/Vivado/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl:5]
+WARNING: [XPM_CDC_SINGLE: TCL-1000] The source and destination clocks are the same. 
+     Instance: display_test_i/axi_vdma_0/U0/I_RST_MODULE/GEN_RESET_FOR_MM2S.RESET_I/GEN_RESET_FOR_ASYNC.AXIS_RESET_CDC_I 
+  This will add unnecessary latency to the design. Please check the design for the following: 
+ 1) Manually instantiated XPM_CDC modules: AMD recommends that you remove these modules. 
+ 2) AMD IP that contains XPM_CDC modules: Verify the connections to the IP to determine whether you can safely ignore this message.
+ [F:/vivado2025/2025.2/Vivado/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl:5]
+WARNING: [XPM_CDC_SINGLE: TCL-1000] The source and destination clocks are the same. 
+     Instance: display_test_i/axi_vdma_0/U0/I_RST_MODULE/GEN_RESET_FOR_MM2S.RESET_I/GEN_MIN_FOR_ASYNC.AXIS_MIN_CDC_I 
+  This will add unnecessary latency to the design. Please check the design for the following: 
+ 1) Manually instantiated XPM_CDC modules: AMD recommends that you remove these modules. 
+ 2) AMD IP that contains XPM_CDC modules: Verify the connections to the IP to determine whether you can safely ignore this message.
+ [F:/vivado2025/2025.2/Vivado/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl:5]
+WARNING: [XPM_CDC_SINGLE: TCL-1000] The source and destination clocks are the same. 
+     Instance: display_test_i/axi_vdma_0/U0/I_RST_MODULE/GEN_RESET_FOR_MM2S.RESET_I/GEN_RESET_FOR_ASYNC.HARD_RESET_CDC_I 
+  This will add unnecessary latency to the design. Please check the design for the following: 
+ 1) Manually instantiated XPM_CDC modules: AMD recommends that you remove these modules. 
+ 2) AMD IP that contains XPM_CDC modules: Verify the connections to the IP to determine whether you can safely ignore this message.
+ [F:/vivado2025/2025.2/Vivado/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl:5]
+WARNING: [XPM_CDC_SINGLE: TCL-1000] The source and destination clocks are the same. 
+     Instance: display_test_i/axi_vdma_0/U0/I_RST_MODULE/GEN_RESET_FOR_S2MM.RESET_I/GEN_MIN_FOR_ASYNC.LITE_IDLE_CDC_I 
+  This will add unnecessary latency to the design. Please check the design for the following: 
+ 1) Manually instantiated XPM_CDC modules: AMD recommends that you remove these modules. 
+ 2) AMD IP that contains XPM_CDC modules: Verify the connections to the IP to determine whether you can safely ignore this message.
+ [F:/vivado2025/2025.2/Vivado/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl:5]
+WARNING: [XPM_CDC_SINGLE: TCL-1000] The source and destination clocks are the same. 
+     Instance: display_test_i/axi_vdma_0/U0/I_RST_MODULE/GEN_RESET_FOR_S2MM.RESET_I/GEN_MIN_FOR_ASYNC.LITE_MIN_CDC_I 
+  This will add unnecessary latency to the design. Please check the design for the following: 
+ 1) Manually instantiated XPM_CDC modules: AMD recommends that you remove these modules. 
+ 2) AMD IP that contains XPM_CDC modules: Verify the connections to the IP to determine whether you can safely ignore this message.
+ [F:/vivado2025/2025.2/Vivado/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl:5]
+WARNING: [XPM_CDC_SINGLE: TCL-1000] The source and destination clocks are the same. 
+     Instance: display_test_i/axi_vdma_0/U0/I_RST_MODULE/GEN_RESET_FOR_S2MM.RESET_I/GEN_MIN_FOR_ASYNC.AXIS_IDLE_CDC_I 
+  This will add unnecessary latency to the design. Please check the design for the following: 
+ 1) Manually instantiated XPM_CDC modules: AMD recommends that you remove these modules. 
+ 2) AMD IP that contains XPM_CDC modules: Verify the connections to the IP to determine whether you can safely ignore this message.
+ [F:/vivado2025/2025.2/Vivado/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl:5]
+WARNING: [XPM_CDC_SINGLE: TCL-1000] The source and destination clocks are the same. 
+     Instance: display_test_i/axi_vdma_0/U0/I_RST_MODULE/GEN_RESET_FOR_S2MM.RESET_I/GEN_MIN_FOR_ASYNC.AXIS_MIN_CDC_I 
+  This will add unnecessary latency to the design. Please check the design for the following: 
+ 1) Manually instantiated XPM_CDC modules: AMD recommends that you remove these modules. 
+ 2) AMD IP that contains XPM_CDC modules: Verify the connections to the IP to determine whether you can safely ignore this message.
+ [F:/vivado2025/2025.2/Vivado/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl:5]
+WARNING: [XPM_CDC_SINGLE: TCL-1000] The source and destination clocks are the same. 
+     Instance: display_test_i/axi_vdma_0/U0/I_RST_MODULE/GEN_RESET_FOR_S2MM.RESET_I/GEN_RESET_FOR_ASYNC.HARD_RESET_CDC_I 
+  This will add unnecessary latency to the design. Please check the design for the following: 
+ 1) Manually instantiated XPM_CDC modules: AMD recommends that you remove these modules. 
+ 2) AMD IP that contains XPM_CDC modules: Verify the connections to the IP to determine whether you can safely ignore this message.
+ [F:/vivado2025/2025.2/Vivado/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl:5]
+WARNING: [XPM_CDC_SINGLE: TCL-1000] The source and destination clocks are the same. 
+     Instance: display_test_i/axi_vdma_0/U0/I_RST_MODULE/GEN_RESET_FOR_MM2S.RESET_I/GEN_MIN_FOR_ASYNC.LITE_IDLE_CDC_I 
+  This will add unnecessary latency to the design. Please check the design for the following: 
+ 1) Manually instantiated XPM_CDC modules: AMD recommends that you remove these modules. 
+ 2) AMD IP that contains XPM_CDC modules: Verify the connections to the IP to determine whether you can safely ignore this message.
+ [F:/vivado2025/2025.2/Vivado/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl:5]
+WARNING: [XPM_CDC_SINGLE: TCL-1000] The source and destination clocks are the same. 
+     Instance: display_test_i/axi_vdma_0/U0/I_RST_MODULE/GEN_RESET_FOR_MM2S.RESET_I/GEN_MIN_FOR_ASYNC.LITE_MIN_CDC_I 
+  This will add unnecessary latency to the design. Please check the design for the following: 
+ 1) Manually instantiated XPM_CDC modules: AMD recommends that you remove these modules. 
+ 2) AMD IP that contains XPM_CDC modules: Verify the connections to the IP to determine whether you can safely ignore this message.
+ [F:/vivado2025/2025.2/Vivado/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl:5]
+WARNING: [XPM_CDC_SINGLE: TCL-1000] The source and destination clocks are the same. 
+     Instance: display_test_i/axi_vdma_0/U0/I_RST_MODULE/GEN_RESET_FOR_MM2S.RESET_I/GEN_MIN_FOR_ASYNC.AXIS_IDLE_CDC_I 
+  This will add unnecessary latency to the design. Please check the design for the following: 
+ 1) Manually instantiated XPM_CDC modules: AMD recommends that you remove these modules. 
+ 2) AMD IP that contains XPM_CDC modules: Verify the connections to the IP to determine whether you can safely ignore this message.
+ [F:/vivado2025/2025.2/Vivado/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl:5]
+WARNING: [XPM_CDC_SINGLE: TCL-1000] The source and destination clocks are the same. 
+     Instance: display_test_i/axi_vdma_0/U0/AXI_LITE_REG_INTERFACE_I/GEN_S2MM_LITE_CROSSINGS.GEN_S2MM_CROSSINGS_ASYNC.S2MM_INTRPT_CROSSING_I 
+  This will add unnecessary latency to the design. Please check the design for the following: 
+ 1) Manually instantiated XPM_CDC modules: AMD recommends that you remove these modules. 
+ 2) AMD IP that contains XPM_CDC modules: Verify the connections to the IP to determine whether you can safely ignore this message.
+ [F:/vivado2025/2025.2/Vivado/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl:5]
+WARNING: [XPM_CDC_SINGLE: TCL-1000] The source and destination clocks are the same. 
+     Instance: display_test_i/axi_vdma_0/U0/AXI_LITE_REG_INTERFACE_I/GEN_MM2S_LITE_CROSSINGS.GEN_MM2S_CROSSINGS_ASYNC.MM2S_INTRPT_CROSSING_I 
+  This will add unnecessary latency to the design. Please check the design for the following: 
+ 1) Manually instantiated XPM_CDC modules: AMD recommends that you remove these modules. 
+ 2) AMD IP that contains XPM_CDC modules: Verify the connections to the IP to determine whether you can safely ignore this message.
+ [F:/vivado2025/2025.2/Vivado/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl:5]
+INFO: [Project 1-1714] 69 XPM XDC files have been applied to the design.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1616.609 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 5 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 4 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 1 instance 
+
+31 Infos, 14 Warnings, 0 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1616.609 ; gain = 1010.664
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Project 1-461] DRC finished with 0 Errors, 2 Warnings
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.445 . Memory (MB): peak = 1616.609 ; gain = 0.000
+
+Starting Cache Timing Information Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Cache Timing Information Task | Checksum: b06e3ace
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.392 . Memory (MB): peak = 1616.609 ; gain = 0.000
+
+Starting Logic Optimization Task
+
+Phase 1 Initialization
+
+Phase 1.1 Core Generation And Design Setup
+Phase 1.1 Core Generation And Design Setup | Checksum: b06e3ace
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 2059.730 ; gain = 0.000
+
+Phase 1.2 Setup Constraints And Sort Netlist
+Phase 1.2 Setup Constraints And Sort Netlist | Checksum: b06e3ace
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 2059.730 ; gain = 0.000
+Phase 1 Initialization | Checksum: b06e3ace
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 2059.730 ; gain = 0.000
+
+Phase 2 Timer Update And Timing Data Collection
+
+Phase 2.1 Detect if minReqCache needed
+Phase 2.1 Detect if minReqCache needed | Checksum: b06e3ace
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 2059.742 ; gain = 0.012
+
+Phase 2.2 Timer Update
+Phase 2.2 Timer Update | Checksum: b06e3ace
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.176 . Memory (MB): peak = 2059.742 ; gain = 0.012
+
+Phase 2.3 Timing Data Collection
+Phase 2.3 Timing Data Collection | Checksum: b06e3ace
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.191 . Memory (MB): peak = 2059.742 ; gain = 0.012
+Phase 2 Timer Update And Timing Data Collection | Checksum: b06e3ace
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.193 . Memory (MB): peak = 2059.742 ; gain = 0.012
+
+Phase 3 Retarget
+INFO: [Opt 31-1851] Number of loadless carry chains removed were: 0
+INFO: [Opt 31-1834] Total Chains To Be Transformed Were: 0 AND Number of Transformed insts Created are: 0
+INFO: [Opt 31-1566] Pulled 3 inverters resulting in an inversion of 22 pins
+INFO: [Opt 31-138] Pushed 17 inverter(s) to 55 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 3 Retarget | Checksum: 10463c8ce
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.439 . Memory (MB): peak = 2059.742 ; gain = 0.012
+Retarget | Checksum: 10463c8ce
+INFO: [Opt 31-389] Phase Retarget created 175 cells and removed 501 cells
+INFO: [Opt 31-1021] In phase Retarget, 48 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 4 Constant propagation
+INFO: [Opt 31-138] Pushed 2 inverter(s) to 2 load pin(s).
+Phase 4 Constant propagation | Checksum: 143387960
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.573 . Memory (MB): peak = 2059.742 ; gain = 0.012
+Constant propagation | Checksum: 143387960
+INFO: [Opt 31-389] Phase Constant propagation created 103 cells and removed 573 cells
+INFO: [Opt 31-1021] In phase Constant propagation, 47 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 5 Sweep
+INFO: [Constraints 18-11670] Building netlist checker database with flags, 0x8
+Done building netlist checker database: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 2059.742 ; gain = 0.000
+INFO: [Constraints 18-11670] Building netlist checker database with flags, 0x8
+Done building netlist checker database: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2059.742 ; gain = 0.000
+Phase 5 Sweep | Checksum: 132a66f35
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2059.742 ; gain = 0.012
+Sweep | Checksum: 132a66f35
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 602 cells
+INFO: [Opt 31-1021] In phase Sweep, 187 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 6 BUFG optimization
+INFO: [Opt 31-194] Inserted BUFG cam_pclk_0_IBUF_BUFG_inst to drive 370 load(s) on clock net cam_pclk_0_IBUF_BUFG
+INFO: [Opt 31-193] Inserted 1 BUFG(s) on clock nets
+Phase 6 BUFG optimization | Checksum: 13992dcd2
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2059.742 ; gain = 0.012
+BUFG optimization | Checksum: 13992dcd2
+INFO: [Opt 31-662] Phase BUFG optimization created 1 cells of which 1 are BUFGs and removed 0 cells.
+
+Phase 7 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 7 Shift Register Optimization | Checksum: 13992dcd2
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2059.742 ; gain = 0.012
+Shift Register Optimization | Checksum: 13992dcd2
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 8 Post Processing Netlist
+Phase 8 Post Processing Netlist | Checksum: 1b7edfb37
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2059.742 ; gain = 0.012
+Post Processing Netlist | Checksum: 1b7edfb37
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+INFO: [Opt 31-1021] In phase Post Processing Netlist, 53 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 9 Finalization
+
+Phase 9.1 Finalizing Design Cores and Updating Shapes
+Phase 9.1 Finalizing Design Cores and Updating Shapes | Checksum: 1bffd2329
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2059.742 ; gain = 0.012
+
+Phase 9.2 Verifying Netlist Connectivity
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 2059.742 ; gain = 0.000
+Phase 9.2 Verifying Netlist Connectivity | Checksum: 1bffd2329
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2059.742 ; gain = 0.012
+Phase 9 Finalization | Checksum: 1bffd2329
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2059.742 ; gain = 0.012
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |             175  |             501  |                                             48  |
+|  Constant propagation         |             103  |             573  |                                             47  |
+|  Sweep                        |               0  |             602  |                                            187  |
+|  BUFG optimization            |               1  |               0  |                                              0  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                             53  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+Ending Logic Optimization Task | Checksum: 1bffd2329
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2059.742 ; gain = 0.012
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 22 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 2 WE to EN ports
+Number of BRAM Ports augmented: 10 newly gated: 2 Total Ports: 44
+Ending PowerOpt Patch Enables Task | Checksum: 1a780f845
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.086 . Memory (MB): peak = 2084.215 ; gain = 0.000
+Ending Power Optimization Task | Checksum: 1a780f845
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 2084.215 ; gain = 24.473
+
+Starting Final Cleanup Task
+Ending Final Cleanup Task | Checksum: 1a780f845
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2084.215 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 2084.215 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+64 Infos, 14 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:09 ; elapsed = 00:00:07 . Memory (MB): peak = 2084.215 ; gain = 467.605
+INFO: [Vivado 12-24828] Executing command : report_drc -file display_test_wrapper_drc_opted.rpt -pb display_test_wrapper_drc_opted.pb -rpx display_test_wrapper_drc_opted.rpx
+Command: report_drc -file display_test_wrapper_drc_opted.rpt -pb display_test_wrapper_drc_opted.pb -rpx display_test_wrapper_drc_opted.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file E:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.runs/impl_1/display_test_wrapper_drc_opted.rpt.
+report_drc completed successfully
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Wrote PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2084.215 ; gain = 0.000
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2084.215 ; gain = 0.000
+Writing XDEF routing.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 2084.215 ; gain = 0.000
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 2084.215 ; gain = 0.000
+Wrote PlaceStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 2084.215 ; gain = 0.000
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2084.215 ; gain = 0.000
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 2084.215 ; gain = 0.000
+Write Physdb Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.048 . Memory (MB): peak = 2084.215 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'E:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.runs/impl_1/display_test_wrapper_opt.dcp' has been generated.
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-83] Releasing license: Implementation
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors, 27 Warnings
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 2 CPUs
+
+Starting Placer Task
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 2084.215 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 16b70aae6
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 2084.215 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 2084.215 ; gain = 0.000
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+ERROR: [Place 30-574] Poor placement for routing between an IO pin and BUFG. If this sub optimal condition is acceptable for this design, you may use the CLOCK_DEDICATED_ROUTE constraint in the .xdc file to demote this message to a WARNING. However, the use of this override is highly discouraged. These examples can be used directly in the .xdc file to override this clock rule.
+	< set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets cam_pclk_0_IBUF] >
+
+	Clock Rule: rule_gclkio_bufg
+	Status: FAILED
+	Rule Description: An IOB driving a BUFG must use a CCIO in the same half side (top/bottom) of chip as the BUFG
+
+	cam_pclk_0_IBUF_inst (IBUF.O) is locked to IOB_X1Y36
+	cam_pclk_0_IBUF_BUFG_inst (BUFG.I) is provisionally placed by clockplacer on BUFGCTRL_X0Y0
+Resolution: Poor placement of an IO pin and a BUFG has resulted in the router using a non-dedicated path between the two.  There are several things that could trigger this DRC, each of which can cause unpredictable clock insertion delays that result in poor timing.  This DRC could be caused by any of the following: (a) a clock port was placed on a pin that is not a CCIO-pin (b)the BUFG has not been placed in the same half of the device or SLR as the CCIO-pin (c) a single ended clock has been placed on the N-Side of a differential pair CCIO-pin.
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 193aa3133
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.595 . Memory (MB): peak = 2084.215 ; gain = 0.000
+Phase 1 Placer Initialization | Checksum: 193aa3133
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.596 . Memory (MB): peak = 2084.215 ; gain = 0.000
+ERROR: [Place 30-99] Placer failed with error: 'IO Clock Placer failed'
+Please review all ERROR, CRITICAL WARNING, and WARNING messages during placement to understand the cause for failure.
+Ending Placer Task | Checksum: 1baefb71f
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.601 . Memory (MB): peak = 2084.215 ; gain = 0.000
+80 Infos, 14 Warnings, 0 Critical Warnings and 3 Errors encountered.
+place_design failed
+ERROR: [Common 17-69] Command failed: Placer could not place all instances
+INFO: [Common 17-206] Exiting Vivado at Thu Sep  3 14:36:24 2026...

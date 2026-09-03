@@ -30,6 +30,10 @@
 
 `E:\competition\4_metrics\logs\2026-09-03_hdmi_xdc_constraint_check_run24\xdc_validation.txt`
 
+## 实现失败分析入口
+
+`E:\competition\4_metrics\logs\2026-09-03_hdmi_impl_place_failure_analysis_run25\place_failure_analysis.md`
+
 ## 归档入口
 
 - `E:\competition\README.md`
@@ -38,4 +42,4 @@
 
 ## 风险
 
-ADV7511 寄存器表首版来源于公开推荐配置和方案文档关键项，尚未板级验证。若黑屏，优先检查 I2C ACK、HPD 延时、Cb/Cr 顺序和 DE 对齐。构建产物、仿真库和波形已通过 `.gitignore` 排除。活跃顶层已直接改为 Verilog；正式工程必须移除旧 `.sv` 顶层引用并加入新 `.v` 顶层。XDC 引脚已核对，但综合、时序和板级显示尚未验证。
+ADV7511 寄存器表首版来源于公开推荐配置和方案文档关键项，尚未板级验证。若黑屏，优先检查 I2C ACK、HPD 延时、Cb/Cr 顺序和 DE 对齐。构建产物、仿真库和波形已通过 `.gitignore` 排除。活跃顶层已直接改为 Verilog；正式工程必须移除旧 `.sv` 顶层引用并加入新 `.v` 顶层。XDC 引脚已核对，综合通过但布局失败已定位为 `AA22/cam_pclk_0` 非 CCIO 驱动 BUFG；修复方案等待确认，时序和板级显示尚未验证。
