@@ -3,11 +3,11 @@
 ## 状态
 
 - 日期：2026-09-03
-- 状态：HDMI TOP MODEL SIM PASS / CAM PCLK PLAN A IMPLEMENT PASS / BITSTREAM GENERATED / OOC ERRORS NONBLOCKING
+- 状态：HDMI TOP MODEL SIM PASS / CAM PCLK PLAN A IMPLEMENT PASS / BITSTREAM GENERATED / OOC ERRORS NONBLOCKING / BD CONNECTION CHECK PASS
 - GitHub：关键 RTL、集中后的测试台/仿真脚本、文档和最终证据已发布到 `main@d9dd5b4`
 - 最新顶层归档：`main@12d31e1`，活跃顶层已改为 `hdmi_out_adv7511.v`
 - 最新 XDC 归档：`main@c52e72b`，EES-331 HDMI/ADV7511 引脚约束已补齐
-- 最新实现判定：run27，综合/实现/比特流通过；OOC error 非阻塞
+- 最新 BD 核对：run28，OV5640+HDMI 关键连线清单完成
 - 分辨率：480p / 640x480@60
 - 像素时钟：25.175 MHz
 - 颜色空间：BT.709，RGB888 转 YCbCr422
@@ -56,3 +56,6 @@ XDC 已按 EES-331 手册补齐 HDMI/ADV7511 引脚，并通过端口、重复�
 ## 2026-09-03 方案 A 实现结果
 
 用户已确认采用方案 A，并根据 Clocking Wizard 实际频率将相机返回的 `cam_pclk_0` 约束为 41.600 ns（24.03846 MHz）；外层主时钟 `clk_in1_0` 不添加重复 `create_clock`，`cam_pclk_0_IBUF` 已设置 `CLOCK_DEDICATED_ROUTE FALSE`。静态证据见 `4_metrics/logs/2026-09-03_hdmi_cam_pclk_plan_a_apply_run26`。Vivado 2025.2 实现已通过，全局 WNS/TNS 为 `10.551/0.000 ns`，WHS/THS 为 `0.023/0.000 ns`，`cam_pclk` 域 WNS/WHS 为 `35.138/0.070 ns`，route error 为 0，`display_test_wrapper.bit` 已生成。OOC 子 run 中的 `Failed to create directory C` 为非阻塞错误，详细判定见 `4_metrics/logs/2026-09-03_hdmi_ooc_synthesis_error_analysis_run27`。下一动作是板级 HDMI 显示验证；是否清理 OOC error 由用户确认。
+## 2026-09-03 BD 连线核对
+
+已对照 2020 `cam_vdma_hdmi_true` 工程生成清单：`2_fpga/0_diaplay_test/doc/bd_ov5640_hdmi_connection_checklist.md`。OV5640 采集、Video In、VDMA S2MM/MM2S、HP0/HP1、Video Out、VTC、`pix_frame_display` 到新 HDMI 前端的关键连线一致。当前控制面使用 SmartConnect，参考工程使用 AXI Interconnect；Zynq 7010/7020、50/100 MHz 外部时钟、PS FCLK0 频率和 HDMI 输出架构差异均记录为工程基线差异。VDMA S2MM line buffer 当前为 512、参考为 1024；当前 `rom_data` 接常量 0，参考接 ROM。二者需理解但不阻断当前板测。证据见 `4_metrics/logs/2026-09-03_bd_connection_check_run28`。

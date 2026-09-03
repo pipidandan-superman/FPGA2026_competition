@@ -26,3 +26,6 @@
 ## 2026-09-03 实现通过后的更新
 
 实现和比特流已通过：全局 WNS/TNS 为 `10.551/0.000 ns`，WHS/THS 为 `0.023/0.000 ns`；`cam_pclk` 域 WNS/WHS 为 `35.138/0.070 ns`，route error 为 0。Messages 中 3 个 OOC `Failed to create directory 'C'.` 是子 run 过程错误；相关 DCP 和完成标记存在，顶层比特流有效。下一动作是下载比特流并做板级 HDMI 显示验证；OOC error 清理可选，待用户确认后再执行。
+## 2026-09-03 BD 连线清单更新
+
+OV5640+HDMI 显示链路已对照 2020 参考工程完成静态核对，清单在 `2_fpga/0_diaplay_test/doc/bd_ov5640_hdmi_connection_checklist.md`。核心连线一致；当前 HDMI 输出按 ADV7511 并口方案处理，不再接 `pclk_x5` 或 TMDS。板测时按清单顺序检查 Clocking Wizard locked、SCCB 配置完成、VDMA S2MM 写 DDR、VDMA MM2S 读 DDR 和显示器输出。VDMA S2MM line buffer 当前为 512，参考为 1024；先保持当前通过实现，板测稳定后再决定是否完全对齐。

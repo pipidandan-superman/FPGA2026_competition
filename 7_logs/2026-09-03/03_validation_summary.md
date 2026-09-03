@@ -234,3 +234,10 @@ EES-331 HDMI XDC 补齐和静态检查证据已提交并推送为 `origin/main@c
 本次实现已通过：`place_design`、`route_design` 和 `write_bitstream` 均成功，最终比特流为 `display_test_wrapper.bit`。Route Status 显示 10,921 个 routable net 全部连通且 0 个 routing error。全局时序为 WNS `10.551 ns`、TNS `0.000 ns`、WHS `0.023 ns`、THS `0.000 ns`；`cam_pclk` 域 WNS `35.138 ns`、WHS `0.070 ns`。方案 A 的布局/时序风险已由实现结果关闭。
 
 Messages 中的 3 个综合 error 来自 OOC 子 run：`util_vector_logic`、`rst_ps7_0_50M` 和 `axi_mem_intercon_imp_xbar`。错误是 `create_project -in_memory` 阶段的 `Failed to create directory 'C'.`，但相关 run 目录均存在最终 DCP 和 `__synthesis_is_complete__` 标记；`v_tc` 的当前日志中也保留同类错误记录。因此 GUI 的 error 计数是 OOC 子 run 日志中的历史/过程错误，不是顶层综合失败，也不使已生成的比特流无效。如需 Messages 清零，后续可单独 reset/regenerate 这些 OOC run；板级验证前不是必须动作。详细证据见 `4_metrics/logs/2026-09-03_hdmi_ooc_synthesis_error_analysis_run27/ooc_error_analysis.md`。
+## 2026-09-03 OV5640+HDMI BD 静态连线核对
+
+参考工程与当前工程的核心显示链路连接一致：OV5640 数据/PCLK/HREF/VSYNC 进入采集模块后，经 Video In、VDMA S2MM、AXI Interconnect、Zynq HP1 写 DDR；再经 HP0、VDMA MM2S、AXI-Stream、Video Out、VTC 时序、`pix_frame_display`，进入新 HDMI 模块。AXI 控制面最终都到达 VDMA S_AXI_LITE；当前控制拓扑使用 SmartConnect，参考工程使用 AXI Interconnect。
+
+`cam_captrue_data`、`ov5640_cfg_top` 和 `pix_frame_display` 的源文件在两侧 SHA256 相同。Clocking Wizard 的 25/125/24.03846/50 MHz 输出配置一致；外部输入分别为 50 MHz 和 100 MHz，属于工程基线差异。VTC 两侧均为 480p、640x800、480x525、HSYNC/VSYNC High、RGB。VDMA 配置基本一致，仅当前 S2MM line buffer 生成值为 512，参考为 1024。
+
+当前 HDMI 边界按 ADV7511 并口方案替换旧 TMDS 直驱方案，因此 `PIX_CLK/RST_N/RGB888/DE/H_SYNC/V_SYNC` 连接正确，无 `pclk_x5` 和 TMDS 差分口是预期。`pix_frame_display/rom_data` 当前接常量 0，参考工程接 ROM 输出；该差异只影响局部图案/OSD 显示，不阻断相机视频主链路。完整清单见 `2_fpga/0_diaplay_test/doc/bd_ov5640_hdmi_connection_checklist.md`。

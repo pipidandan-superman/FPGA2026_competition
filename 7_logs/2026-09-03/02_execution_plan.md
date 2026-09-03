@@ -49,3 +49,6 @@ ADV7511 寄存器表首版来源于公开推荐配置和方案文档关键项，
 ## 2026-09-03 实现与 OOC error 判定
 
 Vivado 2025.2 顶层 `synth_1` 和 `impl_1` 均已完成，`place_design`、`route_design`、`write_bitstream` 成功；`display_test_wrapper.bit` 已生成。布线报告为 10,921/10,921 全连通、0 routing errors；全局 WNS/TNS 为 `10.551/0.000 ns`，WHS/THS 为 `0.023/0.000 ns`。`cam_pclk` 域 WNS/WHS 为 `35.138/0.070 ns`。Messages 中 3 个 `[Common 17-1257] Failed to create directory 'C'.` 来自 OOC 子 run 的 `create_project -in_memory` 阶段，但对应子 run 后续完成并生成 DCP 和完成标记，因此判定为非阻塞项目卫生问题，不影响本次有效比特流。证据见 `4_metrics/logs/2026-09-03_hdmi_ooc_synthesis_error_analysis_run27/ooc_error_analysis.md`。
+## 2026-09-03 OV5640+HDMI BD 连线清单
+
+已静态解析参考 `design_1.bd` 和当前 `display_test.bd`，核对 OV5640 配置/采集、Video In、VDMA S2MM/MM2S、HP0/HP1、SmartConnect/AXI Interconnect 控制面、Video Out、VTC、`pix_frame_display` 和新 HDMI 前端连接。清单位于 `E:\competition\2_fpga\0_diaplay_test\doc\bd_ov5640_hdmi_connection_checklist.md`，证据位于 `4_metrics/logs/2026-09-03_bd_connection_check_run28/bd_comparison_evidence.md`。结论：核心采集/DDR/视频输出连线一致；Zynq、50/100 MHz 外部时钟、PS FCLK0、HDMI 架构和 IP 版本差异均为工程基线差异；VDMA S2MM line buffer 当前为 512、参考为 1024，`rom_data` 当前接常量 0，这两项需理解但不阻断当前板测。
