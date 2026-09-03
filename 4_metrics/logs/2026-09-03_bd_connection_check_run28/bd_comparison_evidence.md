@@ -1,6 +1,6 @@
 # OV5640 + HDMI BD comparison evidence
 
-Date: 2026-09-03  
+Date: 2026-09-03
 Status: STATIC_CONNECTION_CHECK_COMPLETE
 
 ## Inputs
