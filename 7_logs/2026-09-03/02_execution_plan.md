@@ -45,4 +45,4 @@
 ADV7511 寄存器表首版来源于公开推荐配置和方案文档关键项，尚未板级验证。若黑屏，优先检查 I2C ACK、HPD 延时、Cb/Cr 顺序和 DE 对齐。构建产物、仿真库和波形已通过 `.gitignore` 排除。活跃顶层已直接改为 Verilog；正式工程必须移除旧 `.sv` 顶层引用并加入新 `.v` 顶层。XDC 引脚已核对，综合通过但布局失败已定位为 `AA22/cam_pclk_0` 非 CCIO 驱动 BUFG；修复方案等待确认，时序和板级显示尚未验证。
 ## 2026-09-03 方案 A 执行结果
 
-用户已确认只执行方案 A，并提供 Clocking Wizard 实际频率：`pclk=25 MHz`、`pclk_x5=125 MHz`、`xclk=24.03846 MHz`、`clk_50m=50 MHz`。当前 XDC 不恢复 `clk_in1_0` 的 `create_clock`，保留时钟 IP 内部约束；相机返回的 `cam_pclk_0` 按 `xclk` 实际频率约束为 41.600 ns，并对 `cam_pclk_0_IBUF` 设置 `CLOCK_DEDICATED_ROUTE FALSE`。静态校验证据为 `E:\competition\4_metrics\logs\2026-09-03_hdmi_cam_pclk_plan_a_apply_run26\plan_a_constraint_validation.txt`。Vivado 2025.2 重新实现和 `cam_pclk` 域时序检查仍待执行。GitHub 最新已推送归档为 `3626d3c`；方案 A 约束变更待提交。
+方案 A 约束和 run26 证据已提交并推送为 `main@7e52714`。
