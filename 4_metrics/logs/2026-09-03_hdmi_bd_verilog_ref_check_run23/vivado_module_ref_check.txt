@@ -1,0 +1,52 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Sep  3 14:06:29 2026
+# Process ID: 38852
+# Current directory: E:/competition
+# Command line: vivado.exe -mode batch -source E:\competition\4_metrics\logs\2026-09-03_hdmi_bd_verilog_ref_check_run23\check_hdmi_verilog_module_ref.tcl -log E:\competition\4_metrics\logs\2026-09-03_hdmi_bd_verilog_ref_check_run23\vivado_module_ref_check.txt -journal E:\competition\4_metrics\logs\2026-09-03_hdmi_bd_verilog_ref_check_run23\vivado_module_ref_check.jou
+# Log file: E:/competition/4_metrics/logs/2026-09-03_hdmi_bd_verilog_ref_check_run23/vivado_module_ref_check.txt
+# Journal file: E:\competition\4_metrics\logs\2026-09-03_hdmi_bd_verilog_ref_check_run23\vivado_module_ref_check.jou
+#-----------------------------------------------------------
+source {E:\competition\4_metrics\logs\2026-09-03_hdmi_bd_verilog_ref_check_run23\check_hdmi_verilog_module_ref.tcl}
+# create_project -force check_hdmi_verilog_module_ref [file normalize {C:/Users/Administrator/AppData/Local/Temp/check_hdmi_verilog_module_ref}] -part xc7z020clg484-1
+# add_files -fileset sources_1 [list \
+#   E:/competition/2_fpga/0_diaplay_test/rtl/hdmi_new/adv7511_init_table_pkg.sv \
+#   E:/competition/2_fpga/0_diaplay_test/rtl/hdmi_new/rgb2ycbcr422.sv \
+#   E:/competition/2_fpga/0_diaplay_test/rtl/hdmi_new/adv7511_controller.sv \
+#   E:/competition/2_fpga/0_diaplay_test/rtl/hdmi_new/adv7511_iic_data_xfer.sv \
+#   E:/competition/2_fpga/0_diaplay_test/rtl/hdmi_new/adv7511_cfg_top.sv \
+#   E:/competition/2_fpga/0_diaplay_test/rtl/hdmi_new/hdmi_out_adv7511.v \
+#   E:/competition/2_fpga/0_diaplay_test/rtl/iic/iic_protocal.v]
+# update_compile_order -fileset sources_1
+# set_property top hdmi_out_adv7511 [current_fileset]
+# create_bd_design check_bd
+Wrote  : <C:\Users\Administrator\AppData\Local\Temp\check_hdmi_verilog_module_ref\check_hdmi_verilog_module_ref.srcs\sources_1\bd\check_bd\check_bd.bd> 
+# if {[catch {create_bd_cell -type module -reference hdmi_out_adv7511 u_hdmi_out_adv7511} result]} {
+#     puts "MODULE_REF_FAILED: $result"
+# } else {
+#     puts "MODULE_REF_OK: top_file_type=verilog"
+# }
+INFO: [IP_Flow 19-4821] For module 'hdmi_out_adv7511', parameter 'FAST_SIM' is inferred to be bitString format.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'RST_N' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'HDMI_CLK' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'PIX_CLK' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'RST_N': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+WARNING: [IP_Flow 19-3157] Bus Interface 'RST_N': Bus parameter POLARITY is ACTIVE_LOW but port 'RST_N' is not *resetn - please double check the POLARITY setting.
+WARNING: [IP_Flow 19-5661] Bus Interface 'HDMI_CLK' does not have any bus interfaces associated with it.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'HDMI_CLK': FREQ_HZ bus parameter is missing for output clock interface.
+WARNING: [IP_Flow 19-5661] Bus Interface 'PIX_CLK' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+MODULE_REF_OK: top_file_type=verilog
+# validate_bd_design
+ERROR: [BD 41-758] The following clock pins are not connected to a valid clock source: 
+/u_hdmi_out_adv7511/PIX_CLK
+
+ERROR: [Common 17-39] 'validate_bd_design' failed due to earlier errors.
+
+    while executing
+"validate_bd_design"
+    (file "E:\competition\4_metrics\logs\2026-09-03_hdmi_bd_verilog_ref_check_run23\check_hdmi_verilog_module_ref.tcl" line 18)
+INFO: [Common 17-206] Exiting Vivado at Thu Sep  3 14:06:34 2026...

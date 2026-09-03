@@ -124,6 +124,37 @@ as the top file in the reference.
 - `E:\competition\4_metrics\logs\2026-09-03_hdmi_bd_module_ref_check_run21\vivado_module_ref_check.txt`
 - `E:\competition\4_metrics\logs\2026-09-03_hdmi_bd_module_ref_check_run21\check_hdmi_module_ref.tcl`
 
+## 2026-09-03 HDMI 顶层改为 Verilog
+
+已将活跃顶层从 `hdmi_out_adv7511.sv` 改为等价 `hdmi_out_adv7511.v`，模块名、端口、宽度、方向、复位行为、ADV7511 配置通路、RGB888 转 YCbCr422 通路和 ODDR 时钟转发保持不变。原 `.sv` 顶层已删除，避免重复模块定义。
+
+### ModelSim 回归
+
+使用 ModelSim 10.1c 重新编译并执行整体仿真：
+
+- `hdmi_out_adv7511.v` 编译 PASS；
+- 视频检查：16/16 像素 PASS；
+- ADV7511 配置：18/18 项寄存器写入 PASS；
+- 首个 IIC START：约 120.843ms；
+- 最终仿真时间：126.09378ms；
+- 磁盘 transcript 稳定标记：`TEST_PASS: pixels=16 writes=18`。
+
+### Vivado Module Reference 检查
+
+使用 Vivado 2020.2 独立工程添加 `.v` 顶层并执行：
+
+```tcl
+create_bd_cell -type module -reference hdmi_out_adv7511 u_hdmi_out_adv7511
+```
+
+Vivado 返回 `MODULE_REF_OK: top_file_type=verilog`，确认 BD 可以创建该 RTL cell。独立 BD 的后续 `validate_bd_design` 只因测试环境中 `PIX_CLK` 未连接有效时钟源报错，这与顶层文件类型无关；实际 BD 接线后应重新校验。
+
+### 证据
+
+- ModelSim：`E:\competition\4_metrics\logs\2026-09-03_hdmi_top_verilog_run22\modelsim_transcript.txt`
+- Vivado：`E:\competition\4_metrics\logs\2026-09-03_hdmi_bd_verilog_ref_check_run23\vivado_module_ref_check.txt`
+- Vivado 脚本：`E:\competition\4_metrics\logs\2026-09-03_hdmi_bd_verilog_ref_check_run23\check_hdmi_verilog_module_ref.tcl`
+
 历史 run19 transcript 保留在原证据目录；其启动脚本已按当前目录规范迁移到 `sim/run_modelsim.do`，历史版本可通过 Git 历史回溯。
 
 ## GitHub 选择性归档记录

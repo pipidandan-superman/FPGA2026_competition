@@ -15,7 +15,7 @@
 - `E:\competition\2_fpga\0_diaplay_test\rtl\hdmi_new\adv7511_iic_data_xfer.sv`
 - `E:\competition\2_fpga\0_diaplay_test\rtl\hdmi_new\adv7511_cfg_top.sv`
 - `E:\competition\2_fpga\0_diaplay_test\rtl\iic\iic_protocal.v`
-- `E:\competition\2_fpga\0_diaplay_test\rtl\hdmi_new\hdmi_out_adv7511.sv`
+- `E:\competition\2_fpga\0_diaplay_test\rtl\hdmi_new\hdmi_out_adv7511.v`
 - `E:\competition\2_fpga\0_diaplay_test\sim\adv7511_cfg_top_tb.sv`
 - `E:\competition\2_fpga\0_diaplay_test\sim\hdmi_out_adv7511_tb.sv`
 - `E:\competition\2_fpga\0_diaplay_test\sim\oddr_sim_model.sv`
@@ -32,4 +32,4 @@
 
 ## 风险
 
-ADV7511 寄存器表首版来源于公开推荐配置和方案文档关键项，尚未板级验证。若黑屏，优先检查 I2C ACK、HPD 延时、Cb/Cr 顺序和 DE 对齐。构建产物、仿真库和波形已通过 `.gitignore` 排除。BD Module Reference 顶层必须使用 Verilog wrapper，不能直接引用 `.sv` 顶层。
+ADV7511 寄存器表首版来源于公开推荐配置和方案文档关键项，尚未板级验证。若黑屏，优先检查 I2C ACK、HPD 延时、Cb/Cr 顺序和 DE 对齐。构建产物、仿真库和波形已通过 `.gitignore` 排除。活跃顶层已直接改为 Verilog；正式工程必须移除旧 `.sv` 顶层引用并加入新 `.v` 顶层。

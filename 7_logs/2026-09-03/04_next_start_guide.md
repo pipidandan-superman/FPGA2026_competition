@@ -5,12 +5,12 @@
 1. `E:\competition\HANDOFF.md`。
 2. 本日 `03_validation_summary.md`。
 3. `E:\competition\1_docs\EES-331_HDMI显示适配修正方案.md`。
-4. `E:\competition\2_fpga\0_diaplay_test\rtl\hdmi_new\hdmi_out_adv7511.sv`。
+4. `E:\competition\2_fpga\0_diaplay_test\rtl\hdmi_new\hdmi_out_adv7511.v`。
 5. `E:\competition\2_fpga\0_diaplay_test\sim\run_modelsim.do`。
 
 ## 第一动作
 
-整体 ModelSim 仿真已 PASS，测试台和脚本集中在 `sim` 根目录。下一步先创建 Verilog BD wrapper（例如 `hdmi_out_adv7511_bd.v`）来例化 SystemVerilog 顶层，再把它加入 BD 替换 `HDMI_top`；也可以选择把整链打包为 IP。随后删除 `pix_clk_x5`，更新 480p 引脚约束与顶层端口映射，执行综合、实现和时序检查。
+整体 ModelSim 仿真已 PASS，活跃顶层已是 `hdmi_out_adv7511.v`，Vivado Module Reference 检查通过。在正式工程中移除旧 `.sv` 顶层引用，加入新 `.v` 顶层和既有 SV 子模块，然后加入 BD 替换 `HDMI_top`。随后删除 `pix_clk_x5`，更新 480p 引脚约束与顶层端口映射，执行综合、实现和时序检查。
 
 ## 暂不要做
 

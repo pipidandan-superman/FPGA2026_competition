@@ -20,12 +20,12 @@
 | `adv7511_iic_data_xfer` | 配置仿真 PASS | 配置表读取、寄存器地址/数据传输握手 |
 | `iic_protocal` | 直接复用用户源码，配置仿真 PASS | 底层 IIC 协议，ADV7511 地址 7'h39，分频 252 |
 | `adv7511_cfg_top` | 配置仿真 PASS | 配置模块顶层，集成控制、传输和 IIC 协议 |
-| `hdmi_out_adv7511` | 整体 ModelSim 仿真 PASS | 顶层集成、输出寄存与 ODDR 时钟转发 |
+| `hdmi_out_adv7511` | Verilog 顶层整体 ModelSim PASS | `.v` 顶层集成、输出寄存与 ODDR 时钟转发，供 BD Module Reference 直接引用 |
 | `iic_multi_byte` | 非活跃资产 | 保留用于后续连续寄存器突发扩展 |
 
-当前可复现仿真入口：`E:\competition\2_fpga\0_diaplay_test\sim\run_modelsim.do`；测试台位于 `E:\competition\2_fpga\0_diaplay_test\sim`。迁移后的最终复现证据见 `4_metrics/logs/2026-09-03_hdmi_sim_relocation_run20`。
+当前可复现仿真入口：`E:\competition\2_fpga\0_diaplay_test\sim\run_modelsim.do`；测试台位于 `E:\competition\2_fpga\0_diaplay_test\sim`。Verilog 顶层最终复现证据见 `4_metrics/logs/2026-09-03_hdmi_top_verilog_run22`。
 
-BD 集成限制：Vivado 2020.2 Module Reference 拒绝以 `.sv` 文件为顶层的 `hdmi_out_adv7511`，错误码 `filemgmt 56-195`。需要先增加 Verilog 顶层 wrapper，或将完整链路打包为 IP；不能直接拖入 SystemVerilog 顶层。
+BD 集成限制已关闭：原 `.sv` 顶层被 Vivado 2020.2 Module Reference 拒绝，错误码 `filemgmt 56-195`；当前已改为等价 `hdmi_out_adv7511.v` 顶层，独立工程确认可创建 BD RTL cell。旧 `.sv` 顶层已删除。
 
 ## 顶层接口冻结
 
@@ -33,7 +33,7 @@ BD 集成限制：Vivado 2020.2 Module Reference 拒绝以 `.sv` 文件为顶层
 
 ## 下一步
 
-进行 BD 集成和 XDC：先创建 `hdmi_out_adv7511_bd.v` Verilog wrapper 并加入 BD，替换 `HDMI_top`，删除 `pix_clk_x5`，按 480p/25.175MHz 与 EES-331 引脚约束，然后综合实现并检查时序。迁移后整体仿真最终证据见 `4_metrics/logs/2026-09-03_hdmi_sim_relocation_run20`；Module Reference 拒绝原因见 `4_metrics/logs/2026-09-03_hdmi_bd_module_ref_check_run21`。
+进行 BD 集成和 XDC：在正式工程中移除旧 `hdmi_out_adv7511.sv` 引用，加入 `hdmi_out_adv7511.v` 和既有 SV 子模块，替换 `HDMI_top`，删除 `pix_clk_x5`，按 480p/25.175MHz 与 EES-331 引脚约束，然后综合实现并检查时序。Verilog 顶层仿真证据见 `4_metrics/logs/2026-09-03_hdmi_top_verilog_run22`；BD Module Reference 接受证据见 `4_metrics/logs/2026-09-03_hdmi_bd_verilog_ref_check_run23`。
 
 ## 归档记录
 
