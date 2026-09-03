@@ -187,6 +187,8 @@ Verilog 顶层转换、仿真证据和 BD Module Reference 检查已提交并推
 
 该结论仅覆盖静态 XDC 引脚/端口检查；Vivado 综合、实现、时序和板级显示仍待验证。
 
+EES-331 HDMI XDC 补齐和静态检查证据已提交并推送为 `origin/main@c52e72b`。
+
 历史 run19 transcript 保留在原证据目录；其启动脚本已按当前目录规范迁移到 `sim/run_modelsim.do`，历史版本可通过 Git 历史回溯。
 
 ## GitHub 选择性归档记录
