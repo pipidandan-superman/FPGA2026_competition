@@ -1,5 +1,5 @@
 ninja: Entering directory `C:\vws_app_b12'
-[1/2] ==========Application Build Information ==========
+[1/3] ==========Application Build Information ==========
 
 Compiler Flags:  -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard  -MMD -MP -specs=F:/vivado2025/2
 025.2/Vitis/data/embeddedsw/scripts/specs/arm/Xilinx.spec -IC:/vws_uart_s5/display_test_platform/zyn
@@ -11,6 +11,7 @@ t_platform/zynq_fsbl/zynq_fsbl_bsp/lib/" -L"/" -Wl,--start-group,-lxilstandalone
 gcc,-lc -Wl,--end-group
 
 ===========================================
-[2/2] Linking C executable app_component.elf
+[2/3] Building C object CMakeFiles/app_component.elf.dir/main.c.obj
+[3/3] Linking C executable app_component.elf
    text	   data	    bss	    dec	    hex	filename
   28517	   1428	  22996	  52941	   cecd	app_component.elf

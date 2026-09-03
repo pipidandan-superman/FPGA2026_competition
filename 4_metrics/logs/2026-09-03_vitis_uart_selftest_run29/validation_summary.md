@@ -5,7 +5,7 @@
 - Source: `E:/competition/2_fpga/0_diaplay_test/vitis/app_component/src/main.c`
 - Build result: PASS
 - Header fix: removed the indirect `bspconfig.h` dependency; UART base now uses `XPAR_XUARTPS_0_BASEADDR` from `xparameters.h`.
-- Rebuild result: PASS after removing `bspconfig.h`; evidence is in `manual_app_rebuild_console.txt`.
+ - Rebuild result: PASS after removing `bspconfig.h` and `sleep.h`; BSP symbols are declared locally, so IDE indexing no longer requires the incomplete exported header set. Evidence is in `manual_app_rebuild_console.txt`.
 - ELF: `C:/vws_app_b12/app_component.elf`
 - Size result: text=28517, data=1428, bss=22996, total=52941 (0xcecd)
 - Hardware result: PENDING

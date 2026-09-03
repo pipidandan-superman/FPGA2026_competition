@@ -243,3 +243,4 @@ Messages 中的 3 个综合 error 来自 OOC 子 run：`util_vector_logic`、`rs
 当前 HDMI 边界按 ADV7511 并口方案替换旧 TMDS 直驱方案，因此 `PIX_CLK/RST_N/RGB888/DE/H_SYNC/V_SYNC` 连接正确，无 `pclk_x5` 和 TMDS 差分口是预期。`pix_frame_display/rom_data` 当前接常量 0，参考工程接 ROM 输出；该差异只影响局部图案/OSD 显示，不阻断相机视频主链路。完整清单见 `2_fpga/0_diaplay_test/doc/bd_ov5640_hdmi_connection_checklist.md`。
 UART self-test build PASS; board test pending.
 UART header dependency removed and rebuild pass.
+UART delay and print headers now declared locally and rebuild pass.

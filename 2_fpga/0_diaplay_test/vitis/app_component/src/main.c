@@ -1,7 +1,9 @@
 #include <stdint.h>
-#include "sleep.h"
-#include "xil_printf.h"
 #include "xparameters.h"
+extern void usleep(unsigned long useconds);
+extern void xil_printf(const char *format, ...);
+extern char inbyte(void);
+extern void outbyte(char byte);
 
 #define UART_SELF_TEST_HEARTBEATS 3U
 #define UART_SELF_TEST_DELAY_US 1000000UL
