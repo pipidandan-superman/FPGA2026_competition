@@ -1,0 +1,29 @@
+# Camera PCLK Plan A constraint validation
+Date: 2026-09-03
+Status: PLAN_A_APPLIED / REIMPLEMENT_PENDING
+
+## Clocking Wizard actual frequencies
+
+- `pclk`: 25.000000 MHz, 40.000 ns.
+- `pclk_x5`: 125.000000 MHz, 8.000 ns.
+- `xclk`: 24.038460 MHz, 41.600 ns.
+- `clk_50m`: 50.000000 MHz, 20.000 ns.
+
+The camera returns `cam_pclk_0` at the configured `xclk` frequency, so its external clock period is constrained as 41.600 ns.
+
+## Plan A checks
+
+- `clk_in1_0` primary-clock `create_clock`: ABSENT (PASS; retained intentionally absent because Clocking Wizard already constrains its input).
+- `cam_pclk_0` package pin: `AA22`.
+- `cam_pclk_0` clock definition: `create_clock -period 41.600 -name cam_pclk`.
+- `cam_pclk_0` route exception: `set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets cam_pclk_0_IBUF]`.
+- EES-331 HDMI/ADV7511 pin constraints: 23 package pins present.
+- EES-331 HDMI/ADV7511 IOSTANDARD entries: 23 LVCMOS33 entries present.
+
+## Next gate
+
+Reload the XDC in Vivado 2025.2 and rerun implementation. Check setup and hold WNS/TNS for the `cam_pclk` domain. If timing fails, report the results to the user before considering Plan B.
+
+## Result
+
+PLAN_A_APPLIED

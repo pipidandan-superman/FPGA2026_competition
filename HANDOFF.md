@@ -3,11 +3,11 @@
 ## 状态
 
 - 日期：2026-09-03
-- 状态：HDMI TOP MODEL SIM PASS / XDC PIN CHECK PASS / IMPL PLACE FAIL ANALYZED
+- 状态：HDMI TOP MODEL SIM PASS / XDC PIN CHECK PASS / CAM PCLK PLAN A APPLIED / REIMPLEMENT PENDING
 - GitHub：关键 RTL、集中后的测试台/仿真脚本、文档和最终证据已发布到 `main@d9dd5b4`
 - 最新顶层归档：`main@12d31e1`，活跃顶层已改为 `hdmi_out_adv7511.v`
 - 最新 XDC 归档：`main@c52e72b`，EES-331 HDMI/ADV7511 引脚约束已补齐
-- 最新布局失败分析归档：`main@92a9bdc`，等待用户确认修复方案
+- 最新方案 A 校验：工作区 run26，等待重新实现后归档
 - 分辨率：480p / 640x480@60
 - 像素时钟：25.175 MHz
 - 颜色空间：BT.709，RGB888 转 YCbCr422
@@ -53,3 +53,6 @@ XDC 已按 EES-331 手册补齐 HDMI/ADV7511 引脚，并通过端口、重复�
 ## 固定流程
 
 每次关键动作后必须同步更新 `E:\competition\7_logs\YYYY-MM-DD\` 四个日志文件和 `E:\competition\HANDOFF.md`；验证原始日志必须保存到 `4_metrics`。
+## 2026-09-03 方案 A 最新状态
+
+用户已确认采用方案 A，并根据 Clocking Wizard 实际频率将相机返回的 `cam_pclk_0` 约束为 41.600 ns（24.03846 MHz）；外层主时钟 `clk_in1_0` 不添加重复 `create_clock`，`cam_pclk_0_IBUF` 已设置 `CLOCK_DEDICATED_ROUTE FALSE`。静态校验证据见 `4_metrics/logs/2026-09-03_hdmi_cam_pclk_plan_a_apply_run26`。当前状态为 `CAM PCLK PLAN A APPLIED / REIMPLEMENT PENDING`。下一步必须在 Vivado 2025.2 中重新加载 XDC 并重跑实现，检查 `cam_pclk` 域 setup/hold 时序；若不合格，先汇报再确认是否转向方案 B。Vivado 重新实现尚未执行。

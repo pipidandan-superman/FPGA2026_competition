@@ -216,3 +216,16 @@ EES-331 HDMI XDC 补齐和静态检查证据已提交并推送为 `origin/main@c
 - 推送目标：`origin/main`，远端已从 `3f3bca5` 更新到 `efaad7c`；
 - 提交内容：活跃 HDMI/ADV7511 RTL、三个仿真文件、最终 ModelSim 命令和 transcript、关键 Markdown 文档、当日日志、handoff、README 和 `.gitignore`；
 - 未提交：Vivado 工程目录、旧 TMDS/摄像头模块、旧 ADV7511 初始化模块、非活跃 `iic_multi_byte.v`、中间仿真目录、PDF 和其他构建产物。
+## 2026-09-03 相机 PCLK 方案 A 约束校验
+
+用户确认 Clocking Wizard 实际输出频率为 `pclk=25 MHz`、`pclk_x5=125 MHz`、`xclk=24.03846 MHz`、`clk_50m=50 MHz`。相机返回的 `cam_pclk_0` 与 `xclk` 频率一致，因此按 41.600 ns 约束，替代此前错误的 20 ns 保守约束。
+
+静态校验结果：
+
+- `clk_in1_0` 主时钟 `create_clock`：不存在，符合时钟 IP 内部约束要求；
+- `cam_pclk_0`：存在 `create_clock -period 41.600 -name cam_pclk`；
+- `cam_pclk_0_IBUF`：存在 `CLOCK_DEDICATED_ROUTE FALSE`；
+- EES-331 HDMI/ADV7511：23 个引脚约束和 23 个 LVCMOS33 电平约束保持完整；
+- 当前状态：`PLAN_A_APPLIED / REIMPLEMENT_PENDING`。
+
+本结论是约束静态校验，不替代实现结果。必须在 Vivado 2025.2 中重新加载 XDC 后重跑实现，并重点检查 `cam_pclk` 域 setup/hold 的 WNS/TNS。若该时钟域时序失败，先向用户汇报，再确认是否转向方案 B。原始证据在 `E:\competition\4_metrics\logs\2026-09-03_hdmi_cam_pclk_plan_a_apply_run26\plan_a_constraint_validation.txt`。

@@ -26,7 +26,7 @@ EES-331 HDMI 末级必须由 FPGA 直驱 TMDS 改为 ADV7511 并行总线驱动�
 - [x] 将 HDMI 活跃顶层改为等价 Verilog，并完成 ModelSim 回归和 Vivado Module Reference 检查。
 - [x] 按 EES-331 手册补齐 HDMI/ADV7511 引脚约束，并完成 XDC 端口与引脚检查。
 - [x] 分析 Vivado `place_design` 失败原因，并保存原始报告与引脚能力证据。
-- [ ] 按用户确认修复相机 PCLK 时钟布局问题。
+- [x] 按用户确认以方案 A 修复相机 PCLK 时钟布局约束。
 - [ ] 执行 BD 集成、综合、实现和时序验证。
 
 ## 非目标

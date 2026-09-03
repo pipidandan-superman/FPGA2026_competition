@@ -20,3 +20,6 @@
 ## 成功标准
 
 综合集成后无引脚错误、时序 WNS 不小于 0，最后由板级显示器稳定显示摄像头图像。当前关键源码、集中后的仿真资产、HDMI 约束和布局失败分析已保存在 `origin/main@92a9bdc`。
+## 2026-09-03 方案 A 更新
+
+相机 PCLK 方案 A 约束已按实际 `xclk=24.03846 MHz` 修正为 41.600 ns；主时钟 `clk_in1_0` 保持不添加外部 `create_clock`，`cam_pclk_0_IBUF` 已设置 `CLOCK_DEDICATED_ROUTE FALSE`。下一动作是在 Vivado 2025.2 中重新加载工程和 XDC，重跑实现，并重点检查 `cam_pclk` 域 setup/hold WNS/TNS。若实现后该域时序失败，先暂停并向用户汇报，再确认是否转向方案 B。方案 A 静态校验证据在 `4_metrics/logs/2026-09-03_hdmi_cam_pclk_plan_a_apply_run26`。
