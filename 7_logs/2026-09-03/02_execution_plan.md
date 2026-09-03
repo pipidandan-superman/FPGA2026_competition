@@ -55,3 +55,4 @@ Vivado 2025.2 顶层 `synth_1` 和 `impl_1` 均已完成，`place_design`、`rou
 UART self-test build PASS; board test pending.
 UART header dependency removed and rebuild pass.
 UART delay and print headers now declared locally and rebuild pass.
+GUI build and run log check pass; serial retry with COM6 open before Run.

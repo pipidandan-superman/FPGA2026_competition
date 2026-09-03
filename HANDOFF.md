@@ -62,3 +62,4 @@ XDC 已按 EES-331 手册补齐 HDMI/ADV7511 引脚，并通过端口、重复�
 UART self-test build PASS; board test pending.
 UART header dependency removed and rebuild pass.
 UART delay and print headers now declared locally and rebuild pass.
+GUI build and run log check pass; serial retry with COM6 open before Run.

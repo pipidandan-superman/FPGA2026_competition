@@ -244,3 +244,4 @@ Messages 中的 3 个综合 error 来自 OOC 子 run：`util_vector_logic`、`rs
 UART self-test build PASS; board test pending.
 UART header dependency removed and rebuild pass.
 UART delay and print headers now declared locally and rebuild pass.
+GUI build and run log check pass; serial retry with COM6 open before Run.

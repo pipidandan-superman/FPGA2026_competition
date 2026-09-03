@@ -32,3 +32,4 @@ OV5640+HDMI 显示链路已对照 2020 参考工程完成静态核对，清单�
 UART self-test build PASS; board test pending.
 UART header dependency removed and rebuild pass.
 UART delay and print headers now declared locally and rebuild pass.
+GUI build and run log check pass; serial retry with COM6 open before Run.
