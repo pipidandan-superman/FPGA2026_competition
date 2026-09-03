@@ -155,6 +155,8 @@ Vivado 返回 `MODULE_REF_OK: top_file_type=verilog`，确认 BD 可以创建该
 - Vivado：`E:\competition\4_metrics\logs\2026-09-03_hdmi_bd_verilog_ref_check_run23\vivado_module_ref_check.txt`
 - Vivado 脚本：`E:\competition\4_metrics\logs\2026-09-03_hdmi_bd_verilog_ref_check_run23\check_hdmi_verilog_module_ref.tcl`
 
+Verilog 顶层转换、仿真证据和 BD Module Reference 检查已提交并推送为 `origin/main@12d31e1`。
+
 历史 run19 transcript 保留在原证据目录；其启动脚本已按当前目录规范迁移到 `sim/run_modelsim.do`，历史版本可通过 Git 历史回溯。
 
 ## GitHub 选择性归档记录

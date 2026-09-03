@@ -28,7 +28,7 @@
 
 - `E:\competition\README.md`
 - `E:\competition\.gitignore`
-- GitHub 提交：`d9dd5b4`（测试台和仿真脚本集中后的最新归档）
+- GitHub 提交：`12d31e1`（Verilog 顶层转换后的最新归档）
 
 ## 风险
 

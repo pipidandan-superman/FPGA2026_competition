@@ -5,6 +5,7 @@
 - 日期：2026-09-03
 - 状态：HDMI TOP MODEL SIM PASS
 - GitHub：关键 RTL、集中后的测试台/仿真脚本、文档和最终证据已发布到 `main@d9dd5b4`
+- 最新顶层归档：`main@12d31e1`，活跃顶层已改为 `hdmi_out_adv7511.v`
 - 分辨率：480p / 640x480@60
 - 像素时钟：25.175 MHz
 - 颜色空间：BT.709，RGB888 转 YCbCr422
@@ -41,6 +42,7 @@ BD 集成限制已关闭：原 `.sv` 顶层被 Vivado 2020.2 Module Reference �
 - 已新增 `.gitignore`，排除 Vivado/ModelSim 缓存、库文件、波形和构建产物。
 - 已选择性提交活跃 RTL、testbench、关键 Markdown、最终 ModelSim 命令与原始 transcript；未提交工程目录、旧架构和非活跃突发 IIC 资产。
 - 已将三个测试台和 `run_modelsim.do` 集中到 `2_fpga/0_diaplay_test/sim`，迁移后整体 ModelSim 回归 PASS，提交为 `main@d9dd5b4`。
+- 已将活跃顶层从 `hdmi_out_adv7511.sv` 改为等价 `hdmi_out_adv7511.v`，ModelSim 回归 PASS，Vivado 2020.2 BD Module Reference 检查 PASS，提交为 `main@12d31e1`。
 
 ## 固定流程
 
