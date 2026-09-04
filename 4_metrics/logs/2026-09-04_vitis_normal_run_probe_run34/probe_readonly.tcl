@@ -1,0 +1,4 @@
+connect
+targets
+disconnect
+exit

@@ -1,0 +1,46 @@
+[1/55] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/xil_mem.c.obj
+[2/55] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/print.c.obj
+[3/55] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/xil_assert.c.obj
+[4/55] Building C object libsrc/xiltimer/src/CMakeFiles/xiltimer.dir/xiltimer.c.obj
+[5/55] Building C object libsrc/xiltimer/src/CMakeFiles/xiltimer.dir/core/default_timer/globaltimer_sleep_zynq.c.obj
+[6/55] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/xil_testcache.c.obj
+[7/55] ========== BSP Build Information ==========
+
+Compiler PATH: F:/vivado2025/2025.2/Vitis/gnu/aarch32/nt/gcc-arm-none-eabi/bin/arm-none-eabi-gcc.exe
+
+Compiler FLAGS:  -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard  -MMD -MP -specs=E:/competition/
+2_fpga/0_diaplay_test/vitis/display_test_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/Xilin
+x.spec -IE:/competition/2_fpga/0_diaplay_test/vitis/display_test_platform/ps7_cortexa9_0/standalone_
+
+ps7_cortexa9_0/bsp/include  -O2 -g -Wall -Wextra -fno-tree-loop-distribute-patterns -DNDEBUG
+
+
+===========================================
+** The above flags are BSP level flags. Increase verbosity to see component specific flags **
+===========================================
+[8/55] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/xil_testmem.c.obj
+[9/55] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/xil_testio.c.obj
+[10/55] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/xil_printf.c.obj
+[11/55] Linking C static library libsrc\xiltimer\src\libxiltimer.a
+[12/55] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/outbyte.c.obj
+[13/55] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/xil_util.c.obj
+[14/55] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/xil_sutil.c.obj
+[15/55] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/xplatform_info.c.obj
+[16/55] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/xpm_init.c.obj
+[17/55] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/inbyte.c.obj
+[18/55] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/xcortexa9_g.c.obj
+[19/55] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/intr/xinterrupt_wrap.c.obj
+FAILED: libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/intr/xinterrupt_wrap.c.obj 
+F:\vivado2025\2025.2\Vitis\gnu\aarch32\nt\gcc-arm-none-eabi\bin\arm-none-eabi-gcc.exe  -IE:/competition/2_fpga/0_diaplay_test/vitis/display_test_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp/include -isystem E:/competition/2_fpga/0_diaplay_test/vitis/display_test_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include -isystem F:/vivado2025/2025.2/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include -isystem F:/vivado2025/2025.2/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include-fixed -isystem F:/vivado2025/2025.2/Vitis/gnu/aarch32/nt/gcc-arm-none-eabi/aarch32-xilinx-eabi/usr/include -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard  -MMD -MP -specs=E:/competition/2_fpga/0_diaplay_test/vitis/display_test_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/Xilinx.spec -IE:/competition/2_fpga/0_diaplay_test/vitis/display_test_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include   -c -MD -MT libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/intr/xinterrupt_wrap.c.obj -MF libsrc\standalone\src\CMakeFiles\xilstandalone.dir\common\intr\xinterrupt_wrap.c.obj.d -o libsrc/standalone/src/CMakeFiles/xilstandalone.dir/common/intr/xinterrupt_wrap.c.obj -c E:/competition/2_fpga/0_diaplay_test/vitis/display_test_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/common/intr/xinterrupt_wrap.c
+In file included from E:/competition/2_fpga/0_diaplay_test/vitis/display_test_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/common/intr/xinterrupt_wrap.c:35:
+E:/competition/2_fpga/0_diaplay_test/vitis/display_test_platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/common/intr/xinterrupt_wrap.h:54:10: fatal error: xscugic.h: No such file or directory
+   54 | #include "xscugic.h"
+      |          ^~~~~~~~~~~
+compilation terminated.
+
+[20/55] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/arm/common/gcc/unlink.c.obj
+[21/55] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/arm/common/gcc/read.c.obj
+[22/55] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/arm/common/gcc/sbrk.c.obj
+[23/55] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/arm/common/gcc/cpputest_time.c.obj
+[24/55] Building C object libsrc/standalone/src/CMakeFiles/xilstandalone.dir/arm/common/gcc/isatty.c.obj
+ninja: build stopped: subcommand failed.

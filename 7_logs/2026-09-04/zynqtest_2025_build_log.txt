@@ -1,0 +1,33 @@
+-- Configuring done
+-- Generating done
+-- Build files have been written to: E:/competition/2_fpga/1_zynqtest_2025/vitis/app_component/build
+[0/1] Re-running CMake...
+[1/1] Cleaning all built files...
+Cleaning... 2 files.
+
+[1/3] cmd.exe /C "cd /D E:\competition\2_fpga\1_zynqtest_2025\vitis\app_component\build && F:\vivado2025\2025.2\tps\win64\cmake-3.24.2\bin\cmake.exe -E echo "" && F:\vivado2025\2025.2\tps\win64\cmake-3.24.2\bin\cmake.exe -E cmake_echo_color "Compiler Flags:  -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard  -MMD -MP -specs=E:/competition/" "2_fpga/1_zynqtest_2025/vitis/platform/export/platform/sw/standalone_ps7_cortexa9_0/Xilinx.spec -IE:/" competition/2_fpga/1_zynqtest_2025/vitis/platform/export/platform/sw/standalone_ps7_cortexa9_0/inclu "de  " && F:\vivado2025\2025.2\tps\win64\cmake-3.24.2\bin\cmake.exe -E echo "" && F:\vivado2025\2025.2\tps\win64\cmake-3.24.2\bin\cmake.exe -E cmake_echo_color "Linker Flags:  -Wl,-T -Wl,\"E:/competition/2_fpga/1_zynqtest_2025/vitis/app_component/src/lscript.ld\"" " -L\"E:/competition/2_fpga/1_zynqtest_2025/vitis/app_component/src/\" -L\"E:/competition/2_fpga/1_zynqt" "est_2025/vitis/platform/export/platform/sw/standalone_ps7_cortexa9_0/lib/\" -L\"/\" -Wl,--start-group,-" "lxilstandalone,-lxiltimer,-lxil,-lgcc,-lc -Wl,--end-group" && F:\vivado2025\2025.2\tps\win64\cmake-3.24.2\bin\cmake.exe -E echo "" && F:\vivado2025\2025.2\tps\win64\cmake-3.24.2\bin\cmake.exe -E echo ==========================================="
+
+Compiler Flags:  -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard  -MMD -MP -specs=E:/competition/
+2_fpga/1_zynqtest_2025/vitis/platform/export/platform/sw/standalone_ps7_cortexa9_0/Xilinx.spec -IE:/
+competition/2_fpga/1_zynqtest_2025/vitis/platform/export/platform/sw/standalone_ps7_cortexa9_0/inclu
+
+de  
+
+
+Linker Flags:  -Wl,-T -Wl,"E:/competition/2_fpga/1_zynqtest_2025/vitis/app_component/src/lscript.ld"
+
+ -L"E:/competition/2_fpga/1_zynqtest_2025/vitis/app_component/src/" -L"E:/competition/2_fpga/1_zynqt
+
+est_2025/vitis/platform/export/platform/sw/standalone_ps7_cortexa9_0/lib/" -L"/" -Wl,--start-group,-
+
+lxilstandalone,-lxiltimer,-lxil,-lgcc,-lc -Wl,--end-group
+
+
+===========================================
+[2/3] F:\vivado2025\2025.2\Vitis\gnu\aarch32\nt\gcc-arm-none-eabi\bin\arm-none-eabi-gcc.exe  -IE:/competition/2_fpga/1_zynqtest_2025/vitis/app_component/src -isystem E:/competition/2_fpga/1_zynqtest_2025/vitis/platform/export/platform/sw/standalone_ps7_cortexa9_0/include -isystem F:/vivado2025/2025.2/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include -isystem F:/vivado2025/2025.2/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include-fixed -isystem F:/vivado2025/2025.2/Vitis/gnu/aarch32/nt/gcc-arm-none-eabi/aarch32-xilinx-eabi/usr/include -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard  -MMD -MP -specs=E:/competition/2_fpga/1_zynqtest_2025/vitis/platform/export/platform/sw/standalone_ps7_cortexa9_0/Xilinx.spec -IE:/competition/2_fpga/1_zynqtest_2025/vitis/platform/export/platform/sw/standalone_ps7_cortexa9_0/include -MD -MT CMakeFiles/app_component.elf.dir/main.c.obj -MF CMakeFiles\app_component.elf.dir\main.c.obj.d -o CMakeFiles/app_component.elf.dir/main.c.obj -c E:/competition/2_fpga/1_zynqtest_2025/vitis/app_component/src/main.c
+[3/3] cmd.exe /C "cd . && F:\vivado2025\2025.2\Vitis\gnu\aarch32\nt\gcc-arm-none-eabi\bin\arm-none-eabi-gcc.exe -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard  -MMD -MP -specs=E:/competition/2_fpga/1_zynqtest_2025/vitis/platform/export/platform/sw/standalone_ps7_cortexa9_0/Xilinx.spec -IE:/competition/2_fpga/1_zynqtest_2025/vitis/platform/export/platform/sw/standalone_ps7_cortexa9_0/include  CMakeFiles/app_component.elf.dir/main.c.obj -o app_component.elf -LE:/competition/2_fpga/1_zynqtest_2025/vitis/platform/export/platform/sw/standalone_ps7_cortexa9_0/lib -Wl,-T -Wl,"E:/competition/2_fpga/1_zynqtest_2025/vitis/app_component/src/lscript.ld" -L"E:/competition/2_fpga/1_zynqtest_2025/vitis/app_component/src/" -L"E:/competition/2_fpga/1_zynqtest_2025/vitis/platform/export/platform/sw/standalone_ps7_cortexa9_0/lib/" -L"/" -Wl,--start-group,-lxilstandalone,-lxiltimer,-lxil,-lgcc,-lc -Wl,--end-group && cmd.exe /C "cd /D E:\competition\2_fpga\1_zynqtest_2025\vitis\app_component\build && F:\vivado2025\2025.2\Vitis\gnu\aarch32\nt\gcc-arm-none-eabi\bin\arm-none-eabi-size.exe --format=berkeley app_component.elf && F:\vivado2025\2025.2\Vitis\gnu\aarch32\nt\gcc-arm-none-eabi\bin\arm-none-eabi-size.exe --format=berkeley app_component.elf > E:/competition/2_fpga/1_zynqtest_2025/vitis/app_component/build/app_component.elf.size""
+   text	   data	    bss	    dec	    hex	filename
+  27273	   1416	  22960	  51649	   c9c1	app_component.elf
+
+   text	   data	    bss	    dec	    hex	filename
+  27273	   1416	  22960	  51649	   c9c1	E:\competition\2_fpga\1_zynqtest_2025\vitis\app_component\build\app_component.elf

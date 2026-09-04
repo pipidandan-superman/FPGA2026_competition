@@ -19,7 +19,7 @@ Do not create or update `<workspace>/log/`. If a legacy `log/`, `1_log/`, or `2_
 
 ### Path Enforcement
 
-For this competition workspace, the only valid engineering-log root is `C:\Users\Administrator\Desktop\competition\7_logs`. Treat `1_log/`, `2_log/`, and `log/` as retired legacy locations: never create them, never place new records there, and never use them as a fallback. Before writing a daily record, resolve the destination and require that it is exactly `<workspace>/7_logs/YYYY-MM-DD/`; if it is not, stop and correct the path before creating any file.
+For this competition workspace, the only valid engineering-log root is `E:\competition\7_logs`. Treat `1_log/`, `2_log/`, and `log/` as retired legacy locations: never create them, never place new records there, and never use them as a fallback. Before writing a daily record, resolve the destination and require that it is exactly `<workspace>/7_logs/YYYY-MM-DD/`; if it is not, stop and correct the path before creating any file.
 
 ## Merged ViTA log-management rules
 

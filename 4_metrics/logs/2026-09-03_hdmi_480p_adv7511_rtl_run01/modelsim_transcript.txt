@@ -1,0 +1,28 @@
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module ODDR
+# 
+# Top level modules:
+# 	ODDR
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling package adv7511_init_table_pkg
+# 
+# Top level modules:
+# 	--none--
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module rgb2ycbcr422
+# 
+# Top level modules:
+# 	rgb2ycbcr422
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module adv7511_i2c_init
+# -- Importing package adv7511_init_table_pkg
+# ** Error: E:/competition/2_fpga/0_diaplay_test/rtl/hdmi_new/adv7511_i2c_init.sv(43): near "unsigned": syntax error, unexpected unsigned, expecting '\''
+# ** Error: E:/competition/2_fpga/0_diaplay_test/rtl/hdmi_new/adv7511_i2c_init.sv(77): (vlog-2730) Undefined variable: 'POWER_UP_DELAY_CYCLES'.
+# 
+# ** Error: E:/competition/2_fpga/0_diaplay_test/rtl/hdmi_new/adv7511_i2c_init.sv(137): (vlog-2730) Undefined variable: 'POWER_UP_DELAY_CYCLES'.
+# 
+# ** Error: D:/work/modelsim/win64/vlog failed.
+# Error in macro E:\competition\4_metrics\logs\2026-09-03_hdmi_480p_adv7511_rtl_run01\run_modelsim.do line 10
+# D:/work/modelsim/win64/vlog failed.
+#     while executing
+# "vlog -work E:/competition/4_metrics/logs/2026-09-03_hdmi_480p_adv7511_rtl_run01/hdmi_rtl_run01_lib -sv E:/competition/2_fpga/0_diaplay_test/rtl/hdmi_n..."

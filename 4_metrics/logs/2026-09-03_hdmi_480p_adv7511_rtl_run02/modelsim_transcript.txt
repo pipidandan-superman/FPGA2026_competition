@@ -1,0 +1,89 @@
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module ODDR
+# 
+# Top level modules:
+# 	ODDR
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling package adv7511_init_table_pkg
+# 
+# Top level modules:
+# 	--none--
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module rgb2ycbcr422
+# 
+# Top level modules:
+# 	rgb2ycbcr422
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module adv7511_i2c_init
+# -- Importing package adv7511_init_table_pkg
+# 
+# Top level modules:
+# 	adv7511_i2c_init
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module hdmi_out_adv7511
+# 
+# Top level modules:
+# 	hdmi_out_adv7511
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module hdmi_out_adv7511_tb
+# 
+# Top level modules:
+# 	hdmi_out_adv7511_tb
+# vsim -voptargs=+acc E:/competition/4_metrics/logs/2026-09-03_hdmi_480p_adv7511_rtl_run02/hdmi_rtl_run02_lib.hdmi_out_adv7511_tb 
+# ** Note: (vsim-3812) Design is being optimized...
+# 
+# ** Note: (vopt-143) Recognized 1 FSM in module "adv7511_i2c_init(fast)".
+# 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading work.hdmi_out_adv7511_tb(fast)
+# Loading work.hdmi_out_adv7511(fast)
+# Loading work.rgb2ycbcr422(fast)
+# Loading work.adv7511_init_table_pkg(fast)
+# Loading work.adv7511_i2c_init(fast)
+# Loading work.ODDR(fast)
+# ** Error: YCbCr mismatch at pixel 0: got 1888 expected 1080
+#    Time: 420 ns  Scope: hdmi_out_adv7511_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/hdmi_out_adv7511_tb.sv Line: 189
+# ** Error: DE pipeline mismatch
+#    Time: 420 ns  Scope: hdmi_out_adv7511_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/hdmi_out_adv7511_tb.sv Line: 192
+# ** Error: YCbCr mismatch at pixel 2: got 1988 expected 1877
+#    Time: 500 ns  Scope: hdmi_out_adv7511_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/hdmi_out_adv7511_tb.sv Line: 189
+# ** Error: YCbCr mismatch at pixel 3: got 1977 expected 1988
+#    Time: 540 ns  Scope: hdmi_out_adv7511_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/hdmi_out_adv7511_tb.sv Line: 189
+# ** Error: YCbCr mismatch at pixel 4: got 1976 expected 1977
+#    Time: 580 ns  Scope: hdmi_out_adv7511_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/hdmi_out_adv7511_tb.sv Line: 189
+# ** Error: YCbCr mismatch at pixel 5: got 1a76 expected 1989
+#    Time: 620 ns  Scope: hdmi_out_adv7511_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/hdmi_out_adv7511_tb.sv Line: 189
+# ** Error: YCbCr mismatch at pixel 6: got 1a89 expected 1a76
+#    Time: 660 ns  Scope: hdmi_out_adv7511_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/hdmi_out_adv7511_tb.sv Line: 189
+# ** Error: YCbCr mismatch at pixel 7: got 1b89 expected 1a89
+#    Time: 700 ns  Scope: hdmi_out_adv7511_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/hdmi_out_adv7511_tb.sv Line: 189
+# ** Error: YCbCr mismatch at pixel 8: got 1b89 expected 1b75
+#    Time: 740 ns  Scope: hdmi_out_adv7511_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/hdmi_out_adv7511_tb.sv Line: 189
+# ** Error: YCbCr mismatch at pixel 9: got 1c74 expected 1b89
+#    Time: 780 ns  Scope: hdmi_out_adv7511_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/hdmi_out_adv7511_tb.sv Line: 189
+# ** Error: YCbCr mismatch at pixel 10: got 1c73 expected 1c74
+#    Time: 820 ns  Scope: hdmi_out_adv7511_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/hdmi_out_adv7511_tb.sv Line: 189
+# ** Error: YCbCr mismatch at pixel 11: got 1d73 expected 1c89
+#    Time: 860 ns  Scope: hdmi_out_adv7511_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/hdmi_out_adv7511_tb.sv Line: 189
+# ** Error: YCbCr mismatch at pixel 12: got 1d89 expected 1d73
+#    Time: 900 ns  Scope: hdmi_out_adv7511_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/hdmi_out_adv7511_tb.sv Line: 189
+# ** Error: YCbCr mismatch at pixel 13: got 1e89 expected 1d89
+#    Time: 940 ns  Scope: hdmi_out_adv7511_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/hdmi_out_adv7511_tb.sv Line: 189
+# ** Error: YCbCr mismatch at pixel 14: got 1e8a expected 1e72
+#    Time: 980 ns  Scope: hdmi_out_adv7511_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/hdmi_out_adv7511_tb.sv Line: 189
+# ** Error: YCbCr mismatch at pixel 15: got 1e71 expected 1e8a
+#    Time: 1020 ns  Scope: hdmi_out_adv7511_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/hdmi_out_adv7511_tb.sv Line: 189
+# Break key hit 
+# Break at E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/hdmi_out_adv7511_tb.sv line 61
+# Stopped at E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/hdmi_out_adv7511_tb.sv line 61 
+# Simulation Breakpoint: Break at E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/hdmi_out_adv7511_tb.sv line 61
+# MACRO E:\competition\4_metrics\logs\2026-09-03_hdmi_480p_adv7511_rtl_run02\run_modelsim.do PAUSED at line 24

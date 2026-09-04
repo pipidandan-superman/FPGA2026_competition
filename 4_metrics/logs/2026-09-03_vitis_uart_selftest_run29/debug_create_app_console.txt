@@ -1,0 +1,15 @@
+
+****** Xilinx Vitis Development Environment
+****** Vitis v2025.2 (64-bit)
+****** SW Build 6295257 on 2025-11-13-08:29:30
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+Vitis Server started on port '51116'.
+component: 'project_name': display_test_platform
+'project_location': 'C:\vws_uart_s5\display_test_platform'
+
+error: [31m[31mCannot create application component, status = StatusCode.INTERNAL,
+                                details = 'Failed to create component: debug_uart_app. The Platform 'C:\vws_uart_s5\display_test_platform' does not exist in the repository.'[0m'[0m
+error: 'Platform' object has no attribute 'startswith'
+Shutting down Vitis server running on port '51116'

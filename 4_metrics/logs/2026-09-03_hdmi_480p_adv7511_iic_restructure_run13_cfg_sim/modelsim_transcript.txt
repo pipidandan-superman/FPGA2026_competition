@@ -1,0 +1,88 @@
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling package adv7511_init_table_pkg
+# 
+# Top level modules:
+# 	--none--
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module iic_protocal
+# 
+# Top level modules:
+# 	iic_protocal
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module adv7511_controller
+# 
+# Top level modules:
+# 	adv7511_controller
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module adv7511_iic_data_xfer
+# -- Importing package adv7511_init_table_pkg
+# 
+# Top level modules:
+# 	adv7511_iic_data_xfer
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module adv7511_cfg_top
+# 
+# Top level modules:
+# 	adv7511_cfg_top
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module adv7511_cfg_top_tb
+# -- Importing package adv7511_init_table_pkg
+# 
+# Top level modules:
+# 	adv7511_cfg_top_tb
+# vsim E:/competition/4_metrics/logs/2026-09-03_hdmi_480p_adv7511_iic_restructure_run13_cfg_sim/hdmi_iic_restructure_cfg_lib.adv7511_cfg_top_tb 
+# ** Note: (vsim-3812) Design is being optimized...
+# 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading work.adv7511_init_table_pkg(fast)
+# Loading work.adv7511_cfg_top_tb(fast)
+# Loading work.iic_protocal(fast)
+# ** Error: Config mismatch index=0 bytes=03 00 00
+#    Time: 1012020 ns  Scope: adv7511_cfg_top_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/adv7511_cfg_top_tb.sv Line: 141
+# ** Error: Config mismatch index=1 bytes=03 e0 00
+#    Time: 1016860 ns  Scope: adv7511_cfg_top_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/adv7511_cfg_top_tb.sv Line: 141
+# ** Error: Config mismatch index=2 bytes=03 e0 30
+#    Time: 1021700 ns  Scope: adv7511_cfg_top_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/adv7511_cfg_top_tb.sv Line: 141
+# ** Error: Config mismatch index=3 bytes=03 e0 61
+#    Time: 1026540 ns  Scope: adv7511_cfg_top_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/adv7511_cfg_top_tb.sv Line: 141
+# ** Error: Config mismatch index=4 bytes=03 e0 a4
+#    Time: 1031380 ns  Scope: adv7511_cfg_top_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/adv7511_cfg_top_tb.sv Line: 141
+# ** Error: Config mismatch index=5 bytes=03 e0 a4
+#    Time: 1036220 ns  Scope: adv7511_cfg_top_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/adv7511_cfg_top_tb.sv Line: 141
+# ** Error: Config mismatch index=6 bytes=03 e0 10
+#    Time: 1041060 ns  Scope: adv7511_cfg_top_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/adv7511_cfg_top_tb.sv Line: 141
+# ** Error: Config mismatch index=7 bytes=03 e0 03
+#    Time: 1045900 ns  Scope: adv7511_cfg_top_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/adv7511_cfg_top_tb.sv Line: 141
+# ** Error: Config mismatch index=8 bytes=03 e0 ff
+#    Time: 1050740 ns  Scope: adv7511_cfg_top_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/adv7511_cfg_top_tb.sv Line: 141
+# ** Error: Config mismatch index=9 bytes=03 e0 ff
+#    Time: 1055580 ns  Scope: adv7511_cfg_top_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/adv7511_cfg_top_tb.sv Line: 141
+# ** Error: Config mismatch index=10 bytes=03 e0 55
+#    Time: 1060420 ns  Scope: adv7511_cfg_top_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/adv7511_cfg_top_tb.sv Line: 141
+# ** Error: Config mismatch index=11 bytes=03 e0 d0
+#    Time: 1065260 ns  Scope: adv7511_cfg_top_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/adv7511_cfg_top_tb.sv Line: 141
+# ** Error: Config mismatch index=12 bytes=03 e0 01
+#    Time: 1070100 ns  Scope: adv7511_cfg_top_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/adv7511_cfg_top_tb.sv Line: 141
+# ** Error: Config mismatch index=13 bytes=03 e0 30
+#    Time: 1074940 ns  Scope: adv7511_cfg_top_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/adv7511_cfg_top_tb.sv Line: 141
+# ** Error: Config mismatch index=14 bytes=03 e0 46
+#    Time: 1079780 ns  Scope: adv7511_cfg_top_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/adv7511_cfg_top_tb.sv Line: 141
+# ** Error: Config mismatch index=15 bytes=03 e0 0a
+#    Time: 1084620 ns  Scope: adv7511_cfg_top_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/adv7511_cfg_top_tb.sv Line: 141
+# ** Error: Config mismatch index=16 bytes=03 e0 4a
+#    Time: 1089460 ns  Scope: adv7511_cfg_top_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/adv7511_cfg_top_tb.sv Line: 141
+# ** Error: Config mismatch index=17 bytes=03 e0 02
+#    Time: 1094300 ns  Scope: adv7511_cfg_top_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/adv7511_cfg_top_tb.sv Line: 141
+# ** Error: Configuration checks failed: ack=0 compare=18 checked=18
+#    Time: 1094340 ns  Scope: adv7511_cfg_top_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/adv7511_cfg_top_tb.sv Line: 182
+# ** Note: $finish    : E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/adv7511_cfg_top_tb.sv(191)
+#    Time: 1094340 ns  Iteration: 2  Instance: /adv7511_cfg_top_tb

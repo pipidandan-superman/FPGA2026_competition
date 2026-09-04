@@ -1,0 +1,67 @@
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module ODDR
+# 
+# Top level modules:
+# 	ODDR
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling package adv7511_init_table_pkg
+# 
+# Top level modules:
+# 	--none--
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module rgb2ycbcr422
+# 
+# Top level modules:
+# 	rgb2ycbcr422
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module iic_protocal
+# 
+# Top level modules:
+# 	iic_protocal
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module adv7511_controller
+# 
+# Top level modules:
+# 	adv7511_controller
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module adv7511_iic_data_xfer
+# -- Importing package adv7511_init_table_pkg
+# 
+# Top level modules:
+# 	adv7511_iic_data_xfer
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module adv7511_cfg_top
+# 
+# Top level modules:
+# 	adv7511_cfg_top
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module hdmi_out_adv7511
+# 
+# Top level modules:
+# 	hdmi_out_adv7511
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module hdmi_out_adv7511_tb
+# 
+# Top level modules:
+# 	hdmi_out_adv7511_tb
+# vsim E:/competition/4_metrics/logs/2026-09-03_hdmi_480p_adv7511_overall_sim_run17/hdmi_overall_run17_lib.hdmi_out_adv7511_tb 
+# ** Note: (vsim-3812) Design is being optimized...
+# 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading work.adv7511_init_table_pkg(fast)
+# Loading work.hdmi_out_adv7511_tb(fast)
+# Loading work.iic_protocal(fast)
+# ** Error: I2C start before 100 ms: 180000
+#    Time: 126092980 ns  Scope: hdmi_out_adv7511_tb File: E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/hdmi_out_adv7511_tb.sv Line: 313
+# TEST_PASS: pixels=16 writes=18 i2c_start_ns=180000
+# ** Note: $finish    : E:/competition/2_fpga/0_diaplay_test/sim/hdmi_new/hdmi_out_adv7511_tb.sv(324)
+#    Time: 126093780 ns  Iteration: 1  Instance: /hdmi_out_adv7511_tb
