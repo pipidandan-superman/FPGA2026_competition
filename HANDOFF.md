@@ -2,8 +2,13 @@
 
 ## 状态
 
-- 日期：2026-09-03
-- 2026-09-04 更新：Vitis 分层验证代码已写入 `2_fpga/0_diaplay_test/vitis/app_component/src/main.c`；Ninja 构建 PASS。当前代码按 UART → DDR pattern/保持测试 → VDMA MM2S 640×480 packed RGB888 彩条顺序执行；S2MM 保持禁用。板级 UART-first/DDR/VDMA/HDMI PASS 尚未获得。
+- 日期：2026-09-04
+- 2026-09-04 板级链路进度：正常 Vitis Run 的 UART PASS；DDR pattern/保持测试 PASS；VDMA MM2S 单帧和连续读协议 PASS。PS/DDR/VDMA 链路驱动的 HDMI 首轮板测无显示，后续发现一次测试加载了旧 bit，因此该轮不能作为有效结论。
+- 2026-09-04 纯 PL HDMI 隔离测试：实际使用 `2_fpga/1_zynqtest_2025/project_1/project_1.xpr`，顶层已确认为 `hdmi_colorbar_vtc_top`。链路为 100 MHz → `clk_wiz_0` 25 MHz → 自研 1-PPC 480p VTC → 5 条竖彩条 → `hdmi_out_adv7511`。显示器已点亮，说明时序、HDMI 时钟、DE 和 I2C 配置链路基本可用；颜色仍不正确。
+- 2026-09-04 颜色根因修正：原 ADV7511 初始化表把外部 YCbCr422 总线误配置为 RGB/YCbCr444，且 AVI Infoframe 错写为 YCbCr444/VIC4。已将 `0x16` 改为 `0xB9`（YCbCr422 Style 1），AVI PB1 `0x55` 改为 `0x29`，VIC `0x57` 改为 `0x01`，checksum `0x54` 同步改为 `0xAB`。修改位于 `2_fpga/0_diaplay_test/rtl/hdmi_new/adv7511_init_table_pkg.sv`。
+- 2026-09-04 复测纪律：`1_zynqtest_2025/project_1` 中曾出现综合 DCP 时间早于源码修改、bit 略晚生成的情况。颜色修正后必须对 `synth_1` 和 `impl_1` 执行 Reset Runs，再综合/实现/生成 bit；只有确认新 bit 晚于全部源码后，板测才有效。
+- 2026-09-04 纯 PL 彩条定义：640×480@60，5 条竖彩条，每条 128 像素；预期从左到右为白、黄、青、绿、品红，亮度递减。XDC 只保留 EES-331 引脚和 LVCMOS33 电平，不做时序约束。ADV7511 当前表中的 `0x55~0x5E` 是 AVI Infoframe，不是内部测试彩条。
+- 2026-09-04 辅助工程脚本：新增 `2_fpga/0_diaplay_test/rtl/hdmi_new/build_hdmi_colorbar_vtc.tcl`，可创建独立 Vivado 工程并生成 25 MHz Clocking Wizard；但实际板测复测也可继续使用 `2_fpga/1_zynqtest_2025/project_1`。
 - 2026-09-04 XSCT fallback：普通 Vitis Run 再现无串口输出时，使用 `4_metrics/logs/2026-09-04_vitis_uart_bypass_run33/run_uart_bypass.tcl` 手动初始化 PS、直写 UART1 FIFO、下载并运行 ELF。先看 `XSCT OK` 是否出现，以区分串口路径和应用运行问题。
 - 2026-09-04 正常启动链修正：`app_component/_ide/launch.json` 原指向旧 `.bit` 和旧 `ps7_init.tcl`，已改为当前 XSA 的 `hw/sdt` 产物。进一步发现 FSBL 虽然重编但实际源 `zynq_fsbl/ps7_init.c` 仍是旧 DDR 配置；已同步为当前 XSA 生成版本并重建，`export/.../boot/fsbl.elf` 已同步。普通 Vitis Run/Debug 复测仍待用户执行。
 - 2026-09-04 UART 自初始化：正常 Run 仍无输出后，`main.c` 已在入口第一行自初始化 UART1 时钟、MIO48/49、115200-8-N1 和 RX/TX，不再依赖 launch/PS7 是否成功完成 UART 配置。应用构建 PASS；下一步只用 Vitis 正常 Run/Debug 验收。

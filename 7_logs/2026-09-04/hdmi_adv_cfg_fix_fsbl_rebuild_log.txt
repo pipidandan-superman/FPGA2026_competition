@@ -1,0 +1,36 @@
+[1/14] ==========Application Build Information ==========
+
+Compiler Flags:  -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard  -MMD -MP -specs=E:/competition/
+2_fpga/0_diaplay_test/vitis/display_test_plat/zynq_fsbl/zynq_fsbl_bsp/Xilinx.spec -IE:/competition/2
+_fpga/0_diaplay_test/vitis/display_test_plat/zynq_fsbl/zynq_fsbl_bsp/include -Wall -Wextra      -O0 
+ -g3     -U__clang__  
+
+Linker Flags:       -Os -Wl,--gc-sections -n -T"E:/competition/2_fpga/0_diaplay_test/vitis/display_t
+est_plat/zynq_fsbl/lscript.ld" -L"E:/competition/2_fpga/0_diaplay_test/vitis/display_test_plat/zynq_
+
+fsbl/zynq_fsbl_bsp/lib/" -L"/" -Wl,--start-group,-lxiltimer,-lxilffs,-lxilrsa,-lxil,-lxilstandalone,
+
+-lxiltimer,-lxilffs,-lxilrsa,-lgcc,-lc -Wl,--end-group
+
+
+===========================================
+[2/14] Building ASM object CMakeFiles/fsbl.elf.dir/fsbl_handoff.S.obj
+[3/14] Building C object CMakeFiles/fsbl.elf.dir/rsa.c.obj
+[4/14] Building C object CMakeFiles/fsbl.elf.dir/nand.c.obj
+[5/14] Building C object CMakeFiles/fsbl.elf.dir/qspi.c.obj
+[6/14] Building C object CMakeFiles/fsbl.elf.dir/sd.c.obj
+[7/14] Building C object CMakeFiles/fsbl.elf.dir/fsbl_hooks.c.obj
+[8/14] Building C object CMakeFiles/fsbl.elf.dir/nor.c.obj
+[9/14] Building C object CMakeFiles/fsbl.elf.dir/pcap.c.obj
+[10/14] Building C object CMakeFiles/fsbl.elf.dir/md5.c.obj
+[11/14] Building C object CMakeFiles/fsbl.elf.dir/ps7_init.c.obj
+E:/competition/2_fpga/0_diaplay_test/vitis/display_test_plat/zynq_fsbl/ps7_init.c: In function 'ps7_config':
+E:/competition/2_fpga/0_diaplay_test/vitis/display_test_plat/zynq_fsbl/ps7_init.c:7291:35: warning: comparison of integer expressions of different signedness: 'long unsigned int' and 'int' [-Wsign-compare]
+ 7291 |                     while ((*addr < delay)) {
+      |                                   ^
+[12/14] Building C object CMakeFiles/fsbl.elf.dir/main.c.obj
+[13/14] Building C object CMakeFiles/fsbl.elf.dir/image_mover.c.obj
+[14/14] Linking C executable fsbl.elf
+   text	   data	    bss	    dec	    hex	filename
+  48153	   7344	  67988	 123485	  1e25d	fsbl.elf
+

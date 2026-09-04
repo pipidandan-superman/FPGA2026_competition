@@ -1,0 +1,365 @@
+[1/1] Cleaning all built files...
+Cleaning... 2 files.
+
+[INFO]: Starting Application build process
+[INFO]: Building Application
+[1/3] ==========Application Build Information ==========
+
+Compiler Flags:  -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -MMD -MP -specs=E:/competition/2
+_fpga/0_diaplay_test/vitis/display_test_plat/export/display_test_plat/sw/standalone_ps7_cortexa9_0/X
+ilinx.spec -IE:/competition/2_fpga/0_diaplay_test/vitis/display_test_plat/export/display_test_plat/s
+w/standalone_ps7_cortexa9_0/include -Wall -Wextra      -O0  -g3     -U__clang__  
+
+Linker Flags:       -Wl,-T -Wl,"E:/competition/2_fpga/0_diaplay_test/vitis/app_component/src/lscript
+.ld" -L"E:/competition/2_fpga/0_diaplay_test/vitis/app_component/src/" -L"E:/competition/2_fpga/0_di
+aplay_test/vitis/display_test_plat/export/display_test_plat/sw/standalone_ps7_cortexa9_0/lib/" -L"/"
+ -Wl,--start-group,-lxilstandalone,-lxiltimer,-lxil,-lgcc,-lc -Wl,--end-group
+
+===========================================
+[2/3] Building C object CMakeFiles/app_component.elf.dir/main.c.obj
+[3/3] Linking C executable app_component.elf
+   text	   data	    bss	    dec	    hex	filename
+
+  35693	   1428	  22996	  60117	   ead5	app_component.elf
+
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           ARM
+  Version:                           0x1
+  Entry point address:               0x100000
+  Start of program headers:          52 (bytes into file)
+  Start of section headers:          211304 (bytes into file)
+  Flags:                             0x5000400, Version5 EABI, hard-float ABI
+  Size of this header:               52 (bytes)
+  Size of program headers:           32 (bytes)
+  Number of program headers:         3
+  Size of section headers:           40 (bytes)
+  Number of section headers:         30
+  Section header string table index: 29
+00102e56 t .divsi3_skip_div0_test
+00102bd8 t .udivsi3_skip_div0_test
+001050b0 D ___CTORS_END___
+001050b0 D ___CTORS_LIST___
+001050b0 D ___DTORS_END___
+001050b0 D ___DTORS_LIST___
+001111f0 B __abort_stack
+00102e50 T __aeabi_idiv
+00103100 W __aeabi_idiv0
+001030e4 T __aeabi_idivmod
+00103100 W __aeabi_ldiv0
+00102bd8 T __aeabi_uidiv
+00102e34 T __aeabi_uidivmod
+00103104 T __aeabi_uldivmod
+0010ca11 N __ARM.attributes_end
+0010c01c N __ARM.attributes_start
+0010c1ac B __atexit
+0010c1e8 B __bss_end
+0010c01c B __bss_start
+001038d8 T __call_exitprocs
+0010288c T __cpu_init
+001050b0 D __CTOR_END__
+001050b0 D __CTOR_LIST__
+001050b0 D __data_end
+00104b30 D __data_start
+001050b0 D __data1_end
+001050b0 D __data1_start
+00102e50 T __divsi3
+00100458 t __do_global_dtors_aux
+0010c010 t __do_global_dtors_aux_fini_array_entry
+0010c01c D __drvcfgsecdata_end
+0010c018 D __drvcfgsecdata_size
+0010c018 D __drvcfgsecdata_start
+00104b30 D __dso_handle
+001050b0 D __DTOR_END__
+001050b0 D __DTOR_LIST__
+001050b0 r __EH_FRAME_BEGIN__
+001050e8 R __eh_framehdr_end
+001050e8 R __eh_framehdr_start
+00104450 T __errno
+0010c008 R __exidx_end
+0010c000 R __exidx_start
+0010c014 T __fini_array_end
+0010c010 T __fini_array_start
+001115f0 B __fiq_stack
+001050b0 D __fixup_end
+001050b0 D __fixup_start
+0010325c t __fp_lock
+00103468 T __fp_lock_all
+001032bc t __fp_unlock
+00103480 T __fp_unlock_all
+0010c008 t __frame_dummy_init_array_entry
+001050e4 r __FRAME_END__
+0010c010 T __init_array_end
+0010c008 T __init_array_start
+001105f0 B __irq_stack
+00103798 T __libc_fini_array
+00103740 T __libc_init_array
+00104ca0 D __malloc_av_
+0010c1b4 B __malloc_current_mallinfo
+001041bc T __malloc_lock
+0010c1dc B __malloc_max_sbrked_mem
+0010c1e0 B __malloc_max_total_mem
+001050a8 D __malloc_sbrk_base
+0010c1b0 B __malloc_top_pad
+001050ac D __malloc_trim_threshold
+001041c0 T __malloc_unlock
+0010c000 R __mmu_tbl_end
+00108000 R __mmu_tbl_start
+0010c008 T __preinit_array_end
+0010c008 T __preinit_array_start
+00104b2d R __rodata_end
+0010467c R __rodata_start
+00104b2d D __rodata1_end
+00104b2d D __rodata1_start
+0010c01c N __sbss_end
+0010c01c N __sbss_start
+00104b2d D __sbss2_end
+00104b2d D __sbss2_start
+00103568 T __sclose
+0010c01c N __sdata_end
+0010c01c N __sdata_start
+00104b2d D __sdata2_end
+00104b2d D __sdata2_start
+00103500 T __seofread
+0010c06c B __sf
+00104254 T __sflush_r
+00103398 T __sfp
+00103460 T __sfp_lock_acquire
+00103464 T __sfp_lock_release
+00104b6c D __sglue
+0010343c T __sinit
+001034dc T __sread
+00103544 T __sseek
+001101f0 B __stack
+0010c1a4 B __stdio_exit_handler
+00110df0 B __supervisor_stack
+00103504 T __swrite
+0010c01c N __tbss_end
+0010c01c N __tbss_start
+0010c01c N __tdata_end
+0010c01c N __tdata_start
+00103134 T __udivmoddi4
+00102bd8 T __udivsi3
+001119f0 B __undef_stack
+00110df0 B _abort_stack_end
+00000400 A _ABORT_STACK_SIZE
+001000cc T _boot
+00104528 W _close
+00103618 T _close_r
+001049f4 R _ctype_
+00104524 W _exit
+001041c4 T _fclose_r
+00104390 T _fflush_r
+00104670 T _fini
+001111f0 B _fiq_stack_end
+00000400 A _FIQ_STACK_SIZE
+00103a48 T _free_r
+00103498 T _fwalk_sglue
+0010c1f0 B _heap
+0010e1f0 B _heap_end
+00002000 A _HEAP_SIZE
+0010c1f0 B _heap_start
+00104b80 D _impure_data
+00104b78 D _impure_ptr
+00104664 T _init
+001101f0 B _irq_stack_end
+00000400 A _IRQ_STACK_SIZE
+00104604 W _lseek
+001036b0 T _lseek_r
+00103c50 T _malloc_r
+00103988 T _malloc_trim_r
+001000cc T _prestart
+001044a0 W _read
+001036e0 T _read_r
+00103640 T _reclaim_reent
+001044e4 W _sbrk
+0010440c T _sbrk_r
+0010c01c A _SDA_BASE_
+00104b2d A _SDA2_BASE_
+001101f0 B _stack
+0010e1f0 B _stack_end
+00002000 A _STACK_SIZE
+00101a48 T _start
+001105f0 B _supervisor_stack_end
+00000800 A _SUPERVISOR_STACK_SIZE
+001115f0 B _undef_stack_end
+00000400 A _UNDEF_STACK_SIZE
+00100000 T _vector_table
+0010458c W _write
+00103710 T _write_r
+0010467c r all_implied_fbits
+00104af8 r all_implied_fbits
+001000e0 t CheckEFUSE
+0010327c t cleanup_stdio
+001049c4 r colors.2
+0010c01c b completed.1
+00002000 a CRValHiVectorAddr
+00001005 a CRValMmuCac
+0010c044 B DataAbortAddr
+00100080 t DataAbortHandler
+001027f4 T DataAbortInterrupt
+3fffffff a DDR_END
+00100508 t ddr_pattern
+000003ff a DDR_REG
+3ff00000 a DDR_SIZE
+00100000 a DDR_START
+f800d010 a EFUSEStaus
+001119f0 B end
+0010c1a8 B errno
+0010323c T exit
+001049dc r expected.1
+00104244 T fclose
+001043bc T fflush
+0010093c t fill_colorbars
+001003c0 t finished
+00100030 t FIQHandler
+001027a4 T FIQInterrupt
+00100034 t FIQLoop
+40000000 a FPEXC_EN
+00100484 t frame_dummy
+001032c0 t global_stdio_init.part.0
+0010c1e4 b heap.1
+0010c1f0 B HeapBase
+0010e1f0 B HeapLimit
+0010c038 b heartbeat.0
+00102bb8 T inbyte
+00100344 t invalidate_dcache
+00100020 t IRQHandler
+001027b8 T IRQInterrupt
+0010c068 b IsSleepTimerStarted.0
+72360000 a L2CCAuxControl
+f8f02104 a L2CCAuxCrtl
+00000001 a L2CCControl
+f8f02100 a L2CCCrtl
+00000121 a L2CCDataLatency
+f8f0210c a L2CCDataLatReg
+f8f02220 a L2CCIntClear
+f8f0221c a L2CCIntRaw
+f8f02730 a L2CCSync
+00000111 a L2CCTAGLatency
+f8f02108 a L2CCTAGLatReg
+f8f0277c a L2CCWay
+00100358 t loop1
+00100394 t loop2
+00100398 t loop3
+fe00000f a LRemap
+001045e8 W lseek
+00100f48 T main
+00103570 T memset
+00108000 R MMUTable
+001028f8 T msleep
+0010c020 b object.0
+00100118 t OKToRun
+00102b9c T outbyte
+00101278 t outnum
+001010a0 t outnum1
+0010c040 B PrefetchAbortAddr
+001000a0 t PrefetchAbortHandler
+00102808 T PrefetchAbortInterrupt
+001005b0 t print_ddr_error
+f8f02000 a PSS_L2CC_BASE_ADDR
+f8000000 a PSS_SLCR_BASE_ADDR
+0010445c W read
+0fffff00 a RESERVED
+001007a8 t run_ddr_hold_test
+0010061c t run_ddr_write_read
+00100d5c t run_vdma_hdmi_test
+00000000 a SECT
+00000000 a shift
+00000000 a shift
+001003b4 t skip
+f8000244 a SLCRCPURSTReg
+00020202 a SLCRL2cRamConfig
+f8000a1c a SLCRL2cRamReg
+0000767b a SLCRlockKey
+f8000004 a SLCRlockReg
+0000df0d a SLCRUnlockKey
+f8000008 a SLCRUnlockReg
+001028c8 T sleep
+00103260 t stdio_exit_handler
+00103800 T strlen
+0010005c t SVCHandler
+001027e0 T SWInterrupt
+001002a0 t Sync
+00104434 T sysconf
+0010c048 B TimerInst
+00000000 a UNDEF_REG
+00100040 t Undefined
+001027cc T UndefinedException
+0010c03c B UndefinedExceptionAddr
+00102928 T usleep
+00100c9c t vdma_frame_count
+00100cc4 t vdma_print_registers
+00100c54 t vdma_reset_channel
+00100a8c t verify_colorbars
+00104530 W write
+0010c018 D XCortexa9_ConfigTable
+00104b34 D XExc_VectorTable
+001029f4 t XGlobalTimer_ModifyInterval
+00102820 t Xil_DataAbortHandler
+00102190 T Xil_DCacheDisable
+0010255c T Xil_DCacheEnable
+00102134 T Xil_DCacheFlush
+00101c58 T Xil_DCacheFlushLine
+00101ca0 T Xil_DCacheFlushRange
+00102434 T Xil_DCacheInvalidate
+00101aa8 T Xil_DCacheInvalidateLine
+00101ae0 T Xil_DCacheInvalidateRange
+00101ddc T Xil_DCacheStoreLine
+0010282c T Xil_ExceptionInit
+0010281c t Xil_ExceptionNullHandler
+00102830 T Xil_ExceptionRegisterHandler
+00102868 T Xil_ExceptionRemoveHandler
+00102848 T Xil_GetExceptionRegisterHandler
+00101e14 T Xil_ICacheDisable
+001024e4 T Xil_ICacheEnable
+00102454 T Xil_ICacheInvalidate
+00101e90 T Xil_ICacheInvalidateLine
+00101ec8 T Xil_ICacheInvalidateRange
+001004a8 t Xil_In32
+0010211c T Xil_L1DCacheDisable
+00101ff8 T Xil_L1DCacheEnable
+00102094 T Xil_L1DCacheFlush
+00102208 T Xil_L1DCacheFlushLine
+00102220 T Xil_L1DCacheFlushRange
+00101f48 T Xil_L1DCacheInvalidate
+00102018 T Xil_L1DCacheInvalidateLine
+00102030 T Xil_L1DCacheInvalidateRange
+00102284 T Xil_L1DCacheStoreLine
+001022b8 T Xil_L1ICacheDisable
+0010229c T Xil_L1ICacheEnable
+001022d4 T Xil_L1ICacheInvalidate
+001022ec T Xil_L1ICacheInvalidateLine
+00102304 T Xil_L1ICacheInvalidateRange
+00102368 T Xil_L2CacheDisable
+00102484 T Xil_L2CacheEnable
+0010268c T Xil_L2CacheFlush
+001026d0 T Xil_L2CacheFlushLine
+001026ec T Xil_L2CacheFlushRange
+001023c8 T Xil_L2CacheInvalidate
+001025d4 T Xil_L2CacheInvalidateLine
+001025e8 T Xil_L2CacheInvalidateRange
+0010278c T Xil_L2CacheStoreLine
+001004d0 t Xil_Out32
+00102824 t Xil_PrefetchAbortHandler
+00101a08 T xil_printf
+00102828 t Xil_UndefinedExceptionHandler
+0010141c T xil_vprintf
+00102a94 T XilSleepTimer_Init
+00102ad8 T XilTickTimer_Init
+0010295c T XilTimer_Sleep
+00102ab0 T XTime_GetTime
+001029dc T XTimer_ClearTickInterrupt
+0010298c T XTimer_SetHandler
+001029bc T XTimer_SetInterval
+00104620 T xtimerinit
+00102b10 T XUartPs_RecvByte
+00102b2c T XUartPs_ResetHw
+00102af8 T XUartPs_SendByte
+00102b7c T XUartPs_WaitTransmitDone

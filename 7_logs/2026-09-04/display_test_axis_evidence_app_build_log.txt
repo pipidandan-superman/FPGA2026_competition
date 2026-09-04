@@ -1,0 +1,21 @@
+[INFO]: Starting Application build process
+[INFO]: Building Application
+[1/3] ==========Application Build Information ==========
+
+Compiler Flags:  -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -MMD -MP -specs=E:/competition/2
+_fpga/0_diaplay_test/vitis/display_test_plat/export/display_test_plat/sw/standalone_ps7_cortexa9_0/X
+ilinx.spec -IE:/competition/2_fpga/0_diaplay_test/vitis/display_test_plat/export/display_test_plat/s
+w/standalone_ps7_cortexa9_0/include -Wall -Wextra      -O0  -g3     -U__clang__  
+
+Linker Flags:       -Wl,-T -Wl,"E:/competition/2_fpga/0_diaplay_test/vitis/app_component/src/lscript
+.ld" -L"E:/competition/2_fpga/0_diaplay_test/vitis/app_component/src/" -L"E:/competition/2_fpga/0_di
+aplay_test/vitis/display_test_plat/export/display_test_plat/sw/standalone_ps7_cortexa9_0/lib/" -L"/"
+ -Wl,--start-group,-lxilstandalone,-lxiltimer,-lxil,-lgcc,-lc -Wl,--end-group
+
+===========================================
+[2/3] Building C object CMakeFiles/app_component.elf.dir/main.c.obj
+[3/3] Linking C executable app_component.elf
+   text	   data	    bss	    dec	    hex	filename
+
+  36465	   1428	  22996	  60889	   edd9	app_component.elf
+

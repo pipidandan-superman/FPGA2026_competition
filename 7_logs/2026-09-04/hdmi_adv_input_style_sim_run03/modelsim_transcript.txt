@@ -1,0 +1,56 @@
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling package adv7511_init_table_pkg
+# 
+# Top level modules:
+# 	--none--
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module iic_protocal
+# 
+# Top level modules:
+# 	iic_protocal
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module adv7511_controller
+# 
+# Top level modules:
+# 	adv7511_controller
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module adv7511_iic_data_xfer
+# -- Importing package adv7511_init_table_pkg
+# 
+# Top level modules:
+# 	adv7511_iic_data_xfer
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module adv7511_cfg_top
+# 
+# Top level modules:
+# 	adv7511_cfg_top
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module adv7511_cfg_top_tb
+# -- Importing package adv7511_init_table_pkg
+# 
+# Top level modules:
+# 	adv7511_cfg_top_tb
+# vsim -voptargs=+acc adv_input_style_sim_lib.adv7511_cfg_top_tb 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# 
+# ** Note: (vopt-143) Recognized 1 FSM in module "adv7511_iic_data_xfer(fast)".
+# 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading work.adv7511_init_table_pkg(fast)
+# Loading work.adv7511_cfg_top_tb(fast)
+# Loading work.adv7511_cfg_top(fast)
+# Loading work.adv7511_controller(fast)
+# Loading work.adv7511_iic_data_xfer(fast)
+# Loading work.iic_protocal(fast)
+# CFG_TEST_PASS: transactions=33 starts=33 stops=33
+# ** Note: $finish    : E:/competition/2_fpga/0_diaplay_test/sim/adv7511_cfg_top_tb.sv(202)
+#    Time: 1166940 ns  Iteration: 2  Instance: /adv7511_cfg_top_tb

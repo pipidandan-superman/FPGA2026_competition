@@ -1,0 +1,16 @@
+[1/1] ==========Application Build Information ==========
+
+Compiler Flags:  -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard  -MMD -MP -specs=E:/competition/
+2_fpga/0_diaplay_test/vitis/display_test_plat/zynq_fsbl/zynq_fsbl_bsp/Xilinx.spec -IE:/competition/2
+_fpga/0_diaplay_test/vitis/display_test_plat/zynq_fsbl/zynq_fsbl_bsp/include -Wall -Wextra      -O0 
+ -g3     -U__clang__  
+
+Linker Flags:       -Os -Wl,--gc-sections -n -T"E:/competition/2_fpga/0_diaplay_test/vitis/display_t
+est_plat/zynq_fsbl/lscript.ld" -L"E:/competition/2_fpga/0_diaplay_test/vitis/display_test_plat/zynq_
+
+fsbl/zynq_fsbl_bsp/lib/" -L"/" -Wl,--start-group,-lxiltimer,-lxilffs,-lxilrsa,-lxil,-lxilstandalone,
+
+-lxiltimer,-lxilffs,-lxilrsa,-lgcc,-lc -Wl,--end-group
+
+
+===========================================

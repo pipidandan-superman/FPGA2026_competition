@@ -221,3 +221,289 @@ PS-only UART PASS 证明的是：Zynq PS 供电/时钟可运行、MIO48/49 到 U
 4. PS-only 工程移除了 PL bit/VDMA/DDR 缓冲/主工程旧 launch 产物这些变量，只保留最小 BSP 启动和 UART 输出，所以适合做隔离验证。
 
 因此，正确结论不是“2025 Vitis 不可用”，也不是“主工程已经完整 PASS”，而是：2025 Vitis 和 PS 基础 UART 通路可用；主工程必须重新构建/运行，并继续按 UART、DDR、VDMA、HDMI 分层判定。
+
+## 2026-09-04 主工程 Vitis 重建为最小 UART 复现
+
+用户已删除原主工程 Vitis 目录，并重新从当前 `display_test_wrapper.xsa` 生成：
+
+```text
+E:\competition\2_fpga\0_diaplay_test\vitis
+```
+
+本次复现结果：
+
+- `app_component/src/main.c` 与已通过板级验证的 PS-only UART 程序逐字节一致，SHA256 为 `4F4AAF03...`；
+- `app_component/src/CMakeLists.txt` 与 PS-only 工程一致，SHA256 为 `BB43C508...`；
+- 使用 `empyro build_bsp` 构建 standalone BSP，并把生成库/头文件同步到 export 域；
+- 使用 `empyro build_app` 正常流程干净重建应用；
+- `zynq_fsbl/ps7_init.c` 与当前 `hw/sdt/ps7_init.c` SHA256 均为 `677E9388...`；
+- `_ide/psinit/ps7_init.tcl` 与 `hw/sdt/ps7_init.tcl` SHA256 均为 `4059D0D4...`；
+- `_ide/bitstream/display_test_wrapper.bit` 与 `hw/sdt/display_test_wrapper.bit` SHA256 均为 `18BA5726...`；
+- FSBL 干净重建通过，`zynq_fsbl/build/fsbl.elf` 与 export boot 目录下 `fsbl.elf` SHA256 均为 `2A28DE19...`。
+
+应用干净构建通过：
+
+```text
+text=27273  data=1416  bss=22960
+Entry point address: 0x100000
+```
+
+完整应用构建日志：`E:\competition\7_logs\2026-09-04\display_test_uart_rebuild_build_log.txt`。  
+FSBL 重建日志：`E:\competition\7_logs\2026-09-04\display_test_fsbl_rebuild_build_log.txt`。
+
+当前完成的是编译和启动链产物闭环；新主工程 UART 仍需板级运行确认，不能因工程复现成功而直接宣称板级 UART PASS。
+
+## 2026-09-04 新主工程 UART 板级 PASS
+
+用户确认新主工程 `E:\competition\2_fpga\0_diaplay_test\vitis` 已通过 Vitis 正常流程打印串口数据。
+
+判定结论：
+
+```text
+DISPLAY_TEST_UART_BOARD_PASS
+```
+
+本次通过说明新 XSA 对应的 `.bit`、FSBL、`ps7_init.tcl`、standalone BSP、链接脚本、ELF 下载执行和 UART1 输出链路闭环正常。该结果仍只覆盖 UART，不推断 DDR、VDMA 或 HDMI。
+
+证据状态：当前记录来自用户板级确认；后续硬件验证应继续保存完整 COM6 原始文本或截图，作为正式证据文件归档。
+
+## 2026-09-04 分层验证固件代码就绪
+
+主工程应用已从最小 UART 固件扩展为顺序化测试固件：
+
+```text
+UART → DDR 6 pattern × 3 rounds → DDR 1/5/30 s hold → colorbar fill/verify → VDMA MM2S → HDMI
+```
+
+关键实现：
+
+- DDR 测试范围：`0x10000000 ~ 0x102FFFFF`，共 3 MiB；
+- VDMA 三帧缓存：`0x10000000 / 0x10100000 / 0x10200000`；
+- 显示格式：640×480 packed RGB888，每帧 921600 字节；
+- VDMA 基址：`0x43000000`，MM2S/S2MM AXI-Stream 宽度 24 bit；
+- DDR 任一读写/保持错误立即输出 `DDR_FAIL` 并停止；
+- 彩条回读失败立即输出 `VDMA_MM2S_FAIL REASON=COLORBAR_VERIFY`；
+- VDMA 启动后检查 frame count 递增和错误位；
+- `VDMA_MM2S_PASS` 后进入 `HDMI_COLORBAR_RUNNING` 心跳，等待人工确认屏幕彩条。
+
+干净重建通过：
+
+```text
+text=35693  data=1428  bss=22996
+Entry point address: 0x100000
+```
+
+完整构建日志：`E:\competition\7_logs\2026-09-04\display_test_staged_fw_build_log.txt`。  
+板级运行待执行，不能提前判定 DDR、VDMA 或 HDMI PASS。
+
+## 2026-09-04 DDR PASS 与 VDMA 首轮误判分析
+
+用户完成首次分层固件板测，完整 COM6 输出保存为：
+
+```text
+E:\competition\7_logs\2026-09-04\display_test_staged_board_uart1.txt
+```
+
+板级判定：
+
+```text
+DDR_PASS
+```
+
+DDR 六种 pattern、每种 3 轮读写全部无错误；1 秒到 30 秒保持回读也全部无错误。因此 DDR 读写与保持测试正式通过。
+
+VDMA 输出为：
+
+```text
+VDMA_REG MM2S_CR=0x00010013 MM2S_SR=0x00010000
+VDMA_COUNT FIRST=1 SECOND=1 SR=0x00011001
+VDMA_MM2S_FAIL REASON=NOT_STREAMING
+VDMA_REG MM2S_CR=0x00010012 MM2S_SR=0x00011001
+```
+
+逐位分析后确认这不是 VDMA/DDR 地址失败：
+
+- SR `bit0=1`：完成一帧后通道 halt；
+- SR `bit12=0x1000`：frame-count interrupt；
+- SR `bit16=1`：frame count 为 1；
+- CR `bit16=1`：frame-count threshold 为 1；
+- CR 从 `RUN` 变为清除：这是 frame-count 模式完成一帧后的预期行为；
+- 真正硬件错误掩码应为 `0x00000FF0`，旧固件误把 `0x00007000` 中断位也纳入错误判断。
+
+因此首轮实际结果应为：MM2S 成功传输一帧后按配置停止；固件错误地把正常 frame-count 中断识别为 `NOT_STREAMING`。
+
+已修正流程：
+
+1. 先使能 frame-count 并确认至少完成一帧，输出 `VDMA_ONE_FRAME_PASS`；
+2. 复位 MM2S 后改用 `RUN | CIRCULAR`，不再设置 frame-count；
+3. 检查连续模式运行位保持且硬件错误掩码 `0x00000FF0` 为零；
+4. 通过后再进入 HDMI 心跳观察。
+
+修正后干净重建通过：
+
+```text
+text=35985  data=1428  bss=22996
+Entry point address: 0x100000
+```
+
+构建日志：`E:\competition\7_logs\2026-09-04\display_test_vdma_fix_build_log.txt`。
+
+## 2026-09-04 VDMA PASS、HDMI FAIL 与 ADV7511 配置修正
+
+用户完成 VDMA 修正后的第二次分层固件板测，完整 COM6 输出保存为：
+
+```text
+E:\competition\7_logs\2026-09-04\display_test_staged_board_uart2.txt
+```
+
+板级判定：
+
+```text
+DDR_PASS
+VDMA_ONE_FRAME_PASS
+VDMA_MM2S_PASS
+HDMI_COLORBAR_FAIL / HDMI_NO_DISPLAY
+```
+
+证据要点：
+
+```text
+DDR_HOLD_OK SECOND=30
+DDR_PASS
+VDMA_ONE_FRAME SR=0x00011001 COUNT=1 ERR=0x00000000
+VDMA_ONE_FRAME_PASS
+VDMA_CONTINUOUS SR=0x00011000 CR=0x00010003
+VDMA_MM2S_PASS
+HDMI_HEARTBEAT=1..11 FRAMES=1 SR=0x00011000
+```
+
+`VDMA_MM2S_PASS` 后显示器仍未点亮，因此故障范围收敛到 HDMI 输出链路；不能回退 DDR 或 VDMA。检查现有 ADV7511 初始化表后发现三个确定问题：
+
+1. 缺少 `0x41=0x10`，发送器没有显式 power-up；
+2. `0xAF` 只有 `0x10`，按 Linux ADV7511 驱动定义 `mode mask=0x2`，实际仍是 DVI mode，不是 HDMI mode；
+3. AVI Infoframe 没有声明 YCbCr 4:2:2 / BT.709 / 640x480@60，也没有使能 AVI 包。
+
+已按 HDMI 1.4 AVI Infoframe 规则更新初始化表：
+
+```text
+0x41=0x10          power up
+0x52..0x5E         AVI infoframe
+0x54=0x78          checksum
+0x55=0x59          YCbCr 4:2:2 + active aspect valid
+0x56=0x99          BT.709 + 4:3 + active 4:3
+0x57=0x04          limited quantization
+0x58=0x01          VIC 1 = 640x480@60
+0x44=0x10          enable AVI infoframe
+0xAF=0x12          HDMI mode
+```
+
+另外补充 `0xD6=0xC0`，将 HPD source 设置为 none，避免 HPD 自动控制把已配置发送器断电。初始化表从 18 项更新为 31 项。ModelSim 配置序列仿真结果：
+
+```text
+CFG_TEST_PASS: transactions=31 starts=31 stops=31
+```
+
+证据目录：
+
+```text
+E:\competition\7_logs\2026-09-04\hdmi_adv_cfg_fix_sim_run01
+```
+
+## 2026-09-04 第三次 HDMI 失败后的输入样式修正与 M_AXIS 证据强化
+
+第二次 HDMI 复测仍无显示，但 `VDMA_ONE_FRAME_PASS` 已出现。进一步核对 ADV7511 Linux 驱动寄存器映射与 `rgb2ycbcr422` 打包方式，发现上一次配置仍有一个确定错误：
+
+```text
+0x16=0x30  YCbCr 422, 8 bit/component, INPUT STYLE=0
+0x16=0x38  YCbCr 422, 8 bit/component, INPUT STYLE=1
+```
+
+`0x30` 的 style 字段是无效值；当前 RTL 输出为 `{Y, alternating Cb/Cr}`，对应 ADV7511 Style 1，因此必须使用 `0x38`。
+
+同时补齐 AVI Infoframe 更新控制：
+
+```text
+0x4A=0x40  更新 AVI Infoframe
+0x52..0x5E AVI Infoframe 内容
+0x4A=0x00  使用更新后的 AVI Infoframe
+0x44=0x10  使能 AVI Infoframe
+```
+
+初始化表现在为 33 项；`adv7511_iic_data_xfer` 的表索引扩宽到 6 bit，并修正 33 项时最后索引比较被截断的问题。ModelSim 结果：
+
+```text
+CFG_TEST_PASS: transactions=33 starts=33 stops=33
+```
+
+证据目录：`E:\competition\7_logs\2026-09-04\hdmi_adv_input_style_sim_run03`。
+
+M_AXIS 证据判定说明：PS 不能直接读取 AXI-Stream 线上的波形或数据值；要观察 `M_AXIS_MM2S_TDATA/TVALID/TREADY` 必须增加 PL 侧采样逻辑、AXI GPIO 或 ILA。但可以通过 VDMA 寄存器做协议级判定：源数据由 PS 独立写入并回读校验；VDMA 单帧模式配置为 1 frame；只有当 MM2S 完整通过 M_AXIS 交付一帧后，frame count 才会变成 1 且通道按配置 halt。固件已改为最多 5 秒轮询该条件，成功后回读源数据，并输出：
+
+```text
+VDMA_STREAM_EVIDENCE SOURCE_BYTES=921600 AXIS_WORDS=307200
+M_AXIS_MM2S_FRAME_DELIVERED SOURCE=PS_DDR FRAME_COUNT=1 ERR=0
+```
+
+应用重建通过：
+
+```text
+text=36465 data=1428 bss=22996
+```
+
+构建日志：`E:\competition\7_logs\2026-09-04\display_test_axis_evidence_app_build_log.txt`。
+
+## 2026-09-04 第三次复测无显示的下载链路检查
+
+用户报告第三次 HDMI 仍无显示。检查发现 Vitis launch 配置仍加载旧副本 bit：
+
+```text
+app_component/_ide/bitstream/display_test_wrapper.bit
+LastWriteTime=2026-09-04 16:05:31
+SHA256=01965B710144F2A2808C8031926DA2A6CDBCEC3AD3CB230F727AFA66FB8BC580
+
+display_test_plat/hw/sdt/display_test_wrapper.bit
+LastWriteTime=2026-09-04 16:28:10
+SHA256=34ADC74044E8C9B84C383349A5EBC6E2E553472A3E5A7705863EE604B8E7CDE2
+```
+
+因此第三次复测尚未证明 `0x16=0x38` 和 AVI Infoframe 更新控制有效。已将 `launch.json` 改为直接加载：
+
+```text
+display_test_plat/hw/sdt/display_test_wrapper.bit
+display_test_plat/hw/sdt/ps7_init.tcl
+```
+
+并同步副本完成校验。下一次必须先关闭旧 COM6/旧调试会话，重新 Run；UART 中应看到 `M_AXIS_MM2S_FRAME_DELIVERED`。若新 bit 下仍无显示，则需要增加 `cfg_done/cfg_error`、`v_axi4s_vid_out locked/underflow/overflow` 和 HDMI_INT 的 AXI GPIO 状态读取。
+
+Vivado 重新综合、实现和 bitstream 已通过，关键结果：
+
+```text
+ADV_CFG_FIX_VIVADO_PASS
+WNS=10.289 ns
+WHS=0.024 ns
+```
+
+完整 Vivado 日志位于 `E:\competition\7_logs\2026-09-04\hdmi_adv_cfg_fix_vivado_run02`。新 XSA 已导出，Vitis 平台 SDT/bit/`ps7_init` 已重新生成到 16:05:31，FSBL 已从当前 `ps7_init.c` 清洁重建并同步到 platform export。应用构建通过，当前 ELF 与分层测试固件一致。下一步必须重新板测 HDMI；只有用户确认 640x480 八彩条后才能记录 `HDMI_COLORBAR_PASS`。
+
+## 2026-09-04 纯 PL HDMI 彩条测试代码就绪
+
+为绕开 PS/DDR/VDMA 交叉影响，新增无 Zynq 的 480p HDMI 隔离测试：
+
+- `E:\competition\2_fpga\0_diaplay_test\rtl\hdmi_new\hdmi_colorbar_vtc_top.v`：100 MHz 输入用户已配置的 `clk_wiz_0` 25 MHz 输出，实例化 VTC、五条竖彩条和现有 `hdmi_out_adv7511`。
+- `E:\competition\2_fpga\0_diaplay_test\rtl\hdmi_new\vtc_480p_1ppc.v`：1 pixel/clock、640x480@60，H/V 同步均输出低有效，坐标与 DE 同拍。
+- `E:\competition\2_fpga\0_diaplay_test\rtl\hdmi_new\hdmi_colorbar_vtc_top.xdc`：仅包含 M19 100 MHz、L18 低有效复位和 EES-331 HDMI 引脚。
+
+当前静态核对通过：H/V 总时序为 800x525，DE 覆盖 640x480，五条彩条每条 128 像素，颜色按白、黄、青、绿、品红排列，亮度从左到右递减；ADV7511 继续使用 RGB888 转 YCbCr422 16-bit Style 1 和 33 项 I2C 初始化表。尚未综合、生成比特流或板级显示验证；不能据此判定 HDMI PASS。
+
+## 2026-09-04 纯 PL 彩条首次板测无效
+
+用户板测可点亮但颜色不匹配，且修改前后画面不变。检查 `display_test_zynq7020_school.xpr` 发现 `sources_1` 顶层仍为 `display_test_wrapper`，新增 `hdmi_colorbar_vtc_top` 未成为当前综合顶层；因此本次显示来自旧 BD/PS/VDMA 链路，不是纯 PL 彩条测试结果。该板测不能用于判定颜色转换或 ADV7511 配置。
+
+用户随后确认实际综合工程是 `E:\competition\2_fpga\1_zynqtest_2025\project_1\project_1.xpr`。该工程顶层确认为 `hdmi_colorbar_vtc_top`，因此顶层无误。进一步核对 ADV7511/Linux 驱动寄存器映射，发现颜色错配的直接原因是初始化表字段错误：
+
+- `0x16=0x38`：D7 为 0，ADV7511 仍按 RGB/YCbCr444 输入解释外部总线；YCbCr422 Style 1 应为 `0xB9`，其中 D7=1、D0=1。
+- AVI Infoframe `0x55=0x59` 的 Y 字段声明为 YCbCr444；YCbCr422 应写 `0x29`。
+- AVI Infoframe `0x57=0x04` 声明 VIC4（720p）；640x480@60 应写 VIC1 `0x01`。
+- 上述 PB1/PB3 变更后，Infoframe checksum 由 `0x78` 修正为 `0xAB`。
+
+已修改 `adv7511_init_table_pkg.sv`。当前证据支持“寄存器解释导致颜色错配”，而不是 ADV7511 内部测试图案覆盖外部像素；该初始化表中 `0x55~0x5E` 属于 AVI Infoframe 寄存器，不是内部彩条发生器。下一步必须在 `1_zynqtest_2025/project_1` 中 Reset Runs 后重新综合、实现、生成 bit，并确认新 bit 时间晚于所有源码时间。

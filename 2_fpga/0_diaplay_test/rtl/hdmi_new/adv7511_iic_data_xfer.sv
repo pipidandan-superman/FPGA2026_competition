@@ -46,7 +46,7 @@ module adv7511_iic_data_xfer #(
 
     data_xfer_state_t state;
     data_xfer_state_t next_state;
-    logic [4:0]  entry_index;
+    logic [5:0]  entry_index;
     logic [7:0]  protocol_register_address;
     logic [7:0]  protocol_write_data;
     logic        protocol_start;
@@ -99,7 +99,7 @@ module adv7511_iic_data_xfer #(
 
             STATE_WAIT: begin
                 if (protocol_done == 1'b1) begin
-                    if (entry_index == LAST_TABLE_INDEX[4:0]) begin
+                    if (entry_index == LAST_TABLE_INDEX) begin
                         next_state = STATE_DONE;
                     end else begin
                         next_state = STATE_NEXT;
