@@ -1,2 +1,10 @@
-param([Parameter(Mandatory=$true)][string]$RunDirectory,[Parameter(Mandatory=$true)][string]$PassMarker)
-$run=[IO.Path]::GetFullPath($RunDirectory); $status=Get-Content -Raw (Join-Path $run 'process_status.txt')|ConvertFrom-Json; $log=Join-Path $run 'vivado_console.log'; $ok=(Test-Path $log)-and(Select-String -LiteralPath $log -Pattern ([regex]::Escape($PassMarker))-Quiet)-and($status.state-eq'PASS'); [pscustomobject]@{run=$run;state=$status.state;marker=$status.marker;exit_code=$status.exit_code;timeout=$status.timeout;valid_pass=$ok}|ConvertTo-Json; if(!$ok){exit 2}
+param(
+  [Parameter(Mandatory=$true)][string]$RunDirectory,
+  [string]$PassMarker='EES_VIVADO_RESULT PASS'
+)
+
+$ErrorActionPreference='Stop'
+$canonical='E:\competition\4_metrics\scripts\check_vivado_result_ees.ps1'
+if(!(Test-Path -LiteralPath $canonical)){throw "EES_CANONICAL_CHECKER_NOT_FOUND $canonical"}
+& $canonical -RunDirectory $RunDirectory -PassMarker $PassMarker
+exit $LASTEXITCODE

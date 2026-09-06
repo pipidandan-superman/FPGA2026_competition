@@ -282,3 +282,25 @@
   `4F172165E1BB29CCB6A1FEA4A8A5DBB22A3962D10A72BFEC42440F8577EC1EB8`; converter
   `A41A33B62531109E765F355A38E2787D59CE7CC0F3A1A71DDD67ABC647178395`; mode TB
   `2F9F62C03C6A6C7F758D1D7FA9B1E1944CB2C9E2088C8464E9909BFDEBCA2406`.
+
+## 15:56 project skill path adaptation validation
+
+- Requirement: every engineering/simulation/organization skill must write logs
+  only to `E:\competition\7_logs\YYYY-MM-DD`, raw evidence only to
+  `E:\competition\4_metrics\logs\<run-name>`, and must not target `2_log`,
+  generic `log/logs`, old `D:\VitA\5_verify`, or desktop competition paths.
+- Added audit: `4_metrics/scripts/audit_project_skill_paths.ps1`.
+- PASS: the audit inspected 8 `SKILL.md` files plus companion files and returned
+  `pass: true` with an empty failure list. Raw JSON:
+  `4_metrics/logs/2026-09-06_project_skill_adaptation_run01/skill_path_audit.json`.
+- PASS: all six project/adapter PowerShell scripts parse without
+  `System.Management.Automation.Language.Parser` errors.
+- PASS: forbidden executable tokens `VITA_VIVADO_RESULT`, historical
+  `5_verify`, and desktop archive targets are absent from skill source and
+  companion scripts; only explicit prohibition/policy text retains broad
+  historical roots as non-executable examples.
+- PASS: `git diff --check` over `.codex`, `6_skill`, new scripts/references, and
+  `AGENTS.md` returned no whitespace errors.
+- Boundary: this is tool/path-policy validation only. It is not a ModelSim or
+  Vivado functional simulation PASS and does not alter the frozen board-proven
+  HDMI result under `2_fpga`.

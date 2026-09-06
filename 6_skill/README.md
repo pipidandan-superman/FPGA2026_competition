@@ -7,19 +7,29 @@
 
 ## 当前状态
 
-2026-09-06 新增仿真 Skill 参考副本（按用户明确要求复制，未改动源 Skill）：
+2026-09-06 新增仿真 Skill 参考副本，并已完成 `E:\competition` 项目适配：
 
 - `modelsim-local-sim/`：ModelSim 后台/命令行仿真流程；
 - `modelsim-gui-sim/`：已打开 GUI Transcript 的回退仿真流程；
-- `vita-vivado-batch-sim/`：Vivado/XSim 后台批处理参考流程。
+- `vita-vivado-batch-sim/`：EES-331/Vivado 2025.2 XSim 批处理流程；目录名保留
+  历史 `vita` 前缀，但输出路径和结果标记已改为本工程规范。
 
-注意：`vita-vivado-batch-sim` 保留 ViTA 的路径和器件假设，当前仅作参考副本；
-若要在本工程直接执行，必须先按 EES-331/Vivado 2025.2 做路径、器件和项目适配。
+统一强制路径：
+
+- 工作区根：`E:\competition`；
+- 工程日志：`E:\competition\7_logs\YYYY-MM-DD`；
+- 原始证据：`E:\competition\4_metrics\logs\YYYY-MM-DD_<task>_runNN`；
+- 冻结 FPGA 基线：`E:\competition\2_fpga`（默认只读）。
+
+禁止把新日志写入 `2_log`、`log`、`logs`、`D:\VitA` 或旧桌面工程路径；禁止把
+仿真库、波形、报告或构建临时文件放在仓库根目录或 `2_fpga` 内。
 
 日志 Skill 的本地副本位于 `6_skill/daily-engineering-log/SKILL.md`，可在此修改项目专用提示词。
 后续新增脚本时，应在 `4_metrics/scripts/` 放置验证脚本，并在 `4_metrics/logs/` 和
 `4_metrics/evidence/` 保存完整运行证据。
 
-ViTA 可复用 Skill 的候选、适配边界和审核记录见 [`SKILL_REVIEW_PENDING.md`](SKILL_REVIEW_PENDING.md)。
+可复用 Skill 的候选、适配边界和审核记录见 [`SKILL_REVIEW_PENDING.md`](SKILL_REVIEW_PENDING.md)。
 已批准并落地：`engineering-organization`、`rtl-coding-standards`；`log-management` 已合并进
-`daily-engineering-log`，不再建立第二套日志入口。
+`daily-engineering-log`，不再建立第二套日志入口。项目强制策略的生效层是
+`.codex/skills/project-workspace-policy/SKILL.md`；本目录是人工维护的参考副本，
+两者冲突时以 `.codex/skills` 为准。

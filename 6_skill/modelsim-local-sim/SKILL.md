@@ -7,27 +7,58 @@ description: Run small RTL/SystemVerilog simulations reliably on this Windows ho
 
 Use this workflow for local RTL operator tests. Prefer non-interactive, run-local command-line execution; keep the GUI only as a recovery path.
 
+## Project adaptation for E:\competition
+
+This section is mandatory and overrides the historical ViTA text below.
+
+- Workspace root: `E:\competition`.
+- Create one new evidence directory per run at
+  `E:\competition\4_metrics\logs\YYYY-MM-DD_<task>_runNN\`.
+- Put `.do`, transcript, WLF, result file, raw console output, and report in
+  that run directory. Never create them at the repository root.
+- Treat `E:\competition\2_fpga` as frozen: read sources by absolute path, but do
+  not write libraries, logs, waveforms, or generated files into it.
+- Use absolute `E:/competition/...` paths in every `.do` command.
+- Have the testbench emit a stable `EES_MODELSIM_RESULT PASS` or
+  `EES_MODELSIM_RESULT FAIL` marker and a run-local result file.
+
 ## Default: command-line background run
 
 - Treat background `vsim -c` as the mandatory first execution path for every new run. When command-line simulation has already been demonstrated to work for the active workspace, do not choose the GUI merely because it is open or because waveform viewing is convenient.
-- For the ViTA workspace (`D:\VitA`), the project `12_skills/modelsim_simulation/SKILL.md` overrides this generic workflow: invoke only its `scripts/run_modelsim_backend.ps1` launcher. Do not run a bare `vsim.exe -c` from PowerShell, Codex PTY, redirected Bash, or an ad-hoc script; that bypasses the required real Mintty/Git Bash terminal and its controlled license context.
-- Outside ViTA, first run the generated `.do` script with the local `vsim -c` in a background or bounded shell process.
+- The historical ViTA launcher rule belongs to `D:\VitA` and is not executable
+  here. In `E:\competition`, first run the generated `.do` script with the local
+  `vsim -c` in a background or bounded shell process.
 - Direct the transcript, WLF, temporary library and all raw artifacts to the run-local directory.
 - Use a unique library and absolute source paths. Do not remap `work`, delete shared libraries or change the user's project directory.
-- Read the complete transcript from disk only after the terminal process exits and require the testbench's stable `PASS` marker. In ViTA, `process_status.txt` alone is not proof that Mintty has flushed the ModelSim transcript/WLF; the project launcher must wait for Mintty exit before assessing the run. If ModelSim omits a final `$display` from `-l`, require an explicit run-local testbench result file with the same PASS/FAIL marker and have the ViTA launcher verify it.
-- In ViTA, a run that exceeds its launcher timeout is failed evidence. The launcher must terminate only the Mintty process tree rooted at the PID it created before returning the timeout error, so no orphaned Bash or `vsim` process can contaminate a later run. Do not invoke the GUI to recover a timed-out run unless the project launcher has produced a retained `CHANNEL_ERROR` report for that exact run.
+- Read the complete transcript from disk only after the terminal process exits
+  and require the testbench's stable `PASS` marker. A launcher status file alone
+  is not proof that the process flushed the ModelSim transcript/WLF. If ModelSim
+  omits a final `$display` from `-l`, require an explicit run-local testbench
+  result file with the same PASS/FAIL marker and have the launcher verify it.
+- A run that exceeds its bounded timeout is failed evidence. Terminate only the
+  process tree created for that exact run before returning the timeout error, so
+  no orphaned simulator process can contaminate a later run. Do not invoke the
+  GUI to recover a timed-out run unless the failed command-line run has a
+  retained transcript that identifies the terminal/environment failure.
 - Record the exact command and any command-line license failure in the run record.
-- If the command-line run passes, archive its non-empty waveform and comparison artifacts and do not repeat it in GUI.
+- If the command-line run passes, archive its non-empty waveform and comparison
+  artifacts under the `E:\competition\4_metrics\logs` run directory and do not
+  repeat it in GUI.
 
-Generic example invocation (do not use this form in ViTA):
+Generic example invocation:
 
 ```powershell
-& 'D:\work\modelsim\win64\vsim.exe' -c -do 'do D:/project/5_verify/release/runs/run-id/run_modelsim.do'
+& 'D:\work\modelsim\win64\vsim.exe' -c -do 'do E:/competition/4_metrics/logs/2026-09-06_<task>_runNN/run_modelsim.do'
 ```
 
 ## GUI fallback only
 
-- Use the existing `ModelSim SE-64 10.1c` GUI only if the same run's approved command-line attempt has failed because of terminal-specific environment issues. For ViTA, this means the project launcher must have retained a `CHANNEL_ERROR` report for that same run first; a bare PowerShell license failure is an invalid invocation, not a GUI-fallback reason. A prior GUI success, an already-open GUI, or a desire to inspect waves is not a fallback reason.
+- Use the existing `ModelSim SE-64 10.1c` GUI only if the same run's approved
+  command-line attempt has failed because of terminal-specific environment
+  issues. The failed transcript must show that failure first; a bare PowerShell
+  license failure without a retained run transcript is not enough, and a prior
+  GUI success, an already-open GUI, or a desire to inspect waves is not a
+  fallback reason.
 - Save the failed command-line transcript, then submit the same run-local `do D:/absolute/path/to/run_modelsim.do` in the GUI Transcript.
 - Do not repeatedly retry `vsim -c` after the same shell license failure; the GUI may have a valid license context.
 - Do not use `quit` or `quit -sim` in reusable `.do` scripts. Testbench `$finish` ends only the current simulation.
@@ -35,7 +66,9 @@ Generic example invocation (do not use this form in ViTA):
 
 ## Build a non-disruptive run
 
-Create one evidence directory per run, for example `5_verify/<release>/runs/<run-id>/`, containing the `.do` file, complete Transcript, raw output, comparison JSON and report.
+Create one evidence directory per run at
+`E:\competition\4_metrics\logs\YYYY-MM-DD_<task>_runNN\`, containing the `.do`
+file, complete Transcript, raw output, comparison JSON and report.
 
 - Use absolute paths for all sources, `$readmemh`/`$readmemb` images and transcript files. The GUI can inherit another project's working directory.
 - Use a uniquely named temporary library; do not remap `work`, do not delete libraries and do not change the user's project directory. `vmap work ...` or `cd ...` can prompt to close the current project.
@@ -45,11 +78,11 @@ Create one evidence directory per run, for example `5_verify/<release>/runs/<run
 Minimal `.do` pattern (replace paths and names):
 
 ```tcl
-transcript file D:/project/5_verify/release/runs/run-id/modelsim_transcript.txt
+transcript file E:/competition/4_metrics/logs/2026-09-06_<task>_runNN/modelsim_transcript.txt
 if {![file exists stage_lib]} { vlib stage_lib }
-vlog -work stage_lib -sv D:/project/rtl/rom.sv
-vlog -work stage_lib -sv D:/project/rtl/operator.sv
-vlog -work stage_lib -sv D:/project/rtl/tb_operator.sv
+vlog -work stage_lib -sv E:/competition/2_fpga/<frozen-source-path>/rom.sv
+vlog -work stage_lib -sv E:/competition/2_fpga/<frozen-source-path>/operator.sv
+vlog -work stage_lib -sv E:/competition/4_metrics/logs/2026-09-06_<task>_runNN/tb_operator.sv
 vsim -voptargs=+acc stage_lib.tb_operator
 log -r /*
 add wave -position insertpoint sim:/tb_operator/*
@@ -66,7 +99,8 @@ run -all
 
 ## Recovery
 
-- **Headless license failure:** in ViTA, treat a bare-shell license error as an invalid entry channel and use the project launcher instead; elsewhere retain the failure and use the GUI only after the approved command-line route has failed.
+- **Headless license failure:** retain the complete failure and use the GUI only
+  after the approved command-line route has failed.
 - **Relative memory file failure:** convert all testbench memory paths to absolute paths, reject unknown values, then rerun.
 - **Close-project prompt:** select No, remove `cd` and `vmap work` from the `.do`, and use an independent library name.
 - **Finish-Vsim prompt:** do not close the reusable GUI; end only the previous simulation if a rerun is intentional, then submit the corrected `.do`.

@@ -162,3 +162,18 @@ do E:/competition/4_metrics/logs/2026-09-06_adv7511_rgb_style3_fix_run01/run_mod
   register experiments.
 - If rebuilding from source, expect the same synthesizable behavior; a later
   bit artifact alone is not a new board PASS unless photographed again.
+
+## 15:56 project skill policy handoff
+
+- First action for future sessions: follow
+  `.codex/skills/project-workspace-policy/SKILL.md`, then the relevant domain
+  skill.
+- Engineering logs must resolve to `E:\competition\7_logs\YYYY-MM-DD`; raw runs
+  must resolve to `E:\competition\4_metrics\logs\YYYY-MM-DD_<task>_runNN`.
+- Run `powershell -ExecutionPolicy Bypass -File E:\competition\4_metrics\scripts\audit_project_skill_paths.ps1`
+  after changing any skill. PASS requires JSON `pass: true` with no failures.
+- Keep `E:\competition\2_fpga` read-only unless the user explicitly authorizes
+  that exact change in the current instruction.
+- ModelSim/Vivado skill adaptation is path/POLICY PASS only; a real simulation
+  still requires a new run directory, raw transcript, stable result marker, and
+  an exact coverage-boundary statement.

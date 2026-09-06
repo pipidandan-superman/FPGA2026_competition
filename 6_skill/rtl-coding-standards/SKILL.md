@@ -1,13 +1,26 @@
 ---
 name: rtl-coding-standards
-description: Enforce the project's strict Verilog/SystemVerilog RTL coding standards when creating, modifying, reviewing, or formatting .v, .sv, or .vh files, including modules, testbenches, FSMs, and RTL instantiations.
+description: Enforce the EES-331 project's strict Verilog/SystemVerilog RTL coding standards when creating, modifying, reviewing, or formatting .v, .sv, or .vh files, including modules, testbenches, FSMs, and RTL instantiations. Respect the frozen E:\competition\2_fpga baseline.
 ---
 
-# RTL Coding Standards
+# EES-331 RTL Coding Standards
 
-> 本文件为 `D:\VitA\12_skills\rtl-coding-standards\SKILL.md` 的本地副本，适用于本工程 `2_fpga/` 下的 Verilog/SystemVerilog。可在此继续补充 Logos-2/PDS 的项目约束，不修改 ViTA 源文件。
+> 本文件是项目本地化的 RTL 规则，适用于 `E:\competition` 中的
+> Verilog/SystemVerilog。`E:\competition\2_fpga` 是已经板级验证的 HDMI
+> 基线，默认只读；任何修改必须在当前用户指令中明确授权，并先保留源文件与
+> 板级验证证据基线。
 
 Apply this skill to every Verilog/SystemVerilog source change in this project. Treat the rules below as mandatory unless the user explicitly overrides them.
+
+## Project paths
+
+- Workspace root: `E:\competition`.
+- Frozen RTL baseline: `E:\competition\2_fpga`.
+- Simulation and audit evidence: `E:\competition\4_metrics\logs\YYYY-MM-DD_<task>_runNN`.
+- Engineering log: `E:\competition\7_logs\YYYY-MM-DD`.
+
+Do not use `D:\VitA`, desktop competition paths, Logos-2/PDS assumptions, or a
+repository-root scratch directory as this project's execution path.
 
 ## Mandatory top-level rules
 
@@ -24,7 +37,7 @@ Use this comment block for new source files, replacing placeholders with project
  * File Name       : module_name.v
  * Developer       : LSL
  * Date            : YYYY-MM-DD
- * Project Name    : RK3568_MES2L100H / Logos-2 distortion correction
+ * Project Name    : AMD embodied sorting / EES-331 XC7Z020
  * Module Name     : [current module name]
  * Description     : [interfaces, protocol, and core function]
  * Dependencies    : [submodules or header files, or None]
@@ -145,7 +158,9 @@ submodule_name u_submodule_name (
 3. Add or update the file header and revision history.
 4. Apply the naming, width, constant, FSM, latch, and instantiation rules above.
 5. Inspect the diff for same-line multiple statements, missing header text, magic numbers, positional ports, incomplete combinational assignments, and FSM blocks that are not three-part.
-6. Run the project's available syntax/lint or simulation check appropriate to the changed module. Preserve the complete raw transcript or console output in the project's run record.
+6. Run the project's available syntax/lint or simulation check appropriate to
+   the changed module. Preserve the complete raw transcript or console output
+   under `E:\competition\4_metrics\logs\YYYY-MM-DD_<task>_runNN`.
 7. Report any pre-existing violations separately from violations introduced by the change.
 
 ## Final compliance checklist

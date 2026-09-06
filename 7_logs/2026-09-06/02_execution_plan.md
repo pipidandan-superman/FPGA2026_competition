@@ -153,3 +153,22 @@
    `vita-vivado-batch-sim` into `6_skill/`; documented that the Vivado skill is
    a ViTA-specific reference requiring adaptation.
 5. Did not modify or traverse `2_fpga` for cleanup.
+
+## 15:56 update: project skill adaptation execution
+
+1. Read the active daily-log override and all `6_skill/SKILL.md` files; inspected
+   companion Tcl, PowerShell, RTL, Markdown, and YAML files.
+2. Added `.codex/skills/project-workspace-policy/SKILL.md` as the project-wide
+   precedence layer and referenced it from `AGENTS.md`.
+3. Changed `6_skill/daily-engineering-log` from generic `<workspace>` wording to
+   the exact `E:\competition\7_logs\YYYY-MM-DD` destination.
+4. Added explicit project overrides to engineering organization, RTL standards,
+   ModelSim CLI, ModelSim GUI, and Vivado batch skills.
+5. Redirected Vivado artifacts to `4_metrics/logs`, replaced historical ViTA
+   markers with `EES_VIVADO_RESULT`, and created project-local launcher/checker
+   scripts plus archive wrappers.
+6. Added `4_metrics/scripts/audit_project_skill_paths.ps1` to check front-matter
+   names, fixed roots, and forbidden executable path tokens in skill files and
+   companions.
+7. Updated `6_skill/README.md` and `SKILL_REVIEW_PENDING.md` so the archive
+   agrees with the active policy layer.

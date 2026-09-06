@@ -7,6 +7,16 @@ description: Run and validate ModelSim simulations through the already-open Mode
 
 Use this workflow when ModelSim GUI can simulate but Codex shell cannot run `vsim -c` because of license environment differences.
 
+## Project adaptation for E:\competition
+
+- Workspace root: `E:\competition`.
+- Run directory: `E:\competition\4_metrics\logs\YYYY-MM-DD_<task>_runNN`.
+- Read frozen RTL under `E:\competition\2_fpga` by absolute path, but never write
+  `.do`, libraries, transcripts, WLF files, screenshots, or reports there.
+- Use absolute `E:/competition/...` paths in ModelSim Tcl.
+- Require a run-local stable `EES_MODELSIM_RESULT PASS` marker and a complete
+  transcript before recording PASS.
+
 ## Core Rule
 
 Prefer executing a generated `.do` file in the existing ModelSim GUI Transcript instead of launching `vsim.exe` from shell.
@@ -20,7 +30,8 @@ For each simulation target, create or verify:
 - RTL/SystemVerilog source files.
 - A self-checking testbench that prints clear PASS/FAIL lines.
 - A ModelSim `.do` script with absolute paths.
-- A transcript output path under the project debug/evidence directory.
+- A transcript output path under
+  `E:\competition\4_metrics\logs\YYYY-MM-DD_<task>_runNN`.
 - A short simulation report summarizing key transcript lines and numeric checks.
 
 For nonlinear operator work, the first simulation stage must target the operator itself only. Do not include PS control, AXI-Lite registers, DMA shell, or extra system integration until the operator-only datapath has passed.
@@ -30,25 +41,28 @@ For nonlinear operator work, the first simulation stage must target the operator
 Use a dedicated work library for the target rather than deleting the GUI's current `work` library.
 
 ```tcl
-transcript file D:/path/to/debug_records/<run_name>_modelsim_transcript.txt
-catch {quit -sim}
-if {![file exists <run_name>_work]} {
-  vlib <run_name>_work
+transcript file E:/competition/4_metrics/logs/2026-09-06_<task>_runNN/modelsim_transcript.txt
+if {![file exists ees_<run_name>_work]} {
+  vlib ees_<run_name>_work
 }
-vmap work <run_name>_work
-vlog -sv D:/abs/path/to/source1.sv
-vlog -sv D:/abs/path/to/source2.sv
-vlog -sv D:/abs/path/to/testbench.sv
-vsim -voptargs=+acc work.<testbench_top>
-add wave -position insertpoint sim:/<testbench_top>/*
+set ees_run_lib ees_<run_name>_work
+vlog -work $ees_run_lib -sv E:/competition/2_fpga/<frozen-source-path>/source1.sv
+vlog -work $ees_run_lib -sv E:/competition/2_fpga/<frozen-source-path>/source2.sv
+vlog -work $ees_run_lib -sv E:/competition/4_metrics/logs/2026-09-06_<task>_runNN/testbench.sv
+vsim -voptargs=+acc $ees_run_lib.<testbench_top>
+add wave -position insertpoint sim:<testbench_path>
 run -all
 ```
 
 Notes:
 
-- `catch {quit -sim}` avoids the "Finish Vsim" prompt when a previous simulation is loaded.
+- Do not put `quit` or `quit -sim` in a reusable project `.do`; end only the
+  previous simulation intentionally after asking the user or confirming the GUI
+  state.
 - Do not use `vdel -lib work -all` in a shared GUI project; it can conflict with the user's current ModelSim project.
-- Use absolute `D:/...` style paths in `.do` files.
+- Do not remap the GUI's shared `work` library; compile and simulate with a
+  unique run-local library.
+- Use absolute `E:/competition/...` style paths in `.do` files.
 - Ensure the testbench prints a stable pass marker such as `PASS: ... simulation completed`.
 
 ## GUI Execution Workflow
@@ -58,7 +72,7 @@ Notes:
 3. Prefer launching ModelSim GUI with its own `-do` argument only when that launcher is known to share the working GUI/license environment:
 
 ```powershell
-& 'D:\work\modelsim\win64\modelsim.exe' -do 'do D:/abs/path/to/run_target.do'
+& 'D:\work\modelsim\win64\modelsim.exe' -do 'do E:/competition/4_metrics/logs/2026-09-06_<task>_runNN/run_target.do'
 ```
 
 This keeps the GUI/license path while avoiding unreliable text injection into old ModelSim Transcript widgets.
@@ -71,7 +85,7 @@ This keeps the GUI/license path while avoiding unreliable text injection into ol
 9. Type:
 
 ```tcl
-do D:/abs/path/to/run_target.do
+do E:/competition/4_metrics/logs/2026-09-06_<task>_runNN/run_target.do
 ```
 
 10. Press Return.
@@ -91,7 +105,8 @@ Always preserve:
 - The full transcript text.
 - The exact PASS/FAIL line.
 - Any numeric summary printed by the testbench.
-- A Markdown report under the project's debug/evidence directory.
+- A Markdown report under the same
+  `E:\competition\4_metrics\logs\YYYY-MM-DD_<task>_runNN` directory.
 
 For hardware operator validation, include:
 

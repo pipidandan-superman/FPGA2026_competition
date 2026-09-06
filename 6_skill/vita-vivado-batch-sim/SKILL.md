@@ -1,9 +1,28 @@
 ---
 name: vita-vivado-batch-sim
-description: Run reproducible ViTA Vivado 2020.2/XSim simulations in batch mode without GUI, including pure RTL, XCI/IP, BD, and official AXI DMA/Datamover flows. Use for launching, monitoring, validating, or regression-testing Vivado simulations with isolated artifacts, hashes, result markers, and process evidence.
+description: Run reproducible EES-331 Vivado/XSim simulations in batch mode without GUI. Use for launching, monitoring, validating, or regression-testing this project's Vivado simulations with isolated artifacts, hashes, result markers, and process evidence. The retained skill name is historical; all writable paths and result markers are project-adapted.
 ---
 
-# ViTA Vivado batch simulation
+# EES-331 Vivado batch simulation
+
+## Project adaptation for E:\competition
+
+- Workspace root: `E:\competition`.
+- Target: EES-331, XC7Z020 CLG484-1, with the active EES-331 Vivado
+  environment (currently Vivado 2025.2).
+- Every run directory must be a new absolute directory under
+  `E:\competition\4_metrics\logs\YYYY-MM-DD_<task>_runNN`.
+- Read frozen RTL under `E:\competition\2_fpga`; never write libraries,
+  journals, logs, waveform databases, reports, or scratch files into it.
+- Use the project-local launcher
+  `E:\competition\4_metrics\scripts\run_vivado_batch_ees.ps1`; it derives the
+  Vivado environment from a working GUI PID, validates the run directory, and
+  requires `EES_VIVADO_RESULT PASS`.
+- Use `EES_VIVADO_STAGE <name>` and `EES_VIVADO_RESULT PASS/FAIL` in testbenches
+  and Tcl. The historical ViTA protocol names are not used for new runs.
+- For the no-IP reference Tcl, set `EES_VIVADO_RUN_DIR` to the same approved run
+  directory before launching; never let XSim create its project in the current
+  working directory or repository root.
 
 Use Vivado batch mode as the default for Xilinx IP and AXI DMA simulation. Keep
 ModelSim for existing pure RTL boundaries; do not use the invalid shared
@@ -16,7 +35,7 @@ before a Vivado/XSim banner as environment blockers, not as design failures.
 Do not count compile/elaboration-only runs as simulation PASS.
 
 Every run uses a new absolute directory under
-`D:\VitA\5_verify\vivado_batch\runs\<run-id>`. Preserve TCL, wrapper log,
+`E:\competition\4_metrics\logs\YYYY-MM-DD_<task>_runNN`. Preserve TCL, wrapper log,
 Vivado journal, simulation log, `result.json`, process status, and the
 launcher-generated pre-launch `run_input_manifest.json` (absolute paths,
 sizes, timestamps, SHA-256 hashes for all run-local inputs). Preserve any
@@ -30,10 +49,10 @@ the default backend. This starts a new batch-only Vivado process; it does not
 open another GUI and it preserves a complete run-local transcript:
 
 ```powershell
-& C:\Users\Administrator\.codex\skills\vita-vivado-batch-sim\scripts\run_vivado_from_gui_env.ps1 `
+& E:\competition\4_metrics\scripts\run_vivado_batch_ees.ps1 `
   -GuiPid <working-vivado-gui-pid> `
-  -TclFile D:\VitA\5_verify\vivado_batch\runs\<run-id>\run.tcl `
-  -RunDirectory D:\VitA\5_verify\vivado_batch\runs\<run-id> `
+  -TclFile E:\competition\4_metrics\logs\2026-09-06_<task>_runNN\run.tcl `
+  -RunDirectory E:\competition\4_metrics\logs\2026-09-06_<task>_runNN `
   -TimeoutSeconds 300
 ```
 
@@ -47,8 +66,8 @@ all sources explicitly, generate IP simulation targets, update compile order,
 launch behavioral simulation, run a bounded/self-terminating test, emit stage
 markers, and close simulation/project under `catch`.
 
-Testbenches must emit `VITA_VIVADO_STAGE <name>`,
-`VITA_VIVADO_RESULT PASS/FAIL`, a run-local result file, a watchdog, X/Z
+Testbenches must emit `EES_VIVADO_STAGE <name>`,
+`EES_VIVADO_RESULT PASS/FAIL`, a run-local result file, a watchdog, X/Z
 rejection, and protocol checks. Real DMA tests must instantiate the official
 generated AXI DMA wrapper and observe 64-bit memory traffic plus 32-bit AXIS;
 a simplified behavioral placeholder is not real-DMA evidence.
@@ -63,14 +82,16 @@ environment failure repeats three times, an
 explicitly authorized external Claude fallback may run Vivado, but its output
 still passes this skill's result and hash checks.
 
-The launcher rejects any Tcl that enables `xsim.simulate.log_all_signals 1`.
+The project launcher rejects any Tcl that enables
+`xsim.simulate.log_all_signals 1`.
 This prevents future runs from creating waveform databases; use the complete
 console/simulation printout and machine-readable result files for analysis.
 
-The GUI-environment backend was verified on 2026-08-22 with a new no-IP batch
-process: compile, elaboration, `Loading simulator feature`, PASS marker, and
-natural process exit. Use it for every subsequent Vivado/XSim run unless a
-fresh standalone environment validation replaces it. If no verified GUI
+The historical GUI-environment method was verified in the source project with a
+new no-IP batch process. Before first use after any Vivado version change, rerun
+a no-IP smoke in this EES-331/Vivado 2025.2 environment. Use it for every
+subsequent Vivado/XSim run unless a fresh standalone environment validation
+replaces it. If no verified GUI
 environment exists, stop at preflight and report the blocker; do not fall back
 to GUI interaction, `start /B`, direct partially-configured XSim executables,
 or a behavioral DMA placeholder.

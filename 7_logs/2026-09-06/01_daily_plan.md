@@ -127,3 +127,19 @@
   update logs, and push the focused result to GitHub.
 - Non-goals: no deletion of quarantined material, no changes under `2_fpga`,
   and no commit of oversized generated artifacts.
+
+## 15:56 update: project skill adaptation
+
+- Current judgment: the active daily-log override was correct, but copied
+  simulation/Vivado material still contained generic roots, historical ViTA
+  executable paths, and an old desktop target.
+- Main objective: make every project skill resolve writable output to the fixed
+  `E:\competition` evidence/log roots and protect the frozen `2_fpga` baseline.
+- Priorities: add a mandatory workspace-policy skill, adapt all `6_skill`
+  documentation/scripts, add a repeatable path audit, and validate.
+- Non-goals: do not edit, delete, move, rebuild, or re-synthesize anything under
+  `2_fpga`; do not claim a Vivado simulation PASS because only path-tooling
+  validation was run.
+- Expected deliverables: adapted active/archive skill layers, EES launcher and
+  checker scripts, passing skill-path audit, evidence report, and updated daily
+  handoff.

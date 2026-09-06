@@ -14,7 +14,7 @@ module no_ip_counter_tb;
     for(i=1;i<=10;i=i+1) begin @(posedge clk); #1; if(count !== i[7:0]) $fatal(1,"count=%0d expected=%0d",count,i); end
     if (!overflow) $fatal(1,"overflow not asserted at max");
     @(posedge clk); #1; if(count !== 0) $fatal(1,"wrap count=%0d",count);
-    $display("VITA_VIVADO_RESULT PASS");
+    $display("EES_VIVADO_RESULT PASS");
     completed=1;
     $finish;
   end
