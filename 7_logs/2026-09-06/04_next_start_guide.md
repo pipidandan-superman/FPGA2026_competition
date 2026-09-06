@@ -156,6 +156,8 @@ do E:/competition/4_metrics/logs/2026-09-06_adv7511_rgb_style3_fix_run01/run_mod
 - The focused commit excludes generated ModelSim libraries and the 350 MB
   local quarantine. If rerunning the upload script, it now checks formatting
   only for documents and skills, not for frozen hardware source.
+- Uploaded commit: `4e7d8ca`. The next task can start from camera/VDMA
+  integration without reopening the frozen 480p HDMI colorbar datapath.
 - The next engineering step is camera/VDMA integration, not further colorbar
   register experiments.
 - If rebuilding from source, expect the same synthesizable behavior; a later
