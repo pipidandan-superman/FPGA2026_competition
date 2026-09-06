@@ -177,3 +177,6 @@ do E:/competition/4_metrics/logs/2026-09-06_adv7511_rgb_style3_fix_run01/run_mod
 - ModelSim/Vivado skill adaptation is path/POLICY PASS only; a real simulation
   still requires a new run directory, raw transcript, stable result marker, and
   an exact coverage-boundary statement.
+- Uploaded policy baseline: commit `1c9d013` on `origin/main`. Start future
+  skill changes from that revision, rerun the audit, and keep evidence in a new
+  `4_metrics/logs` run directory.

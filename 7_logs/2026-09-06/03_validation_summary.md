@@ -304,3 +304,12 @@
 - Boundary: this is tool/path-policy validation only. It is not a ModelSim or
   Vivado functional simulation PASS and does not alter the frozen board-proven
   HDMI result under `2_fpga`.
+
+## 16:02 skill policy upload completion
+
+- Focused skill-policy upload PASS: commit `1c9d013` was pushed to
+  `origin/main` as `docs: enforce EES-331 workspace skill paths`.
+- Commit boundary check: 31 staged files, zero paths under `2_fpga`.
+- Staged set included only the active policy layer, `6_skill`, project audit and
+  launcher/checker tools, focused evidence, today's four handoff files, and
+  `AGENTS.md`.
