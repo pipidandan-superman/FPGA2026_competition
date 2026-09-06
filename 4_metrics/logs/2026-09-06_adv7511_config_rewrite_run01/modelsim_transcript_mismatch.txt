@@ -1,0 +1,23 @@
+# 0
+# Modifying D:\work\modelsim\win64\vivado_2020_2_simlib\modelsim.ini
+# vsim -voptargs=+acc -wlf E:/competition/4_metrics/logs/2026-09-06_adv7511_config_rewrite_run01/mismatch_corrected.wlf cfg_rewrite_lib02.adv7511_cfg_top_mismatch_tb 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# 
+# Loading sv_std.std
+# Loading work.adv7511_cfg_top_mismatch_tb(fast)
+# Loading work.adv7511_init_table_pkg(fast)
+# Loading work.adv7511_cfg_top_tb(fast)
+# Loading work.adv7511_cfg_top(fast)
+# Loading work.adv7511_controller(fast)
+# Loading work.adv7511_iic_data_xfer(fast)
+# Loading work.iic_protocal(fast)
+# Loading work.ila_0(fast)
+# READBACK[0]: reg=41 sent=10 captured=10 expected=10 mask=ff
+# READBACK[1]: reg=15 sent=01 captured=01 expected=01 mask=0f
+# READBACK[2]: reg=16 sent=20 captured=20 expected=30 mask=30
+# READBACK[3]: reg=48 sent=08 captured=08 expected=08 mask=18
+# READBACK[4]: reg=18 sent=c7 captured=c7 expected=c0 mask=e0
+# READBACK[5]: reg=af sent=04 captured=04 expected=04 mask=04
+# CFG_READBACK_MISMATCH_PASS: transactions=61 bitmap=111011
+# ** Note: $finish    : E:/competition/2_fpga/0_diaplay_test/sim/adv7511_cfg_top_tb.sv(355)
+#    Time: 19453900 ns  Iteration: 1  Instance: /adv7511_cfg_top_mismatch_tb/u_test

@@ -11,7 +11,8 @@ set source_files [list \
     [file join $script_dir adv7511_cfg_top.sv] \
     [file join $script_dir adv7511_controller.sv] \
     [file join $script_dir adv7511_iic_data_xfer.sv] \
-    [file join $script_dir adv7511_init_table_pkg.sv] \
+    [file join $script_dir adv7511_init_table.sv] \
+    [file join $script_dir ../iic/iic_protocal.v] \
 ]
 add_files -norecurse $source_files
 

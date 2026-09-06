@@ -9,6 +9,10 @@
  * Dependencies    : hdmi_out_adv7511
  * Revision History:
  *   - V1.0 (2026-09-03) by LSL : Initial release
+ *   - V1.1 (2026-09-05) by LSL : Check logical Style 3 Y,Cb/Cr order
+ *   - V1.2 (2026-09-05) by LSL : Check board physical byte-lane swap
+ *   - V1.3 (2026-09-06) by LSL : Get table count from instantiated table
+ *   - V1.4 (2026-09-06) by LSL : Check EES-331 physical byte swap
  ************************************************************************/
 
 `timescale 1ns / 1ps
@@ -21,7 +25,7 @@ module hdmi_out_adv7511_tb #(
     localparam int unsigned TEST_PIXEL_COUNT = 16;
     localparam int unsigned PIX_CLK_MODEL_HZ = 25_175_000;
     localparam int unsigned I2C_DELAY_MIN_NS = FAST_SIM ? 1_000_000 : 100_000_000;
-    localparam int unsigned SIMULATION_TIMEOUT_NS = FAST_SIM ? 3_000_000 : 200_000_000;
+    localparam int unsigned SIMULATION_TIMEOUT_NS = FAST_SIM ? 20_000_000 : 200_000_000;
 
     reg PIX_CLK;
     reg RST_N;
@@ -50,8 +54,11 @@ module hdmi_out_adv7511_tb #(
     int unsigned completed_writes;
     int unsigned input_pixel_count;
     int unsigned checked_pixels;
+    int unsigned ycbcr_mismatch_count;
+    integer result_file;
     realtime first_start_time;
     reg first_start_seen;
+    wire [5:0] expected_init_count;
 
     reg [23:0] rgb_pipe [0:4];
     reg de_pipe [0:4];
@@ -61,11 +68,17 @@ module hdmi_out_adv7511_tb #(
     int unsigned pixel_index;
 
     assign HDMI_SDA = sda_drive_tb ? 1'b0 : 1'bz;
+    pullup(HDMI_SCL);
     pullup(HDMI_SDA);
 
+    assign expected_init_count =
+        u_dut.u_adv7511_cfg_top.u_adv7511_iic_data_xfer.table_last_init_index +
+        6'd1;
+
     hdmi_out_adv7511 #(
-        .FAST_SIM       (FAST_SIM)        ,
-        .PIX_CLK_FREQ_HZ(PIX_CLK_MODEL_HZ)
+        .FAST_SIM        (FAST_SIM)        ,
+        .ENABLE_READBACK (1'b0)            ,
+        .PIX_CLK_FREQ_HZ (PIX_CLK_MODEL_HZ)
     ) u_dut (
         .PIX_CLK   (PIX_CLK)   ,
         .RST_N     (RST_N)     ,
@@ -110,23 +123,24 @@ module hdmi_out_adv7511_tb #(
         logic [7:0] cb_scaled;
         logic [7:0] cr_scaled;
         begin
-            y_value = 752 * rgb_value[23:16] +
-                      1588 * rgb_value[15:8] +
-                      254 * rgb_value[7:0] +
+            y_value = 1052 * rgb_value[23:16] +
+                      2065 * rgb_value[15:8] +
+                      401 * rgb_value[7:0] +
                       65536;
-            cb_value = -412 * rgb_value[23:16] -
-                       1387 * rgb_value[15:8] +
+            cb_value = -607 * rgb_value[23:16] -
+                       1192 * rgb_value[15:8] +
                        1799 * rgb_value[7:0] +
                        524288;
             cr_value = 1799 * rgb_value[23:16] -
-                       1633 * rgb_value[15:8] -
-                       165 * rgb_value[7:0] +
+                       1507 * rgb_value[15:8] -
+                       292 * rgb_value[7:0] +
                        524288;
             y_scaled = clip_scaled_value(y_value);
             cb_scaled = clip_scaled_value(cb_value);
             cr_scaled = clip_scaled_value(cr_value);
-            expected_ycbcr422 = chroma_is_cb ? {y_scaled, cb_scaled} :
-                                                {y_scaled, cr_scaled};
+            // Preserve the logical word first, then apply the board byte swap.
+            expected_ycbcr422 = chroma_is_cb ?
+                {cb_scaled, y_scaled} : {cr_scaled, y_scaled};
         end
     endfunction
 
@@ -158,6 +172,7 @@ module hdmi_out_adv7511_tb #(
             chroma_cb_pipe[3] <= 1'b0;
             chroma_cb_pipe[4] <= 1'b0;
             input_pixel_count <= 0;
+            ycbcr_mismatch_count <= 0;
         end else begin
             rgb_pipe[0] <= RGB888;
             de_pipe[0] <= DE;
@@ -192,18 +207,19 @@ module hdmi_out_adv7511_tb #(
 
             if (HDMI_DE == 1'b1) begin
                 checked_pixels <= checked_pixels + 1;
-                if (HDMI_DATA !== expected_ycbcr422(rgb_pipe[3], chroma_cb_pipe[3])) begin
+                if (HDMI_DATA !== expected_ycbcr422(rgb_pipe[2], chroma_cb_pipe[2])) begin
                     $error("YCbCr mismatch at pixel %0d: got %h expected %h",
                            checked_pixels, HDMI_DATA,
-                           expected_ycbcr422(rgb_pipe[3], chroma_cb_pipe[3]));
+                           expected_ycbcr422(rgb_pipe[2], chroma_cb_pipe[2]));
+                    ycbcr_mismatch_count <= ycbcr_mismatch_count + 1;
                 end
-                if (HDMI_DE !== de_pipe[3]) begin
+                if (HDMI_DE !== de_pipe[2]) begin
                     $error("DE pipeline mismatch");
                 end
-                if (HDMI_HSYNC !== hsync_pipe[3]) begin
+                if (HDMI_HSYNC !== hsync_pipe[2]) begin
                     $error("HSYNC pipeline mismatch");
                 end
-                if (HDMI_VSYNC !== vsync_pipe[3]) begin
+                if (HDMI_VSYNC !== vsync_pipe[2]) begin
                     $error("VSYNC pipeline mismatch");
                 end
             end
@@ -286,6 +302,7 @@ module hdmi_out_adv7511_tb #(
         write_value = 8'h00;
         completed_writes = 0;
         checked_pixels = 0;
+        ycbcr_mismatch_count = 0;
         input_pixel_count = 0;
         first_start_seen = 1'b0;
         first_start_time = 0.0;
@@ -305,8 +322,9 @@ module hdmi_out_adv7511_tb #(
         DE <= 1'b0;
         RGB888 <= 24'h000000;
 
-        wait ((completed_writes == 18) || ($realtime > SIMULATION_TIMEOUT_NS));
-        if (completed_writes != 18) begin
+        wait ((completed_writes == expected_init_count) ||
+              ($realtime > SIMULATION_TIMEOUT_NS));
+        if (completed_writes != expected_init_count) begin
             $error("I2C initialization did not complete: writes=%0d", completed_writes);
         end
         if (first_start_time < I2C_DELAY_MIN_NS) begin
@@ -314,14 +332,35 @@ module hdmi_out_adv7511_tb #(
         end
 
         repeat (20) @(posedge PIX_CLK);
-        if (checked_pixels == TEST_PIXEL_COUNT) begin
-            $display("TEST_PASS: pixels=%0d writes=%0d i2c_start_time=%0t",
-                     checked_pixels, completed_writes, first_start_time);
+        if (checked_pixels == TEST_PIXEL_COUNT && ycbcr_mismatch_count == 0) begin
+            result_file = $fopen({
+                "E:/competition/4_metrics/logs/2026-09-06_adv7511_physical_swap_board_pass_run01/",
+                "hdmi_video_result.txt"},
+                "w"
+            );
+            $fdisplay(result_file,
+                      "HDMI_VIDEO_PASS: pixels=%0d mismatches=%0d writes=%0d start=%0t",
+                      checked_pixels,
+                      ycbcr_mismatch_count,
+                      completed_writes,
+                      first_start_time);
+            $fclose(result_file);
+            $display("TEST_PASS: pixels=%0d mismatches=%0d writes=%0d i2c_start_time=%0t",
+                     checked_pixels, ycbcr_mismatch_count, completed_writes, first_start_time);
         end else begin
-            $error("Pixel check incomplete: checked=%0d expected=%0d",
-                   checked_pixels, TEST_PIXEL_COUNT);
+            $error("TEST_FAIL: pixels=%0d/%0d mismatches=%0d writes=%0d",
+                   checked_pixels, TEST_PIXEL_COUNT, ycbcr_mismatch_count,
+                   completed_writes);
         end
         $finish;
     end
+
+endmodule
+
+module hdmi_out_adv7511_fast_tb;
+
+    hdmi_out_adv7511_tb #(
+        .FAST_SIM(1'b1)
+    ) u_test ();
 
 endmodule

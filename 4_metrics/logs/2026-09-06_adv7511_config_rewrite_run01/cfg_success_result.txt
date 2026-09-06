@@ -1,0 +1,1 @@
+CFG_READBACK_SUCCESS_PASS: transactions=74 starts=80 stops=74 bitmap=111111 raw=101208380110

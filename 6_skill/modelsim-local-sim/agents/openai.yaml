@@ -1,0 +1,4 @@
+interface:
+  display_name: "本机 ModelSim 仿真"
+  short_description: "复用本机 GUI 会话快速执行可审计 RTL 仿真和证据归档。"
+  default_prompt: "Use $modelsim-local-sim to run this RTL test in the existing local ModelSim GUI."

@@ -52,3 +52,15 @@
 ```
 
 本轮批准已执行完成；后续若要调整 A4 或 B1，请单独给出批准编号，避免扩大本次迁移范围。
+
+## 2026-09-06 用户指令更新
+
+用户明确要求将 ModelSim 后台仿真、ModelSim GUI 仿真和 Vivado 后台仿真 Skill 复制到本目录。
+因此已原样复制以下参考副本，不表示已完成本项目参数适配：
+
+- `modelsim-local-sim/`
+- `modelsim-gui-sim/`
+- `vita-vivado-batch-sim/`
+
+其中 Vivado Skill 仍保留 `D:\VitA`、Vivado 2020.2/XSim 和 AXI DMA 假设；在本工程使用前，
+必须另做一次路径、器件、版本和项目适配审核。此次操作不修改原始 Skill。

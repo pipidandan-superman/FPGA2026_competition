@@ -1,5 +1,5 @@
-set evidence_dir E:/competition/4_metrics/logs/2026-09-03_hdmi_top_verilog_run22
-set work_lib E:/competition/4_metrics/logs/2026-09-03_hdmi_top_verilog_run22/hdmi_top_verilog_run22_lib
+set evidence_dir E:/competition/4_metrics/logs/2026-09-06_adv7511_physical_swap_board_pass_run01
+set work_lib E:/competition/4_metrics/logs/2026-09-06_adv7511_physical_swap_board_pass_run01/hdmi_out_swap_lib
 
 file mkdir E:/competition/4_metrics/logs/2026-09-03_hdmi_top_verilog_run22
 transcript file E:/competition/4_metrics/logs/2026-09-03_hdmi_top_verilog_run22/modelsim_transcript.txt
@@ -9,7 +9,8 @@ if {![file exists $work_lib]} {
 }
 
 vlog -work $work_lib -sv E:/competition/2_fpga/0_diaplay_test/sim/oddr_sim_model.sv
-vlog -work $work_lib -sv E:/competition/2_fpga/0_diaplay_test/rtl/hdmi_new/adv7511_init_table_pkg.sv
+vlog -work $work_lib -sv E:/competition/2_fpga/0_diaplay_test/rtl/hdmi_new/adv7511_init_table.sv
+vlog -work $work_lib -sv E:/competition/4_metrics/logs/2026-09-06_adv7511_config_rewrite_run01/ila_0_stub.sv
 vlog -work $work_lib -sv E:/competition/2_fpga/0_diaplay_test/rtl/hdmi_new/rgb2ycbcr422.sv
 vlog -work $work_lib E:/competition/2_fpga/0_diaplay_test/rtl/iic/iic_protocal.v
 vlog -work $work_lib -sv E:/competition/2_fpga/0_diaplay_test/rtl/hdmi_new/adv7511_controller.sv
@@ -18,5 +19,5 @@ vlog -work $work_lib -sv E:/competition/2_fpga/0_diaplay_test/rtl/hdmi_new/adv75
 vlog -work $work_lib E:/competition/2_fpga/0_diaplay_test/rtl/hdmi_new/hdmi_out_adv7511.v
 vlog -work $work_lib -sv E:/competition/2_fpga/0_diaplay_test/sim/hdmi_out_adv7511_tb.sv
 
-vsim $work_lib.hdmi_out_adv7511_tb
+vsim $work_lib.hdmi_out_adv7511_fast_tb
 run -all

@@ -1,0 +1,2 @@
+param([Parameter(Mandatory=$true)][string]$RunDirectory,[Parameter(Mandatory=$true)][string]$PassMarker)
+$run=[IO.Path]::GetFullPath($RunDirectory); $status=Get-Content -Raw (Join-Path $run 'process_status.txt')|ConvertFrom-Json; $log=Join-Path $run 'vivado_console.log'; $ok=(Test-Path $log)-and(Select-String -LiteralPath $log -Pattern ([regex]::Escape($PassMarker))-Quiet)-and($status.state-eq'PASS'); [pscustomobject]@{run=$run;state=$status.state;marker=$status.marker;exit_code=$status.exit_code;timeout=$status.timeout;valid_pass=$ok}|ConvertTo-Json; if(!$ok){exit 2}

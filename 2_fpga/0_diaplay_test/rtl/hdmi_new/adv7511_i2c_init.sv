@@ -6,7 +6,7 @@
  * Module Name     : adv7511_i2c_init
  * Description     : Bit-banged 100 kHz I2C master that waits for power
  *                   stabilization and writes the embedded ADV7511 table.
- * Dependencies    : adv7511_init_table_pkg
+ * Dependencies    : adv7511_init_table
  * Revision History:
  *   - V1.0 (2026-09-03) by LSL : Initial release
  ************************************************************************/
@@ -14,7 +14,7 @@
 module adv7511_i2c_init #(
     parameter int unsigned CLK_FREQ_HZ        = 25_175_000,
     parameter int unsigned I2C_FREQ_HZ        = 100_000    ,
-    parameter int unsigned POWER_UP_DELAY_MS  = 120
+    parameter int unsigned POWER_UP_DELAY_MS  = 200
 ) (
     input  wire        clk_i     ,
     input  wire        rst_n_i   ,
@@ -23,9 +23,6 @@ module adv7511_i2c_init #(
     output reg         done_o    ,
     output reg         error_o
 );
-
-    import adv7511_init_table_pkg::ADV7511_INIT_ENTRY_COUNT;
-    import adv7511_init_table_pkg::ADV7511_INIT_TABLE;
 
     typedef enum logic [2:0] {
         STATE_POWER_UP = 3'd0,
@@ -42,8 +39,6 @@ module adv7511_i2c_init #(
     localparam [63:0] POWER_UP_DELAY_CYCLES =
         ((64'd0 + CLK_FREQ_HZ) * POWER_UP_DELAY_MS + 64'd999) / 64'd1000;
     localparam logic [7:0] ADV7511_WRITE_ADDRESS = 8'h72;
-    localparam int unsigned LAST_TABLE_INDEX = ADV7511_INIT_ENTRY_COUNT - 1;
-
     i2c_state_t state;
     i2c_state_t next_state;
     logic [31:0] delay_counter;
@@ -56,6 +51,26 @@ module adv7511_i2c_init #(
     logic        sda_input;
     logic        sda_drive_low;
     logic        ack_nak;
+    logic [7:0]  table_init_data;
+    logic [5:0]  table_last_init_index;
+    logic [7:0]  table_init_address;
+    logic [2:0]  table_readback_index;
+    logic [7:0]  table_readback_address;
+    logic [7:0]  table_readback_expected;
+    logic [7:0]  table_readback_mask;
+    logic [2:0]  table_last_readback_index;
+
+    adv7511_init_table u_adv7511_init_table (
+        .init_index_i          (table_index)              ,
+        .readback_index_i      (table_readback_index)     ,
+        .init_address_o        (table_init_address)       ,
+        .init_data_o           (table_init_data)          ,
+        .readback_address_o    (table_readback_address)   ,
+        .readback_expected_o   (table_readback_expected)  ,
+        .readback_mask_o       (table_readback_mask)      ,
+        .last_init_index_o     (table_last_init_index)    ,
+        .last_readback_index_o (table_last_readback_index)
+    );
 
     assign quarter_tick = (quarter_counter == I2C_QUARTER_CYCLES - 1);
     assign sda_input = sda_io;
@@ -99,7 +114,7 @@ module adv7511_i2c_init #(
 
             STATE_ACK: begin
                 if ((quarter_tick == 1'b1) && (quarter_index == 2'd3)) begin
-                    if ((table_index == LAST_TABLE_INDEX[4:0]) ||
+                    if ((table_index == table_last_init_index) ||
                         (ack_nak == 1'b1)) begin
                         next_state = STATE_STOP;
                     end else begin
@@ -179,7 +194,7 @@ module adv7511_i2c_init #(
             end
 
             if ((state == STATE_ACK) && (next_state == STATE_SEND)) begin
-                current_byte <= ADV7511_INIT_TABLE[table_index].register_value;
+                current_byte <= table_init_data;
             end
 
             if ((state == STATE_ACK) && (quarter_index == 2'd2) && (quarter_tick == 1'b0)) begin

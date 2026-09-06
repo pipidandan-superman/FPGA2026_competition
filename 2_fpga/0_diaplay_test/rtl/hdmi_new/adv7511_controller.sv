@@ -14,7 +14,7 @@
 module adv7511_controller #(
     parameter bit          FAST_SIM           = 1'b0      ,
     parameter int unsigned CLK_FREQ_HZ        = 25_175_000,
-    parameter int unsigned POWER_UP_DELAY_MS  = 120
+    parameter int unsigned POWER_UP_DELAY_MS  = 200
 ) (
     input  wire clk_i       ,
     input  wire rst_n_i     ,
@@ -70,7 +70,9 @@ module adv7511_controller #(
             end
 
             STATE_ERROR: begin
-                next_state = STATE_ERROR;
+                if (delay_counter >= CLK_FREQ_HZ) begin
+                    next_state = STATE_POWER_UP;
+                end
             end
 
             default: begin
@@ -82,6 +84,8 @@ module adv7511_controller #(
     always_ff @(posedge clk_i or negedge rst_n_i) begin
         if (!rst_n_i) begin
             delay_counter <= 32'd0;
+        end else if (state == STATE_ERROR) begin
+            delay_counter <= delay_counter + 32'd1;
         end else if ((state == STATE_POWER_UP) &&
                      (delay_counter < POWER_UP_DELAY_CYCLES)) begin
             delay_counter <= delay_counter + 32'd1;
@@ -96,6 +100,10 @@ module adv7511_controller #(
             done_o <= 1'b0;
             error_o <= 1'b0;
         end else begin
+            if ((state == STATE_POWER_UP) && (next_state == STATE_RUNNING)) begin
+                done_o <= 1'b0;
+                error_o <= 1'b0;
+            end
             if ((state == STATE_POWER_UP) && (next_state == STATE_RUNNING)) begin
                 start_o <= 1'b1;
             end else begin

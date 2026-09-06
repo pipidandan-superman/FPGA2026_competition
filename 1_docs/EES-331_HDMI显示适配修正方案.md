@@ -5,7 +5,7 @@
 | 文档日期 | 2026-09-03 |
 | 目标板卡 | 依元素 EES-331（xc7z020clg484-1） |
 | 适用工程 | `E:/competition/2_fpga/0_diaplay_test/proj/display_test_zynq7020_school`（camera → VDMA → DDR → HDMI 显示链路） |
-| 文档状态 | 方案评审稿 |
+| 文档状态 | 480p 彩条板级 PASS 后冻结；后续仅随更高分辨率或摄像头集成更新 |
 | 证据来源 | 《EES-331 User Guide》第 2/5/20/21/23 节及第 31-32 页原理图、板卡 Bank 电压表 |
 
 ---
@@ -107,7 +107,7 @@ FPGA（保留前端）                          ADV7511（芯片内部完成） 
 
 | 信号 | 方向 | FPGA 引脚 | 说明 |
 |---|---|---|---|
-| 视频数据 `HDMI_D[15:0]` | FPGA→ADV7511 | R7,V10,V9,V8,W8,W11,W10,V12,W12,U12,U11,U10,U9,AA12,AB12,AA11 | 4:2:2 16-bit 格式：`[15:8]`=Y（每像素），`[7:0]`=Cb/Cr 逐拍交替 |
+| 视频数据 `HDMI_D[15:0]` | FPGA→ADV7511 | R7,V10,V9,V8,W8,W11,W10,V12,W12,U12,U11,U10,U9,AA12,AB12,AA11 | 逻辑 4:2:2 16-bit 右对齐格式：`selected_data[15:8]`=Y（每像素），`selected_data[7:0]`=Cb/Cr 逐拍交替；板级 PASS 要求写入端口前交换字节 |
 | 像素时钟 `HDMI_CLK` | FPGA→ADV7511 | Y8 | 与数据同域同相，720P60=74.25MHz / 1080P60=148.5MHz |
 | 场同步 `HDMI_VSYNC` | FPGA→ADV7511 | Y11 | 与数据流对齐 |
 | 行同步 `HDMI_HSYNC` | FPGA→ADV7511 | Y10 | 与数据流对齐 |
@@ -175,6 +175,9 @@ module hdmi_out_adv7511 (
 #### ③ 输出对齐
 
 - `hdmi_data/de/hs/vs` 在 `pix_clk` 打一拍寄存后输出，保证与 `hdmi_clk`（=pix_clk）边沿建立保持裕量
+- 480p PASS 冻结配置：`R0x15=0x01`、`R0x16=0x38`、`R0x48=0x08`，并加载 ADI BT.601 limited-range YCbCr 到 RGB CSC。
+- RTL 内部 `selected_data` 仍为 `{Y,Cb/Cr}`；因 EES-331 端口连接次序，`physical_data` 必须写成
+  `{selected_data[7:0], selected_data[15:8]}`。2026-09-06 板级照片确认五条纯色且无竖纹。
 - `hdmi_clk` 直接由 pix_clk 经 ODDR 或同相输出（Y8）
 
 ### 3.6 约束（XDC）要点

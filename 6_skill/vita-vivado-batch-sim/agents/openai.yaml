@@ -1,0 +1,4 @@
+interface:
+  display_name: "ViTA Vivado Batch Simulation"
+  short_description: "Run reproducible Vivado/XSim simulations without GUI"
+  default_prompt: "Use $vita-vivado-batch-sim to run a verified Vivado/XSim batch simulation with isolated artifacts."

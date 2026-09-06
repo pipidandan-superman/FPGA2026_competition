@@ -7,7 +7,16 @@
 
 ## 当前状态
 
-目录骨架已建立，日志 Skill 的本地副本位于 `6_skill/daily-engineering-log/SKILL.md`，可在此修改项目专用提示词。
+2026-09-06 新增仿真 Skill 参考副本（按用户明确要求复制，未改动源 Skill）：
+
+- `modelsim-local-sim/`：ModelSim 后台/命令行仿真流程；
+- `modelsim-gui-sim/`：已打开 GUI Transcript 的回退仿真流程；
+- `vita-vivado-batch-sim/`：Vivado/XSim 后台批处理参考流程。
+
+注意：`vita-vivado-batch-sim` 保留 ViTA 的路径和器件假设，当前仅作参考副本；
+若要在本工程直接执行，必须先按 EES-331/Vivado 2025.2 做路径、器件和项目适配。
+
+日志 Skill 的本地副本位于 `6_skill/daily-engineering-log/SKILL.md`，可在此修改项目专用提示词。
 后续新增脚本时，应在 `4_metrics/scripts/` 放置验证脚本，并在 `4_metrics/logs/` 和
 `4_metrics/evidence/` 保存完整运行证据。
 

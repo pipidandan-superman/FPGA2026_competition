@@ -16,6 +16,7 @@ xsim.dir/
 *.gen/
 hdmi_*_lib/
 *_lib/
+*_lib*/
 
 # Build outputs and local archives
 *.bit
@@ -26,3 +27,6 @@ hdmi_*_lib/
 *.zip
 *.7z
 *.rar
+
+# Local-only quarantine for the 2026-09-06 workspace cleanup; see the manifest.
+4_metrics/logs/2026-09-06_workspace_cleanup_run01/root_quarantine/
