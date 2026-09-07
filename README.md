@@ -78,12 +78,14 @@
 
 ## HDMI / ADV7511 适配进展
 
-EES-331 显示适配按 **480p60（640×480@60，25.175 MHz）** 完成 RTL 与 ModelSim 仿真。FPGA 不再直接输出五倍频像素时钟和 TMDS，而是将 RGB888 转换为 **BT.709 YCbCr422**，通过 ADV7511 寄存器配置和 16 位视频总线输出。
+**当前冻结基线：`camera-hdmi-visual-pass-20260907`。** OV5640 画面已通过 S2MM 写入 DDR、MM2S 读出并经 HDMI 输出，板端三张照片归档为 `BOARD_VISUAL_PASS`；完整 UART 验收仍待用同一 BIT + 同一 ELF 复测。
+
+EES-331 显示适配按 **480p60（640×480@60，25 MHz 像素时钟）** 完成 RTL 与 ModelSim 仿真。当前 ADV7511 输出链路使用 **BT.601 limited-range CSC**、`R0x15=01`、`R0x16=38`、`R0x48=08`、16 位 YCbCr422 逻辑数据和 EES-331 板级字节交换。
 
 ### 活跃模块层级
 
 ```text
-hdmi_out_adv7511
+hdmi_out_adv7511_v1_0
 ├─ rgb2ycbcr422
 └─ adv7511_cfg_top
    ├─ adv7511_controller
@@ -91,7 +93,7 @@ hdmi_out_adv7511
    └─ iic_protocal
 ```
 
-源码位于 `2_fpga/0_diaplay_test/rtl/hdmi_new`；顶层 `hdmi_out_adv7511.v` 使用 Verilog，便于 Vivado 2020.2 BD Module Reference 直接引用。
+源码位于 `2_fpga/0_diaplay_test/rtl/hdmi_new`；当前 BD 顶层为 `hdmi_out_adv7511_v1_0`。上板后需执行一次手动复位才稳定出现 HDMI 信号，这是当前冻结恢复流程的必要步骤。
 
 ### 验证状态
 
@@ -103,9 +105,11 @@ hdmi_out_adv7511
 | BD Module Reference | PASS |
 | EES-331 XDC 引脚检查 | PASS，23/23 |
 | PS UART 通信 | 板级 PASS |
-| Vivado 综合 | 未验证 |
-| 时序收敛 | 未验证 |
-| EES-331 板级显示 | 未验证 |
+| Vivado 实现 | PASS，11060/11060 nets fully routed，0 routing errors |
+| 时序收敛 | PASS，WNS 9.510 ns，TNS 0.000 ns，constraints met |
+| PS VDMA + HDMI 彩条 | BOARD VISUAL PASS |
+| OV5640 + PS VDMA + HDMI | BOARD VISUAL PASS，2026-09-07 |
+| OV5640 + PS VDMA 完整 UART 验收 | 待复测，同一冻结 BIT + ELF |
 
 ## 归档目录
 
@@ -125,10 +129,11 @@ competition/
 
 - AMD 具身智能赛道已确定，应用场景已冻结为**视觉识别与自动分拣**；
 - 设计方案已固化至 `1_docs/设计方案_具身智能视觉分拣.md`；
-- HDMI ADV7511 RTL 和 ModelSim 整体仿真已完成；
+- HDMI ADV7511 RTL、实现、时序和板级显示已完成；
 - PS UART 板级通信已验证；
+- 2026-09-07 冻结 OV5640 → VDMA → DDR → VDMA → HDMI 可视化显示基线；
 - CNN PS+PL 加速架构已有历史工程基础；
-- 下一步：HDMI 板级验证 → 多轴 PWM 控制器开发 → 通信协议实现 → YOLO 部署 → 联调。
+- 下一步：冻结链路完整 UART 复验 → 多轴 PWM 控制器开发 → 通信协议实现 → YOLO 部署 → 联调。
 
 ## GitHub
 

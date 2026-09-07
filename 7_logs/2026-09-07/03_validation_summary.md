@@ -392,3 +392,9 @@ No complete UART was supplied with the photos. Therefore the 60-second register/
 
 - 本机 AI 侧证据在 `D:\gesture_pipeline\`（数据集/权重体积大，不入仓库）；关键数值已录入本文件，后续正式指标迁入 `4_metrics/metrics.csv`。
 - ADV7511 手册关键页截图见 `7_logs/2026-09-07/`（Table 7 与 EES-331 SD/ETH 章节）。
+## 22:10 Root documentation sync verification
+
+- 目标：确认顶层 `README.md` 与 `HANDOFF.md` 已记录 2026-09-07 冻结基线，并且不把照片证据扩大为完整 UART 验收。
+- 文档核对：README 增加 `camera-hdmi-visual-pass-20260907`、模块名、ADV7511 配置事实、路由/时序 PASS 和完整 UART 待复测边界；HANDOFF 增加冻结哈希、恢复流程、禁止动作与证据报告链接。
+- 结果：DOC SYNC PASS。冻结结果仍保持为 `BOARD_VISUAL_PASS`，`FULL_UART_ACCEPTANCE_PASS` 继续等待同一 BIT + ELF 的零变更复测。
+- 范围审计：本次文档提交只允许修改 `README.md`、`HANDOFF.md` 和 `7_logs/2026-09-07/` 四份日志，禁止批量加入生成物或冻结板级产物。

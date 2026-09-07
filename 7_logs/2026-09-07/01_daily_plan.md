@@ -107,3 +107,7 @@ Non-goals: no RTL/BD/XDC/PS change, rebuild, regeneration, or reinterpretation o
 - **P1**：AI 侧自采 Left/Right/Thumbs Down 补充数据（各 ≥100 张）后重训 v2。
 - **P1**：舵机臂采购下单（闭环执行机构）。
 - **P2**：中期申请报告（截止 2026-10-09）成稿，素材已就绪。
+
+## 22:10 Root documentation sync
+
+确认根目录 `README.md` 和 `HANDOFF.md` 均未记录 2026-09-07 摄像头 HDMI 冻结结果。目标是将 `BOARD_VISUAL_PASS`、冻结哈希、手动复位流程和 UART 验收边界提升到顶层文档，同时保留同事的合并记录。

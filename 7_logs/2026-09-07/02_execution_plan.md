@@ -189,3 +189,10 @@ After the `CR=RUN` board failure, the next single-variable experiment is to tole
 - 训练：yolov8n 微调 60 epochs，产物 `runs/gesture_v1/weights/best.pt` 及 ONNX。
 - 脚本：`scripts/{camera_test,inference_server,frame_sender,test_yolo,test_mediapipe,download_roboflow}.py`。
 - 协议 v1 定稿于 `1_docs/interface.md`（分片帧上行 + JSON 结果下行 + 1Hz 心跳 + 异常处理表）。
+
+## 22:10 Root documentation update strategy
+
+- 从 `origin/main` 建立只包含文档同步的 `codex/update-root-freeze-docs` worktree，避开主工作区未提交内容。
+- 只更新 `README.md`、`HANDOFF.md` 和当日四份工程日志；不移动或重建冻结 BIT/XSA/ELF。
+- 根文档同步 `camera-hdmi-visual-pass-20260907` 的 `BOARD_VISUAL_PASS`、哈希、路由/时序、手动复位恢复流程和完整 UART 验收边界。
+- 提交前执行空白检查与状态审计，确认只包含目标文档；推送成功后清理临时 worktree 和本地分支。

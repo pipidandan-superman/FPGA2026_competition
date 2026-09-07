@@ -1,5 +1,17 @@
 # EES-331 HDMI ADV7511 Handoff
 
+## 2026-09-07 OV5640 + PS VDMA + HDMI frozen visual PASS
+
+- Result: `BOARD_VISUAL_PASS`. Three archived board photos show live OV5640 data through S2MM -> DDR -> MM2S -> HDMI. This is **not** `FULL_UART_ACCEPTANCE_PASS`; the final run has no complete UART capture.
+- Frozen source: tag `camera-hdmi-visual-pass-20260907`; report: `4_metrics/logs/2026-09-07_camera_display_success_freeze_run01/CAMERA_DISPLAY_SUCCESS_FREEZE_REPORT.md`.
+- BIT SHA-256: `16DBACBFCA755D69B08AE1720AF10D6C642E97B12F34F410241CEC1F29130624`.
+- XSA SHA-256: `7374BD4EE2D30C726FC0135E1960BA2BE19BD22C3B9D75B0AB0BBEE1CE64A6E1`.
+- ELF SHA-256: `040B57D048D76A60AAED8262F4E7E05204E6A96E8EF01AD6598BE4EE93BDD990`.
+- Final PL facts: S2MM line buffer `1024`; dynamic Genlock; restored `~vio_hsync` / `~vio_vsync`; route `11060/11060`, 0 errors; WNS `9.510 ns`, TNS 0, all constraints met.
+- Required recovery sequence: program the frozen BIT, load the frozen ELF, perform one manual reset, then inspect the live image. Do not mix this pair with a rebuilt BIT/ELF.
+- Next acceptance action: zero-change full-UART rerun with the same BIT/ELF; archive from startup through at least 60 seconds. Only then upgrade the label to `FULL_UART_ACCEPTANCE_PASS` if the UART is clean.
+- Forbidden immediate actions: editing frozen source/artifacts, rebuilding the platform, changing VDMA controls/sync polarity/line-buffer depth/XDC/color format, or calling the photos a formal full acceptance PASS.
+
 ## 2026-09-05 晚间板级定位（优先于下方历史结论）
 
 本次用户重新授权继续解决 HDMI。已撤销与原理图相反的物理字节交换，并用 JTAG/ILA 取得真实板级证据。

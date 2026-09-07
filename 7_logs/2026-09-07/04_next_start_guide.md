@@ -287,3 +287,9 @@ Forbidden immediate actions: editing the frozen source/artifacts, rebuilding the
 - 舵机臂采购下单（4-6DOF 套件）。
 - UM790 Pro 到位结论 deadline 2026-09-20。
 - 提交节奏：每完成一个里程碑 commit 一次。
+## 22:10 Updated root documentation start point
+
+- 下次先读根目录 `README.md` 与 `HANDOFF.md`，再打开冻结报告 `4_metrics/logs/2026-09-07_camera_display_success_freeze_run01/CAMERA_DISPLAY_SUCCESS_FREEZE_REPORT.md`。
+- 第一优先验收动作是对同一冻结 BIT + 同一冻结 ELF 做零变更完整 UART 复测：从启动开始连续捕获不少于 60 秒。只有完整 UART 干净且 HDMI 保持可视通过，才可标记 `FULL_UART_ACCEPTANCE_PASS`。
+- 禁止在复测前修改冻结 RTL/BD/Vitis 源、重建 BIT/XSA/ELF、调整 VDMA/同步极性/行缓冲/XDC/色彩格式，或把现有照片称为完整验收。
+- 新实验必须另开分支和新证据目录，不得污染 `camera-hdmi-visual-pass-20260907` 冻结基线。
