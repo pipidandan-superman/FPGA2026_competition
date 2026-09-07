@@ -88,3 +88,12 @@ Vitis Run 日志缺少完整下载/运行流程，调试器反汇编出现无效
 ## 2026-09-03 UART Raw TX Board PASS
 
 修正 Zynq UART1 `TXFULL` 位后，COM6 已连续输出 `UART OK`，`app_component.elf` 经 XSCT 加载到 `0x00100000` 并运行；调试反汇编也显示有效 `_start/main/uart_puts/uart_putc/exception` 代码。结合 DDR 修正，最小 UART 应用的板级执行链路已通过。当前结论为 `RAW UART TX BOARD PASS`；UART RX echo 和 HDMI 显示仍待验证。当前 `main.c` 仍是最小 TX 固件。证据见 `4_metrics/logs/2026-09-03_vitis_uart_minimal_raw_tx_run32/uart_board_tx_pass.md`。
+
+## 2026-09-06/07 开发机迁移 + 2_fpga 验证版合入 + AI 侧手势通路
+
+- 开发机迁移：项目根目录现为 `E:\Work\Projects\AMD_proj\FPGA_competition_2026`（本仓库完整克隆），Vivado 2025.2 ML Standard 已装（仅 Zynq-7000 家族）。旧开始菜单快捷方式指向失效路径，桌面快捷方式已修复。
+- 2_fpga 更新：以队友交付的验证版 zip 整体合入——`0_diaplay_test`（hdmi_new V1.8：`adv7511_init_table.sv` 含 CSC 与读回校验，新增 rtl/HDMI TMDS 直出、data_pre、fr_display、ov5640_data_cap；proj display_test 工程；sim 新增 4 个测试台）、`1_zynqtest_2025`（本地恢复，含 ILA，按约定不入库）。合入前旧版已备份至本地 0_assets（不入库）。
+- ADV7511 颜色根因分析（文档级，未板测）：4:2:2 输入映射受 R0x48[4:3] 对齐与 R0x16[3:2] Style 双控制，且寄存器 Style 值与手册编号不对应（Linux 驱动注释佐证）；EES-331 仅接 D[15:0]，Style 2/3 使芯片读 D[23:16] 悬空脚。队友 CSC 直出 RGB 方案已板测通过，维持不动；分析留作 422 直通备援路线资料。证据：`7_logs/2026-09-07/`（HWUG Table 7、EES-331 手册页截图）。
+- AI 侧（3_host）：手势模型 v1 训练完成（YOLOv8n + Roboflow hand-gesture v6，7 类，test mAP50 0.730；Stop/Thumbs up/Up/Down 优秀，Left/Right/Thumbs Down 为弱项）；PC 全链路（摄像头→JPEG→UDP→ONNX CPU→JSON 回传）实测通过，P50 62ms；UDP 协议 v1 定稿于 `1_docs/interface.md`（分片/心跳/异常处理）。
+- 待办：①2025.2 环境基线 bit 复现（Reset Runs→板测彩条）②PS 显示验证 ③lwIP 发帧端（协议见 1_docs/interface.md）④AI 侧自采 Left/Right/Thumbs Down 数据重训 v2 ⑤舵机臂下单 ⑥中期报告 10-09。
+- 详细记录：`7_logs/2026-09-07/` 四件套。

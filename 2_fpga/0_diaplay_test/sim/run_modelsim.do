@@ -9,7 +9,7 @@ if {![file exists $work_lib]} {
 }
 
 vlog -work $work_lib -sv E:/competition/2_fpga/0_diaplay_test/sim/oddr_sim_model.sv
-vlog -work $work_lib -sv E:/competition/2_fpga/0_diaplay_test/rtl/hdmi_new/adv7511_init_table_pkg.sv
+vlog -work $work_lib -sv E:/competition/2_fpga/0_diaplay_test/rtl/hdmi_new/adv7511_init_table.sv
 vlog -work $work_lib -sv E:/competition/2_fpga/0_diaplay_test/rtl/hdmi_new/rgb2ycbcr422.sv
 vlog -work $work_lib E:/competition/2_fpga/0_diaplay_test/rtl/iic/iic_protocal.v
 vlog -work $work_lib -sv E:/competition/2_fpga/0_diaplay_test/rtl/hdmi_new/adv7511_controller.sv

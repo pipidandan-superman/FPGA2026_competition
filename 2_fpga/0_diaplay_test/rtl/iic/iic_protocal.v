@@ -1,15 +1,15 @@
-//iic Ð­ÒéÊµÏÖ
+//iic Ð­ï¿½ï¿½Êµï¿½ï¿½
 module iic_protocal
 #(
-    parameter DEVICE_WR_ADDR = 7'b1010000,
-    parameter IIC_SPEED   = 150         //50Mhz ·ÖÆµÏµÊý 333.333Khz < 400khz
+    parameter DEVICE_WR_ADDR = 7'b0111001,
+    parameter IIC_SPEED   = 150         //50Mhz ï¿½ï¿½ÆµÏµï¿½ï¿½ 333.333Khz < 400khz
 )
 (
     input  wire       sys_clk           ,
     input  wire       sys_rst_n         ,
                     
     input  wire       iic_start         ,
-    input  wire [1:0] iic_we            ,//iic ¶Á=1/Ð´=0
+    input  wire [1:0] iic_we            ,//iic ï¿½ï¿½=1/Ð´=0
     input  wire [7:0] iic_addr          ,
     input  wire [7:0] iic_wr_data       ,
     output reg  [7:0] iic_rd_data       ,
@@ -19,6 +19,7 @@ module iic_protocal
     output reg        scl               ,
     inout  wire       sda                   
 );
+
 wire [10:0] IIC_SPPED_DIV4,IIC_SPPED_DIV2;
 assign IIC_SPPED_DIV4 = IIC_SPEED>>2;
 assign IIC_SPPED_DIV2 = IIC_SPEED>>1;
@@ -34,10 +35,10 @@ localparam  IDLE        = 4'd0 ,
             ADDR        = 4'd4 ,
             ACK2        = 4'd5 ,
                                
-            //Ð´Êý¾Ý           
+            //Ð´ï¿½ï¿½ï¿½ï¿½
             WR_DATA     = 4'd6 ,
             ACK3        = 4'd7 ,
-            //¶ÁÊý¾Ý
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             START2      = 4'd8 ,
             DEVICE_RD   = 4'd9 ,
             ACK4        = 4'd10,
@@ -47,22 +48,23 @@ localparam  IDLE        = 4'd0 ,
             STOP        = 4'd13,
             END         = 4'd14,
             ERROR       = 4'd15;
-reg [3:0] state,next_state;
+reg [3:0] state;
+reg [3:0] next_state;
 reg [15:0] cnt_scl;
 reg [2:0] cnt_bit;
 reg [27:0] cnt_error;
-reg ack_reg;//¼Ä´æ²É¼¯µ½µÄackÐÅºÅ£¨´Ó»úÊäÈëµÄÐÅºÅ£©
+reg ack_reg;//ï¿½Ä´ï¿½É¼ï¿½ï¿½ï¿½ï¿½ï¿½ackï¿½ÅºÅ£ï¿½ï¿½Ó»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÅºÅ£ï¿½
 
-//ÈýÌ¬ÃÅµÄ¿ØÖÆ
+//ï¿½ï¿½Ì¬ï¿½ÅµÄ¿ï¿½ï¿½ï¿½
 //sda sda_out sda_in=sda 
-//sda_en == 1 Êä³ö  sda_en == 0 ÊäÈë
+//sda_en == 1 ï¿½ï¿½ï¿½  sda_en == 0 ï¿½ï¿½ï¿½ï¿½
 wire sda_in;
 reg sda_out;
 wire sda_en;
 assign sda_en = (state == ACK1 || state == ACK2 || state == ACK3 ||
                  state == ACK4 || state == RD_DATA)?0:1;
 assign sda_in = sda;
-assign sda = (sda_en == 1)?sda_out:1'bz;
+assign sda = sda_en ? sda_out : 1'bz;
 
 always@(posedge sys_clk)
     if(!sys_rst_n)
@@ -98,9 +100,9 @@ always@(*)
     ACK2   :if(cnt_scl == IIC_SPEED-1)begin
                 if(ack_reg == 0)begin
                     if(iic_we == 2'b00)
-                        next_state = WR_DATA; //Ð´Êý¾Ý
+                        next_state = WR_DATA; //Ð´ï¿½ï¿½ï¿½ï¿½
                     else if(iic_we == 2'b01)
-                        next_state = START2;  //¶ÁÊý¾Ý 
+                        next_state = START2;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     else
                         next_state = ERROR;
                 end
@@ -122,7 +124,7 @@ always@(*)
             else
                 next_state = state;
                 
-    //ÐÂÔöµÄ¶ÁÊý¾Ý×´Ì¬
+    //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
     START2   :if(cnt_scl == IIC_SPEED-1)
                 next_state = DEVICE_RD;
             else
@@ -271,7 +273,7 @@ always@(posedge sys_clk)
     end
 assign iic_done = (state == END)?1:0;
 
-//Êý¾Ý²É¼¯
+//ï¿½ï¿½ï¿½Ý²É¼ï¿½
 always@(posedge sys_clk)
     if(!sys_rst_n)
         iic_rd_data_reg <= 0;
@@ -296,4 +298,35 @@ always@(posedge sys_clk)
         iic_rd_data <= iic_rd_data;
         iic_rd_data_valid <= 0;
     end
+//ila_0 your_instance_name (
+//	.clk(sys_clk), // input wire clk
+
+
+//	.probe0(iic_start        ), // input wire [0:0]  probe0  
+//	.probe1(iic_we           ), // input wire [1:0]  probe1 
+//	.probe2(iic_addr         ), // input wire [7:0]  probe2 
+//	.probe3(iic_wr_data      ), // input wire [7:0]  probe3 
+//	.probe4(iic_rd_data      ), // input wire [7:0]  probe4 
+//	.probe5(iic_rd_data_valid), // input wire [0:0]  probe5 
+//	.probe6(iic_done         ), // input wire [0:0]  probe6 
+//	.probe7(scl              ), // input wire [0:0]  probe7 
+//	.probe8(sda_in            ), // input wire [0:0]  probe8
+//	.probe9(sda_out             )  // input wire [0:0]  probe9
+//);
+ila_0 your_instance_name (
+	.clk(sys_clk), // input wire clk
+
+
+	.probe0(iic_start        ), // input wire [0:0]  probe0  
+	.probe1(iic_we           ), // input wire [1:0]  probe1 
+	.probe2(iic_addr         ), // input wire [7:0]  probe2 
+	.probe3(iic_wr_data      ), // input wire [7:0]  probe3 
+	.probe4(iic_rd_data      ), // input wire [7:0]  probe4 
+	.probe5(sda_en), // input wire [0:0]  probe5 
+	.probe6(iic_done         ), // input wire [0:0]  probe6 
+	.probe7(scl              ), // input wire [0:0]  probe7 
+	.probe8(sda_in           ), // input wire [0:0]  probe8 
+	.probe9(sda_out          ), // input wire [0:0]  probe9 
+	.probe10(state           ) // input wire [3:0]  probe10
+);
 endmodule

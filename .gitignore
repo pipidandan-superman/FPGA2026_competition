@@ -26,3 +26,22 @@ hdmi_*_lib/
 *.zip
 *.7z
 *.rar
+
+# ---- 补充：Python / 模型权重 / Vitis 工作区元数据（3_host 与本地工作区） ----
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.onnx
+*.pt
+*.pth
+*.safetensors
+**/vitis/_ide/
+**/vitis/platform/
+
+# ---- 本地资产与工程目录(团队约定不入库, 由 0_assets zip 共享) ----
+0_assets/
+2_fpga/1_zynqtest_2025/
+2_fpga/0_diaplay_test/vitis/display_test_plat/
+**/_ide/
+**/utils_1/

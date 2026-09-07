@@ -2,14 +2,15 @@
 // File name   : hdmi_out_adv7511.v
 // Author      : LSL
 // Create date : 2026-09-03
-// Description : ADV7511 HDMI 输出顶层，集成 YCbCr422 转换与 IIC 配置
+// Description : ADV7511 HDMI 输出顶层，集成 YCbCr422 转换与物理字节交换
 // Target      : FPGA
-// Revision    : V1.1
+// Revision    : V1.3
 //====================================================================
 
 module hdmi_out_adv7511 #(
-    parameter              FAST_SIM           = 1'b0       ,
-    parameter              PIX_CLK_FREQ_HZ    = 25_175_000
+    parameter              FAST_SIM        = 1'b0       ,
+    parameter              ENABLE_READBACK = 1'b1       ,
+    parameter              PIX_CLK_FREQ_HZ = 25_175_000
 ) (
     input  wire               PIX_CLK    ,
     input  wire               RST_N      ,
@@ -28,11 +29,14 @@ module hdmi_out_adv7511 #(
 );
 
     wire [15:0] conversion_data;
+    wire [15:0] physical_data;
     wire        conversion_de;
     wire        conversion_hsync;
     wire        conversion_vsync;
     wire        initialization_done;
     wire        initialization_error;
+    wire [5:0]  initialization_readback_match;
+    wire [47:0] initialization_readback_data;
 
     rgb2ycbcr422 u_rgb2ycbcr422 (
         .clk_i      (PIX_CLK)          ,
@@ -47,10 +51,13 @@ module hdmi_out_adv7511 #(
         .vsync_o    (conversion_vsync)
     );
 
+    assign physical_data = conversion_data;
+
     adv7511_cfg_top #(
         .FAST_SIM            (FAST_SIM)        ,
+        .ENABLE_READBACK     (ENABLE_READBACK) ,
         .CLK_FREQ_HZ         (PIX_CLK_FREQ_HZ) ,
-        .POWER_UP_DELAY_MS   (120)             ,
+        .POWER_UP_DELAY_MS   (200)             ,
         .DEVICE_ADDR         (7'h39)           ,
         .IIC_CLOCK_DIVIDER   (252)             ,
         .PROTOCOL_TIMEOUT_MS (3000)
@@ -59,18 +66,20 @@ module hdmi_out_adv7511 #(
         .rst_n_i     (RST_N)   ,
         .cfg_done_o  (initialization_done) ,
         .cfg_error_o (initialization_error) ,
+        .readback_match_o(initialization_readback_match),
+        .readback_data_o(initialization_readback_data),
         .scl_o       (HDMI_SCL),
         .sda_io      (HDMI_SDA)
     );
 
-    always @(posedge PIX_CLK or negedge RST_N) begin
+    always @(negedge PIX_CLK or negedge RST_N) begin
         if (!RST_N) begin
             HDMI_DATA   <= 16'd0;
             HDMI_DE     <= 1'b0;
             HDMI_HSYNC  <= 1'b0;
             HDMI_VSYNC  <= 1'b0;
         end else begin
-            HDMI_DATA   <= conversion_data;
+            HDMI_DATA   <= physical_data;
             HDMI_DE     <= conversion_de;
             HDMI_HSYNC  <= conversion_hsync;
             HDMI_VSYNC  <= conversion_vsync;
