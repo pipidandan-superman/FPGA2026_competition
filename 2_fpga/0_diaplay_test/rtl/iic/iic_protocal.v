@@ -313,20 +313,20 @@ always@(posedge sys_clk)
 //	.probe8(sda_in            ), // input wire [0:0]  probe8
 //	.probe9(sda_out             )  // input wire [0:0]  probe9
 //);
-ila_0 your_instance_name (
-	.clk(sys_clk), // input wire clk
+//ila_0 your_instance_name (
+//	.clk(sys_clk), // input wire clk
 
 
-	.probe0(iic_start        ), // input wire [0:0]  probe0  
-	.probe1(iic_we           ), // input wire [1:0]  probe1 
-	.probe2(iic_addr         ), // input wire [7:0]  probe2 
-	.probe3(iic_wr_data      ), // input wire [7:0]  probe3 
-	.probe4(iic_rd_data      ), // input wire [7:0]  probe4 
-	.probe5(sda_en), // input wire [0:0]  probe5 
-	.probe6(iic_done         ), // input wire [0:0]  probe6 
-	.probe7(scl              ), // input wire [0:0]  probe7 
-	.probe8(sda_in           ), // input wire [0:0]  probe8 
-	.probe9(sda_out          ), // input wire [0:0]  probe9 
-	.probe10(state           ) // input wire [3:0]  probe10
-);
+//	.probe0(iic_start        ), // input wire [0:0]  probe0  
+//	.probe1(iic_we           ), // input wire [1:0]  probe1 
+//	.probe2(iic_addr         ), // input wire [7:0]  probe2 
+//	.probe3(iic_wr_data      ), // input wire [7:0]  probe3 
+//	.probe4(iic_rd_data      ), // input wire [7:0]  probe4 
+//	.probe5(sda_en), // input wire [0:0]  probe5 
+//	.probe6(iic_done         ), // input wire [0:0]  probe6 
+//	.probe7(scl              ), // input wire [0:0]  probe7 
+//	.probe8(sda_in           ), // input wire [0:0]  probe8 
+//	.probe9(sda_out          ), // input wire [0:0]  probe9 
+//	.probe10(state           ) // input wire [3:0]  probe10
+//);
 endmodule

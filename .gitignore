@@ -30,3 +30,7 @@ hdmi_*_lib/
 
 # Local-only quarantine for the 2026-09-06 workspace cleanup; see the manifest.
 4_metrics/logs/2026-09-06_workspace_cleanup_run01/root_quarantine/
+
+# Explicit 2026-09-07 board-proven camera HDMI success binaries
+!4_metrics/logs/2026-09-07_camera_display_success_freeze_run01/frozen_artifacts/display_test_wrapper.bit
+!4_metrics/logs/2026-09-07_camera_display_success_freeze_run01/frozen_artifacts/display_test_wrapper.xsa
