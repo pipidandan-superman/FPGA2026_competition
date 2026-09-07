@@ -71,6 +71,13 @@ No FPGA build, board run, or GitHub push was performed. This PASS is limited to 
 - Original `E:\competition` dirty workspace was not switched, cleaned, reset, staged, or copied wholesale.
 - Screenshot and raw Git/worktree outputs are archived in the evidence directory above.
 
+## Personal Branch Upload Result
+
+- Commit created: `a131b41 feat: publish selected FPGA development sources`.
+- Push result: `origin/codex/full/pipidandan-superman` created successfully.
+- The uploaded set is selective: 24 reviewed files; generated Vivado/Vitis trees, BSPs, DCPs, caches, waveforms, and bulk historical logs were excluded.
+- No pull request was created or merged in this step.
+
 ## Follow-up Root Cause Record
 
 A later detailed handoff was archived at `E:\competition\4_metrics\logs\2026-09-08_patch_tool_loop_diagnosis_run01\PATCH_TOOL_LOOP_ROOT_CAUSE_AND_HANDOFF.md`. It records the repeated tool-selection failure, why the same-path delete/add batch is rejected, why the current `AGENTS.md` rule is only mitigation, and the tool-layer fixes required for a true runtime fix. The current status is `ROOT_CAUSE_IDENTIFIED`, `MITIGATION_APPLIED`, `RUNTIME_FIX_PENDING`.
