@@ -216,13 +216,7 @@ localparam logic [6:0] INIT_ENTRY_COUNT      = 7'd68;
 // 修改索引 42 (0x16 寄存器)，将芯片物理输出配置为 RGB 4:4:4, 8-bit, Style 1
         'd42: begin
             init_address_o = 8'h16;
-<<<<<<< HEAD
             init_data_o    = 8'h38; // RGB out, 8-bit 422, unswapped Style 3
-=======
-            // 0x38 selects 8-bit YCbCr422 with the same 16-bit mapping as
-            // Style 3. The EES-331 board byte swap is applied in the top level.
-            init_data_o    = 8'h38;
->>>>>>> origin/main
         end
             'd43: begin
                 init_address_o = 8'hAF;

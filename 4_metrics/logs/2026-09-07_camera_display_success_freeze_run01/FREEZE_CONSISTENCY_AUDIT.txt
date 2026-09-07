@@ -1,0 +1,18 @@
+FREEZE_CONSISTENCY_AUDIT
+UTC_TIME=
+2026-09-07T14:10:43.8961919Z
+GIT_HEAD=
+c758ac638bc95886e8b6624b539cc27cda2ea708
+
+MATCH	frozen_artifacts/display_test_wrapper.bit	16DBACBFCA755D69B08AE1720AF10D6C642E97B12F34F410241CEC1F29130624	2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.runs/impl_1/display_test_wrapper.bit
+MATCH	frozen_artifacts/display_test_wrapper.xsa	7374BD4EE2D30C726FC0135E1960BA2BE19BD22C3B9D75B0AB0BBEE1CE64A6E1	2_fpga/0_diaplay_test/vitis/display_test_wrapper.xsa
+MATCH	frozen_artifacts/app_component.elf	040B57D048D76A60AAED8262F4E7E05204E6A96E8EF01AD6598BE4EE93BDD990	2_fpga/0_diaplay_test/vitis/app_component/build/app_component.elf
+MATCH	frozen_artifacts/main.c	705B0317DC688022DF5956EC985A041D87E47D4348BFB6107C1D614D6CE5F9C0	2_fpga/0_diaplay_test/vitis/app_component/src/main.c
+MATCH	frozen_artifacts/display_test.bd	231E9F7221EF371A3BEA2DDEB79F967933C80D1ECCD0D105913C92592D50C003	2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.srcs/sources_1/bd/display_test/display_test.bd
+MATCH	frozen_artifacts/display_test_axi_vdma_0_0.xci	2C442A8B31361CA2E67121668B7A1E43EA018C146D923E3AC9F1D8E3198101E1	2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.srcs/sources_1/bd/display_test/ip/display_test_axi_vdma_0_0/display_test_axi_vdma_0_0.xci
+MATCH	frozen_artifacts/pix_frame_dispaly.v	459BDB36FFF8E9655198E2B1F57DCC3621D520C1011152E9E71606EB88EC36D5	2_fpga/0_diaplay_test/rtl/fr_display/pix_frame_dispaly.v
+
+ROUTE_STATUS=# of fully routed nets............. :       11060 :
+ROUTE_ERRORS=# of nets with routing errors.......... :           0 :
+TIMING_WNS_TNS=9.510        0.000                      0                17534        0.013        0.000                      0                17426        3.000        0.000                       0                  7606
+TIMING_STATEMENT=All user specified timing constraints are met.

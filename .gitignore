@@ -28,8 +28,7 @@ hdmi_*_lib/
 *.7z
 *.rar
 
-<<<<<<< HEAD
-# ---- 补充：Python / 模型权重 / Vitis 工作区元数据（3_host 与本地工作区） ----
+# ---- Python / model weights / Vitis workspace metadata (3_host and local workspaces) ----
 __pycache__/
 *.pyc
 .venv/
@@ -41,13 +40,16 @@ venv/
 **/vitis/_ide/
 **/vitis/platform/
 
-# ---- 本地资产与工程目录(团队约定不入库, 由 0_assets zip 共享) ----
+# ---- Local assets and project directories excluded by team convention ----
 0_assets/
 2_fpga/1_zynqtest_2025/
 2_fpga/0_diaplay_test/vitis/display_test_plat/
 **/_ide/
 **/utils_1/
-=======
+
 # Local-only quarantine for the 2026-09-06 workspace cleanup; see the manifest.
 4_metrics/logs/2026-09-06_workspace_cleanup_run01/root_quarantine/
->>>>>>> origin/main
+
+# Explicit 2026-09-07 board-proven camera HDMI success binaries
+!4_metrics/logs/2026-09-07_camera_display_success_freeze_run01/frozen_artifacts/display_test_wrapper.bit
+!4_metrics/logs/2026-09-07_camera_display_success_freeze_run01/frozen_artifacts/display_test_wrapper.xsa

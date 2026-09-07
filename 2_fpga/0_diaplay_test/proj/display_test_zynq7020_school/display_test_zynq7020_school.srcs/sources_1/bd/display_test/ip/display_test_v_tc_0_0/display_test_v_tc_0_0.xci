@@ -71,8 +71,8 @@
         "GEN_F0_VBLANK_HSTART": [ { "value": "656", "resolve_type": "user", "format": "long", "enabled": false, "usage": "all" } ],
         "GEN_F1_VBLANK_HSTART": [ { "value": "656", "resolve_type": "user", "format": "long", "enabled": false, "usage": "all" } ],
         "GEN_ACHROMA_POLARITY": [ { "value": "High", "resolve_type": "user", "enabled": false, "usage": "all" } ],
-        "GEN_HSYNC_POLARITY": [ { "value": "High", "resolve_type": "user", "usage": "all" } ],
-        "GEN_VSYNC_POLARITY": [ { "value": "High", "resolve_type": "user", "usage": "all" } ],
+        "GEN_HSYNC_POLARITY": [ { "value": "High", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
+        "GEN_VSYNC_POLARITY": [ { "value": "High", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
         "GEN_HBLANK_POLARITY": [ { "value": "High", "resolve_type": "user", "usage": "all" } ],
         "GEN_AVIDEO_POLARITY": [ { "value": "High", "resolve_type": "user", "usage": "all" } ],
         "GEN_VBLANK_POLARITY": [ { "value": "High", "resolve_type": "user", "usage": "all" } ],
@@ -284,5 +284,5 @@
       }
     }
   },
-  "checksum": "78f33542"
+  "checksum": "56769ec6"
 }
