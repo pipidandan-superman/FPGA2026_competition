@@ -1,0 +1,1 @@
+MODE_SWITCH_PASS: RGB888 and direct YCbCr422, frame-safe SW0 switch

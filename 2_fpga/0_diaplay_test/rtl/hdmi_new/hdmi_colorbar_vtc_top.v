@@ -2,9 +2,9 @@
 // File name   : hdmi_colorbar_vtc_top.v
 // Author      : LSL
 // Create date : 2026-09-04
-// Description : RGB888 480p colorbar source with board-corrected YCbCr422 transport
+// Description : RGB888 480p colorbar source with board-swap YCbCr422 transport
 // Target      : Zynq-7020 EES-331 board
-// Revision    : V1.8
+// Revision    : V1.9
 //====================================================================
 
 module hdmi_colorbar_vtc_top (
@@ -227,10 +227,12 @@ module hdmi_colorbar_vtc_top (
     assign selected_hsync = video_mode_direct ? direct_hsync_s3 : conversion_hsync;
     assign selected_vsync = video_mode_direct ? direct_vsync_s3 : conversion_vsync;
 
-    // The ADV7511 is configured as physical Style 3: {Y, Cb/Cr}. This matches
-    // the source order, so no byte swap is used in the current RGB/CSC mode.
+    // selected_data is logical 16-bit YCbCr422: {Y, Cb/Cr}. The EES-331 port
+    // order is reversed relative to that logical bus, and the board PASS image
+    // confirms that the constrained HDMI_DATA bytes must be exchanged here.
     assign physical_data = {selected_data[7:0], selected_data[15:8]};
-   //assign physical_data = selected_data;
+    // Board regression guard: do not restore the unswapped form. It produced
+    // chroma stripes in the red/blue/green bars on 2026-09-06.
     always @(negedge pix_clk or negedge pixel_reset_n) begin
         if (!pixel_reset_n) begin
             HDMI_DATA   <= 16'd0;
@@ -265,8 +267,8 @@ module hdmi_colorbar_vtc_top (
 
     // Hold S1 to show the build signature. After release, LED7 shows the
     // selected video source and LED6:LED0 show the low seven readback bits.
-    // The LED displays R0x16. Its 8-bit-width/style fields are expected as
-    // 30h; the raw value is 38h because RGB output uses unswapped Style 3.
+    // The LED displays R0x16. Its masked fields are expected as 30h and the
+    // raw value is 38h. The board byte order correction is performed above.
     // FFh means SDA remained released/high throughout the returned byte.
     assign LED = reset_n ? {video_mode_direct, adv7511_readback_data[22:16]} :
                            BUILD_SIGNATURE;

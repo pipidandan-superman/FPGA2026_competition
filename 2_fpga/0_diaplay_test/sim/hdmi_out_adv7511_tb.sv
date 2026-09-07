@@ -12,6 +12,7 @@
  *   - V1.1 (2026-09-05) by LSL : Check logical Style 3 Y,Cb/Cr order
  *   - V1.2 (2026-09-05) by LSL : Check board physical byte-lane swap
  *   - V1.3 (2026-09-06) by LSL : Get table count from instantiated table
+ *   - V1.4 (2026-09-06) by LSL : Check EES-331 physical byte swap
  ************************************************************************/
 
 `timescale 1ns / 1ps
@@ -122,23 +123,24 @@ module hdmi_out_adv7511_tb #(
         logic [7:0] cb_scaled;
         logic [7:0] cr_scaled;
         begin
-            y_value = 752 * rgb_value[23:16] +
-                      2516 * rgb_value[15:8] +
-                      254 * rgb_value[7:0] +
+            y_value = 1052 * rgb_value[23:16] +
+                      2065 * rgb_value[15:8] +
+                      401 * rgb_value[7:0] +
                       65536;
-            cb_value = -412 * rgb_value[23:16] -
-                       1387 * rgb_value[15:8] +
+            cb_value = -607 * rgb_value[23:16] -
+                       1192 * rgb_value[15:8] +
                        1799 * rgb_value[7:0] +
                        524288;
             cr_value = 1799 * rgb_value[23:16] -
-                       1633 * rgb_value[15:8] -
-                       165 * rgb_value[7:0] +
+                       1507 * rgb_value[15:8] -
+                       292 * rgb_value[7:0] +
                        524288;
             y_scaled = clip_scaled_value(y_value);
             cb_scaled = clip_scaled_value(cb_value);
             cr_scaled = clip_scaled_value(cr_value);
-            expected_ycbcr422 = chroma_is_cb ? {y_scaled, cb_scaled} :
-                                             {y_scaled, cr_scaled};
+            // Preserve the logical word first, then apply the board byte swap.
+            expected_ycbcr422 = chroma_is_cb ?
+                {cb_scaled, y_scaled} : {cr_scaled, y_scaled};
         end
     endfunction
 
@@ -332,7 +334,7 @@ module hdmi_out_adv7511_tb #(
         repeat (20) @(posedge PIX_CLK);
         if (checked_pixels == TEST_PIXEL_COUNT && ycbcr_mismatch_count == 0) begin
             result_file = $fopen({
-                "E:/competition/4_metrics/logs/2026-09-05_hdmi_root_cause_run01/",
+                "E:/competition/4_metrics/logs/2026-09-06_adv7511_physical_swap_board_pass_run01/",
                 "hdmi_video_result.txt"},
                 "w"
             );

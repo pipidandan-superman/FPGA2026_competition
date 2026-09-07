@@ -1,0 +1,4 @@
+interface:
+  display_name: "EES-331 ModelSim GUI Simulation"
+  short_description: "Run ModelSim through the existing GUI Transcript"
+  default_prompt: "Use ModelSim GUI simulation to run the E:/competition .do file, capture the complete transcript, and summarize PASS/FAIL evidence."

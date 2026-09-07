@@ -16,6 +16,7 @@ xsim.dir/
 *.gen/
 hdmi_*_lib/
 *_lib/
+*_lib*/
 
 # Build outputs and local archives
 *.bit
@@ -27,6 +28,7 @@ hdmi_*_lib/
 *.7z
 *.rar
 
+<<<<<<< HEAD
 # ---- 补充：Python / 模型权重 / Vitis 工作区元数据（3_host 与本地工作区） ----
 __pycache__/
 *.pyc
@@ -45,3 +47,7 @@ venv/
 2_fpga/0_diaplay_test/vitis/display_test_plat/
 **/_ide/
 **/utils_1/
+=======
+# Local-only quarantine for the 2026-09-06 workspace cleanup; see the manifest.
+4_metrics/logs/2026-09-06_workspace_cleanup_run01/root_quarantine/
+>>>>>>> origin/main

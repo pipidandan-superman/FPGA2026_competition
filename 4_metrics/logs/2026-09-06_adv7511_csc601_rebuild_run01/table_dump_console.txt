@@ -1,0 +1,26 @@
+Reading D:/work/modelsim/tcl/vsim/pref.tcl 
+
+# 10.1c
+
+# do E:/competition/4_metrics/logs/2026-09-06_adv7511_csc601_rebuild_run01/run_table_dump.do 
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module adv7511_init_table
+# 
+# Top level modules:
+# 	adv7511_init_table
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module adv7511_init_table_dump_tb
+# 
+# Top level modules:
+# 	adv7511_init_table_dump_tb
+# vsim -voptargs=+acc -wlf E:/competition/4_metrics/logs/2026-09-06_adv7511_csc601_rebuild_run01/table_dump_fresh.wlf csc601_table_lib.adv7511_init_table_dump_tb 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+Error: can't read "FileWatch(fileName)": no such element in array

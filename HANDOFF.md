@@ -1,5 +1,16 @@
 # EES-331 HDMI ADV7511 Handoff
 
+## 2026-09-05 晚间板级定位（优先于下方历史结论）
+
+本次用户重新授权继续解决 HDMI。已撤销与原理图相反的物理字节交换，并用 JTAG/ILA 取得真实板级证据。
+
+原 SDA 推挽驱动的实测为 `raw=1F1F0FFF011F, match=1A, done=0, error=1`，并非此前声称的 BD 回读成功。
+开漏 SDA 诊断版本进一步捕获到地址72的NACK，发送连续高位时实际SDA随SCL改变。网表管脚与IOBUF连接已核对；下一步必须检查上拉VADJ及外部电气连接，不能把它直接定性为某个硬件短路，也不能靠放宽读回掩码继续推进。
+
+完整结论、边界和实物检查点：`4_metrics/logs/2026-09-05_hdmi_root_cause_run02/DIAGNOSIS.md`。
+当前板上是 run02 的临时诊断位流（初始化尚未通过），不是验收通过的发布版。原工程 bitstream 未覆盖，未写 Flash。
+工程日志统一更新在 `2_log/2026-09-05/`；下方历史“配置已验证”或“字节已证实反接”等表述不适用于本次实测。
+
 ## 状态
 
 - 日期：2026-09-04
@@ -88,6 +99,108 @@ Vitis Run 日志缺少完整下载/运行流程，调试器反汇编出现无效
 ## 2026-09-03 UART Raw TX Board PASS
 
 修正 Zynq UART1 `TXFULL` 位后，COM6 已连续输出 `UART OK`，`app_component.elf` 经 XSCT 加载到 `0x00100000` 并运行；调试反汇编也显示有效 `_start/main/uart_puts/uart_putc/exception` 代码。结合 DDR 修正，最小 UART 应用的板级执行链路已通过。当前结论为 `RAW UART TX BOARD PASS`；UART RX echo 和 HDMI 显示仍待验证。当前 `main.c` 仍是最小 TX 固件。证据见 `4_metrics/logs/2026-09-03_vitis_uart_minimal_raw_tx_run32/uart_board_tx_pass.md`。
+
+
+## 2026-09-05 HDMI A5 板级签名与暂停边界（历史状态）
+
+- 用户重新生成并下载后观察到 `LED0..LED7 = 8'b1010_0101`，与固定构建签名
+  `8'hA5` 完全一致，证明 `hdmi_colorbar_vtc_top` 的纯 PL bitstream 已被正确加载。
+- A5 版本只改变 LED 调试输出，没有改变 HDMI 视频数据，因此画面没有变化是该版本的
+  预期结果，不能据此判断颜色修正或寄存器回读是否生效。
+- 已加载 bitstream 时间为 `2026-09-05 13:11:49.160`；当前顶层与重写后的
+  `iic_protocal.v` 均在约 `13:41` 才修改。因此该板测不包含、也不验证当前 I2C 重写。
+- 该段记录的是当时的暂停状态；后续已恢复协议修改，并完成协议与 SW0 版本的联合 RTL 回归。
+
+## 2026-09-05 SW0 RGB/YCbCr 模式切换实现
+
+- 纯 PL 顶层 `hdmi_colorbar_vtc_top` 新增 `SW0` 输入，约束为 `AB6`；S2 仍保持为 PS
+  专用复位键，不接入 PL。
+- `SW0=0` 为 RGB888 经 FPGA 转换，`SW0=1` 为直接 BT.709 limited-range YCbCr422。
+- 模式先两级同步，再在帧起点锁存；直出数据和控制信号保持与 RGB 转换路径相同的三拍
+  延迟，避免半帧切换。
+- LED7 显示当前直出模式，LED6:LED0 保留低七位回读调试信息；复位继续显示 A5。
+- ModelSim 通过：`4_metrics/logs/2026-09-05_hdmi_mode_switch_run01/mode_result.txt`
+  报告 `MODE_SWITCH_PASS`，并保留非空 WLF。尚未生成新的 bitstream。
+
+## 2026-09-05 协议与 SW0 版本合并验证（历史，已被后文原始协议恢复替代）
+
+- 当时用户恢复协议修改要求；当时活动版本继续使用重写后的
+  `2_fpga/0_diaplay_test/rtl/iic/iic_protocal.v`，未恢复旧版协议。
+- `iic_protocal.v` 已按板级接口改为 FPGA 单向输出 SCL、SDA 保持双向开漏，支持单寄存器写、
+  随机读/重复 START、ACK/NACK、单字节读后的主机 NACK、合法 STOP/错误 STOP，并导出
+  `iic_error` 和 `iic_rd_data_valid`。
+- `adv7511_iic_data_xfer.sv` 完成 34 次写入后读取 6 个关键寄存器，保存全部原始回读值，
+  并在读回不匹配时给出位图而不提前终止。
+- 独立 Vivado 建工程脚本 `build_hdmi_colorbar_vtc.tcl` 已补入
+  `../iic/iic_protocal.v`，避免新工程遗漏底层协议源文件。
+- 当前源码回归证据：
+  `4_metrics/logs/2026-09-05_hdmi_protocol_sw0_run01`。
+  底层协议 PASS；配置成功回读 `bitmap=111111/raw=101208bd0110`；故意失配
+  `bitmap=111011/raw=101208bc0110`；NACK 快速错误 PASS。
+- 协议和 SW0 均只完成 RTL/ModelSim 验证，尚未由本轮生成或下载 bitstream；板级结论仍待
+  用户重新综合、实现、生成并下载当前源码。
+
+## 2026-09-05 HDMI 黑屏修正
+
+- 用户反馈协议版本下载后 HDMI 完全无显示。优先收敛到 ADV7511 初始化条件，而不是改变
+  已通过仿真的 RGB/YCbCr 视频路径。
+- 按 ADV7511 Hardware User's Guide 的上电要求，将配置启动延时从 120 ms 改为 200 ms。
+- 重写协议使用开漏 SCL/SDA；为避免板上外部上拉缺失或未装导致总线浮空，在
+  `hdmi_colorbar_vtc_top.xdc` 对 `HDMI_SCL/HDMI_SDA` 增加 FPGA 弱上拉。
+- SW0 模式切换仿真在该修正后仍为 `MODE_SWITCH_PASS`。尚未生成 bitstream，下一步由用户
+  重新综合、实现并下载验证：复位时 LED 应为 A5，释放复位后检查 LED 和 HDMI 是否恢复。
+
+## 2026-09-05 原始 I2C 协议恢复（当前状态）
+
+- 用户明确要求停止使用重写协议并恢复原协议；当前活动源已恢复
+  `2_fpga/0_diaplay_test/rtl/iic/iic_protocal.v` 的原始状态机和端口。
+- `adv7511_iic_data_xfer.sv` 已移除重写版 `iic_error` 连接，改为沿用原协议的
+  `iic_done` 加上外层超时判断；SCL 仍是 FPGA 输出，SDA 仍为双向开漏。
+- 现有 SW0 RGB888/YCbCr422 帧边界切换、五色彩条、LED/约束修改均保留。
+- 原始协议配置级回归通过：
+  `4_metrics/logs/2026-09-05_adv7511_i2c_original_run01/cfg_success_result.txt`
+  为 `bitmap=111111/raw=101208bd0110`；故意失配结果为
+  `bitmap=111011/raw=101208bc0110`。
+- 当前仍未生成或下载新的 bitstream；用户下一步可直接在 Vivado 中重新综合、实现、生成
+  bitstream 并观察 HDMI 与 LED。
+
+## 2026-09-05 板级竖条与物理字节交换（当前待上板）
+
+- 用户反馈两个 SW0 输入模式都能显示但颜色错误，图像呈现白色偏绿、黑色偏红、红/蓝区域
+  逐像素竖条，绿色区域基本正常。
+- 该现象对应 ADV7511 将当前逻辑 `{Y,Cb/Cr}` 按 `{Cb/Cr,Y}` 解释；不是 RGB 转换公式
+  的主要问题。
+- 保留 `R0x16=0xBD` Style 3 和逻辑 `{Y,Cb/Cr}`，在
+  `hdmi_colorbar_vtc_top.v` 与 `hdmi_out_adv7511.v` 的物理输出边界加入
+  `{data[7:0],data[15:8]}` 字节交换。
+- RTL 自检通过：16/16 像素无 YCbCr mismatch；证据见
+  `4_metrics/logs/2026-09-05_hdmi_physical_byte_swap_run01`。
+- 当前没有生成 bitstream；下一步重新综合下载后检查五色顺序及 `R0x16` 回读值。
+
+## 2026-09-05 最新板级结果归档（暂停修改）
+
+- 用户上传的最新板级照片已保存至
+  `4_metrics/logs/2026-09-05_hdmi_board_result_run01/board_result_2026-09-05_run02.jpg`，
+  详细说明见同目录 `board_result.md`。
+- 现象：HDMI 能够稳定显示，但五色图像仍与预期不匹配，画面存在明显密集竖状条纹；本结果不能作为颜色或寄存器回读正确的验收结论。
+- 本次只做证据归档和日志更新；没有修改 RTL、I²C、ADV7511 寄存器表、物理字节交换、XDC 或仿真文件，也没有生成/下载新的 bitstream。
+- 图片 SHA-256：`E3D91414AB79266C725F0A276155BC2F8B87EC19A3AD8058ABB52B36F7A3A75E`。
+- 当前工作边界：等待用户明确重新启动调试；在此之前不继续尝试颜色修正或协议修改。
+(current tail continued)
+
+## 2026-09-06 ADV7511 final board PASS
+
+- Final 480p solution is frozen: logical `{Y,Cb/Cr}`, ADI BT.601 limited-range
+  CSC table V1.3, `R0x15=01`, `R0x16=38`, `R0x48=08`, and an EES-331 port
+  byte swap at `physical_data`.
+- Board result: White / Black / Red / Blue / Green solid bars, no stripes.
+  Raw photo:
+  `4_metrics/logs/2026-09-06_adv7511_physical_swap_board_pass_run01/board_pass_white_black_red_blue_green.jpg`.
+- ModelSim physical-swap regression PASS marker:
+  `MODE_SWITCH_PASS: RGB888 and direct YCbCr422, frame-safe SW0 switch`.
+  Stable result file: `mode_result.txt` in the same run folder.
+- Do not restore `physical_data = selected_data`; the unswapped build produced
+  chroma stripes in the red/blue/green bars.
 
 ## 2026-09-06/07 开发机迁移 + 2_fpga 验证版合入 + AI 侧手势通路
 

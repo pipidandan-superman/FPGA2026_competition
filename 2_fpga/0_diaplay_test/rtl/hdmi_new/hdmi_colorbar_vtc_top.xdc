@@ -59,7 +59,3 @@ NAME =~ *HDMI_DE_reg ||
 NAME =~ *HDMI_HSYNC_reg ||
 NAME =~ *HDMI_VSYNC_reg
 }]
-
-
-
-

@@ -1,0 +1,71 @@
+Reading D:/work/modelsim/tcl/vsim/pref.tcl 
+
+# 10.1c
+
+# do E:/competition/4_metrics/logs/2026-09-06_adv7511_rgb_style3_fix_run01/run_config.do 
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module adv7511_init_table
+# 
+# Top level modules:
+# 	adv7511_init_table
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module adv7511_controller
+# 
+# Top level modules:
+# 	adv7511_controller
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module adv7511_iic_data_xfer
+# 
+# Top level modules:
+# 	adv7511_iic_data_xfer
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module adv7511_cfg_top
+# 
+# Top level modules:
+# 	adv7511_cfg_top
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module iic_protocal
+# 
+# Top level modules:
+# 	iic_protocal
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module ila_0
+# 
+# Top level modules:
+# 	ila_0
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module adv7511_cfg_top_tb
+# -- Compiling module adv7511_cfg_top_success_tb
+# -- Compiling module adv7511_cfg_top_mismatch_tb
+# 
+# Top level modules:
+# 	adv7511_cfg_top_success_tb
+# 	adv7511_cfg_top_mismatch_tb
+# vsim -voptargs=+acc -wlf E:/competition/4_metrics/logs/2026-09-06_adv7511_rgb_style3_fix_run01/config_success.wlf rgb_style3_lib.adv7511_cfg_top_success_tb 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading work.adv7511_cfg_top_success_tb(fast)
+# Loading work.adv7511_cfg_top_tb(fast)
+# Loading work.adv7511_cfg_top(fast)
+# Loading work.adv7511_controller(fast)
+# Loading work.adv7511_iic_data_xfer(fast)
+# Loading work.adv7511_init_table(fast)
+# Loading work.iic_protocal(fast)
+# Loading work.ila_0(fast)
+# READBACK[0]: reg=41 sent=10 captured=10 expected=10 mask=70
+# READBACK[1]: reg=15 sent=01 captured=01 expected=01 mask=0f
+# READBACK[2]: reg=16 sent=38 captured=38 expected=30 mask=30
+# READBACK[3]: reg=48 sent=08 captured=08 expected=08 mask=18
+# READBACK[4]: reg=af sent=12 captured=12 expected=12 mask=12
+# READBACK[5]: reg=de sent=10 captured=10 expected=10 mask=10
+# CFG_READBACK_SUCCESS_PASS: transactions=74 starts=80 stops=74 bitmap=111111
+# ** Note: $finish    : E:/competition/2_fpga/0_diaplay_test/sim/adv7511_cfg_top_tb.sv(356)
+#    Time: 23256140 ns  Iteration: 1  Instance: /adv7511_cfg_top_success_tb/u_test

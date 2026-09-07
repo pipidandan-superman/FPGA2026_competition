@@ -1,0 +1,71 @@
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module adv7511_init_table
+# 
+# Top level modules:
+# 	adv7511_init_table
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module adv7511_controller
+# 
+# Top level modules:
+# 	adv7511_controller
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module adv7511_iic_data_xfer
+# 
+# Top level modules:
+# 	adv7511_iic_data_xfer
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module adv7511_cfg_top
+# 
+# Top level modules:
+# 	adv7511_cfg_top
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module iic_protocal
+# 
+# Top level modules:
+# 	iic_protocal
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module ila_0
+# 
+# Top level modules:
+# 	ila_0
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module vtc_480p_1ppc
+# 
+# Top level modules:
+# 	vtc_480p_1ppc
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module rgb2ycbcr422
+# 
+# Top level modules:
+# 	rgb2ycbcr422
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module hdmi_colorbar_vtc_top
+# 
+# Top level modules:
+# 	hdmi_colorbar_vtc_top
+# Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+# -- Compiling module clk_wiz_0
+# -- Compiling module ODDR
+# -- Compiling module hdmi_colorbar_vtc_top_mode_tb
+# 
+# Top level modules:
+# 	clk_wiz_0
+# 	ODDR
+# 	hdmi_colorbar_vtc_top_mode_tb
+# vsim -voptargs=+acc -wlf E:/competition/4_metrics/logs/2026-09-06_adv7511_table_module_run01/mode_style1.wlf table_module_mode_lib.hdmi_colorbar_vtc_top_mode_tb 
+# Loading sv_std.std
+# Loading work.hdmi_colorbar_vtc_top_mode_tb(fast)
+# Loading work.hdmi_colorbar_vtc_top(fast)
+# Loading work.clk_wiz_0(fast)
+# Loading work.vtc_480p_1ppc(fast)
+# Loading work.rgb2ycbcr422(fast)
+# Loading work.adv7511_cfg_top(fast)
+# Loading work.adv7511_controller(fast)
+# Loading work.adv7511_iic_data_xfer(fast)
+# Loading work.adv7511_init_table(fast)
+# Loading work.iic_protocal(fast)
+# Loading work.ila_0(fast)
+# Loading work.ODDR(fast)
+# MODE_SWITCH_PASS: RGB888 and direct YCbCr422, frame-safe SW0 switch
+# ** Note: $finish    : E:/competition/2_fpga/0_diaplay_test/sim/hdmi_colorbar_vtc_top_mode_tb.sv(185)
+#    Time: 4213246 ns  Iteration: 0  Instance: /hdmi_colorbar_vtc_top_mode_tb

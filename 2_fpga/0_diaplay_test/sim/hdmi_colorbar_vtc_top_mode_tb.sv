@@ -2,9 +2,9 @@
 // File name   : hdmi_colorbar_vtc_top_mode_tb.sv
 // Author      : LSL / Codex
 // Create date : 2026-09-05
-// Description : Verify frame-safe modes and physical Style 1 byte mapping
+// Description : Verify frame-safe modes and EES-331 physical byte mapping
 // Target      : ModelSim
-// Revision    : V1.3
+// Revision    : V1.4
 //====================================================================
 
 `timescale 1ns / 1ps
@@ -80,7 +80,7 @@ module hdmi_colorbar_vtc_top_mode_tb;
         if (u_dut.pixel_reset_n) begin
             #1;
             if (hdmi_data !== launched_word) begin
-                $fatal(1, "BOARD_LANE_FAIL: HDMI_DATA must equal physical Style 3 {Y, Cb/Cr}");
+                $fatal(1, "BOARD_LANE_FAIL: HDMI_DATA must equal byte-swapped physical_data");
             end
         end
     end
@@ -120,6 +120,12 @@ module hdmi_colorbar_vtc_top_mode_tb;
                             $fatal(1, "MODE_DATA_FAIL: x=%0d got=%04h expected=%04h mode=%b",
                                    expected_x, u_dut.selected_data, expected_word,
                                    u_dut.video_mode_direct);
+                        end
+                        if (u_dut.physical_data !==
+                            {expected_word[7:0], expected_word[15:8]}) begin
+                            $fatal(1, "BOARD_SWAP_FAIL: x=%0d got=%04h expected=%04h",
+                                   expected_x, u_dut.physical_data,
+                                   {expected_word[7:0], expected_word[15:8]});
                         end
                         disable find_pixel;
                     end
@@ -175,7 +181,7 @@ module hdmi_colorbar_vtc_top_mode_tb;
         check_selected_data(512, 4);
 
         result_file = $fopen(
-            "E:/competition/4_metrics/logs/2026-09-05_hdmi_root_cause_run01/mode_result.txt",
+            "E:/competition/4_metrics/logs/2026-09-06_adv7511_physical_swap_board_pass_run01/mode_result.txt",
             "w"
         );
         $fdisplay(result_file,

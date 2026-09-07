@@ -1,6 +1,6 @@
 ---
 name: daily-engineering-log
-description: Create and maintain a dated daily engineering log folder under this project's canonical 7_logs directory for coding, hardware, research, or project work. Use at the start of every engineering/project session, when continuing a workspace, when the user asks for today's plan, execution plan, validation summary, next-start guide, daily log, development log, or asks to organize work under 7_logs/YYYY-MM-DD with plan, execution, verification, and handoff files.
+description: Project-adapted daily engineering log workflow for E:\competition. Create or update exactly E:\competition\7_logs\YYYY-MM-DD with plan, execution, validation, and handoff files at the start and continuation of every engineering/project session.
 ---
 
 # Daily Engineering Log
@@ -9,24 +9,37 @@ description: Create and maintain a dated daily engineering log folder under this
 
 ## Core Rule
 
-At the start of each engineering project session, create or update a daily folder under this project's canonical `7_logs` directory:
+At the start of each engineering project session, create or update the dated
+folder under the one fixed canonical log root:
 
 ```text
-<workspace>/7_logs/YYYY-MM-DD/
+E:\competition\7_logs\YYYY-MM-DD
 ```
 
-Do not create or update `<workspace>/log/`. If a legacy `log/`, `1_log/`, or `2_log/` directory exists, read it, merge its records into the matching `7_logs/YYYY-MM-DD/` folders with explicit source attribution, verify the imported content, then retire the legacy directory only after the merge is complete.
+Do not create or update `E:\competition\log\`, `E:\competition\logs\`, or
+`E:\competition\2_log\`. Migration from a legacy root is allowed only when the
+user explicitly requests it and only toward the fixed `7_logs` root. Never use
+a legacy root as the fallback.
 
 ### Path Enforcement
 
-For this competition workspace, the only valid engineering-log root is `E:\competition\7_logs`. Treat `1_log/`, `2_log/`, and `log/` as retired legacy locations: never create them, never place new records there, and never use them as a fallback. Before writing a daily record, resolve the destination and require that it is exactly `<workspace>/7_logs/YYYY-MM-DD/`; if it is not, stop and correct the path before creating any file.
+For this competition workspace, the only valid engineering-log root is
+`E:\competition\7_logs`. Treat `1_log/`, `2_log/`, `log/`, and generic `logs/`
+as retired legacy locations: never create them, never place new records there,
+and never use them as a fallback. Before writing a daily record, resolve the
+destination and require that it is exactly
+`E:\competition\7_logs\YYYY-MM-DD\`; if it is not, stop and correct the path
+before creating any file.
 
 ## Merged ViTA log-management rules
 
 The following project rules are merged from `D:\VitA\12_skills\log-management\SKILL.md` and adapted for this workspace:
 
 - This Skill owns only dated `7_logs/YYYY-MM-DD/` plans, execution records, validation summaries, evidence indexes, and next-start guidance. It does not update a long-term progress board or an external handoff file, and it does not trigger global synchronization.
-- Complete build, simulation, synthesis, board, UART, and console output belongs in `4_metrics/logs/` (or a dedicated run directory referenced from there). The dated log stores the run ID, summary, result boundary, and evidence path rather than copying large raw output.
+- Complete build, simulation, synthesis, board, UART, and console output belongs
+  in `E:\competition\4_metrics\logs\YYYY-MM-DD_<task>_runNN\`. The dated log
+  stores the run ID, summary, result boundary, and evidence path rather than
+  copying large raw output.
 - Every validation result is `pending` unless the raw evidence and coverage boundary are present. Exit code zero alone is not a functional PASS.
 - Existing dated folders are updated incrementally. Historical records are preserved and are not rewritten merely to cosmetically change old paths.
 
@@ -43,8 +56,9 @@ If the folder or files already exist, read them first and update them instead of
 
 ## Workflow
 
-1. Identify the workspace root from the current working directory or project context.
-2. Create `<workspace>/7_logs/YYYY-MM-DD/` using the current local date.
+1. Resolve the workspace root as `E:\competition`; do not infer another root
+   from a generic skill, an old desktop path, or `D:\VitA`.
+2. Create `E:\competition\7_logs\YYYY-MM-DD\` using the current local date.
 3. Read existing project context before writing:
    - top-level README or project notes, if present
    - existing task checklist, if present

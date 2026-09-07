@@ -51,7 +51,9 @@ module hdmi_out_adv7511 #(
         .vsync_o    (conversion_vsync)
     );
 
-    assign physical_data = conversion_data;
+    // Keep the generic module aligned with the board-proven EES-331 port:
+    // conversion_data is {Y,Cb/Cr}, while the constrained bus must be swapped.
+    assign physical_data = {conversion_data[7:0], conversion_data[15:8]};
 
     adv7511_cfg_top #(
         .FAST_SIM            (FAST_SIM)        ,
