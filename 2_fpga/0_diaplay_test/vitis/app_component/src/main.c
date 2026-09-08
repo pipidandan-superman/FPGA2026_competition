@@ -1,10 +1,35 @@
+/************************************************************************
+ * File Name       : main.c
+ * Developer       : LSL
+ * Date            : 2026-09-08
+ * Project Name    : AMD embodied sorting / EES-331 XC7Z020
+ * Module Name     : app_component
+ * Description     : OV5640 -> VDMA S2MM -> DDR -> MM2S -> HDMI test firmware
+ *                   with UART self-test, plus lwIP RAW Ethernet loopback
+ *                   (ENET0, static 192.168.240.10/24, UDP echo port 5000).
+ * Dependencies    : standalone BSP, lwip220 (RAW), xiltimer, emacps,
+ *                   scugic, scutimer, udp_echo.c, platform.c/platform_zynq.c
+ * Revision History:
+ *   - V3.0 (2026-09-07) by LSL : Camera HDMI VDMA visual-pass firmware.
+ *   - V3.1 (2026-09-08) by LSL : Integrated Ethernet UDP loopback stage on
+ *     the updated XSA (ENET0/MDIO enabled); VDMA/HDMI V3 logic unchanged.
+ ************************************************************************/
 #include <stdint.h>
+#include <string.h>
 #include "sleep.h"
 #include "xil_cache.h"
 #include "xil_io.h"
 #include "xil_printf.h"
 #include "xil_types.h"
 #include "xparameters.h"
+#include "xiltimer.h" /* XTime_GetTime / COUNTS_PER_SECOND (Global Timer) */
+#include "netif/xadapter.h"
+#include "platform.h"
+#include "platform_config.h"
+#include "lwip/init.h"
+#include "lwip/tcp.h"
+#include "udp_echo.h"
+#include "udp_video_tx.h"
 
 #define DISPLAY_FB_BASE          0x10000000UL
 #define DISPLAY_FB_BYTES         0x00300000UL
@@ -177,6 +202,190 @@ static int run_uart_test(void)
     xil_printf("UART_TEST_PASS SR=0x%08x\r\n", status);
     return 0;
 }
+
+/* ---------------- Ethernet UDP loopback (lwIP RAW, port 5000) ---------- */
+
+/* Provided by platform.c; counts DHCP negotiation retries (unused, no DHCP). */
+volatile int dhcp_timoutcntr = 0;
+
+/* lwIP periodic timers, scheduled on the Global Timer time base (proven
+ * working via sleep/usleep). The platform ScuTimer interrupt path proved
+ * unreliable in this SDT build, so its flag variables are not consulted. */
+void tcp_fasttmr(void);
+void tcp_slowtmr(void);
+
+struct netif server_netif;
+struct netif *echo_netif;
+static uint32_t eth_slow_tmr_ticks = 0;
+static uint32_t eth_ready = 0;
+
+static void print_ip_settings(ip_addr_t *ip, ip_addr_t *mask, ip_addr_t *gw)
+{
+    xil_printf("Board IP  : %d.%d.%d.%d\r\n", ip4_addr1(ip), ip4_addr2(ip),
+               ip4_addr3(ip), ip4_addr4(ip));
+    xil_printf("Netmask   : %d.%d.%d.%d\r\n", ip4_addr1(mask), ip4_addr2(mask),
+               ip4_addr3(mask), ip4_addr4(mask));
+    xil_printf("Gateway   : %d.%d.%d.%d\r\n", ip4_addr1(gw), ip4_addr2(gw),
+               ip4_addr3(gw), ip4_addr4(gw));
+}
+
+/* Bring up ENET0/lwIP after the UART test. Static addressing, echo on 5000. */
+static int run_eth_loopback_init(void)
+{
+    ip_addr_t ipaddr;
+    ip_addr_t netmask;
+    ip_addr_t gw;
+    unsigned char mac_ethernet_address[] =
+        { 0x00, 0x0A, 0x35, 0x00, 0x01, 0x02 };
+
+    echo_netif = &server_netif;
+
+#ifdef SDT
+    /* SDT builds: only start the 50 ms xiltimer tick. Do NOT enable caches
+     * here; the proven V3.0 VDMA path never ran with D-cache enabled. */
+    init_timer();
+#else
+    init_platform();
+#endif
+    xil_printf("STAGE0_PLATFORM_OK : timer and interrupts ready\r\n");
+
+    IP4_ADDR(&ipaddr, 192, 168, 240, 10);
+    IP4_ADDR(&netmask, 255, 255, 255, 0);
+    IP4_ADDR(&gw, 192, 168, 240, 2);
+
+    lwip_init();
+
+    if (!xemac_add(echo_netif, &ipaddr, &netmask, &gw, mac_ethernet_address,
+                   PLATFORM_EMAC_BASEADDR)) {
+        xil_printf("ETH_LWIP_FAIL REASON=XEMAC_ADD\r\n");
+        return -1;
+    }
+    netif_set_default(echo_netif);
+
+#ifndef SDT
+    platform_enable_interrupts();
+#endif
+
+    netif_set_up(echo_netif);
+    print_ip_settings(&ipaddr, &netmask, &gw);
+    xil_printf("ETH_LWIP_OK MAC=00:0A:35:00:01:02\r\n");
+
+    start_udp_echo(5000);
+    xil_printf("ETH_UDP_ECHO_OK : listening on UDP port 5000\r\n");
+
+    udp_video_tx_init();
+    eth_ready = 1;
+    xil_printf("LOOPBACK_TEST_READY\r\n");
+    return 0;
+}
+
+/* Millisecond time base from the ARM Global Timer (always running). */
+static uint32_t eth_ms_now(void)
+{
+    XTime now;
+    XTime_GetTime(&now);
+    return (uint32_t)(now / (COUNTS_PER_SECOND / 1000U));
+}
+
+/* Base stack service: lwIP timers on the Global Timer time base plus EMAC
+ * RX drain. Schedules tcp_fasttmr/250 ms and tcp_slowtmr/500 ms directly;
+ * the platform ScuTimer interrupt path is intentionally not consulted. */
+static void eth_service_base(void)
+{
+    static uint32_t last_fast_ms = 0;
+    static uint32_t last_slow_ms = 0;
+    uint32_t now_ms;
+
+    if (eth_ready == 0U) {
+        return;
+    }
+    now_ms = eth_ms_now();
+    if ((now_ms - last_fast_ms) >= 250U) {
+        tcp_fasttmr();
+        last_fast_ms = now_ms;
+    }
+    if ((now_ms - last_slow_ms) >= 500U) {
+        tcp_slowtmr();
+        last_slow_ms = now_ms;
+        eth_slow_tmr_ticks++;
+        if ((eth_slow_tmr_ticks % 20U) == 0U) {
+            udp_echo_report();
+        }
+    }
+    xemacif_input(echo_netif);
+}
+
+/* Full service: base stack plus the camera snapshot stage. Polls the S2MM
+ * write pointer at 10 ms granularity; the moment the write pointer advances
+ * (a frame just completed), copies that slot into the private stable buffer
+ * and submits it to the sender. Copy finishes ~10 ms after completion, well
+ * inside the 66 ms safe window before the slot is written again. */
+static uint32_t park_current_read(void); /* defined with the VDMA helpers */
+static uint32_t park_current_write(void); /* defined with the VDMA helpers */
+
+static unsigned char cam_snap[FRAME_BYTES]; /* private stable snapshot copy */
+static uint32_t cam_last_write = 0xFFFFFFFFU; /* force first capture */
+
+#define CAM_COPY_CHUNK 65536U /* 64 KB per copy slice */
+
+/* Copy one camera slot into the private snapshot buffer in 64 KB chunks,
+ * servicing the Ethernet stack between chunks so RX never stalls for the
+ * ~10 ms the copy takes. */
+static void copy_camera_snapshot(const unsigned char *src)
+{
+    uint32_t copied = 0U;
+
+    while (copied < FRAME_BYTES) {
+        uint32_t remain = FRAME_BYTES - copied;
+        uint32_t n = (remain > CAM_COPY_CHUNK) ? CAM_COPY_CHUNK : remain;
+
+        Xil_DCacheInvalidateRange((UINTPTR)&src[copied], n);
+        memcpy(&cam_snap[copied], &src[copied], n);
+        copied += n;
+        eth_service_base(); /* drain RX / run timers between chunks */
+    }
+}
+
+static void eth_service(void)
+{
+    uint32_t write_slot;
+
+    eth_service_base();
+    if (eth_ready == 0U) {
+        return;
+    }
+    write_slot = park_current_write();
+    if (write_slot != cam_last_write) {
+        uint32_t done_slot = (write_slot + FRAME_COUNT - 1U) % FRAME_COUNT;
+        copy_camera_snapshot(
+            (const unsigned char *)(uintptr_t)(DISPLAY_FB_BASE + done_slot * FRAME_SLOT_BYTES));
+        cam_last_write = write_slot;
+        udp_video_tx_submit(cam_snap);
+    }
+    udp_video_tx_poll(eth_ms_now());
+}
+
+/* Mid-burst yield for udp_video_tx.c: stack service without re-entering
+ * the sender poll (avoids recursion). */
+void udp_video_tx_yield(void)
+{
+    eth_service_base();
+}
+
+/* Sleep in 10 ms slices while keeping the Ethernet stack serviced; also
+ * bounds camera snapshot detection latency to ~10 ms. */
+static void eth_service_ms(uint32_t milliseconds)
+{
+    uint32_t elapsed = 0U;
+
+    while (elapsed < milliseconds) {
+        eth_service();
+        usleep(10000U);
+        elapsed += 10U;
+    }
+}
+
+/* ----------------------------------------------------------------------- */
 
 
 
@@ -458,7 +667,7 @@ static int monitor_stability_60s(void)
     uint32_t camera_ok;
 
     for (second = 1U; second <= STABILITY_SECONDS; ++second) {
-        sleep(1);
+        eth_service_ms(1000U);
         status = Xil_In32(VDMA_MM2S_SR);
         frames = vdma_mm2s_frame_count();
         s2mm_status = Xil_In32(VDMA_S2MM_SR);
@@ -526,6 +735,11 @@ int main(void)
         goto stopped;
     }
 
+    xil_printf("ETH_LOOPBACK_INIT_BEGIN\r\n");
+    if (run_eth_loopback_init() != 0) {
+        xil_printf("ETH_LWIP_FAIL REASON=INIT_ABORTED_KEEPING_HDMI_TEST\r\n");
+    }
+
     xil_printf("VDMA_INITIAL_BEGIN\r\n");
     print_vdma_registers();
     if (VDMA_Reset() != 0) {
@@ -549,6 +763,11 @@ int main(void)
     if (wait_first_vdma_frame() != 0) {
         goto stopped;
     }
+    /* One startup transient (camera tuser hiccup across the VDMA reset) can
+     * latch sticky error bits that would otherwise print false
+     * CAMERA_STREAM_FAIL forever; clear them once real frames are flowing. */
+    Xil_Out32(VDMA_MM2S_SR, VDMA_SR_ERROR_MASK | VDMA_SR_IRQ_MASK);
+    Xil_Out32(VDMA_S2MM_SR, VDMA_SR_ERROR_MASK | VDMA_SR_IRQ_MASK);
     if (monitor_stability_60s() != 0) {
         goto stopped;
     }
@@ -560,7 +779,7 @@ int main(void)
         uint32_t s2mm_status;
         uint32_t camera_ok;
 
-        sleep(5);
+        eth_service_ms(5000U);
         ++runtime_second;
         status = Xil_In32(VDMA_MM2S_SR);
         if ((status & VDMA_SR_ERROR_MASK) != 0UL ||

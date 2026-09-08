@@ -1,5 +1,56 @@
 # EES-331 HDMI ADV7511 Handoff
 
+## 2026-09-08 FREEZE udp-color-fix-pass-20260908 (UDP camera-frame R/B swap root-caused, fixed PC-side)
+
+- Symptom: UDP camera frames showed red/blue-swapped colors (yellow object -> pale blue, blue-violet -> orange, lavender -> pink); HDMI was always correct. Root cause: VDMA S2MM packs the 24-bit {R,G,B} AXIS word little-endian, so DDR/UDP type=0x01 payload bytes are [B,G,R] per pixel, while the host decoded them as [R,G,B]. OV5640 registers (`0x4300=0x61`, RGB565 sequence 1) are NOT at fault — do NOT change them to "fix" colors (that would swap HDMI).
+- **Current receiver: `3_host/udp_video/dist/EES331_UDP_Viewer.exe` — 31,187,867 B, SHA-256 `a4b75ed3423aeb2ca292623b00310ac166be6c09171527ad8397435ca193dd1d` (built from `udp_video_gui.py` V1.2, type-aware decode: type=0x01 -> BGR, type=0x02 -> RGB). Discard older copies (V1.0 31,187,636 B / V1.1 31,188,255 B) — they render camera frames with red/blue swapped.** `udp_video_rx.py` V1.1 carries the same type-aware fix; camera payload is already cv2-native BGR, so model-side frame grabbing needs no channel flip.
+- Board side unchanged: the C1.2 frozen pairing below stays valid (BIT `7CB11F7D...` + ELF `3E295D51...` + XSA `30644B31...`); no rebuild or re-programming is needed to get correct colors on the PC.
+- Verified: localhost end-to-end injection `ALL_COLOR_SWAP_FIX_TESTS_PASS`; user visual pass on the live board stream (recorded video: natural skin tones, 6.25 fps, ~1% loss/CRC consistent with C1.2). Byte-order erratum in the design contract: `1_docs/OV5640_UDP视频传输数据格式与上位机设计_2026-09-08.md` §10.
+- Evidence: `4_metrics/logs/2026-09-08_udp_color_swap_fix_run01/` (RUN_REPORT, verification scripts + raw console log, user screenshots + final board-stream video, per-file SHA-256). Tag: `udp-color-fix-pass-20260908`.
+
+## 2026-09-08 FREEZE udp-camera-c12-pass-20260908 (C1.2 quality PASS, 4.77 fps zero-defect)
+
+- Frozen board-proven pairing for the camera-to-PC UDP video stream. Reproduce: program BIT -> load paired ELF -> UDP stream resumes (monitor-independent; if you also want to SEE HDMI, switch the monitor to the board input first and press reset once).
+- BIT `display_test_wrapper.bit` SHA-256 `7CB11F7DF165476EB86E3D8C43CC251FB1C454ECDB64B905F0931AD971EC192E7` (4,045,696 B, 12:09).
+- ELF `app_component.elf` SHA-256 `6EB0097C17ABEAF2DFDD227F89B3141BCC45B8C7D9C83099B3A97B2FE4F29ED1` (861,424 B, 14:51 build).
+- XSA `display_test_wrapper.xsa` SHA-256 `30644B3158D86D0D27C34ED60626179B17046CDA7B3AF51F35431B18652D22D0` (578,739 B, 12:09).
+- Binaries live under `2_fpga/0_diaplay_test/vitis/hw_20260908_eth/` (refresh the ELF copy from this freeze).
+- Measured quality: 1533+ complete frames @ 4.77 fps, 丢帧=0, CRC 错=0, 重复/坏头=0/0 (GUI screenshots archived). Do NOT mix this pairing with the 09-07 HDMI-only frozen pair.
+- FINAL pairing update (post C2 first attempt, PROVEN): 66 ms interval / 600 µs burst pacing -> **6.3 fps measured, 丢帧=8, CRC 错=8 over 854+ frames (~0.9%)**, HDMI camera display normal. ELF refreshed: `app_component.elf` SHA-256 `3E295D51186135E4D9DFBBA4B6C3637F3E7AECE9135F2C124C29CE9FF1D963A9` (861,424 B). C2.1 zero-copy experiment (mass udp_sendto failures at 66 ms) reverted and archived; 15 FPS needs C2.2 diagnostics (err code + lwip220 tuning).
+- Quality fixes in this freeze: dual-buffer snapshot (private stable copy, latest-wins), chunked 64 KB copy with interleaved stack service, gentle burst spreading (~25 ms per frame), Global-Timer lwIP scheduling, sticky S2MM error-bit clear.
+- Next: C2 rate-up (interval 200->66 ms + pacing tightening) after an optional iperf benchmark; formal 10-minute soak test can be signed off at the next board session.
+
+## 2026-09-08 Stage C1: live camera frames over UDP to PC (BOARD PASS)
+
+- `UDP_CAMERA_C1_PASS`: `udp_video_tx_poll` now takes the latest completed DDR snapshot (`(PARKPTR CURRENT_READ + 2) % 3`, the pre-display slot — complete/stable/no contention) and streams it as type=0x01 frames at ~5 fps runtime / 1 fps monitor; GUI shows the live OV5640 image.
+- Fixes en route: black-frame bug (send_one_frame always read the never-filled pattern buffer — now selects external snapshot vs pattern), D-cache invalidate before reading DMA-written DDR, sticky S2MM error bits cleared once after first frames (false CAMERA_STREAM_FAIL eliminated), forward declaration for park_current_read.
+- Known items for C1.1: 丢帧/CRC 错 counters nonzero (burst PC-socket drops + suspected snapshot tearing) — plan: dual-pointer slot avoidance, burst pacing, evaluate lwIP UDP checksum; GUI fps field sampling quirk. (The "HDMI vs UDP color difference is expected behaviour" note written here was later disproven — the real cause was the R/B byte-order swap, fixed in FREEZE udp-color-fix-pass-20260908 at the top.)
+- Evidence: `4_metrics/logs/2026-09-08_mainproj_eth_loopback_integrate_run01/` (C1 GUI screenshots x3, full serial, per-fix hashes).
+
+## 2026-09-08 Stage B1: board-to-PC UDP video stream PASS (1 fps pattern)
+
+- Result: `UDP_TX_B1_PASS`. `app_component` V3.1.2 streams 640x480 RGB888 synthetic frames (921,600 B = 640 packets x 1,440 B + 32 B header, whole-frame CRC32, SOF/EOF flags) from the board to the PC peer at 1 fps; serial shows `UDP_TX frame=N packets=640 errors=0` (58+ frames, zero TX errors) and the GUI receiver shows the moving color-bar pattern with `完整帧` increasing at ~1 fps, `丢帧=0`, `CRC 错=0`.
+- New sources: `2_fpga/0_diaplay_test/vitis/app_component/src/udp_video_tx.c/h` (sender; `UDP_TX_USE_CAMERA=0` gates stage C1), `main.c` rework — lwIP timers now scheduled on the ARM Global Timer (`xiltimer.h`/`XTime_GetTime`, 250/500 ms) because the ScuTimer interrupt path proved dead in this SDT build; `udp_video_tx_yield()` keeps ARP/RX alive mid-burst without recursion.
+- PC tools (`3_host/udp_video/`): `mock_sender.py` (protocol-conformant pattern sender), `udp_video_rx.py` (CLI receiver, localhost self-test PASS 178 frames/0 loss/0 CRC), `udp_video_gui.py` → packaged `dist/EES331_UDP_Viewer.exe` (V1.0 31,187,636 B / V1.1 31,188,255 B at this milestone; **superseded 2026-09-08 by the V1.2 BGR-fix build 31,187,867 B, SHA-256 `a4b75ed3...` — see FREEZE udp-color-fix-pass-20260908 at the top**).
+- Design contract: `1_docs/OV5640_UDP视频传输数据格式与上位机设计_2026-09-08.md` (32 B header table, 640-packet framing, skip-on-loss policy, staged plan; supersedes the old plan's 192.168.1.x addressing with 192.168.240.x).
+- Evidence: `4_metrics/logs/2026-09-08_mainproj_eth_loopback_integrate_run01/` (B1 screenshots, full serial log, per-file hashes), `..._udp_host_tools_v1_run01/`, `..._udp_gui_exe_build_run01/`, `..._udp_video_protocol_design_run01/`.
+- Known open items: camera S2MM stream error (`SR=0x15810`, SOF-early class) blocks stage C1 — check camera cabling/power first; PS config change verified clock-clean (BD diff: only ENET0/MDIO/GPIO-EMIO entries, FCLK/PLL untouched). GUI fps field reads 0/1.9 on a 1 fps stream (sampling display quirk). `UDP_TX_INIT_OK` prints "ticks" but means ms.
+- Next: stage C1 — replace the pattern source with a VDMA completed-slot snapshot (PARKPTR-selected), camera S2MM must pass first; then C2 rate scale 5/15 FPS.
+
+## 2026-09-08 Main project PS Ethernet loopback integrated (V3.1, BOARD PASS)
+
+- Scope: `2_fpga/0_diaplay_test` Zynq PS now has ENET0 enabled (MIO 16..27, MDIO 52..53, PHY reset MIO 47, 1000 Mbps) alongside the proven OV5640 -> VDMA -> DDR -> MM2S -> HDMI path. PS config is item-for-item equivalent to the board-proven `2_fpga/2_eth_onlytest_zynq7020` loopback project (21-item PCW compare, report in the evidence run).
+- App `app_component` V3.1: original camera/HDMI/UART firmware preserved; added lwIP RAW bring-up (static `192.168.240.10/24`, gateway `192.168.240.2`, MAC `00:0A:35:00:01:02`) and UDP echo on port 5000; `eth_service_ms()` keeps the stack serviced inside the existing 1 s / 5 s monitor loops. SDT build calls `init_timer()` only and does NOT enable D-cache, preserving the proven V3.0 memory behavior.
+- Board result 2026-09-08 12:23: `MAIN_ETH_LOOPBACK_PASS` — NetAssist `192.168.240.2:5000` sent `你好` x3, all echoed (`3/3`, RX 12 B = TX 12 B) while the camera image kept displaying over HDMI.
+- New hardware/software pairing (do NOT mix with the 2026-09-07 frozen pair below):
+  - BIT `display_test_wrapper.bit` SHA-256 `7CB11F7DF165476EB86E3D8C43CC251FB1C454ECDB64B905F0931AD971EC192E7` (4,045,696 B)
+  - ELF `app_component.elf` SHA-256 `52209F6271626A2B390E93E9DDF53DCD7E150EC655F2F2513B8C28F14C2ABA56` (851,088 B)
+  - XSA `display_test_wrapper.xsa` SHA-256 `30644B3158D86D0D27C34ED60626179B17046CDA7B3AF51F35431B18652D22D0` (578,739 B)
+  - Binaries live under `2_fpga/0_diaplay_test/vitis/hw_20260908_eth/`.
+- Evidence: `4_metrics/logs/2026-09-08_mainproj_eth_loopback_integrate_run01/` (integration report, before/after hashes, PASS screenshot SHA-256 `4AA8933B02B449F314D2E336908B41252FC9DE3DB91BF4E6B2742635AFF7CE0E`).
+- Still owed: full UART serial capture (ETH heartbeat + HDMI heartbeat lines) for the raw serial record.
+- Next: board-to-PC UDP frame sender (synthetic pattern + incrementing frame/packet IDs), then one VDMA frame snapshot; camera transport gates stay per `1_docs/OV5640_PS以太网传输实施计划_2026-09-08.md`.
+
 ## 2026-09-07 OV5640 + PS VDMA + HDMI frozen visual PASS
 
 - Result: `BOARD_VISUAL_PASS`. Three archived board photos show live OV5640 data through S2MM -> DDR -> MM2S -> HDMI. This is **not** `FULL_UART_ACCEPTANCE_PASS`; the final run has no complete UART capture.

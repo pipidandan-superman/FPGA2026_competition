@@ -110,6 +110,14 @@ hdmi_out_adv7511_v1_0
 | PS VDMA + HDMI 彩条 | BOARD VISUAL PASS |
 | OV5640 + PS VDMA + HDMI | BOARD VISUAL PASS，2026-09-07 |
 | OV5640 + PS VDMA 完整 UART 验收 | 待复测，同一冻结 BIT + ELF |
+| 主工程 Zynq ENET0 配置等效性（vs 回环工程 21 项 PCW） | PASS，2026-09-08 |
+| 主工程 lwIP UDP 回环 + 摄像头 HDMI 同板共存 | BOARD PASS（`MAIN_ETH_LOOPBACK_PASS`），2026-09-08 |
+| 自定义 UDP 视频协议 + 上位机（Python/exe）设计 | 文档交付，2026-09-08 |
+| 主工程 →PC UDP 视频流 B1（1 fps 彩条，640 包/帧，921.6 KB/帧） | BOARD PASS（`UDP_TX_B1_PASS`），2026-09-08 |
+| 主工程 →PC 摄像头实时画面 C1（快照选槽，~5 fps） | BOARD PASS（`UDP_CAMERA_C1_PASS`），2026-09-08 |
+| C1.1/C1.2 质量优化（双缓冲 + 分块拷贝 + 突发整形） | BOARD PASS（`C12_QUALITY_PASS`：1533+ 帧丢帧=0/CRC 错=0 @4.77 fps），2026-09-08 |
+| C2 提速首轮（66ms 间隔） | BOARD PASS（`UDP_CAMERA_C12_FREEZE_PASS`：6.3 fps、丢帧/CRC ≈0.9%），2026-09-08 |
+| UDP 相机帧色差（红蓝互换）根因修复（上位机 BGR 解码，板端零改动） | BOARD VISUAL PASS（`UDP_COLOR_FIX_BOARD_STREAM_VISUAL_PASS`），2026-09-08 |
 
 ## 归档目录
 
@@ -132,8 +140,12 @@ competition/
 - HDMI ADV7511 RTL、实现、时序和板级显示已完成；
 - PS UART 板级通信已验证；
 - 2026-09-07 冻结 OV5640 → VDMA → DDR → VDMA → HDMI 可视化显示基线；
+- 2026-09-08 主工程 PS 使能 ENET0（MIO16..27 + MDIO 52..53 + PHY 复位 MIO47），新 XSA/BIT 与 V3.1 固件（lwIP RAW UDP 回环 + 原 VDMA/HDMI 逻辑）板级验证通过：UDP 回环 `RX=TX` 且摄像头 HDMI 显示正常；
+- 2026-09-08 板→PC UDP 视频流 B1 通过（1 fps 彩条、640 包/帧、921.6 KB/帧、丢帧/CRC=0），配套图形接收端 `EES331_UDP_Viewer.exe` 与协议设计文档；
+- 2026-09-08 **C1.2 质量版固化**（`udp-camera-c12-pass-20260908`）：双缓冲快照 + 分块拷贝 + 突发整形 + 66ms 间隔（实测 6.3 fps、丢帧/CRC ≈0.9%），配对 BIT `7CB11F7D...` + ELF `3E295D51...` + XSA `30644B31...`；
+- 2026-09-08 **UDP 色差修复固化**（`udp-color-fix-pass-20260908`）：相机帧红蓝互换根因为 VDMA 小端打包（UDP type=0x01 载荷字节序 `[B,G,R]`），上位机已按类型感知解码；**最新接收端为 `3_host/udp_video/dist/EES331_UDP_Viewer.exe`（31,187,867 B，SHA-256 `a4b75ed3...`，gui V1.2）**，板端零改动；证据 `4_metrics/logs/2026-09-08_udp_color_swap_fix_run01/`；
 - CNN PS+PL 加速架构已有历史工程基础；
-- 下一步：冻结链路完整 UART 复验 → 多轴 PWM 控制器开发 → 通信协议实现 → YOLO 部署 → 联调。
+- 下一步：提速 15 FPS（C2.2：发送错误码诊断 + lwIP220 调参）→ 多轴 PWM 控制器开发 → 通信协议实现 → YOLO 部署 → 联调。
 
 ## GitHub
 
