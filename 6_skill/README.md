@@ -13,6 +13,7 @@
 - `modelsim-gui-sim/`：已打开 GUI Transcript 的回退仿真流程；
 - `vita-vivado-batch-sim/`：EES-331/Vivado 2025.2 XSim 批处理流程；目录名保留
   历史 `vita` 前缀，但输出路径和结果标记已改为本工程规范。
+- `mineru-doc-reader/`：PDF、扫描文档图片及 Office 参考文件的强制 MinerU 解析流程；输入按 SHA-256 建档，完整原始产物写入 `4_metrics/logs`，最终报告可交付到 `1_docs`。
 
 统一强制路径：
 
@@ -27,6 +28,8 @@
 日志 Skill 的本地副本位于 `6_skill/daily-engineering-log/SKILL.md`，可在此修改项目专用提示词。
 后续新增脚本时，应在 `4_metrics/scripts/` 放置验证脚本，并在 `4_metrics/logs/` 和
 `4_metrics/evidence/` 保存完整运行证据。
+
+文档内容解析的活动入口是 `.codex/skills/mineru-doc-reader/SKILL.md`。对 PDF、扫描页、DOCX、PPTX、XLSX 等文件进行内容读取、总结、问答、表格提取或技术解释前必须调用该技能；仅列目录、计算哈希、重命名等元数据操作不触发。活动副本和本目录参考副本应保持哈希一致。
 
 可复用 Skill 的候选、适配边界和审核记录见 [`SKILL_REVIEW_PENDING.md`](SKILL_REVIEW_PENDING.md)。
 已批准并落地：`engineering-organization`、`rtl-coding-standards`；`log-management` 已合并进

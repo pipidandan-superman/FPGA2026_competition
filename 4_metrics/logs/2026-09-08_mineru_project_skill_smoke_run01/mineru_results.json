@@ -1,0 +1,19 @@
+﻿{
+    "File":  "ADV7511_Datasheet_analog.com.pdf",
+    "InputPath":  "E:\\competition\\1_docs\\ADV7511_Hardware_Users_Guide\\ADV7511_Datasheet_analog.com.pdf",
+    "SHA256":  "61567DD86F99BC996FBF981BAD4540782643021F0720079D5793948C2F71D6D9",
+    "ExitCode":  0,
+    "Seconds":  25.2,
+    "Fallback":  false,
+    "Markdown":  true,
+    "ContentJson":  true,
+    "ImageCount":  1,
+    "ChineseQuality":  "review",
+    "PreferredSource":  "markdown",
+    "QualityReasons":  "low_chinese_ratio,short_text",
+    "MarkdownPath":  "E:\\competition\\4_metrics\\logs\\2026-09-08_mineru_project_skill_smoke_run01\\ADV7511_Datasheet_analog.com\\auto\\ADV7511_Datasheet_analog.com.md",
+    "ContentJsonPath":  "E:\\competition\\4_metrics\\logs\\2026-09-08_mineru_project_skill_smoke_run01\\ADV7511_Datasheet_analog.com\\auto\\ADV7511_Datasheet_analog.com_content_list.json",
+    "OutputFolder":  "E:\\competition\\4_metrics\\logs\\2026-09-08_mineru_project_skill_smoke_run01\\ADV7511_Datasheet_analog.com",
+    "StdoutPath":  "E:\\competition\\4_metrics\\logs\\2026-09-08_mineru_project_skill_smoke_run01\\command_logs\\01_ADV7511_Datasheet_analog_com_stdout.txt",
+    "StderrPath":  "E:\\competition\\4_metrics\\logs\\2026-09-08_mineru_project_skill_smoke_run01\\command_logs\\01_ADV7511_Datasheet_analog_com_stderr.txt"
+}

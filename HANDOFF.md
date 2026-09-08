@@ -8,7 +8,7 @@
 - XSA SHA-256: `7374BD4EE2D30C726FC0135E1960BA2BE19BD22C3B9D75B0AB0BBEE1CE64A6E1`.
 - ELF SHA-256: `040B57D048D76A60AAED8262F4E7E05204E6A96E8EF01AD6598BE4EE93BDD990`.
 - Final PL facts: S2MM line buffer `1024`; dynamic Genlock; restored `~vio_hsync` / `~vio_vsync`; route `11060/11060`, 0 errors; WNS `9.510 ns`, TNS 0, all constraints met.
-- Required recovery sequence: program the frozen BIT, load the frozen ELF, perform one manual reset, then inspect the live image. Do not mix this pair with a rebuilt BIT/ELF.
+- Required recovery sequence: program the frozen BIT, load the frozen ELF, manually reset the camera capture once, then inspect the live image. The camera image becomes normal after this reset. Do not mix this pair with a rebuilt BIT/ELF. See `2_fpga/0_diaplay_test/doc/camera_hdmi_correct_version_2026-09-08.md`.
 - Next acceptance action: zero-change full-UART rerun with the same BIT/ELF; archive from startup through at least 60 seconds. Only then upgrade the label to `FULL_UART_ACCEPTANCE_PASS` if the UART is clean.
 - Forbidden immediate actions: editing frozen source/artifacts, rebuilding the platform, changing VDMA controls/sync polarity/line-buffer depth/XDC/color format, or calling the photos a formal full acceptance PASS.
 
