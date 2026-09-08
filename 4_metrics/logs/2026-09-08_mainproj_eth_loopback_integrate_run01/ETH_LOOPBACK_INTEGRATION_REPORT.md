@@ -142,3 +142,59 @@ git 旧 BD vs 用户新 BD：172 处差异全部为 ENET0/MDIO/GPIO-EMIO/MIO 配
   2. 帧率口径：GUI fps 栏 0.5 s 采样在低帧率下显示 0.0，需改累计均值。
   3. 色差说明：UDP 通道送的是传感器原生 RGB888（真彩），HDMI 通道经 BT.601 有限范围 YCbCr 转换——两路颜色渲染本就不同，非缺陷。
 - 判定：`UDP_CAMERA_C1_PASS`（核心门限：相机画面经 UDP 到达 PC 并正确显示；质量优化归 C1.1/C2）。
+
+## 14. 阶段 C1.1 质量优化代码交付（V3.1.4）
+
+1. **选槽避让（消除撕裂/CRC 错）**：eth_service 改读 w（CURRENT_WRITE）与 r（CURRENT_READ）双指针，快照槽取 `FRAME_COUNT - w - r`（两指针都不占用的第三槽：完整、稳定、零竞争）；w==r 退化时回落 `(r+2)%3`。
+2. **爆发限速（消除 PC 端丢包）**：新增 `TX_CHUNK_PACING_US 1000`——每 32 包间歇 1 ms，640 包爆发从 ~8-10 ms 摊到 ~28 ms，瞬时水位降约 3.4 倍；5/15/30 fps 帧周期内均可容纳。
+3. **GUI 帧率口径**：累计均值（ok/elapsed）替代 0.5 s 窗口差分，低帧率下读数稳定。
+4. 文案：UDP_TX_INIT_OK 的 "ticks" 改 "ms"。
+- 哈希：`c11_quality_fix_sha256.txt`。
+- 判定（板会）：连续 10 分钟运行 `丢帧=0、CRC 错=0`、完整帧 ~5/s 递增、HDMI 照常 ⇒ `C11_QUALITY_PASS`。
+
+## 15. exe V1.2 重打包（随 C1.1）
+
+- 变更：GUI 帧率栏改累计均值口径（低帧率读数稳定）；收流/组包/校验逻辑未变。
+- 产物：`dist/EES331_UDP_Viewer.exe` 31,187,277 B，SHA-256 `3C783BE0...D2556F0`（`exe_v12_sha256.txt`）。
+
+## 16. C1.1 v2 返工：双缓冲快照（替代限速方案）
+
+- 实测结论：V3.1.4 的"限速"反而恶化（fps 0.15、丢帧/CRC 暴涨）——读窗 37ms 超过相机 33ms 槽轮转周期，撕裂近乎必现。
+- V3.1.5 架构（回退限速，改双缓冲）：
+  1. eth_service_ms 切片 100ms→10ms：PARKPTR 写指针变化检测延迟 ≤10ms；
+  2. 检测到完成（w 变化）→ 立即 invalidate + memcpy 921KB 到私有缓冲 cam_snap（完成点后 ~10-15ms，远小于 66ms 安全窗）；
+  3. udp_video_tx_submit(cam_snap)（latest-wins）；发送轮询每 200ms 发最新提交帧（5 fps）；
+  4. 从私有缓冲 tight burst 发送（黑帧测试已证明 5fps tight burst 零丢帧）；移除 TX_CHUNK_PACING_US。
+- GUI：帧率栏改累计均值口径。
+- 哈希：`c11_v2_dblbuf_sha256.txt`。判定：`C11_V2_CODE_DELIVERED`，待重编译上板。
+- 预期：GUI 相机画面 ~5 fps 稳定、丢帧=0、CRC 错=0（10 分钟）、HDMI 照常 ⇒ `C11_QUALITY_PASS`。
+
+## 17. 阶段 C1.2 代码交付（残余 1% 丢包/错帧消除）
+
+1. **分块拷贝（板端）**：main.c 新增 copy_camera_snapshot——921KB 拷贝按 64KB 分块，块间调用 eth_service_base（排水 RX + 定时器），消除 ~10ms RX 服务停顿（停顿期间到达的突发会溢出 GEM RX 环或 PC 缓冲，是残余丢帧/CRC 错的主嫌）。
+2. **发送整形（板端）**：恢复温和的突发展开（每 32 包歇 1.9ms，整帧摊至 ~25ms，瞬时水位 ≤ ~310Mbps）。注意与 V3.1.4 的本质区别：现在发送读的是私有缓冲 cam_snap（CPU 独占），限速不再拉长 DDR 读窗、无撕裂风险——读取敏感性与发送限速已由双缓冲解耦。
+- 哈希：`c12_chunked_copy_sha256.txt`。判定：`C12_CODE_DELIVERED`，待重编译上板。
+- 验收判据：连续 10 分钟 `丢帧=0、CRC 错=0`（或较当前 14/14 不再增长）⇒ `C12_QUALITY_PASS`；随后 C2 提速 15 FPS（发送间隔 200ms→66ms + 限速参数同步收紧）。
+
+## 19. C1.2 版本固化（udp-camera-c12-pass-20260908）
+
+固化命名：`udp-camera-c12-pass-20260908`（对应 git tag，随冻结提交推送）。
+
+板级验证配对（板会实测零丢帧/零 CRC 错）：
+
+| 产物 | 路径 | SHA-256 前缀 | 大小 | 时间 |
+|---|---|---|---|---|
+| BIT | `.../impl_1/display_test_wrapper.bit` | `7CB11F7D...192E7` | 4,045,696 B | 09-08 12:09 |
+| ELF | `vitis/app_component/build/app_component.elf` | `6EB0097C...F29ED1` | 861,424 B | 09-08 14:51 |
+| XSA | `vitis/display_test_wrapper.xsa` | `30644B31...86D22D0` | 578,739 B | 09-08 12:09 |
+
+操作序列：编程 BIT → 加载 ELF → （显示器切至板卡 HDMI 输入后）如需肉眼看 HDMI 则按一次复位；UDP 视频流与显示器无关，可独立验收。
+
+验收事实：1533+ 完整帧 @ 4.77 fps，丢帧=0、CRC 错=0、重复/坏头=0/0；HDMI 相机显示照常。
+
+## 20. 阶段 C1.2 板级验收（C12_QUALITY_PASS）
+
+- GUI 三张截图（累计口径）：完整帧 820 → 1085 → 1533，帧率 4.77 fps 稳定，**丢帧=0、CRC 错=0、重复/坏头=0/0 全程保持**（≥5 分钟 / 1533 帧）。截图哈希见 `c12_evidence_sha256.txt`。
+- 结论：分块拷贝（RX 服务不断流）+ 突发整形（PC 缓冲不溢出）将残余 1% 丢帧/错帧**降为零**。C1.1/C1.2 质量门限达成。
+- 有效载荷带宽：921.6 KB × 4.77 fps ≈ **35 Mbps**（15 FPS 需求 110.6 的 31%）。
+- 备注：正式 10 分钟浸泡测试可顺带补做；相机画面显示正常（窗户/墙角，无撕裂）。

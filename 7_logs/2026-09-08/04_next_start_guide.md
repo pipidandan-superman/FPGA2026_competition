@@ -122,3 +122,35 @@ To reproduce the existing `BOARD_VISUAL_PASS`, program the frozen BIT, load the 
 1. C1.1 质量优化：选槽避开 S2MM 写指针与 MM2S 读指针（第三槽法）、爆发限速（每 64 包微延时）、评估开启 lwIP UDP 校验和、GUI fps 改累计均值。
 2. C2 提速：runtime 已实测 5 fps；A1 吞吐基准后按 5→15 FPS 门限推进。
 3. 分支已推送 B1+C1 成果；PR 交 member-b 评审合并。
+
+## C1.1 交接
+
+- V3.1.4 代码已就绪（选槽避让/爆发限速/GUI fps 累计均值），用户 Build → Run。
+- 验收：连续 10 分钟 GUI `丢帧=0、CRC 错=0`、完整帧 ~5/s、HDMI 正常 ⇒ `C11_QUALITY_PASS` 后进入 C2 提速（先 A1 iperf 基准）。
+- lwIP UDP 校验和为可选项，暂不启用（CRC32 已兜底），如复测仍有 CRC 错再评估。
+
+## C1.2 / C2 路线（代码已可准备）
+
+- 残余 1% 的修复方向明确：把 921KB memcpy 拆成 64KB 块、块间穿插 xemacif_input 服务（消除 RX 服务停顿）——此项同时是 C2 提速的前置（15 fps 下阻塞时长 ×3 会放大丢包）。
+- C2 其余条件：A1 iperf 吞吐基准（摸清上限）→ 提速 5→15 FPS。
+- 可选：GUI 帧率栏已在 V1.2 exe 中为累计均值，无需再改。
+
+## C1.2 通过后交接
+
+1. C2 提速：UDP_TX_FRAME_INTERVAL_MS 200→66（15 FPS），TX_BURST_PACING_US 按帧周期收紧（66ms 周期 → 每 32 包歇 ~600µs，整帧摊至 ~20ms）；预期丢帧仍为 0，若 15 FPS 不稳再回 5 FPS 排查。
+2. 可选 A1：iperf 基准摸清实际上限后再决定 30 FPS。
+3. 待归档：10 分钟浸泡测试 + 完整串口日志（正式记录）。
+4. 分支待推送：C1.2 改动与证据（用户确认后推送）。
+
+## 固化后交接（udp-camera-c12-pass-20260908）
+
+- 板级复现序列：编程冻结 BIT（`7CB11F7D...`）→ 加载配对 ELF（`6EB0097C...`）→ UDP 视频流即恢复（与显示器状态无关）；如需肉眼看 HDMI，先切显示器输入源再按一次复位。
+- 禁止：BIT/ELF 配对混用（如换 BIT 必须重配 ELF 并重新记录哈希）；旧 09-07 冻结对仅适用于 HDMI 单链路场景。
+- 下一开发阶段：C2 提速 15 FPS（发送间隔 200→66ms + 整形收紧，先行 A1 iperf 基准更稳妥）。
+
+## C1.2 通过后交接
+
+1. C2 提速：UDP_TX_FRAME_INTERVAL_MS 200→66（15 FPS），TX_BURST_PACING_US 按帧周期收紧（66ms 周期 → 每 32 包歇 ~600µs，整帧摊至 ~20ms）；预期丢帧仍为 0，若 15 FPS 不稳再回 5 FPS 排查。
+2. 可选 A1：iperf 基准摸清实际上限后再决定 30 FPS。
+3. 待归档：10 分钟浸泡测试 + 完整串口日志（正式记录）。
+4. 分支待推送：C1.2 改动与证据（用户确认后推送）。
