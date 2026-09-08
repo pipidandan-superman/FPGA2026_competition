@@ -1,3 +1,19 @@
+/************************************************************************
+ * File Name       : main.c
+ * Developer       : LSL
+ * Date            : 2026-09-08
+ * Project Name    : AMD embodied sorting / EES-331 XC7Z020
+ * Module Name     : app_component
+ * Description     : OV5640 -> VDMA S2MM -> DDR -> MM2S -> HDMI test firmware
+ *                   with UART self-test, plus lwIP RAW Ethernet loopback
+ *                   (ENET0, static 192.168.240.10/24, UDP echo port 5000).
+ * Dependencies    : standalone BSP, lwip220 (RAW), xiltimer, emacps,
+ *                   scugic, scutimer, udp_echo.c, platform.c/platform_zynq.c
+ * Revision History:
+ *   - V3.0 (2026-09-07) by LSL : Camera HDMI VDMA visual-pass firmware.
+ *   - V3.1 (2026-09-08) by LSL : Integrated Ethernet UDP loopback stage on
+ *     the updated XSA (ENET0/MDIO enabled); VDMA/HDMI V3 logic unchanged.
+ ************************************************************************/
 #include <stdint.h>
 #include "sleep.h"
 #include "xil_cache.h"
@@ -5,6 +21,12 @@
 #include "xil_printf.h"
 #include "xil_types.h"
 #include "xparameters.h"
+#include "netif/xadapter.h"
+#include "platform.h"
+#include "platform_config.h"
+#include "lwip/init.h"
+#include "lwip/tcp.h"
+#include "udp_echo.h"
 
 #define DISPLAY_FB_BASE          0x10000000UL
 #define DISPLAY_FB_BYTES         0x00300000UL
@@ -177,6 +199,115 @@ static int run_uart_test(void)
     xil_printf("UART_TEST_PASS SR=0x%08x\r\n", status);
     return 0;
 }
+
+/* ---------------- Ethernet UDP loopback (lwIP RAW, port 5000) ---------- */
+
+/* Provided by platform.c; counts DHCP negotiation retries (unused, no DHCP). */
+volatile int dhcp_timoutcntr = 0;
+extern volatile int TcpFastTmrFlag;
+extern volatile int TcpSlowTmrFlag;
+
+/* lwIP periodic timers, driven from the service helper in RAW mode. */
+void tcp_fasttmr(void);
+void tcp_slowtmr(void);
+
+struct netif server_netif;
+struct netif *echo_netif;
+static uint32_t eth_slow_tmr_ticks = 0;
+static uint32_t eth_ready = 0;
+
+static void print_ip_settings(ip_addr_t *ip, ip_addr_t *mask, ip_addr_t *gw)
+{
+    xil_printf("Board IP  : %d.%d.%d.%d\r\n", ip4_addr1(ip), ip4_addr2(ip),
+               ip4_addr3(ip), ip4_addr4(ip));
+    xil_printf("Netmask   : %d.%d.%d.%d\r\n", ip4_addr1(mask), ip4_addr2(mask),
+               ip4_addr3(mask), ip4_addr4(mask));
+    xil_printf("Gateway   : %d.%d.%d.%d\r\n", ip4_addr1(gw), ip4_addr2(gw),
+               ip4_addr3(gw), ip4_addr4(gw));
+}
+
+/* Bring up ENET0/lwIP after the UART test. Static addressing, echo on 5000. */
+static int run_eth_loopback_init(void)
+{
+    ip_addr_t ipaddr;
+    ip_addr_t netmask;
+    ip_addr_t gw;
+    unsigned char mac_ethernet_address[] =
+        { 0x00, 0x0A, 0x35, 0x00, 0x01, 0x02 };
+
+    echo_netif = &server_netif;
+
+#ifdef SDT
+    /* SDT builds: only start the 50 ms xiltimer tick. Do NOT enable caches
+     * here; the proven V3.0 VDMA path never ran with D-cache enabled. */
+    init_timer();
+#else
+    init_platform();
+#endif
+    xil_printf("STAGE0_PLATFORM_OK : timer and interrupts ready\r\n");
+
+    IP4_ADDR(&ipaddr, 192, 168, 240, 10);
+    IP4_ADDR(&netmask, 255, 255, 255, 0);
+    IP4_ADDR(&gw, 192, 168, 240, 2);
+
+    lwip_init();
+
+    if (!xemac_add(echo_netif, &ipaddr, &netmask, &gw, mac_ethernet_address,
+                   PLATFORM_EMAC_BASEADDR)) {
+        xil_printf("ETH_LWIP_FAIL REASON=XEMAC_ADD\r\n");
+        return -1;
+    }
+    netif_set_default(echo_netif);
+
+#ifndef SDT
+    platform_enable_interrupts();
+#endif
+
+    netif_set_up(echo_netif);
+    print_ip_settings(&ipaddr, &netmask, &gw);
+    xil_printf("ETH_LWIP_OK MAC=00:0A:35:00:01:02\r\n");
+
+    start_udp_echo(5000);
+    eth_ready = 1;
+    xil_printf("ETH_UDP_ECHO_OK : listening on UDP port 5000\r\n");
+    xil_printf("LOOPBACK_TEST_READY\r\n");
+    return 0;
+}
+
+/* Service lwIP once: run due timers and drain the EMAC RX queue. */
+static void eth_service(void)
+{
+    if (eth_ready == 0U) {
+        return;
+    }
+    if (TcpFastTmrFlag) {
+        tcp_fasttmr();
+        TcpFastTmrFlag = 0;
+    }
+    if (TcpSlowTmrFlag) {
+        tcp_slowtmr();
+        TcpSlowTmrFlag = 0;
+        eth_slow_tmr_ticks++;
+        if ((eth_slow_tmr_ticks % 20U) == 0U) {
+            udp_echo_report();
+        }
+    }
+    xemacif_input(echo_netif);
+}
+
+/* Sleep in 100 ms slices while keeping the Ethernet stack serviced. */
+static void eth_service_ms(uint32_t milliseconds)
+{
+    uint32_t elapsed = 0U;
+
+    while (elapsed < milliseconds) {
+        eth_service();
+        usleep(100000U);
+        elapsed += 100U;
+    }
+}
+
+/* ----------------------------------------------------------------------- */
 
 
 
@@ -458,7 +589,7 @@ static int monitor_stability_60s(void)
     uint32_t camera_ok;
 
     for (second = 1U; second <= STABILITY_SECONDS; ++second) {
-        sleep(1);
+        eth_service_ms(1000U);
         status = Xil_In32(VDMA_MM2S_SR);
         frames = vdma_mm2s_frame_count();
         s2mm_status = Xil_In32(VDMA_S2MM_SR);
@@ -526,6 +657,11 @@ int main(void)
         goto stopped;
     }
 
+    xil_printf("ETH_LOOPBACK_INIT_BEGIN\r\n");
+    if (run_eth_loopback_init() != 0) {
+        xil_printf("ETH_LWIP_FAIL REASON=INIT_ABORTED_KEEPING_HDMI_TEST\r\n");
+    }
+
     xil_printf("VDMA_INITIAL_BEGIN\r\n");
     print_vdma_registers();
     if (VDMA_Reset() != 0) {
@@ -560,7 +696,7 @@ int main(void)
         uint32_t s2mm_status;
         uint32_t camera_ok;
 
-        sleep(5);
+        eth_service_ms(5000U);
         ++runtime_second;
         status = Xil_In32(VDMA_MM2S_SR);
         if ((status & VDMA_SR_ERROR_MASK) != 0UL ||
