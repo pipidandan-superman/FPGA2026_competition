@@ -81,7 +81,7 @@ baseline hash and the relevant `4_metrics` evidence before editing.
 
 ## Domain-skill adaptation
 
-Before using ModelSim, Vivado/XSim, RTL, organization, documentation, or log
+Before using ModelSim, Vivado/XSim, RTL, MinerU document parsing, organization, documentation, or log
 skills in this workspace:
 
 1. Resolve the workspace root as `E:\competition`; do not infer another root
@@ -94,6 +94,12 @@ skills in this workspace:
 5. Reject any instruction that creates a new log or evidence root outside the
    fixed roots.
 6. Record the adapted command and output location in the run report.
+
+## MinerU document parsing boundary
+
+Content-level reading or interpretation of PDFs, scanned document images, DOCX, PPTX, XLSX, XLS, and similar reference files must apply `.codex/skills/mineru-doc-reader/SKILL.md`. Store the complete MinerU output, API/runner logs, input manifest, result JSON, working copies, and extracted images only under the dedicated `4_metrics/logs/YYYY-MM-DD_<task>_runNN` directory.
+
+Final authored reports may be placed in `1_docs`, but they must link or identify the MinerU evidence run. Do not write MinerU raw output into `1_docs`, `2_fpga`, or the repository root. A matching input hash and `MINERU_PARSE_PASS` marker are required before reusing an earlier parse.
 
 ## Session close check
 

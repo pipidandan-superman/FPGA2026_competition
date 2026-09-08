@@ -1,0 +1,8 @@
+﻿
+[2026-09-08 09:42:48] workspace=E:\competition
+[2026-09-08 09:42:48] output=E:\competition\4_metrics\logs\2026-09-08_mineru_project_skill_smoke_run01
+[2026-09-08 09:42:48] backend=pipeline model_source=local api=http://127.0.0.1:58120
+[2026-09-08 09:42:55] MinerU API healthy.
+[2026-09-08 09:42:55] START file=E:\competition\1_docs\ADV7511_Hardware_Users_Guide\ADV7511_Datasheet_analog.com.pdf sha256=61567DD86F99BC996FBF981BAD4540782643021F0720079D5793948C2F71D6D9
+[2026-09-08 09:43:21] END file=ADV7511_Datasheet_analog.com.pdf code=0 markdown=True content_json=True images=1 fallback=False seconds=25.2
+[2026-09-08 09:43:21] RESULT MINERU_PARSE_PASS file_count=1
