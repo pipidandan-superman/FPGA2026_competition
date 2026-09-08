@@ -293,7 +293,6 @@ static void eth_service_base(void)
 {
     static uint32_t last_fast_ms = 0;
     static uint32_t last_slow_ms = 0;
-    static uint32_t last_report_ms = 0;
     uint32_t now_ms;
 
     if (eth_ready == 0U) {
@@ -315,11 +314,21 @@ static void eth_service_base(void)
     xemacif_input(echo_netif);
 }
 
-/* Full service: base stack plus the video sender poll. */
+/* Full service: base stack plus the video sender poll fed with the latest
+ * completed camera slot. Slot choice: MM2S read pointer r is the slot the
+ * HDMI path is currently displaying; (r + FRAMES - 1) % FRAMES is the slot
+ * before it — complete, stable, and free of read/write contention. */
+static uint32_t park_current_read(void); /* defined with the VDMA helpers */
+
 static void eth_service(void)
 {
+    uint32_t read_slot = park_current_read();
+    uint32_t snap_slot = (read_slot + FRAME_COUNT - 1U) % FRAME_COUNT;
+    const unsigned char *snapshot =
+        (const unsigned char *)(uintptr_t)(DISPLAY_FB_BASE + snap_slot * FRAME_SLOT_BYTES);
+
     eth_service_base();
-    udp_video_tx_poll(eth_ms_now());
+    udp_video_tx_poll(eth_ms_now(), snapshot);
 }
 
 /* Mid-burst yield for udp_video_tx.c: stack service without re-entering
@@ -719,6 +728,11 @@ int main(void)
     if (wait_first_vdma_frame() != 0) {
         goto stopped;
     }
+    /* One startup transient (camera tuser hiccup across the VDMA reset) can
+     * latch sticky error bits that would otherwise print false
+     * CAMERA_STREAM_FAIL forever; clear them once real frames are flowing. */
+    Xil_Out32(VDMA_MM2S_SR, VDMA_SR_ERROR_MASK | VDMA_SR_IRQ_MASK);
+    Xil_Out32(VDMA_S2MM_SR, VDMA_SR_ERROR_MASK | VDMA_SR_IRQ_MASK);
     if (monitor_stability_60s() != 0) {
         goto stopped;
     }

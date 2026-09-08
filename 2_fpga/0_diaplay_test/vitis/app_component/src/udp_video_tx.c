@@ -14,9 +14,13 @@
  * Dependencies    : lwip220 RAW API, udp_echo.h peer constants
  * Revision History:
  *   - V1.0 (2026-09-08) by LSL : Initial release, pattern source only.
+ *   - V1.1 (2026-09-08) by LSL : C1 camera source — send_one_frame reads
+ *     the external DDR snapshot (frame_override) and invalidates stale
+ *     D-cache lines before read; fixes the all-black frame issue.
  ************************************************************************/
 
 #include "xil_printf.h"
+#include "xil_cache.h"
 #include "lwip/udp.h"
 #include "udp_video_tx.h"
 
@@ -30,6 +34,7 @@ extern void udp_video_tx_yield(void);
 #define TX_MAGIC_3 0x36U /* '6' */
 #define TX_VERSION 0x01U
 #define TX_TYPE_PATTERN 0x02U
+#define TX_TYPE_CAMERA 0x01U
 #define TX_FLAG_SOF 0x0001U
 #define TX_FLAG_EOF 0x0002U
 
@@ -52,6 +57,8 @@ static unsigned char tx_frame[TX_FRAME_BYTES];
 static uint32_t tx_frame_id = 0;
 static uint32_t tx_last_ms = 0;
 static uint32_t tx_sent_frames = 0;
+static const unsigned char *tx_external = NULL; /* C1: live DDR snapshot */
+static uint32_t tx_external_frames = 0;
 static uint32_t tx_sent_packets = 0;
 static uint32_t tx_errors = 0;
 static uint32_t tx_ready = 0;
@@ -119,7 +126,7 @@ static void fill_header(unsigned char *header, uint32_t frame_id, uint32_t frame
     header[2] = TX_MAGIC_2;
     header[3] = TX_MAGIC_3;
     header[4] = TX_VERSION;
-    header[5] = TX_TYPE_PATTERN;
+    header[5] = (tx_external != NULL) ? TX_TYPE_CAMERA : TX_TYPE_PATTERN;
     header[6] = (unsigned char)(flags >> 8);
     header[7] = (unsigned char)(flags & 0xFFU);
     header[8] = (unsigned char)(frame_id >> 24);
@@ -150,9 +157,18 @@ static void fill_header(unsigned char *header, uint32_t frame_id, uint32_t frame
 
 static void send_one_frame(uint32_t frame_id)
 {
-    uint32_t frame_crc = crc32_update(0, tx_frame, TX_FRAME_BYTES);
+    const unsigned char *src = (tx_external != NULL) ? tx_external : tx_frame;
+    uint32_t frame_crc;
     uint32_t pid;
     uint32_t since_service = 0;
+
+    if (tx_external != NULL) {
+        /* Camera frame was written into DDR by the VDMA (DMA bypasses the
+         * CPU caches). Invalidate stale D-cache lines so the CPU reads the
+         * fresh frame. Safe: the CPU never writes this region. */
+        Xil_DCacheInvalidateRange((UINTPTR)src, TX_FRAME_BYTES);
+    }
+    frame_crc = crc32_update(0, src, TX_FRAME_BYTES);
 
     for (pid = 0; pid < TX_PACKETS; ++pid) {
         struct pbuf *pb = pbuf_alloc(PBUF_TRANSPORT, 32U + TX_PAYLOAD, PBUF_POOL);
@@ -174,7 +190,7 @@ static void send_one_frame(uint32_t frame_id)
                     pid, TX_PAYLOAD, flags, (uint32_t)(frame_id * 33333U));
         payload = (unsigned char *)pb->payload + 32U;
         for (uint32_t i = 0; i < TX_PAYLOAD; ++i) {
-            payload[i] = tx_frame[pid * TX_PAYLOAD + i];
+            payload[i] = src[pid * TX_PAYLOAD + i];
         }
         err = udp_sendto(tx_pcb, pb, &tx_peer, 5000);
         pbuf_free(pb);
@@ -211,7 +227,7 @@ void udp_video_tx_init(void)
                TX_FRAME_BYTES, TX_PACKETS, UDP_TX_FRAME_INTERVAL_MS);
 }
 
-void udp_video_tx_poll(uint32_t now_ms)
+void udp_video_tx_poll(uint32_t now_ms, const unsigned char *frame_override)
 {
     if (tx_ready == 0U) {
         return;
@@ -220,7 +236,12 @@ void udp_video_tx_poll(uint32_t now_ms)
         return;
     }
     tx_last_ms = now_ms;
-    build_pattern_frame(tx_frame_id);
+    tx_external = frame_override;
+    if (tx_external != NULL) {
+        tx_external_frames++;
+    } else {
+        build_pattern_frame(tx_frame_id);
+    }
     send_one_frame(tx_frame_id);
     tx_frame_id++;
 }

@@ -380,3 +380,26 @@ This validates project integration and one PDF execution path only. Future seman
 - 判定：`UDP_TX_B1_PASS` —— 板→PC 单向 UDP 视频流（921,600 B/帧、640 包/帧、1 fps）端到端打通。
 - 遗留小项：GUI 帧率栏对 1 fps 流显示 0.0/1.9 跳变（0.5 s 采样窗的显示口径问题，非功能缺陷，下次迭代改累计均值）；UDP_TX_INIT_OK 中 "ticks" 字样应为 "ms"（打印文案）。
 - 未决：相机 S2MM 错误（C1 前置条件）待排查——先确认相机排线/供电与 HDMI 显示状态。
+
+### 阶段 C1 相机快照源代码交付（V3.1.3）
+
+- 前提修正（用户实证）：相机→HDMI 显示正常 + 串口 PARKPTR CURRENT_READ 0/1/2 循环 ⇒ S2MM 流水线存活；此前 CAMERA_STREAM_FAIL 属**粘滞错误位误报**（启动瞬时错误未清除）。
+- 代码：`udp_video_tx_poll` 增加帧源参数（非空=相机 DDR 快照 type=0x01，空=彩条 type=0x02）；`eth_service` 按 PARKPTR CURRENT_READ=r 取快照槽 `(r+2)%3`（显示槽前一槽，完整/稳定/无竞争）；首帧后一次性清除 MM2S/S2MM 粘滞错误位。
+- 缓存：D-Cache 保持关闭，CPU 直读 DDR 最新数据，无一致性问题。
+- 哈希：`c1_camera_source_sha256.txt`（integration run 目录）。
+- 结果：`UDP_CAMERA_C1_CODE_DELIVERED`（静态编写级）。板会判据：GUI 显示相机实时画面（~1 fps 刷新）、完整帧递增、丢帧/CRC=0、HDMI 同显 → `UDP_CAMERA_C1_PASS`。
+
+### C1 首测黑帧根因与修复（udp_video_tx V1.1）
+
+- 现象：板端 `UDP_TX frame=N errors=0` 持续发送、GUI 完整帧递增且 CRC=0，但画面全黑；HDMI 相机显示正常。
+- 根因一（集成 bug）：`send_one_frame` 固定从静态 `tx_frame[]` 取数；相机模式下 pattern 构建被跳过，`tx_frame`（BSS）从未填充 ⇒ 发送全零黑帧，CRC 自洽。
+- 根因二（防御性修复）：外部快照为 VDMA DMA 写入，CPU 读前未失效 D-Cache 会读到陈旧数据（冻结首帧）；已加 `Xil_DCacheInvalidateRange`（CPU 从不写该区域，失效安全）。
+- 结果：`C1_BLACKFRAME_FIX_DELIVERED`。哈希见 integration run `c1_blackframe_fix_sha256.txt`。
+- 附带发现：runtime 循环（eth_service_ms(5000)）下 TX 实际为 **5 fps**（每秒 5 个 UDP_TX，串口 frame=60~64/5s 证实）——提前触及 C2 的 5 FPS 门限；GUI 帧率栏 0/4.x 跳变为 0.5 s 采样口径。
+
+### 阶段 C1 板级验收通过（UDP_CAMERA_C1_PASS）
+
+- GUI 三张截图（手掌/门窗/人像）+ 完整串口已归档（integration run 目录，`c1_evidence_sha256.txt`）。
+- 串口：`PS_HDMI_CAMERA_VDMA_TEST_PASS`（60s 零错误）、`UDP_TX frame=159 errors=0`（runtime 5 帧/秒）、HDMI 心跳照常。
+- 判定：**`UDP_CAMERA_C1_PASS`** —— 摄像头 → FPGA → DDR → 千兆网 → PC 实时显示 核心链路贯通。
+- 已知改进项（C1.1）：丢帧/CRC 错非零（疑似爆发期 PC 内核丢包 + 快照槽撕裂，对策=避双指针选槽/限速/开 UDP 校验和）；GUI 帧率栏低帧率下显示 0.0（采样口径）；色差为 HDMI(YCbCr 有限范围) 与 UDP(原生 RGB) 双管线预期差异，非缺陷。

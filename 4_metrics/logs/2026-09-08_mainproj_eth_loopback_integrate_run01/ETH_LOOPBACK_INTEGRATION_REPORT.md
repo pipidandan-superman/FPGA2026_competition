@@ -106,3 +106,39 @@ git 旧 BD vs 用户新 BD：172 处差异全部为 ENET0/MDIO/GPIO-EMIO/MIO 配
 - 错误 2：`udp_video_tx.c:208 'tx_last_tick' undeclared` —— 上一轮批量替换漏掉 init 函数内一处；已改为 `tx_last_ms = 0`。
 - 全部陈旧符号（xtime_l/tx_last_tick/TcpFastTmrFlag/TcpSlowTmrFlag）复查为零残留；括号平衡核查通过。
 - 状态：`V312_SYNTAX_FIXED`，待用户重新 Build。
+
+## 10. 阶段 C1 相机快照源接入（V3.1.3，代码交付）
+
+- 用户实证：相机→HDMI 显示正常；串口 PARKPTR CURRENT_READ 0/1/2 循环证明 S2MM 持续完成帧。此前 CAMERA_STREAM_FAIL 为**粘滞错误位误报**（启动瞬时错误位为写 1 清除型，代码未清除导致每秒误报）。
+- 修改：
+  1. `udp_video_tx_poll(now_ms, frame_override)` 增加帧源指针参数：非空=相机 DDR 快照（type=0x01），空=内置彩条（type=0x02，保留可复现）。
+  2. `main.c eth_service()`：读 PARKPTR CURRENT_READ=r，取快照槽 `(r+FRAMES-1)%FRAMES`（MM2S 正显示槽的前一槽：完整、稳定、无读写竞争），地址 = 0x10000000 + 槽×1 MiB。
+  3. 首帧通过后一次性清除 MM2S/S2MM SR 的粘滞错误位（写 1 清除），消除误报；此后监控反映真实错误。
+- 缓存一致性：D-Cache 保持关闭（V3.0 以来行为），CPU 读 DDR 即最新数据，无需 invalidate。
+- 哈希：`c1_camera_source_sha256.txt`。
+- 边界：未编译未上板。板会判据：GUI 显示相机实时画面（约 1 fps 刷新），完整帧递增、丢帧/CRC=0、HDMI 同显 → `UDP_CAMERA_C1_PASS`。
+
+## 11. C1 编译错误修复（park_current_read 前置声明）
+
+- 错误：`main.c:324 implicit declaration of 'park_current_read'` + `conflicting types`——eth_service 定义于文件前部，而 park_current_read 定义在 475 行（static），C 需先声明后使用。
+- 修复：在 eth_service 前补前置声明 `static uint32_t park_current_read(void);`。
+- 状态：`C1_FWD_DECL_FIXED`，待重新 Build。
+
+## 12. C1 黑帧根因修复（V1.1 of udp_video_tx）
+
+- 现象：GUI 收到帧递增、CRC=0，但画面全黑；HDMI 相机显示正常。
+- 根因一（集成 bug）：`send_one_frame` 始终从静态 `tx_frame[]` 取数，而相机模式下 `build_pattern_frame` 被跳过、`tx_frame`（BSS 段）从未填充——发送的是 921,600 B 全零黑帧，CRC 自洽故校验通过。
+- 根因二（潜在陷阱，一并修复）：CPU 读 VDMA 写过的 DDR 前未失效 D-Cache 行，会读到陈旧缓存（表现为冻结首帧）。修复：相机源发送前 `Xil_DCacheInvalidateRange(src, 921600)`（CPU 从不写该区域，失效安全）。
+- 修复内容：send_one_frame 按帧源选择 src（override ? DDR 快照 : 彩条缓冲），CRC 与 payload 均改读 src；新增 xil_cache.h。
+- 哈希：`c1_blackframe_fix_sha256.txt`。状态：`C1_BLACKFRAME_FIX_DELIVERED`，待重编译上板复测。
+## 13. 重复声明修复（pid/since_service 重定义 + last_report_ms 清理）——已修复，待重编译
+
+## 13. 阶段 C1 板级验收（UDP_CAMERA_C1_PASS，含已知改进项）
+
+- GUI 三张截图（手掌/门窗/人像）：数据源 192.168.240.10，完整帧 17/16/9 递增，画面为真实相机内容；重复/坏头=0/0。
+- 串口（完整归档）：`PS_HDMI_CAMERA_VDMA_TEST_PASS`（60 秒监控零错误，粘滞位修复生效）、`UDP_TX frame=159 packets=640 errors=0`（runtime 阶段 5 帧/秒）、`HDMI_RUNTIME_HEARTBEAT` 照常。
+- 已知改进项（列入 C1.1）：
+  1. `丢帧`（6~28）与 `CRC 错`（10~36）非零——疑似两因叠加：发送爆发期 PC 内核缓冲丢包（丢帧），以及快照槽与 S2MM 写指针赛跑导致的撕裂帧（CRC 错）；C1.1 对策：改用"避开 w/r 双指针"选槽 + 爆发限速 + 开启 lwIP UDP 校验和。
+  2. 帧率口径：GUI fps 栏 0.5 s 采样在低帧率下显示 0.0，需改累计均值。
+  3. 色差说明：UDP 通道送的是传感器原生 RGB888（真彩），HDMI 通道经 BT.601 有限范围 YCbCr 转换——两路颜色渲染本就不同，非缺陷。
+- 判定：`UDP_CAMERA_C1_PASS`（核心门限：相机画面经 UDP 到达 PC 并正确显示；质量优化归 C1.1/C2）。

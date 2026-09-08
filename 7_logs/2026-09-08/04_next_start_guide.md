@@ -116,3 +116,9 @@ To reproduce the existing `BOARD_VISUAL_PASS`, program the frozen BIT, load the 
 - 下一步开发顺序不变：board→PC UDP 帧发送（合成图案 + 递增帧号，Wireshark/NetAssist 验收）→ VDMA 完成帧快照接入 → 按实施计划 H1/H2 门限推进（1/5/15 FPS）。
 - 待办遗留：主工程完整串口日志归档；README/HANDOFF 已更新新基线说明。
 - 操作注意：新 BIT（`7CB11F7D...`）+ 新 ELF（`52209F62...`）为当前配对；不要与 09-07 冻结配对混用。
+
+## C1 通过后交接
+
+1. C1.1 质量优化：选槽避开 S2MM 写指针与 MM2S 读指针（第三槽法）、爆发限速（每 64 包微延时）、评估开启 lwIP UDP 校验和、GUI fps 改累计均值。
+2. C2 提速：runtime 已实测 5 fps；A1 吞吐基准后按 5→15 FPS 门限推进。
+3. 分支已推送 B1+C1 成果；PR 交 member-b 评审合并。

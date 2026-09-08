@@ -20,18 +20,18 @@
 
 #include "lwip/init.h"
 
-/* Frame source selector for stage gating:
- *   0 = synthetic color-bar pattern (stage B1, default)
- *   1 = DDR camera snapshot (stage C1, implemented later)              */
-#define UDP_TX_USE_CAMERA 0
+/* Frame source (stage C1): the caller passes the address of the latest
+ * COMPLETED camera frame in DDR on every poll. Passing NULL falls back to
+ * the built-in synthetic color-bar pattern (stage B1 behaviour). */
 
 /* Send one frame every UDP_TX_FRAME_INTERVAL_MS milliseconds (1 s = 1 fps). */
 #define UDP_TX_FRAME_INTERVAL_MS 1000U
 
 void udp_video_tx_init(void);
 /* Call periodically from eth_service(); the caller passes a monotonically
- * increasing millisecond counter. Sends a burst when the next frame
- * interval expires; the burst keeps the stack serviced between chunks. */
-void udp_video_tx_poll(uint32_t now_ms);
+ * increasing millisecond counter and the current frame source address
+ * (NULL = built-in pattern). Sends a burst when the next frame interval
+ * expires; the burst keeps the stack serviced between chunks. */
+void udp_video_tx_poll(uint32_t now_ms, const unsigned char *frame_override);
 
 #endif

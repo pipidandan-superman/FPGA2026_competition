@@ -1,5 +1,12 @@
 # EES-331 HDMI ADV7511 Handoff
 
+## 2026-09-08 Stage C1: live camera frames over UDP to PC (BOARD PASS)
+
+- `UDP_CAMERA_C1_PASS`: `udp_video_tx_poll` now takes the latest completed DDR snapshot (`(PARKPTR CURRENT_READ + 2) % 3`, the pre-display slot — complete/stable/no contention) and streams it as type=0x01 frames at ~5 fps runtime / 1 fps monitor; GUI shows the live OV5640 image.
+- Fixes en route: black-frame bug (send_one_frame always read the never-filled pattern buffer — now selects external snapshot vs pattern), D-cache invalidate before reading DMA-written DDR, sticky S2MM error bits cleared once after first frames (false CAMERA_STREAM_FAIL eliminated), forward declaration for park_current_read.
+- Known items for C1.1: 丢帧/CRC 错 counters nonzero (burst PC-socket drops + suspected snapshot tearing) — plan: dual-pointer slot avoidance, burst pacing, evaluate lwIP UDP checksum; GUI fps field sampling quirk. HDMI( BT.601 limited YCbCr) vs UDP( native RGB) color difference is expected dual-pipeline behaviour, not a defect.
+- Evidence: `4_metrics/logs/2026-09-08_mainproj_eth_loopback_integrate_run01/` (C1 GUI screenshots x3, full serial, per-fix hashes).
+
 ## 2026-09-08 Stage B1: board-to-PC UDP video stream PASS (1 fps pattern)
 
 - Result: `UDP_TX_B1_PASS`. `app_component` V3.1.2 streams 640x480 RGB888 synthetic frames (921,600 B = 640 packets x 1,440 B + 32 B header, whole-frame CRC32, SOF/EOF flags) from the board to the PC peer at 1 fps; serial shows `UDP_TX frame=N packets=640 errors=0` (58+ frames, zero TX errors) and the GUI receiver shows the moving color-bar pattern with `完整帧` increasing at ~1 fps, `丢帧=0`, `CRC 错=0`.
