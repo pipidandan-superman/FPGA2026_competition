@@ -1,5 +1,19 @@
 # EES-331 HDMI ADV7511 Handoff
 
+## 2026-09-08 Main project PS Ethernet loopback integrated (V3.1, BOARD PASS)
+
+- Scope: `2_fpga/0_diaplay_test` Zynq PS now has ENET0 enabled (MIO 16..27, MDIO 52..53, PHY reset MIO 47, 1000 Mbps) alongside the proven OV5640 -> VDMA -> DDR -> MM2S -> HDMI path. PS config is item-for-item equivalent to the board-proven `2_fpga/2_eth_onlytest_zynq7020` loopback project (21-item PCW compare, report in the evidence run).
+- App `app_component` V3.1: original camera/HDMI/UART firmware preserved; added lwIP RAW bring-up (static `192.168.240.10/24`, gateway `192.168.240.2`, MAC `00:0A:35:00:01:02`) and UDP echo on port 5000; `eth_service_ms()` keeps the stack serviced inside the existing 1 s / 5 s monitor loops. SDT build calls `init_timer()` only and does NOT enable D-cache, preserving the proven V3.0 memory behavior.
+- Board result 2026-09-08 12:23: `MAIN_ETH_LOOPBACK_PASS` — NetAssist `192.168.240.2:5000` sent `你好` x3, all echoed (`3/3`, RX 12 B = TX 12 B) while the camera image kept displaying over HDMI.
+- New hardware/software pairing (do NOT mix with the 2026-09-07 frozen pair below):
+  - BIT `display_test_wrapper.bit` SHA-256 `7CB11F7DF165476EB86E3D8C43CC251FB1C454ECDB64B905F0931AD971EC192E7` (4,045,696 B)
+  - ELF `app_component.elf` SHA-256 `52209F6271626A2B390E93E9DDF53DCD7E150EC655F2F2513B8C28F14C2ABA56` (851,088 B)
+  - XSA `display_test_wrapper.xsa` SHA-256 `30644B3158D86D0D27C34ED60626179B17046CDA7B3AF51F35431B18652D22D0` (578,739 B)
+  - Binaries live under `2_fpga/0_diaplay_test/vitis/hw_20260908_eth/`.
+- Evidence: `4_metrics/logs/2026-09-08_mainproj_eth_loopback_integrate_run01/` (integration report, before/after hashes, PASS screenshot SHA-256 `4AA8933B02B449F314D2E336908B41252FC9DE3DB91BF4E6B2742635AFF7CE0E`).
+- Still owed: full UART serial capture (ETH heartbeat + HDMI heartbeat lines) for the raw serial record.
+- Next: board-to-PC UDP frame sender (synthetic pattern + incrementing frame/packet IDs), then one VDMA frame snapshot; camera transport gates stay per `1_docs/OV5640_PS以太网传输实施计划_2026-09-08.md`.
+
 ## 2026-09-07 OV5640 + PS VDMA + HDMI frozen visual PASS
 
 - Result: `BOARD_VISUAL_PASS`. Three archived board photos show live OV5640 data through S2MM -> DDR -> MM2S -> HDMI. This is **not** `FULL_UART_ACCEPTANCE_PASS`; the final run has no complete UART capture.

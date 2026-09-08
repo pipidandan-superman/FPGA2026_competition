@@ -110,6 +110,8 @@ hdmi_out_adv7511_v1_0
 | PS VDMA + HDMI 彩条 | BOARD VISUAL PASS |
 | OV5640 + PS VDMA + HDMI | BOARD VISUAL PASS，2026-09-07 |
 | OV5640 + PS VDMA 完整 UART 验收 | 待复测，同一冻结 BIT + ELF |
+| 主工程 Zynq ENET0 配置等效性（vs 回环工程 21 项 PCW） | PASS，2026-09-08 |
+| 主工程 lwIP UDP 回环 + 摄像头 HDMI 同板共存 | BOARD PASS（`MAIN_ETH_LOOPBACK_PASS`），2026-09-08 |
 
 ## 归档目录
 
@@ -132,8 +134,9 @@ competition/
 - HDMI ADV7511 RTL、实现、时序和板级显示已完成；
 - PS UART 板级通信已验证；
 - 2026-09-07 冻结 OV5640 → VDMA → DDR → VDMA → HDMI 可视化显示基线；
+- 2026-09-08 主工程 PS 使能 ENET0（MIO16..27 + MDIO 52..53 + PHY 复位 MIO47），新 XSA/BIT 与 V3.1 固件（lwIP RAW UDP 回环 + 原 VDMA/HDMI 逻辑）板级验证通过：UDP 回环 `RX=TX` 且摄像头 HDMI 显示正常；
 - CNN PS+PL 加速架构已有历史工程基础；
-- 下一步：冻结链路完整 UART 复验 → 多轴 PWM 控制器开发 → 通信协议实现 → YOLO 部署 → 联调。
+- 下一步：board→PC UDP 帧发送（合成图案 + 递增帧号）→ VDMA 帧快照接入 → 多轴 PWM 控制器开发 → 通信协议实现 → YOLO 部署 → 联调。
 
 ## GitHub
 

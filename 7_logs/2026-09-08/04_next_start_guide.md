@@ -102,3 +102,17 @@ To reproduce the existing `BOARD_VISUAL_PASS`, program the frozen BIT, load the 
 - Still owed: archive the full UART serial log including HEARTBEAT lines to complete the raw serial evidence.
 - Next development stage unchanged: board-to-PC UDP sender with synthetic pattern and incrementing frame/packet IDs, then one VDMA DDR frame snapshot from the camera path.
 - The PR to `main` remains open for member-b review; this correction commit will be pushed on top.
+
+## 主工程集成后下一步
+
+1. 用户在 Vitis GUI 对 `app_component` 执行 Build → Run（新 XSA 平台）。
+2. 串口验收序列：`UART_TEST_PASS` → `ETH_LOOPBACK_INIT_BEGIN` → `ETH_LWIP_OK` → `ETH_UDP_ECHO_OK` → `LOOPBACK_TEST_READY` → `VDMA_INITIAL_BEGIN` → `HDMI_HEARTBEAT`。
+3. PC 侧 ping 192.168.240.10 + UDP 5000 回显；全部通过后记录 `MAIN_ETH_LOOPBACK_PASS`，并把完整串口日志归档到集成 run 目录。
+4. 下一步开发：board→PC UDP 帧发送（先合成图案 + 递增帧号），再接 VDMA 完成帧快照。
+
+## 主工程里程碑后交接
+
+- 分支已推送主工程 V3.1 集成提交（源码 + 新 XSA/BIT/ELF + 证据）；`main` 的 PR 评审流程继续由 member-b 处理。
+- 下一步开发顺序不变：board→PC UDP 帧发送（合成图案 + 递增帧号，Wireshark/NetAssist 验收）→ VDMA 完成帧快照接入 → 按实施计划 H1/H2 门限推进（1/5/15 FPS）。
+- 待办遗留：主工程完整串口日志归档；README/HANDOFF 已更新新基线说明。
+- 操作注意：新 BIT（`7CB11F7D...`）+ 新 ELF（`52209F62...`）为当前配对；不要与 09-07 冻结配对混用。

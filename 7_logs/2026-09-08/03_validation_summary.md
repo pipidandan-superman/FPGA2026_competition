@@ -272,3 +272,28 @@ This validates project integration and one PDF execution path only. Future seman
 - Board serial facts (user-provided capture): STAGE0_UART_OK, STAGE0_PLATFORM_OK, PHY autonegotiation complete at 1000 Mbps, Board IP 192.168.240.10/24, STAGE1_LWIP_OK, STAGE3_UDP_ECHO_OK (port 5000), LOOPBACK_TEST_READY.
 - Boundary: the full serial capture including the periodic `HEARTBEAT rx=/tx=/err=` lines is still not archived; the 10 s heartbeat printout should be captured in the next board session to complete the raw serial record.
 - Result upgrade: `UDP_LOOPBACK_PASS` (PC↔board bidirectional UDP data path proven at the application layer, 1 Gbps link, static 192.168.240.0/24 addressing). The 8080-port failure record above is retained as history.
+
+## 主工程以太网回环集成（0_diaplay_test V3.1）
+
+### Evidence
+
+`E:\competition\4_metrics\logs/2026-09-08_mainproj_eth_loopback_integrate_run01/ETH_LOOPBACK_INTEGRATION_REPORT.md`（含基线与集成后 SHA-256）。
+
+### Verified
+
+- **`MAIN_ETH_CONFIG_EQUIVALENT_PASS`**：display_test.bd vs eth_1G_test.bd 21 项 PCW 对比，以太网关键项（ENET0 MIO16..27/1000Mbps/MDIO 52..53/复位 MIO47/UART1 48..49/DDR/Bank1）全部一致；4 项 DIFF 均为 eth 工程 BD 缺省键，非真实差异。
+- 用户已完成：PS 修改 → 新比特流 → 新 XSA（`30644B31...`）→ lwip220 勾选 → BSP 重生成 → 平台编译通过。
+- 集成前基线留档：V3.0 main.c `705B0317...`、display_test.bd `2659E061...`。
+- 已交付 V3.1：新增 6 文件（与回环工程逐字节一致），main.c 593→729 行（ETH 初始化 + eth_service 轮询织入两个监测循环），UserConfig.cmake 登记 platform 两文件；VDMA/HDMI V3 逻辑与全部打印/判定保留；SDT 下仅 init_timer 不开 D-Cache 以保持已验证内存行为。
+- 冻结边界声明：PS 修改后 2026-09-07 冻结 BIT/ELF 配对不再代表当前工程，新验证周期自本 XSA 起。
+
+### Result / Boundary
+
+`MAIN_ETH_LOOPBACK_INTEGRATED`（静态编写级）。未编译未上板；板级判据见报告第 5 节（UART→ETH→VDMA 串口序列 + ping + UDP 回显 + HDMI 心跳），全部满足方可记录 `MAIN_ETH_LOOPBACK_PASS`。
+
+### 主工程板级验收回填（2026-09-08 12:23）— MAIN_ETH_LOOPBACK_PASS
+
+- NetAssist `192.168.240.2:5000` ↔ 板卡 `192.168.240.10:5000`：发送 `你好` 3 包全部原样返回，`3/3` 包、`RX:12 = TX:12` 字节；截图 `netassist_mainproj_udp_loopback_pass_20260908.png`（SHA-256 `4AA8933B...F7CE0E`）。
+- 用户确认：同一固件下摄像头画面经 VDMA→HDMI 正常显示，原有 HDMI 功能未受 ETH 集成影响。
+- 新板级基线产物（SHA-256 见 run 目录 `board_artifacts_sha256.txt`）：BIT `7CB11F7D...`（4,045,696 B，12:09）、ELF `52209F62...`（851,088 B，12:23）、XSA `30644B31...`（578,739 B，12:09）。
+- 结果：`MAIN_ETH_LOOPBACK_PASS`（UDP 回环 + 摄像头 HDMI 同板共存）。遗留：完整串口日志（ETH 心跳 + HDMI 心跳）待归档。
