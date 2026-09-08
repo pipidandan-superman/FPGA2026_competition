@@ -21,12 +21,14 @@
 #include "xil_printf.h"
 #include "xil_types.h"
 #include "xparameters.h"
+#include "xiltimer.h" /* XTime_GetTime / COUNTS_PER_SECOND (Global Timer) */
 #include "netif/xadapter.h"
 #include "platform.h"
 #include "platform_config.h"
 #include "lwip/init.h"
 #include "lwip/tcp.h"
 #include "udp_echo.h"
+#include "udp_video_tx.h"
 
 #define DISPLAY_FB_BASE          0x10000000UL
 #define DISPLAY_FB_BYTES         0x00300000UL
@@ -204,10 +206,10 @@ static int run_uart_test(void)
 
 /* Provided by platform.c; counts DHCP negotiation retries (unused, no DHCP). */
 volatile int dhcp_timoutcntr = 0;
-extern volatile int TcpFastTmrFlag;
-extern volatile int TcpSlowTmrFlag;
 
-/* lwIP periodic timers, driven from the service helper in RAW mode. */
+/* lwIP periodic timers, scheduled on the Global Timer time base (proven
+ * working via sleep/usleep). The platform ScuTimer interrupt path proved
+ * unreliable in this SDT build, so its flag variables are not consulted. */
 void tcp_fasttmr(void);
 void tcp_slowtmr(void);
 
@@ -268,31 +270,63 @@ static int run_eth_loopback_init(void)
     xil_printf("ETH_LWIP_OK MAC=00:0A:35:00:01:02\r\n");
 
     start_udp_echo(5000);
-    eth_ready = 1;
     xil_printf("ETH_UDP_ECHO_OK : listening on UDP port 5000\r\n");
+
+    udp_video_tx_init();
+    eth_ready = 1;
     xil_printf("LOOPBACK_TEST_READY\r\n");
     return 0;
 }
 
-/* Service lwIP once: run due timers and drain the EMAC RX queue. */
-static void eth_service(void)
+/* Millisecond time base from the ARM Global Timer (always running). */
+static uint32_t eth_ms_now(void)
 {
+    XTime now;
+    XTime_GetTime(&now);
+    return (uint32_t)(now / (COUNTS_PER_SECOND / 1000U));
+}
+
+/* Base stack service: lwIP timers on the Global Timer time base plus EMAC
+ * RX drain. Schedules tcp_fasttmr/250 ms and tcp_slowtmr/500 ms directly;
+ * the platform ScuTimer interrupt path is intentionally not consulted. */
+static void eth_service_base(void)
+{
+    static uint32_t last_fast_ms = 0;
+    static uint32_t last_slow_ms = 0;
+    static uint32_t last_report_ms = 0;
+    uint32_t now_ms;
+
     if (eth_ready == 0U) {
         return;
     }
-    if (TcpFastTmrFlag) {
+    now_ms = eth_ms_now();
+    if ((now_ms - last_fast_ms) >= 250U) {
         tcp_fasttmr();
-        TcpFastTmrFlag = 0;
+        last_fast_ms = now_ms;
     }
-    if (TcpSlowTmrFlag) {
+    if ((now_ms - last_slow_ms) >= 500U) {
         tcp_slowtmr();
-        TcpSlowTmrFlag = 0;
+        last_slow_ms = now_ms;
         eth_slow_tmr_ticks++;
         if ((eth_slow_tmr_ticks % 20U) == 0U) {
             udp_echo_report();
         }
     }
     xemacif_input(echo_netif);
+}
+
+/* Full service: base stack plus the video sender poll. */
+static void eth_service(void)
+{
+    eth_service_base();
+    udp_video_tx_poll(eth_ms_now());
+}
+
+/* Mid-burst yield for udp_video_tx.c: stack service without re-entering
+ * the sender poll (avoids recursion). */
+void udp_video_tx_yield(void)
+{
+    eth_service_base();
 }
 
 /* Sleep in 100 ms slices while keeping the Ethernet stack serviced. */
