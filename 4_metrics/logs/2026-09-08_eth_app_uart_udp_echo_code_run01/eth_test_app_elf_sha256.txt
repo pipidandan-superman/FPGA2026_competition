@@ -1,0 +1,1 @@
+b2b2cca9063d7d6fa3c7c8774944a99944c410d1ff059e836886db0ebd618e25 *eth_test_app/build/eth_test_app.elf
