@@ -505,3 +505,10 @@ This validates project integration and one PDF execution path only. Future seman
 
 - 用户录屏 `user_final_visual_pass_board_stream.mp4`（19.5 MB，SHA-256 `de165b6f...ea9599`，入库理由按上传准则规则 8 声明于 RUN_REPORT §5.3）：重建 exe 接收板卡实时流 `192.168.240.10`，完整帧 508→622、6.25 fps 稳定、丢帧/CRC 错 ≈1%（与 C1.2 基线一致）；真人面部/手部动作下肤色与色彩自然，无红蓝互换。用户确认"显示颜色正常"。
 - 色差项关闭：固化 `UDP_COLOR_SWAP_FIX_FREEZE_PASS`（gui V1.2 + rx V1.1 + exe `a4b75ed3...`；板端 C1.2 冻结配对零改动）；随上传打 tag `udp-color-fix-pass-20260908`。
+
+### GitHub 个人分支上传（2026-09-08）
+
+- 干净 worktree 显式选文件上传，`fc76580..75ac99a` 两个主题提交推送成功：`58caa58` fix（gui V1.2/rx V1.1/exe/文档 §10）、`75ac99a` evidence（证据 run + 当日四件套 + .gitignore 白名单两行）；tag `udp-color-fix-pass-20260908` 已推送。
+- 19.5 MB 录屏与 31 MB exe 均按上传准则规则 8 在 `GITHUB_UPLOAD_RESULT.md` 书面声明（来源/大小/SHA-256/证据链接）。
+- 未触碰 `main` 与 `2_fpga` 冻结基线；PR 待用户网页创建、member-b（xiaokaiyuan）评审。证据：`4_metrics/logs/2026-09-08_udp_color_swap_fix_run01/GITHUB_UPLOAD_RESULT.md`。
+- 判定：`PERSONAL_BRANCH_UPLOAD_PASS`（色差修复主题）。
