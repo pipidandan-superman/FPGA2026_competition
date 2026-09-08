@@ -16,6 +16,11 @@
 # *   - V1.0 (2026-09-08) by LSL : Initial release (Tkinter + Pillow).
 # *   - V1.1 (2026-09-08) by LSL : Fix placeholder PhotoImage being garbage
 # *     collected (video area collapsed); auto-start listening on launch.
+# *   - V1.2 (2026-09-08) by LSL : Fix R/B channel swap on camera frames.
+# *     VDMA S2MM packs the 24-bit AXIS word {R[23:16],G[15:8],B[7:0]}
+# *     little-endian, so DDR/UDP camera payload bytes per pixel are
+# *     [B,G,R]; type 0x02 pattern frames are software-packed [R,G,B].
+# *     Decode is now type-aware: 0x01 -> Pillow raw mode "BGR", else "RGB".
 # ************************************************************************
 import queue
 import socket
@@ -51,6 +56,7 @@ class Receiver(threading.Thread):
         self.frames_q = frames_q
         self.slots = {}
         self.last_complete_fid = -1
+        self.last_raw_mode = "RGB"  # camera payload (type 0x01) is VDMA-packed [B,G,R]
         self.alive = threading.Event()
         self.status = "未启动"
 
@@ -82,7 +88,7 @@ class Receiver(threading.Thread):
                         self.frames_q.get_nowait()
                 except queue.Empty:
                     pass
-                self.frames_q.put((frame, addr[0]))
+                self.frames_q.put((frame, addr[0], self.last_raw_mode))
         sock.close()
         self.status = "已停止"
 
@@ -96,6 +102,10 @@ class Receiver(threading.Thread):
         if magic != MAGIC or ver != VERSION or len(pkt) != HEADER_LEN + plen:
             stats["bad_header"] += 1
             return None
+        # type 0x01 = camera frames copied verbatim from the VDMA-packed DDR
+        # framebuffer -> per-pixel byte order [B,G,R]; type 0x02 pattern and
+        # any future software-packed types stay [R,G,B].
+        self.last_raw_mode = "BGR" if typ == 0x01 else "RGB"
         slot = self.slots.get(fid)
         if slot is None:
             if count != 640 or w != 640 or h != 480:
@@ -202,8 +212,8 @@ class App:
         self.start_btn.state(["disabled"])
         self.root.after(800, lambda: self.start_btn.state(["!disabled"]))
 
-    def render(self, frame, src):
-        img = Image.frombytes("RGB", (WIDTH, HEIGHT), frame).resize(
+    def render(self, frame, src, raw_mode="RGB"):
+        img = Image.frombytes("RGB", (WIDTH, HEIGHT), frame, "raw", raw_mode).resize(
             (SHOW_W, SHOW_H), Image.NEAREST
         )
         self.photo = ImageTk.PhotoImage(img)
@@ -212,8 +222,8 @@ class App:
 
     def poll(self):
         try:
-            frame, src = self.q.get_nowait()
-            self.render(frame, src)
+            frame, src, raw_mode = self.q.get_nowait()
+            self.render(frame, src, raw_mode)
         except queue.Empty:
             pass
         now = time.time()

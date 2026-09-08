@@ -14,6 +14,9 @@
 # * Usage           : python udp_video_rx.py [--port 5000] [--show]
 # * Revision History:
 # *   - V1.0 (2026-09-08) by LSL : Initial release.
+# *   - V1.1 (2026-09-08) by LSL : Fix R/B swap on camera frames: type 0x01
+# *     payload is VDMA-packed DDR bytes [B,G,R] (cv2-native BGR, no swap);
+# *     only software-packed types (0x02 pattern) need the RGB->BGR flip.
 # ************************************************************************
 import argparse
 import socket
@@ -36,6 +39,7 @@ class Reassembler:
     def __init__(self):
         self.slots = {}  # frame_id -> {"buf": bytearray, "pids": set, "count": int, "crc": int}
         self.last_complete_fid = -1
+        self.last_type = 0x01  # payload byte order source (0x01 camera = [B,G,R])
 
     def drop_older(self, newest):
         for fid in [f for f in self.slots if f < newest - (SLOT_KEEP - 1)]:
@@ -52,6 +56,7 @@ class Reassembler:
         if magic != MAGIC or ver != 1 or len(pkt) != HEADER_LEN + plen:
             stats["bad_header"] += 1
             return None
+        self.last_type = typ
 
         payload = pkt[HEADER_LEN:]
         slot = self.slots.get(fid)
@@ -85,7 +90,7 @@ stats = Counter()
 delivered = {"fid": -1}
 
 
-def on_frame(frame, fid):
+def on_frame(frame, fid, typ):
     """显示策略：只显示最新完整帧。丢帧口径：相邻完整帧 id 的缺口。"""
     if delivered["fid"] >= 0:
         gap = fid - delivered["fid"] - 1
@@ -93,8 +98,10 @@ def on_frame(frame, fid):
             stats["lost_frames"] += gap
     delivered["fid"] = fid
     img = np.frombuffer(frame, dtype=np.uint8).reshape(480, 640, 3)
-    # 数据为 RGB 顺序，OpenCV 显示用 BGR
-    img = img[:, :, ::-1]
+    # type 0x01 相机帧来自 VDMA 小端打包的 DDR，字节序已是 [B,G,R]（cv2 原生）；
+    # 其余软件打包类型（0x02 彩条等）为 [R,G,B]，需翻转为 BGR 供 cv2 显示。
+    if typ != 0x01:
+        img = img[:, :, ::-1]
     show = cv2.resize(img, (960, 720), interpolation=cv2.INTER_NEAREST)
     cv2.imshow("EES-331 UDP RX", show)
 
@@ -123,7 +130,7 @@ def main():
         if pkt:
             frame = reasm.feed(pkt)
             if frame is not None:
-                on_frame(frame, reasm.last_complete_fid)
+                on_frame(frame, reasm.last_complete_fid, reasm.last_type)
         if now - last_report >= 2.0:
             print(
                 f"ok_frames={stats['ok_frames']} lost_frames={stats['lost_frames']} "
