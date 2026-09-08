@@ -21,6 +21,7 @@
 
 #include "xil_printf.h"
 #include "xil_cache.h"
+#include "sleep.h"
 #include "lwip/udp.h"
 #include "udp_video_tx.h"
 
@@ -45,6 +46,9 @@ extern void udp_video_tx_yield(void);
 #define TX_PAYLOAD 1440U
 #define TX_PACKETS (TX_FRAME_BYTES / TX_PAYLOAD) /* 640 */
 #define TX_BURST_CHUNK 32U                       /* packets between stack service */
+#define TX_BURST_PACING_US 1900U                 /* gap per chunk: spreads the ~971 KB
+                                                    frame over ~25 ms so the PC socket
+                                                    buffer is never overrun */
 
 #define TX_PEER_IP0 192
 #define TX_PEER_IP1 168
@@ -57,11 +61,10 @@ static unsigned char tx_frame[TX_FRAME_BYTES];
 static uint32_t tx_frame_id = 0;
 static uint32_t tx_last_ms = 0;
 static uint32_t tx_sent_frames = 0;
-static const unsigned char *tx_external = NULL; /* C1: live DDR snapshot */
-static uint32_t tx_external_frames = 0;
 static uint32_t tx_sent_packets = 0;
 static uint32_t tx_errors = 0;
 static uint32_t tx_ready = 0;
+static const unsigned char *tx_pending = NULL;
 
 static uint32_t crc32_update(uint32_t crc, const unsigned char *data, uint32_t length)
 {
@@ -118,15 +121,16 @@ static void build_pattern_frame(uint32_t frame_id)
     }
 }
 
-static void fill_header(unsigned char *header, uint32_t frame_id, uint32_t frame_crc,
-                        uint32_t pid, uint32_t plen, uint32_t flags, uint32_t ts_us)
+static void fill_header(unsigned char *header, unsigned char type, uint32_t frame_id,
+                        uint32_t frame_crc, uint32_t pid, uint32_t plen, uint32_t flags,
+                        uint32_t ts_us)
 {
     header[0] = TX_MAGIC_0;
     header[1] = TX_MAGIC_1;
     header[2] = TX_MAGIC_2;
     header[3] = TX_MAGIC_3;
     header[4] = TX_VERSION;
-    header[5] = (tx_external != NULL) ? TX_TYPE_CAMERA : TX_TYPE_PATTERN;
+    header[5] = type;
     header[6] = (unsigned char)(flags >> 8);
     header[7] = (unsigned char)(flags & 0xFFU);
     header[8] = (unsigned char)(frame_id >> 24);
@@ -155,20 +159,11 @@ static void fill_header(unsigned char *header, uint32_t frame_id, uint32_t frame
     header[31] = (unsigned char)frame_crc;
 }
 
-static void send_one_frame(uint32_t frame_id)
+static void send_one_frame(const unsigned char *src, uint32_t frame_id)
 {
-    const unsigned char *src = (tx_external != NULL) ? tx_external : tx_frame;
-    uint32_t frame_crc;
+    uint32_t frame_crc = crc32_update(0, src, TX_FRAME_BYTES);
     uint32_t pid;
     uint32_t since_service = 0;
-
-    if (tx_external != NULL) {
-        /* Camera frame was written into DDR by the VDMA (DMA bypasses the
-         * CPU caches). Invalidate stale D-cache lines so the CPU reads the
-         * fresh frame. Safe: the CPU never writes this region. */
-        Xil_DCacheInvalidateRange((UINTPTR)src, TX_FRAME_BYTES);
-    }
-    frame_crc = crc32_update(0, src, TX_FRAME_BYTES);
 
     for (pid = 0; pid < TX_PACKETS; ++pid) {
         struct pbuf *pb = pbuf_alloc(PBUF_TRANSPORT, 32U + TX_PAYLOAD, PBUF_POOL);
@@ -186,7 +181,7 @@ static void send_one_frame(uint32_t frame_id)
         if (pid == TX_PACKETS - 1) {
             flags |= TX_FLAG_EOF;
         }
-        fill_header((unsigned char *)pb->payload, frame_id, frame_crc,
+        fill_header((unsigned char *)pb->payload, TX_TYPE_CAMERA, frame_id, frame_crc,
                     pid, TX_PAYLOAD, flags, (uint32_t)(frame_id * 33333U));
         payload = (unsigned char *)pb->payload + 32U;
         for (uint32_t i = 0; i < TX_PAYLOAD; ++i) {
@@ -203,6 +198,7 @@ static void send_one_frame(uint32_t frame_id)
         if (since_service >= TX_BURST_CHUNK) {
             /* Yield so ARP/ICMP and RX keep living mid-burst. */
             udp_video_tx_yield();
+            usleep(TX_BURST_PACING_US);
             since_service = 0;
         }
     }
@@ -222,12 +218,18 @@ void udp_video_tx_init(void)
     udp_bind(tx_pcb, IP_ANY_TYPE, 5001);
     tx_ready = 1;
     tx_last_ms = 0;
-    xil_printf("UDP_TX_INIT_OK peer=%u.%u.%u.%u:5000 frame=%uB/%upkt interval=%u ticks\r\n",
+    xil_printf("UDP_TX_INIT_OK peer=%u.%u.%u.%u:5000 frame=%uB/%upkt interval=%ums\r\n",
                TX_PEER_IP0, TX_PEER_IP1, TX_PEER_IP2, TX_PEER_IP3,
                TX_FRAME_BYTES, TX_PACKETS, UDP_TX_FRAME_INTERVAL_MS);
 }
 
-void udp_video_tx_poll(uint32_t now_ms, const unsigned char *frame_override)
+void udp_video_tx_submit(const unsigned char *frame)
+{
+    /* Latest-wins: the sender emits the freshest submitted snapshot. */
+    tx_pending = frame;
+}
+
+void udp_video_tx_poll(uint32_t now_ms)
 {
     if (tx_ready == 0U) {
         return;
@@ -236,12 +238,9 @@ void udp_video_tx_poll(uint32_t now_ms, const unsigned char *frame_override)
         return;
     }
     tx_last_ms = now_ms;
-    tx_external = frame_override;
-    if (tx_external != NULL) {
-        tx_external_frames++;
-    } else {
-        build_pattern_frame(tx_frame_id);
+    if (tx_pending != NULL) {
+        send_one_frame(tx_pending, tx_frame_id);
+        tx_frame_id++;
+        tx_pending = NULL;
     }
-    send_one_frame(tx_frame_id);
-    tx_frame_id++;
 }

@@ -15,6 +15,7 @@
  *     the updated XSA (ENET0/MDIO enabled); VDMA/HDMI V3 logic unchanged.
  ************************************************************************/
 #include <stdint.h>
+#include <string.h>
 #include "sleep.h"
 #include "xil_cache.h"
 #include "xil_io.h"
@@ -314,21 +315,54 @@ static void eth_service_base(void)
     xemacif_input(echo_netif);
 }
 
-/* Full service: base stack plus the video sender poll fed with the latest
- * completed camera slot. Slot choice: MM2S read pointer r is the slot the
- * HDMI path is currently displaying; (r + FRAMES - 1) % FRAMES is the slot
- * before it — complete, stable, and free of read/write contention. */
+/* Full service: base stack plus the camera snapshot stage. Polls the S2MM
+ * write pointer at 10 ms granularity; the moment the write pointer advances
+ * (a frame just completed), copies that slot into the private stable buffer
+ * and submits it to the sender. Copy finishes ~10 ms after completion, well
+ * inside the 66 ms safe window before the slot is written again. */
 static uint32_t park_current_read(void); /* defined with the VDMA helpers */
+static uint32_t park_current_write(void); /* defined with the VDMA helpers */
+
+static unsigned char cam_snap[FRAME_BYTES]; /* private stable snapshot copy */
+static uint32_t cam_last_write = 0xFFFFFFFFU; /* force first capture */
+
+#define CAM_COPY_CHUNK 65536U /* 64 KB per copy slice */
+
+/* Copy one camera slot into the private snapshot buffer in 64 KB chunks,
+ * servicing the Ethernet stack between chunks so RX never stalls for the
+ * ~10 ms the copy takes. */
+static void copy_camera_snapshot(const unsigned char *src)
+{
+    uint32_t copied = 0U;
+
+    while (copied < FRAME_BYTES) {
+        uint32_t remain = FRAME_BYTES - copied;
+        uint32_t n = (remain > CAM_COPY_CHUNK) ? CAM_COPY_CHUNK : remain;
+
+        Xil_DCacheInvalidateRange((UINTPTR)&src[copied], n);
+        memcpy(&cam_snap[copied], &src[copied], n);
+        copied += n;
+        eth_service_base(); /* drain RX / run timers between chunks */
+    }
+}
 
 static void eth_service(void)
 {
-    uint32_t read_slot = park_current_read();
-    uint32_t snap_slot = (read_slot + FRAME_COUNT - 1U) % FRAME_COUNT;
-    const unsigned char *snapshot =
-        (const unsigned char *)(uintptr_t)(DISPLAY_FB_BASE + snap_slot * FRAME_SLOT_BYTES);
+    uint32_t write_slot;
 
     eth_service_base();
-    udp_video_tx_poll(eth_ms_now(), snapshot);
+    if (eth_ready == 0U) {
+        return;
+    }
+    write_slot = park_current_write();
+    if (write_slot != cam_last_write) {
+        uint32_t done_slot = (write_slot + FRAME_COUNT - 1U) % FRAME_COUNT;
+        copy_camera_snapshot(
+            (const unsigned char *)(uintptr_t)(DISPLAY_FB_BASE + done_slot * FRAME_SLOT_BYTES));
+        cam_last_write = write_slot;
+        udp_video_tx_submit(cam_snap);
+    }
+    udp_video_tx_poll(eth_ms_now());
 }
 
 /* Mid-burst yield for udp_video_tx.c: stack service without re-entering
@@ -338,15 +372,16 @@ void udp_video_tx_yield(void)
     eth_service_base();
 }
 
-/* Sleep in 100 ms slices while keeping the Ethernet stack serviced. */
+/* Sleep in 10 ms slices while keeping the Ethernet stack serviced; also
+ * bounds camera snapshot detection latency to ~10 ms. */
 static void eth_service_ms(uint32_t milliseconds)
 {
     uint32_t elapsed = 0U;
 
     while (elapsed < milliseconds) {
         eth_service();
-        usleep(100000U);
-        elapsed += 100U;
+        usleep(10000U);
+        elapsed += 10U;
     }
 }
 

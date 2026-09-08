@@ -171,6 +171,7 @@ class App:
         self.receiver = None
         self.last_ok = 0
         self.last_t = time.time()
+        self.start_t = time.time()
         self.root.protocol("WM_DELETE_WINDOW", self.close)
         self.poll()
         self.start()  # 启动即自动监听默认端口，减少一步手工操作
@@ -190,6 +191,7 @@ class App:
             stats[key] = 0
         self.last_ok = 0
         self.last_t = time.time()
+        self.start_t = time.time()
         try:
             port = int(self.port_var.get())
         except ValueError:
@@ -215,12 +217,14 @@ class App:
         except queue.Empty:
             pass
         now = time.time()
+        # 累计均值帧率：对低帧率流（如 1 fps）也保持读数稳定
         if now - self.last_t >= 0.5:
             ok = stats["ok_frames"]
-            fps = (ok - self.last_ok) / (now - self.last_t)
+            elapsed = now - self.start_t
+            fps = ok / elapsed if elapsed > 0 else 0.0
             self.vars["status"].set(self.receiver.status if self.receiver else "未启动")
             self.vars["ok"].set(str(ok))
-            self.vars["fps"].set(f"{fps:.1f}")
+            self.vars["fps"].set(f"{fps:.2f}")
             self.vars["lost"].set(str(stats["lost_frames"]))
             self.vars["crc"].set(str(stats["crc_err"]))
             self.vars["other"].set(f"{stats['dup']}/{stats['bad_header']}")

@@ -20,18 +20,20 @@
 
 #include "lwip/init.h"
 
-/* Frame source (stage C1): the caller passes the address of the latest
- * COMPLETED camera frame in DDR on every poll. Passing NULL falls back to
- * the built-in synthetic color-bar pattern (stage B1 behaviour). */
+/* Frame source (stage C1): the caller copies the latest COMPLETED camera
+ * frame into a private stable buffer and hands it over via
+ * udp_video_tx_submit(). Latest-wins: the sender emits the freshest
+ * submitted snapshot once per UDP_TX_FRAME_INTERVAL_MS. */
 
-/* Send one frame every UDP_TX_FRAME_INTERVAL_MS milliseconds (1 s = 1 fps). */
-#define UDP_TX_FRAME_INTERVAL_MS 1000U
+/* Send one submitted frame every UDP_TX_FRAME_INTERVAL_MS milliseconds
+ * (200 ms = 5 fps). */
+#define UDP_TX_FRAME_INTERVAL_MS 200U
 
 void udp_video_tx_init(void);
+void udp_video_tx_submit(const unsigned char *frame);
 /* Call periodically from eth_service(); the caller passes a monotonically
- * increasing millisecond counter and the current frame source address
- * (NULL = built-in pattern). Sends a burst when the next frame interval
- * expires; the burst keeps the stack serviced between chunks. */
-void udp_video_tx_poll(uint32_t now_ms, const unsigned char *frame_override);
+ * increasing millisecond counter. Sends a burst when the next frame
+ * interval expires; the burst keeps the stack serviced between chunks. */
+void udp_video_tx_poll(uint32_t now_ms);
 
 #endif
