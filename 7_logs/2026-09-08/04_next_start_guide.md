@@ -42,3 +42,9 @@ The local branch and skill-copy checks are complete. The next action requiring u
 ## Updated Next Action After Successful Fetch
 
 Remote freshness and the clean worktree are now confirmed. Continue only inside `E:\competition_worktrees\FPGA2026_competition\pipidandan-superman`. Select one coherent upload topic, compare each source file against the clean worktree, and copy only explicitly reviewed files. Do not use `git add .` or mirror the polluted workspace.
+
+## Camera HDMI Release Start Procedure
+
+Use the frozen files recorded in `2_fpga/0_diaplay_test/doc/camera_hdmi_correct_version_2026-09-08.md`. Program the frozen BIT, load the paired ELF, then manually reset the camera capture once. Judge the live camera image only after this reset.
+
+Do not rebuild or mix BIT/XSA/ELF files when reproducing the existing `BOARD_VISUAL_PASS`. A new build or changed source requires a separate evidence run and cannot inherit the frozen board result.

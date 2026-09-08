@@ -95,3 +95,17 @@ RUNTIME_TOOL_LAYER_UNCHANGED
 ```
 
 This is a genuine workspace-level correction, but it is not a modification of the Codex desktop runtime itself.
+
+## Camera HDMI And MinerU Personal-Branch Upload
+
+- Target branch: `codex/full/pipidandan-superman`.
+- Content commits pushed: `7b6dcc6` and `192323b`.
+- Remote verification: `git ls-remote` returned `192323b63854f1d00c146122cd969480f66cc627`, matching local HEAD after the content push.
+- All 66 source-tracked files under the local `2_fpga/0_diaplay_test` baseline were already present on the personal branch with no semantic difference; the branch now contains 76 tracked paths under that project after adding the version note.
+- Existing frozen artifacts remain present: BIT `16DBAC...124`, XSA `7374BD...A6E1`, ELF `040B57...990`.
+- Required recovery sequence is documented: program BIT, load the paired ELF, manually reset camera capture once, then inspect the live image.
+- Result remains `BOARD_VISUAL_PASS`; full UART acceptance is not claimed.
+- No generated Vivado/Vitis trees or unrelated dirty-workspace files were newly uploaded.
+- Evidence: `E:\competition\4_metrics\logs\2026-09-08_mineru_skill_upload_run01\GITHUB_UPLOAD_RESULT.md`.
+
+`PERSONAL_BRANCH_UPLOAD_PASS`

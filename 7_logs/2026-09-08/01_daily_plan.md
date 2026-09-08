@@ -58,3 +58,10 @@ Do not push, rewrite history, merge to `main`, stage generated trees, or change 
 - `E:\competition\6_skill\github-upload-policy\SKILL.md`.
 - `E:\competition\4_metrics\logs\2026-09-08_github_upload_skill_run01\`.
 - Local branch `codex/full/pipidandan-superman` at `origin/main`.
+
+## Camera HDMI And MinerU Upload
+
+- Publish the OV5640 + HDMI board-visual-PASS version description to `codex/full/pipidandan-superman`.
+- Confirm all necessary `2_fpga/0_diaplay_test` sources and the frozen BIT/XSA/ELF pair already exist on the personal branch.
+- State the required recovery operation: after BIT/ELF transfer, manually reset the camera capture once before judging the live image.
+- Upload the project MinerU skill, OV5640 configuration audit report, and selected validation evidence without bulk generated trees.

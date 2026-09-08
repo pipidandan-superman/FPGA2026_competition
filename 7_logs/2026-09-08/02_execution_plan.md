@@ -71,3 +71,12 @@ The corrective rule is therefore:
 5. Rejected patch: reread once, correct context, and make one new attempt only.
 
 Evidence is recorded under `E:\competition\4_metrics\logs\2026-09-08_patch_tool_runtime_fix_run01\${bt}.
+
+## Camera HDMI And MinerU Upload Execution
+
+1. Use the clean `codex/full/pipidandan-superman` worktree and refresh `origin`.
+2. Compare every source-tracked `2_fpga/0_diaplay_test` file against the personal branch while ignoring CRLF-only differences.
+3. Verify the existing frozen BIT, XSA, and ELF hashes and retain the previous board photographs and freeze report.
+4. Add a camera + HDMI correct-version note and clarify the required post-transfer camera-capture reset in `README.md` and `HANDOFF.md`.
+5. Stage only named MinerU, OV5640 report, selected evidence, and documentation paths; reject generated directories.
+6. Commit by topic, push only the personal branch, and verify remote HEAD with `git ls-remote`.
