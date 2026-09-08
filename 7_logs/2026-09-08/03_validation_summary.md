@@ -263,3 +263,12 @@ This validates project integration and one PDF execution path only. Future seman
 - Result classification: `UDP_LOOPBACK_PASS_USER_REPORTED_RAW_SERIAL_PENDING`. This is not yet `FULL_ETH_ACCEPTANCE_PASS`.
 
 `ETH_APP_BUILD_PASS` and `UDP_LOOPBACK_PASS_USER_REPORTED` are recorded for this milestone.
+
+### UDP Loopback PASS Upgrade (2026-09-08 11:51-11:52) — SUPERSEDES the entry above
+
+- Root cause confirmed: the earlier failure was the NetAssist remote port 8080 vs the board's bound port 5000. After both ends were aligned to 5000, the loopback works. No RTL/BSP change was needed; the delivered code was correct.
+- Evidence: `4_metrics/logs/2026-09-08_eth_app_uart_udp_echo_code_run01/netassist_udp_loopback_pass_20260908.png` (SHA-256 `776F4B8AF03527E1177021E2710BB3FE1A688FCA241EE361FE46A3FD9DB04518`).
+- Screenshot facts: NetAssist bound at 192.168.240.2:5000; multiple `RECV ASCII FROM 192.168.240.10 : 5000` records (payloads include team member names: pipidandan, xiaokaiyuan, liushenglin/刘易麟, 肖凯元); counters `7/7` packets, `RX:95`, `TX:95` — echo returned every byte of every datagram, rx == tx.
+- Board serial facts (user-provided capture): STAGE0_UART_OK, STAGE0_PLATFORM_OK, PHY autonegotiation complete at 1000 Mbps, Board IP 192.168.240.10/24, STAGE1_LWIP_OK, STAGE3_UDP_ECHO_OK (port 5000), LOOPBACK_TEST_READY.
+- Boundary: the full serial capture including the periodic `HEARTBEAT rx=/tx=/err=` lines is still not archived; the 10 s heartbeat printout should be captured in the next board session to complete the raw serial record.
+- Result upgrade: `UDP_LOOPBACK_PASS` (PC↔board bidirectional UDP data path proven at the application layer, 1 Gbps link, static 192.168.240.0/24 addressing). The 8080-port failure record above is retained as history.

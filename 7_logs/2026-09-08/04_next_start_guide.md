@@ -95,3 +95,10 @@ To reproduce the existing `BOARD_VISUAL_PASS`, program the frozen BIT, load the 
 - Smallest useful next step: add the board-to-PC UDP sender stage (fixed synthetic pattern, monotonically increasing frame/packet IDs), receive it with NetAssist/Wireshark on the PC, then wire in one VDMA DDR frame snapshot from the camera path.
 - The PR from this milestone must be reviewed and merged by member-b (`xiaokaiyuan`) before `main` is considered updated.
 - Forbidden immediate actions: no direct pushes to `main`, no camera-frame integration before the UDP sender stage passes, no edits to the frozen `0_diaplay_test` baseline.
+
+## Loopback PASS Correction (Evening)
+
+- The 8080-vs-5000 port mismatch was the whole story of the first failure; both ends now use UDP 5000 and the loopback passes (RX 95 = TX 95). The "confirm port edit" boundary is closed.
+- Still owed: archive the full UART serial log including HEARTBEAT lines to complete the raw serial evidence.
+- Next development stage unchanged: board-to-PC UDP sender with synthetic pattern and incrementing frame/packet IDs, then one VDMA DDR frame snapshot from the camera path.
+- The PR to `main` remains open for member-b review; this correction commit will be pushed on top.
