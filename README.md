@@ -115,6 +115,7 @@ hdmi_out_adv7511_v1_0
 | 自定义 UDP 视频协议 + 上位机（Python/exe）设计 | 文档交付，2026-09-08 |
 | 主工程 →PC UDP 视频流 B1（1 fps 彩条，640 包/帧，921.6 KB/帧） | BOARD PASS（`UDP_TX_B1_PASS`），2026-09-08 |
 | 主工程 →PC 摄像头实时画面 C1（快照选槽，~5 fps） | BOARD PASS（`UDP_CAMERA_C1_PASS`），2026-09-08 |
+| C1.1/C1.2 质量优化（双缓冲 + 分块拷贝 + 突发整形） | BOARD PASS（`C12_QUALITY_PASS`：1533+ 帧丢帧=0/CRC 错=0 @4.77 fps），2026-09-08 |
 
 ## 归档目录
 
@@ -139,6 +140,7 @@ competition/
 - 2026-09-07 冻结 OV5640 → VDMA → DDR → VDMA → HDMI 可视化显示基线；
 - 2026-09-08 主工程 PS 使能 ENET0（MIO16..27 + MDIO 52..53 + PHY 复位 MIO47），新 XSA/BIT 与 V3.1 固件（lwIP RAW UDP 回环 + 原 VDMA/HDMI 逻辑）板级验证通过：UDP 回环 `RX=TX` 且摄像头 HDMI 显示正常；
 - 2026-09-08 板→PC UDP 视频流 B1 通过（1 fps 彩条、640 包/帧、921.6 KB/帧、丢帧/CRC=0），配套图形接收端 `EES331_UDP_Viewer.exe` 与协议设计文档；
+- 2026-09-08 **C1.2 质量版固化**（`udp-camera-c12-pass-20260908`）：双缓冲快照 + 分块拷贝 + 突发整形，1533+ 帧丢帧=0/CRC 错=0 @4.77 fps，配对 BIT `7CB11F7D...` + ELF `6EB0097C...` + XSA `30644B31...`；
 - CNN PS+PL 加速架构已有历史工程基础；
 - 下一步：相机快照接入（C1，前置：排查 S2MM 相机流错误）→ 提速 5/15 FPS（C2）→ 多轴 PWM 控制器开发 → 通信协议实现 → YOLO 部署 → 联调。
 

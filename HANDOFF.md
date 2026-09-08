@@ -1,5 +1,16 @@
 # EES-331 HDMI ADV7511 Handoff
 
+## 2026-09-08 FREEZE udp-camera-c12-pass-20260908 (C1.2 quality PASS, 4.77 fps zero-defect)
+
+- Frozen board-proven pairing for the camera-to-PC UDP video stream. Reproduce: program BIT -> load paired ELF -> UDP stream resumes (monitor-independent; if you also want to SEE HDMI, switch the monitor to the board input first and press reset once).
+- BIT `display_test_wrapper.bit` SHA-256 `7CB11F7DF165476EB86E3D8C43CC251FB1C454ECDB64B905F0931AD971EC192E7` (4,045,696 B, 12:09).
+- ELF `app_component.elf` SHA-256 `6EB0097C17ABEAF2DFDD227F89B3141BCC45B8C7D9C83099B3A97B2FE4F29ED1` (861,424 B, 14:51 build).
+- XSA `display_test_wrapper.xsa` SHA-256 `30644B3158D86D0D27C34ED60626179B17046CDA7B3AF51F35431B18652D22D0` (578,739 B, 12:09).
+- Binaries live under `2_fpga/0_diaplay_test/vitis/hw_20260908_eth/` (refresh the ELF copy from this freeze).
+- Measured quality: 1533+ complete frames @ 4.77 fps, 丢帧=0, CRC 错=0, 重复/坏头=0/0 (GUI screenshots archived). Do NOT mix this pairing with the 09-07 HDMI-only frozen pair.
+- Quality fixes in this freeze: dual-buffer snapshot (private stable copy, latest-wins), chunked 64 KB copy with interleaved stack service, gentle burst spreading (~25 ms per frame), Global-Timer lwIP scheduling, sticky S2MM error-bit clear.
+- Next: C2 rate-up (interval 200->66 ms + pacing tightening) after an optional iperf benchmark; formal 10-minute soak test can be signed off at the next board session.
+
 ## 2026-09-08 Stage C1: live camera frames over UDP to PC (BOARD PASS)
 
 - `UDP_CAMERA_C1_PASS`: `udp_video_tx_poll` now takes the latest completed DDR snapshot (`(PARKPTR CURRENT_READ + 2) % 3`, the pre-display slot — complete/stable/no contention) and streams it as type=0x01 frames at ~5 fps runtime / 1 fps monitor; GUI shows the live OV5640 image.
