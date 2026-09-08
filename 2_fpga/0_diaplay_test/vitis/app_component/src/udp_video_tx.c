@@ -46,7 +46,7 @@ extern void udp_video_tx_yield(void);
 #define TX_PAYLOAD 1440U
 #define TX_PACKETS (TX_FRAME_BYTES / TX_PAYLOAD) /* 640 */
 #define TX_BURST_CHUNK 32U                       /* packets between stack service */
-#define TX_BURST_PACING_US 1900U                 /* gap per chunk: spreads the ~971 KB
+#define TX_BURST_PACING_US 600U                 /* gap per chunk: spreads the ~971 KB
                                                     frame over ~25 ms so the PC socket
                                                     buffer is never overrun */
 

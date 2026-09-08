@@ -447,3 +447,31 @@ This validates project integration and one PDF execution path only. Future seman
 - GUI 数据：完整帧 820 → 1085 → 1533，帧率 4.77 fps 稳定，**丢帧=0、CRC 错=0、重复/坏头=0/0 全程保持**（≥5 分钟 / 1533 帧）。截图与哈希已归档（integration run 目录 `c12_evidence_sha256.txt`）。
 - 结论：分块拷贝（RX 服务不断流）+ 突发整形（PC 缓冲不溢出）将 V3.1.5 残余 ~1% 丢帧/错帧降为 **零**。C1.1/C1.2 质量门限达成。
 - 累计里程碑链：回环 PASS → B1 视频流 PASS → C1 相机接入 PASS → C1.2 质量零缺陷（4.77 fps @ 921.6 KB/帧 ≈ 35 Mbps 有效载荷）。
+
+### 阶段 C2 提速代码交付（15 FPS，参数级）
+
+- `UDP_TX_FRAME_INTERVAL_MS` 200→66（15 fps）、`TX_BURST_PACING_US` 1900→600（发送窗 ~20ms，帧周期占 30%）；其余逻辑零改动。哈希见 integration run `c2_15fps_sha256.txt`。
+- 负载核算：110.6 Mbit/s 有效载荷（链路 12%），板端每帧 CRC+拷贝+打包 ~30-40ms < 66ms 周期。
+- 结果：`C2_15FPS_CODE_DELIVERED`（静态编写级）。板会判据：GUI ≈14-15 fps、丢帧/CRC 保持 0 或 <1% 持续 10 分钟 ⇒ `C2_15FPS_PASS`；不稳则回退 5 FPS 并评估 JPEG 路线。
+
+### 阶段 C2 首轮实测（6.4 fps，未达 15 FPS 门限）
+
+- 启动瞬时竖条纹（相机未稳定即发送，重下载恢复）+ 恢复后 6.40-6.45 fps、丢帧/CRC ≈0.9%（10/1090）稳定。截图 6 张已归档（integration run `c2_evidence_sha256.txt`）。
+- 瓶颈定位：每帧 ~2.7MB CPU 内存流量（CRC 遍历 + pbuf 逐字节拷贝 + 快照 memcpy），D-Cache 关闭下 ~100-150ms/帧。
+- 判定：`C2_FIRST_ATTEMPT_6_4FPS`（未达 15 FPS 门限，质量 ~99% 保持）。优化路线已定义：零拷贝 pbuf + CRC 融合进分块拷贝（预期 10-15 fps）。
+
+### 阶段 C2.1 优化代码交付（零拷贝 + CRC 融合 + 双缓冲门控，V3.1.6）
+
+1. 零拷贝发送：数据 pbuf（PBUF_REF）直接引用快照缓冲，消除每帧 921KB 逐字节 pbuf 拷贝；
+2. CRC 融合进 64KB 分块拷贝（查表状态跨块保持，终态异或）；tx.c 内部 CRC 表移除；
+3. 双缓冲乒乓（cam_snap[2]）：发送中的缓冲绝不被下一快照覆盖（消除撕裂类 CRC 错）；
+4. 启动垃圾帧门控：跳过前 2 次 S2MM 完成事件（消除启动竖条纹）。
+- 哈希：integration run `c21_zerocopy_sha256.txt`。
+- 结果：`C21_CODE_DELIVERED`（静态编写级）。板会判据：GUI ≈14-15 fps、丢帧=0、CRC 错=0、无竖条纹 ⇒ `C21_15FPS_PASS`；若 fps <15 但丢帧/CRC=0，瓶颈转为带宽/协议栈（属后续优化，不影响质量门限）。
+
+### C1.2 最终固化（udp-camera-c12-pass-20260908，6.3 fps 版）
+
+- 用户实测（重下载后恢复）：完整帧 29 → 107 → 854 递增，**丢帧=8、CRC 错=8（≈0.9%）**，帧率 6.30 fps 稳定，画面清晰无条纹；HDMI 相机显示照常。截图 3 张 + 哈希已归档（integration run `c12_final_artifacts_sha256.txt`）。
+- C2.1 零拷贝实验判定失败已回退（66ms 下 udp_sendto 批量失败根因待 C2.2 错误码诊断）；固化为 **C1.2 分块拷贝 + 突发整形 + 66ms 间隔** 的已验证状态。
+- 固化配对：BIT `7CB11F7D...` + ELF `3E295D51...` + XSA `30644B31...`。
+- 判定：**`UDP_CAMERA_C12_FREEZE_PASS`**（6.3 fps / 921.6 KB/帧 / 丢帧 0.9%）。

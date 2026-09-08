@@ -154,3 +154,9 @@ To reproduce the existing `BOARD_VISUAL_PASS`, program the frozen BIT, load the 
 2. 可选 A1：iperf 基准摸清实际上限后再决定 30 FPS。
 3. 待归档：10 分钟浸泡测试 + 完整串口日志（正式记录）。
 4. 分支待推送：C1.2 改动与证据（用户确认后推送）。
+
+## 固化后交接（udp-camera-c12-pass-20260908）
+
+- 分支已推送固化提交；PR（回环+B1+C1+C1.2 全部里程碑）待 member-b 评审合并。
+- C2.2（15 FPS）前置：错误码诊断（打印 udp_sendto 的 err 值）+ lwip220 参数调优（pbuf/heap/描述符数量）；JPEG 路线为后备。
+- 待办遗留：完整串口日志归档；10 分钟浸泡测试正式记录。

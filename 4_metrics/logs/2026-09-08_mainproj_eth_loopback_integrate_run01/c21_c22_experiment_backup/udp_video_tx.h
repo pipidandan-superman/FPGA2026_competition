@@ -26,11 +26,13 @@
  * submitted snapshot once per UDP_TX_FRAME_INTERVAL_MS. */
 
 /* Send one submitted frame every UDP_TX_FRAME_INTERVAL_MS milliseconds
- * (200 ms = 5 fps). */
+ * (66 ms ≈ 15 fps). */
 #define UDP_TX_FRAME_INTERVAL_MS 66U
 
 void udp_video_tx_init(void);
-void udp_video_tx_submit(const unsigned char *frame);
+void udp_video_tx_submit(const unsigned char *frame, uint32_t frame_crc);
+/* 1 while a submitted frame is still awaiting its send slot. */
+uint32_t udp_video_tx_pending(void);
 /* Call periodically from eth_service(); the caller passes a monotonically
  * increasing millisecond counter. Sends a burst when the next frame
  * interval expires; the burst keeps the stack serviced between chunks. */

@@ -8,6 +8,7 @@
 - XSA `display_test_wrapper.xsa` SHA-256 `30644B3158D86D0D27C34ED60626179B17046CDA7B3AF51F35431B18652D22D0` (578,739 B, 12:09).
 - Binaries live under `2_fpga/0_diaplay_test/vitis/hw_20260908_eth/` (refresh the ELF copy from this freeze).
 - Measured quality: 1533+ complete frames @ 4.77 fps, 丢帧=0, CRC 错=0, 重复/坏头=0/0 (GUI screenshots archived). Do NOT mix this pairing with the 09-07 HDMI-only frozen pair.
+- FINAL pairing update (post C2 first attempt, PROVEN): 66 ms interval / 600 µs burst pacing -> **6.3 fps measured, 丢帧=8, CRC 错=8 over 854+ frames (~0.9%)**, HDMI camera display normal. ELF refreshed: `app_component.elf` SHA-256 `3E295D51186135E4D9DFBBA4B6C3637F3E7AECE9135F2C124C29CE9FF1D963A9` (861,424 B). C2.1 zero-copy experiment (mass udp_sendto failures at 66 ms) reverted and archived; 15 FPS needs C2.2 diagnostics (err code + lwip220 tuning).
 - Quality fixes in this freeze: dual-buffer snapshot (private stable copy, latest-wins), chunked 64 KB copy with interleaved stack service, gentle burst spreading (~25 ms per frame), Global-Timer lwIP scheduling, sticky S2MM error-bit clear.
 - Next: C2 rate-up (interval 200->66 ms + pacing tightening) after an optional iperf benchmark; formal 10-minute soak test can be signed off at the next board session.
 
