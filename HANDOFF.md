@@ -1,5 +1,13 @@
 # EES-331 HDMI ADV7511 Handoff
 
+## 2026-09-08 FREEZE udp-color-fix-pass-20260908 (UDP camera-frame R/B swap root-caused, fixed PC-side)
+
+- Symptom: UDP camera frames showed red/blue-swapped colors (yellow object -> pale blue, blue-violet -> orange, lavender -> pink); HDMI was always correct. Root cause: VDMA S2MM packs the 24-bit {R,G,B} AXIS word little-endian, so DDR/UDP type=0x01 payload bytes are [B,G,R] per pixel, while the host decoded them as [R,G,B]. OV5640 registers (`0x4300=0x61`, RGB565 sequence 1) are NOT at fault — do NOT change them to "fix" colors (that would swap HDMI).
+- **Current receiver: `3_host/udp_video/dist/EES331_UDP_Viewer.exe` — 31,187,867 B, SHA-256 `a4b75ed3423aeb2ca292623b00310ac166be6c09171527ad8397435ca193dd1d` (built from `udp_video_gui.py` V1.2, type-aware decode: type=0x01 -> BGR, type=0x02 -> RGB). Discard older copies (V1.0 31,187,636 B / V1.1 31,188,255 B) — they render camera frames with red/blue swapped.** `udp_video_rx.py` V1.1 carries the same type-aware fix; camera payload is already cv2-native BGR, so model-side frame grabbing needs no channel flip.
+- Board side unchanged: the C1.2 frozen pairing below stays valid (BIT `7CB11F7D...` + ELF `3E295D51...` + XSA `30644B31...`); no rebuild or re-programming is needed to get correct colors on the PC.
+- Verified: localhost end-to-end injection `ALL_COLOR_SWAP_FIX_TESTS_PASS`; user visual pass on the live board stream (recorded video: natural skin tones, 6.25 fps, ~1% loss/CRC consistent with C1.2). Byte-order erratum in the design contract: `1_docs/OV5640_UDP视频传输数据格式与上位机设计_2026-09-08.md` §10.
+- Evidence: `4_metrics/logs/2026-09-08_udp_color_swap_fix_run01/` (RUN_REPORT, verification scripts + raw console log, user screenshots + final board-stream video, per-file SHA-256). Tag: `udp-color-fix-pass-20260908`.
+
 ## 2026-09-08 FREEZE udp-camera-c12-pass-20260908 (C1.2 quality PASS, 4.77 fps zero-defect)
 
 - Frozen board-proven pairing for the camera-to-PC UDP video stream. Reproduce: program BIT -> load paired ELF -> UDP stream resumes (monitor-independent; if you also want to SEE HDMI, switch the monitor to the board input first and press reset once).
@@ -16,14 +24,14 @@
 
 - `UDP_CAMERA_C1_PASS`: `udp_video_tx_poll` now takes the latest completed DDR snapshot (`(PARKPTR CURRENT_READ + 2) % 3`, the pre-display slot — complete/stable/no contention) and streams it as type=0x01 frames at ~5 fps runtime / 1 fps monitor; GUI shows the live OV5640 image.
 - Fixes en route: black-frame bug (send_one_frame always read the never-filled pattern buffer — now selects external snapshot vs pattern), D-cache invalidate before reading DMA-written DDR, sticky S2MM error bits cleared once after first frames (false CAMERA_STREAM_FAIL eliminated), forward declaration for park_current_read.
-- Known items for C1.1: 丢帧/CRC 错 counters nonzero (burst PC-socket drops + suspected snapshot tearing) — plan: dual-pointer slot avoidance, burst pacing, evaluate lwIP UDP checksum; GUI fps field sampling quirk. HDMI( BT.601 limited YCbCr) vs UDP( native RGB) color difference is expected dual-pipeline behaviour, not a defect.
+- Known items for C1.1: 丢帧/CRC 错 counters nonzero (burst PC-socket drops + suspected snapshot tearing) — plan: dual-pointer slot avoidance, burst pacing, evaluate lwIP UDP checksum; GUI fps field sampling quirk. (The "HDMI vs UDP color difference is expected behaviour" note written here was later disproven — the real cause was the R/B byte-order swap, fixed in FREEZE udp-color-fix-pass-20260908 at the top.)
 - Evidence: `4_metrics/logs/2026-09-08_mainproj_eth_loopback_integrate_run01/` (C1 GUI screenshots x3, full serial, per-fix hashes).
 
 ## 2026-09-08 Stage B1: board-to-PC UDP video stream PASS (1 fps pattern)
 
 - Result: `UDP_TX_B1_PASS`. `app_component` V3.1.2 streams 640x480 RGB888 synthetic frames (921,600 B = 640 packets x 1,440 B + 32 B header, whole-frame CRC32, SOF/EOF flags) from the board to the PC peer at 1 fps; serial shows `UDP_TX frame=N packets=640 errors=0` (58+ frames, zero TX errors) and the GUI receiver shows the moving color-bar pattern with `完整帧` increasing at ~1 fps, `丢帧=0`, `CRC 错=0`.
 - New sources: `2_fpga/0_diaplay_test/vitis/app_component/src/udp_video_tx.c/h` (sender; `UDP_TX_USE_CAMERA=0` gates stage C1), `main.c` rework — lwIP timers now scheduled on the ARM Global Timer (`xiltimer.h`/`XTime_GetTime`, 250/500 ms) because the ScuTimer interrupt path proved dead in this SDT build; `udp_video_tx_yield()` keeps ARP/RX alive mid-burst without recursion.
-- PC tools (`3_host/udp_video/`): `mock_sender.py` (protocol-conformant pattern sender), `udp_video_rx.py` (CLI receiver, localhost self-test PASS 178 frames/0 loss/0 CRC), `udp_video_gui.py` → packaged `dist/EES331_UDP_Viewer.exe` (31,187,636 B V1.0 / 31,188,255 B V1.1, SHA-256 in evidence; V1.0 had a placeholder-GC display bug, fixed and screenshot-verified in V1.1).
+- PC tools (`3_host/udp_video/`): `mock_sender.py` (protocol-conformant pattern sender), `udp_video_rx.py` (CLI receiver, localhost self-test PASS 178 frames/0 loss/0 CRC), `udp_video_gui.py` → packaged `dist/EES331_UDP_Viewer.exe` (V1.0 31,187,636 B / V1.1 31,188,255 B at this milestone; **superseded 2026-09-08 by the V1.2 BGR-fix build 31,187,867 B, SHA-256 `a4b75ed3...` — see FREEZE udp-color-fix-pass-20260908 at the top**).
 - Design contract: `1_docs/OV5640_UDP视频传输数据格式与上位机设计_2026-09-08.md` (32 B header table, 640-packet framing, skip-on-loss policy, staged plan; supersedes the old plan's 192.168.1.x addressing with 192.168.240.x).
 - Evidence: `4_metrics/logs/2026-09-08_mainproj_eth_loopback_integrate_run01/` (B1 screenshots, full serial log, per-file hashes), `..._udp_host_tools_v1_run01/`, `..._udp_gui_exe_build_run01/`, `..._udp_video_protocol_design_run01/`.
 - Known open items: camera S2MM stream error (`SR=0x15810`, SOF-early class) blocks stage C1 — check camera cabling/power first; PS config change verified clock-clean (BD diff: only ENET0/MDIO/GPIO-EMIO entries, FCLK/PLL untouched). GUI fps field reads 0/1.9 on a 1 fps stream (sampling display quirk). `UDP_TX_INIT_OK` prints "ticks" but means ms.
