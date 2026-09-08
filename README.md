@@ -93,7 +93,7 @@ hdmi_out_adv7511_v1_0
    └─ iic_protocal
 ```
 
-源码位于 `2_fpga/0_diaplay_test/rtl/hdmi_new`；当前 BD 顶层为 `hdmi_out_adv7511_v1_0`。上板后需执行一次手动复位才稳定出现 HDMI 信号，这是当前冻结恢复流程的必要步骤。
+源码位于 `2_fpga/0_diaplay_test/rtl/hdmi_new`；当前 BD 顶层为 `hdmi_out_adv7511_v1_0`。下载冻结 BIT 并加载配套 ELF 后，必须手动复位一次摄像头采集，复位后实时画面才能正常稳定显示；这是当前冻结恢复流程的必要步骤。详细版本说明见 `2_fpga/0_diaplay_test/doc/camera_hdmi_correct_version_2026-09-08.md`。
 
 ### 验证状态
 
