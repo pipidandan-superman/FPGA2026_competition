@@ -59,3 +59,50 @@ DIFF 4 项均为 eth 测试工程 BD 中缺省未出现的键（QSPI/SD0/USB0/Ba
   - 全部 SHA-256 见 `board_artifacts_sha256.txt`
 - 结果：`MAIN_ETH_LOOPBACK_PASS` + 摄像头 HDMI 显示保持正常（用户目视确认；VDMA 判定链未发现 FAIL 打印）。
 - 遗留：完整串口日志（含 ETH 心跳与 HDMI 心跳）待归档。
+
+## 7. 阶段 B1 发送端追加（2026-09-08 下午，V3.1 → V3.1.1）
+
+- 新增 `udp_video_tx.c/h`：板→PC UDP 视频发送端（阶段 B1）。
+  - 帧源：合成图案（5 彩条 + 移动列，type=0x02）；C1 阶段以 DDR 快照替换 `build_pattern_frame`，API 不变（`UDP_TX_USE_CAMERA` 门控预留）。
+  - 打包：32 B 头（SOF/EOF 标志、frame_id、packet_id 0..639、packet_count、stride、timestamp、整帧 CRC32）+ 1,440 B 载荷，共 640 包/帧，与设计文档 §4 逐字段一致。
+  - 目标：`192.168.240.2:5000`；本机源端口 5001（避开回环 echo 的 5000）。
+  - 节奏：每 2 个慢定时器 tick（1 s）一帧起步；爆发内每 32 包 yield 一次（`udp_video_tx_yield` → main.c `eth_service_base`），保证 ARP/RX 存活且无递归。
+- `main.c` 结构调整：`eth_service` 拆为 `eth_service_base`（定时器+RX 排水+echo 心跳）+ 发送轮询；ETH 初始化处调用 `udp_video_tx_init`。
+- `UserConfig.cmake`：GUI 已自动登记全部源文件。
+- 代码哈希：见 `b1_sender_sha256.txt`（udp_video_tx.c `A9446508...`）。
+- 边界：未编译未上板。板会验收判据：GUI（EES331_UDP_Viewer.exe）出现移动彩条，`完整帧` 以 ~1 fps 递增、`丢帧/CRC 错` = 0；同时 HDMI 心跳照常。B1 通过后方进入 C1（真实相机帧）。
+
+## 8. 首轮板测问题定位与修复（2026-09-08 13:2x，V3.1.1 → V3.1.2）
+
+### 首轮板测事实（用户串口日志）
+
+- ETH 初始化全部正常（PHY 1000M / ETH_LWIP_OK / UDP_TX_INIT_OK），但**整个 13+ 秒捕获中没有出现任何 `UDP_TX frame=` 与 `HEARTBEAT rx=` 行**——发送条件永远不满足，一帧未发，这就是"上位机收不到"的直接原因。
+- 定时器标志从未置位 ⇒ platform ScuTimer（xiltimer）中断路径在本 SDT 构建中未生效（此前回环 PASS 只依赖 RX 中断+轮询，未覆盖该路径，故一直未暴露）。
+- 次要发现：`VDMA_S2MM_FAIL SR=0x15810`（SOFEarly/IRQErr 类错误）+ 每秒 CAMERA_STREAM_FAIL、MM2S_FRAMES 停在 1——相机流未进入 S2MM（本轮疑似相机未连接/未出流；genlock 联动导致 HDMI 帧计数冻结，属 S2MM 停止的伴生现象）。
+
+### BD 前后对比（排除时钟嫌疑）
+
+git 旧 BD vs 用户新 BD：172 处差异全部为 ENET0/MDIO/GPIO-EMIO/MIO 配置；**时钟相关仅 PCW_ACT_ENET0_FREQMHZ 10→125 MHz（ENET0 自身激活），FCLK/PLL 零变化** ⇒ PS 修改未影响 PL 相机时钟链。（旧 BD 存档 `display_test_bd_old_from_git.txt`）
+
+### 修复（V3.1.2）
+
+- `main.c`：新增 `eth_ms_now()`（ARM Global Timer 毫秒时基，XTime_GetTime/COUNTS_PER_SECOND）；`eth_service_base` 直接按 250/500 ms 调度 `tcp_fasttmr/tcp_slowtmr`，不再读取 ScuTimer 中断标志（该路径证明不可靠）；发送轮询改毫秒时基。
+- `udp_video_tx.h/c`：`udp_video_tx_poll(now_ms)` + `UDP_TX_FRAME_INTERVAL_MS 1000`（1 fps）。
+- 依据：Global Timer 路径已被证明工作（HDMI_HEARTBEAT 每秒打印即由其驱动的 sleep/usench）；GEM RX 中断已被回环 PASS 证明工作。
+
+### 板会复测判据
+
+串口 ~1 s 出现 `UDP_TX frame=0 ...` 且逐秒递增；GUI 显示移动彩条、完整帧 ~1/s 递增、丢帧/CRC=0。相机 S2MM 错误单列排查（见下）。
+
+### 相机问题排查清单（下一板会）
+
+1. 确认相机供电/排线是否就位（本轮 S2MM 立即报 SOF 类错误，疑似无有效流或流几何不完整）；
+2. 若相机在位仍报错：核对 12:23 那次成功运行与本轮的硬件差异（仅 ELF 不同）→ 排查 ELF 变化影响；
+3. HDMI 当前应为冻结帧（genlock 等 S2MM），属 S2MM 停止的伴生现象。
+
+## 9. V3.1.2 编译错误修复（2026-09-08 13:29）
+
+- 错误 1：`xtime_l.h: No such file or directory` —— 该 SDT BSP 不含 xtime_l.h；核对 BSP 后发现 `XTime/XTime_GetTime/COUNTS_PER_SECOND` 均声明于 `xiltimer.h`（COUNTS_PER_SECOND=CPU 时钟/2，即 ARM Global Timer，纯轮询读取、不依赖中断——usleep 即以同机制工作）。已改 include。
+- 错误 2：`udp_video_tx.c:208 'tx_last_tick' undeclared` —— 上一轮批量替换漏掉 init 函数内一处；已改为 `tx_last_ms = 0`。
+- 全部陈旧符号（xtime_l/tx_last_tick/TcpFastTmrFlag/TcpSlowTmrFlag）复查为零残留；括号平衡核查通过。
+- 状态：`V312_SYNTAX_FIXED`，待用户重新 Build。

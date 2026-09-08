@@ -1,5 +1,15 @@
 # EES-331 HDMI ADV7511 Handoff
 
+## 2026-09-08 Stage B1: board-to-PC UDP video stream PASS (1 fps pattern)
+
+- Result: `UDP_TX_B1_PASS`. `app_component` V3.1.2 streams 640x480 RGB888 synthetic frames (921,600 B = 640 packets x 1,440 B + 32 B header, whole-frame CRC32, SOF/EOF flags) from the board to the PC peer at 1 fps; serial shows `UDP_TX frame=N packets=640 errors=0` (58+ frames, zero TX errors) and the GUI receiver shows the moving color-bar pattern with `完整帧` increasing at ~1 fps, `丢帧=0`, `CRC 错=0`.
+- New sources: `2_fpga/0_diaplay_test/vitis/app_component/src/udp_video_tx.c/h` (sender; `UDP_TX_USE_CAMERA=0` gates stage C1), `main.c` rework — lwIP timers now scheduled on the ARM Global Timer (`xiltimer.h`/`XTime_GetTime`, 250/500 ms) because the ScuTimer interrupt path proved dead in this SDT build; `udp_video_tx_yield()` keeps ARP/RX alive mid-burst without recursion.
+- PC tools (`3_host/udp_video/`): `mock_sender.py` (protocol-conformant pattern sender), `udp_video_rx.py` (CLI receiver, localhost self-test PASS 178 frames/0 loss/0 CRC), `udp_video_gui.py` → packaged `dist/EES331_UDP_Viewer.exe` (31,187,636 B V1.0 / 31,188,255 B V1.1, SHA-256 in evidence; V1.0 had a placeholder-GC display bug, fixed and screenshot-verified in V1.1).
+- Design contract: `1_docs/OV5640_UDP视频传输数据格式与上位机设计_2026-09-08.md` (32 B header table, 640-packet framing, skip-on-loss policy, staged plan; supersedes the old plan's 192.168.1.x addressing with 192.168.240.x).
+- Evidence: `4_metrics/logs/2026-09-08_mainproj_eth_loopback_integrate_run01/` (B1 screenshots, full serial log, per-file hashes), `..._udp_host_tools_v1_run01/`, `..._udp_gui_exe_build_run01/`, `..._udp_video_protocol_design_run01/`.
+- Known open items: camera S2MM stream error (`SR=0x15810`, SOF-early class) blocks stage C1 — check camera cabling/power first; PS config change verified clock-clean (BD diff: only ENET0/MDIO/GPIO-EMIO entries, FCLK/PLL untouched). GUI fps field reads 0/1.9 on a 1 fps stream (sampling display quirk). `UDP_TX_INIT_OK` prints "ticks" but means ms.
+- Next: stage C1 — replace the pattern source with a VDMA completed-slot snapshot (PARKPTR-selected), camera S2MM must pass first; then C2 rate scale 5/15 FPS.
+
 ## 2026-09-08 Main project PS Ethernet loopback integrated (V3.1, BOARD PASS)
 
 - Scope: `2_fpga/0_diaplay_test` Zynq PS now has ENET0 enabled (MIO 16..27, MDIO 52..53, PHY reset MIO 47, 1000 Mbps) alongside the proven OV5640 -> VDMA -> DDR -> MM2S -> HDMI path. PS config is item-for-item equivalent to the board-proven `2_fpga/2_eth_onlytest_zynq7020` loopback project (21-item PCW compare, report in the evidence run).

@@ -112,6 +112,8 @@ hdmi_out_adv7511_v1_0
 | OV5640 + PS VDMA 完整 UART 验收 | 待复测，同一冻结 BIT + ELF |
 | 主工程 Zynq ENET0 配置等效性（vs 回环工程 21 项 PCW） | PASS，2026-09-08 |
 | 主工程 lwIP UDP 回环 + 摄像头 HDMI 同板共存 | BOARD PASS（`MAIN_ETH_LOOPBACK_PASS`），2026-09-08 |
+| 自定义 UDP 视频协议 + 上位机（Python/exe）设计 | 文档交付，2026-09-08 |
+| 主工程 →PC UDP 视频流 B1（1 fps 彩条，640 包/帧，921.6 KB/帧） | BOARD PASS（`UDP_TX_B1_PASS`），2026-09-08 |
 
 ## 归档目录
 
@@ -135,8 +137,9 @@ competition/
 - PS UART 板级通信已验证；
 - 2026-09-07 冻结 OV5640 → VDMA → DDR → VDMA → HDMI 可视化显示基线；
 - 2026-09-08 主工程 PS 使能 ENET0（MIO16..27 + MDIO 52..53 + PHY 复位 MIO47），新 XSA/BIT 与 V3.1 固件（lwIP RAW UDP 回环 + 原 VDMA/HDMI 逻辑）板级验证通过：UDP 回环 `RX=TX` 且摄像头 HDMI 显示正常；
+- 2026-09-08 板→PC UDP 视频流 B1 通过（1 fps 彩条、640 包/帧、921.6 KB/帧、丢帧/CRC=0），配套图形接收端 `EES331_UDP_Viewer.exe` 与协议设计文档；
 - CNN PS+PL 加速架构已有历史工程基础；
-- 下一步：board→PC UDP 帧发送（合成图案 + 递增帧号）→ VDMA 帧快照接入 → 多轴 PWM 控制器开发 → 通信协议实现 → YOLO 部署 → 联调。
+- 下一步：相机快照接入（C1，前置：排查 S2MM 相机流错误）→ 提速 5/15 FPS（C2）→ 多轴 PWM 控制器开发 → 通信协议实现 → YOLO 部署 → 联调。
 
 ## GitHub
 

@@ -297,3 +297,86 @@ This validates project integration and one PDF execution path only. Future seman
 - 用户确认：同一固件下摄像头画面经 VDMA→HDMI 正常显示，原有 HDMI 功能未受 ETH 集成影响。
 - 新板级基线产物（SHA-256 见 run 目录 `board_artifacts_sha256.txt`）：BIT `7CB11F7D...`（4,045,696 B，12:09）、ELF `52209F62...`（851,088 B，12:23）、XSA `30644B31...`（578,739 B，12:09）。
 - 结果：`MAIN_ETH_LOOPBACK_PASS`（UDP 回环 + 摄像头 HDMI 同板共存）。遗留：完整串口日志（ETH 心跳 + HDMI 心跳）待归档。
+
+## UDP 视频数据格式与上位机设计交付
+
+### Evidence
+
+- 设计文档：`1_docs/OV5640_UDP视频传输数据格式与上位机设计_2026-09-08.md`（SHA-256 见 `4_metrics/logs/2026-09-08_udp_video_protocol_design_run01/design_doc_sha256.txt`）。
+- 调研依据：同 run 目录 `RESEARCH_NOTES.md`（7 项来源，含 Zynq 7020 裸机 UDP 943.7 Mbps 实测数据）。
+
+### Verified（设计级）
+
+- 帧数据量：921,600 B（640×480×3 RGB888）；1,472 B UDP 载荷上限下 1,440 B 载荷 × 640 包 = 整帧，零 IP 分片（与实施计划 §5.3 一致）。
+- 选型：自定义 32 B 帧头（沿用实施计划 §5.2，细化 flags：SOF/EOF/相机有效位）；不设独立帧尾包，完整性由 packet_count + EOF + frame_crc32 三重保证；丢帧策略为跳帧不重传，NACK 为可选增强。
+- 明确否决：IP 分片、TCP、RTP+通用播放器（裸 RGB 无标准 payload）。
+- 上位机结论：必须有自定义接收端（Python + NumPy + OpenCV v1，PyQt 演示版为阶段 D 可选）。
+- 分阶段 A0–E 计划：A0 回环已完成；A1 吞吐基准（≥300 Mbps 门限）为下一步；与实施计划 H 门限衔接；网段勘误 192.168.240.x 覆盖旧计划 192.168.1.x。
+
+### Result / Boundary
+
+`UDP_VIDEO_DESIGN_COMPLETE`（纯设计交付，含联网调研）。无代码、无板级动作；A1 起各阶段需独立证据与验收。
+
+## udp_video 上位机工具 v1 交付（含本机自测）
+
+### Evidence
+
+`E:\competition\4_metrics\logs\2026-09-08_udp_host_tools_v1_run01\HOST_TOOLS_REPORT.md`（脚本 SHA-256、本机自测原始日志）。
+
+### Verified
+
+- 交付 `3_host/udp_video/mock_sender.py`（模拟发送器）与 `udp_video_rx.py`（接收端 v1），头格式与设计文档 §4 逐字段一致（struct `>4sBBH I HHHHHH II` = 32 B）。
+- **`HOST_RX_LOCALHOST_SELFTEST_PASS`**：本机 127.0.0.1 闭环 30 fps 自测，ok_frames ≈29.7 fps 递增，lost_frames=0，crc_err=0，dup=0，bad_header=0；5 s 归档复测 ok_frames=147，lost_frames=1（启动期口径边界，见下）。
+- 依赖 numpy/opencv-python 已装入本机 Python。
+- 边界：cv2.imshow 窗口路径待用户带 GUI 确认；lost_frames=1 为首个完整帧交付前的启动期口径（首帧前的 frame_id 增量被计一次），不影响后续连续流统计。
+
+### Result / Boundary
+
+`HOST_TOOLS_V1_DELIVERED`。板端发送端（阶段 B1）就绪后，接收端直连 192.168.240.10:5000 即可端到端验收。
+
+## EES331_UDP_Viewer.exe 图形界面接收端打包与实机验证
+
+### Evidence
+
+`E:\competition\4_metrics\logs\2026-09-08_udp_gui_exe_build_run01\EXE_BUILD_REPORT.md`（exe/源码 SHA-256、PyInstaller 构建日志）。
+
+### Verified
+
+- `3_host/udp_video/udp_video_gui.py`（Tkinter + Pillow，无 cv2/numpy 依赖）+ PyInstaller 打包为 `dist/EES331_UDP_Viewer.exe`（31,187,636 B，SHA-256 `07809631...A85A9E`）。
+- 实机验证：exe 启动存活；mock_sender 30 fps 发送 6 s 合成彩条，应用持续显示（用户屏幕目视）。界面含 960×720 视频区、状态栏（状态/数据源/完整帧/帧率/丢帧/CRC 错/重复坏头）、端口与启动控件。
+- 组包/校验逻辑与已验收的 udp_video_rx.py 同一套协议实现（32 B 头）。
+
+### Result / Boundary
+
+`UDP_GUI_EXE_DELIVERED`。显示效果以用户屏幕目视为准；exe 未签名，跨机拷贝可能触发 SmartScreen。
+
+### GUI 视频区缺陷修复与截图实证（exe V1.1）
+
+- 用户截图证实 V1.0 视频区塌陷：根因为占位图 ImageTk.PhotoImage 引用被 `self.photo = None` 覆盖后遭 GC；且 exe 未自动监听。
+- 修正（udp_video_gui.py V1.1）：photo 引用保护 + 启动即自动监听 5000；重建 exe（31,188,255 B，SHA-256 `0659F15E...12DB50A`）。
+- **截图实证**（computer-use screen capture）：占位界面正常（"等待 UDP 数据…"/监听中）；mock 30 fps 发送后视频区显示 5 彩条+移动列，完整帧=207、丢帧=0、CRC 错=0、重复/坏头=0/0。
+- 判定升级：`UDP_GUI_DISPLAY_VERIFIED`（覆盖 V1.0 报告中仅凭进程存活的不充分验证；该不充分表述已在 EXE_BUILD_REPORT 中修正留痕）。
+
+### 阶段 B1 板→PC 视频发送端交付（V3.1.1）
+
+- Evidence：集成报告 §7 追加（`4_metrics/logs/2026-09-08_mainproj_eth_loopback_integrate_run01/`），代码哈希 `b1_sender_sha256.txt`。
+- 新增 `udp_video_tx.c/h`：合成图案帧源（type=0x02）→ 640 包/帧（32 B 头 + 1,440 B，设计文档 §4 一致）→ 目的 192.168.240.2:5000；1 fps 起步（2 slow-ticks/帧）；爆发每 32 包 yield 保 ARP/RX；C1 相机快照以门控预留，API 不变。
+- main.c：eth_service 拆分 base/wrapper，消除爆发期递归；ETH 初始化时启动发送端。
+- 结果：`UDP_TX_B1_CODE_DELIVERED`（静态编写级）。未编译未上板；板会判据 = GUI 显示移动彩条、完整帧以 ~1 fps 递增、丢帧/CRC=0、HDMI 心跳照常。
+
+### 首轮板测问题定位与修复（UDP_TX 不发送 + 相机 S2MM 异常）
+
+- 串口证据：ETH 初始化正常，但 13+ 秒内无任何 `UDP_TX frame=`/`HEARTBEAT rx=` 行 ⇒ ScuTimer/xiltimer 中断未生效，lwIP 定时标志永不置位，发送轮询永不触发（回环 PASS 只依赖 RX 中断，故此前未暴露）。
+- 修复（V3.1.2）：`main.c` 增加 `eth_ms_now()`（ARM Global Timer），`tcp_fasttmr/250ms`、`tcp_slowtmr/500ms` 直接按毫秒调度，不再依赖 ScuTimer 中断标志；`udp_video_tx_poll(now_ms)` 改毫秒时基（1 fps）。tx/main 哈希见 `b1_sender_v12_sha256.txt`。
+- BD 前后对比（git 旧 BD vs 新 BD）：172 差异全为 ENET0/MDIO/GPIO-EMIO/MIO；时钟仅 ENET0 自身 125 MHz 激活，FCLK/PLL 零变化 ⇒ PS 修改未伤及相机时钟链。
+- 相机问题独立排查：本轮 `VDMA_S2MM_FAIL SR=0x15810`（SOFEarly/IRQErr 类）+ MM2S_FRAMES 停 1，疑似相机未连接/未出流；HDMI 冻结为 genlock 伴生现象。待用户确认相机在位后复测。
+- 结果：`UDP_TX_TIMER_FIX_DELIVERED`（静态编写级）。复测判据：串口每秒 `UDP_TX frame=` 递增 + GUI 彩条显示 + 丢帧/CRC=0。
+
+### 阶段 B1 板级验收通过（UDP_TX_B1_PASS）
+
+- 串口（完整日志已归档）：`UDP_TX frame=0..58 packets=640 errors=0` 每秒递增，58+ 帧零发送错误；`HEARTBEAT rx=0`（无 echo 输入，正常）；Global Timer 毫秒时基修复生效。
+- GUI 三张截图：数据源 `192.168.240.10`，完整帧 22→31→40 递增（≈1 fps 符合设定），丢帧=0、CRC 错=0、重复/坏头=0/0；红色移动列位置逐帧推进，证明帧连续且无撕裂。
+- 证据：`4_metrics/logs/2026-09-08_mainproj_eth_loopback_integrate_run01/`（gui_b1_frames*.png、serial_b1_pass_full.txt、b1_evidence_sha256.txt）。
+- 判定：`UDP_TX_B1_PASS` —— 板→PC 单向 UDP 视频流（921,600 B/帧、640 包/帧、1 fps）端到端打通。
+- 遗留小项：GUI 帧率栏对 1 fps 流显示 0.0/1.9 跳变（0.5 s 采样窗的显示口径问题，非功能缺陷，下次迭代改累计均值）；UDP_TX_INIT_OK 中 "ticks" 字样应为 "ms"（打印文案）。
+- 未决：相机 S2MM 错误（C1 前置条件）待排查——先确认相机排线/供电与 HDMI 显示状态。
