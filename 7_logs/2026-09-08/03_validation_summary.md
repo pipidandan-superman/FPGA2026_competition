@@ -475,3 +475,33 @@ This validates project integration and one PDF execution path only. Future seman
 - C2.1 零拷贝实验判定失败已回退（66ms 下 udp_sendto 批量失败根因待 C2.2 错误码诊断）；固化为 **C1.2 分块拷贝 + 突发整形 + 66ms 间隔** 的已验证状态。
 - 固化配对：BIT `7CB11F7D...` + ELF `3E295D51...` + XSA `30644B31...`。
 - 判定：**`UDP_CAMERA_C12_FREEZE_PASS`**（6.3 fps / 921.6 KB/帧 / 丢帧 0.9%）。
+
+## UDP 相机帧红蓝互换（色差）根因分析与修复
+
+### Evidence
+
+`E:\competition\4_metrics\logs\2026-09-08_udp_color_swap_fix_run01\`（RUN_REPORT.md、verify_color_swap_fix.py、verify_console.log、user_visual_pass_bgr_bars_127001.png、artifacts_sha256.txt）。
+
+### Verified（根因，证据闭环）
+
+1. 用户三组对照照片（三号黄/二号蓝紫/一号淡紫 ↔ UDP 显示淡蓝/棕橙/粉）三个颜色全部命中 **R/B 通道互换**，排除白平衡/饱和度成因。
+2. **摄像头寄存器无责**：`0x4300=0x61` RGB565 sequence 1 与 `cam_cap_data.v` 组字节一致；HDMI `BOARD_VISUAL_PASS` 反证通道映射正确（`tdata[23:0]={R,G,B}`）。
+3. 根因：`display_test_axi_vdma_0_0.xci` S2MM AXIS 24bit→AXI 64bit 按 AXI 小端打包，DDR 每像素字节序为 `[B,G,R]`；板端快照/发送逐字节搬运；上位机按 `[R,G,B]` 解码 ⇒ 红蓝互换。
+4. 决定性对照：type=0x02 彩条（软件组包、不经 VDMA）B1 板测显示正确 ⇒ 传输/解码字节忠实，互换仅在"VDMA 打包 vs 解码假设"层。
+5. 纠正 C1 日志旧结论："HDMI(YCbCr 有限范围) 与 UDP 双管线预期差异"不成立——limited-range 不能造成色相翻转。
+
+### Verified（修复与验证）
+
+- 修复全部在 PC 侧：`udp_video_gui.py` V1.2（type=0x01→Pillow raw "BGR"）、`udp_video_rx.py` V1.1（cv2 原生 BGR 不翻转）、exe 重打包（31,187,867 B）、设计文档 v1.1 §10 字节序勘误。**板端零修改**（冻结 BIT/ELF/寄存器保持有效）。
+- 端到端注入测试 `ALL_COLOR_SWAP_FIX_TESTS_PASS`：BGR 相机帧解码出真值颜色（250,230,150)/(150,140,230)/(210,180,230)；旧解码器输出与用户截图屏幕色一致；type=0x02 彩条路径不受影响。
+- 重建 exe 实机验证：接收板卡实时流（192.168.240.10，6.30 fps）正常；用户目视确认 127.0.0.1 注入的 BGR 测试彩条显示为黄/蓝紫/淡紫真实颜色，丢帧 0、CRC 错 0。
+- 明确禁止：改 OV5640 `0x4300` 输出顺序"纠正"以太网——会使 HDMI 红蓝互换并破坏冻结基线。
+
+### Result / Boundary
+
+`UDP_CAMERA_RB_SWAP_ROOT_CAUSE_PASS` + `UDP_COLOR_SWAP_FIX_DELIVERED` + `UDP_COLOR_SWAP_USER_VISUAL_PASS`。边界：真实相机帧的整体颜色观感（白平衡/曝光）以下次板会强色物体对照为准；本修复不改变 HDMI 显示。
+
+### 最终板级实时流目视 PASS（UDP_COLOR_FIX_BOARD_STREAM_VISUAL_PASS，2026-09-08 21:44）
+
+- 用户录屏 `user_final_visual_pass_board_stream.mp4`（19.5 MB，SHA-256 `de165b6f...ea9599`，入库理由按上传准则规则 8 声明于 RUN_REPORT §5.3）：重建 exe 接收板卡实时流 `192.168.240.10`，完整帧 508→622、6.25 fps 稳定、丢帧/CRC 错 ≈1%（与 C1.2 基线一致）；真人面部/手部动作下肤色与色彩自然，无红蓝互换。用户确认"显示颜色正常"。
+- 色差项关闭：固化 `UDP_COLOR_SWAP_FIX_FREEZE_PASS`（gui V1.2 + rx V1.1 + exe `a4b75ed3...`；板端 C1.2 冻结配对零改动）；随上传打 tag `udp-color-fix-pass-20260908`。

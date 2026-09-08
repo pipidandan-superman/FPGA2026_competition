@@ -53,3 +53,6 @@ venv/
 # Explicit 2026-09-07 board-proven camera HDMI success binaries
 !4_metrics/logs/2026-09-07_camera_display_success_freeze_run01/frozen_artifacts/display_test_wrapper.bit
 !4_metrics/logs/2026-09-07_camera_display_success_freeze_run01/frozen_artifacts/display_test_wrapper.xsa
+# Raw terminal logs explicitly whitelisted for the UDP color-swap fix evidence run
+!4_metrics/logs/2026-09-08_udp_color_swap_fix_run01/verify_console.log
+!4_metrics/logs/2026-09-08_udp_color_swap_fix_run01/pyinstaller_rebuild.log

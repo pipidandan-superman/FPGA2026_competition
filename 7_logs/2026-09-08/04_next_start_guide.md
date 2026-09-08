@@ -160,3 +160,13 @@ To reproduce the existing `BOARD_VISUAL_PASS`, program the frozen BIT, load the 
 - 分支已推送固化提交；PR（回环+B1+C1+C1.2 全部里程碑）待 member-b 评审合并。
 - C2.2（15 FPS）前置：错误码诊断（打印 udp_sendto 的 err 值）+ lwip220 参数调优（pbuf/heap/描述符数量）；JPEG 路线为后备。
 - 待办遗留：完整串口日志归档；10 分钟浸泡测试正式记录。
+
+## 色差修复后交接（UDP 相机帧红蓝互换，2026-09-08 晚）
+
+先读 `E:\competition\4_metrics\logs\2026-09-08_udp_color_swap_fix_run01\RUN_REPORT.md` 与设计文档 v1.1 §10 勘误。
+
+- 字节序定论：UDP type=0x01 相机载荷 = DDR 原生 `[B,G,R]`（VDMA 小端打包），上位机已按 type 感知解码；type=0x02 彩条保持 `[R,G,B]`。新写任何接收端/模型取帧代码都必须遵守该约定。
+- **禁止**改 OV5640 `0x4300` 或任何 2_fpga 冻结件来"修颜色"：摄像头寄存器无责，HDMI 颜色本就正确，改了会互换。
+- 下次板会最小动作：无需重烧；用新 exe（`3_host/udp_video/dist/EES331_UDP_Viewer.exe`，SHA-256 `a4b75ed3...`）拍已知强色物体做最终目视对照即可关闭色差项。
+- 3_host/model 视觉模型取帧：相机帧字节序与 cv2 原生 BGR 一致，直接用，不要再翻转。
+- C2 提速路线不变；本修复零板端成本。

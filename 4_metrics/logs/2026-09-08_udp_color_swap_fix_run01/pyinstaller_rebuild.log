@@ -1,0 +1,77 @@
+63 INFO: PyInstaller: 6.22.2, contrib hooks: 2026.7
+63 INFO: Python: 3.12.10
+81 INFO: Platform: Windows-11-10.0.26200-SP0
+81 INFO: Python environment: C:\Users\Administrator\AppData\Local\Programs\Python\Python312
+83 INFO: Module search paths (PYTHONPATH):
+['E:\\competition\\3_host\\udp_video',
+ 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\python312.zip',
+ 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\DLLs',
+ 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib',
+ 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312',
+ 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages',
+ 'E:\\competition\\3_host\\udp_video']
+299 INFO: checking Analysis
+307 INFO: Building because E:\competition\3_host\udp_video\udp_video_gui.py changed
+307 INFO: Looking for Python shared library...
+308 INFO: Using Python shared library: C:\Users\Administrator\AppData\Local\Programs\Python\Python312\python312.dll
+308 INFO: Running Analysis Analysis-00.toc
+308 INFO: Target bytecode optimization level: 0
+308 INFO: Initializing module dependency graph...
+309 INFO: Initializing module graph hook caches...
+317 INFO: Analyzing modules for base_library.zip ...
+920 INFO: Processing standard module hook 'hook-encodings.py' from 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
+1114 INFO: Processing standard module hook 'hook-math.py' from 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
+1680 INFO: Processing standard module hook 'hook-pickle.py' from 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
+2240 INFO: Processing standard module hook 'hook-heapq.py' from 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
+2445 INFO: Caching module dependency graph...
+2462 INFO: Analyzing E:\competition\3_host\udp_video\udp_video_gui.py
+2471 INFO: Processing pre-find-module-path hook 'hook-tkinter.py' from 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks\\pre_find_module_path'
+2472 INFO: TclTkInfo: initializing cached Tcl/Tk info...
+2619 INFO: Processing standard module hook 'hook-_tkinter.py' from 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
+2639 INFO: Processing standard module hook 'hook-PIL.py' from 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
+2689 INFO: Processing standard module hook 'hook-PIL.Image.py' from 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
+2852 INFO: Processing standard module hook 'hook-numpy.py' from 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
+3027 INFO: Processing pre-safe-import-module hook 'hook-typing_extensions.py' from 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+3027 INFO: SetuptoolsInfo: initializing cached setuptools info...
+3455 INFO: Processing standard module hook 'hook-platform.py' from 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
+3535 INFO: Processing standard module hook 'hook-sysconfig.py' from 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
+3647 INFO: Processing standard module hook 'hook-webbrowser.py' from 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
+3951 INFO: Processing standard module hook 'hook-_ctypes.py' from 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
+4229 INFO: Processing standard module hook 'hook-difflib.py' from 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
+4337 INFO: Processing standard module hook 'hook-multiprocessing.util.py' from 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
+4385 INFO: Processing standard module hook 'hook-xml.py' from 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
+5129 INFO: Processing standard module hook 'hook-xml.etree.cElementTree.py' from 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
+5215 INFO: Processing standard module hook 'hook-PIL.ImageFilter.py' from 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
+5365 INFO: Processing module hooks (post-graph stage)...
+5510 INFO: Processing standard module hook 'hook-PIL.SpiderImagePlugin.py' from 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
+5549 INFO: Processing standard module hook 'hook-_tkinter.py' from 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
+5555 INFO: Performing binary vs. data reclassification (929 entries)
+5749 INFO: Looking for ctypes DLLs
+5760 INFO: Analyzing run-time hooks ...
+5762 INFO: Including run-time hook 'pyi_rth_inspect.py' from 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+5764 INFO: Including run-time hook 'pyi_rth_pkgutil.py' from 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+5765 INFO: Including run-time hook 'pyi_rth_multiprocessing.py' from 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+5766 INFO: Including run-time hook 'pyi_rth__tkinter.py' from 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+5781 INFO: Creating base_library.zip...
+5791 INFO: Looking for dynamic libraries
+6020 INFO: Extra DLL search directories (AddDllDirectory): ['C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\numpy.libs']
+6020 INFO: Extra DLL search directories (PATH): []
+6378 INFO: Warnings written to E:\competition\3_host\udp_video\build\EES331_UDP_Viewer\warn-EES331_UDP_Viewer.txt
+6397 INFO: Graph cross-reference written to E:\competition\3_host\udp_video\build\EES331_UDP_Viewer\xref-EES331_UDP_Viewer.html
+6419 INFO: checking PYZ
+6432 INFO: checking PKG
+6438 INFO: Building because toc changed
+6438 INFO: Building PKG (CArchive) EES331_UDP_Viewer.pkg
+11088 INFO: Building PKG (CArchive) EES331_UDP_Viewer.pkg completed successfully.
+11097 INFO: Bootloader C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\site-packages\PyInstaller\bootloader\Windows-64bit-intel\runw.exe
+11097 INFO: checking EXE
+11103 INFO: Building because toc changed
+11103 INFO: Building EXE from EXE-00.toc
+11106 INFO: Copying bootloader EXE to E:\competition\3_host\udp_video\dist\EES331_UDP_Viewer.exe
+11107 INFO: Copying icon to EXE
+11109 INFO: Copying 0 resources to EXE
+11109 INFO: Embedding manifest in EXE
+11110 INFO: Appending PKG archive to EXE
+11123 INFO: Fixing EXE headers
+11207 INFO: Building EXE from EXE-00.toc completed successfully.
+11216 INFO: Build complete! The results are available in: E:\competition\3_host\udp_video\dist

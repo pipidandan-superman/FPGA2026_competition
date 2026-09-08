@@ -1,0 +1,15 @@
+E:\competition\4_metrics\logs\2026-09-08_udp_color_swap_fix_run01\verify_color_swap_fix.py:117: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  print(f"    {list(old.getdata())[W//2 :: W].__len__() and [old.getpixel((W//2, H//2)), old.getpixel((W//3*2+50, H//2))]}")
+[test1] camera frame reassembled from 127.0.0.1, receiver raw_mode=BGR
+  decoded thirds for fixed decoder:
+    expect No.3 yellow (RGB 250,230,150)
+    expect No.2 blue-violet (RGB 150,140,230)
+    expect No.1 lavender (RGB 210,180,230)
+    actual: [(250, 230, 150), (150, 140, 230), (210, 180, 230)]
+[test1] pre-fix decoder would show (documented 'before'):
+    [(230, 140, 150), (230, 180, 210)]
+[test1] PASS: camera BGR bytes decoded to true colors
+[test2] pattern frame reassembled, receiver raw_mode=RGB
+    actual: [(255, 255, 0), (0, 255, 0), (255, 0, 255)]
+[test2] PASS: pattern RGB bars unchanged
+ALL_COLOR_SWAP_FIX_TESTS_PASS
