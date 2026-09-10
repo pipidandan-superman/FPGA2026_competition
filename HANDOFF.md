@@ -2,6 +2,7 @@
 
 ## 2026-09-10 关键证据归档与个人分支交付
 
+- 已完成：内容提交 `ae1384aea6f3390fb17ef78562eabf83f4677039` 已推送且远端 HEAD 一致；[草稿 PR #3](https://github.com/pipidandan-superman/FPGA2026_competition/pull/3) 目标 main，尚未合并。归档文件哈希、18 项启动资产、300 项暂存对象、两版 EXE 自检与项目路径审计通过。后续回执提交只补充文档和 Git 结果。
 - 归档入口：[REPORT.md](4_metrics/logs/2026-09-10_session_archive_upload_run01/REPORT.md)，逐文件来源、大小和 SHA-256 见同目录 `selected_manifest.json`；Git 审计、校验与推送回执也保存在该目录。
 - 目标分支 `codex/full/pipidandan-superman`，以远程 `main@c60291a` 为基线在独立 worktree 整理；保留已有 UDP/颜色修复记录。本机原工作区的其他未提交改动不纳入本次上传。
 - 已选择 SD 故障定位/修复/原始 UART、整卡读回、SD Builder v0.1/v0.2 源码与 EXE、AIPC 模板/报告/解析与排版证据。大 IMG、重复 ZIP、工具链缓存保留本地。参考 XSA 仅从冻结目录只读复制到归档目录。

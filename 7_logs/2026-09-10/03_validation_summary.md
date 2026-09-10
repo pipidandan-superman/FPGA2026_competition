@@ -2,6 +2,8 @@
 
 ## 最新：关键证据归档与上传验收
 
+最终结果：`ARCHIVE_CONTENT_VALIDATION_PASS`、`STAGED_BLOB_HASH_PASS`、两版 `FROZEN_GUI_SELF_TEST_PASS`、路径审计 PASS；个人分支内容提交 `ae1384aea6f3390fb17ef78562eabf83f4677039` 与远端一致，`PERSONAL_BRANCH_PUSH_PASS`。草稿 PR #3 已建立且以 main 为目标。18 项资产和 300 项暂存哈希核对通过；冻结目录/原索引无新增改动。完整 diff --check 报原始证据/发行资产 CRLF 与空白，保留其哈希；本次编辑文档检查通过。原始推送、PR 回执见本 run 的 `push_console.txt`、`upload_result.json`、`pr_result.json`。
+
 - 证据入口：[归档索引](../../4_metrics/logs/2026-09-10_session_archive_upload_run01/REPORT.md)。清单 selected_manifest.json 记录每个精选文件大小/SHA-256/来源；归档校验、Git 检查与上传回执保存在同一 run。
 - 已读取原始结果：SD/Linux Shell 启动 PASS；v0.2 22 项规则测试、真实 FSBL/BSP 与 IMG 读回 PASS；v0.1 保留检查 PASS；AIPC 文档两页 QA PASS_WITH_PENDING_FIELDS。本次归档不重新声称新增板测 PASS。
 - 保留板卡手册、赛题和模板此前 MinerU 解析证据。模板 DOCX 直接解析失败→转换 PDF 后 PASS 的链路及短文本人工核对提示一并归档；没有静默改用其他语义解析器。

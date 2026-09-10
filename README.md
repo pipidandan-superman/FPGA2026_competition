@@ -12,6 +12,7 @@
 
 ## 当前进展与交付入口（2026-09-10）
 
+- 本批归档已上传 `codex/full/pipidandan-superman`（内容提交 `ae1384a`），[草稿 PR #3](https://github.com/pipidandan-superman/FPGA2026_competition/pull/3) 等待审核；未合入 main。推送核对见 [回执](4_metrics/logs/2026-09-10_session_archive_upload_run01/upload_result.json)。
 - **EES-331 SD → Linux Shell 已启动**：原始串口见 [uart_pynq_log.txt](4_metrics/logs/2026-09-10_pynq_v301_baseline_boot_run02/uart_pynq_log.txt)。网络、Jupyter、自定义 Overlay 和完整分拣闭环仍需分别验收。
 - **SD Builder v0.2**：[Windows EXE](8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.exe) · [使用说明与源码](3_host/pynq/sd_boot_builder_v02/README.md)。强制输入含 bitstream 的 Vivado 2025.2 XSA，以 EES-331 板级模板生成 PS 设备树，按需重建 FSBL/BSP，导出启动包或完整 IMG；原版 PYNQ-Z2 入口已移除。v0.1 在 [旧版目录](8_tools/sd_start_tool/) 保留。
 - v0.2 的 22 项测试、真实构建、EXE 检查及整卡读回通过；**这些新输出尚未上板**。完整 IMG 依赖外部 Vitis 2025.2 和 7,858,807,808 字节的 EES-331 基础镜像，Git 不包含大镜像；获取本机路径和校验值见 [归档索引](4_metrics/logs/2026-09-10_session_archive_upload_run01/REPORT.md)。

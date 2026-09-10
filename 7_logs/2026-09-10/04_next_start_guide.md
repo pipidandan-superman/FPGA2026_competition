@@ -2,6 +2,8 @@
 
 ## 最新：归档后从这里继续（v10）
 
+归档已推送：`codex/full/pipidandan-superman`，内容提交 `ae1384a`；[草稿 PR #3](https://github.com/pipidandan-superman/FPGA2026_competition/pull/3) 等待另一成员审核，未合并 main。先检查同 run 的上传回执，再按下列硬件/报告待办继续；本次后续提交仅补充回执与交接。
+
 1. 先读 [归档索引](../../4_metrics/logs/2026-09-10_session_archive_upload_run01/REPORT.md)、README 顶部与 HANDOFF；从个人分支 `codex/full/pipidandan-superman` 查看交付，远端核对结果见同 run 的 upload_result.json。
 2. v0.2 使用 `8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.exe`。Git 不含基础 IMG，先按索引找到/复制本机 EES-331 基础镜像并核对 SHA-256，另备 Vitis 2025.2。本 run 参考 XSA 可用于输入检查，实际硬件变更需对应的新 XSA。
 3. 下一硬件目标是新 XSA/新输出的冷启动 UART，再验收 Linux 外设、网络/Jupyter、PL/DMA 和业务；旧裸机 UDP 成果不能替代这些测试。

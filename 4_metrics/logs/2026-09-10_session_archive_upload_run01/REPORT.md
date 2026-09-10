@@ -1,5 +1,9 @@
 # 2026-09-10 关键证据归档与个人分支交付
 
+完成结果：内容提交 `ae1384aea6f3390fb17ef78562eabf83f4677039` 已推送至 `codex/full/pipidandan-superman` 并核对远端一致；[草稿 PR #3](https://github.com/pipidandan-superman/FPGA2026_competition/pull/3) 已创建，目标 main，尚未合并。`archive_validation.json`、`staged_blob_validation.json`、`release_copy_validation.json` 记录通过的归档/资产/EXE检查，`upload_result.json` 和 `pr_result.json` 保存远端回执。后续提交仅补齐回执和文档。本轮精选交付提交包含 334 个文件；检查时的 317/326 是加入审计回执之前的分阶段清单计数。原始空白检查完整输出留在本机，编辑文档检查为零错误；资产和证据中的 CRLF/原始空白按哈希保留。
+
+`selected_manifest.json` 是提交前的内容快照；本索引、README/HANDOFF 和当日日志后续增加了已推送回执，因此这些可变文档不再沿用该快照哈希。版本程序、资产、模板/成品及历史原始证据哈希保持不变；回执更新另由 Git 提交追溯。
+
 本轮按用户要求归档现有成果，更新 README、HANDOFF 和当日四份日志，并上传个人分支 `codex/full/pipidandan-superman`。上传回执以本目录后续生成的 `upload_result.json` 为准；分支交付不代表已合入 main 或新增硬件验收。
 
 ## 阅读入口与验收边界
