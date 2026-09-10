@@ -1,0 +1,15 @@
+{
+  "disassembly": [
+    "04002b24: mov r3, #0",
+    "04002b28: str r3, [r0]",
+    "04002b2c: mov r0, #0x100000",
+    "04002b30: ldr r3, [r0]",
+    "04002b34: ldr r2, [pc, #0x38]",
+    "04002b38: rev r3, r3",
+    "04002b3c: cmp r3, r2",
+    "04002b40: bxeq lr"
+  ],
+  "literal_address": "0x04002b74",
+  "literal": "0xd00dfeed",
+  "uboot_sha256": "f5b9b92087177d95d449c479f90ddabef3d666692db1059f0a0806f8e04fd093"
+}

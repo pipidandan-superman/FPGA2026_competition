@@ -1,0 +1,27 @@
+test_accepted_base_is_ees331 (__main__.Rules.test_accepted_base_is_ees331) ... ok
+test_ambiguous_system_hwh_rejected (__main__.Rules.test_ambiguous_system_hwh_rejected) ... ok
+test_auxiliary_hwh_supported (__main__.Rules.test_auxiliary_hwh_supported) ... ok
+test_bad_bank_rejected (__main__.Rules.test_bad_bank_rejected) ... ok
+test_baseline_auto (__main__.Rules.test_baseline_auto) ... ok
+test_can_auto_external_clock (__main__.Rules.test_can_auto_external_clock) ... ok
+test_can_missing_clock_rejected (__main__.Rules.test_can_missing_clock_rejected) ... ok
+test_controller_disable (__main__.Rules.test_controller_disable) ... ok
+test_external_sd1_specific_requirement (__main__.Rules.test_external_sd1_specific_requirement) ... ok
+test_fclk_and_gpio_auto (__main__.Rules.test_fclk_and_gpio_auto) ... ok
+test_gpio_or_clock_parameter_not_blanket_dtb_gate (__main__.Rules.test_gpio_or_clock_parameter_not_blanket_dtb_gate) ... ok
+test_gui_hides_advanced_and_uses_new_base (__main__.Rules.test_gui_hides_advanced_and_uses_new_base) ... ok
+test_i2c_auto_software_bus_speed (__main__.Rules.test_i2c_auto_software_bus_speed) ... ok
+test_missing_bit_still_rejected (__main__.Rules.test_missing_bit_still_rejected) ... ok
+test_original_z2_rejected (__main__.Rules.test_original_z2_rejected) ... ok
+test_qspi_auto (__main__.Rules.test_qspi_auto) ... ok
+test_real_display_xsa_sd_disabled_rejected (__main__.Rules.test_real_display_xsa_sd_disabled_rejected) ... ok
+test_sd_card_detect_disabled (__main__.Rules.test_sd_card_detect_disabled) ... ok
+test_spi_auto_chip_select (__main__.Rules.test_spi_auto_chip_select) ... ok
+test_uart0_auto (__main__.Rules.test_uart0_auto) ... ok
+test_usb_auto (__main__.Rules.test_usb_auto) ... ok
+test_usb_incomplete_rejected (__main__.Rules.test_usb_incomplete_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 6.638s
+
+OK

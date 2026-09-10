@@ -1,0 +1,5341 @@
+[
+    {
+        "type": "text",
+        "text": "全国大学生嵌入式芯片与系统设计竞赛'2026",
+        "bbox": [
+            200,
+            234,
+            798,
+            259
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "FPGA 创新设计赛道选题指南",
+        "text_level": 1,
+        "bbox": [
+            240,
+            340,
+            756,
+            370
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "（AMD）",
+        "bbox": [
+            448,
+            476,
+            549,
+            502
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "page_number",
+        "text": "1",
+        "bbox": [
+            494,
+            920,
+            504,
+            932
+        ],
+        "page_idx": 0
+    },
+    {
+        "type": "text",
+        "text": "目录",
+        "text_level": 2,
+        "bbox": [
+            117,
+            80,
+            174,
+            103
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "目录 ...  \n一、公司介绍 ..........  \n二、竞赛技术平台 ....................... ....... 2  \n2.1 AMD PYNQ-Z2 板（PYNQ-Z2 BOARD）  \n2.2 AMD KRIA KR260 ROBOTICS STARTER KIT....  \n2.3 SEA 板卡（SEEED SPARTAN EDGE ACCELERATOR BOARD）  \n2.4 AMD RYZEN AI PC .......  \n2.5 AMD RADEON PRO W7900 与 RADEON AI PRO R9700 ....  \n三、选题方向 ............  \n3.1 RTL/HLS 本地智能体设计赛道.  \n3.1.1 赛道简介 .....  \n3.1.2 设计任务 ..........  \n3.1.3 设计与优化要求.... ......................  \n3.1.4 优化目标 ...... .. 8  \n3.1.5 提交内容 .... ... 8  \n3.1.6 赛程安排 ....  \n3.2具身智能赛道. ..... 10  \n3.2.1 赛道简介... .... 10  \n3.2.2 设计任务 ..... ..... 10  \n3.2.3 设计与优化要求.... .... 12  \n3.2.4 优化目标与量化指标 ........... ........ 13  \n3.2.5 提交内容 .... ...... 14  \n3.2.6 赛程安排... ..... 17  \n3.2.7 参考资源 ....... ..... 17  \n3.3自主选题赛道（分初级组与高级组） ...... 19  \n3.3.1 赛道简介 .... ..... 19  \n3.3.2 设计任务 ...... .... 19  \n3.3.3 设计与优化要求.... ..... 20  \n3.3.4 优化目标 ..... .... 20  \n3.3.5 提交内容. .... 21  \n3.3.6 赛程安排 .... ... 22  \n3.3.7 参考资源. .. 22  \n四、开发板获取途径 ........... ..... 23  \n4.1 FPGA 板卡 . .. 23  \n4.2 RYZEN AI PC 支持申请（具身智能赛道） .. 23  \n4.3GPU云资源（RTL/HLS本地智能体设计赛道） ......................... .. 23  \n五、技术支持与技术资源....... ...... 24  \n常见问题 FAQ .... ..... 24  \n培训与交流..... ..... 24  \n技术问题咨询:... ..... 24  \nAMD 赛道竞赛问题咨询.......... ..... 24  \n六、其它 ..... ...... 25",
+        "bbox": [
+            119,
+            111,
+            885,
+            921
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "page_number",
+        "text": "2",
+        "bbox": [
+            494,
+            921,
+            504,
+            932
+        ],
+        "page_idx": 1
+    },
+    {
+        "type": "text",
+        "text": "",
+        "bbox": [
+            114,
+            78,
+            884,
+            334
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "page_number",
+        "text": "3",
+        "bbox": [
+            494,
+            921,
+            504,
+            932
+        ],
+        "page_idx": 2
+    },
+    {
+        "type": "text",
+        "text": "一、公司介绍",
+        "text_level": 2,
+        "bbox": [
+            114,
+            93,
+            302,
+            118
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "超威半导体公司（AMD，Advanced Micro Devices, Inc.）成立于 1969 年，总部位于美国加州圣克拉拉，是全球领先的半导体设计企业之一。公司专注于高性能计算、图形和可视化技术，产品涵盖桌面与服务器处理器、GPU显卡、加速计算平台等领域。凭借锐龙（Ryzen）、霄龙（EPYC）和镭龙（Radeon）等产品线，AMD在数据中心、高性能计算和个人 PC市场持续扩大影响力。近年来，随着人工智能、大数据和云计算的发展，AMD不断加强在异构计算和高能效架构上的布局，成为全球芯片产业重要力量。",
+        "bbox": [
+            112,
+            133,
+            878,
+            252
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "在 FPGA与 SoC领域，AMD于 2022年完成对赛灵思（Xilinx）的收购，进一步扩展了自身的产品组合。AMD FPGA和自适应 SoC广泛应用于数据中心、5G通信、汽车电子、工业控制等场景，能够满足灵活性和高性能并存的需求。其 Versal自适应 SoC系列将AI引擎、可编程逻辑与高效处理器结合，为智能边缘和高性能计算任务提供卓越支持；Alveo加速卡则面向数据中心和云应用，助力低延迟高吞吐的加速计算。通过整合 CPU、GPU与FPGA的异构计算生态，AMD正推动从云到端的智能化应用发展，为新一代计算平台奠定基础。",
+        "bbox": [
+            110,
+            260,
+            878,
+            380
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "header",
+        "text": "全国大学生嵌入式芯片与系统设计竞赛'2026 选题指南（AMD）",
+        "bbox": [
+            114,
+            42,
+            694,
+            60
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "page_number",
+        "text": "1",
+        "bbox": [
+            494,
+            920,
+            504,
+            932
+        ],
+        "page_idx": 3
+    },
+    {
+        "type": "text",
+        "text": "二、竞赛技术平台",
+        "text_level": 2,
+        "bbox": [
+            114,
+            82,
+            361,
+            107
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "本届竞赛涉及的硬件平台如下。各赛道对平台的具体要求见第三节所属赛道的说明。",
+        "bbox": [
+            112,
+            120,
+            794,
+            137
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "2.1 AMD PYNQ-Z2 板（PYNQ-Z2 Board）",
+        "text_level": 2,
+        "bbox": [
+            112,
+            156,
+            613,
+            178
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "PYNQ-Z2 是一款基于 Zynq-7000 SoC 的开发板，定位于教育与初学者平台，支持通过 Python和 Jupyter Notebook 控制 FPGA 与处理器资源。",
+        "bbox": [
+            112,
+            190,
+            868,
+            228
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "● 器件为 Zynq-7000 XC7Z020，双 ARM Cortex-A9 处理器与可编程逻辑，可实现硬件加速与嵌入式系统开发。",
+        "bbox": [
+            154,
+            236,
+            867,
+            273
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "● 利用 PYNQ 框架，开发者可使用 Python API 调用硬件逻辑（Overlay），无需深入硬件设计。",
+        "bbox": [
+            154,
+            280,
+            865,
+            317
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "● 接口丰富：HDMI 输入/输出、以太网、USB、音频接口、Arduino 与 Raspberry Pi扩展接口、Pmod 接口、LED 与按键等。",
+        "bbox": [
+            154,
+            323,
+            867,
+            360
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "● 适合计算机视觉、信号处理、硬件教学、嵌入式实验等应用。",
+        "bbox": [
+            193,
+            366,
+            705,
+            382
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "● 通常通过 micro-SD 卡启动，支持使用 Jupyter Notebook 进行远程控制和开发。",
+        "bbox": [
+            193,
+            388,
+            836,
+            405
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "● 参考链接：https://pynq.readthedocs.io/en/latest/index.html",
+        "bbox": [
+            193,
+            412,
+            662,
+            428
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "image",
+        "img_path": "images/091bff39ffc33c6e0c5048022cfeacc85a41fb132a71b535e490e4346de03407.jpg",
+        "image_caption": [],
+        "image_footnote": [],
+        "bbox": [
+            248,
+            442,
+            749,
+            671
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "2.2 AMD Kria KR260 Robotics Starter Kit",
+        "text_level": 2,
+        "bbox": [
+            114,
+            693,
+            613,
+            713
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "KR260 是 Kria 系列中面向机器人与工业应用的开发套件，由 K26 SOM 与机器人载板组成，定位于高速视觉与实时数据传输。",
+        "bbox": [
+            112,
+            722,
+            880,
+            760
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "● 基于 Zynq UltraScale+ MPSoC 架构的 K26 SOM，搭配 4GB DDR4 内存与主动散热方案。",
+        "bbox": [
+            154,
+            768,
+            878,
+            806
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "● 网络接口：4 路 RJ45 千兆以太网，另有 SFP+ 笼可支持 10G Ethernet 高带宽视觉数据。",
+        "bbox": [
+            154,
+            812,
+            880,
+            848
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "● 扩展接口：Raspberry Pi HAT 排针、4 个 Pmod 连接器、USB 3.0，以及面向高分辨率传感器的 SLVS-EC 接口。",
+        "bbox": [
+            154,
+            854,
+            877,
+            891
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "● 原生支持 ROS 2 与 Kria Robotics Stack（KRS），也可使用 Vivado / Vitis 原生流程或",
+        "bbox": [
+            193,
+            897,
+            880,
+            914
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "header",
+        "text": "全国大学生嵌入式芯片与系统设计竞赛'2026 选题指南（AMD）",
+        "bbox": [
+            114,
+            42,
+            694,
+            60
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "page_number",
+        "text": "2",
+        "bbox": [
+            492,
+            921,
+            505,
+            932
+        ],
+        "page_idx": 4
+    },
+    {
+        "type": "text",
+        "text": "全国大学生嵌入式芯片与系统设计竞赛'2026 选题指南（AMD）",
+        "bbox": [
+            114,
+            42,
+            694,
+            60
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "code",
+        "sub_type": "algorithm",
+        "code_caption": [],
+        "code_footnote": [],
+        "code_body": "Kria-PYNQ。",
+        "bbox": [
+            156,
+            80,
+            262,
+            97
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "● 适合机器人视觉、工业检测、高清巡检等高带宽实时场景。",
+        "bbox": [
+            193,
+            103,
+            689,
+            120
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "● 参考链接：https://www.amd.com/en/products/system-on-modules/kria/k26/kr260- robotics-starter-kit.html",
+        "bbox": [
+            156,
+            126,
+            835,
+            161
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "● 用户指南 UG1092：https://docs.amd.com/r/en-US/ug1092-kr260-starter-kit",
+        "bbox": [
+            193,
+            166,
+            789,
+            183
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "2.3 SEA 板卡（Seeed Spartan Edge Accelerator Board）",
+        "text_level": 2,
+        "bbox": [
+            112,
+            202,
+            757,
+            224
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "SEA 板卡是 Seeed Studio 出品的 Arduino 扩展板形态 FPGA 板卡，定位于 IO 扩展与执行控制。",
+        "bbox": [
+            112,
+            235,
+            872,
+            254
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "● 器件为 Spartan-7 XC7S15，12,800 个逻辑单元、2,000 个 slice、360 KB 片上RAM。",
+        "bbox": [
+            154,
+            260,
+            825,
+            298
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "● 板载 Espressif ESP32-D0WDQ6，提供 Wi-Fi 802.11 b/g/n 与 BLE 4.1 连接能力。",
+        "bbox": [
+            193,
+            304,
+            842,
+            321
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "● 形态为 Arduino Shield 兼容（32-pin 排针），可直接叠装于 Arduino 主板之上。",
+        "bbox": [
+            193,
+            328,
+            830,
+            344
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "● 视频与存储：Mini HDMI 输出、CSI/MIPI 摄像头接口（支持树莓派 Camera V1，OV5640）、Micro SD/TF 卡槽。",
+        "bbox": [
+            154,
+            349,
+            853,
+            386
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "● 扩展与板载器件：10-pin FPGA GPIO 排针、2 个 Grove 接口（I2C 与 D2/D3）、8-bitADC 与 DAC、六轴加速度计与陀螺仪 LSM6DS3TR、2 个单色 LED 与 2 个 RGB LED、Boot / Reset / User 按键。",
+        "bbox": [
+            154,
+            393,
+            882,
+            450
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "● 供电方式：USB Type-C、VIN（8–17 V）或 Arduino 侧 micro USB。",
+        "bbox": [
+            193,
+            456,
+            751,
+            474
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "● 电平注意事项：SEA 扩展板的 IO 电平为 5 V，而 FPGA 侧 IO 为 3.3 V，因此只能与 5 V 电平的 Arduino 主板（如 Arduino UNO）配合使用。",
+        "bbox": [
+            156,
+            479,
+            870,
+            517
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "● 参考链接：https://wiki.seeedstudio.com/Spartan-Edge-Accelerator-Board/",
+        "bbox": [
+            193,
+            523,
+            778,
+            539
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "image",
+        "img_path": "images/aeec6379b565faf6ff0bc4881d478c50fa70f0e24b6d391e24b6ce311cf3481b.jpg",
+        "image_caption": [],
+        "image_footnote": [],
+        "bbox": [
+            233,
+            556,
+            455,
+            688
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "2.4 AMD Ryzen AI PC",
+        "text_level": 2,
+        "bbox": [
+            114,
+            719,
+            379,
+            739
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "具身智能赛道要求以AMD AI PC 作为上位机，承担端侧AI 推理、任务决策、人机交互与系统调度，型号不限。赛事方可提供借用的机型为 AMD Ryzen AI Max+ 395 与 AMD Ryzen AI 9 HX370。",
+        "bbox": [
+            110,
+            749,
+            882,
+            806
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "● 集成 CPU、基于 RDNA 架构集成显卡 iGPU 与基于 XDNA 架构的 NPU，可在本地完成视觉、语音与多模态模型推理。",
+        "bbox": [
+            154,
+            814,
+            878,
+            852
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "● 软件栈：ROCm 7.14.0 及以上版本；模型部署亦可参考 Ryzen AI Software 文档。",
+        "bbox": [
+            193,
+            858,
+            853,
+            875
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "page_number",
+        "text": "3",
+        "bbox": [
+            492,
+            920,
+            505,
+            932
+        ],
+        "page_idx": 5
+    },
+    {
+        "type": "text",
+        "text": "● ROCm 安装说明：https://rocm.docs.amd.com/en/latest/install/rocm.html",
+        "bbox": [
+            193,
+            80,
+            766,
+            97
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "text",
+        "text": "● ROCm 兼容性矩阵：https://rocm.docs.amd.com/en/latest/compatibility/compatibilitymatrix.html",
+        "bbox": [
+            156,
+            103,
+            867,
+            139
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "text",
+        "text": "● Ryzen AI Software 文档：https://ryzenai.docs.amd.com/en/latest/",
+        "bbox": [
+            193,
+            142,
+            709,
+            160
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "text",
+        "text": "● AMD Ryzen AI PC 所有产品型号：",
+        "bbox": [
+            193,
+            166,
+            484,
+            183
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "text",
+        "text": "https://www.amd.com/en/products/processors/consumer/ryzen-ai.html#specs",
+        "bbox": [
+            156,
+            186,
+            732,
+            203
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "text",
+        "text": "2.5 AMD Radeon PRO W7900 与 Radeon AI PRO R9700",
+        "text_level": 2,
+        "bbox": [
+            114,
+            219,
+            776,
+            240
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "text",
+        "text": "RTL/HLS 本地智能体设计赛道使用AMD 显卡作为本地模型的运行平台，验证窗口与决赛环境的配置见 3.1.3.1。",
+        "bbox": [
+            114,
+            253,
+            880,
+            291
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "text",
+        "text": "● AMD Radeon PRO W7900：48 GB 显存，RDNA 3 架构（gfx1100），用于验证窗口的云资源。",
+        "bbox": [
+            156,
+            299,
+            880,
+            336
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "text",
+        "text": "● AMD Radeon AI PRO R9700：32 GB 显存，RDNA 4 架构（gfx1201），用于决赛部署验证。",
+        "bbox": [
+            156,
+            342,
+            884,
+            380
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "header",
+        "text": "全国大学生嵌入式芯片与系统设计竞赛'2026 选题指南（AMD）",
+        "bbox": [
+            114,
+            42,
+            694,
+            60
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "page_number",
+        "text": "4",
+        "bbox": [
+            494,
+            921,
+            505,
+            932
+        ],
+        "page_idx": 6
+    },
+    {
+        "type": "text",
+        "text": "三、选题方向",
+        "text_level": 2,
+        "bbox": [
+            114,
+            82,
+            302,
+            105
+        ],
+        "page_idx": 7
+    },
+    {
+        "type": "text",
+        "text": "本届 FPGA 创新设计大赛AMD 赛道共设三个赛道：RTL/HLS 本地智能体设计赛道、具身智能赛道、自主选题赛道。三个赛道均为自主选题，其中自主选题赛道按学历分为初级组与高级组，其余两个赛道不限本科生与研究生。各赛道对平台、提交格式与考察重点的要求不同，请仔细阅读以下内容后选择投递方向。",
+        "bbox": [
+            112,
+            121,
+            880,
+            199
+        ],
+        "page_idx": 7
+    },
+    {
+        "type": "table",
+        "img_path": "images/d9592fec58f49ab50239e03fa6aceb2fa33d5c5dcd1607876242c60ae1fae1c9.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>赛道</td><td rowspan=1 colspan=1>参赛资格</td><td rowspan=1 colspan=1>核心考察</td><td rowspan=1 colspan=1>主要平台</td></tr><tr><td rowspan=1 colspan=1>3.1 RTL/HLS 本地智能体设计赛道</td><td rowspan=1 colspan=1>不限</td><td rowspan=1 colspan=1>本地模型与智能体在硬件设计任务上的通过率与增益</td><td rowspan=1 colspan=1>AMD Radeon 显卡 +Vivado / Vitis</td></tr><tr><td rowspan=1 colspan=1>3.2 具身智能赛道</td><td rowspan=1 colspan=1>不限</td><td rowspan=1 colspan=1>端侧 AI 与 FPGA/Zynq 协同的物理任务闭环</td><td rowspan=1 colspan=1>任意 AMD Ryzen AI PC +任意 AMD FPGA / Zynq /Versal</td></tr><tr><td rowspan=1 colspan=1>3.3 自主选题赛道（初级组)</td><td rowspan=1 colspan=1>大学一年级至三年级在读本科生</td><td rowspan=1 colspan=1>基本 FPGA 设计能力与作品完整度</td><td rowspan=1 colspan=1>可使用 AMD 7 SeriesFPGA、Zynq-7000 SoC、UltraScale 或 UltraScale+系列器件。</td></tr><tr><td rowspan=1 colspan=1>3.3 自主选题赛道（高级组)</td><td rowspan=1 colspan=1>大学四年级本科生及在读硕士生</td><td rowspan=1 colspan=1>软硬件协同与器件整体性能的发挥</td><td rowspan=1 colspan=1>可使用任意 AMDFPGA、Zynq AdaptiveSoC 或 Versal AdaptiveSoC 器件，不设逻辑资源限制。</td></tr></table>",
+        "bbox": [
+            115,
+            205,
+            880,
+            499
+        ],
+        "page_idx": 7
+    },
+    {
+        "type": "header",
+        "text": "全国大学生嵌入式芯片与系统设计竞赛'2026 选题指南（AMD）",
+        "bbox": [
+            114,
+            42,
+            694,
+            60
+        ],
+        "page_idx": 7
+    },
+    {
+        "type": "page_number",
+        "text": "5",
+        "bbox": [
+            494,
+            920,
+            504,
+            932
+        ],
+        "page_idx": 7
+    },
+    {
+        "type": "text",
+        "text": "3.1 RTL/HLS 本地智能体设计赛道",
+        "text_level": 2,
+        "bbox": [
+            112,
+            82,
+            526,
+            103
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "text",
+        "text": "3.1.1 赛道简介",
+        "text_level": 2,
+        "bbox": [
+            114,
+            122,
+            267,
+            142
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "text",
+        "text": "近年来，大模型生成硬件代码的能力有所提升。现有公开评测结果主要反映模型在特定数据集和评价指标下的表现，与实际工程交付所要求的功能正确性、可综合性及约束收敛能力并不完全等同。除代码语言与语法能力外，工具反馈的利用方式、失败诊断与重试策略，以及模型外部领域知识的组织方式，也可能影响方案的工程表现。",
+        "bbox": [
+            112,
+            152,
+            880,
+            231
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "text",
+        "text": "模型参数量是影响结果的因素之一，但并非唯一因素。已有部分研究和评测表明，经过硬件领域专项训练或适配的较小模型，在特定任务上可能达到与更大规模通用模型相近或更好的表现。因此，在硬件设计任务中，除参数规模外，模型选择、知识组织与智能体设计也值得综合考虑。",
+        "bbox": [
+            112,
+            239,
+            880,
+            317
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "text",
+        "text": "基于上述背景，本赛道重点考察：在一张消费级或工作站级GPU 的算力与显存约束内，使用可本地部署的开源模型，并结合自行设计的智能体、领域知识以及AMD Vivado / Vitis 工具链的编译、仿真、运行与综合反馈，能够在多大程度上提高硬件设计任务的通过率，以及由此产生的时间和计算成本。",
+        "bbox": [
+            112,
+            324,
+            878,
+            404
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "text",
+        "text": "3.1.2 设计任务",
+        "text_level": 2,
+        "bbox": [
+            114,
+            419,
+            267,
+            439
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "text",
+        "text": "参赛队伍提交一套可在指定环境中运行的完整方案，使其在给定的硬件设计题集上尽可能多地产出功能正确的代码。",
+        "bbox": [
+            112,
+            449,
+            878,
+            487
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "text",
+        "text": "方案须包含",
+        "text_level": 2,
+        "bbox": [
+            114,
+            494,
+            213,
+            511
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "table",
+        "img_path": "images/2d665ece0ee7ad948f0d67187f95750e1a7326ee875ee61c3efb4e73311c2f1d.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>组成</td><td rowspan=1 colspan=1>内容</td></tr><tr><td rowspan=1 colspan=1>模型</td><td rowspan=1 colspan=1>可本地部署的开源权重，须声明来源与版本</td></tr><tr><td rowspan=1 colspan=1>推理栈</td><td rowspan=1 colspan=1>推理后端及其服务配置</td></tr><tr><td rowspan=1 colspan=1>智能体</td><td rowspan=1 colspan=1>控制流、重试策略、上下文管理、工具编排</td></tr><tr><td rowspan=1 colspan=1>技能包</td><td rowspan=1 colspan=1>提示词模板、校验脚本、踩坑清单等领域知识的组织</td></tr><tr><td rowspan=1 colspan=1>基线入口</td><td rowspan=1 colspan=1>绕过智能体与技能包的单次直接生成脚本，供赛事方计量增益项</td></tr></table>",
+        "bbox": [
+            115,
+            518,
+            880,
+            652
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "text",
+        "text": "提交物为一个基于官方基础镜像构建的容器，该容器在断网沙箱中运行，自行完成从读题到产出代码的全过程。",
+        "bbox": [
+            114,
+            669,
+            878,
+            706
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "table",
+        "img_path": "images/30412d438f62a7dea2da43ff04116dd45b7931a360e0f5e9c8a5733c6a6d7728.jpg",
+        "table_caption": [
+            "两个 track"
+        ],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>Track</td><td rowspan=1 colspan=1>目标语言</td></tr><tr><td rowspan=1 colspan=1>RTL</td><td rowspan=1 colspan=1>Verilog / SystemVerilog</td></tr><tr><td rowspan=1 colspan=1>HLS</td><td rowspan=1 colspan=1>Vitis HLS C++</td></tr></table>",
+        "bbox": [
+            117,
+            738,
+            880,
+            802
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "text",
+        "text": "两个 track 独立排名、独立评奖，推荐参赛队伍只选其一；若两个都做，则在两个榜单上分别计分，最终排名取其中较高的一个。",
+        "bbox": [
+            112,
+            818,
+            870,
+            856
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "text",
+        "text": "数据集",
+        "text_level": 2,
+        "bbox": [
+            114,
+            863,
+            178,
+            879
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "text",
+        "text": "开发阶段建议以下列公开数据集进行自测，并将实测结果写入设计报告：",
+        "bbox": [
+            114,
+            888,
+            700,
+            906
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "header",
+        "text": "全国大学生嵌入式芯片与系统设计竞赛'2026 选题指南（AMD）",
+        "bbox": [
+            114,
+            42,
+            694,
+            60
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "page_number",
+        "text": "6",
+        "bbox": [
+            492,
+            921,
+            505,
+            932
+        ],
+        "page_idx": 8
+    },
+    {
+        "type": "code",
+        "sub_type": "algorithm",
+        "code_caption": [],
+        "code_footnote": [],
+        "code_body": "RTL：可编译 → 仿真通过 → 可综合  \nHLS：可解析 → 可编译 可运行（通过全部测试用例） → 可综合",
+        "bbox": [
+            117,
+            361,
+            880,
+            403
+        ],
+        "page_idx": 9
+    },
+    {
+        "type": "text",
+        "text": "全国大学生嵌入式芯片与系统设计竞赛'2026 选题指南（AMD）",
+        "bbox": [
+            114,
+            42,
+            694,
+            60
+        ],
+        "page_idx": 9
+    },
+    {
+        "type": "table",
+        "img_path": "images/e4adf146255bc60ac9b1e9ca6881c7eedad0e24d2b25316a3b1f1ba27e64f3f4.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>数据集</td><td rowspan=1 colspan=1>适用 Track</td><td rowspan=1 colspan=1>地址</td></tr><tr><td rowspan=1 colspan=1>VerilogEval v2</td><td rowspan=1 colspan=1>RTL</td><td rowspan=1 colspan=1>https://github.com/NVlabs/verilog-eval(dataset_spec-to-rt1)</td></tr><tr><td rowspan=1 colspan=1>HLS-Eval</td><td rowspan=1 colspan=1>HLS</td><td rowspan=1 colspan=1>https://github.com/sharc-lab/HLS-Eval</td></tr></table>",
+        "bbox": [
+            115,
+            78,
+            880,
+            158
+        ],
+        "page_idx": 9
+    },
+    {
+        "type": "text",
+        "text": "参赛队伍亦可自行补充其他数据集，其结果一并写入报告。",
+        "bbox": [
+            114,
+            174,
+            593,
+            192
+        ],
+        "page_idx": 9
+    },
+    {
+        "type": "text",
+        "text": "评测阶段。 赛事方另备一套评测题集，赛前不公开，于评测窗口分发给决赛入围队伍。",
+        "bbox": [
+            112,
+            199,
+            818,
+            217
+        ],
+        "page_idx": 9
+    },
+    {
+        "type": "text",
+        "text": "题集赛前不公开，方案在其上的表现构成泛化能力的真值。窗口内不得修改方案代码、技能包或模型权重，提交材料的哈希须与作品提交阶段的方案包一致；赛事方以队伍提交的容器与脚本抽查复现。评测题集的题量与构成于赛前公告。",
+        "bbox": [
+            112,
+            224,
+            880,
+            284
+        ],
+        "page_idx": 9
+    },
+    {
+        "type": "text",
+        "text": "判定口径",
+        "text_level": 2,
+        "bbox": [
+            114,
+            291,
+            196,
+            307
+        ],
+        "page_idx": 9
+    },
+    {
+        "type": "text",
+        "text": "两个 track 均采用分级判定，逐级递进，只有通过前一级才进入下一级。全部判定在AMDVivado / Vitis 2025.2 工具链上完成。",
+        "bbox": [
+            112,
+            316,
+            843,
+            354
+        ],
+        "page_idx": 9
+    },
+    {
+        "type": "table",
+        "img_path": "images/7a99e83e860e80ec2d0c884ef16ae7a8c1227a91f6190c0cda20a863a78b5128.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>RTL 级别</td><td rowspan=1 colspan=1>判定方式</td></tr><tr><td rowspan=1 colspan=1>可编译</td><td rowspan=1 colspan=1>xvlog 分析与 xelab 详细描述通过</td></tr><tr><td rowspan=1 colspan=1>仿真通过</td><td rowspan=1 colspan=1>xsim运行参考测试台，与参考实现逐拍比对无差异</td></tr><tr><td rowspan=1 colspan=1>可综合</td><td rowspan=1 colspan=1>在xczu3eg-sbva484-1-e上 synth_design产出网表且无 ERROR</td></tr></table>",
+        "bbox": [
+            115,
+            417,
+            880,
+            506
+        ],
+        "page_idx": 9
+    },
+    {
+        "type": "text",
+        "text": "目标器件统一为 \\`xczu3eg-sbva484-1-e\\`，时钟约束 5 ns，RTL 与 HLS 两个 track 使用同一器件。 HLS 侧四级全部由 Vitis HLS 完成，两个 track 均同时报告 pass@1 与 pass@5。",
+        "bbox": [
+            112,
+            523,
+            863,
+            562
+        ],
+        "page_idx": 9
+    },
+    {
+        "type": "text",
+        "text": "3.1.3 设计与优化要求",
+        "text_level": 2,
+        "bbox": [
+            112,
+            575,
+            339,
+            596
+        ],
+        "page_idx": 9
+    },
+    {
+        "type": "text",
+        "text": "3.1.3.1 测试环境",
+        "text_level": 2,
+        "bbox": [
+            114,
+            611,
+            263,
+            629
+        ],
+        "page_idx": 9
+    },
+    {
+        "type": "text",
+        "text": "开发阶段不限平台。 参赛队伍可使用任何可获取的算力完成开发与迭代，赛事方不作限制也不提供配额。",
+        "bbox": [
+            112,
+            651,
+            865,
+            689
+        ],
+        "page_idx": 9
+    },
+    {
+        "type": "text",
+        "text": "验证阶段提供 ROCm 验证平台，供队伍确认方案可在赛事方环境中运行，建议尽早完成一次跑通验证。",
+        "bbox": [
+            112,
+            697,
+            872,
+            736
+        ],
+        "page_idx": 9
+    },
+    {
+        "type": "text",
+        "text": "● 模型须能在单张 32 GB 卡上完整容纳，不允许跨卡。 不设参数量上限，改以显存为约束。参数量与显存占用并不等价，作为参照：32B 级模型须经 4-bit 量化方可容纳（约 18 GB），FP16 下约需 64 GB 而装不下；7B 级模型可直接使用 FP16（约 14 GB）。",
+        "bbox": [
+            157,
+            743,
+            873,
+            801
+        ],
+        "page_idx": 9
+    },
+    {
+        "type": "text",
+        "text": "● 上下文长度不作统一约束，由参赛队伍自定，但须在 MODEL.md 与设计报告中如实声明。",
+        "bbox": [
+            154,
+            807,
+            880,
+            843
+        ],
+        "page_idx": 9
+    },
+    {
+        "type": "text",
+        "text": "● 云资源经AMD 中国开发者平台申请，配额另行公告。本赛道具体的验证窗口和测评窗口时间点将另行公告。",
+        "bbox": [
+            156,
+            850,
+            878,
+            888
+        ],
+        "page_idx": 9
+    },
+    {
+        "type": "text",
+        "text": "● 已自行具备 ROCm 环境的队伍可不使用赛事方云资源，但仍须提交可在赛事方环",
+        "bbox": [
+            193,
+            892,
+            870,
+            910
+        ],
+        "page_idx": 9
+    },
+    {
+        "type": "page_number",
+        "text": "7",
+        "bbox": [
+            494,
+            921,
+            505,
+            932
+        ],
+        "page_idx": 9
+    },
+    {
+        "type": "text",
+        "text": "境中重建的容器与脚本。",
+        "bbox": [
+            156,
+            80,
+            356,
+            97
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "text",
+        "text": "3.1.3.2 固定与开放的部分",
+        "text_level": 2,
+        "bbox": [
+            114,
+            110,
+            342,
+            128
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "table",
+        "img_path": "images/e13b3fb71fe745be65e4e4c0c7c97cdb2d59ce7f2e08358ff9ee5e3d98a41907.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>内容</td></tr><tr><td rowspan=1 colspan=1>赛事方固定</td><td rowspan=1 colspan=1>基础镜像与EDA工具链(只提供Vivado/Vitis，不含第三方工具)、题集与评分器、显存与时间预算</td></tr><tr><td rowspan=1 colspan=1>队伍自主</td><td rowspan=1 colspan=1>模型选择与量化、推理后端与服务参数、上下文长度与单次输出上限、智能体全部设计、技能包与提示词、是否微调</td></tr></table>",
+        "bbox": [
+            115,
+            134,
+            880,
+            241
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "text",
+        "text": "3.1.3.3 微调与专用模型",
+        "text_level": 2,
+        "bbox": [
+            114,
+            266,
+            322,
+            284
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "text",
+        "text": "允许微调，微调后的权重须开源并在提交物中声明，赛事方不提供训练算力；亦允许直接使用已有的硬件专用开源模型，但须在MODEL.md 中声明其来源与版本。",
+        "bbox": [
+            112,
+            292,
+            878,
+            330
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "text",
+        "text": "3.1.4 优化目标",
+        "text_level": 2,
+        "bbox": [
+            114,
+            346,
+            268,
+            365
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "text",
+        "text": "● 提高评测题集上分级判定的通过率，尤其是「可综合」这一末级",
+        "bbox": [
+            193,
+            375,
+            734,
+            392
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "text",
+        "text": "● 缩小 pass@1 与 pass@5 的差值，即提升方案稳定性",
+        "bbox": [
+            193,
+            398,
+            630,
+            414
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "text",
+        "text": "● 提升相对同模型裸跑基线的增益幅度",
+        "bbox": [
+            194,
+            420,
+            514,
+            437
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "text",
+        "text": "● 降低单题与总墙钟时间",
+        "bbox": [
+            194,
+            443,
+            401,
+            460
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "text",
+        "text": "● 将失败诊断经验提炼为他人可复用的技能包",
+        "bbox": [
+            194,
+            466,
+            568,
+            483
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "text",
+        "text": "3.1.5 提交内容",
+        "text_level": 2,
+        "bbox": [
+            114,
+            499,
+            268,
+            519
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "text",
+        "text": "3.1.5.1 方案包 (参考)",
+        "text_level": 2,
+        "bbox": [
+            114,
+            535,
+            300,
+            552
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "code",
+        "sub_type": "algorithm",
+        "code_caption": [],
+        "code_footnote": [],
+        "code_body": "<team\\_name>-agent/  \nDockerfile # 基于官方基础镜像构建  \nmodel/  \n└── MODEL.md # 模型来源、版本、量化方式、显存占用、上下文配置  \nagent/ # 智能体源码  \nskill/ # 技能包  \nserve/ # 推理服务配置与启动脚本  \nrun.sh # 单题入口：读题 → 产出代码  \nrun\\_baseline.sh # 基线入口：同一推理服务，绕过智能体与技能包  \nREPORT.md # 设计报告",
+        "bbox": [
+            126,
+            564,
+            732,
+            706
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "text",
+        "text": "3.1.5.2 基线入口",
+        "text_level": 2,
+        "bbox": [
+            114,
+            736,
+            260,
+            752
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "text",
+        "text": "run\\_baseline.sh 与 run.sh 使用同一推理服务与同一上下文配置，但绕过智能体与技能包，提示词仅含题目本身，单次生成、不重试、不调用工具。其结果作为增益项的基线，须与run.sh 在同一次运行中产出。",
+        "bbox": [
+            112,
+            760,
+            878,
+            819
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "text",
+        "text": "3.1.5.3 模型声明",
+        "text_level": 2,
+        "bbox": [
+            114,
+            831,
+            262,
+            848
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "text",
+        "text": "MODEL.md 中须写明模型来源（仓库地址与版本号，或权重文件的校验和）、量化方式、实测显存占用与上下文配置，若经微调，须补充基座模型、微调方式、训练数据来源与微调权重的开源地址。",
+        "bbox": [
+            112,
+            857,
+            882,
+            914
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "header",
+        "text": "全国大学生嵌入式芯片与系统设计竞赛'2026 选题指南（AMD）",
+        "bbox": [
+            114,
+            42,
+            692,
+            60
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "page_number",
+        "text": "8",
+        "bbox": [
+            492,
+            921,
+            505,
+            932
+        ],
+        "page_idx": 10
+    },
+    {
+        "type": "text",
+        "text": "3.1.5.4 设计报告",
+        "text_level": 2,
+        "bbox": [
+            114,
+            80,
+            262,
+            97
+        ],
+        "page_idx": 11
+    },
+    {
+        "type": "text",
+        "text": "● 方案总体架构与设计依据",
+        "bbox": [
+            193,
+            107,
+            421,
+            122
+        ],
+        "page_idx": 11
+    },
+    {
+        "type": "text",
+        "text": "● 模型选择的理由，包括曾评估过并放弃的候选及原因",
+        "bbox": [
+            193,
+            128,
+            643,
+            145
+        ],
+        "page_idx": 11
+    },
+    {
+        "type": "text",
+        "text": "● 智能体设计：控制流、重试与回退策略、上下文管理方式",
+        "bbox": [
+            193,
+            151,
+            680,
+            168
+        ],
+        "page_idx": 11
+    },
+    {
+        "type": "text",
+        "text": "● 技能包的提炼过程：从哪些失败中总结、如何验证有效",
+        "bbox": [
+            193,
+            173,
+            662,
+            190
+        ],
+        "page_idx": 11
+    },
+    {
+        "type": "text",
+        "text": "● 在所选数据集上的实测结果",
+        "bbox": [
+            194,
+            197,
+            440,
+            214
+        ],
+        "page_idx": 11
+    },
+    {
+        "type": "text",
+        "text": "● 失败分析：哪一类题目仍然做不出来，原因是什么",
+        "bbox": [
+            193,
+            219,
+            623,
+            236
+        ],
+        "page_idx": 11
+    },
+    {
+        "type": "text",
+        "text": "● 复现说明",
+        "bbox": [
+            194,
+            242,
+            292,
+            259
+        ],
+        "page_idx": 11
+    },
+    {
+        "type": "text",
+        "text": "3.1.5.5 评测指标与权重",
+        "text_level": 2,
+        "bbox": [
+            114,
+            273,
+            322,
+            290
+        ],
+        "page_idx": 11
+    },
+    {
+        "type": "table",
+        "img_path": "images/e78d4b5b4663923a5b8fcc8d9ddfab92f86853050d7794f841f93bc527633c36.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>评测项</td><td rowspan=1 colspan=1>权重</td></tr><tr><td rowspan=1 colspan=1>能力：题集加权通过率</td><td rowspan=1 colspan=1>30</td></tr><tr><td rowspan=1 colspan=1>增益：相对同模型裸跑基线的提升</td><td rowspan=1 colspan=1>40</td></tr><tr><td rowspan=1 colspan=1>代价：墙钟效率</td><td rowspan=1 colspan=1>10</td></tr><tr><td rowspan=1 colspan=1>智能体与技能包的工程质量</td><td rowspan=1 colspan=1>20</td></tr><tr><td rowspan=1 colspan=1>合计</td><td rowspan=1 colspan=1>100</td></tr></table>",
+        "bbox": [
+            115,
+            297,
+            880,
+            431
+        ],
+        "page_idx": 11
+    },
+    {
+        "type": "text",
+        "text": "注：提交内容的方案包，评分公式、判定阈值与各项预算的具体数值以后续分享的本赛道《评分细则》为准。",
+        "bbox": [
+            114,
+            447,
+            880,
+            485
+        ],
+        "page_idx": 11
+    },
+    {
+        "type": "text",
+        "text": "3.1.6 赛程安排",
+        "text_level": 2,
+        "bbox": [
+            114,
+            500,
+            268,
+            520
+        ],
+        "page_idx": 11
+    },
+    {
+        "type": "text",
+        "text": "报名提交等各节点均以大赛官方公布为准，见 http://www.fpgachina.cn/。",
+        "bbox": [
+            112,
+            530,
+            692,
+            548
+        ],
+        "page_idx": 11
+    },
+    {
+        "type": "text",
+        "text": "开发阶段不限平台，队伍可自备算力。验证阶段将开放赛事方云资源，可供队伍在 ROCm 上验证方案可运行并产出自测数据，具体时间点后续公告。",
+        "bbox": [
+            112,
+            556,
+            867,
+            594
+        ],
+        "page_idx": 11
+    },
+    {
+        "type": "header",
+        "text": "全国大学生嵌入式芯片与系统设计竞赛'2026 选题指南（AMD）",
+        "bbox": [
+            114,
+            42,
+            694,
+            60
+        ],
+        "page_idx": 11
+    },
+    {
+        "type": "page_number",
+        "text": "9",
+        "bbox": [
+            494,
+            920,
+            504,
+            932
+        ],
+        "page_idx": 11
+    },
+    {
+        "type": "text",
+        "text": "3.2 具身智能赛道",
+        "text_level": 2,
+        "bbox": [
+            112,
+            82,
+            322,
+            103
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "text",
+        "text": "3.2.1 赛道简介",
+        "text_level": 2,
+        "bbox": [
+            112,
+            122,
+            267,
+            142
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "text",
+        "text": "具身智能系统需要在真实环境中完成感知、决策和执行。在机器人、智能制造、工业控制和边缘视觉等应用中，端侧AI 负责判断，高速传感和实时控制负责把判断转成设备动作。这条链路的难点不在任何单一环节，而在于闭环：模型再准，若判断到动作之间的延迟不可控、抖动不可测，系统在物理世界中依然不可用。",
+        "bbox": [
+            112,
+            152,
+            880,
+            231
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "text",
+        "text": "本赛道要求参赛队伍使用AMD Ryzen AI PC 与 FPGA/Zynq 搭建异构协同的具身智能系统。AIPC 负责端侧感知与决策，FPGA/Zynq 负责实时控制和物理接口，两者共同完成一项真实的物理任务。",
+        "bbox": [
+            110,
+            239,
+            877,
+            297
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "text",
+        "text": "系统分工如下：",
+        "text_level": 2,
+        "bbox": [
+            114,
+            305,
+            238,
+            321
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "table",
+        "img_path": "images/78322960f0680cb829edb4b057ec3dc7bc7bb0069273d6a115d434e48c61ace2.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>角色</td><td rowspan=1 colspan=1>职责</td></tr><tr><td rowspan=1 colspan=1>Ryzen AI PC</td><td rowspan=1 colspan=1>端侧AI推理、任务规划、人机交互、上层决策与系统调度</td></tr><tr><td rowspan=1 colspan=1>AMD FPGA / Zynq 板卡</td><td rowspan=1 colspan=1>高速传感接入、实时处理、IO扩展、运动控制、安全逻辑或低延迟数据桥接</td></tr><tr><td rowspan=1 colspan=1>两端协同</td><td rowspan=1 colspan=1>通信、数据流、时间同步与控制闭环，共同完成感知—理解—决策—控制—执行</td></tr><tr><td rowspan=1 colspan=1>可复用 Skill / Workflow</td><td rowspan=1 colspan=1>将部署、硬件调用、模型推理、控制接口与调试方法封装为可迁移的能力（加分项)</td></tr></table>",
+        "bbox": [
+            115,
+            328,
+            880,
+            457
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "text",
+        "text": "3.2.2 设计任务",
+        "text_level": 2,
+        "bbox": [
+            114,
+            486,
+            267,
+            505
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "text",
+        "text": "参赛队伍自主选择应用场景，完成一套由 Ryzen AI PC 与 FPGA/Zynq 协同实现的具身智能系统，并至少完成一项真实物理任务。",
+        "bbox": [
+            112,
+            516,
+            863,
+            554
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "text",
+        "text": "3.2.2.1 核心命题",
+        "text_level": 2,
+        "bbox": [
+            114,
+            567,
+            263,
+            585
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "text",
+        "text": "作品必须使用AMD AI PC 作为上位机，运行端侧AI 推理、任务决策、人机交互或系统调度。系统还必须包含FPGA/Zynq 设计，用于高速传感接入、实时数据处理、IO 扩展、运动控制、安全逻辑或低延迟桥接。FPGA/Zynq 不能只用作普通 USB、串口或 GPIO 转接板。队伍须说明其硬件功能和设计方法，并用演示或测试数据说明实际作用。机械结构可以简化，但AI 决策到物理执行的闭环必须完整。",
+        "bbox": [
+            112,
+            592,
+            872,
+            692
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "text",
+        "text": "3.2.2.2 选题方向",
+        "text_level": 2,
+        "bbox": [
+            114,
+            703,
+            262,
+            720
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "text",
+        "text": "选题可以是以下方向之一，也可自行提出：",
+        "bbox": [
+            112,
+            728,
+            460,
+            746
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "text",
+        "text": "● 智能移动机器人导航与避障",
+        "bbox": [
+            193,
+            755,
+            438,
+            771
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "text",
+        "text": "● 视觉识别与自动分拣",
+        "bbox": [
+            193,
+            777,
+            384,
+            794
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "text",
+        "text": "● AI 机械臂抓取与控制",
+        "bbox": [
+            193,
+            800,
+            388,
+            815
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "text",
+        "text": "● 高清视觉检测与实时执行",
+        "bbox": [
+            194,
+            822,
+            420,
+            838
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "text",
+        "text": "● 多传感器融合与运动控制",
+        "bbox": [
+            194,
+            845,
+            420,
+            862
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "text",
+        "text": "● 人机交互驱动的智能执行系统",
+        "bbox": [
+            193,
+            869,
+            458,
+            884
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "text",
+        "text": "● 工业场景下的安全监测与实时控制",
+        "bbox": [
+            193,
+            891,
+            494,
+            907
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "header",
+        "text": "全国大学生嵌入式芯片与系统设计竞赛'2026 选题指南（AMD）",
+        "bbox": [
+            114,
+            42,
+            694,
+            60
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "page_number",
+        "text": "10",
+        "bbox": [
+            489,
+            920,
+            509,
+            932
+        ],
+        "page_idx": 12
+    },
+    {
+        "type": "text",
+        "text": "3.2.2.3 必须完成的技术链路",
+        "text_level": 2,
+        "bbox": [
+            112,
+            80,
+            364,
+            98
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "（1）AI PC 端。 AI PC 负责以下一项或多项功能：",
+        "bbox": [
+            122,
+            105,
+            524,
+            123
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "● 本地 AI 推理",
+        "bbox": [
+            193,
+            130,
+            321,
+            148
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "● 图像、语音、传感器或多模态信息理解",
+        "bbox": [
+            193,
+            153,
+            532,
+            171
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "● 任务决策与路径规划",
+        "bbox": [
+            193,
+            177,
+            384,
+            193
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "● 上位机控制界面",
+        "bbox": [
+            193,
+            199,
+            347,
+            216
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "● 与 FPGA/Zynq 通信",
+        "bbox": [
+            193,
+            222,
+            374,
+            239
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "● 系统状态监控与日志记录",
+        "bbox": [
+            193,
+            243,
+            420,
+            261
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "● 策略模型运行",
+        "bbox": [
+            193,
+            267,
+            329,
+            284
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "队伍需要说明端侧运行带来的具体收益，如降低延迟、数据本地处理、离线运行，或与物理控制系统实时协同。",
+        "bbox": [
+            114,
+            290,
+            880,
+            328
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "（2）实时控制与数据预处理。 FPGA/Zynq 必须承担至少一项以下功能：",
+        "bbox": [
+            124,
+            335,
+            700,
+            353
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "● 实时 IO 控制",
+        "bbox": [
+            193,
+            361,
+            321,
+            378
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "● 电机、舵机或步进电机控制",
+        "bbox": [
+            193,
+            384,
+            440,
+            400
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "● 高清摄像头或高速传感器数据接入",
+        "bbox": [
+            193,
+            406,
+            494,
+            423
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "● 10G Ethernet 高速数据传输",
+        "bbox": [
+            193,
+            430,
+            431,
+            445
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "● AI PC 与底层设备之间的实时桥接",
+        "bbox": [
+            193,
+            451,
+            489,
+            469
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "● 图像预处理或数据流加速",
+        "bbox": [
+            193,
+            474,
+            420,
+            492
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "● 多传感器同步采集和融合",
+        "bbox": [
+            193,
+            498,
+            420,
+            514
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "● 低延迟安全保护逻辑",
+        "bbox": [
+            193,
+            520,
+            384,
+            537
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "● 自定义 RTL/HLS 模块、AXI 外设、Block Design 或 PYNQ Overlay",
+        "bbox": [
+            193,
+            543,
+            747,
+            560
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "FPGA/Zynq 端必须包含明确的硬件逻辑或系统设计，队伍须说明其实现，并现场演示或提供测试结果。评测将关注它在实时处理、并行计算、低延迟、高带宽、接口扩展或可靠控制中的实际作用。",
+        "bbox": [
+            112,
+            565,
+            882,
+            624
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "（3）两端协同。必须给出AI PC 与FPGA/Zynq 的通信方式、数据流与时间同步方案，并说明通信异常时的处理策略。简单地把两套设备连起来不视为协同。",
+        "bbox": [
+            112,
+            631,
+            884,
+            670
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "3.2.2.4 平台选择",
+        "text_level": 2,
+        "bbox": [
+            112,
+            682,
+            263,
+            700
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "平台不作限定。 上位机可使用任意 AMD Ryzen AI PC，FPGA 侧可使用任意 AMD FPGA、Zynq 或 Versal 板卡，队伍按选题需要自行选择，并在提交物中声明具体型号。",
+        "bbox": [
+            110,
+            707,
+            838,
+            746
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "赛事方可提供借用的型号为 Ryzen AI Max+ 395 / Ryzen AI 9 HX 370 整机，以及 KR260、PYNQ-Z2 与 SEA（Spartan Edge Accelerator）板卡，规格与接口见第二节《竞赛技术平台》，申请方式见3.2.3.2。这三款板卡在本赛道的适用方向为：",
+        "bbox": [
+            112,
+            753,
+            853,
+            813
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "table",
+        "img_path": "images/c53ee748d2478d477ba7dc56bd053a479d7c881d36a846e5651445992299ca3d.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>平台</td><td rowspan=1 colspan=1>适合方向</td></tr><tr><td rowspan=1 colspan=1>KR260</td><td rowspan=1 colspan=1>高速视觉与实时传输：10GEthernet高速数据通道、高清摄像头接入、多路视频或高带宽传感数据、FPGA侧图像预处理、AIPC与板卡间高速流式传输；机器人视觉、工业检测、高清巡检</td></tr><tr><td rowspan=1 colspan=1>PYNQ-Z2</td><td rowspan=1 colspan=1>Python 一体化控制与快速原型： Python 一体化 AI 识别与舵机/电机控制、基于 Overlay</td></tr></table>",
+        "bbox": [
+            115,
+            818,
+            880,
+            916
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "header",
+        "text": "全国大学生嵌入式芯片与系统设计竞赛'2026 选题指南（AMD）",
+        "bbox": [
+            114,
+            42,
+            695,
+            60
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "page_number",
+        "text": "11",
+        "bbox": [
+            490,
+            921,
+            509,
+            932
+        ],
+        "page_idx": 13
+    },
+    {
+        "type": "text",
+        "text": "全国大学生嵌入式芯片与系统设计竞赛'2026 选题指南（AMD）",
+        "bbox": [
+            114,
+            42,
+            694,
+            60
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "table",
+        "img_path": "images/341a2be6bb6c5d0bc045ac5c60183cb5ebbe16688e42f071c119bca0625d5a68.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td></td><td>的传感器采集与智能执行、桌面级具身智能原型系统</td></tr><tr><td>SEA板卡</td><td>IO扩展与执行控制：多传感器融合与执行器联动、智能工位或自动化控制演示、基于 AI决策的安全监测与实时控制</td></tr></table>",
+        "bbox": [
+            115,
+            78,
+            880,
+            137
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "text",
+        "text": "使用 PYNQ 框架时，AI PC 端可通过 Python 运行AI 模型并生成控制指令，再由板卡的 Python环境调用FPGA Overlay，完成传感器采集、执行器控制或实时逻辑处理。PYNQ 的Python 环境只是统一调用接口，不能替代 FPGA/Zynq 设计，作品仍须包含 FPGA Overlay、Zynq PL/PS协同设计或硬件逻辑。",
+        "bbox": [
+            110,
+            153,
+            878,
+            233
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "text",
+        "text": "3.2.2.5 Skill 与 Agentic Robotics 扩展（加分项）",
+        "text_level": 2,
+        "bbox": [
+            112,
+            246,
+            531,
+            263
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "text",
+        "text": "完成系统演示后，队伍还可开发用于部署和Agentic Robotics 的 Skill、工具脚本或标准化工作流。",
+        "bbox": [
+            112,
+            271,
+            872,
+            309
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "text",
+        "text": "这里的Skill 是可复用的能力封装，可供开发者或智能体调用，例如：",
+        "bbox": [
+            112,
+            316,
+            670,
+            334
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "text",
+        "text": "● AI PC 端模型部署、启动和推理调用",
+        "bbox": [
+            193,
+            342,
+            509,
+            357
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "text",
+        "text": "● AI PC 与 FPGA/Zynq 的通信初始化和状态检查",
+        "bbox": [
+            193,
+            365,
+            591,
+            380
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "text",
+        "text": "● KR260 高清视频流采集、10G Ethernet 传输或图像预处理调用",
+        "bbox": [
+            193,
+            387,
+            710,
+            404
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "text",
+        "text": "● PYNQ-Z2 Overlay 加载、IO 控制和传感器读取",
+        "bbox": [
+            193,
+            410,
+            591,
+            426
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "text",
+        "text": "● SEA 板卡执行器控制、安全状态机或故障恢复流程",
+        "bbox": [
+            193,
+            432,
+            625,
+            449
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "text",
+        "text": "● 机器人任务分解、动作调用、日志记录和调试流程",
+        "bbox": [
+            193,
+            455,
+            623,
+            472
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "text",
+        "text": "队伍可以说明Skill 或工作流如何复用现有成果，例如把小车方案迁移到机械臂、将单摄像头扩展为多传感器，或把单一指令控制扩展为Agentic Robotics 的任务规划和自主执行。",
+        "bbox": [
+            112,
+            478,
+            867,
+            516
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "text",
+        "text": "此项不影响参赛资格，在工程完成度、创新性和可扩展性中加分。",
+        "bbox": [
+            114,
+            524,
+            647,
+            542
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "text",
+        "text": "3.2.3 设计与优化要求",
+        "text_level": 2,
+        "bbox": [
+            112,
+            556,
+            339,
+            576
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "text",
+        "text": "3.2.3.1 平台与器件限制",
+        "text_level": 2,
+        "bbox": [
+            112,
+            592,
+            324,
+            609
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "text",
+        "text": "● 上位机必须为 AMD RYZEN AI PC，型号不限，须在提交物中声明整机型号、处理器型号、内存容量与驱动版本。",
+        "bbox": [
+            154,
+            617,
+            870,
+            655
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "text",
+        "text": "● AI PC 侧的软件栈须使用 ROCm 7.14.0 及以上版本，并在提交物中声明实际使用的版本。",
+        "bbox": [
+            154,
+            659,
+            882,
+            697
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "text",
+        "text": "● FPGA 侧可使用任意 AMD FPGA、Zynq 或 Versal 板卡，须在提交物中声明具体板卡与器件型号。",
+        "bbox": [
+            154,
+            703,
+            884,
+            740
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "text",
+        "text": "● 应选择自身可实际获取并完成板级验证的平台。作品须在真实硬件上跑通并提供实测输出，不接受纯仿真结果。",
+        "bbox": [
+            154,
+            746,
+            882,
+            784
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "text",
+        "text": "3.2.3.2 AI PC 支持申请",
+        "text_level": 2,
+        "bbox": [
+            112,
+            797,
+            321,
+            814
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "text",
+        "text": "平台不限并不意味着队伍须自行采购。赛事方为本赛道提供有限数量的Ryzen AI Max+ 395 /Ryzen AI 9 HX 370 整机借用支持，经中期申请报告评审后发放：",
+        "bbox": [
+            112,
+            822,
+            862,
+            860
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "table",
+        "img_path": "images/707a5025b2d329010022fdae9f50300df15722d79fbb145f265cfa3b3c09b25f.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>节点</td><td rowspan=1 colspan=1>时间</td><td rowspan=1 colspan=1>说明</td></tr><tr><td rowspan=1 colspan=1>中期申请报告提交</td><td rowspan=1 colspan=1>2026年10月9日</td><td rowspan=1 colspan=1>队伍提交项目 proposal 与中期进展</td></tr></table>",
+        "bbox": [
+            115,
+            866,
+            880,
+            912
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "page_number",
+        "text": "12",
+        "bbox": [
+            489,
+            920,
+            509,
+            932
+        ],
+        "page_idx": 14
+    },
+    {
+        "type": "text",
+        "text": "全国大学生嵌入式芯片与系统设计竞赛'2026 选题指南（AMD）",
+        "bbox": [
+            114,
+            42,
+            694,
+            60
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "table",
+        "img_path": "images/9ee8ad8752af05f4da07f962757053d0d831e35fe77e97aa4f039d0ab619ecf6.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>评审与结果发布</td><td rowspan=1 colspan=1>2026年10月13日</td><td rowspan=1 colspan=1>评选出10 个优秀项目</td></tr><tr><td rowspan=1 colspan=1>机器发放</td><td rowspan=1 colspan=1>2026年10月13日起</td><td rowspan=1 colspan=1>为入选的10 个项目提供Ryzen AIMax+ 395 或 Ryzen AI 9 HX 370 机器支持</td></tr></table>",
+        "bbox": [
+            115,
+            78,
+            880,
+            156
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "未获得机器支持的队伍可使用自备的任意AMDRYZEN AI PC 参赛，不影响评分。",
+        "bbox": [
+            114,
+            173,
+            783,
+            190
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "FPGA 板卡方面，赛事方可提供 KR260、PYNQ-Z2 与 SEA 板卡的借用支持，申请方式另行公告；队伍亦可使用自备的任意 AMD FPGA、Zynq 或 Versal 板卡。",
+        "bbox": [
+            112,
+            198,
+            872,
+            236
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "3.2.3.3 基本技术要求",
+        "text_level": 2,
+        "bbox": [
+            112,
+            248,
+            304,
+            267
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "1. 必须使用 AMD RYZEN AI PC 作为上位机，型号不限。",
+        "bbox": [
+            193,
+            274,
+            653,
+            291
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "2. 必须包含基于AMD 器件的 FPGA/Zynq 设计，并说明其在系统中的实际作用。",
+        "bbox": [
+            191,
+            297,
+            842,
+            313
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "3. FPGA/Zynq 不能仅作为普通 USB、串口或 GPIO 转接板使用。",
+        "bbox": [
+            193,
+            319,
+            714,
+            337
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "4. 必须给出 AI PC 与 FPGA/Zynq 的通信方式和数据流。",
+        "bbox": [
+            191,
+            343,
+            643,
+            359
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "5. 必须提供系统架构图、数据流图和关键模块说明。",
+        "bbox": [
+            193,
+            366,
+            616,
+            381
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "6. 鼓励使用 Python 打通 AI PC 与 PYNQ-Z2/KR260 的控制流程。",
+        "bbox": [
+            191,
+            388,
+            712,
+            404
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "7. 鼓励使用 10G Ethernet、高清摄像头、多传感器、硬件加速或实时控制能力。",
+        "bbox": [
+            193,
+            411,
+            831,
+            428
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "8. 鼓励将部署、调试、硬件调用或机器人任务流程封装为可复用 Skill、工具脚本或标准化工作流。",
+        "bbox": [
+            156,
+            434,
+            870,
+            472
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "3.2.4 优化目标与量化指标",
+        "text_level": 2,
+        "bbox": [
+            112,
+            487,
+            386,
+            507
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "3.2.4.1 优化目标",
+        "text_level": 2,
+        "bbox": [
+            112,
+            521,
+            263,
+            539
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "● 提高任务闭环成功率，降低人工干预次数",
+        "bbox": [
+            193,
+            548,
+            551,
+            564
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "● 压缩端到端响应延迟，尤其是 P95 / P99 与最大值，而非平均值",
+        "bbox": [
+            193,
+            570,
+            722,
+            587
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "● 提高 FPGA/Zynq 在系统中的可量化贡献",
+        "bbox": [
+            193,
+            593,
+            541,
+            609
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "● 降低控制周期抖动与截止期未命中率",
+        "bbox": [
+            193,
+            615,
+            514,
+            632
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "● 在满足性能与时序的前提下合理使用片上资源",
+        "bbox": [
+            193,
+            638,
+            588,
+            655
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "● 将部署、调试与硬件调用经验提炼为他人可复用的 Skill 或工作流",
+        "bbox": [
+            193,
+            661,
+            742,
+            678
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "3.2.4.2 指标报告口径",
+        "text_level": 2,
+        "bbox": [
+            114,
+            692,
+            304,
+            709
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "每个技术评分项至少要有一项可复测数据。作品必须报告五类核心指标：任务闭环成功率、端到端响应延迟、AI 任务效果和推理性能、FPGA/Zynq 的量化贡献，以及 AI PC 与 FPGA/Zynq的通信性能。再按场景补充至少两项指标，可从视觉、控制、吞吐、可靠性、功耗或复用中选择。",
+        "bbox": [
+            112,
+            717,
+            880,
+            796
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "3.2.4.3 核心必报指标",
+        "text_level": 2,
+        "bbox": [
+            114,
+            808,
+            304,
+            826
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "table",
+        "img_path": "images/48254ccb9a58300426600ae3cddbca85a0e4d074e6b28d1ce15ba762c931be98.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>指标</td><td rowspan=1 colspan=1>口径</td></tr><tr><td rowspan=1 colspan=1>任务闭环成功率</td><td rowspan=1 colspan=1>完整任务的成功次数除以有效测试总次数。测试前需定义成功、失败和人工干预，并说明测试次数</td></tr><tr><td rowspan=1 colspan=1>端到端响应延迟</td><td rowspan=1 colspan=1>从传感器产生数据或完成采集，到执行器产生实际物理响应的时间。需说明测量起点和</td></tr></table>",
+        "bbox": [
+            115,
+            832,
+            880,
+            916
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "page_number",
+        "text": "13",
+        "bbox": [
+            489,
+            921,
+            509,
+            932
+        ],
+        "page_idx": 15
+    },
+    {
+        "type": "text",
+        "text": "全国大学生嵌入式芯片与系统设计竞赛'2026 选题指南（AMD）",
+        "bbox": [
+            114,
+            42,
+            694,
+            60
+        ],
+        "page_idx": 16
+    },
+    {
+        "type": "table",
+        "img_path": "images/20e8782ce283986927bfa4b0b99f5baecb11923d28f782ac379166c73e991cac.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>终点，并报告P50、P95、P99和最大值，不能只给平均值</td></tr><tr><td rowspan=1 colspan=1>AI任务效果与推理性能</td><td rowspan=1 colspan=1>按场景选用效果指标：分类用 Accuracy或 Macro-F1，目标检测用 mAP@0.5:0.95，分割用mIoU，导航报告到达率、碰撞率或路径效率。推理延迟原则上按单样本(batch=1)测量，分别列出预处理、模型推理、后处理和总感知延迟；持续性能可用FPS、samples/s 或 tokens/s 表示</td></tr><tr><td rowspan=1 colspan=1>FPGA/Zynq 可量化贡献</td><td rowspan=1 colspan=1>报告FPGA/Zynq承担的功能在系统中的实测数据，如处理延迟、持续吞吐率、控制抖动、CPU占用或系统功耗，并说明其功能为何不能由普通转接板或软件方案替代</td></tr><tr><td rowspan=1 colspan=1>AI PC 与FPGA/Zynq 通信性能</td><td rowspan=1 colspan=1>按通信方式报告单向延迟或RTT，并选择有效吞吐率、丢包率、错误率、重传率或指令超时率。单向延迟需说明时钟同步方法；高速通道报告持续有效吞吐率，不以理论带宽代替实测结果</td></tr></table>",
+        "bbox": [
+            115,
+            78,
+            880,
+            265
+        ],
+        "page_idx": 16
+    },
+    {
+        "type": "text",
+        "text": "3.2.4.4 场景专项指标（至少选报两项）",
+        "text_level": 2,
+        "bbox": [
+            112,
+            291,
+            452,
+            309
+        ],
+        "page_idx": 16
+    },
+    {
+        "type": "text",
+        "text": "● 实时控制：目标和实际控制周期、P99 抖动、截止期未命中率（Deadline MissRate）、跟踪均方根误差（RMSE）、超调量、调节时间和稳态误差",
+        "bbox": [
+            154,
+            317,
+            840,
+            354
+        ],
+        "page_idx": 16
+    },
+    {
+        "type": "text",
+        "text": "● FPGA 数据处理：输入到输出的处理延迟、像素率、帧率、持续吞吐率，以及目标时钟、时序收敛状态和最差负裕量（WNS）",
+        "bbox": [
+            156,
+            360,
+            880,
+            398
+        ],
+        "page_idx": 16
+    },
+    {
+        "type": "text",
+        "text": "● FPGA 资源使用：LUT、FF、BRAM、DSP 和片上存储使用率。资源使用率不是越高越好，应结合性能、时序和扩展余量判断设计是否合理",
+        "bbox": [
+            156,
+            403,
+            882,
+            441
+        ],
+        "page_idx": 16
+    },
+    {
+        "type": "text",
+        "text": "● 视觉与传感：图像处理帧率、丢帧率、多传感器时间同步误差和数据完整率",
+        "bbox": [
+            193,
+            447,
+            828,
+            463
+        ],
+        "page_idx": 16
+    },
+    {
+        "type": "text",
+        "text": "● 系统可靠性：连续稳定运行时间、异常次数、人工干预次数、故障恢复时间和安全状态触发成功率",
+        "bbox": [
+            156,
+            469,
+            882,
+            506
+        ],
+        "page_idx": 16
+    },
+    {
+        "type": "text",
+        "text": "● 功耗与能效：空闲功耗、负载平均功耗、峰值功耗和单任务能耗。应说明测量范围是整机、AI PC、FPGA/Zynq 板卡还是外部执行机构",
+        "bbox": [
+            156,
+            512,
+            882,
+            550
+        ],
+        "page_idx": 16
+    },
+    {
+        "type": "text",
+        "text": "● Skill 与工作流复用：在干净环境中的部署成功率和部署时间，以及在第二种设备或应用场景中的复用结果",
+        "bbox": [
+            156,
+            556,
+            868,
+            593
+        ],
+        "page_idx": 16
+    },
+    {
+        "type": "text",
+        "text": "3.2.4.5 测试与证据要求",
+        "text_level": 2,
+        "bbox": [
+            114,
+            606,
+            324,
+            624
+        ],
+        "page_idx": 16
+    },
+    {
+        "type": "text",
+        "text": "● 每项指标需注明具体硬件型号、模型及数值精度、输入规格、软件版本、FPGA 时钟频率、测试次数、测试时长和功耗模式",
+        "bbox": [
+            154,
+            631,
+            877,
+            669
+        ],
+        "page_idx": 16
+    },
+    {
+        "type": "text",
+        "text": "● 性能对比必须采用相同测试条件，并提供原始日志、测试脚本、逻辑分析仪或示波器结果等证据",
+        "bbox": [
+            156,
+            675,
+            882,
+            712
+        ],
+        "page_idx": 16
+    },
+    {
+        "type": "text",
+        "text": "● 延迟和抖动需报告分位数和最大值；吞吐与稳定性采用持续运行结果，不以瞬时峰值代替",
+        "bbox": [
+            154,
+            718,
+            880,
+            755
+        ],
+        "page_idx": 16
+    },
+    {
+        "type": "text",
+        "text": "● 不设统一的绝对性能门槛。评分结合任务难度、平台条件与设计目标综合判断",
+        "bbox": [
+            193,
+            760,
+            847,
+            778
+        ],
+        "page_idx": 16
+    },
+    {
+        "type": "text",
+        "text": "3.2.5 提交内容",
+        "text_level": 2,
+        "bbox": [
+            114,
+            794,
+            268,
+            813
+        ],
+        "page_idx": 16
+    },
+    {
+        "type": "text",
+        "text": "所有材料一次性打包提交。下列清单为参考，队伍可根据作品实际情况增减，但须覆盖 3.2.4要求的全部指标与证据。仓库内所有目录名与文件名须使用纯英文（小写字母、数字、下划线或连字符），不得出现中文、空格或特殊字符，以保证跨平台复现与脚本自动化。中文只出现在文件的正文内容中。",
+        "bbox": [
+            112,
+            824,
+            880,
+            902
+        ],
+        "page_idx": 16
+    },
+    {
+        "type": "page_number",
+        "text": "14",
+        "bbox": [
+            489,
+            920,
+            509,
+            933
+        ],
+        "page_idx": 16
+    },
+    {
+        "type": "text",
+        "text": "全国大学生嵌入式芯片与系统设计竞赛'2026 选题指南（AMD）",
+        "bbox": [
+            114,
+            42,
+            694,
+            60
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "3.2.5.1 工程包",
+        "text_level": 2,
+        "bbox": [
+            114,
+            80,
+            243,
+            97
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "（1）系统层",
+        "bbox": [
+            124,
+            105,
+            223,
+            122
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "● 系统架构图与数据流图，标明各计算单元、传感器、执行器与通信链路",
+        "bbox": [
+            193,
+            130,
+            789,
+            148
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "● 关键模块说明，含 AI PC 与 FPGA/Zynq 的功能划分依据",
+        "bbox": [
+            193,
+            153,
+            670,
+            171
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "● 接口定义：通信协议、报文格式或寄存器映射、数据类型与时序约定",
+        "bbox": [
+            193,
+            177,
+            773,
+            193
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "（2）FPGA/Zynq 侧",
+        "text_level": 2,
+        "bbox": [
+            126,
+            199,
+            290,
+            216
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "● RTL / HLS 源码，或 Block Design 与 PYNQ Overlay 工程",
+        "bbox": [
+            193,
+            224,
+            668,
+            241
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "● 可复现的构建脚本（Vivado tcl 或等效脚本），以及产出的 .bit / .xsa / .hwh",
+        "bbox": [
+            193,
+            247,
+            833,
+            263
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "● 综合与实现报告：LUT / FF / BRAM / DSP 资源占用、时钟频率、时序收敛状态与WNS",
+        "bbox": [
+            156,
+            269,
+            870,
+            305
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "● 仿真或板级验证结果，说明硬件功能正确性是如何确认的",
+        "bbox": [
+            193,
+            310,
+            680,
+            326
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "（3）AI PC 侧",
+        "text_level": 2,
+        "bbox": [
+            126,
+            332,
+            242,
+            349
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "● 模型来源与版本、数值精度或量化方式、推理后端及其配置",
+        "bbox": [
+            193,
+            359,
+            697,
+            374
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "● 上位机应用与通信层源码",
+        "bbox": [
+            194,
+            380,
+            420,
+            397
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "● 部署与启动脚本，以及依赖清单（环境可从零重建）",
+        "bbox": [
+            194,
+            403,
+            630,
+            420
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "（4）硬件与外设",
+        "text_level": 2,
+        "bbox": [
+            126,
+            425,
+            260,
+            442
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "● 传感器、执行器、驱动板与机械结构清单",
+        "bbox": [
+            193,
+            451,
+            549,
+            468
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "● 自制部分的图纸、BOM 或接线图",
+        "bbox": [
+            193,
+            474,
+            485,
+            489
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "● 供电与接线说明，使他人可复原同一套物理装置",
+        "bbox": [
+            193,
+            497,
+            605,
+            513
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "3.2.5.2 指标报告与原始证据",
+        "text_level": 2,
+        "bbox": [
+            114,
+            527,
+            364,
+            544
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "指标汇总表置于metrics/ 目录，采用下列表头，每行一项指标：",
+        "bbox": [
+            114,
+            552,
+            643,
+            569
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "table",
+        "img_path": "images/f68f4ae682c8deedd47820a22b1ce7f1601cc3ff46aaa6342a0b82fa090cf69b.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>指标名称</td><td rowspan=1 colspan=1>类别</td><td rowspan=1 colspan=1>数值</td><td rowspan=1 colspan=1>单位</td><td rowspan=1 colspan=1>测量条件</td><td rowspan=1 colspan=1>测试次数/时长</td><td rowspan=1 colspan=1>证据文件</td></tr><tr><td rowspan=1 colspan=1>端到端响应延迟 P99</td><td rowspan=1 colspan=1>核心</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>ms</td><td rowspan=1 colspan=1>起点与终点、输入规格、时钟同步方法</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>logs/latency_run1.csv</td></tr><tr><td rowspan=1 colspan=1>任务闭环成功率</td><td rowspan=1 colspan=1>核心</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>%</td><td rowspan=1 colspan=1>成功、失败与人工干预的定义</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>logs/task_trials.csv</td></tr><tr><td rowspan=1 colspan=1>…</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1></td></tr></table>",
+        "bbox": [
+            115,
+            576,
+            880,
+            768
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "「测量条件」一列须写明具体硬件型号、模型及数值精度、输入规格、软件版本、FPGA 时钟频率与功耗模式。",
+        "bbox": [
+            114,
+            783,
+            875,
+            821
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "同时提交：",
+        "bbox": [
+            114,
+            828,
+            201,
+            845
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "● 每项指标对应的原始日志与测试脚本，脚本须可在提交的环境中重跑",
+        "bbox": [
+            193,
+            853,
+            773,
+            871
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "● 延迟与抖动类指标的波形、示波器或逻辑分析仪截图",
+        "bbox": [
+            193,
+            877,
+            643,
+            894
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "● 运行环境说明：操作系统、驱动版本、依赖版本、板卡与器件型号",
+        "bbox": [
+            193,
+            900,
+            752,
+            916
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "page_number",
+        "text": "15",
+        "bbox": [
+            490,
+            921,
+            509,
+            932
+        ],
+        "page_idx": 17
+    },
+    {
+        "type": "text",
+        "text": "3.2.5.3 Skill 与工作流（加分项）",
+        "text_level": 2,
+        "bbox": [
+            114,
+            80,
+            394,
+            98
+        ],
+        "page_idx": 18
+    },
+    {
+        "type": "text",
+        "text": "置于 skill/目录，含 README.md说明每一项的适用范围、使用方法、失效条件，以及已验证的复用结果（干净环境部署，或跨设备、跨场景迁移）。",
+        "bbox": [
+            112,
+            105,
+            865,
+            145
+        ],
+        "page_idx": 18
+    },
+    {
+        "type": "text",
+        "text": "3.2.5.4 设计报告",
+        "text_level": 2,
+        "bbox": [
+            112,
+            156,
+            262,
+            174
+        ],
+        "page_idx": 18
+    },
+    {
+        "type": "text",
+        "text": "● 选题背景与创新点：解决什么实际问题，前人做过什么",
+        "bbox": [
+            193,
+            181,
+            660,
+            199
+        ],
+        "page_idx": 18
+    },
+    {
+        "type": "text",
+        "text": "● 系统架构与软硬件划分依据",
+        "bbox": [
+            193,
+            205,
+            440,
+            221
+        ],
+        "page_idx": 18
+    },
+    {
+        "type": "text",
+        "text": "● AI PC 端：模型选择理由、端侧运行带来的具体收益、被放弃的候选方案及原因",
+        "bbox": [
+            193,
+            227,
+            858,
+            244
+        ],
+        "page_idx": 18
+    },
+    {
+        "type": "text",
+        "text": "● FPGA/Zynq 端：硬件功能、实现方法，以及为何不能由转接板或纯软件替代",
+        "bbox": [
+            193,
+            249,
+            831,
+            267
+        ],
+        "page_idx": 18
+    },
+    {
+        "type": "text",
+        "text": "● 两端协同：通信协议、数据流、时间同步方案与异常处理策略",
+        "bbox": [
+            193,
+            273,
+            717,
+            290
+        ],
+        "page_idx": 18
+    },
+    {
+        "type": "text",
+        "text": "● 实测结果，数据须与 metrics/ 中的汇总表一致",
+        "bbox": [
+            193,
+            296,
+            605,
+            312
+        ],
+        "page_idx": 18
+    },
+    {
+        "type": "text",
+        "text": "● 失败分析：哪些场景仍然做不好，原因是什么",
+        "bbox": [
+            193,
+            318,
+            586,
+            335
+        ],
+        "page_idx": 18
+    },
+    {
+        "type": "text",
+        "text": "● 复现说明：一份可供他人从零开始完整执行的操作步骤，含硬件搭建、环境部署、运行与结果比对",
+        "bbox": [
+            156,
+            341,
+            870,
+            379
+        ],
+        "page_idx": 18
+    },
+    {
+        "type": "text",
+        "text": "3.2.5.5 推荐目录结构",
+        "text_level": 2,
+        "bbox": [
+            114,
+            392,
+            302,
+            410
+        ],
+        "page_idx": 18
+    },
+    {
+        "type": "code",
+        "sub_type": "algorithm",
+        "code_caption": [],
+        "code_footnote": [],
+        "code_body": "<project\\_name>/  \nREADME.md # 项目简介 + 复现步骤  \ndocs/  \narchitecture.md # 系统架构图与数据流图  \ninterface.md # AI PC 与 FPGA/Zynq 的接口定义  \n── hardware\\_setup.md # 传感器、执行器、接线与供电说明  \nfpga/  \nsrc/ # RTL / HLS 源码或 Block Design 脚本  \n── build/ # 构建脚本 + .bit / .xsa / .hwh  \nreport/ # 综合与实现报告  \nhost/  \n── model/ # 模型文件或下载脚本 + MODEL.md  \n── app/ # 上位机应用与通信层源码  \ndeploy/ # 部署与启动脚本、依赖清单  \nmetrics/  \n─ metrics.csv # 指标汇总表  \nlogs/ # 原始日志  \nscripts/ # 测试脚本  \nevidence/ # 波形 / 示波器 / 逻辑分析仪截图  \nskill/ # 可复用 Skill 与工作流（加分项）  \nREADME.md  \nreport/ # 设计报告",
+        "bbox": [
+            126,
+            420,
+            878,
+            725
+        ],
+        "page_idx": 18
+    },
+    {
+        "type": "text",
+        "text": "上表为推荐结构，非强制。采用其他组织方式的队伍须在README.md 中给出目录对照说明。",
+        "bbox": [
+            114,
+            743,
+            858,
+            760
+        ],
+        "page_idx": 18
+    },
+    {
+        "type": "text",
+        "text": "3.2.5.6 评测指标与权重",
+        "text_level": 2,
+        "bbox": [
+            114,
+            774,
+            322,
+            791
+        ],
+        "page_idx": 18
+    },
+    {
+        "type": "table",
+        "img_path": "images/20d477273f82adabb0494737caa8d9a1ccfbab89452c2b2c067e5af4a76aa4e8.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td colspan=\"1\" rowspan=\"1\">评测项</td><td colspan=\"1\" rowspan=\"1\">权重</td></tr><tr><td colspan=\"1\" rowspan=\"1\">具身智能系统完整度</td><td colspan=\"1\" rowspan=\"1\">20</td></tr><tr><td colspan=\"1\" rowspan=\"1\">AI PC 端侧 AI 能力</td><td colspan=\"1\" rowspan=\"1\">20</td></tr><tr><td colspan=\"1\" rowspan=\"1\">FPGA/Zynq 设计质量</td><td colspan=\"1\" rowspan=\"1\">25</td></tr><tr><td colspan=\"1\" rowspan=\"1\">AI PC 与 FPGA/Zynq 协同</td><td colspan=\"1\" rowspan=\"1\">20</td></tr><tr><td>工程完成度与创新</td><td>15</td></tr><tr><td>合计</td><td>100</td></tr></table>",
+        "bbox": [
+            115,
+            797,
+            880,
+            909
+        ],
+        "page_idx": 18
+    },
+    {
+        "type": "header",
+        "text": "全国大学生嵌入式芯片与系统设计竞赛'2026 选题指南（AMD）",
+        "bbox": [
+            114,
+            42,
+            694,
+            60
+        ],
+        "page_idx": 18
+    },
+    {
+        "type": "page_number",
+        "text": "16",
+        "bbox": [
+            489,
+            921,
+            509,
+            932
+        ],
+        "page_idx": 18
+    },
+    {
+        "type": "table",
+        "img_path": "",
+        "table_caption": [],
+        "table_footnote": [],
+        "bbox": [
+            115,
+            78,
+            880,
+            124
+        ],
+        "page_idx": 19
+    },
+    {
+        "type": "text",
+        "text": "同一项数据可以说明多个评分项，但只在其中一项计分。",
+        "bbox": [
+            114,
+            140,
+            574,
+            156
+        ],
+        "page_idx": 19
+    },
+    {
+        "type": "text",
+        "text": "具身智能系统完整度（20）。 看作品是否完成感知、决策、控制和执行闭环。单独的AI Demo或硬件控制Demo 不计为完整闭环。评分参考任务闭环成功率、端到端响应延迟、人工干预次数，以及异常时能否进入安全状态。",
+        "bbox": [
+            112,
+            165,
+            878,
+            223
+        ],
+        "page_idx": 19
+    },
+    {
+        "type": "text",
+        "text": "AI PC 端侧AI 能力（20）。AI 模型应在AI PC 本地运行，并实际参与感知、理解、规划或决策。可用 Accuracy、Macro-F1、mAP、mIoU、到达率或碰撞率等任务指标说明模型效果，同时报告单样本推理延迟、总感知延迟、持续吞吐率和离线运行能力。",
+        "bbox": [
+            112,
+            230,
+            870,
+            290
+        ],
+        "page_idx": 19
+    },
+    {
+        "type": "text",
+        "text": "FPGA/Zynq 设计质量（25）。 FPGA/Zynq 必须承担实际硬件功能，其作用可以是实时处理、并行计算、降低延迟、提高带宽、扩展接口或保证控制可靠性。评审会结合控制周期、P99 抖动、截止期未命中率、处理延迟或持续吞吐率、时序收敛状态与资源使用情况进行评分。",
+        "bbox": [
+            112,
+            297,
+            875,
+            355
+        ],
+        "page_idx": 19
+    },
+    {
+        "type": "text",
+        "text": "AI PC 与FPGA/Zynq 协同（20）。关注两端的通信、数据流、时间同步和控制闭环。简单连接两套设备不能视为协同。参考数据包括单向延迟或 RTT、持续有效吞吐率、丢包或错误率、指令超时率、多传感器同步误差，以及通信异常后的恢复或安全处理结果。",
+        "bbox": [
+            112,
+            362,
+            872,
+            420
+        ],
+        "page_idx": 19
+    },
+    {
+        "type": "text",
+        "text": "工程完成度与创新（15）。 综合考察可靠性、演示效果、文档质量、场景创新、用户体验和扩展能力。可靠性可用连续运行时间、异常和人工干预次数、故障恢复时间、功耗及单任务能耗说明，部署文档和复现实验结果也计入评分。可复用 Skill、部署脚本、调试工具或 AgenticRobotics 工作流属于加分内容，需通过干净环境部署或跨设备、跨场景复用说明其迁移能力。",
+        "bbox": [
+            112,
+            429,
+            878,
+            508
+        ],
+        "page_idx": 19
+    },
+    {
+        "type": "text",
+        "text": "3.2.6 赛程安排",
+        "text_level": 2,
+        "bbox": [
+            112,
+            523,
+            268,
+            543
+        ],
+        "page_idx": 19
+    },
+    {
+        "type": "text",
+        "text": "除下列本赛道特有节点外，报名、作品设计、作品提交与决赛的时间节点均以大赛官方公布为准，见 http://www.fpgachina.cn/。",
+        "bbox": [
+            112,
+            552,
+            878,
+            590
+        ],
+        "page_idx": 19
+    },
+    {
+        "type": "table",
+        "img_path": "images/e03e1c1229fa5f78662c7e66a77d7450342821cf8027ff5e1de0fc2f6b843f95.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>节点</td><td rowspan=1 colspan=1>时间</td><td rowspan=1 colspan=1>说明</td></tr><tr><td rowspan=1 colspan=1>中期申请报告提交</td><td rowspan=1 colspan=1>2026年10月9日</td><td rowspan=1 colspan=1>提交项目 proposal 与中期进展，申请 AI PC 支持</td></tr><tr><td rowspan=1 colspan=1>评审结果发布</td><td rowspan=1 colspan=1>2026年10月13日</td><td rowspan=1 colspan=1>评选出 10 个优秀项目，发放 Ryzen AI Max+ 395 /Ryzen AI 9 HX 370 机器</td></tr></table>",
+        "bbox": [
+            115,
+            596,
+            880,
+            681
+        ],
+        "page_idx": 19
+    },
+    {
+        "type": "text",
+        "text": "3.2.7 参考资源",
+        "text_level": 2,
+        "bbox": [
+            114,
+            709,
+            268,
+            730
+        ],
+        "page_idx": 19
+    },
+    {
+        "type": "text",
+        "text": "AI PC 与 ROCm",
+        "text_level": 2,
+        "bbox": [
+            114,
+            740,
+            257,
+            756
+        ],
+        "page_idx": 19
+    },
+    {
+        "type": "text",
+        "text": "● ROCm 安装说明：https://rocm.docs.amd.com/en/latest/install/rocm.html",
+        "bbox": [
+            193,
+            766,
+            766,
+            782
+        ],
+        "page_idx": 19
+    },
+    {
+        "type": "text",
+        "text": "● AMD 官方 Ryzen AI 技能包：https://github.com/amd/skills",
+        "bbox": [
+            193,
+            788,
+            673,
+            804
+        ],
+        "page_idx": 19
+    },
+    {
+        "type": "text",
+        "text": "● Lemonade SDK：https://github.com/lemonade-sdk/lemonade",
+        "bbox": [
+            193,
+            812,
+            677,
+            827
+        ],
+        "page_idx": 19
+    },
+    {
+        "type": "text",
+        "text": "● ROCm 兼容性矩阵（确认 SKU、操作系统与内核组合）：",
+        "bbox": [
+            193,
+            834,
+            665,
+            851
+        ],
+        "page_idx": 19
+    },
+    {
+        "type": "text",
+        "text": "https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html",
+        "bbox": [
+            156,
+            854,
+            734,
+            870
+        ],
+        "page_idx": 19
+    },
+    {
+        "type": "text",
+        "text": "● 在 Radeon 与 Ryzen 上使用 ROCm：https://rocm.docs.amd.com/projects/radeon-ryzen/en/latest/",
+        "bbox": [
+            156,
+            875,
+            833,
+            910
+        ],
+        "page_idx": 19
+    },
+    {
+        "type": "header",
+        "text": "全国大学生嵌入式芯片与系统设计竞赛'2026 选题指南（AMD）",
+        "bbox": [
+            114,
+            42,
+            694,
+            60
+        ],
+        "page_idx": 19
+    },
+    {
+        "type": "page_number",
+        "text": "17",
+        "bbox": [
+            489,
+            920,
+            509,
+            932
+        ],
+        "page_idx": 19
+    },
+    {
+        "type": "text",
+        "text": "全国大学生嵌入式芯片与系统设计竞赛'2026 选题指南（AMD）",
+        "bbox": [
+            114,
+            42,
+            694,
+            60
+        ],
+        "page_idx": 20
+    },
+    {
+        "type": "text",
+        "text": "● Ryzen AI Software 文档与安装指引：https://ryzenai.docs.amd.com/en/latest/",
+        "bbox": [
+            193,
+            80,
+            801,
+            97
+        ],
+        "page_idx": 20
+    },
+    {
+        "type": "text",
+        "text": "● Ryzen AI Software Linux 安装说明：https://ryzenai.docs.amd.com/en/latest/linux.html",
+        "bbox": [
+            193,
+            103,
+            868,
+            120
+        ],
+        "page_idx": 20
+    },
+    {
+        "type": "text",
+        "text": "FPGA / Zynq 平台",
+        "text_level": 2,
+        "bbox": [
+            114,
+            126,
+            268,
+            142
+        ],
+        "page_idx": 20
+    },
+    {
+        "type": "text",
+        "text": "● 各板卡的规格与获取方式见第二节《竞赛技术平台》",
+        "bbox": [
+            193,
+            151,
+            635,
+            167
+        ],
+        "page_idx": 20
+    },
+    {
+        "type": "text",
+        "text": "● Kria KR260 产品页：https://www.amd.com/en/products/system-onmodules/kria/k26/kr260-robotics-starter-kit.html",
+        "bbox": [
+            156,
+            173,
+            729,
+            209
+        ],
+        "page_idx": 20
+    },
+    {
+        "type": "text",
+        "text": "● Kria KR260 用户指南 UG1092：https://docs.amd.com/r/en-US/ug1092-kr260-starter-kit",
+        "bbox": [
+            193,
+            214,
+            884,
+            230
+        ],
+        "page_idx": 20
+    },
+    {
+        "type": "text",
+        "text": "● Kria 加速应用文档：https://xilinx.github.io/kria-apps-docs/kr260-docs.html",
+        "bbox": [
+            193,
+            236,
+            791,
+            253
+        ],
+        "page_idx": 20
+    },
+    {
+        "type": "text",
+        "text": "● Kria Robotics AI 示例仓库：https://github.com/amd/Kria-RoboticsAI",
+        "bbox": [
+            193,
+            259,
+            744,
+            275
+        ],
+        "page_idx": 20
+    },
+    {
+        "type": "text",
+        "text": "● PYNQ 官方文档：https://pynq.readthedocs.io/en/latest/index.html",
+        "bbox": [
+            193,
+            281,
+            719,
+            299
+        ],
+        "page_idx": 20
+    },
+    {
+        "type": "text",
+        "text": "● Kria-PYNQ（在 Kria SOM 上安装 PYNQ）：https://github.com/Xilinx/Kria-PYNQ",
+        "bbox": [
+            193,
+            304,
+            852,
+            322
+        ],
+        "page_idx": 20
+    },
+    {
+        "type": "text",
+        "text": "● SEA 板卡厂商 Wiki：https://wiki.seeedstudio.com/Spartan-Edge-Accelerator-Board/",
+        "bbox": [
+            193,
+            326,
+            855,
+            344
+        ],
+        "page_idx": 20
+    },
+    {
+        "type": "text",
+        "text": "提交模板",
+        "text_level": 2,
+        "bbox": [
+            114,
+            350,
+            196,
+            367
+        ],
+        "page_idx": 20
+    },
+    {
+        "type": "text",
+        "text": "本赛道不发布示范工程。提交物的格式与深度以3.2.5 为准，其中推荐目录结构与指标汇总表表头可直接套用。",
+        "bbox": [
+            112,
+            375,
+            870,
+            412
+        ],
+        "page_idx": 20
+    },
+    {
+        "type": "page_number",
+        "text": "18",
+        "bbox": [
+            489,
+            920,
+            509,
+            932
+        ],
+        "page_idx": 20
+    },
+    {
+        "type": "text",
+        "text": "3.3 自主选题赛道（分初级组与高级组）",
+        "text_level": 2,
+        "bbox": [
+            112,
+            82,
+            574,
+            103
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "text",
+        "text": "3.3.1 赛道简介",
+        "text_level": 2,
+        "bbox": [
+            112,
+            122,
+            268,
+            142
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "text",
+        "text": "本赛道面向完整的 FPGA 作品，对器件、实现方式与应用领域均不作限定。参赛队伍自由选择题目，综合运用逻辑设计、状态机、时序约束、接口协议与软硬件协同等能力，完成一件可复现、可演示的作品。",
+        "bbox": [
+            112,
+            152,
+            880,
+            211
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "text",
+        "text": "3.3.1.1 组别划分",
+        "text_level": 2,
+        "bbox": [
+            114,
+            223,
+            263,
+            241
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "text",
+        "text": "本赛道按队员学历分为初级组与高级组，两组独立排名、独立评奖。",
+        "bbox": [
+            112,
+            248,
+            665,
+            266
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "table",
+        "img_path": "images/8f652f6a2ace410a9b29928c5ea90be205f47c3f2cf8a559b647e3c1d84e02e1.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>组别</td><td rowspan=1 colspan=1>参赛资格</td><td rowspan=1 colspan=1>器件范围</td><td rowspan=1 colspan=1>考察侧重</td></tr><tr><td rowspan=1 colspan=1>初级组</td><td rowspan=1 colspan=1>大学一年级至三年级在读本科生</td><td rowspan=1 colspan=1>可使用 AMD 7 Series FPGA、Zynq-7000 SoC、UltraScale 或UltraScale+系列器件。</td><td rowspan=1 colspan=1>逻辑设计、状态机、时序约束、接口协议等基本FPGA 设计能力</td></tr><tr><td rowspan=1 colspan=1>高级组</td><td rowspan=1 colspan=1>大学四年级本科生及在读硕士生</td><td rowspan=1 colspan=1>可使用任意 AMD FPGA、ZynqAdaptive SoC 或 Versal AdaptiveSoC器件，不设逻辑资源限制。</td><td rowspan=1 colspan=1>在上述基础上进一步考察软硬件协同与器件整体性能的发挥</td></tr></table>",
+        "bbox": [
+            115,
+            271,
+            880,
+            407
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "text",
+        "text": "队伍中如同时含不同年级或学历的队员，按其中最高者归入高级组。报名后台有学生证与学历审核流程，违规报名将取消参赛资格。",
+        "bbox": [
+            112,
+            423,
+            878,
+            461
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "text",
+        "text": "两组的设计任务、提交内容与评测指标一致，仅在参赛资格、器件范围与考察侧重上有所区别。下文如无特别说明，各项要求对两组同时适用。",
+        "bbox": [
+            112,
+            468,
+            860,
+            507
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "text",
+        "text": "3.3.2 设计任务",
+        "text_level": 2,
+        "bbox": [
+            114,
+            521,
+            268,
+            542
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "text",
+        "text": "参赛队伍自主选择应用方向与实现方式，完成一件完整的 FPGA 作品。",
+        "bbox": [
+            112,
+            552,
+            684,
+            569
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "text",
+        "text": "选题要求",
+        "bbox": [
+            114,
+            577,
+            196,
+            594
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "text",
+        "text": "● 应用方向不限。鼓励从FPGA 之外的学科中寻找题目，也接受面向传统信号处理、通信、控制、图像与嵌入式系统的选题",
+        "bbox": [
+            154,
+            602,
+            872,
+            640
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "text",
+        "text": "● 鼓励综合考虑软硬件协同，充分发挥器件整体性能",
+        "bbox": [
+            193,
+            645,
+            623,
+            663
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "text",
+        "text": "实现方式",
+        "text_level": 2,
+        "bbox": [
+            114,
+            669,
+            196,
+            686
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "text",
+        "text": "不作限定。RTL、Vitis HLS、AI Engine、PS 侧软件及其任意组合均可。作品的核心价值可以体现在硬件加速、系统集成、接口设计或应用创新中的任意一项或多项。",
+        "bbox": [
+            112,
+            694,
+            867,
+            732
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "text",
+        "text": "初级组推荐方向：PYNQ",
+        "text_level": 2,
+        "bbox": [
+            114,
+            739,
+            322,
+            756
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "text",
+        "text": "初级组不限定实现方式，但推荐使用 PYNQ 框架完成作品：PS 侧用 Python 与 JupyterNotebook 组织算法与数据流，PL 侧以 HLS 或 RTL 实现计算核心并封装为 Overlay，可以把精力集中在软硬件划分与硬件设计本身，而不必先跨过嵌入式软件栈的门槛。",
+        "bbox": [
+            112,
+            764,
+            875,
+            824
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "text",
+        "text": "在此基础上，若能提炼出通用性较高的 PYNQ Skill，将在评分中加分。这里的通用性指该Skill 不与本队题目绑定，换一个题目、换一块板卡仍然可用，例如：",
+        "bbox": [
+            112,
+            829,
+            848,
+            869
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "text",
+        "text": "● 通用的 Overlay 加载与校验流程、寄存器映射与 register\\_map 使用范式",
+        "bbox": [
+            193,
+            876,
+            806,
+            894
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "text",
+        "text": "● 可复用的 DMA 搬运与缓存一致性处理封装，含常见出错情形的定位方法",
+        "bbox": [
+            193,
+            898,
+            805,
+            915
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "header",
+        "text": "全国大学生嵌入式芯片与系统设计竞赛'2026 选题指南（AMD）",
+        "bbox": [
+            114,
+            42,
+            694,
+            60
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "page_number",
+        "text": "19",
+        "bbox": [
+            490,
+            921,
+            509,
+            932
+        ],
+        "page_idx": 21
+    },
+    {
+        "type": "text",
+        "text": "全国大学生嵌入式芯片与系统设计竞赛'2026 选题指南（AMD）",
+        "bbox": [
+            114,
+            42,
+            694,
+            60
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "● 从接口契约自动生成主机侧调用代码或测试骨架的脚本",
+        "bbox": [
+            193,
+            80,
+            662,
+            97
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "● 黄金参考比对、性能与资源数据自动采集并生成报告的工具",
+        "bbox": [
+            193,
+            103,
+            699,
+            120
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "Skill 的提交方式与评价标准见 3.3.5.2。从本队作品的开发过程中沉淀即可，但须写清它在本队题目之外还能用在哪类场景。高级组同样可以提交PYNQ Skill，评价标准一致。",
+        "bbox": [
+            112,
+            126,
+            882,
+            164
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "考察重点",
+        "text_level": 2,
+        "bbox": [
+            114,
+            171,
+            196,
+            187
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "作品的完整性与工程水平：功能是否正确、设计是否经过实测验证、性能与资源数据是否真实完整、他人能否复现。在此基础上，选题的创新性与应用价值占最高权重。",
+        "bbox": [
+            112,
+            196,
+            878,
+            235
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "3.3.3 设计与优化要求",
+        "text_level": 2,
+        "bbox": [
+            112,
+            249,
+            339,
+            269
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "3.3.3.1 工具限制",
+        "text_level": 2,
+        "bbox": [
+            114,
+            285,
+            263,
+            303
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "● 工具版本：Vivado / Vitis 2026.1（推荐）或 2025.2。如使用其他版本需在报告中说明并保证脚本可复现",
+        "bbox": [
+            156,
+            310,
+            873,
+            348
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "● 允许使用任意公开大模型、微调后的本地模型，以及基于大模型构建的智能体应用。须提交体现大模型协作过程的交互记录，含提示词、模型回答与自我纠错轨迹",
+        "bbox": [
+            156,
+            354,
+            863,
+            391
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "● 须将协作过程中沉淀的可复用经验提炼为技能包（Skill），随作品一并提交，见3.3.5.2",
+        "bbox": [
+            154,
+            397,
+            855,
+            432
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "3.3.3.2 板卡与器件限制",
+        "text_level": 2,
+        "bbox": [
+            114,
+            444,
+            324,
+            462
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "● 初级组：可使用 AMD 7 Series FPGA、Zynq-7000 SoC、UltraScale 或 UltraScale+系列器件。",
+        "bbox": [
+            154,
+            470,
+            877,
+            506
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "● 高级组：可使用任意 AMD FPGA、Zynq Adaptive SoC 或 Versal Adaptive SoC 器件，不设逻辑资源限制。",
+        "bbox": [
+            156,
+            513,
+            852,
+            550
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "两组均须在提交物中声明具体型号，并应选择自身可实际获取并完成板级验证的器件。",
+        "bbox": [
+            114,
+            556,
+            813,
+            573
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "作品须在板上跑通并提供实测输出。",
+        "bbox": [
+            114,
+            581,
+            406,
+            599
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "3.3.3.3 开源要求",
+        "text_level": 2,
+        "bbox": [
+            114,
+            611,
+            263,
+            629
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "所有提交作品强烈要求在GitHub 或Gitee 上开源，采用允许再分发的开源协议，推荐 MIT 或Apache-2.0。",
+        "bbox": [
+            112,
+            637,
+            870,
+            674
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "3.3.4 优化目标",
+        "text_level": 2,
+        "bbox": [
+            114,
+            690,
+            268,
+            709
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "● 在目标器件上取得可测量的性能表现，并给出与基线的对比",
+        "bbox": [
+            193,
+            720,
+            699,
+            737
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "● 合理使用片上资源，避免以显著的资源代价换取有限的性能收益",
+        "bbox": [
+            193,
+            743,
+            734,
+            759
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "● 保证工程可由他人从零复现",
+        "bbox": [
+            193,
+            765,
+            440,
+            782
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "● 将设计过程中的判断依据写进报告，而不只是呈现结果",
+        "bbox": [
+            193,
+            788,
+            660,
+            804
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "● 将与大模型协作中获得的经验提炼为他人可复用的技能包",
+        "bbox": [
+            193,
+            810,
+            680,
+            827
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "page_number",
+        "text": "20",
+        "bbox": [
+            489,
+            920,
+            509,
+            932
+        ],
+        "page_idx": 22
+    },
+    {
+        "type": "text",
+        "text": "3.3.5 提交内容",
+        "text_level": 2,
+        "bbox": [
+            112,
+            80,
+            268,
+            101
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "3.3.5.1 工程包",
+        "text_level": 2,
+        "bbox": [
+            112,
+            115,
+            243,
+            133
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "● 完整的工程文件与源码（RTL、HLS、PS 侧软件等，按实际采用的实现方式提交）",
+        "bbox": [
+            154,
+            141,
+            847,
+            178
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "● 仿真或验证结果，说明功能正确性是如何确认的",
+        "bbox": [
+            193,
+            184,
+            606,
+            200
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "● 综合与实现报告，含资源占用、时钟频率与关键性能指标",
+        "bbox": [
+            193,
+            206,
+            680,
+            224
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "● 上板工程、运行脚本、实测输出与参考结果的比对数据",
+        "bbox": [
+            193,
+            230,
+            662,
+            247
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "● 可复现的构建脚本",
+        "bbox": [
+            194,
+            253,
+            366,
+            269
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "3.3.5.2 技能包",
+        "text_level": 2,
+        "bbox": [
+            114,
+            284,
+            242,
+            300
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "置于 skill/目录，含 README.md说明每一项的适用范围、使用方法与失效条件。技能包是把与大模型协作过程中沉淀下来的经验显式提炼出来，供他人直接复用，可以是以下任意一种或多种：",
+        "bbox": [
+            112,
+            307,
+            880,
+            366
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "● 提示词工作流：一组经过验证、能稳定完成某类任务的提示词模板及使用说明，例如从算法描述推导软硬件划分、根据综合报告定位瓶颈",
+        "bbox": [
+            154,
+            374,
+            882,
+            412
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "● 案例模板：可被下一个题目直接套用的工程骨架、脚本模板、报告模板",
+        "bbox": [
+            193,
+            417,
+            791,
+            435
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "● 校验脚本：自动比对黄金参考、检查资源与时序、验证工程可复现性的脚本",
+        "bbox": [
+            193,
+            439,
+            826,
+            457
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "● 踩坑清单：结构化整理的常见错误与定位方法，含触发条件与排查步骤",
+        "bbox": [
+            193,
+            463,
+            791,
+            480
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "评价标准是可复用性：一支陌生队伍拿到该目录，能否直接用在自己的题目上。每一项须写明适用场景、使用方法与已验证的效果，并说明是从哪些失败或观察中总结得出。",
+        "bbox": [
+            114,
+            485,
+            878,
+            524
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "通用 PYNQ Skill 单独加分。 若提交的 Skill 面向 PYNQ 框架且不与本队题目绑定（换题目、换板卡仍可用），在本赛道评分中另行加分，见 3.3.2。",
+        "bbox": [
+            112,
+            531,
+            858,
+            569
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "3.3.5.3 设计报告",
+        "text_level": 2,
+        "bbox": [
+            112,
+            581,
+            262,
+            600
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "● 选题背景与创新点：为什么选这个题目，它解决了什么实际问题，前人做过什么",
+        "bbox": [
+            193,
+            607,
+            863,
+            624
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "● 设计原理与功能框图",
+        "bbox": [
+            193,
+            630,
+            383,
+            646
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "● 软硬件划分依据与接口设计",
+        "bbox": [
+            193,
+            652,
+            438,
+            669
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "● 优化过程，含优化前后的性能与资源对比表",
+        "bbox": [
+            193,
+            675,
+            568,
+            692
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "● 大模型协作记录：提示词、模型回答、自我纠错轨迹、智能体工作流设计（如有）",
+        "bbox": [
+            193,
+            699,
+            870,
+            715
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "● 技能包的提炼过程：从哪些失败或观察中总结、如何验证有效、边界如何确定",
+        "bbox": [
+            193,
+            721,
+            847,
+            738
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "● 复现说明：一份可供他人从零开始完整执行的操作步骤",
+        "bbox": [
+            193,
+            744,
+            662,
+            760
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "3.3.5.4 推荐目录结构",
+        "text_level": 2,
+        "bbox": [
+            114,
+            774,
+            304,
+            791
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "仓库内所有目录名与文件名须使用纯英文（小写字母、数字、下划线或连字符），不得出现中文、空格或特殊字符，以保证跨平台复现与脚本自动化。中文只出现在文件的正文内容中。",
+        "bbox": [
+            112,
+            800,
+            868,
+            838
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "code",
+        "sub_type": "algorithm",
+        "code_caption": [],
+        "code_footnote": [],
+        "code_body": "<project\\_name>/  \nREADME.md # 项目简介 + 复现步骤  \nsrc/ # 设计源码（RTL / HLS / PS 侧软件）  \nsim/ # 仿真或验证脚本与结果",
+        "bbox": [
+            126,
+            848,
+            657,
+            908
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "header",
+        "text": "全国大学生嵌入式芯片与系统设计竞赛'2026 选题指南（AMD）",
+        "bbox": [
+            114,
+            42,
+            694,
+            60
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "page_number",
+        "text": "21",
+        "bbox": [
+            489,
+            920,
+            507,
+            932
+        ],
+        "page_idx": 23
+    },
+    {
+        "type": "text",
+        "text": "全国大学生嵌入式芯片与系统设计竞赛'2026 选题指南（AMD）",
+        "text_level": 2,
+        "bbox": [
+            114,
+            42,
+            694,
+            60
+        ],
+        "page_idx": 24
+    },
+    {
+        "type": "code",
+        "sub_type": "algorithm",
+        "code_caption": [],
+        "code_footnote": [],
+        "code_body": "build/ # 可复现的构建脚本 + 综合与实现报告  \nboard/ # 上板工程、运行脚本与实测输出  \ndata/ # 测试数据与参考结果  \nskill/ # 技能包  \n└── README.md  \nreport/ # 设计报告 + 大模型协作记录",
+        "bbox": [
+            121,
+            82,
+            652,
+            172
+        ],
+        "page_idx": 24
+    },
+    {
+        "type": "text",
+        "text": "上表为推荐结构，非强制。采用其他组织方式的队伍须在README.md 中给出目录对照说明。",
+        "bbox": [
+            114,
+            190,
+            858,
+            208
+        ],
+        "page_idx": 24
+    },
+    {
+        "type": "text",
+        "text": "3.3.5.5 评测指标与权重",
+        "text_level": 2,
+        "bbox": [
+            114,
+            221,
+            322,
+            239
+        ],
+        "page_idx": 24
+    },
+    {
+        "type": "table",
+        "img_path": "images/c4f2c8178d1d9be2d9e0626089bf3d9104863a37196f85d17ca9db8997af9010.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>评测项</td><td rowspan=1 colspan=1>权重</td></tr><tr><td rowspan=1 colspan=1>创新性与应用价值</td><td rowspan=1 colspan=1>30</td></tr><tr><td rowspan=1 colspan=1>性能与资源优化效果</td><td rowspan=1 colspan=1>20</td></tr><tr><td rowspan=1 colspan=1>功能正确性与设计完整性</td><td rowspan=1 colspan=1>20</td></tr><tr><td rowspan=1 colspan=1>大模型协作与技能包</td><td rowspan=1 colspan=1>15</td></tr><tr><td rowspan=1 colspan=1>文档质量与可复现性</td><td rowspan=1 colspan=1>15</td></tr><tr><td rowspan=1 colspan=1>合计</td><td rowspan=1 colspan=1>100</td></tr></table>",
+        "bbox": [
+            115,
+            244,
+            880,
+            400
+        ],
+        "page_idx": 24
+    },
+    {
+        "type": "text",
+        "text": "两组采用同一套评测项与权重，但分组独立排名、独立评奖，评分时结合各自组别的考察侧重把握尺度。各项均含评委评定成分；功能正确性与可复现性两项以提交物核查与实测数据为主要依据。",
+        "bbox": [
+            112,
+            417,
+            878,
+            476
+        ],
+        "page_idx": 24
+    },
+    {
+        "type": "text",
+        "text": "3.3.6 赛程安排",
+        "text_level": 2,
+        "bbox": [
+            114,
+            492,
+            268,
+            511
+        ],
+        "page_idx": 24
+    },
+    {
+        "type": "text",
+        "text": "本赛道不单独设定赛程。报名、作品设计、作品提交与决赛的时间节点均以大赛官方公布为准，见 http://www.fpgachina.cn/。",
+        "bbox": [
+            112,
+            520,
+            860,
+            560
+        ],
+        "page_idx": 24
+    },
+    {
+        "type": "text",
+        "text": "3.3.7 参考资源",
+        "text_level": 2,
+        "bbox": [
+            114,
+            574,
+            268,
+            594
+        ],
+        "page_idx": 24
+    },
+    {
+        "type": "text",
+        "text": "官方文档",
+        "bbox": [
+            114,
+            605,
+            196,
+            621
+        ],
+        "page_idx": 24
+    },
+    {
+        "type": "text",
+        "text": "● Vivado 综合用户指南 UG901",
+        "bbox": [
+            193,
+            630,
+            443,
+            646
+        ],
+        "page_idx": 24
+    },
+    {
+        "type": "text",
+        "text": "● Vivado 实现用户指南 UG904",
+        "bbox": [
+            193,
+            652,
+            445,
+            669
+        ],
+        "page_idx": 24
+    },
+    {
+        "type": "text",
+        "text": "● Vitis HLS 用户指南 UG1399",
+        "bbox": [
+            194,
+            675,
+            440,
+            692
+        ],
+        "page_idx": 24
+    },
+    {
+        "type": "text",
+        "text": "● UltraFast 设计方法学指南 UG949",
+        "bbox": [
+            194,
+            697,
+            478,
+            714
+        ],
+        "page_idx": 24
+    },
+    {
+        "type": "text",
+        "text": "学习资源",
+        "text_level": 2,
+        "bbox": [
+            114,
+            721,
+            196,
+            737
+        ],
+        "page_idx": 24
+    },
+    {
+        "type": "text",
+        "text": "● AMD 官方高层次综合工具项目学习案例：",
+        "bbox": [
+            193,
+            746,
+            547,
+            762
+        ],
+        "page_idx": 24
+    },
+    {
+        "type": "text",
+        "text": "https://xilinx.github.io/xup\\_high\\_level\\_synthesis\\_design\\_flow/",
+        "bbox": [
+            156,
+            766,
+            635,
+            783
+        ],
+        "page_idx": 24
+    },
+    {
+        "type": "text",
+        "text": "● Vitis Libraries：https://github.com/Xilinx/Vitis\\_Libraries",
+        "bbox": [
+            193,
+            787,
+            645,
+            802
+        ],
+        "page_idx": 24
+    },
+    {
+        "type": "text",
+        "text": "● PYNQ 官方文档：https://pynq.readthedocs.io/en/latest/index.html",
+        "bbox": [
+            193,
+            809,
+            715,
+            826
+        ],
+        "page_idx": 24
+    },
+    {
+        "type": "page_number",
+        "text": "22",
+        "bbox": [
+            489,
+            920,
+            509,
+            932
+        ],
+        "page_idx": 24
+    },
+    {
+        "type": "text",
+        "text": "四、开发板获取途径",
+        "text_level": 2,
+        "bbox": [
+            114,
+            82,
+            393,
+            107
+        ],
+        "page_idx": 25
+    },
+    {
+        "type": "text",
+        "text": "4.1 FPGA 板卡",
+        "text_level": 2,
+        "bbox": [
+            112,
+            129,
+            292,
+            151
+        ],
+        "page_idx": 25
+    },
+    {
+        "type": "text",
+        "text": "各赛道对板卡与器件不作统一指定，队伍可使用自身可实际获取的AMD 器件，并在提交物中声明具体型号。在此基础上，赛事方另提供有限数量的借用与远程资源：报名结束后开放PYNQ-Z2 与 KV260 的远程板卡使用；具身智能赛道的 KR260、PYNQ-Z2 与 SEA 板卡，AMD将根据参赛方案提供借用支持，申请方式另行公告。",
+        "bbox": [
+            112,
+            162,
+            882,
+            243
+        ],
+        "page_idx": 25
+    },
+    {
+        "type": "text",
+        "text": "4.2 Ryzen AI PC 支持申请（具身智能赛道）",
+        "text_level": 2,
+        "bbox": [
+            112,
+            260,
+            623,
+            282
+        ],
+        "page_idx": 25
+    },
+    {
+        "type": "text",
+        "text": "具身智能赛道的上位机型号不限，队伍可使用自备的任意AMD AI PC。在此基础上，赛事方提供有限数量的 Ryzen AI Max+ 395 / Ryzen AI 9 HX 370 整机借用支持，经中期申请报告评审后发放。",
+        "bbox": [
+            112,
+            294,
+            868,
+            353
+        ],
+        "page_idx": 25
+    },
+    {
+        "type": "table",
+        "img_path": "images/221551523ffc07b731067a7b6b438a99f8f72ca1c0adb8790cf64e23fa220b9d.jpg",
+        "table_caption": [],
+        "table_footnote": [],
+        "table_body": "<table><tr><td rowspan=1 colspan=1>节点</td><td rowspan=1 colspan=1>时间</td><td rowspan=1 colspan=1>说明</td></tr><tr><td rowspan=1 colspan=1>中期申请报告提交</td><td rowspan=1 colspan=1>2026年10月9日</td><td rowspan=1 colspan=1>队伍提交项目 proposal 与中期进展</td></tr><tr><td rowspan=1 colspan=1>评审与结果发布</td><td rowspan=1 colspan=1>2026年10月13日</td><td rowspan=1 colspan=1>评选出10 个优秀项目</td></tr><tr><td rowspan=1 colspan=1>机器发放</td><td rowspan=1 colspan=1>2026年10月13日起</td><td rowspan=1 colspan=1>为入选的 10 个项目提供 Ryzen AI Max+ 395 或 RyzenAI 9 HX 370 机器支持</td></tr></table>",
+        "bbox": [
+            115,
+            359,
+            880,
+            466
+        ],
+        "page_idx": 25
+    },
+    {
+        "type": "text",
+        "text": "未获得机器支持的队伍可使用自备的任意AMD AI PC 参赛，不影响评分。",
+        "bbox": [
+            114,
+            482,
+            712,
+            500
+        ],
+        "page_idx": 25
+    },
+    {
+        "type": "text",
+        "text": "4.3 GPU 云资源（RTL/HLS 本地智能体设计赛道）",
+        "text_level": 2,
+        "bbox": [
+            112,
+            518,
+            707,
+            539
+        ],
+        "page_idx": 25
+    },
+    {
+        "type": "text",
+        "text": "验证窗口开放AMD Radeon PRO W7900 单卡云资源，供队伍在 ROCm 上验证方案可运行。云资源经 AMD 中国开发者平台申请，见 https://developer.amd.com.cn/login?source=91kadjjnI，具体实施细则和配额另行公告。已自行具备 ROCm 环境的队伍可不使用赛事方云资源，但仍须提交可在赛事方环境中重建的容器与脚本。",
+        "bbox": [
+            112,
+            552,
+            873,
+            632
+        ],
+        "page_idx": 25
+    },
+    {
+        "type": "header",
+        "text": "全国大学生嵌入式芯片与系统设计竞赛'2026 选题指南（AMD）",
+        "bbox": [
+            114,
+            42,
+            694,
+            60
+        ],
+        "page_idx": 25
+    },
+    {
+        "type": "page_number",
+        "text": "23",
+        "bbox": [
+            489,
+            920,
+            509,
+            933
+        ],
+        "page_idx": 25
+    },
+    {
+        "type": "text",
+        "text": "全国大学生嵌入式芯片与系统设计竞赛'2026 选题指南（AMD）",
+        "bbox": [
+            114,
+            42,
+            694,
+            60
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "text",
+        "text": "五、技术支持与技术资源",
+        "text_level": 2,
+        "bbox": [
+            114,
+            82,
+            455,
+            107
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "text",
+        "text": "为帮助参赛同学解决竞赛过程中遇到的各类问题，我们提供多种技术支持渠道。推荐优先在AMD FPGA 中文技术论坛寻求专业解答。各个赛道的的评分细则将在报名期间陆续发布。",
+        "bbox": [
+            112,
+            120,
+            862,
+            159
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "text",
+        "text": "常见问题 FAQ",
+        "text_level": 2,
+        "bbox": [
+            114,
+            174,
+            270,
+            193
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "text",
+        "text": "报名指南、赛道选择等常见问题，将在 2026 年 AMD FPGA 竞赛 FAQ 云文档中持续更新维护。地址待公布。",
+        "bbox": [
+            112,
+            204,
+            852,
+            242
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "text",
+        "text": "培训与交流",
+        "text_level": 2,
+        "bbox": [
+            114,
+            256,
+            240,
+            278
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "text",
+        "text": "● 交流 QQ 群：1087309750",
+        "bbox": [
+            193,
+            287,
+            420,
+            304
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "text",
+        "text": "● 赛道交流群与示范材料发布渠道：以大赛官方公告为准，见",
+        "bbox": [
+            193,
+            310,
+            697,
+            328
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "text",
+        "text": "http://www.fpgachina.cn/",
+        "bbox": [
+            156,
+            331,
+            352,
+            348
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "text",
+        "text": "技术问题咨询:",
+        "text_level": 2,
+        "bbox": [
+            114,
+            361,
+            270,
+            380
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "text",
+        "text": "AMD 赛灵思中文社区论坛：面向广大 FPGA开发者的专业技术交流平台，历史讨论中包含大量问题解答：",
+        "bbox": [
+            112,
+            391,
+            872,
+            428
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "text",
+        "text": "https://adaptivesupport.amd.com/s/topic/0TO2E000000YOAVWA4/%E8%B5%9B%E7%81%B5%E6 %80%9D%E4%B8%AD%E6%96%87%E7%A4%BE%E5%8C%BA%E8%AE%BA%E5%9D%9B?l anguage=en\\_US",
+        "bbox": [
+            112,
+            431,
+            880,
+            483
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "text",
+        "text": "AMD AI 开发者问题 Github 反馈渠道：",
+        "bbox": [
+            114,
+            487,
+            435,
+            505
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "text",
+        "text": "https://github.com/AMD-DEVELOPERS/AI-issues/tree/main",
+        "bbox": [
+            112,
+            512,
+            606,
+            530
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "text",
+        "text": "AMD AI 开发者问题邮箱反馈渠道：",
+        "bbox": [
+            114,
+            535,
+            406,
+            552
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "text",
+        "text": "member-service@mail.developer.amd.com.cn",
+        "bbox": [
+            112,
+            560,
+            462,
+            577
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "text",
+        "text": "AMD 赛道竞赛问题咨询",
+        "text_level": 2,
+        "bbox": [
+            114,
+            612,
+            373,
+            632
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "text",
+        "text": "邮箱联系： fpgacamp.cn@outlook.com",
+        "bbox": [
+            114,
+            642,
+            425,
+            659
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "page_number",
+        "text": "24",
+        "bbox": [
+            489,
+            920,
+            509,
+            932
+        ],
+        "page_idx": 26
+    },
+    {
+        "type": "text",
+        "text": "六、其它",
+        "text_level": 2,
+        "bbox": [
+            114,
+            82,
+            242,
+            107
+        ],
+        "page_idx": 27
+    },
+    {
+        "type": "text",
+        "text": "所有进入决赛的自主选题队伍需要按照AMD 提供的 PPT 模板提供一页英文 PPT 海报作为作品简介，将不包含队伍信息的海报用A4 纸彩色打印并带到决赛现场。PPT 模板将作为附件提供。",
+        "bbox": [
+            112,
+            120,
+            882,
+            179
+        ],
+        "page_idx": 27
+    },
+    {
+        "type": "text",
+        "text": "各赛道的评分公式、判定阈值与提交条件以其各自的《评分细则》为准；报名、作品设计、作品提交与决赛的时间节点均以大赛官方公布为准，见 http://www.fpgachina.cn/。",
+        "bbox": [
+            112,
+            186,
+            880,
+            225
+        ],
+        "page_idx": 27
+    },
+    {
+        "type": "header",
+        "text": "全国大学生嵌入式芯片与系统设计竞赛'2026 选题指南（AMD）",
+        "bbox": [
+            114,
+            42,
+            694,
+            60
+        ],
+        "page_idx": 27
+    },
+    {
+        "type": "page_number",
+        "text": "25",
+        "bbox": [
+            489,
+            920,
+            509,
+            932
+        ],
+        "page_idx": 27
+    }
+]

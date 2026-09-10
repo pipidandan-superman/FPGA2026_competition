@@ -1,4 +1,72 @@
-# EES-331 HDMI ADV7511 Handoff
+# EES-331 项目交接
+
+## 2026-09-10 关键证据归档与个人分支交付
+
+- 归档入口：[REPORT.md](4_metrics/logs/2026-09-10_session_archive_upload_run01/REPORT.md)，逐文件来源、大小和 SHA-256 见同目录 `selected_manifest.json`；Git 审计、校验与推送回执也保存在该目录。
+- 目标分支 `codex/full/pipidandan-superman`，以远程 `main@c60291a` 为基线在独立 worktree 整理；保留已有 UDP/颜色修复记录。本机原工作区的其他未提交改动不纳入本次上传。
+- 已选择 SD 故障定位/修复/原始 UART、整卡读回、SD Builder v0.1/v0.2 源码与 EXE、AIPC 模板/报告/解析与排版证据。大 IMG、重复 ZIP、工具链缓存保留本地。参考 XSA 仅从冻结目录只读复制到归档目录。
+- 边界：旧基线 SD/Linux Shell 已通过；v0.2 新生成包未板测；9 月 8 日裸机 UDP/PC 色彩修复已通过，Linux 网络/Jupyter/PL 应用另行验收。AIPC 人员与机型等字段待补齐。
+- 下次先读 `7_logs/2026-09-10/04_next_start_guide.md` 顶部；从个人分支取回交付文件，按归档索引取得基础 IMG。合入 main 仍需 PR 和另一成员审核，不以分支推送代替硬件验收。
+
+## 2026-09-10 AMD AIPC 借用报告已编写
+
+- 按用户指定模板完成 `1_docs/doc/AMD AIPC 借用报告 - 锐眼智行具身智能分拣.docx`，2页，含当前EES-331架构、AI PC借用用途、计划和两张新框图。模板原件与非编辑DOCX包部件保留。
+- 通过MinerU的DOCX→PDF回退解析（短文本review已人工核对）、参考渲染、两页最终视觉检查及包/节/样式审计。原始证据 `4_metrics/logs/2026-09-10_aipc_loan_report_run01/REPORT.md`。
+- 人员/学校/联系信息待补充，团队编号与机型待确认，37032G暂拟申请。未发送或提交。当前SD Builder v0.2与冻结硬件状态均不变。
+
+## 2026-09-10 SD Builder v0.2 已交付（当前最新）
+
+- 用户要求保留旧版并生成新版；v0.1源/资产/EXE/ZIP的19项哈希无变化，原 `8_tools/sd_start_tool/` 保留。新版入口 `8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.exe`，同目录有完整ZIP。
+- 新版源码 `3_host/pynq/sd_boot_builder_v02/`。删除原版PYNQ-Z2输入入口，固定已适配EES-331基础IMG；默认XSA+板级模板生成PS设备树，完整DTB覆盖置于高级设置。辅助HWH自动识别，USB角色可选，三种PL模式说明、页面滚动与缺项提示完成。
+- 22项测试、真实FSBL/BSP重建+整卡读回、EXE自检/手动/FSBL模式构建、位流载荷验证、发布ZIP/旧版保留核对PASS。最终测试IMG在 `2026-09-10_sd_builder_v02_175423_0bb6c6/output/`。
+- 新输出尚未上板；本轮未写SD或改冻结工程。本机旧路径的实际显示XSA未启用SD0而被正确拒绝；高级DTB不能绕过启动引脚约束，未知外部设备/PL内核驱动仍需适配。
+- 报告 `4_metrics/logs/2026-09-10_sd_builder_v02_run01/REPORT.md`；下一会话从 `7_logs/2026-09-10/04_next_start_guide.md` v9继续。下方标注“最新”的段落均为当时历史状态。
+
+## 2026-09-10 EES-331 SD Builder GUI 0.1 已交付（历史，已由 v0.2 替代）
+
+- 用户要求应用输入硬件文件导出SD启动包，并明确XSA必须含bitstream。已实现强制XSA的Windows GUI/EXE，支持PS差异检查、必要时新FSBL/BSP、手动/Linux后自动加载/FSBL三种模式、BOOT/FIT/ZIP和完整IMG校验输出。
+- 程序：`4_metrics/logs/2026-09-10_sd_builder_toolkit_run01/distribution/EES331SDBootBuilder.exe`；源码与说明：`3_host/pynq/sd_boot_builder/`；验证报告：toolkit_run01/REPORT.md。
+- 10项输入/GUI测试通过，真实完整IMG/FSBL重建/FSBL位流载荷校验通过，EXE自检与真实XSA构建通过。新硬件包未板测，本轮未写SD或改冻结工程。
+- 第一版限当前EES-331+Vivado/Vitis2025.2+PYNQ3.0.1；影响PS外设的未知变化需要匹配DTB，不自动猜测外部器件和驱动。默认手动加载PL，界面可切换自动加载。
+- 下一入口：7_logs/2026-09-10/04_next_start_guide.md v8。使用实际新XSA完成冷启动/PL/DMA/应用验收，再扩展板级profile。
+
+## 2026-09-10 SD/Linux Shell 启动已证实，完整 IMG 可交付（启动基线）
+
+- 用户 `2026-09-10_pynq_v301_baseline_boot_run02/uart_pynq_log.txt` 证实 FSBL→U-Boot→EES-331 Linux→`xilinx@pynq:~$`，阶段结果 SD_BOOT_TO_LINUX_SHELL_PASS。
+- 可烧录完整镜像：`4_metrics/logs/2026-09-10_ees331_img_package_run01/ees331_pynq_v3.0.1_ps_sd_20260910.img`，7,858,807,808 B，SHA256 `203e9f79679c6c77a738c30d06e3232f0907eb2e5b6cafe97e26e8889057835a`。
+- FULL_IMG_PACKAGE_READBACK_PASS：六个启动文件与已部署版本一致，启动分区外所有字节保持原版。新的完整 IMG 尚未复烧上板；不含首次启动后的运行状态。
+- 网络/Jupyter/应用 Overlay 待验收，UART 中 U-Boot PHY/default-env、Linux随机MAC和部分 FSBL调试格式问题未因打包而修复。当前已通过的是 SD/Linux Shell 启动。
+- PL开发通常更新同版本 `.bit`+同名`.hwh`和应用，需要Linux内核驱动时再处理`.dtbo`/模块；PS启动配置变化需新XSA/FSBL/BOOT及实际使用DTB。当前BOOT不含PL位流；冻结工程不改。
+- 完整报告与更新矩阵：`4_metrics/logs/2026-09-10_ees331_img_package_run01/REPORT.md`；下一入口为 `7_logs/2026-09-10/04_next_start_guide.md` v7。下方 NOT_TESTED 为当时历史状态。
+
+## 2026-09-10 SD 修正版已部署（历史里程碑，16:09:58 +08:00）
+
+- 用户“根据查验的问题完整修正”已执行：隔离重编带打印 FSBL，正确 bootloader 头+U-Boot+控制 DTB，FIT 内同步适配 UART1/33.333333MHz/1GiB/PHY0，取消 Z2 base.bit 自动加载。最小 XSA 未启用的 USB/I2C/QSPI 在 DT 中禁用。
+- G 盘已替换 BOOT.BIN/image.ub/boot.py、新增 system.dtb，boot.scr/REVISION 保留；全部文件读回哈希一致、卷刷新成功、写后 FAT 只读检查无问题。PC 备份完整，冻结工程/根分区未写。
+- `SD_BOOT_CANDIDATE_STATIC_PASS`（240 项）+ `SD_DEPLOY_READBACK_PASS`；`hardware_status=NOT_TESTED`。新 BOOT SHA256 `3ea3eae30dba8646ddb597abf098594a99ed6c0250576bed12a9eca91c3902a0`。
+- U-Boot 复用官方镜像中的原始程序载荷，通过实际二进制确认其读取 0x00100000 外部 DTB，未冒称源码重编；内核保留，BOOT/FIT 中的设备树字节一致。
+- 当前第一动作：安全移除卡并插回板卡，COM6 115200-8-N-1 无流控先开日志，再冷启动记录 FSBL→U-Boot→Linux。用户已经确认 SD 拨码与供电。网络/Jupyter/自定义 Overlay 待实际板测，不提前标记完整 PYNQ PASS。
+- 证据和回退说明：`4_metrics/logs/2026-09-10_sd_boot_fix_run01/REPORT.md`、`candidate_validation.json`、`deploy_result.json`；当前交接 `7_logs/2026-09-10/04_next_start_guide.md` v6。
+
+以下为此前修复前审计和历史板测记录，旧“未写卡/等待修复”不代表当前状态。
+
+## 2026-09-10 G 盘全面检查完成（历史）
+
+- 全卡 15,634,268,160 B 只读读取完成，0 错误；MBR/7.72GB Linux 分区与原版镜像相同，除 BOOT.BIN 外的根目录启动文件也相同；ZIP→IMG 完整性验证通过。没有发现烧录载荷损坏证据。
+- 当前 BOOT.BIN 无有效 FSBL 加载头、无 DEBUG 打印且缺 U-Boot；image.ub 内 DTB 另有 UART0/50MHz/512MiB 的 Z2 假设，与 EES-331 UART1/33.333333MHz/1GiB 不符。只改 BIF 不足以启动完整 PYNQ。
+- boot.scr 优先使用 FIT 内 DTB；原版 BOOT 内 DTB 与 FIT 内 DTB 相同。只放根目录 system.dtb 不能保证修复生效。
+- SD0/CD MIO0 与手册一致；Linux/PYNQ/Jupyter 文件存在，boot.py 会自动加载原版 Z2 base.bit，需要后续适配。整卡无读取错误不是写入型介质验收，未运行 e2fsck 或板测。
+- 未写卡、重编或修改冻结工程。下一入口：`4_metrics/logs/2026-09-10_sd_card_full_audit_run01/REPORT.md`、`7_logs/2026-09-10/04_next_start_guide.md` v5。
+
+## 2026-09-10 SD 启动静默：镜像缺陷已定位，板级恢复待验
+
+- 同日 15:30 直接检查 G 盘确认：实际 BOOT.BIN（91,856 B）与 run03 BOOT_MIN.BIN 逐字节一致，FSBL 源偏移/长度仍为零。未写卡。现场证据 `4_metrics/logs/2026-09-10_sd_card_g_audit_run01/REPORT.md`。
+
+- 用户当前确认 SW8 为 SD 启动且上电成功。只读审计发现 run03 `fsbl_only.bif` 缺 `[bootloader]`，实际 BOOT_MIN.BIN 的 FSBL 源偏移、长度、总长度均为 0。
+- 同一 FSBL 没有启用 DEBUG，ELF 中不存在预期横幅和错误字符串；旧“最小镜像上电应有横幅”的验收无效。
+- 先依次修正 BIF、验证启动头，再启用 DEBUG 重编并确认实际字符串；之后做 SD 冷启动 UART/阶段验证。只有 FSBL 的镜像不能启动完整 PYNQ。
+- 未执行源代码修改、重编、写卡、JTAG 或板级恢复。旧 BOOT_MODE=0 是修正拨码前的证据；不能沿用“定案 DDR 训练失败”或据 JTAG 全 1 断言没上电。
+- 入口：`4_metrics/logs/2026-09-10_sd_boot_static_audit_run01/DIAGNOSIS.md`；日志：`7_logs/2026-09-10/03_validation_summary.md` 与 `04_next_start_guide.md`。
 
 ## 2026-09-08 FREEZE udp-color-fix-pass-20260908 (UDP camera-frame R/B swap root-caused, fixed PC-side)
 

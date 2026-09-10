@@ -1,0 +1,40 @@
+检查输入 XSA 与基线资源。
+运行 dtc.exe
+运行 dtc.exe
+运行 dtc.exe
+从当前 XSA 生成新的 FSBL/BSP。
+运行 xsct.bat
+运行 arm-none-eabi-gcc.exe
+运行 arm-none-eabi-gcc.exe
+运行 arm-none-eabi-gcc.exe
+运行 arm-none-eabi-gcc.exe
+运行 arm-none-eabi-gcc.exe
+运行 arm-none-eabi-gcc.exe
+运行 arm-none-eabi-gcc.exe
+运行 arm-none-eabi-gcc.exe
+运行 arm-none-eabi-gcc.exe
+运行 arm-none-eabi-gcc.exe
+运行 arm-none-eabi-gcc.exe
+运行 arm-none-eabi-gcc.exe
+运行 arm-none-eabi-gcc.exe
+运行 bootgen.bat
+运行 bootgen.bat
+运行 dtc.exe
+生成完整 IMG 并进行全文件读回。
+E:\competition\4_metrics\logs\2026-09-10_sd_builder_toolkit_run01\python_deps\fs\__init__.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  __import__("pkg_resources").declare_namespace(__name__)  # type: ignore
+写入 IMG 13%
+写入 IMG 27%
+写入 IMG 41%
+写入 IMG 54%
+写入 IMG 68%
+写入 IMG 82%
+写入 IMG 95%
+校验 IMG 14%
+校验 IMG 27%
+校验 IMG 41%
+校验 IMG 55%
+校验 IMG 68%
+校验 IMG 82%
+校验 IMG 96%
+导出完成：E:\competition\4_metrics\logs\2026-09-10_sd_builder_165718_5e2d15\output

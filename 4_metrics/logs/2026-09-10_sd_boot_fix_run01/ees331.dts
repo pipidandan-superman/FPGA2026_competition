@@ -1,0 +1,100 @@
+/* EES-331 PS-only SD boot adaptation of the PYNQ 3.0.1 device tree.
+ * PS initialization is provided by the EES-331 XSA-derived FSBL.
+ * PHY address 0 is established by the 2026-09-08 board UART logs.
+ */
+/include/ "sources/original-system.dts"
+
+/delete-node/ &{/amba};
+/delete-node/ &{/phy0};
+/delete-node/ &{/audio-codec-ctrl@43c00000};
+/delete-node/ &{/fabric@40000000};
+/delete-node/ &{/xlnk};
+/delete-node/ &{/axi/spi@e000d000/flash@0};
+/delete-node/ &{/axi/zyxclmm_drm};
+/delete-node/ &{/memory};
+
+/ {
+    model = "EES-331 Zynq-7020 PS-only PYNQ bring-up";
+    compatible = "ees,ees-331", "xlnx,zynq-7000";
+    memory@0 {
+        device_type = "memory";
+        reg = <0x0 0x40000000>;
+    };
+    zyxclmm_drm {
+        compatible = "xlnx,zocl";
+        status = "okay";
+    };
+};
+
+&{/chosen} {
+    stdout-path = "serial0:115200n8";
+    bootargs = "console=ttyPS0,115200 earlycon root=/dev/mmcblk0p2 rw rootfstype=ext4 rootwait devtmpfs.mount=1 uio_pdrv_genirq.of_id=generic-uio clk_ignore_unused";
+    pynq_board = "EES-331";
+};
+
+&{/aliases} {
+    serial0 = "/axi/serial@e0001000";
+    mmc0 = "/axi/mmc@e0100000";
+    /delete-property/ spi0;
+};
+
+&{/axi/serial@e0000000} {
+    status = "disabled";
+    /delete-property/ port-number;
+};
+
+&{/axi/serial@e0001000} {
+    status = "okay";
+    u-boot,dm-pre-reloc;
+    port-number = <0>;
+    current-speed = <115200>;
+    cts-override;
+};
+
+&{/axi/slcr@f8000000/clkc@100} {
+    ps-clk-frequency = <33333333>;
+    fclk-enable = <0>;
+};
+
+&{/axi/mmc@e0100000} {
+    status = "okay";
+    u-boot,dm-pre-reloc;
+    bus-width = <4>;
+    max-frequency = <50000000>;
+    no-1-8-v;
+    disable-wp;
+};
+
+&{/axi/ethernet@e000b000} {
+    status = "okay";
+    /delete-property/ enet-reset;
+    /delete-property/ xlnx,ptp-enet-clock;
+    phy-mode = "rgmii-id";
+    phy-handle = <0x14>;
+    ethernet-phy@0 {
+        compatible = "ethernet-phy-ieee802.3-c22";
+        reg = <0>;
+        phandle = <0x14>;
+    };
+};
+
+/* These PS peripherals are disabled in the current minimal XSA. */
+&{/axi/i2c@e0004000} { status = "disabled"; };
+&{/axi/i2c@e0005000} { status = "disabled"; };
+&{/axi/spi@e000d000} {
+    status = "disabled";
+    /delete-property/ #address-cells;
+    /delete-property/ #size-cells;
+};
+&{/axi/usb@e0002000} {
+    status = "disabled";
+    /delete-property/ usb-phy;
+    /delete-property/ usb-reset;
+};
+
+&{/__symbols__} {
+    ethernet_phy = "/axi/ethernet@e000b000/ethernet-phy@0";
+    /delete-property/ usb_phy0;
+    /delete-property/ audio0;
+    /delete-property/ flash0;
+};

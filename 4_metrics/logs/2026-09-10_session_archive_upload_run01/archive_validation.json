@@ -1,0 +1,13 @@
+{
+  "result": "ARCHIVE_CONTENT_VALIDATION_PASS",
+  "selected_files": 317,
+  "bytes": 68783823,
+  "hash_mismatches": [],
+  "asset_entries_verified": 18,
+  "source_frozen_diff_unchanged": true,
+  "source_index_unchanged": true,
+  "secret_pattern_matches": [],
+  "skill_path_audit_exit": 0,
+  "hardware_action": "NONE",
+  "large_images_rehashed_this_archive": false
+}

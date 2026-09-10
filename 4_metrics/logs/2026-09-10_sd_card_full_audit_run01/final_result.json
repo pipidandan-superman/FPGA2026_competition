@@ -1,0 +1,30 @@
+{
+  "result": "FULL_SD_AUDIT_COMPLETE_WITH_BOOT_AND_PORTING_DEFECTS",
+  "checks": {
+    "whole_card_read_complete": true,
+    "archive_matches_manifest": true,
+    "zip_crc_pass": true,
+    "local_img_equals_zip_payload": true,
+    "root_partition_identical": true,
+    "fit_payload_hashes_valid": true,
+    "boot_script_crc_valid": true,
+    "ext_directory_traversal_no_errors": true,
+    "mineru_reuse_valid": true,
+    "current_boot_defect_confirmed": true,
+    "unchanged_BOOT.BIN": true,
+    "unchanged_BOOT.PY": true,
+    "unchanged_BOOT.SCR": true,
+    "unchanged_IMAGE.UB": true,
+    "unchanged_REVISION": true,
+    "daily_01_daily_plan.md": true,
+    "daily_02_execution_plan.md": true,
+    "daily_03_validation_summary.md": true,
+    "daily_04_next_start_guide.md": true
+  },
+  "board_boot_test": "NOT_RUN",
+  "sd_card_writes": "NONE",
+  "ext4_e2fsck": "NOT_RUN",
+  "card_bytes_read": 15634268160,
+  "read_errors": 0,
+  "elapsed_seconds": 870.2136709690094
+}

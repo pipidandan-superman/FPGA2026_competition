@@ -1,0 +1,38 @@
+{
+  "boot.scr": {
+    "size": 2776,
+    "sha256": "7013e14923fbe461c4ecd745214fcafcb0ffaddb10865f9135cd8624637359f4"
+  },
+  "fsbl.elf": {
+    "size": 559932,
+    "sha256": "6179e79ce08e87eef750e594463f311d5a1cc570c45685d963bbdb071d2f3e86"
+  },
+  "kernel.bin": {
+    "size": 6442720,
+    "sha256": "3d45ed1350bc1509f1f62d139fe1502b9da5437b86de0404aa1de1cbbfeb7364"
+  },
+  "reference.hwh": {
+    "size": 76292,
+    "sha256": "4dad74d7a0191f8c9b1926339d383263d931d195be70c0a3ff910e810a6e513f"
+  },
+  "reference_init.c": {
+    "size": 541385,
+    "sha256": "353d35f807279393e3f8001922ba7a09a6c77e833b2443b3fb176495cc2b8023"
+  },
+  "reference_xsa.json": {
+    "size": 2204,
+    "sha256": "e6b645c92b2160b0a048312a7285e32a044c1245f6e7a8c2b1f6ec3c3fed4f60"
+  },
+  "REVISION": {
+    "size": 83,
+    "sha256": "4890cc0639e8f20a0fd5ce4610f6cbc227a01a7589e847f7810bf68c80be6b19"
+  },
+  "system.dtb": {
+    "size": 14919,
+    "sha256": "76e29723d185ac4a50700338bfcf872113a43409bbbe8eded34fbbd723ef6434"
+  },
+  "u-boot.elf": {
+    "size": 968580,
+    "sha256": "5dd40d505c69580f49acdc47f59a947ec2357f5e728d306a5daddd360303247b"
+  }
+}

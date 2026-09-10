@@ -1,0 +1,168 @@
+{
+  "input": "E:\\competition\\1_docs\\doc\\AMD AIPC \u501f\u7528\u62a5\u544a - \u9510\u773c\u667a\u884c\u5177\u8eab\u667a\u80fd\u5206\u62e3.docx",
+  "fonts_by_char_count": {},
+  "direct_run_formatting_runs": 130,
+  "direct_paragraph_formatting_paragraphs": 73,
+  "heading_like_paragraphs_not_heading_style": [
+    {
+      "para_index": 1,
+      "text": "AMD AIPC \u501f\u7528\u62a5\u544a",
+      "style": "Title"
+    },
+    {
+      "para_index": 3,
+      "text": "\u56e2\u961f\u7f16\u53f7",
+      "style": "Normal"
+    },
+    {
+      "para_index": 8,
+      "text": "\u4f5c\u54c1\u540d\u79f0",
+      "style": "Normal"
+    },
+    {
+      "para_index": 13,
+      "text": "\u961f\u957f\u4fe1\u606f",
+      "style": "Normal"
+    },
+    {
+      "para_index": 14,
+      "text": "\u59d3\u540d",
+      "style": "Normal"
+    },
+    {
+      "para_index": 16,
+      "text": "\u8054\u7cfb\u90ae\u7bb1",
+      "style": "Normal"
+    },
+    {
+      "para_index": 19,
+      "text": "\u6240\u5728\u5b66\u6821",
+      "style": "Normal"
+    },
+    {
+      "para_index": 21,
+      "text": "\u7535\u8bdd",
+      "style": "Normal"
+    },
+    {
+      "para_index": 23,
+      "text": "\u6307\u5bfc\u6559\u5e08\u4fe1\u606f",
+      "style": "Normal"
+    },
+    {
+      "para_index": 24,
+      "text": "\u6307\u5bfc\u6559\u5e081",
+      "style": "Normal"
+    },
+    {
+      "para_index": 25,
+      "text": "\u59d3\u540d",
+      "style": "Normal"
+    },
+    {
+      "para_index": 27,
+      "text": "\u6307\u5bfc\u6559\u5e082",
+      "style": "Normal"
+    },
+    {
+      "para_index": 28,
+      "text": "\u59d3\u540d",
+      "style": "Normal"
+    },
+    {
+      "para_index": 30,
+      "text": "\u501f\u7528AIPC",
+      "style": "Normal"
+    },
+    {
+      "para_index": 31,
+      "text": "AMD RyzenAI 370\uff0832G\uff09\n\u62df\u7533\u8bf7",
+      "style": "Normal"
+    },
+    {
+      "para_index": 32,
+      "text": "AMD RyzenAI 370\uff0832G\uff09\n\u62df\u7533\u8bf7",
+      "style": "Normal"
+    },
+    {
+      "para_index": 35,
+      "text": "\u603b\u8bbe\u8ba1\u6846\u56fe",
+      "style": "Normal"
+    },
+    {
+      "para_index": 37,
+      "text": "\u5e94\u7528\u4efb\u52a1\uff1a\u9488\u5bf9\u684c\u9762\u5c0f\u578b\u7269\u4f53\uff0c\u5b8c\u6210\u56fe\u50cf\u91c7\u96c6\u3001\u7c7b\u522b\u8bc6\u522b\u3001\u76ee\u6807\u5b9a\u4f4d\u3001\u6293\u53d6\u4e0e\u5206\u7c7b\u653e\u7f6e\uff0c\u518d\u901a\u8fc7\u6267\u884c\u53cd\u9988\u548c\u89c6\u89c9\u590d\u6838\u786e\u8ba4\u7ed3\u679c\uff0c\u5f62\u6210\u53ef\u91cd\u590d\u6d4b\u8bd5\u7684\u7269\u7406\u95ed\u73af\u3002",
+      "style": "Normal"
+    },
+    {
+      "para_index": 43,
+      "text": "\u5e94\u7528\u4efb\u52a1\uff1a\u9488\u5bf9\u684c\u9762\u5c0f\u578b\u7269\u4f53\uff0c\u5b8c\u6210\u56fe\u50cf\u91c7\u96c6\u3001\u7c7b\u522b\u8bc6\u522b\u3001\u76ee\u6807\u5b9a\u4f4d\u3001\u6293\u53d6\u4e0e\u5206\u7c7b\u653e\u7f6e\uff0c\u518d\u901a\u8fc7\u6267\u884c\u53cd\u9988\u548c\u89c6\u89c9\u590d\u6838\u786e\u8ba4\u7ed3\u679c\uff0c\u5f62\u6210\u53ef\u91cd\u590d\u6d4b\u8bd5\u7684\u7269\u7406\u95ed\u73af\u3002",
+      "style": "Normal"
+    },
+    {
+      "para_index": 49,
+      "text": "\u5e94\u7528\u4efb\u52a1\uff1a\u9488\u5bf9\u684c\u9762\u5c0f\u578b\u7269\u4f53\uff0c\u5b8c\u6210\u56fe\u50cf\u91c7\u96c6\u3001\u7c7b\u522b\u8bc6\u522b\u3001\u76ee\u6807\u5b9a\u4f4d\u3001\u6293\u53d6\u4e0e\u5206\u7c7b\u653e\u7f6e\uff0c\u518d\u901a\u8fc7\u6267\u884c\u53cd\u9988\u548c\u89c6\u89c9\u590d\u6838\u786e\u8ba4\u7ed3\u679c\uff0c\u5f62\u6210\u53ef\u91cd\u590d\u6d4b\u8bd5\u7684\u7269\u7406\u95ed\u73af\u3002",
+      "style": "Normal"
+    }
+  ],
+  "examples": {
+    "direct_paragraph_formatting": [
+      {
+        "para_index": 1,
+        "text": "AMD AIPC \u501f\u7528\u62a5\u544a",
+        "style": "Title"
+      },
+      {
+        "para_index": 4,
+        "text": "\u5f85\u786e\u8ba4\uff08\u6a21\u677f\u7f16\u53f7 4062\uff09",
+        "style": "Normal"
+      },
+      {
+        "para_index": 5,
+        "text": "\u5f85\u786e\u8ba4\uff08\u6a21\u677f\u7f16\u53f7 4062\uff09",
+        "style": "Normal"
+      },
+      {
+        "para_index": 6,
+        "text": "\u5f85\u786e\u8ba4\uff08\u6a21\u677f\u7f16\u53f7 4062\uff09",
+        "style": "Normal"
+      },
+      {
+        "para_index": 7,
+        "text": "\u5f85\u786e\u8ba4\uff08\u6a21\u677f\u7f16\u53f7 4062\uff09",
+        "style": "Normal"
+      }
+    ],
+    "direct_run_formatting": [
+      {
+        "para_index": 1,
+        "run_text": "AMD AIPC \u501f\u7528\u62a5\u544a",
+        "style": "Title"
+      },
+      {
+        "para_index": 3,
+        "run_text": "\u56e2\u961f\u7f16\u53f7",
+        "style": "Normal"
+      },
+      {
+        "para_index": 4,
+        "run_text": "\u5f85\u786e\u8ba4\uff08\u6a21\u677f\u7f16\u53f7 4062\uff09",
+        "style": "Normal"
+      },
+      {
+        "para_index": 5,
+        "run_text": "\u5f85\u786e\u8ba4\uff08\u6a21\u677f\u7f16\u53f7 4062\uff09",
+        "style": "Normal"
+      },
+      {
+        "para_index": 6,
+        "run_text": "\u5f85\u786e\u8ba4\uff08\u6a21\u677f\u7f16\u53f7 4062\uff09",
+        "style": "Normal"
+      }
+    ]
+  },
+  "notes": [
+    "Direct formatting is not always wrong, but it often causes inconsistent output when templates change.",
+    "Heading-like paragraphs not using Heading styles can break TOC and accessibility."
+  ]
+}

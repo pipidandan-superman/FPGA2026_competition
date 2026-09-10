@@ -1,0 +1,9 @@
+﻿
+[2026-09-10 18:17:43] workspace=E:\competition
+[2026-09-10 18:17:43] output=E:\competition\4_metrics\logs\2026-09-10_aipc_loan_report_run01
+[2026-09-10 18:17:43] backend=pipeline model_source=local api=http://127.0.0.1:58120
+[2026-09-10 18:17:51] MinerU API healthy.
+[2026-09-10 18:17:51] START file=E:\competition\1_docs\doc\AMD AIPC 借用报告 - 模板.docx sha256=EBBC3F74BB0E42663E54245EFB0624AE4E692CF37F2110A5DE9AC75A6DCFEFA6
+[2026-09-10 18:17:57] END file=AMD AIPC 借用报告 - 模板.docx code=0 markdown=False content_json=False images=0 fallback=False seconds=5.1
+[2026-09-10 18:17:57] RESULT MINERU_PARSE_FAIL failed_count=1
+[2026-09-10 18:17:57] ERROR MinerU parsing contract failed for 1 file(s).

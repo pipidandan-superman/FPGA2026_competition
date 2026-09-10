@@ -10,7 +10,18 @@
 
 > **AMD Ryzen AI PC（上位机"大脑"）+ AMD Zynq-7000 FPGA（实时"小脑"）异构协同**
 
+## 当前进展与交付入口（2026-09-10）
+
+- **EES-331 SD → Linux Shell 已启动**：原始串口见 [uart_pynq_log.txt](4_metrics/logs/2026-09-10_pynq_v301_baseline_boot_run02/uart_pynq_log.txt)。网络、Jupyter、自定义 Overlay 和完整分拣闭环仍需分别验收。
+- **SD Builder v0.2**：[Windows EXE](8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.exe) · [使用说明与源码](3_host/pynq/sd_boot_builder_v02/README.md)。强制输入含 bitstream 的 Vivado 2025.2 XSA，以 EES-331 板级模板生成 PS 设备树，按需重建 FSBL/BSP，导出启动包或完整 IMG；原版 PYNQ-Z2 入口已移除。v0.1 在 [旧版目录](8_tools/sd_start_tool/) 保留。
+- v0.2 的 22 项测试、真实构建、EXE 检查及整卡读回通过；**这些新输出尚未上板**。完整 IMG 依赖外部 Vitis 2025.2 和 7,858,807,808 字节的 EES-331 基础镜像，Git 不包含大镜像；获取本机路径和校验值见 [归档索引](4_metrics/logs/2026-09-10_session_archive_upload_run01/REPORT.md)。
+- **AIPC 借用报告**：[两页 Word 报告](<1_docs/doc/AMD AIPC 借用报告 - 锐眼智行具身智能分拣.docx>)。正文和排版检查完成，队员/学校/联系方式、团队编号及机型确认仍待补充，尚未提交申请。
+- 9 月 8 日裸机 UDP 摄像头传输及 PC 端 BGR 修复结论继续有效，详见下方原始记录；不能将这些结果直接计作 Linux/PYNQ 网络验收。
+- [交接文档](HANDOFF.md) · [当日验证记录](7_logs/2026-09-10/03_validation_summary.md) · [关键证据与上传范围](4_metrics/logs/2026-09-10_session_archive_upload_run01/REPORT.md)。本轮仅归档和更新文档，冻结 `2_fpga/` 无改动。
+
 ## 项目目标
+
+以下为规划目标，不代表已完成；实际通过项以上方证据和下方板测记录为准。模型部署后端、机械臂控制接口和加速模块需在器材确定后验证。
 
 构建一套具身智能视觉分拣系统，在真实环境中完成"感知→决策→控制→执行"的完整闭环。Ryzen AI PC 在本地运行 YOLO 目标检测模型（ROCm），识别目标物体并规划抓取策略；Zynq FPGA 在 PL 端完成图像采集与预处理、CNN 特征提取加速、多轴舵机精确控制与硬件级安全保护。两者通过 Ethernet 通信，协同完成机械臂自动抓取与分拣。
 
@@ -32,22 +43,22 @@
 
 ## 赛道核心要求
 
-### 必须满足
+### 设计约束与计划（正式验收待完成）
 
-- 上位机必须为 AMD Ryzen AI PC，型号不限；✅ 已规划
-- 必须包含基于 AMD 器件的 FPGA/Zynq 设计，并说明其实际作用；✅ CNN 加速 + 多轴控制 + HDMI 显示
-- FPGA/Zynq 不能仅作为普通 USB、串口或 GPIO 转接板使用；✅ PL 端并行计算与实时控制不可由软件替代
-- 必须给出 AI PC 与 FPGA/Zynq 的通信方式和数据流；✅ Ethernet + 协议帧格式
-- AI 决策到物理执行的闭环必须完整，至少完成一项真实物理任务。✅ 机械臂抓取与分拣
+- 上位机必须为 AMD Ryzen AI PC，型号不限；已规划，设备待落实
+- 必须包含基于 AMD 器件的 FPGA/Zynq 设计，并说明其实际作用；拟定 CNN 加速与控制功能；HDMI 已有独立板测
+- FPGA/Zynq 不能仅作为普通 USB、串口或 GPIO 转接板使用；需用最终实现和测量证明 FPGA/Zynq 的作用
+- 必须给出 AI PC 与 FPGA/Zynq 的通信方式和数据流；已有裸机 UDP 证据，最终系统仍需集成
+- AI 决策到物理执行的闭环必须完整，至少完成一项真实物理任务。计划验证机械臂抓取与分拣
 
 ## 平台与工具链
 
 | 组件 | 说明 |
 |------|------|
-| 上位机 | AMD Ryzen AI PC（型号待定/自有设备） |
-| AI 推理 | ROCm 7.14.0+，YOLOv8-n 端侧部署 |
+| 上位机 | AMD Ryzen AI PC（拟借用，型号待确认） |
+| AI 推理 | YOLO 端侧部署；后端与版本待设备兼容性验证 |
 | FPGA 板卡 | 依元素 EES-331（Zynq-7000 XC7Z020 CLG484-1） |
-| FPGA 开发工具 | AMD Vivado / Vitis 2020.2（赛题不限制版本） |
+| FPGA 开发工具 | 当前 SD Builder 使用 AMD Vivado / Vitis 2025.2；2020.2 为历史参考工程 |
 | 仿真工具 | ModelSim |
 | 通信方式 | Ethernet（UDP，RTT < 5 ms） |
 | 机械臂 | 4-6 自由度舵机机械臂（待采购） |

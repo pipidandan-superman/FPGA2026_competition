@@ -1,0 +1,65 @@
+{
+  "device": "\\\\.\\PhysicalDrive1",
+  "size": 15634268160,
+  "card": [
+    {
+      "index": 1,
+      "active": 128,
+      "type": 12,
+      "start": 4096,
+      "size": 136314880
+    },
+    {
+      "index": 2,
+      "active": 0,
+      "type": 131,
+      "start": 137363456,
+      "size": 7721444352
+    },
+    {
+      "index": 3,
+      "active": 0,
+      "type": 0,
+      "start": 0,
+      "size": 0
+    },
+    {
+      "index": 4,
+      "active": 0,
+      "type": 0,
+      "start": 0,
+      "size": 0
+    }
+  ],
+  "reference": [
+    {
+      "index": 1,
+      "active": 128,
+      "type": 12,
+      "start": 4096,
+      "size": 136314880
+    },
+    {
+      "index": 2,
+      "active": 0,
+      "type": 131,
+      "start": 137363456,
+      "size": 7721444352
+    },
+    {
+      "index": 3,
+      "active": 0,
+      "type": 0,
+      "start": 0,
+      "size": 0
+    },
+    {
+      "index": 4,
+      "active": 0,
+      "type": 0,
+      "start": 0,
+      "size": 0
+    }
+  ],
+  "mbr_equal": true
+}

@@ -1,0 +1,91 @@
+{
+  "result": "FULL_MEDIA_READ_COMPLETE",
+  "bytes_read": 15634268160,
+  "read_errors": 0,
+  "seconds": 870.2136709690094,
+  "card_sha256": "5ecfc64c109302c0a2e9cdda1cb4a318f09197c19f0468d90a033e2fd730dfce",
+  "reference_img_sha256": "f17405d25298a2c5ea23ccf95f868b42b18f819ff9d7fe5d079ac9ef53415861",
+  "segments": [
+    {
+      "label": "gap_or_tail",
+      "start": 0,
+      "end": 512,
+      "size": 512,
+      "card_sha256": "2d2997139054a2d5180eb9af36e53fb8820bdfec6badc5c1d5a0fc82b310997f",
+      "reference_sha256": "2d2997139054a2d5180eb9af36e53fb8820bdfec6badc5c1d5a0fc82b310997f",
+      "identical_to_reference": true,
+      "differing_ranges_4k": []
+    },
+    {
+      "label": "gap_or_tail",
+      "start": 512,
+      "end": 4096,
+      "size": 3584,
+      "card_sha256": "6cf1b57d59e7111bc218dfb01dda93ac0f776715599a1c69f89035bd20c16a10",
+      "reference_sha256": "6cf1b57d59e7111bc218dfb01dda93ac0f776715599a1c69f89035bd20c16a10",
+      "identical_to_reference": true,
+      "differing_ranges_4k": []
+    },
+    {
+      "label": "partition_1",
+      "start": 4096,
+      "end": 136318976,
+      "size": 136314880,
+      "card_sha256": "76fde46d90052fb2105f0cc6a7de94d6b9fe806edc553ac9bcf32f1e3a659ad4",
+      "reference_sha256": "fe1ae820d3d2e91f8a3b255d81e4d4ac6ea31a0ab27c83c7249bec0663ac2a5d",
+      "identical_to_reference": false,
+      "differing_ranges_4k": [
+        [
+          8192,
+          12288
+        ],
+        [
+          77824,
+          81920
+        ],
+        [
+          147456,
+          151552
+        ],
+        [
+          163840,
+          258048
+        ],
+        [
+          7733248,
+          7745536
+        ]
+      ]
+    },
+    {
+      "label": "gap_or_tail",
+      "start": 136318976,
+      "end": 137363456,
+      "size": 1044480,
+      "card_sha256": "f62e0f02a1fde7c69411b888b4054fa5bf465693a429cb9f283bd6a0ccdee290",
+      "reference_sha256": "f62e0f02a1fde7c69411b888b4054fa5bf465693a429cb9f283bd6a0ccdee290",
+      "identical_to_reference": true,
+      "differing_ranges_4k": []
+    },
+    {
+      "label": "partition_2",
+      "start": 137363456,
+      "end": 7858807808,
+      "size": 7721444352,
+      "card_sha256": "8825a8f5e0a439a286779453b008e9b73f322d4368fac2e199d933ab1841cf9e",
+      "reference_sha256": "8825a8f5e0a439a286779453b008e9b73f322d4368fac2e199d933ab1841cf9e",
+      "identical_to_reference": true,
+      "differing_ranges_4k": []
+    },
+    {
+      "label": "gap_or_tail",
+      "start": 7858807808,
+      "end": 15634268160,
+      "size": 7775460352,
+      "card_sha256": "dadd90919612e3bd3d8cfd6a4eadd9b4ef060505eeb629f5151075ab8d9f06ef",
+      "reference_sha256": null,
+      "identical_to_reference": null,
+      "differing_ranges_4k": []
+    }
+  ]
+}

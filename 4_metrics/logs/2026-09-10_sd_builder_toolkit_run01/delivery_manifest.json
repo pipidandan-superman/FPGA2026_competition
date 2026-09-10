@@ -1,0 +1,88 @@
+{
+  "result": "TOOLKIT_DELIVERY_PASS",
+  "exe": {
+    "size": 22760519,
+    "sha256": "7f57bc727c66abeb6d3a06fe849803fcab5712effa24ed36ae3c790797765984"
+  },
+  "archive": {
+    "path": "E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\distribution\\EES331_SD_Builder_v0.1.zip",
+    "size": 29666595,
+    "sha256": "4abe75b7d8b550563ec31218cc881deb8d3aa78b4c1852ec966253a05a3af88e"
+  },
+  "files": {
+    "EES331SDBootBuilder.exe": {
+      "size": 22760519,
+      "sha256": "7f57bc727c66abeb6d3a06fe849803fcab5712effa24ed36ae3c790797765984"
+    },
+    "README.md": {
+      "size": 6136,
+      "sha256": "2f2394d23a4e0236b91e194fed5c14baec9eaa1913446d48fdc3069efa1e4cf1"
+    },
+    "source/app.py": {
+      "size": 9962,
+      "sha256": "8cb86a3d49567d38e7a7084a03613b9e294fefe2e67b9f0b3e8dac966afbe4f9"
+    },
+    "source/builder.py": {
+      "size": 18966,
+      "sha256": "bcfd1e8a03581c0713a53837a94f0bedbd6be668d66e86671bef230942361c2e"
+    },
+    "source/fdt_reader.py": {
+      "size": 1129,
+      "sha256": "7e9d0051a49088b5b1b56768a77ceb7ee11ae018781414db1955883190eafbbd"
+    },
+    "source/hardware.py": {
+      "size": 5607,
+      "sha256": "daa418972ebdff3720abbe4b7b68675d661ac23b4bd96346b84961dc8d3c0e05"
+    },
+    "source/images.py": {
+      "size": 5238,
+      "sha256": "13b148761406995ca8cda93fa19b82b122744a233cc2a64053f67b0d3810226e"
+    },
+    "source/requirements.txt": {
+      "size": 45,
+      "sha256": "6514b4a50405ed0bb5dca36c71981f32b026b2df8d103a0bc382c0d50d9aa459"
+    },
+    "source/assets/boot.scr": {
+      "size": 2776,
+      "sha256": "7013e14923fbe461c4ecd745214fcafcb0ffaddb10865f9135cd8624637359f4"
+    },
+    "source/assets/fsbl.elf": {
+      "size": 559932,
+      "sha256": "6179e79ce08e87eef750e594463f311d5a1cc570c45685d963bbdb071d2f3e86"
+    },
+    "source/assets/kernel.bin": {
+      "size": 6442720,
+      "sha256": "3d45ed1350bc1509f1f62d139fe1502b9da5437b86de0404aa1de1cbbfeb7364"
+    },
+    "source/assets/manifest.json": {
+      "size": 1157,
+      "sha256": "195e0d84af673f932c8538c1934e80c942b4282f100d2dfd6b600ee9eab9e4bb"
+    },
+    "source/assets/reference.hwh": {
+      "size": 76292,
+      "sha256": "4dad74d7a0191f8c9b1926339d383263d931d195be70c0a3ff910e810a6e513f"
+    },
+    "source/assets/reference_init.c": {
+      "size": 541385,
+      "sha256": "353d35f807279393e3f8001922ba7a09a6c77e833b2443b3fb176495cc2b8023"
+    },
+    "source/assets/reference_xsa.json": {
+      "size": 2204,
+      "sha256": "e6b645c92b2160b0a048312a7285e32a044c1245f6e7a8c2b1f6ec3c3fed4f60"
+    },
+    "source/assets/REVISION": {
+      "size": 83,
+      "sha256": "4890cc0639e8f20a0fd5ce4610f6cbc227a01a7589e847f7810bf68c80be6b19"
+    },
+    "source/assets/system.dtb": {
+      "size": 14919,
+      "sha256": "76e29723d185ac4a50700338bfcf872113a43409bbbe8eded34fbbd723ef6434"
+    },
+    "source/assets/u-boot.elf": {
+      "size": 968580,
+      "sha256": "5dd40d505c69580f49acdc47f59a947ec2357f5e728d306a5daddd360303247b"
+    }
+  },
+  "scope": "EES-331 / Vivado-Vitis 2025.2 / PYNQ 3.0.1",
+  "hardware_validation": "NOT_RUN_FOR_NEW_OUTPUTS"
+}

@@ -1,0 +1,1003 @@
+{
+    "pdf_info": [
+        {
+            "preproc_blocks": [
+                {
+                    "type": "table",
+                    "bbox": [
+                        70,
+                        103,
+                        540,
+                        387
+                    ],
+                    "blocks": [
+                        {
+                            "score": 0.7658,
+                            "bbox": [
+                                222,
+                                77,
+                                381,
+                                93
+                            ],
+                            "index": 1,
+                            "type": "table_caption",
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        223,
+                                        77,
+                                        380,
+                                        93
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                223,
+                                                77,
+                                                380,
+                                                93
+                                            ],
+                                            "type": "text",
+                                            "content": "AMD AIPC 借用报告（模板）",
+                                            "score": 1.0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "score": 0.9901,
+                            "bbox": [
+                                70,
+                                103,
+                                540,
+                                387
+                            ],
+                            "index": 2,
+                            "type": "table_body",
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        103,
+                                        540,
+                                        387
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                70,
+                                                103,
+                                                540,
+                                                387
+                                            ],
+                                            "type": "table",
+                                            "html": "<table><tr><td rowspan=1 colspan=1>团队编号</td><td rowspan=1 colspan=4>4062</td></tr><tr><td rowspan=1 colspan=1>作品名称</td><td rowspan=1 colspan=4>基于AMD AI PC 与PYNQ-Z2 的具身智能视觉分拣系统(示例)</td></tr><tr><td rowspan=1 colspan=1>队长信息</td><td rowspan=1 colspan=1>姓名</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>联系邮箱</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>所在学校</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>电话</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>指导教师信息</td><td rowspan=1 colspan=1>指导教师1姓名</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>指导教师2姓名</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>借用AIPC</td><td rowspan=1 colspan=2>AMD RyzenAI 370(32G)</td><td rowspan=1 colspan=2>(备注：请填写以下 AIPC类型AMD RyzenAI 370(32G)/ AMDRyzenAI 395(64G/128G))</td></tr><tr><td rowspan=1 colspan=1>总设计框</td><td rowspan=1 colspan=4>(关键内容：应用任务、AIPC与FPGA分工、模型名称、输入输出接口/通信方式、执行反馈及异常保护。借用表格描述不得超过2页)</td></tr></table>",
+                                            "image_path": "0d20ddeb9c586f7463e7bc6be7005614028279d1613bfc19f1f5288f7aa92939.jpg"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "index": 2,
+                    "score": 0.9901
+                }
+            ],
+            "page_idx": 0,
+            "page_size": [
+                612,
+                792
+            ],
+            "discarded_blocks": [],
+            "para_blocks": [
+                {
+                    "type": "table",
+                    "bbox": [
+                        70,
+                        103,
+                        540,
+                        387
+                    ],
+                    "blocks": [
+                        {
+                            "score": 0.7658,
+                            "bbox": [
+                                222,
+                                77,
+                                381,
+                                93
+                            ],
+                            "index": 1,
+                            "type": "table_caption",
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        223,
+                                        77,
+                                        380,
+                                        93
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                223,
+                                                77,
+                                                380,
+                                                93
+                                            ],
+                                            "type": "text",
+                                            "content": "AMD AIPC 借用报告（模板）",
+                                            "score": 1.0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "score": 0.9901,
+                            "bbox": [
+                                70,
+                                103,
+                                540,
+                                387
+                            ],
+                            "index": 2,
+                            "type": "table_body",
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        70,
+                                        103,
+                                        540,
+                                        387
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                70,
+                                                103,
+                                                540,
+                                                387
+                                            ],
+                                            "type": "table",
+                                            "html": "<table><tr><td rowspan=1 colspan=1>团队编号</td><td rowspan=1 colspan=4>4062</td></tr><tr><td rowspan=1 colspan=1>作品名称</td><td rowspan=1 colspan=4>基于AMD AI PC 与PYNQ-Z2 的具身智能视觉分拣系统(示例)</td></tr><tr><td rowspan=1 colspan=1>队长信息</td><td rowspan=1 colspan=1>姓名</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>联系邮箱</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>所在学校</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>电话</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>指导教师信息</td><td rowspan=1 colspan=1>指导教师1姓名</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>指导教师2姓名</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>借用AIPC</td><td rowspan=1 colspan=2>AMD RyzenAI 370(32G)</td><td rowspan=1 colspan=2>(备注：请填写以下 AIPC类型AMD RyzenAI 370(32G)/ AMDRyzenAI 395(64G/128G))</td></tr><tr><td rowspan=1 colspan=1>总设计框</td><td rowspan=1 colspan=4>(关键内容：应用任务、AIPC与FPGA分工、模型名称、输入输出接口/通信方式、执行反馈及异常保护。借用表格描述不得超过2页)</td></tr></table>",
+                                            "image_path": "0d20ddeb9c586f7463e7bc6be7005614028279d1613bfc19f1f5288f7aa92939.jpg"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "index": 2,
+                    "score": 0.9901
+                }
+            ]
+        },
+        {
+            "preproc_blocks": [
+                {
+                    "score": 0.777,
+                    "bbox": [
+                        137,
+                        72,
+                        522,
+                        103
+                    ],
+                    "index": 1,
+                    "type": "text",
+                    "lines": [
+                        {
+                            "bbox": [
+                                141,
+                                75,
+                                519,
+                                85
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        141,
+                                        75,
+                                        519,
+                                        85
+                                    ],
+                                    "type": "text",
+                                    "content": "方案示例：摄像头识别工件，输送带与拨料器完成分类入箱，传感器确认结果。",
+                                    "score": 1.0
+                                }
+                            ]
+                        },
+                        {
+                            "bbox": [
+                                141,
+                                90,
+                                288,
+                                100
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        141,
+                                        90,
+                                        288,
+                                        100
+                                    ],
+                                    "type": "text",
+                                    "content": "以下为拟定方案，非实测成果。",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "score": 0.7722,
+                    "bbox": [
+                        137,
+                        109,
+                        535,
+                        141
+                    ],
+                    "index": 2,
+                    "type": "text",
+                    "lines": [
+                        {
+                            "bbox": [
+                                140,
+                                110,
+                                533,
+                                123
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        140,
+                                        110,
+                                        533,
+                                        123
+                                    ],
+                                    "type": "text",
+                                    "content": "AI PC用途：拟采用YOLO11n在本地完成识别、分拣决策与状态监控，借用机型",
+                                    "score": 1.0
+                                }
+                            ]
+                        },
+                        {
+                            "bbox": [
+                                139,
+                                127,
+                                190,
+                                139
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        139,
+                                        127,
+                                        190,
+                                        139
+                                    ],
+                                    "type": "text",
+                                    "content": "沿用上表。",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "score": 0.7283,
+                    "bbox": [
+                        138,
+                        147,
+                        534,
+                        178
+                    ],
+                    "index": 3,
+                    "type": "text",
+                    "lines": [
+                        {
+                            "bbox": [
+                                140,
+                                149,
+                                532,
+                                160
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        140,
+                                        149,
+                                        532,
+                                        160
+                                    ],
+                                    "type": "text",
+                                    "content": "FPGA职责：FPGA芯片负责编码器采集、脉冲/PWM控制和安全互锁，体现实际",
+                                    "score": 1.0
+                                }
+                            ]
+                        },
+                        {
+                            "bbox": [
+                                141,
+                                166,
+                                255,
+                                176
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        141,
+                                        166,
+                                        255,
+                                        176
+                                    ],
+                                    "type": "text",
+                                    "content": "硬件作用，不只作转接。",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "score": 0.6858,
+                    "bbox": [
+                        138,
+                        181,
+                        524,
+                        211
+                    ],
+                    "index": 4,
+                    "type": "text",
+                    "lines": [
+                        {
+                            "bbox": [
+                                141,
+                                183,
+                                521,
+                                193
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        141,
+                                        183,
+                                        521,
+                                        193
+                                    ],
+                                    "type": "text",
+                                    "content": "通信与反馈：摄像头通过 USB 接入 AI PC；AI PC 与 PYNQ-Z2 经以太网/TCP 交",
+                                    "score": 1.0
+                                }
+                            ]
+                        },
+                        {
+                            "bbox": [
+                                141,
+                                199,
+                                430,
+                                208
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        141,
+                                        199,
+                                        430,
+                                        208
+                                    ],
+                                    "type": "text",
+                                    "content": "互；板卡驱动执行机构并回传传感器状态，异常时安全停机。",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "score": 0.7207,
+                    "bbox": [
+                        138,
+                        213,
+                        528,
+                        244
+                    ],
+                    "index": 5,
+                    "type": "text",
+                    "lines": [
+                        {
+                            "bbox": [
+                                141,
+                                214,
+                                525,
+                                226
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        141,
+                                        214,
+                                        525,
+                                        226
+                                    ],
+                                    "type": "text",
+                                    "content": "总流程：初始化→图像采集→AI识别与决策→FPGA控制执行→传感器反馈→确",
+                                    "score": 1.0
+                                }
+                            ]
+                        },
+                        {
+                            "bbox": [
+                                141,
+                                231,
+                                357,
+                                241
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        141,
+                                        231,
+                                        357,
+                                        241
+                                    ],
+                                    "type": "text",
+                                    "content": "认/记录；下一工件返回采集，异常安全停机。",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "image",
+                    "bbox": [
+                        139,
+                        288,
+                        537,
+                        400
+                    ],
+                    "blocks": [
+                        {
+                            "score": 0.6335,
+                            "bbox": [
+                                157,
+                                263,
+                                313,
+                                280
+                            ],
+                            "index": 6,
+                            "type": "image_caption",
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        160,
+                                        265,
+                                        310,
+                                        278
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                160,
+                                                265,
+                                                310,
+                                                278
+                                            ],
+                                            "type": "text",
+                                            "content": "具身智能视觉分拣系统总流程",
+                                            "score": 1.0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "score": 0.6881,
+                            "bbox": [
+                                139,
+                                288,
+                                537,
+                                400
+                            ],
+                            "index": 7,
+                            "type": "image_body",
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        139,
+                                        288,
+                                        537,
+                                        400
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                139,
+                                                288,
+                                                537,
+                                                400
+                                            ],
+                                            "type": "image",
+                                            "image_path": "63940802965042f98d8999b081c61b87e1094589dd713286621e0a1c0b101e24.jpg"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "score": 0.6606,
+                            "bbox": [
+                                356,
+                                272,
+                                522,
+                                287
+                            ],
+                            "index": 8,
+                            "type": "image_caption",
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        359,
+                                        275,
+                                        519,
+                                        284
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                359,
+                                                275,
+                                                519,
+                                                284
+                                            ],
+                                            "type": "text",
+                                            "content": "具身智能视觉分拣系统总设计框图",
+                                            "score": 1.0
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "index": 7,
+                    "score": 0.6881
+                }
+            ],
+            "page_idx": 1,
+            "page_size": [
+                612,
+                792
+            ],
+            "discarded_blocks": [],
+            "para_blocks": [
+                {
+                    "score": 0.777,
+                    "bbox": [
+                        137,
+                        72,
+                        522,
+                        103
+                    ],
+                    "index": 1,
+                    "type": "list",
+                    "lines": [
+                        {
+                            "bbox": [
+                                141,
+                                75,
+                                519,
+                                85
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        141,
+                                        75,
+                                        519,
+                                        85
+                                    ],
+                                    "type": "text",
+                                    "content": "方案示例：摄像头识别工件，输送带与拨料器完成分类入箱，传感器确认结果。",
+                                    "score": 1.0
+                                }
+                            ],
+                            "is_list_end_line": true
+                        },
+                        {
+                            "bbox": [
+                                141,
+                                90,
+                                288,
+                                100
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        141,
+                                        90,
+                                        288,
+                                        100
+                                    ],
+                                    "type": "text",
+                                    "content": "以下为拟定方案，非实测成果。",
+                                    "score": 1.0
+                                }
+                            ],
+                            "is_list_start_line": true,
+                            "is_list_end_line": true
+                        }
+                    ],
+                    "bbox_fs": [
+                        141,
+                        75,
+                        519,
+                        100
+                    ]
+                },
+                {
+                    "score": 0.7722,
+                    "bbox": [
+                        137,
+                        109,
+                        535,
+                        141
+                    ],
+                    "index": 2,
+                    "type": "text",
+                    "lines": [
+                        {
+                            "bbox": [
+                                140,
+                                110,
+                                533,
+                                123
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        140,
+                                        110,
+                                        533,
+                                        123
+                                    ],
+                                    "type": "text",
+                                    "content": "AI PC用途：拟采用YOLO11n在本地完成识别、分拣决策与状态监控，借用机型",
+                                    "score": 1.0
+                                }
+                            ]
+                        },
+                        {
+                            "bbox": [
+                                139,
+                                127,
+                                190,
+                                139
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        139,
+                                        127,
+                                        190,
+                                        139
+                                    ],
+                                    "type": "text",
+                                    "content": "沿用上表。",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ],
+                    "bbox_fs": [
+                        139,
+                        110,
+                        533,
+                        139
+                    ]
+                },
+                {
+                    "score": 0.7283,
+                    "bbox": [
+                        138,
+                        147,
+                        534,
+                        178
+                    ],
+                    "index": 3,
+                    "type": "text",
+                    "lines": [
+                        {
+                            "bbox": [
+                                140,
+                                149,
+                                532,
+                                160
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        140,
+                                        149,
+                                        532,
+                                        160
+                                    ],
+                                    "type": "text",
+                                    "content": "FPGA职责：FPGA芯片负责编码器采集、脉冲/PWM控制和安全互锁，体现实际",
+                                    "score": 1.0
+                                }
+                            ]
+                        },
+                        {
+                            "bbox": [
+                                141,
+                                166,
+                                255,
+                                176
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        141,
+                                        166,
+                                        255,
+                                        176
+                                    ],
+                                    "type": "text",
+                                    "content": "硬件作用，不只作转接。",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ],
+                    "bbox_fs": [
+                        140,
+                        149,
+                        532,
+                        176
+                    ]
+                },
+                {
+                    "score": 0.6858,
+                    "bbox": [
+                        138,
+                        181,
+                        524,
+                        211
+                    ],
+                    "index": 4,
+                    "type": "text",
+                    "lines": [
+                        {
+                            "bbox": [
+                                141,
+                                183,
+                                521,
+                                193
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        141,
+                                        183,
+                                        521,
+                                        193
+                                    ],
+                                    "type": "text",
+                                    "content": "通信与反馈：摄像头通过 USB 接入 AI PC；AI PC 与 PYNQ-Z2 经以太网/TCP 交",
+                                    "score": 1.0
+                                }
+                            ]
+                        },
+                        {
+                            "bbox": [
+                                141,
+                                199,
+                                430,
+                                208
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        141,
+                                        199,
+                                        430,
+                                        208
+                                    ],
+                                    "type": "text",
+                                    "content": "互；板卡驱动执行机构并回传传感器状态，异常时安全停机。",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ],
+                    "bbox_fs": [
+                        141,
+                        183,
+                        521,
+                        208
+                    ]
+                },
+                {
+                    "score": 0.7207,
+                    "bbox": [
+                        138,
+                        213,
+                        528,
+                        244
+                    ],
+                    "index": 5,
+                    "type": "text",
+                    "lines": [
+                        {
+                            "bbox": [
+                                141,
+                                214,
+                                525,
+                                226
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        141,
+                                        214,
+                                        525,
+                                        226
+                                    ],
+                                    "type": "text",
+                                    "content": "总流程：初始化→图像采集→AI识别与决策→FPGA控制执行→传感器反馈→确",
+                                    "score": 1.0
+                                }
+                            ]
+                        },
+                        {
+                            "bbox": [
+                                141,
+                                231,
+                                357,
+                                241
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        141,
+                                        231,
+                                        357,
+                                        241
+                                    ],
+                                    "type": "text",
+                                    "content": "认/记录；下一工件返回采集，异常安全停机。",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ],
+                    "bbox_fs": [
+                        141,
+                        214,
+                        525,
+                        241
+                    ]
+                },
+                {
+                    "type": "image",
+                    "bbox": [
+                        139,
+                        288,
+                        537,
+                        400
+                    ],
+                    "blocks": [
+                        {
+                            "score": 0.6335,
+                            "bbox": [
+                                157,
+                                263,
+                                313,
+                                280
+                            ],
+                            "index": 6,
+                            "type": "image_caption",
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        160,
+                                        265,
+                                        310,
+                                        278
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                160,
+                                                265,
+                                                310,
+                                                278
+                                            ],
+                                            "type": "text",
+                                            "content": "具身智能视觉分拣系统总流程",
+                                            "score": 1.0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "score": 0.6881,
+                            "bbox": [
+                                139,
+                                288,
+                                537,
+                                400
+                            ],
+                            "index": 7,
+                            "type": "image_body",
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        139,
+                                        288,
+                                        537,
+                                        400
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                139,
+                                                288,
+                                                537,
+                                                400
+                                            ],
+                                            "type": "image",
+                                            "image_path": "63940802965042f98d8999b081c61b87e1094589dd713286621e0a1c0b101e24.jpg"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "score": 0.6606,
+                            "bbox": [
+                                356,
+                                272,
+                                522,
+                                287
+                            ],
+                            "index": 8,
+                            "type": "image_caption",
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        359,
+                                        275,
+                                        519,
+                                        284
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                359,
+                                                275,
+                                                519,
+                                                284
+                                            ],
+                                            "type": "text",
+                                            "content": "具身智能视觉分拣系统总设计框图",
+                                            "score": 1.0
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "index": 7,
+                    "score": 0.6881
+                }
+            ]
+        }
+    ],
+    "_backend": "pipeline",
+    "_version_name": "3.4.4"
+}

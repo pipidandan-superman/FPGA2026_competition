@@ -1,0 +1,9 @@
+{
+  "existing": [
+    "README.md",
+    "HANDOFF.md",
+    ".gitattributes",
+    ".gitignore"
+  ],
+  "different_existing": []
+}

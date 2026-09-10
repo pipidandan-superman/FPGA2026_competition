@@ -1,0 +1,1567 @@
+{
+  "3_host/pynq/sd_boot_builder/app.py": {
+    "size": 9962,
+    "sha256": "8cb86a3d49567d38e7a7084a03613b9e294fefe2e67b9f0b3e8dac966afbe4f9",
+    "reason": "Versioned SD builder source and usage"
+  },
+  "3_host/pynq/sd_boot_builder/builder.py": {
+    "size": 18966,
+    "sha256": "bcfd1e8a03581c0713a53837a94f0bedbd6be668d66e86671bef230942361c2e",
+    "reason": "Versioned SD builder source and usage"
+  },
+  "3_host/pynq/sd_boot_builder/fdt_reader.py": {
+    "size": 1129,
+    "sha256": "7e9d0051a49088b5b1b56768a77ceb7ee11ae018781414db1955883190eafbbd",
+    "reason": "Versioned SD builder source and usage"
+  },
+  "3_host/pynq/sd_boot_builder/hardware.py": {
+    "size": 5607,
+    "sha256": "daa418972ebdff3720abbe4b7b68675d661ac23b4bd96346b84961dc8d3c0e05",
+    "reason": "Versioned SD builder source and usage"
+  },
+  "3_host/pynq/sd_boot_builder/images.py": {
+    "size": 5238,
+    "sha256": "13b148761406995ca8cda93fa19b82b122744a233cc2a64053f67b0d3810226e",
+    "reason": "Versioned SD builder source and usage"
+  },
+  "3_host/pynq/sd_boot_builder/README.md": {
+    "size": 6136,
+    "sha256": "2f2394d23a4e0236b91e194fed5c14baec9eaa1913446d48fdc3069efa1e4cf1",
+    "reason": "Versioned SD builder source and usage"
+  },
+  "3_host/pynq/sd_boot_builder/requirements.txt": {
+    "size": 45,
+    "sha256": "6514b4a50405ed0bb5dca36c71981f32b026b2df8d103a0bc382c0d50d9aa459",
+    "reason": "Versioned SD builder source and usage"
+  },
+  "3_host/pynq/sd_boot_builder/assets/boot.scr": {
+    "size": 2776,
+    "sha256": "7013e14923fbe461c4ecd745214fcafcb0ffaddb10865f9135cd8624637359f4",
+    "reason": "Required embedded EES-331 boot assets; original source and SHA manifest retained"
+  },
+  "3_host/pynq/sd_boot_builder/assets/fsbl.elf": {
+    "size": 559932,
+    "sha256": "6179e79ce08e87eef750e594463f311d5a1cc570c45685d963bbdb071d2f3e86",
+    "reason": "Required embedded EES-331 boot assets; original source and SHA manifest retained"
+  },
+  "3_host/pynq/sd_boot_builder/assets/kernel.bin": {
+    "size": 6442720,
+    "sha256": "3d45ed1350bc1509f1f62d139fe1502b9da5437b86de0404aa1de1cbbfeb7364",
+    "reason": "Required embedded EES-331 boot assets; original source and SHA manifest retained"
+  },
+  "3_host/pynq/sd_boot_builder/assets/manifest.json": {
+    "size": 1157,
+    "sha256": "195e0d84af673f932c8538c1934e80c942b4282f100d2dfd6b600ee9eab9e4bb",
+    "reason": "Required embedded EES-331 boot assets; original source and SHA manifest retained"
+  },
+  "3_host/pynq/sd_boot_builder/assets/reference.hwh": {
+    "size": 76292,
+    "sha256": "4dad74d7a0191f8c9b1926339d383263d931d195be70c0a3ff910e810a6e513f",
+    "reason": "Required embedded EES-331 boot assets; original source and SHA manifest retained"
+  },
+  "3_host/pynq/sd_boot_builder/assets/reference_init.c": {
+    "size": 541385,
+    "sha256": "353d35f807279393e3f8001922ba7a09a6c77e833b2443b3fb176495cc2b8023",
+    "reason": "Required embedded EES-331 boot assets; original source and SHA manifest retained"
+  },
+  "3_host/pynq/sd_boot_builder/assets/reference_xsa.json": {
+    "size": 2204,
+    "sha256": "e6b645c92b2160b0a048312a7285e32a044c1245f6e7a8c2b1f6ec3c3fed4f60",
+    "reason": "Required embedded EES-331 boot assets; original source and SHA manifest retained"
+  },
+  "3_host/pynq/sd_boot_builder/assets/REVISION": {
+    "size": 83,
+    "sha256": "4890cc0639e8f20a0fd5ce4610f6cbc227a01a7589e847f7810bf68c80be6b19",
+    "reason": "Required embedded EES-331 boot assets; original source and SHA manifest retained"
+  },
+  "3_host/pynq/sd_boot_builder/assets/system.dtb": {
+    "size": 14919,
+    "sha256": "76e29723d185ac4a50700338bfcf872113a43409bbbe8eded34fbbd723ef6434",
+    "reason": "Required embedded EES-331 boot assets; original source and SHA manifest retained"
+  },
+  "3_host/pynq/sd_boot_builder/assets/u-boot.elf": {
+    "size": 968580,
+    "sha256": "5dd40d505c69580f49acdc47f59a947ec2357f5e728d306a5daddd360303247b",
+    "reason": "Required embedded EES-331 boot assets; original source and SHA manifest retained"
+  },
+  "3_host/pynq/sd_boot_builder_v02/app.py": {
+    "size": 13871,
+    "sha256": "d0a72a76107116c6d47e436f39cbc7197b39a8d696bba1d8480bcfbfdd94afff",
+    "reason": "Versioned SD builder source and usage"
+  },
+  "3_host/pynq/sd_boot_builder_v02/board_profile.py": {
+    "size": 11396,
+    "sha256": "442fbeb7fc530a66095897f9bf3f5e74e7ff52cbbbcb3bb374904fb303f7c922",
+    "reason": "Versioned SD builder source and usage"
+  },
+  "3_host/pynq/sd_boot_builder_v02/builder.py": {
+    "size": 20144,
+    "sha256": "48e768a69e807c7879316c15a83ae72ab34ff7aa6d7805175927d52ae95f9fef",
+    "reason": "Versioned SD builder source and usage"
+  },
+  "3_host/pynq/sd_boot_builder_v02/fdt_reader.py": {
+    "size": 1129,
+    "sha256": "7e9d0051a49088b5b1b56768a77ceb7ee11ae018781414db1955883190eafbbd",
+    "reason": "Versioned SD builder source and usage"
+  },
+  "3_host/pynq/sd_boot_builder_v02/hardware.py": {
+    "size": 6670,
+    "sha256": "74b00c11f14c0083e234d0fe19504a759108c1346c37069b4a4ecf733a7d417d",
+    "reason": "Versioned SD builder source and usage"
+  },
+  "3_host/pynq/sd_boot_builder_v02/images.py": {
+    "size": 6670,
+    "sha256": "e2b8a3bb779fc79d66397b967b3854c24bc6ae45cca6a5361d9a4aadf288a838",
+    "reason": "Versioned SD builder source and usage"
+  },
+  "3_host/pynq/sd_boot_builder_v02/README.md": {
+    "size": 7491,
+    "sha256": "c4569d9a35203afd8bf3aead1d8f8dd4e193b01ede3b10454047382d758fd3d3",
+    "reason": "Versioned SD builder source and usage"
+  },
+  "3_host/pynq/sd_boot_builder_v02/requirements.txt": {
+    "size": 45,
+    "sha256": "6514b4a50405ed0bb5dca36c71981f32b026b2df8d103a0bc382c0d50d9aa459",
+    "reason": "Versioned SD builder source and usage"
+  },
+  "3_host/pynq/sd_boot_builder_v02/assets/boot.scr": {
+    "size": 2776,
+    "sha256": "7013e14923fbe461c4ecd745214fcafcb0ffaddb10865f9135cd8624637359f4",
+    "reason": "Required embedded EES-331 boot assets; original source and SHA manifest retained"
+  },
+  "3_host/pynq/sd_boot_builder_v02/assets/fsbl.elf": {
+    "size": 559932,
+    "sha256": "6179e79ce08e87eef750e594463f311d5a1cc570c45685d963bbdb071d2f3e86",
+    "reason": "Required embedded EES-331 boot assets; original source and SHA manifest retained"
+  },
+  "3_host/pynq/sd_boot_builder_v02/assets/kernel.bin": {
+    "size": 6442720,
+    "sha256": "3d45ed1350bc1509f1f62d139fe1502b9da5437b86de0404aa1de1cbbfeb7364",
+    "reason": "Required embedded EES-331 boot assets; original source and SHA manifest retained"
+  },
+  "3_host/pynq/sd_boot_builder_v02/assets/manifest.json": {
+    "size": 1157,
+    "sha256": "195e0d84af673f932c8538c1934e80c942b4282f100d2dfd6b600ee9eab9e4bb",
+    "reason": "Required embedded EES-331 boot assets; original source and SHA manifest retained"
+  },
+  "3_host/pynq/sd_boot_builder_v02/assets/reference.hwh": {
+    "size": 76292,
+    "sha256": "4dad74d7a0191f8c9b1926339d383263d931d195be70c0a3ff910e810a6e513f",
+    "reason": "Required embedded EES-331 boot assets; original source and SHA manifest retained"
+  },
+  "3_host/pynq/sd_boot_builder_v02/assets/reference_init.c": {
+    "size": 541385,
+    "sha256": "353d35f807279393e3f8001922ba7a09a6c77e833b2443b3fb176495cc2b8023",
+    "reason": "Required embedded EES-331 boot assets; original source and SHA manifest retained"
+  },
+  "3_host/pynq/sd_boot_builder_v02/assets/reference_xsa.json": {
+    "size": 2204,
+    "sha256": "e6b645c92b2160b0a048312a7285e32a044c1245f6e7a8c2b1f6ec3c3fed4f60",
+    "reason": "Required embedded EES-331 boot assets; original source and SHA manifest retained"
+  },
+  "3_host/pynq/sd_boot_builder_v02/assets/REVISION": {
+    "size": 83,
+    "sha256": "4890cc0639e8f20a0fd5ce4610f6cbc227a01a7589e847f7810bf68c80be6b19",
+    "reason": "Required embedded EES-331 boot assets; original source and SHA manifest retained"
+  },
+  "3_host/pynq/sd_boot_builder_v02/assets/system.dtb": {
+    "size": 14919,
+    "sha256": "76e29723d185ac4a50700338bfcf872113a43409bbbe8eded34fbbd723ef6434",
+    "reason": "Required embedded EES-331 boot assets; original source and SHA manifest retained"
+  },
+  "3_host/pynq/sd_boot_builder_v02/assets/u-boot.elf": {
+    "size": 968580,
+    "sha256": "5dd40d505c69580f49acdc47f59a947ec2357f5e728d306a5daddd360303247b",
+    "reason": "Required embedded EES-331 boot assets; original source and SHA manifest retained"
+  },
+  "8_tools/sd_start_tool/EES331SDBootBuilder.exe": {
+    "size": 22760519,
+    "sha256": "7f57bc727c66abeb6d3a06fe849803fcab5712effa24ed36ae3c790797765984",
+    "reason": "User-facing Windows application; preserve v0.1 and deliver independently tested v0.2; no duplicate ZIP"
+  },
+  "8_tools/sd_start_tool/README.md": {
+    "size": 6136,
+    "sha256": "2f2394d23a4e0236b91e194fed5c14baec9eaa1913446d48fdc3069efa1e4cf1",
+    "reason": "User-facing Windows application; preserve v0.1 and deliver independently tested v0.2; no duplicate ZIP"
+  },
+  "8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.exe": {
+    "size": 22776980,
+    "sha256": "b4a2b971432dd91f70fc27a54e5f78670f3ac5ffb8c6b38cfbbb6843034a0a6e",
+    "reason": "User-facing Windows application; preserve v0.1 and deliver independently tested v0.2; no duplicate ZIP"
+  },
+  "8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.exe.sha256": {
+    "size": 96,
+    "sha256": "aa99b471ac434b8fbcbce2623cdc260665ffb35910a0905f188cb6c25a214831",
+    "reason": "User-facing Windows application; preserve v0.1 and deliver independently tested v0.2; no duplicate ZIP"
+  },
+  "8_tools/sd_start_tool_v0.2/README.md": {
+    "size": 7491,
+    "sha256": "c4569d9a35203afd8bf3aead1d8f8dd4e193b01ede3b10454047382d758fd3d3",
+    "reason": "User-facing Windows application; preserve v0.1 and deliver independently tested v0.2; no duplicate ZIP"
+  },
+  "8_tools/sd_start_tool_v0.2/source_hashes.json": {
+    "size": 1637,
+    "sha256": "403e259bb97f708b5ba12b23de0bd64c1d516178c6b489d697218e027ea73dc7",
+    "reason": "User-facing Windows application; preserve v0.1 and deliver independently tested v0.2; no duplicate ZIP"
+  },
+  "8_tools/sd_start_tool_v0.2/example_build_config.json": {
+    "size": 337,
+    "sha256": "1f4473b38133c497b24e0c2801c933bb344079dd78875e542bdf2b3a5bc53b30",
+    "reason": "User-facing Windows application; preserve v0.1 and deliver independently tested v0.2; no duplicate ZIP"
+  },
+  "1_docs/doc/AMD AIPC 借用报告 - 模板.docx": {
+    "size": 511281,
+    "sha256": "ebbc3f74bb0e42663e54245efb0624ae4e692cf37f2110a5de9ac75a6dcfefa6",
+    "reason": "Requested report/template and PYNQ deployment plan"
+  },
+  "1_docs/doc/AMD AIPC 借用报告 - 锐眼智行具身智能分拣.docx": {
+    "size": 198301,
+    "sha256": "3cb1a13f261a3d969363a3b67f7d43775676f8bac143b67cb00d07bef14c645f",
+    "reason": "Requested report/template and PYNQ deployment plan"
+  },
+  "1_docs/doc/EES-331_PYNQ从零部署计划_2026-09-09.md": {
+    "size": 18284,
+    "sha256": "1f4492cedd87e30db9073afc0dd29307de0ddaed0d1b194878f3c8211603f995",
+    "reason": "Requested report/template and PYNQ deployment plan"
+  },
+  "7_logs/2026-09-09/01_daily_plan.md": {
+    "size": 1669,
+    "sha256": "9271c61fa5694605b4ab00a013b53e7f82df73f1502d98ebd4389f52631e8ec4",
+    "reason": "Dated engineering plan, execution, validation and next-start records"
+  },
+  "7_logs/2026-09-09/02_execution_plan.md": {
+    "size": 2749,
+    "sha256": "5cef78afbe42c7c6221e503fcde4d115001abb3511a214407ad8f71842481b98",
+    "reason": "Dated engineering plan, execution, validation and next-start records"
+  },
+  "7_logs/2026-09-09/03_validation_summary.md": {
+    "size": 6866,
+    "sha256": "6067918dcbf8d45c20ab47e55b361adaecb2497f41f538cb3e763d7cb6a24e76",
+    "reason": "Dated engineering plan, execution, validation and next-start records"
+  },
+  "7_logs/2026-09-09/04_next_start_guide.md": {
+    "size": 1536,
+    "sha256": "4289ffd2e354301fd2223bf5c27d8f38cf46fc5cd1cd22b1678a3d66ce353eec",
+    "reason": "Dated engineering plan, execution, validation and next-start records"
+  },
+  "7_logs/2026-09-10/01_daily_plan.md": {
+    "size": 7946,
+    "sha256": "dec870f16dce13bbadb8c6bc5419762a00a9d3abb55e924edb6e4ca1cbef1928",
+    "reason": "Dated engineering plan, execution, validation and next-start records"
+  },
+  "7_logs/2026-09-10/02_execution_plan.md": {
+    "size": 13691,
+    "sha256": "2c0269255e829c11688b91b1521a40a2a326b4ba0ca2007664eae3ef25d08b05",
+    "reason": "Dated engineering plan, execution, validation and next-start records"
+  },
+  "7_logs/2026-09-10/03_validation_summary.md": {
+    "size": 23277,
+    "sha256": "4926f33748e889010151be3176df49e522f3bb876455537ae60be6cd10fc6988",
+    "reason": "Dated engineering plan, execution, validation and next-start records"
+  },
+  "7_logs/2026-09-10/04_next_start_guide.md": {
+    "size": 12323,
+    "sha256": "f47581133105c6a16950275f5c7beec7958264cdcd5ce8cbfa3bce428101d99d",
+    "reason": "Dated engineering plan, execution, validation and next-start records"
+  },
+  "4_metrics/logs/2026-09-10_pynq_v301_baseline_boot_run02/uart_pynq_log.txt": {
+    "size": 54080,
+    "sha256": "a7291a20d4738f3715b81cfdc5173fd641104bacf6e492859e1d59bd2d78b2ac",
+    "reason": "Raw board UART proves SD-to-Linux-shell boot only"
+  },
+  "4_metrics/logs/2026-09-10_sd_boot_static_audit_run01/DIAGNOSIS.md": {
+    "size": 6020,
+    "sha256": "f1d7d64c9905d092cc909203d9f326da093614e4f02b07aac7a05242a9912507",
+    "reason": "Original boot-header defect diagnosis and raw audit"
+  },
+  "4_metrics/logs/2026-09-10_sd_boot_static_audit_run01/audit.ps1": {
+    "size": 2745,
+    "sha256": "a6f1a01322479dd94eb67c1b80714aa422fd15b0af7fc25de966cf53eb5d70b7",
+    "reason": "Original boot-header defect diagnosis and raw audit"
+  },
+  "4_metrics/logs/2026-09-10_sd_boot_static_audit_run01/audit_console.txt": {
+    "size": 9372,
+    "sha256": "0f5c24ab4ae7e94c01c9851e503a32eae3bda56f857f0421bc989ad37afd9c60",
+    "reason": "Original boot-header defect diagnosis and raw audit"
+  },
+  "4_metrics/logs/2026-09-10_sd_boot_static_audit_run01/fsbl_readelf.txt": {
+    "size": 3218,
+    "sha256": "975947d30dce5af764512c04d99428e9b824368bdb692ebfdb54fca4a56adc06",
+    "reason": "Original boot-header defect diagnosis and raw audit"
+  },
+  "4_metrics/logs/2026-09-10_sd_card_g_audit_run01/REPORT.md": {
+    "size": 2268,
+    "sha256": "39fa65c2fb4d29709ef72e54a0b88928beea824445d1fdd40541071351698e65",
+    "reason": "Actual SD-card file identity before repair"
+  },
+  "4_metrics/logs/2026-09-10_sd_card_g_audit_run01/check_sd.ps1": {
+    "size": 2775,
+    "sha256": "b9662424ea72cd2620f37bacc787593b49a779ec46bc705f8daf4cc235b2139e",
+    "reason": "Actual SD-card file identity before repair"
+  },
+  "4_metrics/logs/2026-09-10_sd_card_g_audit_run01/console.txt": {
+    "size": 4153,
+    "sha256": "d51a6d163ee13f69c24072dc3d6fd29f7e686126d48eec0d3f92d651e6be15ab",
+    "reason": "Actual SD-card file identity before repair"
+  },
+  "4_metrics/logs/2026-09-10_sd_card_g_audit_run01/file_hashes.json": {
+    "size": 798,
+    "sha256": "0a360db166964f8875e5ae30bf5f8a9b5d10933992a686a3d80e8612b2027353",
+    "reason": "Actual SD-card file identity before repair"
+  },
+  "4_metrics/logs/2026-09-10_sd_card_full_audit_run01/REPORT.md": {
+    "size": 11844,
+    "sha256": "c1644338a9859c8f68423a6d9df486752718e539e9601060dd6e9ce4d5b39dce",
+    "reason": "Full-card read audit and original-image comparison"
+  },
+  "4_metrics/logs/2026-09-10_sd_card_full_audit_run01/final_result.json": {
+    "size": 997,
+    "sha256": "743a932d52978397a4afb8a3f76f67ef59db764d4e8c718e0a30cb95845a9ab9",
+    "reason": "Full-card read audit and original-image comparison"
+  },
+  "4_metrics/logs/2026-09-10_sd_card_full_audit_run01/scan_result.json": {
+    "size": 2823,
+    "sha256": "5ec389fd3237f97a9df17e2f80164ce2b208d4355c14550e85eacf65d91ee0d6",
+    "reason": "Full-card read audit and original-image comparison"
+  },
+  "4_metrics/logs/2026-09-10_sd_card_full_audit_run01/scan_console.txt": {
+    "size": 5934,
+    "sha256": "a14c463285dee850ce29ec9d885c71bf4c1a90c8fc64c3a6cda310c3a7c046b4",
+    "reason": "Full-card read audit and original-image comparison"
+  },
+  "4_metrics/logs/2026-09-10_sd_card_full_audit_run01/boot_and_file_comparison.json": {
+    "size": 4695,
+    "sha256": "24fbd0eeabe027840658bd4cda4ec2998b96079aa03cd32afe8b622fa50fbd07",
+    "reason": "Full-card read audit and original-image comparison"
+  },
+  "4_metrics/logs/2026-09-10_sd_card_full_audit_run01/partition_table.json": {
+    "size": 1058,
+    "sha256": "361fa87de5235e8d54019edcbb4c09c922dc27087d7c857941d9fc4b391eb80f",
+    "reason": "Full-card read audit and original-image comparison"
+  },
+  "4_metrics/logs/2026-09-10_sd_card_full_audit_run01/chkdsk_readonly.txt": {
+    "size": 833,
+    "sha256": "12b15614dea440fe5d0ffca279a8c53eede4642456270a8f46a1ffd1e5397605",
+    "reason": "Full-card read audit and original-image comparison"
+  },
+  "4_metrics/logs/2026-09-10_sd_card_full_audit_run01/fit_hash_checks.json": {
+    "size": 418,
+    "sha256": "7926635c671d0145ace44aaf1fc7e42c7594a097b2ade0797041526a3c6cde6d",
+    "reason": "Full-card read audit and original-image comparison"
+  },
+  "4_metrics/logs/2026-09-10_sd_card_full_audit_run01/original_boot_dtb_comparison.json": {
+    "size": 251,
+    "sha256": "ce7968eb30dd43c650b7e49fb319ed5c896a42cb1f50905dc228d776e14e50b6",
+    "reason": "Full-card read audit and original-image comparison"
+  },
+  "4_metrics/logs/2026-09-10_sd_card_full_audit_run01/evidence_sha256.json": {
+    "size": 4073,
+    "sha256": "ae91e140cb43cef20c7ef26fb13e99a1b21ccd7d56f2996dfe8af730abe35901",
+    "reason": "Full-card read audit and original-image comparison"
+  },
+  "4_metrics/logs/2026-09-10_sd_boot_fix_run01/REPORT.md": {
+    "size": 7212,
+    "sha256": "411b21e69f729d1bae15480e09d446453bf0e2452b35604fe21c11843741b4b5",
+    "reason": "Selected fix/deployment result, raw tools and reproduction sources"
+  },
+  "4_metrics/logs/2026-09-10_sd_boot_fix_run01/candidate_validation.json": {
+    "size": 11647,
+    "sha256": "76fa1a049bd7922bc9e754665961727cd383e368ed965daa8ac19624bc778fa3",
+    "reason": "Selected fix/deployment result, raw tools and reproduction sources"
+  },
+  "4_metrics/logs/2026-09-10_sd_boot_fix_run01/deploy_result.json": {
+    "size": 1761,
+    "sha256": "88b5225d4e0d73091839fc63a06827a0eda0c17ed00c0215a43174e9a5416817",
+    "reason": "Selected fix/deployment result, raw tools and reproduction sources"
+  },
+  "4_metrics/logs/2026-09-10_sd_boot_fix_run01/final_result.json": {
+    "size": 340,
+    "sha256": "c21f2b0d0ac4ab31aa2c3a3e674518be90f90b2fd5805cd667dc35c8b5b58283",
+    "reason": "Selected fix/deployment result, raw tools and reproduction sources"
+  },
+  "4_metrics/logs/2026-09-10_sd_boot_fix_run01/chkdsk_after_deploy.txt": {
+    "size": 834,
+    "sha256": "e22f73d158969f658fc0c2e8542d3daf4fe3a080e69b69b5c3a2b851f10b8cf4",
+    "reason": "Selected fix/deployment result, raw tools and reproduction sources"
+  },
+  "4_metrics/logs/2026-09-10_sd_boot_fix_run01/deploy_20260910_160957_console.txt": {
+    "size": 2881,
+    "sha256": "10101c8e8c0d7eee0e5b30b2ec00778adeeefb9dc28c9d24057f2ff99e7398c6",
+    "reason": "Selected fix/deployment result, raw tools and reproduction sources"
+  },
+  "4_metrics/logs/2026-09-10_sd_boot_fix_run01/bootgen_read_console.txt": {
+    "size": 5363,
+    "sha256": "9e578cb3fd52dde3119e02f82ecc37e83e72bff869f7cd91d6340901e5d0b723",
+    "reason": "Selected fix/deployment result, raw tools and reproduction sources"
+  },
+  "4_metrics/logs/2026-09-10_sd_boot_fix_run01/bootgen_build_console.txt": {
+    "size": 261,
+    "sha256": "479d3c2ac2718b64db5e6606738ab3f58b0662d3ca6715f8568e7dba66476f51",
+    "reason": "Selected fix/deployment result, raw tools and reproduction sources"
+  },
+  "4_metrics/logs/2026-09-10_sd_boot_fix_run01/fsbl_build_console.txt": {
+    "size": 5691,
+    "sha256": "32c42c480d0667204e060fd93f20234d628a76a6ffef2e952d04c9d1dc459532",
+    "reason": "Selected fix/deployment result, raw tools and reproduction sources"
+  },
+  "4_metrics/logs/2026-09-10_sd_boot_fix_run01/uboot_external_dtb_proof.json": {
+    "size": 428,
+    "sha256": "03a9000e3091d9b6b34a73633c9a2337f1d00ab852beb818cb8320bc2626eb7c",
+    "reason": "Selected fix/deployment result, raw tools and reproduction sources"
+  },
+  "4_metrics/logs/2026-09-10_sd_boot_fix_run01/uboot_external_dtb_disassembly.json": {
+    "size": 27767,
+    "sha256": "26b038d50ef516db737f2fbdc42459dd13231fb6a5f9dde8dcb6bbf104e2209b",
+    "reason": "Selected fix/deployment result, raw tools and reproduction sources"
+  },
+  "4_metrics/logs/2026-09-10_sd_boot_fix_run01/ees331.dts": {
+    "size": 2522,
+    "sha256": "af3b787483326864245f0dc8f786a14feca4b88060b237923a662dbb142825e2",
+    "reason": "Selected fix/deployment result, raw tools and reproduction sources"
+  },
+  "4_metrics/logs/2026-09-10_sd_boot_fix_run01/boot.bif": {
+    "size": 300,
+    "sha256": "b3f3a1087faf71373b1571aacfc2b26b1aa30fd573fabc28a426655b1df9a11b",
+    "reason": "Selected fix/deployment result, raw tools and reproduction sources"
+  },
+  "4_metrics/logs/2026-09-10_sd_boot_fix_run01/build_fsbl.ps1": {
+    "size": 2048,
+    "sha256": "d23fbf412f86fb15b4235e9aa7f2511f0783dab0d7aff5e114f908a54003619c",
+    "reason": "Selected fix/deployment result, raw tools and reproduction sources"
+  },
+  "4_metrics/logs/2026-09-10_sd_boot_fix_run01/make_fit_source.py": {
+    "size": 1915,
+    "sha256": "bdcb5f243ea21df7c147f9e88aba8ee59e93c8732b0a699479ec5b693a3096cb",
+    "reason": "Selected fix/deployment result, raw tools and reproduction sources"
+  },
+  "4_metrics/logs/2026-09-10_sd_boot_fix_run01/validate_candidate.py": {
+    "size": 8187,
+    "sha256": "c66789c3d6573b201de153ef5c0b329f60d420cd37c176c212c080b963b73eca",
+    "reason": "Selected fix/deployment result, raw tools and reproduction sources"
+  },
+  "4_metrics/logs/2026-09-10_sd_boot_fix_run01/fdt_reader.py": {
+    "size": 1129,
+    "sha256": "7e9d0051a49088b5b1b56768a77ceb7ee11ae018781414db1955883190eafbbd",
+    "reason": "Selected fix/deployment result, raw tools and reproduction sources"
+  },
+  "4_metrics/logs/2026-09-10_sd_boot_fix_run01/fit_inputs.json": {
+    "size": 205,
+    "sha256": "564b421439eed320226b659f0d2dc3f2a082704350c460f7f93bb8f0d53c5a37",
+    "reason": "Selected fix/deployment result, raw tools and reproduction sources"
+  },
+  "4_metrics/logs/2026-09-10_ees331_img_package_run01/REPORT.md": {
+    "size": 8298,
+    "sha256": "b7c4422bec9bbdaaeab801e49322984d95c100465e2c8b3de946a559e1857ea7",
+    "reason": "Full-image readback and hashes; multi-GB IMG stays local"
+  },
+  "4_metrics/logs/2026-09-10_ees331_img_package_run01/package_result.json": {
+    "size": 1092,
+    "sha256": "cdb5d4547bbb7ae992879939dc6d0ad1322538f0c23f9e1f58cf1b3afb2a55dc",
+    "reason": "Full-image readback and hashes; multi-GB IMG stays local"
+  },
+  "4_metrics/logs/2026-09-10_ees331_img_package_run01/package_console.txt": {
+    "size": 1985,
+    "sha256": "7e2d4f373b18dfb0a9214ed9ee555398666880bd21565c8cf2e90c70ad47940a",
+    "reason": "Full-image readback and hashes; multi-GB IMG stays local"
+  },
+  "4_metrics/logs/2026-09-10_ees331_img_package_run01/fat_validation.json": {
+    "size": 24028,
+    "sha256": "3cf96b9c0c9f031e47d3895a4b7fae6d0c6ccca4910cb321817556c4cd68796f",
+    "reason": "Full-image readback and hashes; multi-GB IMG stays local"
+  },
+  "4_metrics/logs/2026-09-10_ees331_img_package_run01/block_verification.json": {
+    "size": 260879,
+    "sha256": "98711981538f783232b713e97e99126f14736c10f3164e664549dbc532b424d1",
+    "reason": "Full-image readback and hashes; multi-GB IMG stays local"
+  },
+  "4_metrics/logs/2026-09-10_ees331_img_package_run01/package_image.py": {
+    "size": 7011,
+    "sha256": "2685f4189fa9d8ee609557bf6f958af433cadc8c4a70d3cbf5f08b8134a255f2",
+    "reason": "Full-image readback and hashes; multi-GB IMG stays local"
+  },
+  "4_metrics/logs/2026-09-10_ees331_img_package_run01/ees331_pynq_v3.0.1_ps_sd_20260910.img.sha256": {
+    "size": 105,
+    "sha256": "d20d65150ebc8a83ab975e0e41b2a46a433c68f96b48e50822b304aaaa61a7c4",
+    "reason": "Full-image readback and hashes; multi-GB IMG stays local"
+  },
+  "4_metrics/logs/2026-09-10_ees331_img_package_run01/uart_user_pasted.txt": {
+    "size": 27570,
+    "sha256": "a551248cf6b6563cdac41cf2423df41e06fee82c32a5007ece8f722b2f9c8c08",
+    "reason": "Full-image readback and hashes; multi-GB IMG stays local"
+  },
+  "4_metrics/logs/2026-09-10_ees331_img_package_run01/uart_pasted_review.json": {
+    "size": 913,
+    "sha256": "a321f3e93d17f8c2ec1922ed9725272a02dd68e069ec9872cc0a37ffbf74f89b",
+    "reason": "Full-image readback and hashes; multi-GB IMG stays local"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_toolkit_run01/REPORT.md": {
+    "size": 3522,
+    "sha256": "fe79639faaac043235f42e5a3a9ee99d8b99d84c6b074e1d5ac2cf5d5cc2cda1",
+    "reason": "Archived v0.1 implementation and raw verification"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_toolkit_run01/delivery_manifest.json": {
+    "size": 3186,
+    "sha256": "45dd29afa3f9ae720a96d2d94c87eb414e21bc670babaa40159a4c428515d729",
+    "reason": "Archived v0.1 implementation and raw verification"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_toolkit_run01/tests_console.txt": {
+    "size": 1056,
+    "sha256": "60c55ec30625ce49a57eb9235a7f033c7ac68fb3c5d36d0d716a2315b143c3fd",
+    "reason": "Archived v0.1 implementation and raw verification"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_toolkit_run01/test_builder.py": {
+    "size": 4029,
+    "sha256": "7b819279600c46845856ac1c04c94785b73fb6fd78a34502564ef4feb2789da5",
+    "reason": "Archived v0.1 implementation and raw verification"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_toolkit_run01/frozen_self_test.json": {
+    "size": 75,
+    "sha256": "d7c580b24f0e2fbb20db49fd1e45575a01a8e18755794645662f47fcbf70aec8",
+    "reason": "Archived v0.1 implementation and raw verification"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_toolkit_run01/frozen_build_config.json.result.json": {
+    "size": 2337,
+    "sha256": "5b6aac1bde839befbd87a1cd13b45bb95eb9f1ca488e8dfb408da74b7cefb101",
+    "reason": "Archived v0.1 implementation and raw verification"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_toolkit_run01/full_rebuild_console.txt": {
+    "size": 1361,
+    "sha256": "d6554966b0ad742f42151fba15860f1ed30542d9842abb18755a8e4e9718571c",
+    "reason": "Archived v0.1 implementation and raw verification"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_toolkit_run01/fsbl_mode_console.txt": {
+    "size": 294,
+    "sha256": "5c298ac55a5836a8e5f23c08e20e85a81bb44aec0cb7af073e5416f0cbdb74f8",
+    "reason": "Archived v0.1 implementation and raw verification"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_toolkit_run01/pyinstaller_console.txt": {
+    "size": 13740,
+    "sha256": "c761abd8ce75bcfc27be67e41c2c10a597474b31dcb21d39cf27ebf8e8533312",
+    "reason": "Archived v0.1 implementation and raw verification"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_toolkit_run01/prepare_assets.py": {
+    "size": 1123,
+    "sha256": "bc3c63b06500672aca6c3206b25320a8523baa625b26bea59ef1877e5cdacce2",
+    "reason": "Archived v0.1 implementation and raw verification"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_toolkit_run01/package_delivery.py": {
+    "size": 2302,
+    "sha256": "9d0447e0ec5a652cee4c1073c6742a7b9bac7285e342d532d28152cbf58980ea",
+    "reason": "Archived v0.1 implementation and raw verification"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/REPORT.md": {
+    "size": 6857,
+    "sha256": "a6e5bdba3ec59fe99194600963cfc4f7b3616d48b122b9a6c8f45aa5ba7c38fd",
+    "reason": "v0.2 rules, release and retained raw verification; synthetic tests distinct from board proof"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/test_v02.py": {
+    "size": 8753,
+    "sha256": "f6aeb848d747f5d5d0d72a4597490f8dd46278343eebc01a7ccf800d0720a9f2",
+    "reason": "v0.2 rules, release and retained raw verification; synthetic tests distinct from board proof"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/tests_release_console.txt": {
+    "size": 1930,
+    "sha256": "859133d0635a8fd27eaf8e99a8256932c2dfcd3dccd906853b4f6d5a8164ab24",
+    "reason": "v0.2 rules, release and retained raw verification; synthetic tests distinct from board proof"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/frozen_self_test_final.json": {
+    "size": 75,
+    "sha256": "d7c580b24f0e2fbb20db49fd1e45575a01a8e18755794645662f47fcbf70aec8",
+    "reason": "v0.2 rules, release and retained raw verification; synthetic tests distinct from board proof"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/frozen_build_config.json": {
+    "size": 337,
+    "sha256": "1f4473b38133c497b24e0c2801c933bb344079dd78875e542bdf2b3a5bc53b30",
+    "reason": "v0.2 rules, release and retained raw verification; synthetic tests distinct from board proof"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/frozen_build_config.json.result.json": {
+    "size": 7849,
+    "sha256": "c5e955f9436cd0ba150fcfdcb97de1d48d7545e6b492d9c75b7c953ac691cc80",
+    "reason": "v0.2 rules, release and retained raw verification; synthetic tests distinct from board proof"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/frozen_fsbl_config.json": {
+    "size": 164,
+    "sha256": "020f331112f38098f9fbcf7a50e95672636c46a00916ff401a3398ae22178a8e",
+    "reason": "v0.2 rules, release and retained raw verification; synthetic tests distinct from board proof"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/frozen_fsbl_config.json.result.json": {
+    "size": 7847,
+    "sha256": "f79e8b783ef57cecce4846588b3b1ed219fb0eb36ce1c5bcc2f2af5730f0518b",
+    "reason": "v0.2 rules, release and retained raw verification; synthetic tests distinct from board proof"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/full_build_result.json": {
+    "size": 8152,
+    "sha256": "830e9c6f3e4d5a8f4000416fa1067e194218cbc0e5131fa820ef72ed5c7bb41a",
+    "reason": "v0.2 rules, release and retained raw verification; synthetic tests distinct from board proof"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/full_build_console_v2.txt": {
+    "size": 1419,
+    "sha256": "c242f7f17ddd69666694e66236bffcd925378dc498e304b746918fcae90df0a3",
+    "reason": "v0.2 rules, release and retained raw verification; synthetic tests distinct from board proof"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/pyinstaller_final_console.txt": {
+    "size": 13667,
+    "sha256": "8d459127602132b5375a6032355098365301cb4e5421939d2b1925a4b1f162e6",
+    "reason": "v0.2 rules, release and retained raw verification; synthetic tests distinct from board proof"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/v01_preservation_result.json": {
+    "size": 83,
+    "sha256": "c4accd628d2b2495520517e0dfdd11c9c32131be52c56d81e27ac694a943587b",
+    "reason": "v0.2 rules, release and retained raw verification; synthetic tests distinct from board proof"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/v01_preserved_hashes.json": {
+    "size": 2731,
+    "sha256": "5393047a14e20100af60b625fb5fd8a6b0ca4f1fbbbd76bb0d7a201f128cf96e",
+    "reason": "v0.2 rules, release and retained raw verification; synthetic tests distinct from board proof"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/v01_tools_preserved_hashes.json": {
+    "size": 558,
+    "sha256": "2b25acad32610b6ef51af6af4e77385c5d7039089306f4cd1051a1d69daabde3",
+    "reason": "v0.2 rules, release and retained raw verification; synthetic tests distinct from board proof"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/release_result.json": {
+    "size": 1251,
+    "sha256": "783198a7c41229090fb80d5b25825f65db195a48914d39d32294cde942bcc740",
+    "reason": "v0.2 rules, release and retained raw verification; synthetic tests distinct from board proof"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/final_audit_result.json": {
+    "size": 7852,
+    "sha256": "e39f47d30f8f296f518a86391dc6e2a0227968db9212834da1395b90a1192878",
+    "reason": "v0.2 rules, release and retained raw verification; synthetic tests distinct from board proof"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/mineru_reuse.json": {
+    "size": 2643,
+    "sha256": "c7e40d2e5de496a37b0ad72bb9a79e9d5adec0cc762473598640ee6969e6610d",
+    "reason": "v0.2 rules, release and retained raw verification; synthetic tests distinct from board proof"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/gui_default.png": {
+    "size": 84704,
+    "sha256": "f3b51ea675c2cb026e09f5dc65babecadaa2ff4f20a6ebca9763d4be0b220102",
+    "reason": "v0.2 rules, release and retained raw verification; synthetic tests distinct from board proof"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/gui_advanced.png": {
+    "size": 93585,
+    "sha256": "5973faf4e78a5d9d892803c94397c1dc715322fbc1106e39a7d6672e4ff6c5f0",
+    "reason": "v0.2 rules, release and retained raw verification; synthetic tests distinct from board proof"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/alternate_xsa_rejection.txt": {
+    "size": 240,
+    "sha256": "0cbc48f3d2d08ff511b830addcc219d8fb099ae41b5005fd97b4539396bc0ecc",
+    "reason": "v0.2 rules, release and retained raw verification; synthetic tests distinct from board proof"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/full_build.py": {
+    "size": 682,
+    "sha256": "775b4e4b29b60e24d981d1e942b8b89f75f9b935c72fddc68e677d0bb935d0bc",
+    "reason": "v0.2 rules, release and retained raw verification; synthetic tests distinct from board proof"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/package_release.py": {
+    "size": 2520,
+    "sha256": "ca4088248e305977fd78bb5216517ba2236b7f77514073ffe61f3b481cfbbea7",
+    "reason": "v0.2 rules, release and retained raw verification; synthetic tests distinct from board proof"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/final_audit.py": {
+    "size": 2217,
+    "sha256": "5721a8cfa0dae2e04a0d571aad63453750db1274e0d17492ea1249769ac1c2a6",
+    "reason": "v0.2 rules, release and retained raw verification; synthetic tests distinct from board proof"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/ethernet_phy_binding.yaml": {
+    "size": 6274,
+    "sha256": "dcdf02ff82e0e88e50a9a881c3437d2caf328032a99bf6bbb9cc1d0467fa359f",
+    "reason": "v0.2 rules, release and retained raw verification; synthetic tests distinct from board proof"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/usb_nop_binding.yaml": {
+    "size": 1312,
+    "sha256": "cf04c3470eccb754338fe2b9a5fb21ca426d147a1005d7a7df2e320ba7cad6cc",
+    "reason": "v0.2 rules, release and retained raw verification; synthetic tests distinct from board proof"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/baseline/base.dtb": {
+    "size": 14919,
+    "sha256": "76e29723d185ac4a50700338bfcf872113a43409bbbe8eded34fbbd723ef6434",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/baseline/base.dts": {
+    "size": 17050,
+    "sha256": "882a83061ea0cf287c9aeee6f4b93b5ab64a8d2a45ddc179d13712c5fe9f5abd",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/baseline/board.dts": {
+    "size": 1892,
+    "sha256": "ac0a6c03fe25d16c2238f839bc1918c402a4049ec94784d9d48534cd12a75f7f",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/baseline/dtc.log": {
+    "size": 20850,
+    "sha256": "8e390f5b6cf9783fcf2fe862948cb909cf76efe50f96952ba45c7bc2fa88354b",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/baseline/roundtrip.dts": {
+    "size": 17189,
+    "sha256": "d09c8344923c45ca3edf0682f1214fe961758b820b6dc7a62e939102cd41b03c",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/baseline/system.dtb": {
+    "size": 15063,
+    "sha256": "4df5cb931167b8fb9ac08c15b20ca878f5ab8be6626f762632366a36c41b8f16",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/can/base.dtb": {
+    "size": 14919,
+    "sha256": "76e29723d185ac4a50700338bfcf872113a43409bbbe8eded34fbbd723ef6434",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/can/base.dts": {
+    "size": 17050,
+    "sha256": "882a83061ea0cf287c9aeee6f4b93b5ab64a8d2a45ddc179d13712c5fe9f5abd",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/can/board.dts": {
+    "size": 2060,
+    "sha256": "ad039e7c98386a4f630c3f42d4c1a7855a491bc2d2b064ee373cd3f05541e79f",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/can/dtc.log": {
+    "size": 20856,
+    "sha256": "32e1d1ac55015001640acea95966949da7d8a82acec4f996042689183c9f4623",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/can/roundtrip.dts": {
+    "size": 17314,
+    "sha256": "8b7d62a5292a3f069be30e279dc284491d737409c4140aef95f4577018290ca5",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/can/system.dtb": {
+    "size": 15171,
+    "sha256": "3d0ce22b871a9fc260be28f128b654ddf2675993a777a1de5b342dd1d2e8c1ce",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/clock_gpio/base.dtb": {
+    "size": 14919,
+    "sha256": "76e29723d185ac4a50700338bfcf872113a43409bbbe8eded34fbbd723ef6434",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/clock_gpio/base.dts": {
+    "size": 17050,
+    "sha256": "882a83061ea0cf287c9aeee6f4b93b5ab64a8d2a45ddc179d13712c5fe9f5abd",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/clock_gpio/board.dts": {
+    "size": 1893,
+    "sha256": "0fd04a34e56b75a8077e334d7f5bbed21dee48d4f5896c63df30308fe1061715",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/clock_gpio/dtc.log": {
+    "size": 20850,
+    "sha256": "8e390f5b6cf9783fcf2fe862948cb909cf76efe50f96952ba45c7bc2fa88354b",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/clock_gpio/roundtrip.dts": {
+    "size": 17189,
+    "sha256": "f08eef6af989f67516e2e8e76aa7a43e60567b92de2b3e69f9197b5d059d0dff",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/clock_gpio/system.dtb": {
+    "size": 15063,
+    "sha256": "ba3c1ff1b2f77ccfc861b9bfa769130b7b865e953a6978536048a53084190213",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/enet_disable/base.dtb": {
+    "size": 14919,
+    "sha256": "76e29723d185ac4a50700338bfcf872113a43409bbbe8eded34fbbd723ef6434",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/enet_disable/base.dts": {
+    "size": 17050,
+    "sha256": "882a83061ea0cf287c9aeee6f4b93b5ab64a8d2a45ddc179d13712c5fe9f5abd",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/enet_disable/board.dts": {
+    "size": 1714,
+    "sha256": "561a9c87cbfa79d76331bf65b2c203642c50d29e59e46b6bb8e39f1f56289cf4",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/enet_disable/dtc.log": {
+    "size": 20454,
+    "sha256": "7ae24c86098b1d08004ceaf051d138500f7fefb16a659ba3d7c80726343320b2",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/enet_disable/roundtrip.dts": {
+    "size": 17057,
+    "sha256": "b08f58ec9afa26db80bfb779fb6305be573d1befa22098afde4c565b5cf20ab0",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/enet_disable/system.dtb": {
+    "size": 14930,
+    "sha256": "4ff16eb0eac6e6bc3604f805b990adb496fe640a34141dbe2d72aaa16179ff9c",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/i2c/base.dtb": {
+    "size": 14919,
+    "sha256": "76e29723d185ac4a50700338bfcf872113a43409bbbe8eded34fbbd723ef6434",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/i2c/base.dts": {
+    "size": 17050,
+    "sha256": "882a83061ea0cf287c9aeee6f4b93b5ab64a8d2a45ddc179d13712c5fe9f5abd",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/i2c/board.dts": {
+    "size": 1943,
+    "sha256": "281bb765b0e7f92e20844dd2b9a1b3b485c0047e004ed3baf9005c7dde82a736",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/i2c/dtc.log": {
+    "size": 20850,
+    "sha256": "732b3bd65f864cc86a0e35b3cce7137b95d10dc879f22cd4b1e951c227da2d22",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/i2c/roundtrip.dts": {
+    "size": 17217,
+    "sha256": "379282d6f3ed9dc46b1f16a5ce6f63c9776c562c82ddf7d45021b51c89b3544e",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/i2c/system.dtb": {
+    "size": 15091,
+    "sha256": "c873cba2830323e77436e1250834829285d2e2bcf34bb922e56346de31422ef7",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/qspi/base.dtb": {
+    "size": 14919,
+    "sha256": "76e29723d185ac4a50700338bfcf872113a43409bbbe8eded34fbbd723ef6434",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/qspi/base.dts": {
+    "size": 17050,
+    "sha256": "882a83061ea0cf287c9aeee6f4b93b5ab64a8d2a45ddc179d13712c5fe9f5abd",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/qspi/board.dts": {
+    "size": 2138,
+    "sha256": "99cb9233c8d3d45d1c4d22e1fd127044094b98034f8057f6d0f8646c9659d308",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/qspi/dtc.log": {
+    "size": 20850,
+    "sha256": "732b3bd65f864cc86a0e35b3cce7137b95d10dc879f22cd4b1e951c227da2d22",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/qspi/roundtrip.dts": {
+    "size": 17426,
+    "sha256": "f4b8d57fb09484a28e4b0fd9d2659b53ca5fa57e1cf6cd98bb1f99b17c86f816",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/qspi/system.dtb": {
+    "size": 15219,
+    "sha256": "0835a38c1cfa570de1d06b1b0dd7efa79a429a42399ffb59da5f289df25b2b7f",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/sd_cd/base.dtb": {
+    "size": 14919,
+    "sha256": "76e29723d185ac4a50700338bfcf872113a43409bbbe8eded34fbbd723ef6434",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/sd_cd/base.dts": {
+    "size": 17050,
+    "sha256": "882a83061ea0cf287c9aeee6f4b93b5ab64a8d2a45ddc179d13712c5fe9f5abd",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/sd_cd/board.dts": {
+    "size": 1874,
+    "sha256": "f850393b759e117975a51c3f6d3a82150db76f99e0809da451f3c664e4d961a6",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/sd_cd/dtc.log": {
+    "size": 20850,
+    "sha256": "8e390f5b6cf9783fcf2fe862948cb909cf76efe50f96952ba45c7bc2fa88354b",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/sd_cd/roundtrip.dts": {
+    "size": 17203,
+    "sha256": "e3ff9c0fa5e6adaa9003ac6b51ecb3413fe2ad434eb4bc6c52f17cbec74a3d88",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/sd_cd/system.dtb": {
+    "size": 15085,
+    "sha256": "8da40e76e5db263558aaf045950f3b0b8a790685531acc77661abacff5813061",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/spi/base.dtb": {
+    "size": 14919,
+    "sha256": "76e29723d185ac4a50700338bfcf872113a43409bbbe8eded34fbbd723ef6434",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/spi/base.dts": {
+    "size": 17050,
+    "sha256": "882a83061ea0cf287c9aeee6f4b93b5ab64a8d2a45ddc179d13712c5fe9f5abd",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/spi/board.dts": {
+    "size": 1929,
+    "sha256": "d6fdb3778a7efbf3b3a602d4fd50659127d38e7a04d5a8dd0e493eb663d3ec94",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/spi/dtc.log": {
+    "size": 20850,
+    "sha256": "732b3bd65f864cc86a0e35b3cce7137b95d10dc879f22cd4b1e951c227da2d22",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/spi/roundtrip.dts": {
+    "size": 17205,
+    "sha256": "185c811ea3a4f44cf7cd22d2708f03dcc2b4f2e4eb57b1345f5081085b3f51a0",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/spi/system.dtb": {
+    "size": 15075,
+    "sha256": "4e2fbc1ded07d5b9d556779b83fc8a3acb376d4b4a40200ca3da1877658e43aa",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/uart0/base.dtb": {
+    "size": 14919,
+    "sha256": "76e29723d185ac4a50700338bfcf872113a43409bbbe8eded34fbbd723ef6434",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/uart0/base.dts": {
+    "size": 17050,
+    "sha256": "882a83061ea0cf287c9aeee6f4b93b5ab64a8d2a45ddc179d13712c5fe9f5abd",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/uart0/board.dts": {
+    "size": 2037,
+    "sha256": "dee5f2598176751a8932f53ab42eeff0a8bac8721af4ab73ed5407d7751a3ae4",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/uart0/dtc.log": {
+    "size": 20850,
+    "sha256": "a3aa24bc340071251db7fda8ebeb1a45360c78119f199bb6e09113a60acbb996",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/uart0/roundtrip.dts": {
+    "size": 17240,
+    "sha256": "8cd4c564bc4874ac1adf038f1fa2a4359d00efc57c6a6c82b2c637a38fa16036",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/uart0/system.dtb": {
+    "size": 15091,
+    "sha256": "fe1ea7257fe09d9af524372702d73238b2a4100cd3eb1a350b49ec9d7f60a393",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/usb/base.dtb": {
+    "size": 14919,
+    "sha256": "76e29723d185ac4a50700338bfcf872113a43409bbbe8eded34fbbd723ef6434",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/usb/base.dts": {
+    "size": 17050,
+    "sha256": "882a83061ea0cf287c9aeee6f4b93b5ab64a8d2a45ddc179d13712c5fe9f5abd",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/usb/board.dts": {
+    "size": 2106,
+    "sha256": "42979fbf3b5fd101423454121c180a1255fc7a88de3da5db5f4a41e1e2b06dfa",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/usb/dtc.log": {
+    "size": 21180,
+    "sha256": "1d69dc4bf5da530167ff2c8cc2e1932e248b37dacb1d57a66993d41df0ea921f",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/usb/roundtrip.dts": {
+    "size": 17392,
+    "sha256": "ae394309f55ee327e2718b1aa1479d5c7d3e64515a6da8b1a0658b7b9663c80b",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_run01/dt_tests/usb/system.dtb": {
+    "size": 15264,
+    "sha256": "16057f8868a781ca403defc729733f771f4d39932e09af6495f2a827e3f11433",
+    "reason": "Native DTC rule case input/output and raw compile messages"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/result.json": {
+    "size": 8152,
+    "sha256": "830e9c6f3e4d5a8f4000416fa1067e194218cbc0e5131fa820ef72ed5c7bb41a",
+    "reason": "Real source/frozen application build provenance and raw log"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/hardware_analysis.json": {
+    "size": 3392,
+    "sha256": "a2153f76472d031db8f800c68a158d01c5fa1d5dedc48c5cd55a40ecdc2c694b",
+    "reason": "Real source/frozen application build provenance and raw log"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/device_tree_generation.json": {
+    "size": 2468,
+    "sha256": "4191960cc90f92ca8dacc4c6150bd6121aafa6d786c692e055d3ce2bdcac0ae7",
+    "reason": "Real source/frozen application build provenance and raw log"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/fsbl_provenance.json": {
+    "size": 221,
+    "sha256": "46ca0295f362c60aac7f00da72d80e44b120b7ebd656e01198cc4428481a4502",
+    "reason": "Real source/frozen application build provenance and raw log"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/boot_validation.json": {
+    "size": 784,
+    "sha256": "6662850d459562cb8ed84eadfdaf6fcefcf875bdd01b9d878a456fc75f83a433",
+    "reason": "Real source/frozen application build provenance and raw log"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/build.log": {
+    "size": 1005,
+    "sha256": "b859c5aa336d6c2dab078e33873598042ecf10b0098519f7a91a86b7ed672b8a",
+    "reason": "Real source/frozen application build provenance and raw log"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/command_001.log": {
+    "size": 105,
+    "sha256": "5df06ddc1d3b0558b8f94a7cd9be377ed93f4bb4effd61cf29f4842f7270bbf1",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/command_002.log": {
+    "size": 7058,
+    "sha256": "6345bd82319fd8cb46b8b62caabf480c621a0a6ebc65444ec4a01956a07debf2",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/command_003.log": {
+    "size": 117,
+    "sha256": "2e94995f3dd25f80f1e4eab763efe1af522a1f62b6a2d58faf3cdbc05ea45f77",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/command_004.log": {
+    "size": 42260,
+    "sha256": "36fa0f1619c12b4653e865200110eba8640129e4ecfa9bd25e8c3a21927700f3",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/command_005.log": {
+    "size": 257,
+    "sha256": "6d77fd5680937f90a11c10a46c74a47623197817e192dbec48fe5b4e1ff4107a",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/command_006.log": {
+    "size": 253,
+    "sha256": "66e73978f475a638afdf78edd590f60960bf795f0f9ad247ac36911521ddc8aa",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/command_007.log": {
+    "size": 255,
+    "sha256": "fbd50712d8bd519300a75facf7456381a2287a47756466ad1b8bc74d97c1ed81",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/command_008.log": {
+    "size": 241,
+    "sha256": "0be37cda76c24d4bf9d63c462a81961d8fe2689521d2b03d71c14edcb33fdf66",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/command_009.log": {
+    "size": 239,
+    "sha256": "b220fdc2a8f8963835cc5e44decc63b8ef45f70d48ae47db5af9b3b7b032b10e",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/command_010.log": {
+    "size": 241,
+    "sha256": "9f78626d7302cbd45c3b27754e22a924ac1da6408c9cf79c0a2b02722a616d72",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/command_011.log": {
+    "size": 239,
+    "sha256": "6058e9b05307b771d119149c8f100e0b36d7d05296cf9a77bd069aed661b86d5",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/command_012.log": {
+    "size": 241,
+    "sha256": "5b6704cd1c1f68e039d72636ea9ecb0d77d013e72920e833d4eed85c5f981671",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/command_013.log": {
+    "size": 249,
+    "sha256": "5b988fede7783fb8d47ea9a28faaf1f083624f15cbd8e297a5c5619bf4e824db",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/command_014.log": {
+    "size": 241,
+    "sha256": "e8c1a5dc5b6865bcb11173757d71da56dd764c0ef448daa8e6f3070fcbf68880",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/command_015.log": {
+    "size": 239,
+    "sha256": "74e441634e7b17395bf981791528a1441860618fef541e60dca2e1a2293a5926",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/command_016.log": {
+    "size": 237,
+    "sha256": "d009ce5575b79bce7ddc25e66d02e39231528db0ea0c2d3714a4ab17bd45737c",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/command_017.log": {
+    "size": 517,
+    "sha256": "a2957cfee0b3fa0152e3f2c479a0aa2256e4558bcc8729d226b4a3894a4183b0",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/command_018.log": {
+    "size": 383,
+    "sha256": "5c6ed0301b7b4a08dafee5718066dbc67691719689d4bd64ce8ba5598bf1e32a",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/command_019.log": {
+    "size": 5454,
+    "sha256": "c7249a60d7652def7009b8928facdc3f3367e18f1989aa832d00d7e62a783dc1",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/command_020.log": {
+    "size": 120,
+    "sha256": "71622995a424c8d5472d0858eaefae6d6b96b7066e7072da1ba58f4392727f3a",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175742_16fccb/result.json": {
+    "size": 7849,
+    "sha256": "c5e955f9436cd0ba150fcfdcb97de1d48d7545e6b492d9c75b7c953ac691cc80",
+    "reason": "Real source/frozen application build provenance and raw log"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175742_16fccb/hardware_analysis.json": {
+    "size": 3392,
+    "sha256": "a2153f76472d031db8f800c68a158d01c5fa1d5dedc48c5cd55a40ecdc2c694b",
+    "reason": "Real source/frozen application build provenance and raw log"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175742_16fccb/device_tree_generation.json": {
+    "size": 2468,
+    "sha256": "4191960cc90f92ca8dacc4c6150bd6121aafa6d786c692e055d3ce2bdcac0ae7",
+    "reason": "Real source/frozen application build provenance and raw log"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175742_16fccb/fsbl_provenance.json": {
+    "size": 129,
+    "sha256": "9a9320ad2ab66b873d5b6c651dd837f09eea4df7ed0bc45d6aed464362f37263",
+    "reason": "Real source/frozen application build provenance and raw log"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175742_16fccb/boot_validation.json": {
+    "size": 784,
+    "sha256": "6662850d459562cb8ed84eadfdaf6fcefcf875bdd01b9d878a456fc75f83a433",
+    "reason": "Real source/frozen application build provenance and raw log"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175742_16fccb/build.log": {
+    "size": 298,
+    "sha256": "db913ee31523d5b189ae69be422a537986ccc0f21689dd18e5af9baebb8f6fe6",
+    "reason": "Real source/frozen application build provenance and raw log"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175742_16fccb/command_001.log": {
+    "size": 105,
+    "sha256": "5df06ddc1d3b0558b8f94a7cd9be377ed93f4bb4effd61cf29f4842f7270bbf1",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175742_16fccb/command_002.log": {
+    "size": 7058,
+    "sha256": "6345bd82319fd8cb46b8b62caabf480c621a0a6ebc65444ec4a01956a07debf2",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175742_16fccb/command_003.log": {
+    "size": 117,
+    "sha256": "2e94995f3dd25f80f1e4eab763efe1af522a1f62b6a2d58faf3cdbc05ea45f77",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175742_16fccb/command_004.log": {
+    "size": 383,
+    "sha256": "5c6ed0301b7b4a08dafee5718066dbc67691719689d4bd64ce8ba5598bf1e32a",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175742_16fccb/command_005.log": {
+    "size": 5454,
+    "sha256": "c7249a60d7652def7009b8928facdc3f3367e18f1989aa832d00d7e62a783dc1",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175742_16fccb/command_006.log": {
+    "size": 120,
+    "sha256": "71622995a424c8d5472d0858eaefae6d6b96b7066e7072da1ba58f4392727f3a",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_180104_171c99/result.json": {
+    "size": 7847,
+    "sha256": "f79e8b783ef57cecce4846588b3b1ed219fb0eb36ce1c5bcc2f2af5730f0518b",
+    "reason": "Real source/frozen application build provenance and raw log"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_180104_171c99/hardware_analysis.json": {
+    "size": 3392,
+    "sha256": "a2153f76472d031db8f800c68a158d01c5fa1d5dedc48c5cd55a40ecdc2c694b",
+    "reason": "Real source/frozen application build provenance and raw log"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_180104_171c99/device_tree_generation.json": {
+    "size": 2468,
+    "sha256": "4191960cc90f92ca8dacc4c6150bd6121aafa6d786c692e055d3ce2bdcac0ae7",
+    "reason": "Real source/frozen application build provenance and raw log"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_180104_171c99/fsbl_provenance.json": {
+    "size": 129,
+    "sha256": "9a9320ad2ab66b873d5b6c651dd837f09eea4df7ed0bc45d6aed464362f37263",
+    "reason": "Real source/frozen application build provenance and raw log"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_180104_171c99/boot_validation.json": {
+    "size": 995,
+    "sha256": "fe165713cc0f4c3e244a33d1acdaa29ee25d79813e4704c3afe134b84ff09b1b",
+    "reason": "Real source/frozen application build provenance and raw log"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_180104_171c99/build.log": {
+    "size": 298,
+    "sha256": "3e905ddb5442e75ccc14f9b6432877b76286f477ef5e0e63e61dfdf872dafe36",
+    "reason": "Real source/frozen application build provenance and raw log"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_180104_171c99/command_001.log": {
+    "size": 105,
+    "sha256": "5df06ddc1d3b0558b8f94a7cd9be377ed93f4bb4effd61cf29f4842f7270bbf1",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_180104_171c99/command_002.log": {
+    "size": 7058,
+    "sha256": "6345bd82319fd8cb46b8b62caabf480c621a0a6ebc65444ec4a01956a07debf2",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_180104_171c99/command_003.log": {
+    "size": 117,
+    "sha256": "2e94995f3dd25f80f1e4eab763efe1af522a1f62b6a2d58faf3cdbc05ea45f77",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_180104_171c99/command_004.log": {
+    "size": 383,
+    "sha256": "5c6ed0301b7b4a08dafee5718066dbc67691719689d4bd64ce8ba5598bf1e32a",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_180104_171c99/command_005.log": {
+    "size": 6743,
+    "sha256": "8f1cf7b1168156582a96389c6aa177273844b8c93b5067b5d4ddabeadc12f91b",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_180104_171c99/command_006.log": {
+    "size": 120,
+    "sha256": "71622995a424c8d5472d0858eaefae6d6b96b7066e7072da1ba58f4392727f3a",
+    "reason": "Exact build command and tool output"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/base_image_verification.json": {
+    "size": 305,
+    "sha256": "4139713c06093d9e1d5499bbaf4349b0b5f4ae2d3750ea3a7caf3ef37f926a7e",
+    "reason": "IMG identity and full readback evidence; IMG intentionally not committed"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/output/image_validation.json": {
+    "size": 275,
+    "sha256": "db2ac796417b8610b10dfdbea6ea518fe1ad9eaae20ef611f8bd89cd17e87fab",
+    "reason": "IMG identity and full readback evidence; IMG intentionally not committed"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/output/image_block_checks.json": {
+    "size": 234587,
+    "sha256": "a1e998c2949332c9093272f5f692cae168866952bbffe3c4232d42c789d73124",
+    "reason": "IMG identity and full readback evidence; IMG intentionally not committed"
+  },
+  "4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/output/ees331_pynq_sd.img.sha256": {
+    "size": 86,
+    "sha256": "dd60d8082f32ea8deafe71029ee05b9390438cff5feee82bbebbe734f88d0a34",
+    "reason": "IMG identity and full readback evidence; IMG intentionally not committed"
+  },
+  "4_metrics/logs/2026-09-10_aipc_loan_report_run01/REPORT.md": {
+    "size": 5893,
+    "sha256": "17bb6dd4f76fcbf30efd4b58347d5ecbbcad4ba495b6d94b56dd194c8ed586d7",
+    "reason": "Loan report source, template parsing failure disclosure and two-page final QA"
+  },
+  "4_metrics/logs/2026-09-10_aipc_loan_report_run01/artifact.md": {
+    "size": 3760,
+    "sha256": "27b635f78dde796775fed0ff384bafa44e47b259aa98f2c9afc9ca1d10da6b6a",
+    "reason": "Loan report source, template parsing failure disclosure and two-page final QA"
+  },
+  "4_metrics/logs/2026-09-10_aipc_loan_report_run01/create_report.py": {
+    "size": 13045,
+    "sha256": "3dcaef980c52a6792d96a4733fc849b25183a3c367dad302c8f40cdbd1e00db8",
+    "reason": "Loan report source, template parsing failure disclosure and two-page final QA"
+  },
+  "4_metrics/logs/2026-09-10_aipc_loan_report_run01/authored_text.txt": {
+    "size": 3570,
+    "sha256": "6136ebb2eb8b09ae3694ac64410535c312f142025e8c55dab0feaf81fa3356cf",
+    "reason": "Loan report source, template parsing failure disclosure and two-page final QA"
+  },
+  "4_metrics/logs/2026-09-10_aipc_loan_report_run01/package_audit.json": {
+    "size": 2994,
+    "sha256": "97ea9af45e61d643d2a143b6e37ca5bef8156577b16123dbd5c6deb90754385a",
+    "reason": "Loan report source, template parsing failure disclosure and two-page final QA"
+  },
+  "4_metrics/logs/2026-09-10_aipc_loan_report_run01/final_validation.json": {
+    "size": 2507,
+    "sha256": "afdfd865fe2baeb3cdc26391f89e60cc49c489b3fe383fba92d8d82b79c44dc7",
+    "reason": "Loan report source, template parsing failure disclosure and two-page final QA"
+  },
+  "4_metrics/logs/2026-09-10_aipc_loan_report_run01/fidelity_console.txt": {
+    "size": 337,
+    "sha256": "d4e1b52d12093cae67d1e2acd2010f2c0121737af2653c469789a556556ab3ce",
+    "reason": "Loan report source, template parsing failure disclosure and two-page final QA"
+  },
+  "4_metrics/logs/2026-09-10_aipc_loan_report_run01/fidelity_final/summary.json": {
+    "size": 355,
+    "sha256": "812f4691868df3ad134cecd61643dbd0fa1a362d43a4aeeffdadd8964613cf01",
+    "reason": "Loan report source, template parsing failure disclosure and two-page final QA"
+  },
+  "4_metrics/logs/2026-09-10_aipc_loan_report_run01/final_sections.txt": {
+    "size": 434,
+    "sha256": "3eea4d8bbe75503a94810e50efd2f58904e630a3d0151bfe0ce2a78e51368e5e",
+    "reason": "Loan report source, template parsing failure disclosure and two-page final QA"
+  },
+  "4_metrics/logs/2026-09-10_aipc_loan_report_run01/template_sections.txt": {
+    "size": 434,
+    "sha256": "3eea4d8bbe75503a94810e50efd2f58904e630a3d0151bfe0ce2a78e51368e5e",
+    "reason": "Loan report source, template parsing failure disclosure and two-page final QA"
+  },
+  "4_metrics/logs/2026-09-10_aipc_loan_report_run01/final_styles.json": {
+    "size": 5449,
+    "sha256": "669c72d9b407d32bba7c996d01402f14efd463d4abf00dd63ddead6709397e8b",
+    "reason": "Loan report source, template parsing failure disclosure and two-page final QA"
+  },
+  "4_metrics/logs/2026-09-10_aipc_loan_report_run01/template_styles.json": {
+    "size": 5705,
+    "sha256": "e14cb6f1650826b9c385f6c07ac5c7e49f7cb68f47f5f529de8d7960a65bf2ce",
+    "reason": "Loan report source, template parsing failure disclosure and two-page final QA"
+  },
+  "4_metrics/logs/2026-09-10_aipc_loan_report_run01/mineru_result_marker.txt": {
+    "size": 35,
+    "sha256": "9e2796a4ce667df949f13e0bf3df3c8ff5f9794eea60ea5ebbc09f7194004fa0",
+    "reason": "Loan report source, template parsing failure disclosure and two-page final QA"
+  },
+  "4_metrics/logs/2026-09-10_aipc_loan_report_run01/mineru_results.json": {
+    "size": 1272,
+    "sha256": "7dcb16946bd7a5f6ce296077b72f66982aff412010225f0ebe803aefaab894ba",
+    "reason": "Loan report source, template parsing failure disclosure and two-page final QA"
+  },
+  "4_metrics/logs/2026-09-10_aipc_loan_report_run01/input_manifest.json": {
+    "size": 250,
+    "sha256": "834f5edcf5ff20ede5b2b69c7cbf740b1c77b0ed00151a01fb21902b9e7f6d99",
+    "reason": "Loan report source, template parsing failure disclosure and two-page final QA"
+  },
+  "4_metrics/logs/2026-09-10_aipc_loan_report_run01/mineru_runner_console.txt": {
+    "size": 727,
+    "sha256": "296b1cbdc4b9d9545f94d5f590ebb9d5bb69b3d7539355c2074141843c0a5d0a",
+    "reason": "Loan report source, template parsing failure disclosure and two-page final QA"
+  },
+  "4_metrics/logs/2026-09-10_aipc_loan_report_run01/mineru_api_stdout.txt": {
+    "size": 577,
+    "sha256": "725b002724c72653a3f19f5fd4259196517907dc920d852e8b729d8afb675582",
+    "reason": "Loan report source, template parsing failure disclosure and two-page final QA"
+  },
+  "4_metrics/logs/2026-09-10_aipc_loan_report_run01/mineru_api_stderr.txt": {
+    "size": 536,
+    "sha256": "12f101be4a3ad5d275ab9600e0af6f805f0abdf72541b0b3eac1583a455f938d",
+    "reason": "Loan report source, template parsing failure disclosure and two-page final QA"
+  },
+  "4_metrics/logs/2026-09-10_aipc_loan_report_run01/fidelity_final/b_render/page-1.png": {
+    "size": 438575,
+    "sha256": "be70e729cadf90200cfae3ae7bd637d96c52e5da9b385ce7172f07d5335ce946",
+    "reason": "Loan report source, template parsing failure disclosure and two-page final QA"
+  },
+  "4_metrics/logs/2026-09-10_aipc_loan_report_run01/fidelity_final/b_render/page-2.png": {
+    "size": 577016,
+    "sha256": "362fa2b4772abcc44286a0fc3f51ab0021a008e0518cfe6ffc9d5c7d21e06e2b",
+    "reason": "Loan report source, template parsing failure disclosure and two-page final QA"
+  },
+  "4_metrics/logs/2026-09-10_aipc_loan_report_run01/template_render/AMD AIPC 借用报告 - 模板.pdf": {
+    "size": 232025,
+    "sha256": "3c8598a76c21692b8223d97c16cb7e0c5f094e979aa0d880a77b35d129842bd9",
+    "reason": "Loan report source, template parsing failure disclosure and two-page final QA"
+  },
+  "4_metrics/logs/2026-09-10_aipc_template_pdf_run01/input_manifest.json": {
+    "size": 304,
+    "sha256": "2ae1bb3dd65a12fb51f705c9769be97da5e0b2b14c5971457dbc5844b2a21af1",
+    "reason": "MinerU PDF conversion fallback evidence and source hashes"
+  },
+  "4_metrics/logs/2026-09-10_aipc_template_pdf_run01/mineru_api_stderr.txt": {
+    "size": 3548,
+    "sha256": "5bfdaffa6d4304e11cc577fb5551f6ccec46ab91c63eee499d8ab07f962bf4d5",
+    "reason": "MinerU PDF conversion fallback evidence and source hashes"
+  },
+  "4_metrics/logs/2026-09-10_aipc_template_pdf_run01/mineru_api_stdout.txt": {
+    "size": 1622,
+    "sha256": "c16f032846c08cd3fcee3cddab595160f4fa3fa775763de04e9d42b6594ccdf4",
+    "reason": "MinerU PDF conversion fallback evidence and source hashes"
+  },
+  "4_metrics/logs/2026-09-10_aipc_template_pdf_run01/mineru_results.json": {
+    "size": 1330,
+    "sha256": "76cfeb0539e11a6419cf12ee98e80711daa59c24a9809a885287a463e1db9e5a",
+    "reason": "MinerU PDF conversion fallback evidence and source hashes"
+  },
+  "4_metrics/logs/2026-09-10_aipc_template_pdf_run01/mineru_result_marker.txt": {
+    "size": 33,
+    "sha256": "57ac9b67944af20d4e997523364f3e1768b5861689c99d11376c4d139da47a8a",
+    "reason": "MinerU PDF conversion fallback evidence and source hashes"
+  },
+  "4_metrics/logs/2026-09-10_aipc_template_pdf_run01/mineru_runner_console.txt": {
+    "size": 702,
+    "sha256": "a77e7afe8a425aa912daececa67e98c742f4492998485cc712d320bd9a8addee",
+    "reason": "MinerU PDF conversion fallback evidence and source hashes"
+  },
+  "4_metrics/logs/2026-09-10_aipc_template_pdf_run01/AMD AIPC 借用报告 - 模板/auto/AMD AIPC 借用报告 - 模板.md": {
+    "size": 2199,
+    "sha256": "5e7a1be6adc2d7f3227fd2d34aefd075eaef8a4c625ba428c40e856853b1fac5",
+    "reason": "Complete selected template semantic parse and illustrations"
+  },
+  "4_metrics/logs/2026-09-10_aipc_template_pdf_run01/AMD AIPC 借用报告 - 模板/auto/AMD AIPC 借用报告 - 模板_content_list.json": {
+    "size": 3695,
+    "sha256": "f570ce554c03a1766aef01b35ffaed8bd875beb83c9274f199fd468bb0793bb8",
+    "reason": "Complete selected template semantic parse and illustrations"
+  },
+  "4_metrics/logs/2026-09-10_aipc_template_pdf_run01/AMD AIPC 借用报告 - 模板/auto/AMD AIPC 借用报告 - 模板_content_list_v2.json": {
+    "size": 6054,
+    "sha256": "20c7a193d0838f2c08e2ae14f91cf86a2e65dac78a6a976358c0922aa775e960",
+    "reason": "Complete selected template semantic parse and illustrations"
+  },
+  "4_metrics/logs/2026-09-10_aipc_template_pdf_run01/AMD AIPC 借用报告 - 模板/auto/AMD AIPC 借用报告 - 模板_middle.json": {
+    "size": 42092,
+    "sha256": "3fc30d01576e42bdc69573f961a51884464556ba950271a0b33fc0cbc67a56e2",
+    "reason": "Complete selected template semantic parse and illustrations"
+  },
+  "4_metrics/logs/2026-09-10_aipc_template_pdf_run01/AMD AIPC 借用报告 - 模板/auto/AMD AIPC 借用报告 - 模板_model.json": {
+    "size": 8088,
+    "sha256": "12d141d378d2a92299e6711aa68453253a9f8ba58e0312a5a5ea9c2303d9dfc3",
+    "reason": "Complete selected template semantic parse and illustrations"
+  },
+  "4_metrics/logs/2026-09-10_aipc_template_pdf_run01/AMD AIPC 借用报告 - 模板/auto/images/0d20ddeb9c586f7463e7bc6be7005614028279d1613bfc19f1f5288f7aa92939.jpg": {
+    "size": 126588,
+    "sha256": "bdfd984aa8527c19355233deef826c5769e074854507d8b398c7bdb4fe7fde1d",
+    "reason": "Complete selected template semantic parse and illustrations"
+  },
+  "4_metrics/logs/2026-09-10_aipc_template_pdf_run01/AMD AIPC 借用报告 - 模板/auto/images/63940802965042f98d8999b081c61b87e1094589dd713286621e0a1c0b101e24.jpg": {
+    "size": 38030,
+    "sha256": "48c97be1995bd566ae068549e7ea93fb1062ee68c5b4f5c9992c3a2bea33d188",
+    "reason": "Complete selected template semantic parse and illustrations"
+  },
+  "4_metrics/logs/2026-09-10_session_archive_upload_run01/reference_pynq_test_wrapper.xsa": {
+    "size": 313220,
+    "sha256": "b3343e2161fdfc4aa744a211e65059346ae48e0f7ea5f1b41b945e4f9124576a",
+    "reason": "313220-byte actual XSA used in the archived builds; read-only copy, frozen tree unchanged"
+  },
+  "4_metrics/logs/2026-09-08_eth_zynq_psw_check_mineru_run01/input_manifest.json": {
+    "size": 225,
+    "sha256": "23af1e36ddfcb6a7941fd1ad4ee2dc41ecd4d7e3f8eae4faaa2e272bfeedc812",
+    "reason": "Board-template MinerU source identity and prior parse status"
+  },
+  "4_metrics/logs/2026-09-08_eth_zynq_psw_check_mineru_run01/mineru_result_marker.txt": {
+    "size": 33,
+    "sha256": "57ac9b67944af20d4e997523364f3e1768b5861689c99d11376c4d139da47a8a",
+    "reason": "Board-template MinerU source identity and prior parse status"
+  },
+  "4_metrics/logs/2026-09-08_eth_zynq_psw_check_mineru_run01/mineru_results.json": {
+    "size": 1195,
+    "sha256": "0cfe071ca24721bca09f156c0576d51e00e668582ab7ca6bc8e5b7543299029e",
+    "reason": "Board-template MinerU source identity and prior parse status"
+  },
+  "4_metrics/logs/2026-09-08_eth_zynq_psw_check_mineru_run01/mineru_runner_console.txt": {
+    "size": 633,
+    "sha256": "94f65a10941a4cfbdd9e22fc0c7170a89b662317b1569ef8f5e01855aacc70e3",
+    "reason": "Board-template MinerU source identity and prior parse status"
+  },
+  "4_metrics/logs/2026-09-08_eth_zynq_psw_check_mineru_run01/EES-331 User Guide/auto/EES-331 User Guide.md": {
+    "size": 85454,
+    "sha256": "86aa8234e89e2cd6f73074f3e7f9f6355e4213a679da6cf4e1f0e472ffc4633e",
+    "reason": "Board manual parsed content used by EES-331 profile"
+  },
+  "4_metrics/logs/2026-09-08_eth_zynq_psw_check_mineru_run01/EES-331 User Guide/auto/EES-331 User Guide_content_list.json": {
+    "size": 174228,
+    "sha256": "b009bd5c982480d8fd6ef745c5a93f3bccf7962b1037b78a25f2edc2fc4707d0",
+    "reason": "Board manual parsed content used by EES-331 profile"
+  },
+  "4_metrics/logs/2026-09-08_eth_zynq_psw_check_mineru_run01/EES-331 User Guide/auto/images/0dcff0552ebe5a4c3676a502f8958709db5fd1b0cf8bef94ead095231959747e.jpg": {
+    "size": 81686,
+    "sha256": "1b713f7c704a73ab962c53a141fcb831afcb5ae36c7722a9511a3fd293acd2b6",
+    "reason": "Selected UART/USB/QSPI board wiring images cited during profile checks"
+  },
+  "4_metrics/logs/2026-09-08_eth_zynq_psw_check_mineru_run01/EES-331 User Guide/auto/images/0ffe2715beb0e8fb1a2f5d3f985ebf6537a38f5e760d805282a8f5c532a7966a.jpg": {
+    "size": 139025,
+    "sha256": "c1dbbdb11c35f87490d4db30844c523a0499139f7c48a22b917f429c1dce9cee",
+    "reason": "Selected UART/USB/QSPI board wiring images cited during profile checks"
+  },
+  "4_metrics/logs/2026-09-08_eth_zynq_psw_check_mineru_run01/EES-331 User Guide/auto/images/6d1002446c2424d94ad3a7177b9a032e6f37ed3a16ad1f31c50fee4c78038ec1.jpg": {
+    "size": 105139,
+    "sha256": "b19aa00c84307e4bfdb52895abe240c618a02c71b520efc530586a2b50509b31",
+    "reason": "Selected UART/USB/QSPI board wiring images cited during profile checks"
+  },
+  "4_metrics/logs/2026-09-08_eth_zynq_psw_check_mineru_run01/EES-331 User Guide/auto/images/8fc00b878160c65d877acc738627427371c1fb1595476d27b272e83e26f2bc2c.jpg": {
+    "size": 75923,
+    "sha256": "0b41650743bb4a05f9ccfdb52cc3065803668fb301f9dca891419b0e554a09ed",
+    "reason": "Selected UART/USB/QSPI board wiring images cited during profile checks"
+  },
+  "4_metrics/logs/2026-09-08_eth_zynq_psw_check_mineru_run01/EES-331 User Guide/auto/images/a7dfa9e72750d7adefe38fb0845d573947367e03b5435847b42db652568647ae.jpg": {
+    "size": 111187,
+    "sha256": "8b8c1dafea130aa86fba502ab3d1e0cbfb1e793b95e0dfcd58df912a9eba33b6",
+    "reason": "Selected UART/USB/QSPI board wiring images cited during profile checks"
+  },
+  "4_metrics/logs/2026-09-09_amd_sait_pynq_mineru_run01/mineru_result_marker.txt": {
+    "size": 33,
+    "sha256": "57ac9b67944af20d4e997523364f3e1768b5861689c99d11376c4d139da47a8a",
+    "reason": "PYNQ plan referenced competition-document parse metadata"
+  },
+  "4_metrics/logs/2026-09-09_amd_sait_pynq_mineru_run01/input_manifest.json": {
+    "size": 206,
+    "sha256": "1b5cf7f70a912895b23c2973409269e8c63ba9c2c19db4caa7bac131256536bc",
+    "reason": "PYNQ plan referenced competition-document parse metadata"
+  },
+  "4_metrics/logs/2026-09-09_amd_sait_pynq_mineru_run01/mineru_results.json": {
+    "size": 1089,
+    "sha256": "c71dc170e22b0bb6309adac28b8c774ad773747f6f0ff3a37f3fb29f9f0a0505",
+    "reason": "PYNQ plan referenced competition-document parse metadata"
+  },
+  "4_metrics/logs/2026-09-09_amd_sait_pynq_mineru_run01/AMD赛题/auto/AMD赛题.md": {
+    "size": 56849,
+    "sha256": "4841b80644b9065c1dd89d47b770eb02036d1a23183cf4701a13cd2a98adc73f",
+    "reason": "PYNQ plan referenced competition-document parsed content"
+  },
+  "4_metrics/logs/2026-09-09_amd_sait_pynq_mineru_run01/AMD赛题/auto/AMD赛题_content_list.json": {
+    "size": 146078,
+    "sha256": "1f0138fe23dca11615ccba1372e68f6810c0b4498f46cbd2cfbe4452cd52cff7",
+    "reason": "PYNQ plan referenced competition-document parsed content"
+  },
+  "README.md": {
+    "size": 11351,
+    "sha256": "47dca8e32d92ecb849f6b40b0cc3c1c4da9e760788cb4fb15a622730c01444ee",
+    "reason": "Merged current documentation and byte-preserving Git archive policy"
+  },
+  "HANDOFF.md": {
+    "size": 42036,
+    "sha256": "ca08ba672b294fbe66ad1fb5a35879540cf226a8577fb4f666c0c05aebacdd20",
+    "reason": "Merged current documentation and byte-preserving Git archive policy"
+  },
+  ".gitattributes": {
+    "size": 567,
+    "sha256": "ef8ba48ceadb39a0c4da79e7776558ddeaa1f13f828932c761dece615e53092f",
+    "reason": "Merged current documentation and byte-preserving Git archive policy"
+  },
+  ".gitignore": {
+    "size": 1386,
+    "sha256": "96c29892a712563f8856a41e53130a85457058d1374d2f64f2ea122eec2e7069",
+    "reason": "Merged current documentation and byte-preserving Git archive policy"
+  },
+  "4_metrics/logs/2026-09-10_session_archive_upload_run01/REPORT.md": {
+    "size": 7187,
+    "sha256": "83377adb17e45c337d349604ecfe9afee4eccb8672c15af5c5814435d56455fd",
+    "reason": "Archive scope, reproduction commands and preflight audit"
+  },
+  "4_metrics/logs/2026-09-10_session_archive_upload_run01/prepare_archive.py": {
+    "size": 8929,
+    "sha256": "28292929863d8456eca1ae1d8b2f402da8a4ea792d1fe3a4702288f825242aac",
+    "reason": "Archive scope, reproduction commands and preflight audit"
+  },
+  "4_metrics/logs/2026-09-10_session_archive_upload_run01/archive_delivery.py": {
+    "size": 5326,
+    "sha256": "9ab1eea8a7f567462d68d24a28b1cf678965d57e7f62780e117f555fc5031ebf",
+    "reason": "Archive scope, reproduction commands and preflight audit"
+  },
+  "4_metrics/logs/2026-09-10_session_archive_upload_run01/source_status.txt": {
+    "size": 12116,
+    "sha256": "1b5fc1c2896c3203fb5dd19cf5a8670844ddc772e55b6ecc6029fb49a3461262",
+    "reason": "Archive scope, reproduction commands and preflight audit"
+  },
+  "4_metrics/logs/2026-09-10_session_archive_upload_run01/branches.txt": {
+    "size": 722,
+    "sha256": "52d544eb4f37ed3adeb7c9679bed4f2c00001a7bce02dcadf3d7b5068b5b8534",
+    "reason": "Archive scope, reproduction commands and preflight audit"
+  },
+  "4_metrics/logs/2026-09-10_session_archive_upload_run01/source_tracked_changes.txt": {
+    "size": 2835,
+    "sha256": "4e7c085f13ef9e5d779c4e672f3d687ca444f505f552542d73ca80fbb1cb9de6",
+    "reason": "Archive scope, reproduction commands and preflight audit"
+  },
+  "4_metrics/logs/2026-09-10_session_archive_upload_run01/source_staged.txt": {
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "reason": "Archive scope, reproduction commands and preflight audit"
+  },
+  "4_metrics/logs/2026-09-10_session_archive_upload_run01/worktree_status_before.txt": {
+    "size": 84,
+    "sha256": "eb753c832cbcaaf907f8ec4b6b96fd07d0a44ce50813467df78438b9321c570e",
+    "reason": "Archive scope, reproduction commands and preflight audit"
+  },
+  "4_metrics/logs/2026-09-10_session_archive_upload_run01/source_frozen_diff_sha256.txt": {
+    "size": 64,
+    "sha256": "13bb522332021dffebf3c6c9bae5d2664e338e10711fc1538b103e7c82b29e50",
+    "reason": "Archive scope, reproduction commands and preflight audit"
+  }
+}

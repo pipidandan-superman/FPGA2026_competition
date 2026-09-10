@@ -1,0 +1,22 @@
+{
+  "result": "STAGED_SCOPE_PASS",
+  "staged_files": 326,
+  "frozen_paths": 0,
+  "exact_allowlist": true,
+  "full_whitespace_exit": 2,
+  "editable_whitespace_exit": 0,
+  "raw_evidence_whitespace_preserved": true,
+  "v02_source_hashes_match": true,
+  "exe_selftests": {
+    "sd_start_tool": {
+      "result": "FROZEN_GUI_SELF_TEST_PASS",
+      "pyfatfs": "1.1.0",
+      "fs": "2.4.16"
+    },
+    "sd_start_tool_v0.2": {
+      "result": "FROZEN_GUI_SELF_TEST_PASS",
+      "pyfatfs": "1.1.0",
+      "fs": "2.4.16"
+    }
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "original_fat": {
+    "bps": 512,
+    "sectors_per_cluster": 8,
+    "reserved": 8,
+    "fats": 2,
+    "root_entries": 512,
+    "total_sectors": 266240,
+    "sectors_per_fat": 136,
+    "cluster_count": 33241,
+    "actual_fat_bits": 16,
+    "boot_signature": "55aa",
+    "fat_copies_equal": true,
+    "root_records": [
+      {
+        "name": "PYNQ",
+        "attributes": 8,
+        "cluster": 0,
+        "size": 0
+      },
+      {
+        "name": "BOOT.BIN",
+        "attributes": 32,
+        "cluster": 2,
+        "size": 1087568
+      },
+      {
+        "name": "BOOT.PY",
+        "attributes": 32,
+        "cluster": 268,
+        "size": 991
+      },
+      {
+        "name": "BOOT.SCR",
+        "attributes": 32,
+        "cluster": 269,
+        "size": 2776
+      },
+      {
+        "name": "IMAGE.UB",
+        "attributes": 32,
+        "cluster": 270,
+        "size": 6464328
+      },
+      {
+        "name": "REVISION",
+        "attributes": 32,
+        "cluster": 1849,
+        "size": 83
+      }
+    ]
+  },
+  "file_comparisons": [
+    {
+      "name": "BOOT.BIN",
+      "original_size": 1087568,
+      "card_size": 91856,
+      "original_sha256": "3fcdd4303567d75ac1e7be96c4a93816acb6c150f6facbf1f123d729a5bd5def",
+      "card_sha256": "eb88aa570030fa9d98f5b962c954ded787f0ccb85330326d029730654e466667",
+      "identical": false
+    },
+    {
+      "name": "BOOT.PY",
+      "original_size": 991,
+      "card_size": 991,
+      "original_sha256": "b2653ef809c3271231c78772342c2be728d39686a877d3c6fe8cdabfd4ac1d42",
+      "card_sha256": "b2653ef809c3271231c78772342c2be728d39686a877d3c6fe8cdabfd4ac1d42",
+      "identical": true
+    },
+    {
+      "name": "BOOT.SCR",
+      "original_size": 2776,
+      "card_size": 2776,
+      "original_sha256": "7013e14923fbe461c4ecd745214fcafcb0ffaddb10865f9135cd8624637359f4",
+      "card_sha256": "7013e14923fbe461c4ecd745214fcafcb0ffaddb10865f9135cd8624637359f4",
+      "identical": true
+    },
+    {
+      "name": "IMAGE.UB",
+      "original_size": 6464328,
+      "card_size": 6464328,
+      "original_sha256": "1cbbd556d8416cb8e5ae3025a6df2fd11b226707dc4a1491cc6382dfbee2ab1f",
+      "card_sha256": "1cbbd556d8416cb8e5ae3025a6df2fd11b226707dc4a1491cc6382dfbee2ab1f",
+      "identical": true
+    },
+    {
+      "name": "REVISION",
+      "original_size": 83,
+      "card_size": 83,
+      "original_sha256": "4890cc0639e8f20a0fd5ce4610f6cbc227a01a7589e847f7810bf68c80be6b19",
+      "card_sha256": "4890cc0639e8f20a0fd5ce4610f6cbc227a01a7589e847f7810bf68c80be6b19",
+      "identical": true
+    }
+  ],
+  "boot_headers": {
+    "card": {
+      "source_offset": "0x00000000",
+      "fsbl_length": "0x00000000",
+      "load": "0x00000000",
+      "entry": "0x00000000",
+      "total_length": "0x00000000",
+      "size": 91856,
+      "sha256": "eb88aa570030fa9d98f5b962c954ded787f0ccb85330326d029730654e466667",
+      "header_checksum_valid": true,
+      "image_header_table_offset": 2240,
+      "partition_header_offset": 3200,
+      "image_header_table_words": [
+        "01020000",
+        "00000002",
+        "00000320",
+        "00000240",
+        "00000000",
+        "ffffffff",
+        "ffffffff",
+        "ffffffff"
+      ],
+      "first_partition_words": [
+        "000043eb",
+        "000043eb",
+        "000043eb",
+        "00000000",
+        "00000000",
+        "000005c0",
+        "00000010",
+        "00000002",
+        "00000000",
+        "00000240",
+        "00000000",
+        "00000000",
+        "00000000",
+        "00000000",
+        "00000000",
+        "ffff2c2c"
+      ]
+    },
+    "original": {
+      "source_offset": "0x00001700",
+      "fsbl_length": "0x00018008",
+      "load": "0x00000000",
+      "entry": "0x00000000",
+      "total_length": "0x00018008",
+      "size": 1087568,
+      "sha256": "3fcdd4303567d75ac1e7be96c4a93816acb6c150f6facbf1f123d729a5bd5def",
+      "header_checksum_valid": true,
+      "image_header_table_offset": 2240,
+      "partition_header_offset": 3200,
+      "image_header_table_words": [
+        "01020000",
+        "00000003",
+        "00000320",
+        "00000240",
+        "00000000",
+        "ffffffff",
+        "ffffffff",
+        "ffffffff"
+      ],
+      "first_partition_words": [
+        "00006002",
+        "00006002",
+        "00006002",
+        "00000000",
+        "00000000",
+        "000005c0",
+        "00000010",
+        "00000001",
+        "00000000",
+        "00000240",
+        "00000000",
+        "00000000",
+        "00000000",
+        "00000000",
+        "00000000",
+        "fffed7e8"
+      ]
+    }
+  }
+}

@@ -56,3 +56,6 @@ venv/
 # Raw terminal logs explicitly whitelisted for the UDP color-swap fix evidence run
 !4_metrics/logs/2026-09-08_udp_color_swap_fix_run01/verify_console.log
 !4_metrics/logs/2026-09-08_udp_color_swap_fix_run01/pyinstaller_rebuild.log
+
+# Multi-GB SD images remain local; archive their manifests and readback reports.
+*.img

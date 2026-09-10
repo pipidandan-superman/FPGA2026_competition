@@ -1,0 +1,93 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20260910155454
+Username: HC-202510241838\Administrator
+RunAs User: HC-202510241838\Administrator
+Configuration Name: 
+Machine: HC-202510241838 (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Bypass -File E:/competition/4_metrics/logs/2026-09-10_sd_boot_fix_run01/build_fsbl.ps1
+Process ID: 24044
+PSVersion: 5.1.26100.9444
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9444
+BuildVersion: 10.0.26100.9444
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is E:\competition\4_metrics\logs\2026-09-10_sd_boot_fix_run01\fsbl_build_console.txt
+COMPILE: F:\vivado2025\2025.2\Vitis\gnu\aarch32\nt\gcc-arm-none-eabi\bin\arm-none-eabi-gcc.exe -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -DFSBL_DEBUG_INFO -O2 -g3 -Iinclude -I. -c fsbl_handoff.S -o fsbl_handoff.o
+
+COMPILE: F:\vivado2025\2025.2\Vitis\gnu\aarch32\nt\gcc-arm-none-eabi\bin\arm-none-eabi-gcc.exe -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -DFSBL_DEBUG_INFO -O2 -g3 -Iinclude -I. -c fsbl_hooks.c -o fsbl_hooks.o
+
+COMPILE: F:\vivado2025\2025.2\Vitis\gnu\aarch32\nt\gcc-arm-none-eabi\bin\arm-none-eabi-gcc.exe -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -DFSBL_DEBUG_INFO -O2 -g3 -Iinclude -I. -c image_mover.c -o image_mover.o
+
+COMPILE: F:\vivado2025\2025.2\Vitis\gnu\aarch32\nt\gcc-arm-none-eabi\bin\arm-none-eabi-gcc.exe -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -DFSBL_DEBUG_INFO -O2 -g3 -Iinclude -I. -c main.c -o main.o
+
+COMPILE: F:\vivado2025\2025.2\Vitis\gnu\aarch32\nt\gcc-arm-none-eabi\bin\arm-none-eabi-gcc.exe -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -DFSBL_DEBUG_INFO -O2 -g3 -Iinclude -I. -c md5.c -o md5.o
+
+COMPILE: F:\vivado2025\2025.2\Vitis\gnu\aarch32\nt\gcc-arm-none-eabi\bin\arm-none-eabi-gcc.exe -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -DFSBL_DEBUG_INFO -O2 -g3 -Iinclude -I. -c nand.c -o nand.o
+
+COMPILE: F:\vivado2025\2025.2\Vitis\gnu\aarch32\nt\gcc-arm-none-eabi\bin\arm-none-eabi-gcc.exe -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -DFSBL_DEBUG_INFO -O2 -g3 -Iinclude -I. -c nor.c -o nor.o
+
+COMPILE: F:\vivado2025\2025.2\Vitis\gnu\aarch32\nt\gcc-arm-none-eabi\bin\arm-none-eabi-gcc.exe -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -DFSBL_DEBUG_INFO -O2 -g3 -Iinclude -I. -c pcap.c -o pcap.o
+
+COMPILE: F:\vivado2025\2025.2\Vitis\gnu\aarch32\nt\gcc-arm-none-eabi\bin\arm-none-eabi-gcc.exe -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -DFSBL_DEBUG_INFO -O2 -g3 -Iinclude -I. -c ps7_init.c -o ps7_init.o
+
+COMPILE: F:\vivado2025\2025.2\Vitis\gnu\aarch32\nt\gcc-arm-none-eabi\bin\arm-none-eabi-gcc.exe -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -DFSBL_DEBUG_INFO -O2 -g3 -Iinclude -I. -c qspi.c -o qspi.o
+
+COMPILE: F:\vivado2025\2025.2\Vitis\gnu\aarch32\nt\gcc-arm-none-eabi\bin\arm-none-eabi-gcc.exe -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -DFSBL_DEBUG_INFO -O2 -g3 -Iinclude -I. -c rsa.c -o rsa.o
+
+COMPILE: F:\vivado2025\2025.2\Vitis\gnu\aarch32\nt\gcc-arm-none-eabi\bin\arm-none-eabi-gcc.exe -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -DFSBL_DEBUG_INFO -O2 -g3 -Iinclude -I. -c sd.c -o sd.o
+
+LINK: F:\vivado2025\2025.2\Vitis\gnu\aarch32\nt\gcc-arm-none-eabi\bin\arm-none-eabi-gcc.exe -o fsbl.elf fsbl_handoff.o fsbl_hooks.o image_mover.o main.o md5.o nand.o nor.o pcap.o ps7_init.o qspi.o rsa.o sd.o -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,--build-id=none -specs=Xilinx.spec -Wl,--gc-sections -Wl,-Map=fsbl.map -Llib -L. -Tlscript.ld -Wl,--start-group -lxilffs -lrsa -lxil -lgcc -lc -Wl,--end-group
+
+
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           ARM
+  Version:                           0x1
+  Entry point address:               0x0
+  Start of program headers:          52 (bytes into file)
+  Start of section headers:          558692 (bytes into file)
+  Flags:                             0x5000400, Version5 EABI, hard-float ABI
+  Size of this header:               52 (bytes)
+  Size of program headers:           32 (bytes)
+  Number of program headers:         4
+  Size of section headers:           40 (bytes)
+  Number of section headers:         31
+  Section header string table index: 30
+
+Program Headers:
+  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
+  EXIDX          0x018000 0x00018000 0x00018000 0x00008 0x00008 R   0x4
+  LOAD           0x001000 0x00000000 0x00000000 0x12b08 0x12b08 RWE 0x1000
+  LOAD           0x014000 0x00014000 0x00014000 0x04010 0x08500 RW  0x1000
+  LOAD           0x000000 0xffff0000 0xffff0000 0x00000 0x0d400 RW  0x1000
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     .ARM.exidx
+   01     .text .handoff .init .fini .rodata .data
+   02     .mmu_tbl .ARM.exidx .init_array .fini_array .rsa_ac .bss .heap
+   03     .stack
+
+
+Algorithm : SHA256
+Hash      : 6179E79CE08E87EEF750E594463F311D5A1CC570C45685D963BBDB071D2F3E86
+Path      : E:\competition\4_metrics\logs\2026-09-10_sd_boot_fix_run01\fsbl_build\fsbl.elf
+
+
+
+FSBL_DEBUG_BUILD_PASS
+**********************
+Windows PowerShell transcript end
+End time: 20260910155456
+**********************
