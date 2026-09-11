@@ -1,0 +1,1 @@
+bootargs=console=ttyPS0,115200 earlycon root=/dev/mmcblk0p2 rw rootfstype=ext4 rootwait devtmpfs.mount=1 uio_pdrv_genirq.of_id=generic-uio clk_ignore_unused cma=128M@0x10000000

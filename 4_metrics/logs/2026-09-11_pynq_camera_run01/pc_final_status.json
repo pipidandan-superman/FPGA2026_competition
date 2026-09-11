@@ -1,0 +1,16 @@
+{
+  "monotonic": 38892.656,
+  "renders": 604,
+  "source": "192.168.240.10",
+  "seconds": 124.125,
+  "stats": {
+    "pkts": 386934,
+    "ok_frames": 604,
+    "lost_frames": 0,
+    "crc_err": 0,
+    "dup": 0,
+    "bad_header": 0,
+    "short": 0,
+    "bad_geom": 0
+  }
+}

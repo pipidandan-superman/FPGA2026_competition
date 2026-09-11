@@ -169,3 +169,11 @@ competition/
 2. 每次验证保存完整原始日志，不以摘要替代证据。
 3. 先完成单任务实时闭环，再评估多任务和多传感器扩展。
 4. 不将未通过综合、时序和板级验证的功能描述为已实现。
+
+## SD/PYNQ 摄像头运行入口（2026-09-11）
+
+当前已部署且未重刷的 SD 卡可在 SW8 保持 SD 启动时自动运行摄像头业务。连接 OV5640、HDMI 和网线后上电，等待约 60 至 90 秒；`ees331-camera.service` 会自动加载 PL、配置 VDMA、输出 HDMI，并向 `192.168.240.2:5000` 发送 UDP 视频，无需启动 Vitis、JTAG 下载、Jupyter 或手动 Python。
+
+PC 有线网卡设置为 `192.168.240.2/24`，然后运行 `3_host/udp_video/dist/EES331_UDP_Viewer.exe`。开发板业务地址为 `192.168.240.10/24`。当前结果为 `PYNQ_CAMERA_HDMI_UDP_PASS` 和 `SD_REBOOT_AUTOSTART_PASS`；用户已确认 HDMI 与 PC 均显示随动作变化的实时画面。软件重启自动恢复已经验证，物理断电冷启动尚未单独验收。
+
+源码与部署说明见 `2_fpga/0_diaplay_test/pynq/README.md`，原始证据见 `4_metrics/logs/2026-09-11_pynq_camera_run01/REPORT.md`。当前完整 IMG 尚未整合这些 rootfs 业务文件，重刷基础 IMG 后需要重新安装；SD Builder 的完整 IMG 应用注入是下一阶段工作。

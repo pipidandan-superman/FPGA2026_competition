@@ -1,0 +1,5 @@
++ codex/full/pipidandan-superman                a0f1b6d (E:/competition_worktrees/FPGA2026_competition/pipidandan-superman) [origin/codex/full/pipidandan-superman] docs: record archive upload receipt and draft PR handoff
+* main                                          66c7329 [origin/main: behind 27] fix: freeze EES-331 OV5640 camera HDMI visual pass
+  remotes/origin/HEAD                           -> origin/main
+  remotes/origin/codex/full/pipidandan-superman a0f1b6d docs: record archive upload receipt and draft PR handoff
+  remotes/origin/main                           c60291a Merge pull request #2 from pipidandan-superman/codex/full/pipidandan-superman

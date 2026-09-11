@@ -342,3 +342,13 @@ Vitis Run 日志缺少完整下载/运行流程，调试器反汇编出现无效
 - AI 侧（3_host）：手势模型 v1 训练完成（YOLOv8n + Roboflow hand-gesture v6，7 类，test mAP50 0.730；Stop/Thumbs up/Up/Down 优秀，Left/Right/Thumbs Down 为弱项）；PC 全链路（摄像头→JPEG→UDP→ONNX CPU→JSON 回传）实测通过，P50 62ms；UDP 协议 v1 定稿于 `1_docs/interface.md`（分片/心跳/异常处理）。
 - 待办：①2025.2 环境基线 bit 复现（Reset Runs→板测彩条）②PS 显示验证 ③lwIP 发帧端（协议见 1_docs/interface.md）④AI 侧自采 Left/Right/Thumbs Down 数据重训 v2 ⑤舵机臂下单 ⑥中期报告 10-09。
 - 详细记录：`7_logs/2026-09-07/` 四件套。
+
+## 2026-09-11 SD/PYNQ 摄像头双路输出
+
+- 指定目录 `2_fpga/0_diaplay_test/pynq` 已完成 PYNQ 3.0.1/Linux 控制层：加载配对 Overlay、用 `pynq.allocate` 管理三帧 VDMA 缓冲、HDMI 连续显示，并以 OV56 协议向 PC 发送 UDP 视频。
+- 板卡固定业务地址为 `192.168.240.10/24`，PC 有线网卡为 `192.168.240.2/24`，UDP 端口 5000，默认发送 5 fps。PC 使用 `3_host/udp_video/dist/EES331_UDP_Viewer.exe`。
+- 当前已部署且未重刷的 SD 卡保持 SW8 为 SD 启动，上电后由 `ees331-camera.service` 自动加载 PL 并启动业务；无需 Vitis、JTAG、Jupyter 或手工执行 Python。通常等待约 60 至 90 秒。
+- 验证结果：`PYNQ_CAMERA_HDMI_UDP_PASS`、`SD_REBOOT_AUTOSTART_PASS`。120 秒运行发送 600 帧/384000 包且 VDMA 无运行错误；用户确认 HDMI 与 PC 均为随动作变化的实时画面。最终软件重启后 PC 接收 604 帧，CRC/丢帧/坏头均为 0。
+- 验证边界：软件重启自动恢复已经通过，物理断电冷启动尚未单独验收。若重刷当前基础 IMG，业务文件、CMA 参数、网络配置和 systemd 服务会丢失，需要重新部署。
+- 原 XSA、`main.c`、`BOOT.BIN`、`IMAGE.UB`、`BOOT.SCR` 未修改。完整证据见 `4_metrics/logs/2026-09-11_pynq_camera_run01/REPORT.md`。
+- 后续顺序已冻结：先将当前成果上传至 `codex/full/pipidandan-superman`；确认远端提交后，再为 SD Builder v0.2 增加完整 IMG 的 PYNQ 应用注入，并在 `1_docs` 编写零基础开发教程。
