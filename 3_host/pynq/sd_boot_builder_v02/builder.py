@@ -24,7 +24,7 @@ APP=Path(getattr(sys,'_MEIPASS',Path(__file__).resolve().parent))
 ASSETS=APP/'assets'
 WORKSPACE=Path('E:/competition')
 DEFAULT_VITIS='F:/vivado2025/2025.2/Vitis'
-DEFAULT_BASE='E:/competition/4_metrics/logs/2026-09-10_ees331_img_package_run01/'+BASE_NAME
+DEFAULT_BASE='E:/competition/9_pynq/sd/01_base_ees331/'+BASE_NAME
 near_exe=Path(sys.executable).parent/BASE_NAME
 if near_exe.is_file(): DEFAULT_BASE=str(near_exe)
 

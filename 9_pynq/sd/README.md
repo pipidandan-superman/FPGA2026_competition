@@ -4,7 +4,7 @@
 
 ## 目录用途
 
-- `01_base_pynq/pynq_z2_v3.0.1.img`：原始 PYNQ 3.0.1 基础镜像，用于回退和环境对比，不包含 EES-331 摄像头开机业务。
+- `01_base_ees331/ees331_pynq_v3.0.1_ps_sd_20260910.img`：已完成 EES-331 PS、SD、UART 和 Linux 启动适配的最小系统基线，用于回退及 Builder 新构建，不包含摄像头开机业务。通用 PYNQ-Z2 镜像不再作为本板基线。
 - `02_integrated_camera_hdmi_udp/ees331_pynq_sd_20260911_222654.img`：2026-09-11 实际写卡并验证成功的 EES-331 集成镜像。上电后自动加载 PL，输出 OV5640 HDMI 画面，并向 PC 发送 UDP 视频。
 - `03_boot_partition/boot_partition_20260911_222654.img`：与成功集成镜像对应的启动分区恢复/检查镜像。日常整卡部署不要使用它代替完整 IMG。
 - `manifests/images.json`：镜像大小、SHA-256、来源和验证状态。

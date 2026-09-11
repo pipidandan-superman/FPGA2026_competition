@@ -9,6 +9,13 @@
 5. 在干净工作树逐文件复制、审核、暂存、提交并推送 `codex/full/pipidandan-superman`。
 6. 删除动作若被安全审批拒绝，保留拒绝事实，不使用替代手段绕过审批。
 
+## EES-331 工作区基线收敛
+
+1. 固化 EES-331 最小系统 IMG、Vitis/JTAG 发布文件和 PYNQ 集成 IMG。
+2. 移除旧 Builder、通用 PYNQ-Z2 下载镜像、阶段性 FPGA 工程、顶层缓存和可再生成构建树。
+3. 更新 Builder 默认基线路径、工具说明、README、HANDOFF 和镜像清单。
+4. 运行 Builder GUI 自检、SHA-256、项目路径审计和 Git 分支审计。
+
 依次读取本地工作区/日志技能、历史交接、v0.2 hardware.py/board_profile.py/builder.py/README及IMG交付报告；核对官方 PYNQ Overlay 文档。
 风险：把历史启动成功扩展为新包通过，或将 PL 下载误认为完整 XSA 热切换。按源码与历史证据分别说明。
 回退：不改工程及板卡；在线搜索失败后直接读取官方文档。

@@ -26,7 +26,7 @@ Builder 整合、冻结 EXE 完整构建和零基础教程已完成。下一次�
 
 - `1_docs/PYNQ零基础开发与EES331摄像头工程实战.md`
 - `4_metrics/logs/2026-09-11_sd_builder_pynq_integration_run01/REPORT.md`
-- `8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.1.exe`
+- `8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.2.exe`
 
 最小下一动作：
 
@@ -42,3 +42,12 @@ Builder 整合、冻结 EXE 完整构建和零基础教程已完成。下一次�
 ## 当前应用入口：v0.2.2
 
 运行 `8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.2.exe`，在“2 选择导出方式”填写部署包输出目录或点“选择…”。留空使用默认；指定目录下每次生成独立子目录。完成后“打开输出目录”进入实际保存位置。构建盘临时文件仍在 4_metrics/logs。已通过真实完整 IMG 构建和复制读回；板级冷启动结论不扩展。
+
+## 工作区收敛后的固定入口
+
+- PYNQ/SD：`9_pynq/sd/02_integrated_camera_hdmi_udp/ees331_pynq_sd_20260911_222654.img`
+- EES-331 最小系统：`9_pynq/sd/01_base_ees331/ees331_pynq_v3.0.1_ps_sd_20260910.img`
+- Vitis/JTAG 发布文件：`2_fpga/0_diaplay_test/release/ees331_vitis_board_pass/`
+- Builder：`8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.2.exe`
+
+不要恢复通用 PYNQ-Z2 镜像、旧 Builder 或已清理的阶段性工程作为当前基线。复现时核对镜像 SHA-256、PC `192.168.240.2/24`、UDP 5000、UART、OV5640 LED、HDMI 动态画面和 PC UDP 动态画面。

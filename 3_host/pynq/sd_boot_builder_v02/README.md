@@ -4,7 +4,7 @@ Windows 工具：输入 Vivado 2025.2 导出的 **含 bitstream 的 XSA**，自�
 
 ## 打开与使用
 
-程序：`E:/competition/8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.1.exe`。EXE 自带 Python/Tk、板级资源和 PYNQ 应用文件，不需单独安装 Python。本机仍需 Vitis 2025.2 的 Bootgen、DTC、XSCT 与 ARM GCC，默认目录 `F:/vivado2025/2025.2/Vitis`，可在高级设置中调整。
+程序：`E:/competition/8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.2.exe`。EXE 自带 Python/Tk、板级资源和 PYNQ 应用文件，不需单独安装 Python。本机仍需 Vitis 2025.2 的 Bootgen、DTC、XSCT 与 ARM GCC，默认目录 `F:/vivado2025/2025.2/Vitis`，可在高级设置中调整。EES-331 基础镜像默认路径为 `E:/competition/9_pynq/sd/01_base_ees331/ees331_pynq_v3.0.1_ps_sd_20260910.img`。
 
 1. Vivado 生成 bitstream，Export Hardware 时勾选 Include bitstream。
 2. 选择 XSA，点击“检查 XSA / 配置差异”。单独 bit、不含位流、错误器件或不兼容启动引脚均拒绝。XSA 有多个 HWH 时自动选择唯一包含 PS7 的系统 HWH；辅助 SmartConnect HWH 不再导致误拒绝。
@@ -33,7 +33,7 @@ Windows 工具：输入 Vivado 2025.2 导出的 **含 bitstream 的 XSA**，自�
 
 v0.2 不再要求原版 PYNQ-Z2 镜像。完整 IMG 只接受已经完成本板启动适配的固定基线：
 
-- 文件：`E:/competition/4_metrics/logs/2026-09-10_ees331_img_package_run01/ees331_pynq_v3.0.1_ps_sd_20260910.img`
+- 文件：`E:/competition/9_pynq/sd/01_base_ees331/ees331_pynq_v3.0.1_ps_sd_20260910.img`
 - 大小：7,858,807,808 字节（约 7.32 GiB）。
 - SHA256：`203e9f79679c6c77a738c30d06e3232f0907eb2e5b6cafe97e26e8889057835a`。
 
@@ -87,7 +87,7 @@ BOOT 中的控制 DTB 与 FIT 内 Linux DTB 同步更新。检查 BOOT 头/分�
 `SD_PACKAGE_STATIC_PASS` 表示构建和文件检查成功，不表示已经在板上验证。2026-09-11 的 v0.2.1 EXE 完整构建在 `4_metrics/logs/2026-09-11_sd_builder_v02_222654_1789ce/` 通过，输出 IMG SHA256 为 `8d22bcde0268678050bcc1429bee5ecadb0020e5ce3f5ba4df7045066deafcca`。该 IMG 尚未写卡和物理冷启动，必须完成 HDMI 与 UDP/PC 实测后才可记为整卡 PASS。
 
 v0.1 保留位置：
-- 源码：`E:/competition/3_host/pynq/sd_boot_builder/`
+- 当前源码：`E:/competition/3_host/pynq/sd_boot_builder_v02/`
 - EXE/ZIP：`E:/competition/4_metrics/logs/2026-09-10_sd_builder_toolkit_run01/distribution/`
 
 v0.2 的测试、FSBL 重建、整卡读回、EXE 验证和旧版哈希核对见 `E:/competition/4_metrics/logs/2026-09-10_sd_builder_v02_run01/REPORT.md`。

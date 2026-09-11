@@ -73,3 +73,12 @@ SD FAT 文件名显示为 OVERLAY.BIT/HWH；已复制到应用目录统一为小
 - 用户确认 SD 启动后 OV5640 配置 LED 点亮，HDMI 与 PC 上位机均显示随动作变化的摄像头画面。最初 PC 接收 0 帧是网线未连接，连接后正常。
 - 结论：该 222654 镜像为当前板级成功基线；224206 镜像只有离线构建/复制读回证据，不替代此板测结论。
 - 本次归档和清理证据：`4_metrics/logs/2026-09-11_pynq_archive_cleanup_run01`。
+
+## EES-331 工作区基线收敛
+
+- 清理证据：`4_metrics/logs/2026-09-11_workspace_baseline_cleanup_run01`。
+- 顶层误生成 Cygwin 缓存、旧 Builder 运行目录、旧工具、通用 PYNQ-Z2 下载镜像、阶段性 FPGA 工程和大部分 Vivado/Vitis 缓存已移入回收站。
+- Vitis 发布文件：`2_fpga/0_diaplay_test/release/ees331_vitis_board_pass/`，哈希见 `SHA256.json`。
+- v0.2.2 重新打包自检通过，SHA-256 `b104e7ca7fcdf54d80382195c9374a459f71f68c62fa2593fe1cc4ec7ad5760b`。
+- 用户截图已保存为 `pynq_udp_board_pass.png`，显示 PC UDP 动态画面和接收统计。
+- 完整 IMG 不进入 Git；EES-331 最小系统基线、PYNQ 集成镜像和 Vitis 发布文件保留。

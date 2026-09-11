@@ -1,0 +1,27 @@
+[
+  {
+    "file": "app_component.elf",
+    "size_bytes": 861996,
+    "sha256": "4C25FB4501AC528494EB9C3E711CFF77C4E43B8B9353092C4986D917CEC0FCB2"
+  },
+  {
+    "file": "display_test_wrapper.bit",
+    "size_bytes": 4045696,
+    "sha256": "0518C46B4DCA4DCA83B1E94AE5C1E8CBC8BB68FBF4537E5A90C025A10B76DB87"
+  },
+  {
+    "file": "display_test_wrapper.hwh",
+    "size_bytes": 434604,
+    "sha256": "96EEBA65209E66AC3E05A65907F48CC374DAB490B9D88E2E72E22689E939A4DD"
+  },
+  {
+    "file": "display_test_wrapper.xsa",
+    "size_bytes": 581338,
+    "sha256": "D69FB256B66106DA87514FC3821FE177BBE538C128E74485F43A4A265F092EBC"
+  },
+  {
+    "file": "fsbl.elf",
+    "size_bytes": 520476,
+    "sha256": "24F766BFEFA5AA48C385215C38A458BDAE55FE4C0D01C1D26AA239E7F5E36D12"
+  }
+]

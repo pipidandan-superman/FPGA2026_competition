@@ -14,7 +14,7 @@
 
 - 本批归档已上传 `codex/full/pipidandan-superman`（内容提交 `ae1384a`），[草稿 PR #3](https://github.com/pipidandan-superman/FPGA2026_competition/pull/3) 等待审核；未合入 main。推送核对见 [回执](4_metrics/logs/2026-09-10_session_archive_upload_run01/upload_result.json)。
 - **EES-331 SD → Linux Shell 已启动**：原始串口见 [uart_pynq_log.txt](4_metrics/logs/2026-09-10_pynq_v301_baseline_boot_run02/uart_pynq_log.txt)。网络、Jupyter、自定义 Overlay 和完整分拣闭环仍需分别验收。
-- **SD Builder v0.2.1**：[Windows EXE](8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.1.exe) · [使用说明与源码](3_host/pynq/sd_boot_builder_v02/README.md)。在 v0.2 的 XSA/FSBL/设备树/完整 IMG 流程上，新增 EES-331 摄像头 PYNQ 应用、CMA、网络和 systemd 服务的离线 rootfs 注入；旧 v0.2 EXE 保留。
+- **SD Builder v0.2.2**：[Windows EXE](8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.2.exe) · [使用说明与源码](3_host/pynq/sd_boot_builder_v02/README.md)。当前只保留 EES-331 版本，默认基线为 `9_pynq/sd/01_base_ees331`，支持 XSA/FSBL/设备树/完整 IMG、摄像头 PYNQ 应用注入及自定义输出路径。
 - **已验证写卡镜像**：本机统一入口为 `9_pynq/sd/02_integrated_camera_hdmi_udp/ees331_pynq_sd_20260911_222654.img`，SHA-256 `8d22bcde0268678050bcc1429bee5ecadb0020e5ce3f5ba4df7045066deafcca`。该镜像已于 2026-09-11 完成 SD 启动、OV5640 配置、HDMI 动态画面和 PC UDP 动态画面验证。
 - 写卡使用 [Win32DiskImager 安装器](8_tools/win32diskimager-1.0.0-install.exe)；零基础操作、手工部署和开发流程见 [PYNQ 教程](1_docs/PYNQ零基础开发与EES331摄像头工程实战.md)。
 - **AIPC 借用报告**：[两页 Word 报告](<1_docs/doc/AMD AIPC 借用报告 - 锐眼智行具身智能分拣.docx>)。正文和排版检查完成，队员/学校/联系方式、团队编号及机型确认仍待补充，尚未提交申请。
@@ -179,8 +179,8 @@ competition/
 
 PC 有线网卡设置为 `192.168.240.2/24`，然后运行 `3_host/udp_video/dist/EES331_UDP_Viewer.exe`。开发板业务地址为 `192.168.240.10/24`。当前结果为 `PYNQ_CAMERA_HDMI_UDP_PASS`、`SD_REBOOT_AUTOSTART_PASS` 和集成 IMG 板级复现 PASS；用户已确认 HDMI 与 PC 均显示随动作变化的实时画面。此前 PC 零帧现象由网线未连接导致，不是镜像或相机服务故障。
 
-源码与部署说明见 `2_fpga/0_diaplay_test/pynq/README.md`，镜像入口和写卡说明见 `9_pynq/sd/README.md`，原始证据见 `4_metrics/logs/2026-09-11_pynq_camera_run01/REPORT.md`。若改刷 `9_pynq/sd/01_base_pynq` 中的基础 IMG，则仍需手工安装业务文件、CMA、网络和 systemd 服务。
+源码与部署说明见 `2_fpga/0_diaplay_test/pynq/README.md`，镜像入口和写卡说明见 `9_pynq/sd/README.md`，原始证据见 `4_metrics/logs/2026-09-11_pynq_camera_run01/REPORT.md`。若改刷 `9_pynq/sd/01_base_ees331` 中的 EES-331 最小系统 IMG，则仍需手工安装业务文件、CMA、网络和 systemd 服务；通用 PYNQ-Z2 镜像不再作为项目基线。
 
 ## SD Builder v0.2.2：指定部署包输出目录
 
-[新版 EXE](8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.2.exe) 增加“部署包输出目录”输入和浏览选择。留空沿用默认位置；指定后生成独立子目录，复制 ZIP、可选 IMG 和校验清单并逐文件读回验证。完整构建与输出验证已通过，[证据报告](4_metrics/logs/2026-09-11_sd_builder_output_dir_run01/REPORT.md)。
+[当前 EXE](8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.2.exe) 增加“部署包输出目录”输入和浏览选择。留空沿用默认位置；指定后生成独立子目录，复制 ZIP、可选 IMG 和校验清单并逐文件读回验证。清理后重新打包版本大小 22,464,864 字节，SHA-256 `b104e7ca7fcdf54d80382195c9374a459f71f68c62fa2593fe1cc4ec7ad5760b`，自检通过；默认 EES-331 基线已改为 `9_pynq/sd/01_base_ees331`。

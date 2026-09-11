@@ -34,7 +34,7 @@
 ## 2026-09-10 SD/Linux Shell 启动已证实，完整 IMG 可交付（启动基线）
 
 - 用户 `2026-09-10_pynq_v301_baseline_boot_run02/uart_pynq_log.txt` 证实 FSBL→U-Boot→EES-331 Linux→`xilinx@pynq:~$`，阶段结果 SD_BOOT_TO_LINUX_SHELL_PASS。
-- 可烧录完整镜像：`4_metrics/logs/2026-09-10_ees331_img_package_run01/ees331_pynq_v3.0.1_ps_sd_20260910.img`，7,858,807,808 B，SHA256 `203e9f79679c6c77a738c30d06e3232f0907eb2e5b6cafe97e26e8889057835a`。
+- EES-331 最小系统基线已归档为 `9_pynq/sd/01_base_ees331/ees331_pynq_v3.0.1_ps_sd_20260910.img`，7,858,807,808 B，SHA256 `203e9f79679c6c77a738c30d06e3232f0907eb2e5b6cafe97e26e8889057835a`。
 - FULL_IMG_PACKAGE_READBACK_PASS：六个启动文件与已部署版本一致，启动分区外所有字节保持原版。新的完整 IMG 尚未复烧上板；不含首次启动后的运行状态。
 - 网络/Jupyter/应用 Overlay 待验收，UART 中 U-Boot PHY/default-env、Linux随机MAC和部分 FSBL调试格式问题未因打包而修复。当前已通过的是 SD/Linux Shell 启动。
 - PL开发通常更新同版本 `.bit`+同名`.hwh`和应用，需要Linux内核驱动时再处理`.dtbo`/模块；PS启动配置变化需新XSA/FSBL/BOOT及实际使用DTB。当前BOOT不含PL位流；冻结工程不改。
@@ -377,5 +377,5 @@ Vitis Run 日志缺少完整下载/运行流程，调试器反汇编出现无效
 - 用户实际写卡并验证成功的镜像来自 `4_metrics/logs/2026-09-11_sd_builder_v02_222654_1789ce/output/ees331_pynq_sd.img`，不是后续仅完成离线构建的 224206 镜像。
 - 本机正式归档副本为 `9_pynq/sd/02_integrated_camera_hdmi_udp/ees331_pynq_sd_20260911_222654.img`，大小 7,858,807,808 字节，SHA256 `8d22bcde0268678050bcc1429bee5ecadb0020e5ce3f5ba4df7045066deafcca`。
 - 板测结果：SD 启动正常，OV5640 配置完成 LED 点亮，HDMI 和 PC UDP 上位机都显示随动作变化的实时画面。最初 PC 零帧是网线未连接，插好网线后恢复正常。
-- 原始 PYNQ 基础镜像、当前集成镜像和配套启动分区分别归档于 `9_pynq/sd/01_base_pynq`、`02_integrated_camera_hdmi_udp`、`03_boot_partition`；清单见 `9_pynq/sd/manifests/images.json`。
+- EES-331 最小系统基线、当前集成镜像和配套启动分区分别归档于 `9_pynq/sd/01_base_ees331`、`02_integrated_camera_hdmi_udp`、`03_boot_partition`；通用 PYNQ-Z2 镜像已退出项目基线，清单见 `9_pynq/sd/manifests/images.json`。
 - 后续写卡、复现和排障从 `9_pynq/sd/README.md` 开始；不要把 224206 镜像描述为已板测版本。

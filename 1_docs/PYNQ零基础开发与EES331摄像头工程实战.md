@@ -224,7 +224,7 @@ Get-FileHash -Algorithm SHA256 E:/competition/2_fpga/0_diaplay_test/display_test
 
 `E:/competition/9_pynq/sd/02_integrated_camera_hdmi_udp/ees331_pynq_sd_20260911_222654.img`
 
-不要用 `03_boot_partition` 中的分区镜像代替完整 IMG。原始基础镜像位于 `9_pynq/sd/01_base_pynq`，仅用于回退和手工重新部署。
+不要用 `03_boot_partition` 中的分区镜像代替完整 IMG。EES-331 最小系统基线位于 `9_pynq/sd/01_base_ees331`，用于回退、新构建和手工重新部署；通用 PYNQ-Z2 镜像不再作为本板基线。
 
 详细步骤：
 
