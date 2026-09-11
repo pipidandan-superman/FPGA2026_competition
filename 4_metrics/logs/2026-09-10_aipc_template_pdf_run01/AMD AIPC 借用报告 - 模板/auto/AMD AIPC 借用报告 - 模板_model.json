@@ -1,0 +1,284 @@
+[
+    {
+        "layout_dets": [
+            {
+                "cls_id": 7,
+                "label": "figure_title",
+                "score": 0.7658,
+                "bbox": [
+                    618,
+                    216,
+                    1060,
+                    259
+                ],
+                "index": 1
+            },
+            {
+                "cls_id": 21,
+                "label": "table",
+                "score": 0.9901,
+                "bbox": [
+                    197,
+                    288,
+                    1501,
+                    1076
+                ],
+                "index": 2,
+                "html": "<table><tr><td rowspan=1 colspan=1>团队编号</td><td rowspan=1 colspan=4>4062</td></tr><tr><td rowspan=1 colspan=1>作品名称</td><td rowspan=1 colspan=4>基于AMD AI PC 与PYNQ-Z2 的具身智能视觉分拣系统(示例)</td></tr><tr><td rowspan=1 colspan=1>队长信息</td><td rowspan=1 colspan=1>姓名</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>联系邮箱</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>所在学校</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>电话</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>指导教师信息</td><td rowspan=1 colspan=1>指导教师1姓名</td><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>指导教师2姓名</td><td rowspan=1 colspan=1></td></tr><tr><td rowspan=1 colspan=1>借用AIPC</td><td rowspan=1 colspan=2>AMD RyzenAI 370(32G)</td><td rowspan=1 colspan=2>(备注：请填写以下 AIPC类型AMD RyzenAI 370(32G)/ AMDRyzenAI 395(64G/128G))</td></tr><tr><td rowspan=1 colspan=1>总设计框</td><td rowspan=1 colspan=4>(关键内容：应用任务、AIPC与FPGA分工、模型名称、输入输出接口/通信方式、执行反馈及异常保护。借用表格描述不得超过2页)</td></tr></table>"
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    621,
+                    216,
+                    1056,
+                    259
+                ],
+                "score": 1.0,
+                "text": ""
+            }
+        ],
+        "page_info": {
+            "page_no": 0,
+            "width": 1700,
+            "height": 2200
+        }
+    },
+    {
+        "layout_dets": [
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.777,
+                "bbox": [
+                    383,
+                    202,
+                    1450,
+                    288
+                ],
+                "index": 1
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.7722,
+                "bbox": [
+                    383,
+                    304,
+                    1487,
+                    392
+                ],
+                "index": 2
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.7283,
+                "bbox": [
+                    384,
+                    409,
+                    1485,
+                    496
+                ],
+                "index": 3
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.6858,
+                "bbox": [
+                    384,
+                    504,
+                    1458,
+                    588
+                ],
+                "index": 4
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.7207,
+                "bbox": [
+                    384,
+                    593,
+                    1467,
+                    678
+                ],
+                "index": 5
+            },
+            {
+                "cls_id": 7,
+                "label": "figure_title",
+                "score": 0.6335,
+                "bbox": [
+                    437,
+                    733,
+                    871,
+                    778
+                ],
+                "index": 6
+            },
+            {
+                "cls_id": 14,
+                "label": "image",
+                "score": 0.6881,
+                "bbox": [
+                    388,
+                    802,
+                    1493,
+                    1112
+                ],
+                "index": 7
+            },
+            {
+                "cls_id": 7,
+                "label": "figure_title",
+                "score": 0.6606,
+                "bbox": [
+                    989,
+                    758,
+                    1451,
+                    799
+                ],
+                "index": 8
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    393,
+                    210,
+                    1443,
+                    237
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    394,
+                    252,
+                    800,
+                    280
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    391,
+                    308,
+                    1481,
+                    342
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    388,
+                    354,
+                    530,
+                    387
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    390,
+                    414,
+                    1479,
+                    447
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    393,
+                    463,
+                    709,
+                    491
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    393,
+                    510,
+                    1449,
+                    538
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    394,
+                    553,
+                    1197,
+                    580
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    392,
+                    597,
+                    1459,
+                    630
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    393,
+                    642,
+                    992,
+                    670
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    445,
+                    737,
+                    863,
+                    773
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    998,
+                    765,
+                    1442,
+                    791
+                ],
+                "score": 1.0,
+                "text": ""
+            }
+        ],
+        "page_info": {
+            "page_no": 1,
+            "width": 1700,
+            "height": 2200
+        }
+    }
+]

@@ -1,0 +1,11 @@
+当前板级配置不兼容，不能沿用 EES-331 启动基线：
+{
+  "PCW_SD0_PERIPHERAL_ENABLE": {
+    "required": "1",
+    "actual": "0"
+  },
+  "PCW_SD0_SD0_IO": {
+    "required": "MIO 40 .. 45",
+    "actual": "<Select>"
+  }
+}

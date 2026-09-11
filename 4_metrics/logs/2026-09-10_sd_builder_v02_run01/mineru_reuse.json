@@ -1,0 +1,86 @@
+{
+  "result": "MINERU_PARSE_PASS",
+  "input": "E:\\competition\\1_docs\\pdf\\EES-331 User Guide.pdf",
+  "input_sha256": "27C26F39F3E35132A89FAE2155FA23575E850B0A22E3D9DC64FD73186B3F5949",
+  "source_run": "E:\\competition\\4_metrics\\logs\\2026-09-08_eth_zynq_psw_check_mineru_run01",
+  "markdown": "E:\\competition\\4_metrics\\logs\\2026-09-08_eth_zynq_psw_check_mineru_run01\\EES-331 User Guide\\auto\\EES-331 User Guide.md",
+  "markdown_bytes": 85454,
+  "content_json": "E:\\competition\\4_metrics\\logs\\2026-09-08_eth_zynq_psw_check_mineru_run01\\EES-331 User Guide\\auto\\EES-331 User Guide_content_list.json",
+  "content_json_items": 413,
+  "quality": "pass",
+  "fallback": false,
+  "selected_items": [
+    {
+      "type": "text",
+      "text": "PS：采用的是 33.333333MHZ 外部有源晶振",
+      "bbox": [
+        184,
+        505,
+        579,
+        523
+      ],
+      "page_idx": 6
+    },
+    {
+      "type": "text",
+      "text": "EES331 的 DDR 容量为 1GB，型号为 MT41K256M16 RE-15E。挂在 PS 端的存储器控制器上。",
+      "bbox": [
+        144,
+        252,
+        867,
+        293
+      ],
+      "page_idx": 9
+    },
+    {
+      "type": "text",
+      "text": "9. PS——SD 卡接口",
+      "text_level": 2,
+      "bbox": [
+        144,
+        81,
+        398,
+        102
+      ],
+      "page_idx": 10
+    },
+    {
+      "type": "text",
+      "text": "ES331配备了 micro SD卡插槽。支持 SD卡的启动。在配置上选择了 PS的SD0外设。",
+      "bbox": [
+        131,
+        121,
+        855,
+        161
+      ],
+      "page_idx": 10
+    },
+    {
+      "type": "text",
+      "text": "UART1：通过 MIO 48,MIO 49 分别引出 TX/RX 信号，并转为 USB 通信方式通过J3端子经 USB3.0母口与外部通信。",
+      "bbox": [
+        131,
+        213,
+        848,
+        255
+      ],
+      "page_idx": 14
+    },
+    {
+      "type": "text",
+      "text": "使用UART1通信需要通过USB3.0接口与外部连接，同时 USB3.0还支持板载下载调试器。所以这里就不给出原理图。只要 端在图形化配置端配置到指定的 MI048/MIO49上即可使用。",
+      "bbox": [
+        131,
+        850,
+        867,
+        915
+      ],
+      "page_idx": 14
+    }
+  ],
+  "image_review": [
+    "images/a7dfa9e72750d7adefe38fb0845d573947367e03b5435847b42db652568647ae.jpg",
+    "images/0dcff0552ebe5a4c3676a502f8958709db5fd1b0cf8bef94ead095231959747e.jpg"
+  ],
+  "current_usage": "EES-331 fixed UART0/1, USB0 ULPI MIO28..39 reset46, QSPI N25Q256 MIO1..6, GEM0 PHY88E1518"
+}

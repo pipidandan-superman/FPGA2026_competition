@@ -1,0 +1,19 @@
+﻿{
+    "File":  "AMD AIPC 借用报告 - 模板.docx",
+    "InputPath":  "E:\\competition\\1_docs\\doc\\AMD AIPC 借用报告 - 模板.docx",
+    "SHA256":  "EBBC3F74BB0E42663E54245EFB0624AE4E692CF37F2110A5DE9AC75A6DCFEFA6",
+    "ExitCode":  0,
+    "Seconds":  5.1,
+    "Fallback":  false,
+    "Markdown":  false,
+    "ContentJson":  false,
+    "ImageCount":  0,
+    "ChineseQuality":  "review",
+    "PreferredSource":  "content_list_json",
+    "QualityReasons":  "short_text",
+    "MarkdownPath":  "E:\\competition\\4_metrics\\logs\\2026-09-10_aipc_loan_report_run01\\AMD AIPC 借用报告 - 模板\\auto\\AMD AIPC 借用报告 - 模板.md",
+    "ContentJsonPath":  "E:\\competition\\4_metrics\\logs\\2026-09-10_aipc_loan_report_run01\\AMD AIPC 借用报告 - 模板\\auto\\AMD AIPC 借用报告 - 模板_content_list.json",
+    "OutputFolder":  "E:\\competition\\4_metrics\\logs\\2026-09-10_aipc_loan_report_run01\\AMD AIPC 借用报告 - 模板",
+    "StdoutPath":  "E:\\competition\\4_metrics\\logs\\2026-09-10_aipc_loan_report_run01\\command_logs\\01_AMD_AIPC_借用报告_-_模板_stdout.txt",
+    "StderrPath":  "E:\\competition\\4_metrics\\logs\\2026-09-10_aipc_loan_report_run01\\command_logs\\01_AMD_AIPC_借用报告_-_模板_stderr.txt"
+}

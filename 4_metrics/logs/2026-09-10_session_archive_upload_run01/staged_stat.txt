@@ -1,0 +1,327 @@
+ .gitattributes                                     |    10 +
+ .gitignore                                         |     3 +
+ ...45\345\221\212 - \346\250\241\346\235\277.docx" |   Bin 0 -> 511281 bytes
+ ...1\272\350\203\275\345\210\206\346\213\243.docx" |   Bin 0 -> 198301 bytes
+ ...\275\262\350\256\241\345\210\222_2026-09-09.md" |   193 +
+ 3_host/pynq/sd_boot_builder/README.md              |    73 +
+ 3_host/pynq/sd_boot_builder/app.py                 |   162 +
+ 3_host/pynq/sd_boot_builder/assets/REVISION        |     2 +
+ 3_host/pynq/sd_boot_builder/assets/boot.scr        |   Bin 0 -> 2776 bytes
+ 3_host/pynq/sd_boot_builder/assets/fsbl.elf        |   Bin 0 -> 559932 bytes
+ 3_host/pynq/sd_boot_builder/assets/kernel.bin      |   Bin 0 -> 6442720 bytes
+ 3_host/pynq/sd_boot_builder/assets/manifest.json   |    38 +
+ 3_host/pynq/sd_boot_builder/assets/reference.hwh   |  1271 ++
+ .../pynq/sd_boot_builder/assets/reference_init.c   | 12286 +++++++++++++++++++
+ .../pynq/sd_boot_builder/assets/reference_xsa.json |    76 +
+ 3_host/pynq/sd_boot_builder/assets/system.dtb      |   Bin 0 -> 14919 bytes
+ 3_host/pynq/sd_boot_builder/assets/u-boot.elf      |   Bin 0 -> 968580 bytes
+ 3_host/pynq/sd_boot_builder/builder.py             |   302 +
+ 3_host/pynq/sd_boot_builder/fdt_reader.py          |    29 +
+ 3_host/pynq/sd_boot_builder/hardware.py            |   104 +
+ 3_host/pynq/sd_boot_builder/images.py              |   100 +
+ 3_host/pynq/sd_boot_builder/requirements.txt       |     3 +
+ 3_host/pynq/sd_boot_builder_v02/README.md          |    93 +
+ 3_host/pynq/sd_boot_builder_v02/app.py             |   208 +
+ 3_host/pynq/sd_boot_builder_v02/assets/REVISION    |     2 +
+ 3_host/pynq/sd_boot_builder_v02/assets/boot.scr    |   Bin 0 -> 2776 bytes
+ 3_host/pynq/sd_boot_builder_v02/assets/fsbl.elf    |   Bin 0 -> 559932 bytes
+ 3_host/pynq/sd_boot_builder_v02/assets/kernel.bin  |   Bin 0 -> 6442720 bytes
+ .../pynq/sd_boot_builder_v02/assets/manifest.json  |    38 +
+ .../pynq/sd_boot_builder_v02/assets/reference.hwh  |  1271 ++
+ .../sd_boot_builder_v02/assets/reference_init.c    | 12286 +++++++++++++++++++
+ .../sd_boot_builder_v02/assets/reference_xsa.json  |    76 +
+ 3_host/pynq/sd_boot_builder_v02/assets/system.dtb  |   Bin 0 -> 14919 bytes
+ 3_host/pynq/sd_boot_builder_v02/assets/u-boot.elf  |   Bin 0 -> 968580 bytes
+ 3_host/pynq/sd_boot_builder_v02/board_profile.py   |   165 +
+ 3_host/pynq/sd_boot_builder_v02/builder.py         |   318 +
+ 3_host/pynq/sd_boot_builder_v02/fdt_reader.py      |    29 +
+ 3_host/pynq/sd_boot_builder_v02/hardware.py        |   119 +
+ 3_host/pynq/sd_boot_builder_v02/images.py          |   122 +
+ 3_host/pynq/sd_boot_builder_v02/requirements.txt   |     3 +
+ .../EES-331 User Guide/auto/EES-331 User Guide.md  |   472 +
+ .../auto/EES-331 User Guide_content_list.json      |  4833 ++++++++
+ ...502f8958709db5fd1b0cf8bef94ead095231959747e.jpg |   Bin 0 -> 81686 bytes
+ ...d3f985ebf6537a38f5e760d805282a8f5c532a7966a.jpg |   Bin 0 -> 139025 bytes
+ ...7177b9a032e6f37ed3a16ad1f31c50fee4c78038ec1.jpg |   Bin 0 -> 105139 bytes
+ ...c738627427371c1fb1595476d27b272e83e26f2bc2c.jpg |   Bin 0 -> 75923 bytes
+ ...fb0845d573947367e03b5435847b42db652568647ae.jpg |   Bin 0 -> 111187 bytes
+ .../input_manifest.json                            |     6 +
+ .../mineru_result_marker.txt                       |     2 +
+ .../mineru_results.json                            |    19 +
+ .../mineru_runner_console.txt                      |     8 +
+ .../auto/AMD\350\265\233\351\242\230.md"           |   928 ++
+ .../AMD\350\265\233\351\242\230_content_list.json" |  5341 ++++++++
+ .../input_manifest.json                            |     6 +
+ .../mineru_result_marker.txt                       |     2 +
+ .../mineru_results.json                            |    19 +
+ .../2026-09-10_aipc_loan_report_run01/REPORT.md    |    47 +
+ .../2026-09-10_aipc_loan_report_run01/artifact.md  |    31 +
+ .../authored_text.txt                              |    51 +
+ .../create_report.py                               |   161 +
+ .../fidelity_console.txt                           |     4 +
+ .../fidelity_final/b_render/page-1.png             |   Bin 0 -> 438575 bytes
+ .../fidelity_final/b_render/page-2.png             |   Bin 0 -> 577016 bytes
+ .../fidelity_final/summary.json                    |    11 +
+ .../final_sections.txt                             |    11 +
+ .../final_styles.json                              |   168 +
+ .../final_validation.json                          |    43 +
+ .../input_manifest.json                            |     6 +
+ .../mineru_api_stderr.txt                          |     6 +
+ .../mineru_api_stdout.txt                          |     8 +
+ .../mineru_result_marker.txt                       |     2 +
+ .../mineru_results.json                            |    19 +
+ .../mineru_runner_console.txt                      |     9 +
+ .../package_audit.json                             |    41 +
+ ...245\345\221\212 - \346\250\241\346\235\277.pdf" |   Bin 0 -> 232025 bytes
+ .../template_sections.txt                          |    11 +
+ .../template_styles.json                           |   170 +
+ ...\245\345\221\212 - \346\250\241\346\235\277.md" |    17 +
+ ...2 - \346\250\241\346\235\277_content_list.json" |    89 +
+ ... \346\250\241\346\235\277_content_list_v2.json" |   156 +
+ ...221\212 - \346\250\241\346\235\277_middle.json" |  1003 ++
+ ...\221\212 - \346\250\241\346\235\277_model.json" |   284 +
+ ...6be7005614028279d1613bfc19f1f5288f7aa92939.jpg" |   Bin 0 -> 126588 bytes
+ ...b081c61b87e1094589dd713286621e0a1c0b101e24.jpg" |   Bin 0 -> 38030 bytes
+ .../input_manifest.json                            |     6 +
+ .../mineru_api_stderr.txt                          |    22 +
+ .../mineru_api_stdout.txt                          |    19 +
+ .../mineru_result_marker.txt                       |     2 +
+ .../mineru_results.json                            |    19 +
+ .../mineru_runner_console.txt                      |     8 +
+ .../2026-09-10_ees331_img_package_run01/REPORT.md  |    70 +
+ .../block_verification.json                        |  6575 ++++++++++
+ .../ees331_pynq_v3.0.1_ps_sd_20260910.img.sha256   |     1 +
+ .../fat_validation.json                            |  1895 +++
+ .../package_console.txt                            |    39 +
+ .../package_image.py                               |   130 +
+ .../package_result.json                            |    22 +
+ .../uart_pasted_review.json                        |    20 +
+ .../uart_user_pasted.txt                           |   482 +
+ .../uart_pynq_log.txt                              |   Bin 0 -> 54080 bytes
+ .../logs/2026-09-10_sd_boot_fix_run01/REPORT.md    |    62 +
+ .../logs/2026-09-10_sd_boot_fix_run01/boot.bif     |     6 +
+ .../bootgen_build_console.txt                      |    10 +
+ .../bootgen_read_console.txt                       |    91 +
+ .../2026-09-10_sd_boot_fix_run01/build_fsbl.ps1    |    30 +
+ .../candidate_validation.json                      |   300 +
+ .../chkdsk_after_deploy.txt                        |    23 +
+ .../deploy_20260910_160957_console.txt             |    68 +
+ .../deploy_result.json                             |    41 +
+ .../logs/2026-09-10_sd_boot_fix_run01/ees331.dts   |   100 +
+ .../2026-09-10_sd_boot_fix_run01/fdt_reader.py     |    29 +
+ .../2026-09-10_sd_boot_fix_run01/final_result.json |    11 +
+ .../2026-09-10_sd_boot_fix_run01/fit_inputs.json   |     5 +
+ .../fsbl_build_console.txt                         |    93 +
+ .../make_fit_source.py                             |    50 +
+ .../uboot_external_dtb_disassembly.json            |   815 ++
+ .../uboot_external_dtb_proof.json                  |    15 +
+ .../validate_candidate.py                          |   126 +
+ .../DIAGNOSIS.md                                   |    59 +
+ .../audit.ps1                                      |    44 +
+ .../audit_console.txt                              |   291 +
+ .../fsbl_readelf.txt                               |   Bin 0 -> 3218 bytes
+ .../2026-09-10_sd_builder_toolkit_run01/REPORT.md  |    34 +
+ .../delivery_manifest.json                         |    88 +
+ .../frozen_build_config.json.result.json           |    65 +
+ .../frozen_self_test.json                          |     1 +
+ .../fsbl_mode_console.txt                          |     9 +
+ .../full_rebuild_console.txt                       |    40 +
+ .../package_delivery.py                            |    37 +
+ .../prepare_assets.py                              |    27 +
+ .../pyinstaller_console.txt                        |   117 +
+ .../test_builder.py                                |    93 +
+ .../tests_console.txt                              |    15 +
+ .../base_image_verification.json                   |     7 +
+ .../boot_validation.json                           |    63 +
+ .../build.log                                      |    39 +
+ .../command_001.log                                |     1 +
+ .../command_002.log                                |    65 +
+ .../command_003.log                                |     1 +
+ .../command_004.log                                |   619 +
+ .../command_005.log                                |     1 +
+ .../command_006.log                                |     1 +
+ .../command_007.log                                |     1 +
+ .../command_008.log                                |     1 +
+ .../command_009.log                                |     1 +
+ .../command_010.log                                |     1 +
+ .../command_011.log                                |     1 +
+ .../command_012.log                                |     1 +
+ .../command_013.log                                |     1 +
+ .../command_014.log                                |     1 +
+ .../command_015.log                                |     1 +
+ .../command_016.log                                |     1 +
+ .../command_017.log                                |     1 +
+ .../command_018.log                                |    11 +
+ .../command_019.log                                |    92 +
+ .../command_020.log                                |     1 +
+ .../device_tree_generation.json                    |   111 +
+ .../fsbl_provenance.json                           |     5 +
+ .../hardware_analysis.json                         |   128 +
+ .../output/ees331_pynq_sd.img.sha256               |     1 +
+ .../output/image_block_checks.json                 |  6575 ++++++++++
+ .../output/image_validation.json                   |     8 +
+ .../result.json                                    |   291 +
+ .../boot_validation.json                           |    63 +
+ .../build.log                                      |     9 +
+ .../command_001.log                                |     1 +
+ .../command_002.log                                |    65 +
+ .../command_003.log                                |     1 +
+ .../command_004.log                                |    11 +
+ .../command_005.log                                |    92 +
+ .../command_006.log                                |     1 +
+ .../device_tree_generation.json                    |   111 +
+ .../fsbl_provenance.json                           |     4 +
+ .../hardware_analysis.json                         |   128 +
+ .../result.json                                    |   283 +
+ .../boot_validation.json                           |    81 +
+ .../build.log                                      |     9 +
+ .../command_001.log                                |     1 +
+ .../command_002.log                                |    65 +
+ .../command_003.log                                |     1 +
+ .../command_004.log                                |    11 +
+ .../command_005.log                                |   112 +
+ .../command_006.log                                |     1 +
+ .../device_tree_generation.json                    |   111 +
+ .../fsbl_provenance.json                           |     4 +
+ .../hardware_analysis.json                         |   128 +
+ .../result.json                                    |   283 +
+ .../logs/2026-09-10_sd_builder_v02_run01/REPORT.md |    57 +
+ .../alternate_xsa_rejection.txt                    |    11 +
+ .../dt_tests/baseline/base.dtb                     |   Bin 0 -> 14919 bytes
+ .../dt_tests/baseline/base.dts                     |   715 ++
+ .../dt_tests/baseline/board.dts                    |    28 +
+ .../dt_tests/baseline/dtc.log                      |   192 +
+ .../dt_tests/baseline/roundtrip.dts                |   719 ++
+ .../dt_tests/baseline/system.dtb                   |   Bin 0 -> 15063 bytes
+ .../dt_tests/can/base.dtb                          |   Bin 0 -> 14919 bytes
+ .../dt_tests/can/base.dts                          |   715 ++
+ .../dt_tests/can/board.dts                         |    30 +
+ .../dt_tests/can/dtc.log                           |   192 +
+ .../dt_tests/can/roundtrip.dts                     |   726 ++
+ .../dt_tests/can/system.dtb                        |   Bin 0 -> 15171 bytes
+ .../dt_tests/clock_gpio/base.dtb                   |   Bin 0 -> 14919 bytes
+ .../dt_tests/clock_gpio/base.dts                   |   715 ++
+ .../dt_tests/clock_gpio/board.dts                  |    28 +
+ .../dt_tests/clock_gpio/dtc.log                    |   192 +
+ .../dt_tests/clock_gpio/roundtrip.dts              |   719 ++
+ .../dt_tests/clock_gpio/system.dtb                 |   Bin 0 -> 15063 bytes
+ .../dt_tests/enet_disable/base.dtb                 |   Bin 0 -> 14919 bytes
+ .../dt_tests/enet_disable/base.dts                 |   715 ++
+ .../dt_tests/enet_disable/board.dts                |    26 +
+ .../dt_tests/enet_disable/dtc.log                  |   189 +
+ .../dt_tests/enet_disable/roundtrip.dts            |   715 ++
+ .../dt_tests/enet_disable/system.dtb               |   Bin 0 -> 14930 bytes
+ .../dt_tests/i2c/base.dtb                          |   Bin 0 -> 14919 bytes
+ .../dt_tests/i2c/base.dts                          |   715 ++
+ .../dt_tests/i2c/board.dts                         |    29 +
+ .../dt_tests/i2c/dtc.log                           |   192 +
+ .../dt_tests/i2c/roundtrip.dts                     |   720 ++
+ .../dt_tests/i2c/system.dtb                        |   Bin 0 -> 15091 bytes
+ .../dt_tests/qspi/base.dtb                         |   Bin 0 -> 14919 bytes
+ .../dt_tests/qspi/base.dts                         |   715 ++
+ .../dt_tests/qspi/board.dts                        |    29 +
+ .../dt_tests/qspi/dtc.log                          |   192 +
+ .../dt_tests/qspi/roundtrip.dts                    |   729 ++
+ .../dt_tests/qspi/system.dtb                       |   Bin 0 -> 15219 bytes
+ .../dt_tests/sd_cd/base.dtb                        |   Bin 0 -> 14919 bytes
+ .../dt_tests/sd_cd/base.dts                        |   715 ++
+ .../dt_tests/sd_cd/board.dts                       |    28 +
+ .../dt_tests/sd_cd/dtc.log                         |   192 +
+ .../dt_tests/sd_cd/roundtrip.dts                   |   720 ++
+ .../dt_tests/sd_cd/system.dtb                      |   Bin 0 -> 15085 bytes
+ .../dt_tests/spi/base.dtb                          |   Bin 0 -> 14919 bytes
+ .../dt_tests/spi/base.dts                          |   715 ++
+ .../dt_tests/spi/board.dts                         |    29 +
+ .../dt_tests/spi/dtc.log                           |   192 +
+ .../dt_tests/spi/roundtrip.dts                     |   720 ++
+ .../dt_tests/spi/system.dtb                        |   Bin 0 -> 15075 bytes
+ .../dt_tests/uart0/base.dtb                        |   Bin 0 -> 14919 bytes
+ .../dt_tests/uart0/base.dts                        |   715 ++
+ .../dt_tests/uart0/board.dts                       |    31 +
+ .../dt_tests/uart0/dtc.log                         |   192 +
+ .../dt_tests/uart0/roundtrip.dts                   |   721 ++
+ .../dt_tests/uart0/system.dtb                      |   Bin 0 -> 15091 bytes
+ .../dt_tests/usb/base.dtb                          |   Bin 0 -> 14919 bytes
+ .../dt_tests/usb/base.dts                          |   715 ++
+ .../dt_tests/usb/board.dts                         |    30 +
+ .../dt_tests/usb/dtc.log                           |   195 +
+ .../dt_tests/usb/roundtrip.dts                     |   729 ++
+ .../dt_tests/usb/system.dtb                        |   Bin 0 -> 15264 bytes
+ .../ethernet_phy_binding.yaml                      |   208 +
+ .../2026-09-10_sd_builder_v02_run01/final_audit.py |    36 +
+ .../final_audit_result.json                        |    57 +
+ .../frozen_build_config.json                       |    10 +
+ .../frozen_build_config.json.result.json           |   283 +
+ .../frozen_fsbl_config.json                        |     7 +
+ .../frozen_fsbl_config.json.result.json            |   283 +
+ .../frozen_self_test_final.json                    |     1 +
+ .../2026-09-10_sd_builder_v02_run01/full_build.py  |    13 +
+ .../full_build_console_v2.txt                      |    41 +
+ .../full_build_result.json                         |   291 +
+ .../gui_advanced.png                               |   Bin 0 -> 93585 bytes
+ .../gui_default.png                                |   Bin 0 -> 84704 bytes
+ .../mineru_reuse.json                              |    86 +
+ .../package_release.py                             |    39 +
+ .../pyinstaller_final_console.txt                  |   116 +
+ .../release_result.json                            |    37 +
+ .../2026-09-10_sd_builder_v02_run01/test_v02.py    |   167 +
+ .../tests_release_console.txt                      |    27 +
+ .../usb_nop_binding.yaml                           |    64 +
+ .../v01_preservation_result.json                   |     5 +
+ .../v01_preserved_hashes.json                      |    21 +
+ .../v01_tools_preserved_hashes.json                |     6 +
+ .../2026-09-10_sd_card_full_audit_run01/REPORT.md  |   113 +
+ .../boot_and_file_comparison.json                  |   177 +
+ .../chkdsk_readonly.txt                            |    23 +
+ .../evidence_sha256.json                           |    45 +
+ .../final_result.json                              |    30 +
+ .../fit_hash_checks.json                           |    16 +
+ .../original_boot_dtb_comparison.json              |     6 +
+ .../partition_table.json                           |    65 +
+ .../scan_console.txt                               |    70 +
+ .../scan_result.json                               |    91 +
+ .../2026-09-10_sd_card_g_audit_run01/REPORT.md     |    36 +
+ .../2026-09-10_sd_card_g_audit_run01/check_sd.ps1  |    48 +
+ .../2026-09-10_sd_card_g_audit_run01/console.txt   |   Bin 0 -> 4153 bytes
+ .../file_hashes.json                               |    27 +
+ .../REPORT.md                                      |    50 +
+ .../archive_delivery.py                            |    76 +
+ .../archive_validation.json                        |    13 +
+ .../binary_manifest.md                             |    53 +
+ .../branches.txt                                   |     5 +
+ .../delivery_paths.txt                             |   317 +
+ .../precopy_comparison.json                        |     9 +
+ .../prepare_archive.py                             |    77 +
+ .../reference_pynq_test_wrapper.xsa                |   Bin 0 -> 313220 bytes
+ .../release_copy_validation.json                   |    16 +
+ .../sd_start_tool_self_test.json                   |     1 +
+ .../sd_start_tool_self_test_console.txt            |     0
+ .../sd_start_tool_v0.2_self_test.json              |     1 +
+ .../sd_start_tool_v0.2_self_test_console.txt       |     0
+ .../selected_manifest.json                         |  1567 +++
+ .../selected_paths.txt                             |   313 +
+ .../skill_path_audit.txt                           |     8 +
+ .../source_frozen_diff_sha256.txt                  |     1 +
+ .../source_staged.txt                              |     0
+ .../source_status.txt                              |   196 +
+ .../source_tracked_changes.txt                     |    30 +
+ .../stage_archive.py                               |    44 +
+ .../worktree_status_before.txt                     |     1 +
+ 7_logs/2026-09-09/01_daily_plan.md                 |    35 +
+ 7_logs/2026-09-09/02_execution_plan.md             |    32 +
+ 7_logs/2026-09-09/03_validation_summary.md         |    86 +
+ 7_logs/2026-09-09/04_next_start_guide.md           |    27 +
+ 7_logs/2026-09-10/01_daily_plan.md                 |    85 +
+ 7_logs/2026-09-10/02_execution_plan.md             |   117 +
+ 7_logs/2026-09-10/03_validation_summary.md         |   148 +
+ 7_logs/2026-09-10/04_next_start_guide.md           |   117 +
+ 8_tools/sd_start_tool/EES331SDBootBuilder.exe      |   Bin 0 -> 22760519 bytes
+ 8_tools/sd_start_tool/README.md                    |    73 +
+ .../EES331SDBootBuilder_v0.2.exe                   |   Bin 0 -> 22776980 bytes
+ .../EES331SDBootBuilder_v0.2.exe.sha256            |     1 +
+ 8_tools/sd_start_tool_v0.2/README.md               |    93 +
+ .../sd_start_tool_v0.2/example_build_config.json   |    10 +
+ 8_tools/sd_start_tool_v0.2/source_hashes.json      |    20 +
+ HANDOFF.md                                         |    70 +-
+ README.md                                          |    29 +-
+ 326 files changed, 87978 insertions(+), 10 deletions(-)

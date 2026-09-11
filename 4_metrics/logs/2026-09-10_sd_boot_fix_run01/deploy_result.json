@@ -1,0 +1,41 @@
+﻿{
+    "result":  "SD_DEPLOY_READBACK_PASS",
+    "timestamp":  "2026-09-10T16:09:58.3237736+08:00",
+    "volume_flush":  "PASS",
+    "disk_number":  1,
+    "disk_unique_id":  "USBSTOR\\DISK\u0026VEN_GENERIC\u0026PROD_STORAGE_DEVICE\u0026REV_1404\\9\u00261B320D15\u00260:HC-202510241838",
+    "files":  [
+                  {
+                      "name":  "boot.scr",
+                      "size":  2776,
+                      "sha256":  "7013e14923fbe461c4ecd745214fcafcb0ffaddb10865f9135cd8624637359f4"
+                  },
+                  {
+                      "name":  "REVISION",
+                      "size":  83,
+                      "sha256":  "4890cc0639e8f20a0fd5ce4610f6cbc227a01a7589e847f7810bf68c80be6b19"
+                  },
+                  {
+                      "name":  "image.ub",
+                      "size":  6459560,
+                      "sha256":  "6c101d5352e8da48e9ee5493135621c0e62f148023fcf4826ebabbe4e0f194d0"
+                  },
+                  {
+                      "name":  "boot.py",
+                      "size":  227,
+                      "sha256":  "42d702f74e73a7bf444c52000ca893c03e9166bd61371c8adf52d52f3b53e17f"
+                  },
+                  {
+                      "name":  "system.dtb",
+                      "size":  14919,
+                      "sha256":  "76e29723d185ac4a50700338bfcf872113a43409bbbe8eded34fbbd723ef6434"
+                  },
+                  {
+                      "name":  "BOOT.BIN",
+                      "size":  1082696,
+                      "sha256":  "3ea3eae30dba8646ddb597abf098594a99ed6c0250576bed12a9eca91c3902a0"
+                  }
+              ],
+    "hardware_status":  "NOT_TESTED",
+    "rootfs_write":  false
+}

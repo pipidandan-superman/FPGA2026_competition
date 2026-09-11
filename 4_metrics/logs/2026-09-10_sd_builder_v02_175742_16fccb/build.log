@@ -1,0 +1,9 @@
+检查输入 XSA 与基线资源。
+运行 dtc.exe
+运行 dtc.exe
+运行 dtc.exe
+PS 初始化与已验证基线相同，复用已验证 FSBL。
+运行 bootgen.bat
+运行 bootgen.bat
+运行 dtc.exe
+导出完成：E:\competition\4_metrics\logs\2026-09-10_sd_builder_v02_175742_16fccb\output

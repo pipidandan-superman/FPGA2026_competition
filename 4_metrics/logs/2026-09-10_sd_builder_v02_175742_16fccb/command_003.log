@@ -1,0 +1,1 @@
+["F:\\vivado2025\\2025.2\\Vitis\\bin\\dtc.exe", "-I", "dtb", "-O", "dts", "-o", "board-expanded.dts", "system.dtb"]

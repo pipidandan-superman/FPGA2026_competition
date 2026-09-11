@@ -1,0 +1,111 @@
+{
+  "mode": "AUTO_XSA_PLUS_EES331_PROFILE",
+  "profile": "EES331_PS_0.2",
+  "usb_role": "otg",
+  "validation": {
+    "result": "AUTO_DTB_VALIDATION_PASS",
+    "controller_count": 16,
+    "phandle_count": 53
+  },
+  "controllers": [
+    {
+      "name": "UART0",
+      "enabled": false,
+      "path": "/axi/serial@e0000000",
+      "routing": "<Select>"
+    },
+    {
+      "name": "UART1",
+      "enabled": true,
+      "path": "/axi/serial@e0001000",
+      "routing": "MIO 48 .. 49"
+    },
+    {
+      "name": "SD0",
+      "enabled": true,
+      "path": "/axi/mmc@e0100000",
+      "routing": "MIO 40 .. 45"
+    },
+    {
+      "name": "SD1",
+      "enabled": false,
+      "path": "/axi/mmc@e0101000",
+      "routing": "<Select>"
+    },
+    {
+      "name": "ENET0",
+      "enabled": true,
+      "path": "/axi/ethernet@e000b000",
+      "routing": "MIO 16 .. 27"
+    },
+    {
+      "name": "ENET1",
+      "enabled": false,
+      "path": "/axi/ethernet@e000c000",
+      "routing": "<Select>"
+    },
+    {
+      "name": "USB0",
+      "enabled": false,
+      "path": "/axi/usb@e0002000",
+      "routing": "<Select>"
+    },
+    {
+      "name": "USB1",
+      "enabled": false,
+      "path": "/axi/usb@e0003000",
+      "routing": "<Select>"
+    },
+    {
+      "name": "I2C0",
+      "enabled": false,
+      "path": "/axi/i2c@e0004000",
+      "routing": "<Select>"
+    },
+    {
+      "name": "I2C1",
+      "enabled": false,
+      "path": "/axi/i2c@e0005000",
+      "routing": "<Select>"
+    },
+    {
+      "name": "SPI0",
+      "enabled": false,
+      "path": "/axi/spi@e0006000",
+      "routing": "<Select>"
+    },
+    {
+      "name": "SPI1",
+      "enabled": false,
+      "path": "/axi/spi@e0007000",
+      "routing": "<Select>"
+    },
+    {
+      "name": "QSPI",
+      "enabled": false,
+      "path": "/axi/spi@e000d000",
+      "routing": "<Select>"
+    },
+    {
+      "name": "CAN0",
+      "enabled": false,
+      "path": "/axi/can@e0008000",
+      "routing": "<Select>"
+    },
+    {
+      "name": "CAN1",
+      "enabled": false,
+      "path": "/axi/can@e0009000",
+      "routing": "<Select>"
+    },
+    {
+      "name": "WDT",
+      "enabled": false,
+      "path": "/axi/watchdog@f8005000",
+      "routing": "<Select>"
+    }
+  ],
+  "warnings": [
+    "TTC 内部定时器保留给 Linux 时基；XSA 的外部 TTC I/O 使能不等同于移除 Linux 时钟节点。"
+  ]
+}

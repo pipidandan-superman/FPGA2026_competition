@@ -1,0 +1,37 @@
+{
+  "result": "V02_RELEASE_PACKAGE_PASS",
+  "delivery": "E:\\competition\\8_tools\\sd_start_tool_v0.2",
+  "zip_crc": "PASS",
+  "old_tools_unchanged": true,
+  "v01_unchanged": true,
+  "files": {
+    "EES331SDBootBuilder_v0.2.exe": {
+      "size": 22776980,
+      "sha256": "b4a2b971432dd91f70fc27a54e5f78670f3ac5ffb8c6b38cfbbb6843034a0a6e"
+    },
+    "EES331SDBootBuilder_v0.2.exe.sha256": {
+      "size": 96,
+      "sha256": "aa99b471ac434b8fbcbce2623cdc260665ffb35910a0905f188cb6c25a214831"
+    },
+    "EES331_SD_Builder_v0.2.zip": {
+      "size": 29694632,
+      "sha256": "8e2452c366ade42f44bf96b4a06216ed023c3d0d313f89854de64d9adca53a40"
+    },
+    "EES331_SD_Builder_v0.2.zip.sha256": {
+      "size": 94,
+      "sha256": "78f6066ce8d90774791e7d14c32c8a7b9730968ab13b1fa5830053748ecd03e2"
+    },
+    "example_build_config.json": {
+      "size": 337,
+      "sha256": "1f4473b38133c497b24e0c2801c933bb344079dd78875e542bdf2b3a5bc53b30"
+    },
+    "README.md": {
+      "size": 7491,
+      "sha256": "c4569d9a35203afd8bf3aead1d8f8dd4e193b01ede3b10454047382d758fd3d3"
+    },
+    "source_hashes.json": {
+      "size": 1637,
+      "sha256": "403e259bb97f708b5ba12b23de0bd64c1d516178c6b489d697218e027ea73dc7"
+    }
+  }
+}

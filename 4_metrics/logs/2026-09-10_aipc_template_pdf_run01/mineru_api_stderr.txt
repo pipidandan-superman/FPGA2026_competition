@@ -1,0 +1,22 @@
+[32m2026-09-10 18:18:53.814[0m | [1mINFO    [0m | [36mmineru.cli.fast_api[0m:[36mcreate_app[0m:[36m236[0m - [1mRequest concurrency limited to 3[0m
+INFO:     Started server process [38804]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:58120 (Press CTRL+C to quit)
+[32m2026-09-10 18:19:00.967[0m | [1mINFO    [0m | [36mmineru.backend.pipeline.pipeline_analyze[0m:[36mdoc_analyze_streaming[0m:[36m209[0m - [1mPipeline processing-window multi-file run. doc_count=1, total_pages=2, window_size=64, total_batches=1[0m
+[32m2026-09-10 18:19:01.258[0m | [1mINFO    [0m | [36mmineru.backend.pipeline.pipeline_analyze[0m:[36mdoc_analyze_streaming[0m:[36m264[0m - [1mPipeline processing window batch 1/1: 2/2 pages, batch_pages=2, doc_slices=doc0:1-2[0m
+[32m2026-09-10 18:19:01.296[0m | [1mINFO    [0m | [36mmineru.backend.pipeline.pipeline_analyze[0m:[36mbatch_image_analyze[0m:[36m364[0m - [1mGPU Memory: 16 GB, Batch Ratio: 8. [0m
+[32m2026-09-10 18:19:01.297[0m | [1mINFO    [0m | [36mmineru.backend.pipeline.model_init[0m:[36m__init__[0m:[36m239[0m - [1mDocAnalysis init, this may take some times......[0m
+[32m2026-09-10 18:19:04.994[0m | [1mINFO    [0m | [36mmineru.backend.pipeline.model_init[0m:[36m__init__[0m:[36m291[0m - [1mDocAnalysis init done![0m
+[32m2026-09-10 18:19:04.995[0m | [1mINFO    [0m | [36mmineru.backend.pipeline.pipeline_analyze[0m:[36mcustom_model_init[0m:[36m83[0m - [1mmodel init cost: 3.6975624561309814[0m
+Layout Predict:   0%|          | 0/2 [00:00<?, ?it/s]Layout Predict: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 2/2 [00:01<00:00,  1.54it/s]Layout Predict: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 2/2 [00:01<00:00,  1.54it/s]
+Table orientation det:   0%|          | 0/1 [00:00<?, ?it/s]Table orientation det: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 1/1 [00:00<00:00,  1.53it/s]Table orientation score: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 1/1 [00:00<00:00,  1.53it/s]Table orientation score: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 1/1 [00:00<00:00,  1.53it/s]Table orientation: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 1/1 [00:00<00:00,  1.53it/s]      Table orientation: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 1/1 [00:00<00:00,  1.53it/s]Table orientation: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 1/1 [00:00<00:00,  1.53it/s]
+Table-ocr det:   0%|          | 0/1 [00:00<?, ?it/s]Table-ocr det: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 1/1 [00:00<00:00, 21.05it/s]
+Table-ocr rec ch:   0%|          | 0/24 [00:00<?, ?it/s]Table-ocr rec ch:  25%|¨€¨€¨„       | 6/24 [00:00<00:00, 38.44it/s]Table-ocr rec ch: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 24/24 [00:00<00:00, 100.32it/s]
+Table-wireless Predict:   0%|          | 0/1 [00:00<?, ?it/s]Table-wireless Predict: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 1/1 [00:00<00:00, 13.42it/s]
+Table-wired Predict:   0%|          | 0/1 [00:00<?, ?it/s]Table-wired Predict: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 1/1 [00:00<00:00,  2.10it/s]Table-wired Predict: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 1/1 [00:00<00:00,  2.10it/s]
+OCR-det ch:   0%|          | 0/8 [00:00<?, ?it/s]OCR-det ch:  75%|¨€¨€¨€¨€¨€¨€¨€¨„  | 6/8 [00:00<00:00, 41.80it/s]OCR-det ch: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 8/8 [00:00<00:00, 36.03it/s]
+Seal Predict: 0it [00:00, ?it/s]Seal Predict: 0it [00:00, ?it/s]
+Processing pages:   0%|          | 0/2 [00:00<?, ?it/s]
+OCR-rec Predict:   0%|          | 0/2 [00:00<?, ?it/s][AOCR-rec Predict: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 2/2 [00:00<00:00, 51.92it/s]
+Processing pages: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 2/2 [00:00<00:00,  5.05it/s]

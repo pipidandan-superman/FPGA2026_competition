@@ -1,0 +1,19 @@
+﻿{
+    "File":  "AMD赛题.pdf",
+    "InputPath":  "E:\\competition\\1_docs\\pdf\\AMD赛题.pdf",
+    "SHA256":  "C6AD82ACD4F7BDCD13BD412E232ED85D05F2A87DD5E2CDD04F9D219F88B569FC",
+    "ExitCode":  0,
+    "Seconds":  28.2,
+    "Fallback":  false,
+    "Markdown":  true,
+    "ContentJson":  true,
+    "ImageCount":  23,
+    "ChineseQuality":  "pass",
+    "PreferredSource":  "content_list_json",
+    "QualityReasons":  "",
+    "MarkdownPath":  "E:\\competition\\4_metrics\\logs\\2026-09-09_amd_sait_pynq_mineru_run01\\AMD赛题\\auto\\AMD赛题.md",
+    "ContentJsonPath":  "E:\\competition\\4_metrics\\logs\\2026-09-09_amd_sait_pynq_mineru_run01\\AMD赛题\\auto\\AMD赛题_content_list.json",
+    "OutputFolder":  "E:\\competition\\4_metrics\\logs\\2026-09-09_amd_sait_pynq_mineru_run01\\AMD赛题",
+    "StdoutPath":  "E:\\competition\\4_metrics\\logs\\2026-09-09_amd_sait_pynq_mineru_run01\\command_logs\\01_AMD赛题_stdout.txt",
+    "StderrPath":  "E:\\competition\\4_metrics\\logs\\2026-09-09_amd_sait_pynq_mineru_run01\\command_logs\\01_AMD赛题_stderr.txt"
+}

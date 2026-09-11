@@ -1,0 +1,41 @@
+{
+  "result": "TEMPLATE_PACKAGE_PRESERVATION_PASS",
+  "source_sha256": "ebbc3f74bb0e42663e54245efb0624ae4e692cf37f2110a5de9ac75a6dcfefa6",
+  "output": "E:\\competition\\1_docs\\doc\\AMD AIPC 借用报告 - 锐眼智行具身智能分拣.docx",
+  "output_sha256": "dc535ea60d83b79e10ffc81ed51c4ab4524b5b25b0363cbcf3170b7bd8823f7a",
+  "changed_parts": [
+    "word/document.xml",
+    "word/media/image1.png",
+    "word/media/image2.png"
+  ],
+  "preserved_parts": {
+    "[Content_Types].xml": "04bbffa2e0ec36b44e5d1f616359cf5d4ad24dc705367766c786493e6a463c75",
+    "_rels/": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "_rels/.rels": "514e1846381cb6bcfff105a4b0a17d666cf0ed1f0c120bff73b82226ab7ed977",
+    "customXml/": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "customXml/_rels/": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "customXml/_rels/item1.xml.rels": "80482f86e196171d66001e0e74d1900408a3aaf2463e54005d251b5f2db9a0b0",
+    "customXml/_rels/item2.xml.rels": "2a6aee4c8a9714223a3568077411a0c82d11b484b1c9ab93a19d50b99c57baa5",
+    "customXml/item1.xml": "297ba3e8cfc327ac2e9ef2b358278fe3a69e277542e56968760837ed62a301f0",
+    "customXml/item2.xml": "db8748d8266623f4465a06d33e8371a770054364620d18fabb954ff55f9716c4",
+    "customXml/itemProps1.xml": "099bf97f1dc2446d9ad0e1ca4ae89025dec09f627a4ff49030084af6fd2a5f27",
+    "customXml/itemProps2.xml": "9844ed6bebcc49b6248a2be2c5b3748a1506d6097babfc75ded78a965b1b4401",
+    "docProps/": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docProps/app.xml": "2b77f4d9bd8d5d5bacf7b924a29eda052efae19980161dfe548fff95116a159c",
+    "docProps/core.xml": "c4341161e203ae3a92f8e50db8d209996ba19b18430a736fb0ed5a2326e776cd",
+    "docProps/custom.xml": "5d86365fc729216f18190f2309fb02332d341156d84ace7b5e29f5684be81d1b",
+    "word/": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "word/_rels/": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "word/_rels/document.xml.rels": "7b464a89e364cfa4e6a52f5013e1b6088b39f09600e1ba379178baaa51e922a5",
+    "word/endnotes.xml": "0bb3317d3770f08a4713efc1ec7e2cd753cfbe7b8d4e5eebfd957501cd005ec9",
+    "word/fontTable.xml": "1593c7986c58448fa8805571f54c2691301bb7cad4ca6a299f7320a1ff4a7922",
+    "word/footnotes.xml": "1241f3c6f3494c2b2fa3d5d1c0811822d842a010255c5ab86a66de7d505e4f95",
+    "word/media/": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "word/settings.xml": "69c14efd328c7a07d499e10ed8a9a053129c7fb6b9ad61c2596e19859ca2c6a5",
+    "word/styles.xml": "b43fbdaf3200069912a15c9b66a6d16f04c3c7b352944457fefb8b41d7c9a309",
+    "word/theme/": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "word/theme/theme1.xml": "b02c237cde933271c1ec0730c7eb240bc6d40dcd5bc71e03fff4c17d03ee32fc"
+  },
+  "identity_fields": "PENDING_USER",
+  "model": "PROVISIONAL_370_32G"
+}

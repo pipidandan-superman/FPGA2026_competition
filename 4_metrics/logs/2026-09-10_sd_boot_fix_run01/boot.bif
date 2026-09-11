@@ -1,0 +1,6 @@
+the_ROM_image:
+{
+    [bootloader] E:/competition/4_metrics/logs/2026-09-10_sd_boot_fix_run01/candidate/fsbl.elf
+    E:/competition/4_metrics/logs/2026-09-10_sd_boot_fix_run01/candidate/u-boot.elf
+    [load=0x00100000] E:/competition/4_metrics/logs/2026-09-10_sd_boot_fix_run01/candidate/system.dtb
+}

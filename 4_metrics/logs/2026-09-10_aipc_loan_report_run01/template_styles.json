@@ -1,0 +1,170 @@
+{
+  "input": "E:\\competition\\1_docs\\doc\\AMD AIPC \u501f\u7528\u62a5\u544a - \u6a21\u677f.docx",
+  "fonts_by_char_count": {
+    "Aptos": 40
+  },
+  "direct_run_formatting_runs": 76,
+  "direct_paragraph_formatting_paragraphs": 28,
+  "heading_like_paragraphs_not_heading_style": [
+    {
+      "para_index": 1,
+      "text": "AMD AIPC \u501f\u7528\u62a5\u544a\uff08\u6a21\u677f\uff09",
+      "style": "Normal"
+    },
+    {
+      "para_index": 3,
+      "text": "\u56e2\u961f\u7f16\u53f7",
+      "style": "Normal"
+    },
+    {
+      "para_index": 8,
+      "text": "\u4f5c\u54c1\u540d\u79f0",
+      "style": "Normal"
+    },
+    {
+      "para_index": 13,
+      "text": "\u961f\u957f\u4fe1\u606f",
+      "style": "Normal"
+    },
+    {
+      "para_index": 14,
+      "text": "\u59d3\u540d",
+      "style": "Normal"
+    },
+    {
+      "para_index": 16,
+      "text": "\u8054\u7cfb\u90ae\u7bb1",
+      "style": "Normal"
+    },
+    {
+      "para_index": 19,
+      "text": "\u6240\u5728\u5b66\u6821",
+      "style": "Normal"
+    },
+    {
+      "para_index": 21,
+      "text": "\u7535\u8bdd",
+      "style": "Normal"
+    },
+    {
+      "para_index": 23,
+      "text": "\u6307\u5bfc\u6559\u5e08\u4fe1\u606f",
+      "style": "Normal"
+    },
+    {
+      "para_index": 24,
+      "text": "\u6307\u5bfc\u6559\u5e081",
+      "style": "Normal"
+    },
+    {
+      "para_index": 25,
+      "text": "\u59d3\u540d",
+      "style": "Normal"
+    },
+    {
+      "para_index": 27,
+      "text": "\u6307\u5bfc\u6559\u5e082",
+      "style": "Normal"
+    },
+    {
+      "para_index": 28,
+      "text": "\u59d3\u540d",
+      "style": "Normal"
+    },
+    {
+      "para_index": 30,
+      "text": "\u501f\u7528AIPC",
+      "style": "Normal"
+    },
+    {
+      "para_index": 31,
+      "text": "AMD RyzenAI 370(32G)",
+      "style": "Normal"
+    },
+    {
+      "para_index": 32,
+      "text": "AMD RyzenAI 370(32G)",
+      "style": "Normal"
+    },
+    {
+      "para_index": 33,
+      "text": "\uff08\u5907\u6ce8\uff1a\u8bf7\u586b\u5199\u4ee5\u4e0b AIPC \u7c7b\u578b\u2014\u2014AMD RyzenAI 370(32G)/ AMD RyzenAI 395(64G/128G)\uff09",
+      "style": "Normal"
+    },
+    {
+      "para_index": 34,
+      "text": "\uff08\u5907\u6ce8\uff1a\u8bf7\u586b\u5199\u4ee5\u4e0b AIPC \u7c7b\u578b\u2014\u2014AMD RyzenAI 370(32G)/ AMD RyzenAI 395(64G/128G)\uff09",
+      "style": "Normal"
+    },
+    {
+      "para_index": 35,
+      "text": "\u603b\u8bbe\u8ba1\u6846\u56fe",
+      "style": "Normal"
+    },
+    {
+      "para_index": 40,
+      "text": "\u603b\u8bbe\u8ba1\u6846\u56fe",
+      "style": "Normal"
+    }
+  ],
+  "examples": {
+    "direct_run_formatting": [
+      {
+        "para_index": 1,
+        "run_text": "AMD AIPC \u501f\u7528\u62a5\u544a\uff08\u6a21\u677f\uff09",
+        "style": "Normal"
+      },
+      {
+        "para_index": 3,
+        "run_text": "\u56e2\u961f\u7f16\u53f7",
+        "style": "Normal"
+      },
+      {
+        "para_index": 8,
+        "run_text": "\u4f5c\u54c1\u540d\u79f0",
+        "style": "Normal"
+      },
+      {
+        "para_index": 13,
+        "run_text": "\u961f\u957f\u4fe1\u606f",
+        "style": "Normal"
+      },
+      {
+        "para_index": 14,
+        "run_text": "\u59d3\u540d",
+        "style": "Normal"
+      }
+    ],
+    "direct_paragraph_formatting": [
+      {
+        "para_index": 36,
+        "text": "\uff08\u5173\u952e\u5185\u5bb9\uff1a\u5e94\u7528\u4efb\u52a1\u3001AI PC\u4e0eFPGA\u5206\u5de5\u3001\u6a21\u578b\u540d\u79f0\u3001\u8f93\u5165\u8f93\u51fa\u63a5\u53e3/\u901a\u4fe1\u65b9\u5f0f\u3001\u6267\u884c\u53cd\u9988\u53ca\u5f02\u5e38\u4fdd\u62a4\u3002\u501f\u7528\u8868\u683c\u63cf\u8ff0\u4e0d\u5f97\u8d85\u8fc72\u9875\uff09",
+        "style": "Normal"
+      },
+      {
+        "para_index": 37,
+        "text": "\uff08\u5173\u952e\u5185\u5bb9\uff1a\u5e94\u7528\u4efb\u52a1\u3001AI PC\u4e0eFPGA\u5206\u5de5\u3001\u6a21\u578b\u540d\u79f0\u3001\u8f93\u5165\u8f93\u51fa\u63a5\u53e3/\u901a\u4fe1\u65b9\u5f0f\u3001\u6267\u884c\u53cd\u9988\u53ca\u5f02\u5e38\u4fdd\u62a4\u3002\u501f\u7528\u8868\u683c\u63cf\u8ff0\u4e0d\u5f97\u8d85\u8fc72\u9875\uff09",
+        "style": "Normal"
+      },
+      {
+        "para_index": 38,
+        "text": "\uff08\u5173\u952e\u5185\u5bb9\uff1a\u5e94\u7528\u4efb\u52a1\u3001AI PC\u4e0eFPGA\u5206\u5de5\u3001\u6a21\u578b\u540d\u79f0\u3001\u8f93\u5165\u8f93\u51fa\u63a5\u53e3/\u901a\u4fe1\u65b9\u5f0f\u3001\u6267\u884c\u53cd\u9988\u53ca\u5f02\u5e38\u4fdd\u62a4\u3002\u501f\u7528\u8868\u683c\u63cf\u8ff0\u4e0d\u5f97\u8d85\u8fc72\u9875\uff09",
+        "style": "Normal"
+      },
+      {
+        "para_index": 39,
+        "text": "\uff08\u5173\u952e\u5185\u5bb9\uff1a\u5e94\u7528\u4efb\u52a1\u3001AI PC\u4e0eFPGA\u5206\u5de5\u3001\u6a21\u578b\u540d\u79f0\u3001\u8f93\u5165\u8f93\u51fa\u63a5\u53e3/\u901a\u4fe1\u65b9\u5f0f\u3001\u6267\u884c\u53cd\u9988\u53ca\u5f02\u5e38\u4fdd\u62a4\u3002\u501f\u7528\u8868\u683c\u63cf\u8ff0\u4e0d\u5f97\u8d85\u8fc72\u9875\uff09",
+        "style": "Normal"
+      },
+      {
+        "para_index": 41,
+        "text": "\u65b9\u6848\u793a\u4f8b\uff1a\u6444\u50cf\u5934\u8bc6\u522b\u5de5\u4ef6\uff0c\u8f93\u9001\u5e26\u4e0e\u62e8\u6599\u5668\u5b8c\u6210\u5206\u7c7b\u5165\u7bb1\uff0c\u4f20\u611f\u5668\u786e\u8ba4\u7ed3\u679c\u3002\u4ee5\u4e0b\u4e3a\u62df\u5b9a\u65b9\u6848\uff0c\u975e\u5b9e\u6d4b\u6210\u679c\u3002",
+        "style": "Normal"
+      }
+    ]
+  },
+  "notes": [
+    "Direct formatting is not always wrong, but it often causes inconsistent output when templates change.",
+    "Heading-like paragraphs not using Heading styles can break TOC and accessibility."
+  ]
+}

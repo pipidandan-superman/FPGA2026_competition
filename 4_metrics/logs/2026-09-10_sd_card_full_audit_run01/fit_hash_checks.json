@@ -1,0 +1,16 @@
+[
+  {
+    "path": "/images/kernel-0",
+    "algorithm": "sha1",
+    "valid": true,
+    "expected": "b056acb229d05b806f975396dacae4ad04002e0c",
+    "actual": "b056acb229d05b806f975396dacae4ad04002e0c"
+  },
+  {
+    "path": "/images/fdt-0",
+    "algorithm": "sha1",
+    "valid": true,
+    "expected": "c20e513daf724f7b1b134fa9af089b026612751e",
+    "actual": "c20e513daf724f7b1b134fa9af089b026612751e"
+  }
+]

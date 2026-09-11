@@ -1,0 +1,15 @@
+test_changed_uart_pins_rejected (__main__.InputTests.test_changed_uart_pins_rejected) ... ok
+test_fclk_change_rebuilds_without_external_dtb (__main__.InputTests.test_fclk_change_rebuilds_without_external_dtb) ... ok
+test_gui_constructs_and_requires_xsa (__main__.InputTests.test_gui_constructs_and_requires_xsa) ... ok
+test_missing_bit_rejected (__main__.InputTests.test_missing_bit_rejected) ... ok
+test_reference_dtb_valid (__main__.InputTests.test_reference_dtb_valid) ... ok
+test_reference_requires_no_ps_rebuild (__main__.InputTests.test_reference_requires_no_ps_rebuild) ... ok
+test_standalone_bit_not_accepted (__main__.InputTests.test_standalone_bit_not_accepted) ... ok
+test_truncated_bit_rejected (__main__.InputTests.test_truncated_bit_rejected) ... ok
+test_usb_change_requires_board_dtb (__main__.InputTests.test_usb_change_requires_board_dtb) ... ok
+test_wrong_part_rejected (__main__.InputTests.test_wrong_part_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.532s
+
+OK

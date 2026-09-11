@@ -1,0 +1,19 @@
+Start MinerU FastAPI Service: http://127.0.0.1:58120
+API documentation: http://127.0.0.1:58120/docs
+INFO:     127.0.0.1:61502 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61522 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61523 - "POST /tasks HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:61522 - "GET /tasks/ae5d7dbc-66cc-4b3f-a6db-05aec1af07a2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61522 - "GET /tasks/ae5d7dbc-66cc-4b3f-a6db-05aec1af07a2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61522 - "GET /tasks/ae5d7dbc-66cc-4b3f-a6db-05aec1af07a2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61522 - "GET /tasks/ae5d7dbc-66cc-4b3f-a6db-05aec1af07a2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61522 - "GET /tasks/ae5d7dbc-66cc-4b3f-a6db-05aec1af07a2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61522 - "GET /tasks/ae5d7dbc-66cc-4b3f-a6db-05aec1af07a2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61522 - "GET /tasks/ae5d7dbc-66cc-4b3f-a6db-05aec1af07a2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61522 - "GET /tasks/ae5d7dbc-66cc-4b3f-a6db-05aec1af07a2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61522 - "GET /tasks/ae5d7dbc-66cc-4b3f-a6db-05aec1af07a2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61522 - "GET /tasks/ae5d7dbc-66cc-4b3f-a6db-05aec1af07a2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61522 - "GET /tasks/ae5d7dbc-66cc-4b3f-a6db-05aec1af07a2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61522 - "GET /tasks/ae5d7dbc-66cc-4b3f-a6db-05aec1af07a2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61522 - "GET /tasks/ae5d7dbc-66cc-4b3f-a6db-05aec1af07a2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61522 - "GET /tasks/ae5d7dbc-66cc-4b3f-a6db-05aec1af07a2/result HTTP/1.1" 200 OK
