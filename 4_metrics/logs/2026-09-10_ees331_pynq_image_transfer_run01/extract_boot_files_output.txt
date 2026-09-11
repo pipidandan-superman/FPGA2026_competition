@@ -1,0 +1,7 @@
+FAT16: bps=512 spc=8 rsvd=8 nfats=2 roote=512 spf=136
+boot.scr                 2776  sha256=7013e14923fbe461c4ecd745214fcafcb0ffaddb10865f9135cd8624637359f4
+revision.                  83  sha256=4890cc0639e8f20a0fd5ce4610f6cbc227a01a7589e847f7810bf68c80be6b19
+image.ub              6459560  sha256=6c101d5352e8da48e9ee5493135621c0e62f148023fcf4826ebabbe4e0f194d0
+boot.py                   227  sha256=42d702f74e73a7bf444c52000ca893c03e9166bd61371c8adf52d52f3b53e17f
+system.dtb              14919  sha256=76e29723d185ac4a50700338bfcf872113a43409bbbe8eded34fbbd723ef6434
+boot.bin              1082696  sha256=3ea3eae30dba8646ddb597abf098594a99ed6c0250576bed12a9eca91c3902a0

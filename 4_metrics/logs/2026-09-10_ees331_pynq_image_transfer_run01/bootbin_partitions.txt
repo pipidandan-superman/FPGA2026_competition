@@ -1,0 +1,5 @@
+size: 1082696
+id sig @0x20: b'fU\x99\xaa' UNEXPECTED
+boot width: 3942645758
+partition table offset: 0xc80
+end marker 00006004
