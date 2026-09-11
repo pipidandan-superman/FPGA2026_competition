@@ -30,3 +30,13 @@
 ## Gate 3：零基础教程
 
 仅在 Gate 1 推送确认后执行。在 `1_docs` 编写 PYNQ 基础、Overlay/MMIO/CMA/VDMA、摄像头工程迁移、UDP、systemd、调试、恢复和新 XSA 迁移流程。
+
+## Gate 2/3 实际执行
+
+1. 在 Builder 增加 `rootfs.py`，用 Cygwin debugfs 对 IMG 内 ext4 分区离线注入，执行 e2fsck 和逐文件哈希读回。
+2. 固定摄像头应用 XSA/bit/HWH 契约；仅允许完整 IMG + manual PL 模式。
+3. 先用 128 MiB ext4 镜像做模块测试，再运行源码版完整 IMG 构建。
+4. 打包 v0.2.1 EXE。首次全构建失败后，依据 XSCT 日志修复冻结程序 DLL/Tcl 环境隔离，再重新自检和完整构建。
+5. 发布 EXE 与 SHA256，更新 Builder/工具说明和 Win32DiskImager 写卡步骤。
+6. 编写 `1_docs/PYNQ零基础开发与EES331摄像头工程实战.md`。
+7. 运行语法、协议、rootfs、Git diff 和项目路径审计，显式暂存后提交个人分支。

@@ -35,3 +35,20 @@ SD FAT 文件名显示为 OVERLAY.BIT/HWH；已复制到应用目录统一为小
 阶段成果上传审计目录：[`4_metrics/logs/2026-09-11_pynq_checkpoint_upload_run01`](../../4_metrics/logs/2026-09-11_pynq_checkpoint_upload_run01/)。本轮选择上传源码、部署配置、报告、结果 JSON、最终服务日志、PC 最终状态和协议测试；不上传完整 IMG、Overlay 二进制、板端压缩包、依赖目录或整包日志。
 
 远端 `codex/full/pipidandan-superman` 确认包含本次提交之前，SD Builder 集成和 `1_docs` 教程均不开始。
+
+## SD Builder v0.2.1 PYNQ 整合
+
+[完整报告](../../4_metrics/logs/2026-09-11_sd_builder_pynq_integration_run01/REPORT.md)。
+
+- Gate 1 已通过：远端个人分支提交 `927548961e5cc3d13d5de67cc613071aa5df63a5` 与本地一致。
+- rootfs 模块测试：`ROOTFS_MODULE_TEST_PASS`；12 个文件读回、systemd 链接和 e2fsck 均通过。
+- 源码版完整构建：`4_metrics/logs/2026-09-11_sd_builder_v02_220217_3f0ee9`，结果 `SD_PACKAGE_STATIC_PASS` / `PYNQ_ROOTFS_INJECTION_PASS`。
+- 冻结 EXE 首次完整构建在 `2026-09-11_sd_builder_v02_220613_158787` 失败，原因为 PyInstaller Tcl/DLL 环境污染外部 XSCT；失败证据保留。
+- 修复外部工具调用的 DLL 目录与 Tcl 环境变量后，`FROZEN_GUI_SELF_TEST_PASS`。
+- 最终 EXE 全构建：`4_metrics/logs/2026-09-11_sd_builder_v02_222654_1789ce`，`SD_PACKAGE_STATIC_PASS`；启动文件、PYNQ 应用注入和完整镜像读回均 PASS。
+- EXE：22,520,487 字节，SHA256 `c2966e6fa52bfb8786c0232221e4eb540b96b383406be1e38d581bf3a070f49a`。
+- IMG：7,858,807,808 字节，SHA256 `8d22bcde0268678050bcc1429bee5ecadb0020e5ce3f5ba4df7045066deafcca`。
+- Win32DiskImager 安装器已定位于 `8_tools/win32diskimager-1.0.0-install.exe`。
+- 教程已创建：`1_docs/PYNQ零基础开发与EES331摄像头工程实战.md`。
+
+验证边界：最终 IMG 尚未写入 SD 卡，物理断电冷启动、UART、HDMI 和 UDP/PC 联合验收未执行，状态保持 `REQUIRES_COLD_BOOT_VALIDATION`。

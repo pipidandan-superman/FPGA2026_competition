@@ -10,12 +10,13 @@
 
 > **AMD Ryzen AI PC（上位机"大脑"）+ AMD Zynq-7000 FPGA（实时"小脑"）异构协同**
 
-## 当前进展与交付入口（2026-09-10）
+## 当前进展与交付入口（2026-09-11）
 
 - 本批归档已上传 `codex/full/pipidandan-superman`（内容提交 `ae1384a`），[草稿 PR #3](https://github.com/pipidandan-superman/FPGA2026_competition/pull/3) 等待审核；未合入 main。推送核对见 [回执](4_metrics/logs/2026-09-10_session_archive_upload_run01/upload_result.json)。
 - **EES-331 SD → Linux Shell 已启动**：原始串口见 [uart_pynq_log.txt](4_metrics/logs/2026-09-10_pynq_v301_baseline_boot_run02/uart_pynq_log.txt)。网络、Jupyter、自定义 Overlay 和完整分拣闭环仍需分别验收。
-- **SD Builder v0.2**：[Windows EXE](8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.exe) · [使用说明与源码](3_host/pynq/sd_boot_builder_v02/README.md)。强制输入含 bitstream 的 Vivado 2025.2 XSA，以 EES-331 板级模板生成 PS 设备树，按需重建 FSBL/BSP，导出启动包或完整 IMG；原版 PYNQ-Z2 入口已移除。v0.1 在 [旧版目录](8_tools/sd_start_tool/) 保留。
-- v0.2 的 22 项测试、真实构建、EXE 检查及整卡读回通过；**这些新输出尚未上板**。完整 IMG 依赖外部 Vitis 2025.2 和 7,858,807,808 字节的 EES-331 基础镜像，Git 不包含大镜像；获取本机路径和校验值见 [归档索引](4_metrics/logs/2026-09-10_session_archive_upload_run01/REPORT.md)。
+- **SD Builder v0.2.1**：[Windows EXE](8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.1.exe) · [使用说明与源码](3_host/pynq/sd_boot_builder_v02/README.md)。在 v0.2 的 XSA/FSBL/设备树/完整 IMG 流程上，新增 EES-331 摄像头 PYNQ 应用、CMA、网络和 systemd 服务的离线 rootfs 注入；旧 v0.2 EXE 保留。
+- v0.2.1 冻结 EXE 的完整镜像构建、ext4 逐文件读回和全 IMG SHA256 校验通过，结果为 `SD_PACKAGE_STATIC_PASS` 和 `PYNQ_ROOTFS_INJECTION_PASS`。最终 IMG 尚未写卡和执行物理断电冷启动，不能记为整卡板级 PASS。详见 [整合报告](4_metrics/logs/2026-09-11_sd_builder_pynq_integration_run01/REPORT.md)。
+- 写卡使用 [Win32DiskImager 安装器](8_tools/win32diskimager-1.0.0-install.exe)；零基础操作、手工部署和开发流程见 [PYNQ 教程](1_docs/PYNQ零基础开发与EES331摄像头工程实战.md)。
 - **AIPC 借用报告**：[两页 Word 报告](<1_docs/doc/AMD AIPC 借用报告 - 锐眼智行具身智能分拣.docx>)。正文和排版检查完成，队员/学校/联系方式、团队编号及机型确认仍待补充，尚未提交申请。
 - 9 月 8 日裸机 UDP 摄像头传输及 PC 端 BGR 修复结论继续有效，详见下方原始记录；不能将这些结果直接计作 Linux/PYNQ 网络验收。
 - [交接文档](HANDOFF.md) · [当日验证记录](7_logs/2026-09-10/03_validation_summary.md) · [关键证据与上传范围](4_metrics/logs/2026-09-10_session_archive_upload_run01/REPORT.md)。本轮仅归档和更新文档，冻结 `2_fpga/` 无改动。

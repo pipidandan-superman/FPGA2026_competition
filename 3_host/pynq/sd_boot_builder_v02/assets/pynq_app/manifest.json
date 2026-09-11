@@ -1,0 +1,35 @@
+{
+  "xsa_sha256": "d69fb256b66106da87514fc3821fe177bbe538c128e74485f43a4a265f092ebc",
+  "application": "ees331-camera",
+  "version": "2026-09-11",
+  "files": {
+    "camera.py": {
+      "size": 14099,
+      "sha256": "c2e8a0da0669b19b3bc8e2c656e5ad693e1a0cf8d16b0c3a9b4c68d453600bcb"
+    },
+    "ees331_camera.network": {
+      "size": 90,
+      "sha256": "1f914077ae64e7d93311fff5d4854f44013930a622b7643f119d442b93ca0516"
+    },
+    "ees331-camera.service": {
+      "size": 433,
+      "sha256": "8e0ee449bef795fe94ef2f2e988320cd611e5c6727df8aef1bcf61339ca1f0fb"
+    },
+    "inspect_board.py": {
+      "size": 1707,
+      "sha256": "956b2a3ac683e5ad99eb6c0447f55809b9009b56ee2edc5444eb644b0b82fb2b"
+    },
+    "install.sh": {
+      "size": 1648,
+      "sha256": "3a0312958028ef84684d135a017350f8783b248a84410c081f5901f928bd4d8c"
+    },
+    "run_camera.sh": {
+      "size": 171,
+      "sha256": "2a0c20cfa63c0dc481bfa0e2a4f9855fa158011d5af3e6d1dce09d1c5704eb33"
+    },
+    "uEnv.txt": {
+      "size": 177,
+      "sha256": "097c7cb88cef29c767459fe252c433d40a93fa98460430c7a4bd1a777fac6aa0"
+    }
+  }
+}

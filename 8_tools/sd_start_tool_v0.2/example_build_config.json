@@ -4,7 +4,9 @@
   "base": "E:/competition/4_metrics/logs/2026-09-10_ees331_img_package_run01/ees331_pynq_v3.0.1_ps_sd_20260910.img",
   "dtb": "",
   "mode": "manual",
-  "full_image": false,
+  "full_image": true,
+  "integrate_pynq_app": true,
+  "debugfs": "C:/cygwin64/usr/sbin/debugfs.exe",
   "rebuild_fsbl": false,
   "usb_role": "otg"
 }

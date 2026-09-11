@@ -19,3 +19,22 @@
 4. 新生成的整合 IMG 必须另行写卡并做物理断电冷启动、HDMI 和 UDP/PC 实测，才可记为整卡 PASS。
 
 禁止直接在污染的 `E:\competition` 工作区切分支或批量暂存；禁止 `git add .`、`git add -A`、reset、clean 和 force push。
+
+## Builder v0.2.1 完成后的下一入口
+
+Builder 整合、冻结 EXE 完整构建和零基础教程已完成。下一次从以下文件开始：
+
+- `1_docs/PYNQ零基础开发与EES331摄像头工程实战.md`
+- `4_metrics/logs/2026-09-11_sd_builder_pynq_integration_run01/REPORT.md`
+- `8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.1.exe`
+
+最小下一动作：
+
+1. 使用 Win32DiskImager 将 `4_metrics/logs/2026-09-11_sd_builder_v02_222654_1789ce/output/ees331_pynq_sd.img` 写入备用 SD 卡。
+2. 完全断电，SW8 保持 SD 启动，连接摄像头、HDMI、网线和串口后上电。
+3. PC 设置 `192.168.240.2/24` 并打开 UDP 上位机。
+4. 保存完整 UART、`systemctl status`、`journalctl`、PC 统计和现场双路画面结果。
+
+成功标准：无人工板端命令，60～90 秒内 service active，HDMI 与 PC 画面均随动作变化，VDMA 无运行期错误，UDP 无坏头/CRC 错误。未完成这一步前不得把 v0.2.1 IMG 标为整卡 PASS。
+
+如验证失败，保留首次失败证据并在启动链、service、Overlay/CMA、VDMA、网络的首个失败阶段停止；不要立即覆盖已验证 SD 卡或绕过 XSA 哈希门禁。

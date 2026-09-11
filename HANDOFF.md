@@ -352,3 +352,17 @@ Vitis Run 日志缺少完整下载/运行流程，调试器反汇编出现无效
 - 验证边界：软件重启自动恢复已经通过，物理断电冷启动尚未单独验收。若重刷当前基础 IMG，业务文件、CMA 参数、网络配置和 systemd 服务会丢失，需要重新部署。
 - 原 XSA、`main.c`、`BOOT.BIN`、`IMAGE.UB`、`BOOT.SCR` 未修改。完整证据见 `4_metrics/logs/2026-09-11_pynq_camera_run01/REPORT.md`。
 - 后续顺序已冻结：先将当前成果上传至 `codex/full/pipidandan-superman`；确认远端提交后，再为 SD Builder v0.2 增加完整 IMG 的 PYNQ 应用注入，并在 `1_docs` 编写零基础开发教程。
+
+## 2026-09-11 SD Builder v0.2.1 整合完成
+
+- Gate 1 已上传并核对远端提交 `927548961e5cc3d13d5de67cc613071aa5df63a5`，随后才开始 Builder 和教程工作。
+- `3_host/pynq/sd_boot_builder_v02` 已增加完整 IMG 的 PYNQ rootfs 注入，写入摄像头应用、配对 Overlay、`cma=128M@0x10000000`、固定网络和 `ees331-camera.service`。
+- 整合模式固定要求当前已板测 XSA 哈希、完整 IMG 和 `manual` PL 模式。这里由 systemd 在 Linux 启动后自动调用 Overlay，日常上电无需人工运行 Python。
+- Cygwin `debugfs/e2fsck` 1.44.5 的模块测试、逐文件读回和文件系统检查通过。MSYS2 e2fsprogs 获取失败作为历史失败保留，不是最终依赖路径。
+- 冻结 EXE 首次完整构建在 `2026-09-11_sd_builder_v02_220613_158787` 因 PyInstaller Tcl/DLL 污染 XSCT 而失败；修复 `SetDllDirectoryW(None)` 和 Tcl 环境变量清理后重打包。
+- 最终 `EES331SDBootBuilder_v0.2.1.exe` 大小 22,520,487 字节，SHA256 `c2966e6fa52bfb8786c0232221e4eb540b96b383406be1e38d581bf3a070f49a`，GUI 自检通过。
+- 最终 EXE 完整构建目录：`4_metrics/logs/2026-09-11_sd_builder_v02_222654_1789ce`；结果 `SD_PACKAGE_STATIC_PASS`，应用注入、启动文件、完整读回均 PASS。
+- 输出 IMG 大小 7,858,807,808 字节，SHA256 `8d22bcde0268678050bcc1429bee5ecadb0020e5ce3f5ba4df7045066deafcca`。完整 IMG 不上传 Git。
+- 写卡使用 `8_tools/win32diskimager-1.0.0-install.exe`。该新 IMG 尚未写卡；下一步是备用 SD 卡物理断电冷启动、UART、HDMI 和 UDP/PC 联合验收。
+- 零基础教程：`1_docs/PYNQ零基础开发与EES331摄像头工程实战.md`。
+- 整合报告：`4_metrics/logs/2026-09-11_sd_builder_pynq_integration_run01/REPORT.md`。

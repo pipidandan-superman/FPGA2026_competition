@@ -22,3 +22,15 @@
 2. 在 `1_docs` 创建面向零基础的 EES-331 PYNQ 开发流程。
 
 非目标：直接推送 main、上传完整 IMG、上传 Overlay 二进制或整包运行依赖、改写原有 RTL/BD/Vitis 基线。
+
+## Gate 2/3 完成目标
+
+Gate 1 远端提交 `927548961e5cc3d13d5de67cc613071aa5df63a5` 已核对。继续完成：
+
+1. 发布 SD Builder v0.2.1，在完整 IMG 内离线注入摄像头 PYNQ 应用。
+2. 保留 EXE 首次 FSBL/BSP 失败证据，修复 PyInstaller Tcl/DLL 环境后完成冻结 EXE 全流程验证。
+3. 将 Win32DiskImager 纳入写卡流程。
+4. 在 `1_docs` 交付 PYNQ 零基础教程。
+5. 上传源码、教程、精选证据和发布 EXE到个人分支；不上传完整 IMG。
+
+验收边界：离线构建与读回可记静态 PASS；新 IMG 未写卡，物理断电冷启动仍是下一阶段任务。

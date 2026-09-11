@@ -1,11 +1,12 @@
 {
-  "app.py": "d0a72a76107116c6d47e436f39cbc7197b39a8d696bba1d8480bcfbfdd94afff",
+  "app.py": "79d5b9c5f6314470d358eb1e343be9952324378d2c99ade9323ef5573e038951",
   "board_profile.py": "442fbeb7fc530a66095897f9bf3f5e74e7ff52cbbbcb3bb374904fb303f7c922",
-  "builder.py": "48e768a69e807c7879316c15a83ae72ab34ff7aa6d7805175927d52ae95f9fef",
+  "builder.py": "b17b773fdde62a104eea4940c24e3348979eaba364d9931cb262f2628303ab99",
   "fdt_reader.py": "7e9d0051a49088b5b1b56768a77ceb7ee11ae018781414db1955883190eafbbd",
   "hardware.py": "74b00c11f14c0083e234d0fe19504a759108c1346c37069b4a4ecf733a7d417d",
-  "images.py": "e2b8a3bb779fc79d66397b967b3854c24bc6ae45cca6a5361d9a4aadf288a838",
-  "README.md": "c4569d9a35203afd8bf3aead1d8f8dd4e193b01ede3b10454047382d758fd3d3",
+  "images.py": "765ef31ca212a87555d990acdcffcb2962faf53b1c11f4cc6c0131f4a64df9a3",
+  "rootfs.py": "14afcd5b9dcb96658ad07837cefa9322f11b166028b7d34c6f2050ba486d8f17",
+  "README.md": "dcb2cd3e81f4a63b0547f906b23c0e61f722eca42d02fce69eb5245f5f14d9b1",
   "requirements.txt": "6514b4a50405ed0bb5dca36c71981f32b026b2df8d103a0bc382c0d50d9aa459",
   "assets\\boot.scr": "7013e14923fbe461c4ecd745214fcafcb0ffaddb10865f9135cd8624637359f4",
   "assets\\fsbl.elf": "6179e79ce08e87eef750e594463f311d5a1cc570c45685d963bbdb071d2f3e86",
@@ -16,5 +17,13 @@
   "assets\\reference_xsa.json": "e6b645c92b2160b0a048312a7285e32a044c1245f6e7a8c2b1f6ec3c3fed4f60",
   "assets\\REVISION": "4890cc0639e8f20a0fd5ce4610f6cbc227a01a7589e847f7810bf68c80be6b19",
   "assets\\system.dtb": "76e29723d185ac4a50700338bfcf872113a43409bbbe8eded34fbbd723ef6434",
-  "assets\\u-boot.elf": "5dd40d505c69580f49acdc47f59a947ec2357f5e728d306a5daddd360303247b"
+  "assets\\u-boot.elf": "5dd40d505c69580f49acdc47f59a947ec2357f5e728d306a5daddd360303247b",
+  "assets\\pynq_app\\camera.py": "c2e8a0da0669b19b3bc8e2c656e5ad693e1a0cf8d16b0c3a9b4c68d453600bcb",
+  "assets\\pynq_app\\ees331_camera.network": "1f914077ae64e7d93311fff5d4854f44013930a622b7643f119d442b93ca0516",
+  "assets\\pynq_app\\ees331-camera.service": "8e0ee449bef795fe94ef2f2e988320cd611e5c6727df8aef1bcf61339ca1f0fb",
+  "assets\\pynq_app\\inspect_board.py": "956b2a3ac683e5ad99eb6c0447f55809b9009b56ee2edc5444eb644b0b82fb2b",
+  "assets\\pynq_app\\install.sh": "3a0312958028ef84684d135a017350f8783b248a84410c081f5901f928bd4d8c",
+  "assets\\pynq_app\\manifest.json": "8d437623e849ec50d509f6b3158457c59f79874e4824555be59e8496554f2f55",
+  "assets\\pynq_app\\run_camera.sh": "2a0c20cfa63c0dc481bfa0e2a4f9855fa158011d5af3e6d1dce09d1c5704eb33",
+  "assets\\pynq_app\\uEnv.txt": "097c7cb88cef29c767459fe252c433d40a93fa98460430c7a4bd1a777fac6aa0"
 }
