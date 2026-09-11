@@ -366,3 +366,4 @@ Vitis Run 日志缺少完整下载/运行流程，调试器反汇编出现无效
 - 写卡使用 `8_tools/win32diskimager-1.0.0-install.exe`。该新 IMG 尚未写卡；下一步是备用 SD 卡物理断电冷启动、UART、HDMI 和 UDP/PC 联合验收。
 - 零基础教程：`1_docs/PYNQ零基础开发与EES331摄像头工程实战.md`。
 - 整合报告：`4_metrics/logs/2026-09-11_sd_builder_pynq_integration_run01/REPORT.md`。
+- Git 功能提交 `87ce6f3` 已与最新 main 合并，第一轮远端核对提交为 `6f76d67dfa597cb56281a9242256f889d1e3205c`；上传回执见同一整合证据目录的 `upload_result.json`。

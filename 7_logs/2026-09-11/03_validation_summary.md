@@ -52,3 +52,11 @@ SD FAT 文件名显示为 OVERLAY.BIT/HWH；已复制到应用目录统一为小
 - 教程已创建：`1_docs/PYNQ零基础开发与EES331摄像头工程实战.md`。
 
 验证边界：最终 IMG 尚未写入 SD 卡，物理断电冷启动、UART、HDMI 和 UDP/PC 联合验收未执行，状态保持 `REQUIRES_COLD_BOOT_VALIDATION`。
+
+## Git 交付
+
+- 功能提交：`87ce6f3`（Builder v0.2.1、应用资源、教程、发布 EXE 和精选证据）。
+- 与最新 `origin/main` 合并提交：`6f76d67dfa597cb56281a9242256f889d1e3205c`，无冲突。
+- 第一轮远端核对：个人分支远端 HEAD 与 `6f76d67dfa597cb56281a9242256f889d1e3205c` 一致。
+- 上传回执：`../../4_metrics/logs/2026-09-11_sd_builder_pynq_integration_run01/upload_result.json`。
+- 完整 IMG、Cygwin/MSYS2 安装包、依赖目录和全量运行目录未上传。
