@@ -20,7 +20,7 @@ MODE_HELP={'manual':'Linux 启动后由你或应用加载 overlay.bit；适合�
 class Application:
     def __init__(self,root):
         self.root=root; self.events=queue.Queue(); self.busy=False; self.output=None
-        root.title('EES-331 SD Builder v0.2.1 · XSA 与 PYNQ 应用整合')
+        root.title('EES-331 SD Builder v0.2.2 · 自定义输出目录')
         root.geometry('960x850'); root.minsize(850,650)
         style=ttk.Style(root)
         if 'vista' in style.theme_names(): style.theme_use('vista')
@@ -41,7 +41,7 @@ class Application:
             if isinstance(event.widget,tk.Text): return
             viewport.yview_scroll(-int(event.delta/120),'units')
         root.bind_all('<MouseWheel>',wheel)
-        ttk.Label(outer,text='EES-331 SD Builder  v0.2.1',style='Title.TLabel').pack(anchor='w')
+        ttk.Label(outer,text='EES-331 SD Builder  v0.2.2',style='Title.TLabel').pack(anchor='w')
         ttk.Label(outer,text='导入含位流的 XSA → 自动适配板载 PS 外设 → 导出启动包。',style='Muted.TLabel').pack(anchor='w',pady=(5,15))
         ttk.Label(outer,text='板级配置：EES-331 / Zynq-7020 · Vivado/Vitis 2025.2 · PYNQ 3.0.1').pack(anchor='w',pady=(0,12))
         inputs=ttk.LabelFrame(outer,text='1  选择硬件输入',padding=12); inputs.pack(fill='x')
@@ -67,6 +67,9 @@ class Application:
         integrate.grid(row=3,column=0,columnspan=3,sticky='w',pady=(7,0)); self.controls.append(integrate)
         ttk.Label(options,text='应用整合仅适用于完整 IMG 和手动 PL 模式；systemd 服务负责加载 Overlay。',style='Muted.TLabel').grid(row=4,column=0,columnspan=3,sticky='w',pady=(5,0))
         ttk.Label(options,text='始终输出启动 ZIP、文件清单和校验记录。工具只生成文件，不写 SD 卡。',style='Muted.TLabel').grid(row=5,column=0,columnspan=3,sticky='w',pady=(8,0))
+        self.output_dir=tk.StringVar()
+        self.file_row(options,'部署包输出目录',self.output_dir,None,6,directory=True)
+        ttk.Label(options,text='留空使用默认位置；指定目录下每次新建独立文件夹，保存 ZIP、IMG 和校验清单。',style='Muted.TLabel').grid(row=7,column=0,columnspan=3,sticky='w',pady=(5,0))
         system=ttk.LabelFrame(outer,text='3  EES-331 基础系统与自动设备树',padding=12); system.pack(fill='x',pady=(12,0))
         self.base_status=tk.StringVar()
         def update_base(*args):
@@ -168,7 +171,7 @@ class Application:
         settings=dict(xsa=self.xsa.get(),vitis=self.vitis.get(),base=self.base.get(),dtb=self.dtb.get(),
                       mode=MODES[self.mode.get()],full_image=self.full.get(),rebuild_fsbl=self.force.get(),
                       log=lambda line:self.events.put(('line',line)),usb_role=self.usb.get(),
-                      integrate_pynq=self.integrate.get(),debugfs=self.ext4.get())
+                      integrate_pynq=self.integrate.get(),debugfs=self.ext4.get(),output_dir=self.output_dir.get())
         def operation():
             result=Builder(**settings).execute()
             return {'kind':'build','output':result['output']}

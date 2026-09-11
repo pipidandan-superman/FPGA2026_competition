@@ -1,0 +1,10 @@
+test_custom_unicode_space_and_repeated_builds (__main__.OutputTests.test_custom_unicode_space_and_repeated_builds) ... ok
+test_default_keeps_original_location (__main__.OutputTests.test_default_keeps_original_location) ... ok
+test_file_as_parent_rejected (__main__.OutputTests.test_file_as_parent_rejected) ... ok
+test_frozen_project_rejected (__main__.OutputTests.test_frozen_project_rejected) ... ok
+test_readback_failure_not_published (__main__.OutputTests.test_readback_failure_not_published) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.026s
+
+OK

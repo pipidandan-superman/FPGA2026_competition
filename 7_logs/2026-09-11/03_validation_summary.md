@@ -60,3 +60,7 @@ SD FAT 文件名显示为 OVERLAY.BIT/HWH；已复制到应用目录统一为小
 - 第一轮远端核对：个人分支远端 HEAD 与 `6f76d67dfa597cb56281a9242256f889d1e3205c` 一致。
 - 上传回执：`../../4_metrics/logs/2026-09-11_sd_builder_pynq_integration_run01/upload_result.json`。
 - 完整 IMG、Cygwin/MSYS2 安装包、依赖目录和全量运行目录未上传。
+
+## v0.2.2 自定义输出验证
+
+[报告](../../4_metrics/logs/2026-09-11_sd_builder_output_dir_run01/REPORT.md)。5 项针对性测试通过；EXE 自检、实际 FSBL/BSP/完整 IMG/PYNQ 注入构建通过；中文空格目标目录复制并逐文件 SHA256 读回为 CUSTOM_OUTPUT_READBACK_PASS。证据：`4_metrics/logs/2026-09-11_sd_builder_v02_224206_ba86f2`。新 IMG 尚未写卡板测。EXE 大小 22520633 字节，SHA256 `9402787351f333a6ba5c46b65970359c5485a8072465e3a310aaf0eb0049eb6a`；从本轮源码由 PyInstaller 打包，上传原因是交付可直接运行的 Windows GUI，完整来源和证据见报告。

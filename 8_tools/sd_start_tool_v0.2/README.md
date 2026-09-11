@@ -113,3 +113,9 @@ v0.2.1 发布文件：
 构建成功后，使用 `E:/competition/8_tools/win32diskimager-1.0.0-install.exe` 安装 Win32DiskImager。以管理员身份打开，选择 Builder 输出的 `ees331_pynq_sd.img`，再次按容量和盘符确认目标 SD 卡，然后点击 **Write**。写入会覆盖整张目标卡。写完安全弹出，将 SW8 设为 SD 启动，连接 OV5640、HDMI 和网线后再上电。
 
 PC 有线网卡设为 `192.168.240.2/24`，打开 `E:/competition/3_host/udp_video/dist/EES331_UDP_Viewer.exe`，等待约 60 至 90 秒。HDMI 和 PC 都出现随镜头动作变化的画面后，才能记录冷启动板级 PASS。当前 v0.2.1 IMG 已完成离线读回校验，尚未写卡执行这项冷启动验收。
+
+## v0.2.2 输出路径选择
+
+推荐使用本目录的 `EES331SDBootBuilder_v0.2.2.exe`。在“2 选择导出方式”中设置“部署包输出目录”，支持浏览选择或手动输入。留空保持默认；指定路径后自动创建本次独立子目录，完成后点“打开输出目录”。ZIP、完整 IMG（如勾选）和校验清单会复制并校验到所选位置，不覆盖旧包。原构建及临时文件仍在 `E:/competition/4_metrics/logs`，不会因为选择其他盘而转移。
+
+JSON 配置支持 `output_dir`；命令行源码支持 `--output-dir`。v0.2、v0.2.1 保留。新版本仅通过构建与文件验证，不代表新镜像已完成上板冷启动验收。

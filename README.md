@@ -178,3 +178,7 @@ competition/
 PC 有线网卡设置为 `192.168.240.2/24`，然后运行 `3_host/udp_video/dist/EES331_UDP_Viewer.exe`。开发板业务地址为 `192.168.240.10/24`。当前结果为 `PYNQ_CAMERA_HDMI_UDP_PASS` 和 `SD_REBOOT_AUTOSTART_PASS`；用户已确认 HDMI 与 PC 均显示随动作变化的实时画面。软件重启自动恢复已经验证，物理断电冷启动尚未单独验收。
 
 源码与部署说明见 `2_fpga/0_diaplay_test/pynq/README.md`，原始证据见 `4_metrics/logs/2026-09-11_pynq_camera_run01/REPORT.md`。当前完整 IMG 尚未整合这些 rootfs 业务文件，重刷基础 IMG 后需要重新安装；SD Builder 的完整 IMG 应用注入是下一阶段工作。
+
+## SD Builder v0.2.2：指定部署包输出目录
+
+[新版 EXE](8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.2.exe) 增加“部署包输出目录”输入和浏览选择。留空沿用默认位置；指定后生成独立子目录，复制 ZIP、可选 IMG 和校验清单并逐文件读回验证。完整构建与输出验证已通过，[证据报告](4_metrics/logs/2026-09-11_sd_builder_output_dir_run01/REPORT.md)。

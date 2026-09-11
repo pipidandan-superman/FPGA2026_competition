@@ -109,3 +109,11 @@ board_profile.py 管理板级规则，hardware.py 解析 XSA，builder.py 编排
 生成 IMG 后使用 `E:/competition/8_tools/win32diskimager-1.0.0-install.exe` 安装 Win32DiskImager 并写卡。写卡会覆盖目标设备，必须按容量和盘符再次确认 SD 卡，不能选择系统盘。
 
 基线资源来自同项目的 SD 修复记录及 PYNQ 3.0.1。U-Boot 沿用原有二进制载荷，FSBL 可按当前 XSA 重编；资源原许可证不因工具封装而改变，应用不包含 Vitis 安装介质。
+
+## v0.2.2：自定义部署包输出目录
+
+打开 `E:/competition/8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.2.exe`，在“2 选择导出方式”中填写“部署包输出目录”或点击“选择…”。目录留空时沿用默认输出位置；指定目录时，每次在其下新建带时间和唯一编号的文件夹，保存 ZIP、可选 IMG、清单和校验文件。完成后“打开输出目录”直接进入该文件夹。支持中文、空格和不同磁盘；路径不能是已有文件或冻结的 `2_fpga` 目录。
+
+构建和临时文件仍保留于 `E:/competition/4_metrics/logs/`。自定义目录接收验证后的副本，因此构建盘仍需原来的可用空间，目标盘另外需要容纳部署包。复制后逐文件做 SHA256 读回，全部通过才发布；失败的 `.pending-*` 目录不是可用部署包。已有包不会覆盖。
+
+命令行增加 `--output-dir "D:/SD 部署包"`。EXE 的 `--build-config` JSON 增加 `"output_dir": "D:/SD 部署包"`（摄像头整合参数键为 `integrate_pynq`）。旧配置不填写该键仍可使用。新版本保留 v0.2.1 的硬件与 IMG 验收边界。

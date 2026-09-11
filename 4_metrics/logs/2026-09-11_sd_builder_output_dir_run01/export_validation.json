@@ -1,0 +1,46 @@
+{
+  "result": "CUSTOM_OUTPUT_READBACK_PASS",
+  "output": "E:\\competition\\4_metrics\\logs\\2026-09-11_sd_builder_output_dir_run01\\自定义 部署包\\2026-09-11_sd_builder_v02_224206_ba86f2",
+  "files": {
+    "ees331_pynq_sd.img": {
+      "size": 7858807808,
+      "sha256": "2ec71582c5cb066a9f6ae2b0735172c7414988e7cff98096ec00f0265921ab90"
+    },
+    "ees331_pynq_sd.img.sha256": {
+      "size": 86,
+      "sha256": "9a11890256716bbacbb0e387f81ef54e197c7759c514b0b490b128f0ea979514"
+    },
+    "image_block_checks.json": {
+      "size": 233666,
+      "sha256": "99fac32073b19aae167ffaef72074166bb0175f6f46ce35c302a2492cf9bd292"
+    },
+    "image_validation.json": {
+      "size": 362,
+      "sha256": "e94a6805e5d44c950a29185c605a357d96b0aa72cd7873fb7b2fe58156b24eca"
+    },
+    "manifest.json": {
+      "size": 12920,
+      "sha256": "94c37a5b63774b4c3a810581bd9473dd850006c44416ee3f61f6c2061e48d72d"
+    },
+    "pynq_application_manifest.json": {
+      "size": 1604,
+      "sha256": "f2e8f7261fa4ae908ec97a9c9159cac594a6a99bf7cb9d7a2fa2e58c4a38c69d"
+    },
+    "README.txt": {
+      "size": 305,
+      "sha256": "afef784301792a741858b14324f3a16a7e86f8ab9f48575007330af823018689"
+    },
+    "result.json": {
+      "size": 13314,
+      "sha256": "8f315c20eaaf6b2255d62bb81db4583bdbe721c12d9d50d2b3139bd9cd4d1d1c"
+    },
+    "rootfs_application_validation.json": {
+      "size": 3287,
+      "sha256": "130386db58f9e2c12d3b417c68f30c8ada68b0f897f3806dbc3457af377e70c4"
+    },
+    "sd_boot_package.zip": {
+      "size": 7189521,
+      "sha256": "f1df671715046d31e665a43780c3675df0e780b000f989fb814a7737b624c537"
+    }
+  }
+}
