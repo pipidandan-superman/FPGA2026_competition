@@ -56,3 +56,7 @@ venv/
 # Raw terminal logs explicitly whitelisted for the UDP color-swap fix evidence run
 !4_metrics/logs/2026-09-08_udp_color_swap_fix_run01/verify_console.log
 !4_metrics/logs/2026-09-08_udp_color_swap_fix_run01/pyinstaller_rebuild.log
+
+# ---- 例外: 正式交付的模型权重允许入库 ----
+!3_host/model/*.pt
+!3_host/model/*.onnx
