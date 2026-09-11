@@ -371,3 +371,11 @@ Vitis Run 日志缺少完整下载/运行流程，调试器反汇编出现无效
 ## 2026-09-11 SD Builder v0.2.2
 
 增加自定义部署包输出目录（GUI、CLI --output-dir、JSON output_dir）。独立子目录避免覆盖，逐文件 SHA256 验证后发布；留空兼容旧版。5 项测试、冻结 EXE 自检和真实完整 IMG/自定义复制读回通过。发布入口 `8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.2.exe`；报告 `4_metrics/logs/2026-09-11_sd_builder_output_dir_run01/REPORT.md`。新 IMG 未写卡冷启动。保留 v0.2.1。
+
+## 2026-09-11 集成 IMG 板测与归档入口
+
+- 用户实际写卡并验证成功的镜像来自 `4_metrics/logs/2026-09-11_sd_builder_v02_222654_1789ce/output/ees331_pynq_sd.img`，不是后续仅完成离线构建的 224206 镜像。
+- 本机正式归档副本为 `9_pynq/sd/02_integrated_camera_hdmi_udp/ees331_pynq_sd_20260911_222654.img`，大小 7,858,807,808 字节，SHA256 `8d22bcde0268678050bcc1429bee5ecadb0020e5ce3f5ba4df7045066deafcca`。
+- 板测结果：SD 启动正常，OV5640 配置完成 LED 点亮，HDMI 和 PC UDP 上位机都显示随动作变化的实时画面。最初 PC 零帧是网线未连接，插好网线后恢复正常。
+- 原始 PYNQ 基础镜像、当前集成镜像和配套启动分区分别归档于 `9_pynq/sd/01_base_pynq`、`02_integrated_camera_hdmi_udp`、`03_boot_partition`；清单见 `9_pynq/sd/manifests/images.json`。
+- 后续写卡、复现和排障从 `9_pynq/sd/README.md` 开始；不要把 224206 镜像描述为已板测版本。

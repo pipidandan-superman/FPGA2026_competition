@@ -12,7 +12,9 @@
 - 工程根：`E:/competition/2_fpga/0_diaplay_test`
 - PYNQ 控制层：`E:/competition/2_fpga/0_diaplay_test/pynq`
 - Builder 源码：`E:/competition/3_host/pynq/sd_boot_builder_v02`
-- Builder EXE：`E:/competition/8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.1.exe`
+- Builder EXE：`E:/competition/8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.2.exe`
+- 已验证成功整合镜像：`E:/competition/9_pynq/sd/02_integrated_camera_hdmi_udp/ees331_pynq_sd_20260911_222654.img`
+- 镜像 SHA256：`8d22bcde0268678050bcc1429bee5ecadb0020e5ce3f5ba4df7045066deafcca`
 - PC 上位机：`E:/competition/3_host/udp_video/dist/EES331_UDP_Viewer.exe`
 - XSA SHA256：`d69fb256b66106da87514fc3821fe177bbe538c128e74485f43a4a265f092ebc`
 
@@ -163,7 +165,7 @@ ip addr
 
 如果上传目录形成了多一层 `pynq`，应先整理到固定路径 `/home/xilinx/ees331_camera`，否则 service 的 `ExecStart` 找不到脚本。
 
-## 6. 用 Builder v0.2.1 生成已整合 IMG
+## 6. 用 Builder v0.2.2 生成已整合 IMG
 
 这种方式把应用直接写入 IMG，首次启动即可自动运行。
 
@@ -196,7 +198,7 @@ Get-FileHash -Algorithm SHA256 E:/competition/2_fpga/0_diaplay_test/display_test
 
 ### 6.3 Builder 操作
 
-1. 打开 `EES331SDBootBuilder_v0.2.1.exe`。
+1. 打开 `EES331SDBootBuilder_v0.2.2.exe`。
 2. 选择含 bitstream 的 XSA。
 3. 点击“检查 XSA / 配置差异”。
 4. PL 加载方式选择“手动加载”。
@@ -218,12 +220,18 @@ Get-FileHash -Algorithm SHA256 E:/competition/2_fpga/0_diaplay_test/display_test
 
 `E:/competition/8_tools/win32diskimager-1.0.0-install.exe`
 
+当前复现请直接选择已归档并完成板测的完整镜像：
+
+`E:/competition/9_pynq/sd/02_integrated_camera_hdmi_udp/ees331_pynq_sd_20260911_222654.img`
+
+不要用 `03_boot_partition` 中的分区镜像代替完整 IMG。原始基础镜像位于 `9_pynq/sd/01_base_pynq`，仅用于回退和手工重新部署。
+
 详细步骤：
 
 1. 备份 SD 卡需要保留的文件。
 2. 安装并以管理员身份启动 Win32DiskImager。
 3. 插入 SD 卡，打开 Windows 磁盘管理，记录 SD 卡容量和盘符。
-4. 在 Image File 选择 Builder 输出的 `ees331_pynq_sd.img`。
+4. 在 Image File 选择上述已验证的完整 `ees331_pynq_sd_20260911_222654.img`。
 5. 在 Device 选择 SD 卡对应盘符。再次按容量核对，禁止选择系统盘或数据盘。
 6. 点击 **Write**，确认覆盖。
 7. 等待写入完成。不要在过程中拔卡、休眠或关机。

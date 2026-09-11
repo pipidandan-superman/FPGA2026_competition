@@ -30,12 +30,12 @@ Builder 整合、冻结 EXE 完整构建和零基础教程已完成。下一次�
 
 最小下一动作：
 
-1. 使用 Win32DiskImager 将 `4_metrics/logs/2026-09-11_sd_builder_v02_222654_1789ce/output/ees331_pynq_sd.img` 写入备用 SD 卡。
+1. 使用 Win32DiskImager 将 `9_pynq/sd/02_integrated_camera_hdmi_udp/ees331_pynq_sd_20260911_222654.img` 写入备用 SD 卡，并核对 SHA256 `8d22bcde0268678050bcc1429bee5ecadb0020e5ce3f5ba4df7045066deafcca`。
 2. 完全断电，SW8 保持 SD 启动，连接摄像头、HDMI、网线和串口后上电。
 3. PC 设置 `192.168.240.2/24` 并打开 UDP 上位机。
 4. 保存完整 UART、`systemctl status`、`journalctl`、PC 统计和现场双路画面结果。
 
-成功标准：无人工板端命令，60～90 秒内 service active，HDMI 与 PC 画面均随动作变化，VDMA 无运行期错误，UDP 无坏头/CRC 错误。未完成这一步前不得把 v0.2.1 IMG 标为整卡 PASS。
+该 222654 镜像已由用户在 2026-09-11 实际写卡验证成功：无需人工板端命令，OV5640 配置 LED 点亮，HDMI 与 PC 画面均随动作变化。此前 PC 零帧由网线未连接导致。下一轮复现仍按相同标准重新保存 UART、服务、HDMI 和 UDP 证据。
 
 如验证失败，保留首次失败证据并在启动链、service、Overlay/CMA、VDMA、网络的首个失败阶段停止；不要立即覆盖已验证 SD 卡或绕过 XSA 哈希门禁。
 

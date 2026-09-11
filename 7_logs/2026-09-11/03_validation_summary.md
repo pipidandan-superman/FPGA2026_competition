@@ -64,3 +64,12 @@ SD FAT 文件名显示为 OVERLAY.BIT/HWH；已复制到应用目录统一为小
 ## v0.2.2 自定义输出验证
 
 [报告](../../4_metrics/logs/2026-09-11_sd_builder_output_dir_run01/REPORT.md)。5 项针对性测试通过；EXE 自检、实际 FSBL/BSP/完整 IMG/PYNQ 注入构建通过；中文空格目标目录复制并逐文件 SHA256 读回为 CUSTOM_OUTPUT_READBACK_PASS。证据：`4_metrics/logs/2026-09-11_sd_builder_v02_224206_ba86f2`。新 IMG 尚未写卡板测。EXE 大小 22520633 字节，SHA256 `9402787351f333a6ba5c46b65970359c5485a8072465e3a310aaf0eb0049eb6a`；从本轮源码由 PyInstaller 打包，上传原因是交付可直接运行的 Windows GUI，完整来源和证据见报告。
+
+## 集成 IMG 板测与归档（2026-09-11）
+
+- 实际写卡并完成板测的是 `2026-09-11_sd_builder_v02_222654_1789ce/output/ees331_pynq_sd.img`。
+- 归档副本：`9_pynq/sd/02_integrated_camera_hdmi_udp/ees331_pynq_sd_20260911_222654.img`。
+- 大小：7,858,807,808 字节；SHA256：`8d22bcde0268678050bcc1429bee5ecadb0020e5ce3f5ba4df7045066deafcca`。
+- 用户确认 SD 启动后 OV5640 配置 LED 点亮，HDMI 与 PC 上位机均显示随动作变化的摄像头画面。最初 PC 接收 0 帧是网线未连接，连接后正常。
+- 结论：该 222654 镜像为当前板级成功基线；224206 镜像只有离线构建/复制读回证据，不替代此板测结论。
+- 本次归档和清理证据：`4_metrics/logs/2026-09-11_pynq_archive_cleanup_run01`。

@@ -15,7 +15,7 @@
 - 本批归档已上传 `codex/full/pipidandan-superman`（内容提交 `ae1384a`），[草稿 PR #3](https://github.com/pipidandan-superman/FPGA2026_competition/pull/3) 等待审核；未合入 main。推送核对见 [回执](4_metrics/logs/2026-09-10_session_archive_upload_run01/upload_result.json)。
 - **EES-331 SD → Linux Shell 已启动**：原始串口见 [uart_pynq_log.txt](4_metrics/logs/2026-09-10_pynq_v301_baseline_boot_run02/uart_pynq_log.txt)。网络、Jupyter、自定义 Overlay 和完整分拣闭环仍需分别验收。
 - **SD Builder v0.2.1**：[Windows EXE](8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.1.exe) · [使用说明与源码](3_host/pynq/sd_boot_builder_v02/README.md)。在 v0.2 的 XSA/FSBL/设备树/完整 IMG 流程上，新增 EES-331 摄像头 PYNQ 应用、CMA、网络和 systemd 服务的离线 rootfs 注入；旧 v0.2 EXE 保留。
-- v0.2.1 冻结 EXE 的完整镜像构建、ext4 逐文件读回和全 IMG SHA256 校验通过，结果为 `SD_PACKAGE_STATIC_PASS` 和 `PYNQ_ROOTFS_INJECTION_PASS`。最终 IMG 尚未写卡和执行物理断电冷启动，不能记为整卡板级 PASS。详见 [整合报告](4_metrics/logs/2026-09-11_sd_builder_pynq_integration_run01/REPORT.md)。
+- **已验证写卡镜像**：本机统一入口为 `9_pynq/sd/02_integrated_camera_hdmi_udp/ees331_pynq_sd_20260911_222654.img`，SHA-256 `8d22bcde0268678050bcc1429bee5ecadb0020e5ce3f5ba4df7045066deafcca`。该镜像已于 2026-09-11 完成 SD 启动、OV5640 配置、HDMI 动态画面和 PC UDP 动态画面验证。
 - 写卡使用 [Win32DiskImager 安装器](8_tools/win32diskimager-1.0.0-install.exe)；零基础操作、手工部署和开发流程见 [PYNQ 教程](1_docs/PYNQ零基础开发与EES331摄像头工程实战.md)。
 - **AIPC 借用报告**：[两页 Word 报告](<1_docs/doc/AMD AIPC 借用报告 - 锐眼智行具身智能分拣.docx>)。正文和排版检查完成，队员/学校/联系方式、团队编号及机型确认仍待补充，尚未提交申请。
 - 9 月 8 日裸机 UDP 摄像头传输及 PC 端 BGR 修复结论继续有效，详见下方原始记录；不能将这些结果直接计作 Linux/PYNQ 网络验收。
@@ -143,7 +143,9 @@ competition/
 ├─ 4_metrics/   # metrics.csv、原始日志、测试脚本、截图/波形证据
 ├─ 5_report/    # 设计报告、复现说明、归档清单
 ├─ 6_skill/     # 可复用 Skill 与工具说明
-└─ 7_logs/      # 内部工程日志（不替代 4_metrics/ 下的提交证据）
+├─ 7_logs/      # 内部工程日志（不替代 4_metrics/ 下的提交证据）
+├─ 8_tools/     # Builder、Win32DiskImager 等本机工具
+└─ 9_pynq/sd/   # 面向写卡的基础/集成镜像归档和哈希清单
 ```
 
 ## 当前状态
@@ -173,11 +175,11 @@ competition/
 
 ## SD/PYNQ 摄像头运行入口（2026-09-11）
 
-当前已部署且未重刷的 SD 卡可在 SW8 保持 SD 启动时自动运行摄像头业务。连接 OV5640、HDMI 和网线后上电，等待约 60 至 90 秒；`ees331-camera.service` 会自动加载 PL、配置 VDMA、输出 HDMI，并向 `192.168.240.2:5000` 发送 UDP 视频，无需启动 Vitis、JTAG 下载、Jupyter 或手动 Python。
+使用 `9_pynq/sd/02_integrated_camera_hdmi_udp/ees331_pynq_sd_20260911_222654.img` 写卡后，SW8 保持 SD 启动即可自动运行摄像头业务。连接 OV5640、HDMI 和网线后上电，等待约 60 至 90 秒；`ees331-camera.service` 会自动加载 PL、配置 VDMA、输出 HDMI，并向 `192.168.240.2:5000` 发送 UDP 视频，无需启动 Vitis、JTAG 下载、Jupyter 或手动 Python。
 
-PC 有线网卡设置为 `192.168.240.2/24`，然后运行 `3_host/udp_video/dist/EES331_UDP_Viewer.exe`。开发板业务地址为 `192.168.240.10/24`。当前结果为 `PYNQ_CAMERA_HDMI_UDP_PASS` 和 `SD_REBOOT_AUTOSTART_PASS`；用户已确认 HDMI 与 PC 均显示随动作变化的实时画面。软件重启自动恢复已经验证，物理断电冷启动尚未单独验收。
+PC 有线网卡设置为 `192.168.240.2/24`，然后运行 `3_host/udp_video/dist/EES331_UDP_Viewer.exe`。开发板业务地址为 `192.168.240.10/24`。当前结果为 `PYNQ_CAMERA_HDMI_UDP_PASS`、`SD_REBOOT_AUTOSTART_PASS` 和集成 IMG 板级复现 PASS；用户已确认 HDMI 与 PC 均显示随动作变化的实时画面。此前 PC 零帧现象由网线未连接导致，不是镜像或相机服务故障。
 
-源码与部署说明见 `2_fpga/0_diaplay_test/pynq/README.md`，原始证据见 `4_metrics/logs/2026-09-11_pynq_camera_run01/REPORT.md`。当前完整 IMG 尚未整合这些 rootfs 业务文件，重刷基础 IMG 后需要重新安装；SD Builder 的完整 IMG 应用注入是下一阶段工作。
+源码与部署说明见 `2_fpga/0_diaplay_test/pynq/README.md`，镜像入口和写卡说明见 `9_pynq/sd/README.md`，原始证据见 `4_metrics/logs/2026-09-11_pynq_camera_run01/REPORT.md`。若改刷 `9_pynq/sd/01_base_pynq` 中的基础 IMG，则仍需手工安装业务文件、CMA、网络和 systemd 服务。
 
 ## SD Builder v0.2.2：指定部署包输出目录
 
