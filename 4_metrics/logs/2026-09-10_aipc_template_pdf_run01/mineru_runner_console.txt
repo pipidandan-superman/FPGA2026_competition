@@ -1,0 +1,8 @@
+﻿
+[2026-09-10 18:18:51] workspace=E:\competition
+[2026-09-10 18:18:51] output=E:\competition\4_metrics\logs\2026-09-10_aipc_template_pdf_run01
+[2026-09-10 18:18:51] backend=pipeline model_source=local api=http://127.0.0.1:58120
+[2026-09-10 18:18:54] MinerU API healthy.
+[2026-09-10 18:18:54] START file=E:\competition\4_metrics\logs\2026-09-10_aipc_loan_report_run01\template_render\AMD AIPC 借用报告 - 模板.pdf sha256=3C8598A76C21692B8223D97C16CB7E0C5F094E979AA0D880A77B35D129842BD9
+[2026-09-10 18:19:11] END file=AMD AIPC 借用报告 - 模板.pdf code=0 markdown=True content_json=True images=2 fallback=False seconds=16.1
+[2026-09-10 18:19:11] RESULT MINERU_PARSE_PASS file_count=1

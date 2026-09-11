@@ -1,0 +1,20 @@
+{
+  "result": "PASTED_UART_LINUX_SHELL_PASS",
+  "source": "C:\\Users\\Administrator\\.codex\\attachments\\fa818ad2-5dcc-46b7-b45f-9ca1f6f56f3c\\pasted-text.txt",
+  "sha256": "a551248cf6b6563cdac41cf2423df41e06fee82c32a5007ece8f722b2f9c8c08",
+  "markers": [
+    "Verifying Hash Integrity ... sha1+ OK",
+    "Machine model: EES-331",
+    "earlycon: cdns0 at MMIO 0xe0001000",
+    "Memory: 892888K/1048576K available",
+    "xilinx@pynq:~$"
+  ],
+  "fit_payload_hashes_match_packaged_version": true,
+  "missing_prefix": "This excerpt begins at FIT loading; earlier FSBL/U-Boot banner is in uart_boot_evidence.txt",
+  "followups": [
+    "Ethernet random MAC; connectivity not demonstrated",
+    "Jupyter only Starting line; service readiness not demonstrated",
+    "zocl IRQ index 0 absent; PL/XRT operation not demonstrated",
+    "regulatory.db and autofs4 warnings; Linux shell still reached"
+  ]
+}

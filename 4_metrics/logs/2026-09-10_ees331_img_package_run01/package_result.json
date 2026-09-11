@@ -1,0 +1,22 @@
+{
+  "result": "FULL_IMG_PACKAGE_READBACK_PASS",
+  "image": "E:\\competition\\4_metrics\\logs\\2026-09-10_ees331_img_package_run01\\ees331_pynq_v3.0.1_ps_sd_20260910.img",
+  "size": 7858807808,
+  "sha256": "203e9f79679c6c77a738c30d06e3232f0907eb2e5b6cafe97e26e8889057835a",
+  "source_image_sha256": "f17405d25298a2c5ea23ccf95f868b42b18f819ff9d7fe5d079ac9ef53415861",
+  "boot_files_match_deployed": true,
+  "all_bytes_outside_boot_partition_unchanged": true,
+  "rootfs_unchanged": true,
+  "full_image_readback_verified": true,
+  "board_evidence": {
+    "source": "E:\\competition\\4_metrics\\logs\\2026-09-10_pynq_v301_baseline_boot_run02\\uart_pynq_log.txt",
+    "sha256": "6122200aecca6987ec22b638893e1d34b72ffb07543dc85f15cfc38fd92be98b",
+    "result": "SD_BOOT_TO_LINUX_SHELL_PASS",
+    "new_img_reflash_test": "NOT_RUN"
+  },
+  "known_limits": [
+    "Not a snapshot of the card after first boot",
+    "U-Boot PHY and environment warnings remain in the accepted UART baseline",
+    "Networking, Jupyter and application overlays not accepted by this packaging step"
+  ]
+}

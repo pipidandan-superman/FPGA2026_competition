@@ -1,2 +1,12 @@
 # Preserve the 2026-09-07 frozen camera/HDMI evidence byte-for-byte.
 4_metrics/logs/2026-09-07_camera_display_success_freeze_run01/** -text
+
+# Hash-verified SD builder releases and selected evidence keep original bytes.
+3_host/pynq/sd_boot_builder/** -text
+3_host/pynq/sd_boot_builder_v02/** -text
+8_tools/sd_start_tool/** -text
+8_tools/sd_start_tool_v0.2/** -text
+4_metrics/logs/2026-09-10_*/* -text
+4_metrics/logs/2026-09-10_*/** -text
+4_metrics/logs/2026-09-09_amd_sait_pynq_mineru_run01/** -text
+4_metrics/logs/2026-09-08_eth_zynq_psw_check_mineru_run01/** -text

@@ -1,0 +1,27 @@
+﻿[
+    {
+        "Name":  "BOOT.BIN",
+        "Length":  91856,
+        "SHA256":  "EB88AA570030FA9D98F5B962C954DED787F0CCB85330326D029730654E466667"
+    },
+    {
+        "Name":  "boot.py",
+        "Length":  991,
+        "SHA256":  "B2653EF809C3271231C78772342C2BE728D39686A877D3C6FE8CDABFD4AC1D42"
+    },
+    {
+        "Name":  "boot.scr",
+        "Length":  2776,
+        "SHA256":  "7013E14923FBE461C4ECD745214FCAFCB0FFADDB10865F9135CD8624637359F4"
+    },
+    {
+        "Name":  "image.ub",
+        "Length":  6464328,
+        "SHA256":  "1CBBD556D8416CB8E5AE3025A6DF2FD11B226707DC4A1491CC6382DFBEE2AB1F"
+    },
+    {
+        "Name":  "REVISION",
+        "Length":  83,
+        "SHA256":  "4890CC0639E8F20A0FD5CE4610F6CBC227A01A7589E847F7810BF68C80BE6B19"
+    }
+]

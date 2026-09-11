@@ -1,0 +1,1 @@
+["F:\\vivado2025\\2025.2\\Vitis\\gnu\\aarch32\\nt\\gcc-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe", "-mcpu=cortex-a9", "-mfpu=vfpv3", "-mfloat-abi=hard", "-DFSBL_DEBUG_INFO", "-O2", "-g3", "-Iinclude", "-I.", "-c", "fsbl_handoff.S", "-o", "fsbl_handoff.o"]

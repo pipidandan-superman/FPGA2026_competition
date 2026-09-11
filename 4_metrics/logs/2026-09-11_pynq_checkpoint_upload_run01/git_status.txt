@@ -1,0 +1,209 @@
+## main...origin/main [behind 27]
+ M .codex/skills/project-workspace-policy/SKILL.md
+ M .gitattributes
+ M .gitignore
+ M 2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.srcs/sources_1/bd/display_test/display_test.bd
+ M 2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.srcs/sources_1/bd/display_test/ip/display_test_axi_mem_intercon_imp_auto_pc_0/display_test_axi_mem_intercon_imp_auto_pc_0.xci
+ M 2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.srcs/sources_1/bd/display_test/ip/display_test_axi_mem_intercon_imp_auto_pc_1/display_test_axi_mem_intercon_imp_auto_pc_1.xci
+ M 2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.srcs/sources_1/bd/display_test/ip/display_test_axi_mem_intercon_imp_xbar_0/display_test_axi_mem_intercon_imp_xbar_0.xci
+ M 2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.srcs/sources_1/bd/display_test/ip/display_test_axi_smc_0/display_test_axi_smc_0.xci
+ M 2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.srcs/sources_1/bd/display_test/ip/display_test_axi_vdma_0_0/display_test_axi_vdma_0_0.xci
+ M 2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.srcs/sources_1/bd/display_test/ip/display_test_processing_system7_0_0/display_test_processing_system7_0_0.xci
+ M 2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.srcs/sources_1/bd/display_test/ip/display_test_rst_ps7_0_50M_0/display_test_rst_ps7_0_50M_0.xci
+ M 2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.srcs/sources_1/bd/display_test/ip/display_test_v_axi4s_vid_out_0_0/display_test_v_axi4s_vid_out_0_0.xci
+ M 2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.srcs/sources_1/bd/display_test/ip/display_test_v_vid_in_axi4s_0_0/display_test_v_vid_in_axi4s_0_0.xci
+ M 2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.srcs/sources_1/bd/display_test/ui/bd_b700584f.ui
+ M 2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.xpr
+ M 2_fpga/0_diaplay_test/vitis/app_component/src/CMakeLists.txt
+ M 2_fpga/0_diaplay_test/vitis/app_component/src/UserConfig.cmake
+ M 2_fpga/0_diaplay_test/vitis/app_component/src/compile_commands.json
+ M 2_fpga/0_diaplay_test/vitis/app_component/src/main.c
+ M 6_skill/README.md
+ M 6_skill/daily-engineering-log/SKILL.md
+ M 7_logs/2026-09-06/01_daily_plan.md
+ M 7_logs/2026-09-06/02_execution_plan.md
+ M 7_logs/2026-09-06/03_validation_summary.md
+ M 7_logs/2026-09-06/04_next_start_guide.md
+ M 7_logs/2026-09-07/01_daily_plan.md
+ M 7_logs/2026-09-07/02_execution_plan.md
+ M 7_logs/2026-09-07/03_validation_summary.md
+ M 7_logs/2026-09-07/04_next_start_guide.md
+ M AGENTS.md
+ M HANDOFF.md
+ M README.md
+?? .codex/skills/github-upload-policy/
+?? .codex/skills/mineru-doc-reader/
+?? 1_docs/ADV7511_Hardware_Users_Guide/ADV7511_Datasheet_analog.com.pdf
+?? 1_docs/ADV7511_Hardware_Users_Guide/ADV7511_Hardware_Users_Guide.pdf
+?? 1_docs/ADV7511_Hardware_Users_Guide/ADV7511_Hardware_Users_Guide_extracted.txt
+?? 1_docs/ADV7511_Hardware_Users_Guide/MANIFEST.csv
+?? 1_docs/ADV7511_Hardware_Users_Guide/UG-235_ADV7511_Evaluation_Board.pdf
+?? 1_docs/ADV7511_Hardware_Users_Guide/UG-556_ADV7511_API_Library.pdf
+?? 1_docs/ADV7511_Hardware_Users_Guide/manuals/
+?? 1_docs/ADV7511_Hardware_Users_Guide/sources/
+?? "1_docs/GitHub\345\215\217\345\220\214\344\270\212\344\274\240\345\207\206\345\210\231_\350\215\211\346\241\210.md"
+?? "1_docs/OV5640_PS\344\273\245\345\244\252\347\275\221\344\274\240\350\276\223\345\256\236\346\226\275\350\256\241\345\210\222_2026-09-08.md"
+?? "1_docs/OV5640_UDP\350\247\206\351\242\221\344\274\240\350\276\223\346\225\260\346\215\256\346\240\274\345\274\217\344\270\216\344\270\212\344\275\215\346\234\272\350\256\276\350\256\241_2026-09-08.md"
+?? "1_docs/OV5640\351\205\215\347\275\256\345\256\241\350\256\241\346\212\245\345\221\212_2026-09-08.md"
+?? 1_docs/doc/
+?? 1_docs/ov5640/
+?? "1_docs/\346\221\204\345\203\217\345\244\264\345\272\225\345\272\247 .png"
+?? "1_docs/\347\273\230\345\233\2761.vsdx"
+?? 2_fpga/0_diaplay_test/pynq/
+?? 2_fpga/0_diaplay_test/rtl/data_pre/
+?? 2_fpga/0_diaplay_test/vitis/.gitignore
+?? 2_fpga/0_diaplay_test/vitis/app_component/compile_commands.json
+?? 2_fpga/0_diaplay_test/vitis/app_component/src/.clangd
+?? 2_fpga/0_diaplay_test/vitis/app_component/src/platform.c
+?? 2_fpga/0_diaplay_test/vitis/app_component/src/platform.h
+?? 2_fpga/0_diaplay_test/vitis/app_component/src/platform_config.h
+?? 2_fpga/0_diaplay_test/vitis/app_component/src/platform_zynq.c
+?? 2_fpga/0_diaplay_test/vitis/app_component/src/udp_echo.c
+?? 2_fpga/0_diaplay_test/vitis/app_component/src/udp_echo.h
+?? 2_fpga/0_diaplay_test/vitis/app_component/src/udp_video_tx.c
+?? 2_fpga/0_diaplay_test/vitis/app_component/src/udp_video_tx.h
+?? 2_fpga/0_diaplay_test/vitis/app_component/vitis-comp.json
+?? 2_fpga/2_eth_onlytest_zynq7020/
+?? 2_fpga/3_pynq_test/
+?? 3_host/pynq/
+?? 3_host/udp_video/
+?? 4_metrics/logs/2026-09-03_vitis_uart_selftest_run29/build_uart_app.py
+?? 4_metrics/logs/2026-09-03_vitis_uart_selftest_run29/build_uart_temp_workspace.py
+?? 4_metrics/logs/2026-09-03_vitis_uart_selftest_run29/debug_create_app.py
+?? 4_metrics/logs/2026-09-03_vitis_uart_selftest_run29/debug_repo.py
+?? 4_metrics/logs/2026-09-03_vitis_uart_selftest_run29/debug_repo_console.txt
+?? 4_metrics/logs/2026-09-03_vitis_uart_selftest_run29/dfx_runtime.txt
+?? 4_metrics/logs/2026-09-03_vitis_uart_selftest_run29/manual_server_console.txt
+?? 4_metrics/logs/2026-09-03_vitis_uart_selftest_run29/temp_workspace_build_console.txt
+?? 4_metrics/logs/2026-09-03_vitis_uart_selftest_run29/uart_build_ws_1788428380/
+?? 4_metrics/logs/2026-09-03_vitis_uart_selftest_run29/uart_build_ws_1788429104/
+?? 4_metrics/logs/2026-09-03_vitis_uart_selftest_run29/uart_build_ws_1788429173/
+?? 4_metrics/logs/2026-09-03_vitis_uart_selftest_run29/uart_build_ws_1788429442/
+?? 4_metrics/logs/2026-09-05_adv7511_build_signature_run01/
+?? 4_metrics/logs/2026-09-05_adv7511_i2c_original_run01/
+?? 4_metrics/logs/2026-09-05_adv7511_i2c_rewrite_run01/
+?? 4_metrics/logs/2026-09-05_adv7511_readback_run01/
+?? 4_metrics/logs/2026-09-05_adv7511_readback_run02/
+?? 4_metrics/logs/2026-09-05_adv7511_readback_run03/
+?? 4_metrics/logs/2026-09-05_adv7511_readback_run04/
+?? 4_metrics/logs/2026-09-05_adv7511_reset_run01/
+?? 4_metrics/logs/2026-09-05_adv7511_style1_readback_run01/
+?? 4_metrics/logs/2026-09-05_adv7511_style1_video_run01/
+?? 4_metrics/logs/2026-09-05_adv7511_style3_readback_run01/
+?? 4_metrics/logs/2026-09-05_adv7511_style3_rgb_run01/
+?? 4_metrics/logs/2026-09-05_adv7511_vivado_build_run01/
+?? 4_metrics/logs/2026-09-05_adv7511_vivado_build_run02/
+?? 4_metrics/logs/2026-09-05_adv7511_vivado_build_run03/
+?? 4_metrics/logs/2026-09-05_hdmi_board_result_run01/
+?? 4_metrics/logs/2026-09-05_hdmi_byte_swap_run01/
+?? 4_metrics/logs/2026-09-05_hdmi_direct_pattern_vivado_run01/
+?? 4_metrics/logs/2026-09-05_hdmi_mode_switch_run01/
+?? 4_metrics/logs/2026-09-05_hdmi_physical_byte_swap_run01/
+?? 4_metrics/logs/2026-09-05_hdmi_protocol_sw0_run01/
+?? 4_metrics/logs/2026-09-05_hdmi_right_justified_run02/
+?? 4_metrics/logs/2026-09-05_hdmi_root_cause_run01/
+?? 4_metrics/logs/2026-09-05_hdmi_root_cause_run02/
+?? 4_metrics/logs/2026-09-05_hdmi_style3_run03/
+?? 4_metrics/logs/2026-09-05_hdmi_style3_run04/
+?? 4_metrics/logs/2026-09-05_hdmi_style3_run05/
+?? 4_metrics/logs/2026-09-05_hdmi_style3_vivado_run01/
+?? 4_metrics/logs/2026-09-05_hdmi_video_run01/
+?? 4_metrics/logs/2026-09-05_hdmi_video_run02/
+?? 4_metrics/logs/2026-09-05_hdmi_video_run03/
+?? 4_metrics/logs/2026-09-06_hdmi_out_adv7511_v1_0_top_run01/
+?? 4_metrics/logs/2026-09-07_camera_color_format_chain_audit_run01/
+?? 4_metrics/logs/2026-09-07_camera_dynamic_genlock_board_run01/
+?? 4_metrics/logs/2026-09-07_camera_dynamic_genlock_fix_run01/
+?? 4_metrics/logs/2026-09-07_camera_j5_constraint_audit_run01/
+?? 4_metrics/logs/2026-09-07_camera_retry_after_manual_reset_run01/
+?? 4_metrics/logs/2026-09-07_camera_s2mm_fsync_fix_run01/
+?? 4_metrics/logs/2026-09-07_camera_source_vdma_code_run01/
+?? 4_metrics/logs/2026-09-07_color_column_fix_run01/
+?? 4_metrics/logs/2026-09-07_colorbar_manual_reset_pass_run01/
+?? 4_metrics/logs/2026-09-07_hdmi_colorbar_board_visual_run01/
+?? 4_metrics/logs/2026-09-07_hdmi_keepalive_camera_fail_run01/
+?? 4_metrics/logs/2026-09-07_hdmi_no_signal_colorbar_restore_run01/
+?? 4_metrics/logs/2026-09-07_hdmi_overlay_ok_packed_rgb888_fix_run01/
+?? 4_metrics/logs/2026-09-07_hdmi_topline_noise_run01/
+?? 4_metrics/logs/2026-09-07_hdmi_vdma_review_plan_run01/
+?? 4_metrics/logs/2026-09-07_no_signal_mm2s_order_hotfix_run01/
+?? 4_metrics/logs/2026-09-07_pix_frame_sync_polarity_regression_run01/
+?? 4_metrics/logs/2026-09-07_ps_hdmi_vdma_fstore_fix_run01/
+?? 4_metrics/logs/2026-09-07_ps_hdmi_vdma_run01/
+?? 4_metrics/logs/2026-09-07_ps_hdmi_vdma_uart_gate_fix_run01/
+?? 4_metrics/logs/2026-09-07_ps_only_genlock_disabled_run01/
+?? 4_metrics/logs/2026-09-07_ps_single_frame_refresh_run01/
+?? 4_metrics/logs/2026-09-07_reference_camera_constraint_audit_run01/
+?? 4_metrics/logs/2026-09-07_reference_clock_tree_audit_run01/
+?? 4_metrics/logs/2026-09-07_reference_style_ps_vdma_code_run01/
+?? 4_metrics/logs/2026-09-07_remove_unused_colorbar_code_run01/
+?? 4_metrics/logs/2026-09-07_s2mm_exact_reference_order_run01/
+?? 4_metrics/logs/2026-09-07_s2mm_reference_cr_run01/
+?? 4_metrics/logs/2026-09-07_s2mm_startup_clear_run01/
+?? 4_metrics/logs/2026-09-07_vivado_full_build_run01/
+?? 4_metrics/logs/2026-09-07_vivado_spawn_recovery_run01/
+?? 4_metrics/logs/2026-09-08_eth_app_uart_udp_echo_code_run01/
+?? 4_metrics/logs/2026-09-08_eth_zynq_psw_check_mineru_run01/
+?? 4_metrics/logs/2026-09-08_github_upload_skill_run01/
+?? 4_metrics/logs/2026-09-08_main_align_blocker_audit_run01/
+?? 4_metrics/logs/2026-09-08_mainproj_eth_loopback_integrate_run01/
+?? 4_metrics/logs/2026-09-08_mineru_project_skill_run01/
+?? 4_metrics/logs/2026-09-08_mineru_project_skill_smoke_run01/
+?? 4_metrics/logs/2026-09-08_mineru_skill_upload_run01/
+?? 4_metrics/logs/2026-09-08_ov5640_datasheet_cfg_audit_run01/
+?? 4_metrics/logs/2026-09-08_ov5640_ps_ethernet_readonly_audit_run01/
+?? 4_metrics/logs/2026-09-08_patch_tool_loop_diagnosis_run01/
+?? 4_metrics/logs/2026-09-08_patch_tool_runtime_fix_run01/
+?? 4_metrics/logs/2026-09-08_udp_color_swap_fix_run01/
+?? 4_metrics/logs/2026-09-08_udp_gui_exe_build_run01/
+?? 4_metrics/logs/2026-09-08_udp_host_tools_v1_run01/
+?? 4_metrics/logs/2026-09-08_udp_video_protocol_design_run01/
+?? 4_metrics/logs/2026-09-09_amd_sait_pynq_mineru_run01/
+?? 4_metrics/logs/2026-09-10_aipc_loan_report_run01/
+?? 4_metrics/logs/2026-09-10_aipc_template_pdf_run01/
+?? 4_metrics/logs/2026-09-10_ees331_img_package_run01/
+?? 4_metrics/logs/2026-09-10_pynq_fsbl_rebuild_run03/
+?? 4_metrics/logs/2026-09-10_pynq_stage0_download_run01/
+?? 4_metrics/logs/2026-09-10_pynq_v301_baseline_boot_run02/
+?? 4_metrics/logs/2026-09-10_sd_boot_fix_run01/
+?? 4_metrics/logs/2026-09-10_sd_boot_static_audit_run01/
+?? 4_metrics/logs/2026-09-10_sd_builder_165549_b92f74/
+?? 4_metrics/logs/2026-09-10_sd_builder_165718_5e2d15/
+?? 4_metrics/logs/2026-09-10_sd_builder_170008_760643/
+?? 4_metrics/logs/2026-09-10_sd_builder_170040_95e111/
+?? 4_metrics/logs/2026-09-10_sd_builder_toolkit_run01/
+?? 4_metrics/logs/2026-09-10_sd_builder_v02_173836_5d93b4/
+?? 4_metrics/logs/2026-09-10_sd_builder_v02_174532_932baf/
+?? 4_metrics/logs/2026-09-10_sd_builder_v02_175423_0bb6c6/
+?? 4_metrics/logs/2026-09-10_sd_builder_v02_175742_16fccb/
+?? 4_metrics/logs/2026-09-10_sd_builder_v02_180104_171c99/
+?? 4_metrics/logs/2026-09-10_sd_builder_v02_run01/
+?? 4_metrics/logs/2026-09-10_sd_card_full_audit_run01/
+?? 4_metrics/logs/2026-09-10_sd_card_g_audit_run01/
+?? 4_metrics/logs/2026-09-10_session_archive_upload_run01/
+?? 4_metrics/logs/2026-09-11_pynq_camera_run01/
+?? 4_metrics/logs/2026-09-11_pynq_checkpoint_upload_run01/
+?? 4_metrics/logs/2026-09-11_sd_builder_rebuild_run01/
+?? 4_metrics/logs/2026-09-11_sd_builder_rebuild_run02/
+?? 4_metrics/logs/2026-09-11_sd_builder_v02_180323_ae3892/
+?? 4_metrics/logs/2026-09-11_sd_builder_v02_182505_9ec0b9/
+?? 4_metrics/logs/2026-09-11_sd_builder_v02_184116_9596c2/
+?? 4_metrics/logs/2026-09-11_sd_builder_v02_184459_86ee5a/
+?? 4_metrics/logs/2026-09-11_sd_builder_v02_184511_973af8/
+?? 4_metrics/logs/2026-09-11_sd_builder_v02_184524_974203/
+?? 4_metrics/logs/2026-09-11_sd_builder_v02_184534_9d468e/
+?? 4_metrics/logs/2026-09-11_sd_builder_v02_190044_2572e9/
+?? 4_metrics/logs/2026-09-11_sd_builder_v02_190133_c2bf05/
+?? 4_metrics/logs/2026-09-11_sd_builder_v02_191348_126b2e/
+?? 4_metrics/logs/2026-09-11_sd_builder_v02_200714_165bbe/
+?? 4_metrics/logs/2026-09-11_sd_loading_explanation_run01/
+?? 4_metrics/reference_extracts/
+?? 6_skill/github-upload-policy/
+?? 6_skill/mineru-doc-reader/
+?? 6_skill/project-workspace-policy/
+?? 7_logs/2026-09-08/
+?? 7_logs/2026-09-09/
+?? 7_logs/2026-09-10/
+?? 7_logs/2026-09-11/
+?? 8_tools/
+?? dfx_runtime.txt

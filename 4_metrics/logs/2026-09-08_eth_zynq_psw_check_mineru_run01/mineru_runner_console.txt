@@ -1,0 +1,8 @@
+﻿
+[2026-09-08 10:57:25] workspace=E:\competition
+[2026-09-08 10:57:25] output=E:\competition\4_metrics\logs\2026-09-08_eth_zynq_psw_check_mineru_run01
+[2026-09-08 10:57:25] backend=pipeline model_source=local api=http://127.0.0.1:58120
+[2026-09-08 10:57:31] MinerU API healthy.
+[2026-09-08 10:57:31] START file=E:\competition\1_docs\pdf\EES-331 User Guide.pdf sha256=27C26F39F3E35132A89FAE2155FA23575E850B0A22E3D9DC64FD73186B3F5949
+[2026-09-08 10:58:13] END file=EES-331 User Guide.pdf code=0 markdown=True content_json=True images=86 fallback=False seconds=41.4
+[2026-09-08 10:58:13] RESULT MINERU_PARSE_PASS file_count=1

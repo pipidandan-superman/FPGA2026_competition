@@ -1,0 +1,6 @@
+{
+  "original_boot_dtb_bytes": 19792,
+  "original_boot_dtb_sha256": "5222b2632370b80b52e3ae02e656f6f995d328dbf60d33aa5b464f4dc4703c2d",
+  "image_ub_dtb_sha256": "5222b2632370b80b52e3ae02e656f6f995d328dbf60d33aa5b464f4dc4703c2d",
+  "equal": true
+}

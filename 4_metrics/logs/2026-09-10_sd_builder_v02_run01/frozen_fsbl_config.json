@@ -1,0 +1,7 @@
+{
+  "xsa": "E:/competition/2_fpga/3_pynq_test/vitis/pynq_test_wrapper.xsa",
+  "mode": "fsbl",
+  "full_image": false,
+  "rebuild_fsbl": false,
+  "usb_role": "otg"
+}

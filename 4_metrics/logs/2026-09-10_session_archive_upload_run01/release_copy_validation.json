@@ -1,0 +1,16 @@
+{
+  "result": "RELEASE_COPY_PASS",
+  "self_tests": {
+    "sd_start_tool": {
+      "result": "FROZEN_GUI_SELF_TEST_PASS",
+      "pyfatfs": "1.1.0",
+      "fs": "2.4.16"
+    },
+    "sd_start_tool_v0.2": {
+      "result": "FROZEN_GUI_SELF_TEST_PASS",
+      "pyfatfs": "1.1.0",
+      "fs": "2.4.16"
+    }
+  },
+  "v02_release_source_entries": 18
+}

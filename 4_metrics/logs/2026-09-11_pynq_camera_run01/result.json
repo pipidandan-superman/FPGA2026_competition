@@ -1,0 +1,28 @@
+{
+  "result": "PYNQ_CAMERA_HDMI_UDP_PASS",
+  "sd_software_reboot": "AUTOSTART_PASS",
+  "physical_power_cycle": "NOT_TESTED",
+  "hdmi_visual": "USER_CONFIRMED_LIVE_IMAGE_DURING_JOINT_RUN",
+  "joint_run": {"seconds": 120.014156741, "sent_frames": 600, "sent_packets": 384000, "vdma_runtime_errors": 0},
+  "final_reboot_receiver_snapshot": {
+    "seconds_since_first_render": 124.125,
+    "source": "192.168.240.10",
+    "complete_frames": 604,
+    "gui_renders": 604,
+    "crc_errors": 0,
+    "lost_frames": 0,
+    "bad_headers": 0
+  },
+  "configured_network_fps": 5,
+  "service": {"name": "ees331-camera", "enabled": true, "left_running": true},
+  "application": "E:/competition/2_fpga/0_diaplay_test/pynq",
+  "board_application": "/home/xilinx/ees331_camera",
+  "xsa_sha256": "d69fb256b66106da87514fc3821fe177bbe538c128e74485f43a4a265f092ebc",
+  "camera_py_sha256": "c2e8a0da0669b19b3bc8e2c656e5ad693e1a0cf8d16b0c3a9b4c68d453600bcb",
+  "baseline_xsa_main_c_unchanged": true,
+  "original_boot_files_unchanged": true,
+  "protocol_tests_passed": 3,
+  "path_audit": "PASS",
+  "original_sd_img_rebuilt": false,
+  "prior_failures_preserved": true
+}

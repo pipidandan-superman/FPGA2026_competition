@@ -1,0 +1,65 @@
+{
+  "result": "SD_PACKAGE_STATIC_PASS",
+  "tool_version": "0.1.0",
+  "created": "2026-09-10T17:00:41.502276",
+  "xsa": {
+    "xsa_path": "E:\\competition\\2_fpga\\3_pynq_test\\vitis\\pynq_test_wrapper.xsa",
+    "xsa_sha256": "b3343e2161fdfc4aa744a211e65059346ae48e0f7ea5f1b41b945e4f9124576a",
+    "vivado_version": "2025.2",
+    "part": "xc7z020clg484-1",
+    "bitstream_name": "pynq_test_wrapper.bit",
+    "bitstream_sha256": "1018288e4f1c6606409fb26897f5a3748e15b04cb41e25e442cbd2fb837b4e81",
+    "hwh_name": "pynq_test.hwh",
+    "hwh_sha256": "4dad74d7a0191f8c9b1926339d383263d931d195be70c0a3ff910e810a6e513f",
+    "bit_header": {
+      "a": "pynq_test_wrapper;UserID=0XFFFFFFFF;Version=2025.2;SW_CRC=9b3aaba7",
+      "b": "7z020clg484",
+      "c": "2026/09/10",
+      "d": "10:48:01",
+      "payload_size": 4045564
+    },
+    "ps_changes": [],
+    "device_tree_review_changes": [],
+    "pl_ip": [],
+    "requires_fsbl_rebuild": false,
+    "status": "PROFILE_COMPATIBLE"
+  },
+  "pl_loading": "manual",
+  "files": {
+    "BOOT.BIN": {
+      "size": 1082696,
+      "sha256": "3ea3eae30dba8646ddb597abf098594a99ed6c0250576bed12a9eca91c3902a0"
+    },
+    "boot.py": {
+      "size": 64,
+      "sha256": "a8276045accc9aa3184522a839ff5f3507e05e9905f9cc08036dd06694b70f1a"
+    },
+    "boot.scr": {
+      "size": 2776,
+      "sha256": "7013e14923fbe461c4ecd745214fcafcb0ffaddb10865f9135cd8624637359f4"
+    },
+    "image.ub": {
+      "size": 6459362,
+      "sha256": "f1a4b86749813e795f7dcf59b5cacebcc0779bc93306308e96e959b76b71f7d9"
+    },
+    "overlay.bit": {
+      "size": 4045693,
+      "sha256": "1018288e4f1c6606409fb26897f5a3748e15b04cb41e25e442cbd2fb837b4e81"
+    },
+    "overlay.hwh": {
+      "size": 76292,
+      "sha256": "4dad74d7a0191f8c9b1926339d383263d931d195be70c0a3ff910e810a6e513f"
+    },
+    "REVISION": {
+      "size": 83,
+      "sha256": "4890cc0639e8f20a0fd5ce4610f6cbc227a01a7589e847f7810bf68c80be6b19"
+    },
+    "system.dtb": {
+      "size": 14919,
+      "sha256": "76e29723d185ac4a50700338bfcf872113a43409bbbe8eded34fbbd723ef6434"
+    }
+  },
+  "hardware_status": "NOT_TESTED",
+  "baseline_status": "SD_LINUX_SHELL_PASS; NETWORK_AND_PL_APPLICATION_NOT_ACCEPTED",
+  "output": "E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_170040_95e111\\output"
+}

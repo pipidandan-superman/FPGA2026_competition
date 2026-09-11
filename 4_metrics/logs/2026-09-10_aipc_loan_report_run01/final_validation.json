@@ -1,0 +1,43 @@
+{
+  "result": "REPORT_DOCUMENT_QA_PASS_WITH_PENDING_FIELDS",
+  "pages": 2,
+  "template_unchanged": true,
+  "output_sha256": "dc535ea60d83b79e10ffc81ed51c4ab4524b5b25b0363cbcf3170b7bd8823f7a",
+  "changed_parts": [
+    "word/document.xml",
+    "word/media/image1.png",
+    "word/media/image2.png"
+  ],
+  "pending": [
+    "团队编号",
+    "队长姓名",
+    "学校",
+    "邮箱",
+    "电话",
+    "指导教师",
+    "借用机型最终确认"
+  ],
+  "evidence_sha256": {
+    "architecture.png": "cee3d6e6c9ae9f3de47017c000d2705b15f483df3e32b852ff3dfad29b418361",
+    "artifact.md": "27b635f78dde796775fed0ff384bafa44e47b259aa98f2c9afc9ca1d10da6b6a",
+    "authored_text.txt": "6136ebb2eb8b09ae3694ac64410535c312f142025e8c55dab0feaf81fa3356cf",
+    "create_report.py": "3dcaef980c52a6792d96a4733fc849b25183a3c367dad302c8f40cdbd1e00db8",
+    "fidelity_console.txt": "d4e1b52d12093cae67d1e2acd2010f2c0121737af2653c469789a556556ab3ce",
+    "final_sections.txt": "3eea4d8bbe75503a94810e50efd2f58904e630a3d0151bfe0ce2a78e51368e5e",
+    "final_styles.json": "669c72d9b407d32bba7c996d01402f14efd463d4abf00dd63ddead6709397e8b",
+    "final_style_console.txt": "a66b9799d523ea946976c20788925ccf985a40a3db9135751c5a59ba7bfd915f",
+    "input_manifest.json": "834f5edcf5ff20ede5b2b69c7cbf740b1c77b0ed00151a01fb21902b9e7f6d99",
+    "mineru_api_stderr.txt": "12f101be4a3ad5d275ab9600e0af6f805f0abdf72541b0b3eac1583a455f938d",
+    "mineru_api_stdout.txt": "725b002724c72653a3f19f5fd4259196517907dc920d852e8b729d8afb675582",
+    "mineru_results.json": "7dcb16946bd7a5f6ce296077b72f66982aff412010225f0ebe803aefaab894ba",
+    "mineru_result_marker.txt": "9e2796a4ce667df949f13e0bf3df3c8ff5f9794eea60ea5ebbc09f7194004fa0",
+    "mineru_runner_console.txt": "296b1cbdc4b9d9545f94d5f590ebb9d5bb69b3d7539355c2074141843c0a5d0a",
+    "package_audit.json": "97ea9af45e61d643d2a143b6e37ca5bef8156577b16123dbd5c6deb90754385a",
+    "REPORT.md": "17bb6dd4f76fcbf30efd4b58347d5ecbbcad4ba495b6d94b56dd194c8ed586d7",
+    "skill_path_audit.txt": "efd0a1be47b08b7a92cefb6dda2efd0b6339c0c3209c3e105afba1fcd979af0d",
+    "template_sections.txt": "3eea4d8bbe75503a94810e50efd2f58904e630a3d0151bfe0ce2a78e51368e5e",
+    "template_styles.json": "e14cb6f1650826b9c385f6c07ac5c7e49f7cb68f47f5f529de8d7960a65bf2ce",
+    "template_xml_audit.txt": "0f8be2ce53b60b69a77b019c89bf53dbecd4784f776a980db39a265a9ad60638",
+    "workflow.png": "4b4525cd5190266a2999d3fc82c96bada49b8d571beb6ff73bf3bcfa55ed1174"
+  }
+}

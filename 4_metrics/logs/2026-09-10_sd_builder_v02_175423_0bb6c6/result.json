@@ -1,0 +1,291 @@
+{
+  "result": "SD_PACKAGE_STATIC_PASS",
+  "tool_version": "0.2.0",
+  "created": "2026-09-10T17:55:01.813905",
+  "xsa": {
+    "xsa_path": "E:\\competition\\2_fpga\\3_pynq_test\\vitis\\pynq_test_wrapper.xsa",
+    "xsa_sha256": "b3343e2161fdfc4aa744a211e65059346ae48e0f7ea5f1b41b945e4f9124576a",
+    "vivado_version": "2025.2",
+    "part": "xc7z020clg484-1",
+    "bitstream_name": "pynq_test_wrapper.bit",
+    "bitstream_sha256": "1018288e4f1c6606409fb26897f5a3748e15b04cb41e25e442cbd2fb837b4e81",
+    "hwh_name": "pynq_test.hwh",
+    "hwh_sha256": "4dad74d7a0191f8c9b1926339d383263d931d195be70c0a3ff910e810a6e513f",
+    "auxiliary_hwh": [],
+    "bit_header": {
+      "a": "pynq_test_wrapper;UserID=0XFFFFFFFF;Version=2025.2;SW_CRC=9b3aaba7",
+      "b": "7z020clg484",
+      "c": "2026/09/10",
+      "d": "10:48:01",
+      "payload_size": 4045564
+    },
+    "ps_changes": [],
+    "device_tree_review_changes": [],
+    "pl_ip": [],
+    "requires_fsbl_rebuild": false,
+    "board_profile": {
+      "requirements": [],
+      "warnings": [
+        "TTC 内部定时器保留给 Linux 时基；XSA 的外部 TTC I/O 使能不等同于移除 Linux 时钟节点。"
+      ],
+      "controllers": [
+        {
+          "name": "UART0",
+          "enabled": false,
+          "path": "/axi/serial@e0000000",
+          "routing": "<Select>"
+        },
+        {
+          "name": "UART1",
+          "enabled": true,
+          "path": "/axi/serial@e0001000",
+          "routing": "MIO 48 .. 49"
+        },
+        {
+          "name": "SD0",
+          "enabled": true,
+          "path": "/axi/mmc@e0100000",
+          "routing": "MIO 40 .. 45"
+        },
+        {
+          "name": "SD1",
+          "enabled": false,
+          "path": "/axi/mmc@e0101000",
+          "routing": "<Select>"
+        },
+        {
+          "name": "ENET0",
+          "enabled": true,
+          "path": "/axi/ethernet@e000b000",
+          "routing": "MIO 16 .. 27"
+        },
+        {
+          "name": "ENET1",
+          "enabled": false,
+          "path": "/axi/ethernet@e000c000",
+          "routing": "<Select>"
+        },
+        {
+          "name": "USB0",
+          "enabled": false,
+          "path": "/axi/usb@e0002000",
+          "routing": "<Select>"
+        },
+        {
+          "name": "USB1",
+          "enabled": false,
+          "path": "/axi/usb@e0003000",
+          "routing": "<Select>"
+        },
+        {
+          "name": "I2C0",
+          "enabled": false,
+          "path": "/axi/i2c@e0004000",
+          "routing": "<Select>"
+        },
+        {
+          "name": "I2C1",
+          "enabled": false,
+          "path": "/axi/i2c@e0005000",
+          "routing": "<Select>"
+        },
+        {
+          "name": "SPI0",
+          "enabled": false,
+          "path": "/axi/spi@e0006000",
+          "routing": "<Select>"
+        },
+        {
+          "name": "SPI1",
+          "enabled": false,
+          "path": "/axi/spi@e0007000",
+          "routing": "<Select>"
+        },
+        {
+          "name": "QSPI",
+          "enabled": false,
+          "path": "/axi/spi@e000d000",
+          "routing": "<Select>"
+        },
+        {
+          "name": "CAN0",
+          "enabled": false,
+          "path": "/axi/can@e0008000",
+          "routing": "<Select>"
+        },
+        {
+          "name": "CAN1",
+          "enabled": false,
+          "path": "/axi/can@e0009000",
+          "routing": "<Select>"
+        },
+        {
+          "name": "WDT",
+          "enabled": false,
+          "path": "/axi/watchdog@f8005000",
+          "routing": "<Select>"
+        }
+      ]
+    },
+    "device_tree_mode": "AUTO_EES331",
+    "status": "AUTO_READY"
+  },
+  "pl_loading": "linux",
+  "files": {
+    "BOOT.BIN": {
+      "size": 1082840,
+      "sha256": "62a46f9f57b37a10b33302a06f5a118c4bcd6e7879a7851c6327efdf4f7af1e3"
+    },
+    "boot.py": {
+      "size": 158,
+      "sha256": "1598e0b2265ab63cd36d8329e3b6c3e1e437ef250bfffd24c1b818ed6d634a54"
+    },
+    "boot.scr": {
+      "size": 2776,
+      "sha256": "7013e14923fbe461c4ecd745214fcafcb0ffaddb10865f9135cd8624637359f4"
+    },
+    "image.ub": {
+      "size": 6459506,
+      "sha256": "ca5ce80e46bc6297db4a04abe19b40fcc75182b7f6faa892e2f8b16c599be651"
+    },
+    "overlay.bit": {
+      "size": 4045693,
+      "sha256": "1018288e4f1c6606409fb26897f5a3748e15b04cb41e25e442cbd2fb837b4e81"
+    },
+    "overlay.hwh": {
+      "size": 76292,
+      "sha256": "4dad74d7a0191f8c9b1926339d383263d931d195be70c0a3ff910e810a6e513f"
+    },
+    "REVISION": {
+      "size": 83,
+      "sha256": "4890cc0639e8f20a0fd5ce4610f6cbc227a01a7589e847f7810bf68c80be6b19"
+    },
+    "system.dtb": {
+      "size": 15063,
+      "sha256": "4df5cb931167b8fb9ac08c15b20ca878f5ab8be6626f762632366a36c41b8f16"
+    }
+  },
+  "hardware_status": "NOT_TESTED",
+  "usb_role": "otg",
+  "device_tree_generation": {
+    "mode": "AUTO_XSA_PLUS_EES331_PROFILE",
+    "profile": "EES331_PS_0.2",
+    "usb_role": "otg",
+    "validation": {
+      "result": "AUTO_DTB_VALIDATION_PASS",
+      "controller_count": 16,
+      "phandle_count": 53
+    },
+    "controllers": [
+      {
+        "name": "UART0",
+        "enabled": false,
+        "path": "/axi/serial@e0000000",
+        "routing": "<Select>"
+      },
+      {
+        "name": "UART1",
+        "enabled": true,
+        "path": "/axi/serial@e0001000",
+        "routing": "MIO 48 .. 49"
+      },
+      {
+        "name": "SD0",
+        "enabled": true,
+        "path": "/axi/mmc@e0100000",
+        "routing": "MIO 40 .. 45"
+      },
+      {
+        "name": "SD1",
+        "enabled": false,
+        "path": "/axi/mmc@e0101000",
+        "routing": "<Select>"
+      },
+      {
+        "name": "ENET0",
+        "enabled": true,
+        "path": "/axi/ethernet@e000b000",
+        "routing": "MIO 16 .. 27"
+      },
+      {
+        "name": "ENET1",
+        "enabled": false,
+        "path": "/axi/ethernet@e000c000",
+        "routing": "<Select>"
+      },
+      {
+        "name": "USB0",
+        "enabled": false,
+        "path": "/axi/usb@e0002000",
+        "routing": "<Select>"
+      },
+      {
+        "name": "USB1",
+        "enabled": false,
+        "path": "/axi/usb@e0003000",
+        "routing": "<Select>"
+      },
+      {
+        "name": "I2C0",
+        "enabled": false,
+        "path": "/axi/i2c@e0004000",
+        "routing": "<Select>"
+      },
+      {
+        "name": "I2C1",
+        "enabled": false,
+        "path": "/axi/i2c@e0005000",
+        "routing": "<Select>"
+      },
+      {
+        "name": "SPI0",
+        "enabled": false,
+        "path": "/axi/spi@e0006000",
+        "routing": "<Select>"
+      },
+      {
+        "name": "SPI1",
+        "enabled": false,
+        "path": "/axi/spi@e0007000",
+        "routing": "<Select>"
+      },
+      {
+        "name": "QSPI",
+        "enabled": false,
+        "path": "/axi/spi@e000d000",
+        "routing": "<Select>"
+      },
+      {
+        "name": "CAN0",
+        "enabled": false,
+        "path": "/axi/can@e0008000",
+        "routing": "<Select>"
+      },
+      {
+        "name": "CAN1",
+        "enabled": false,
+        "path": "/axi/can@e0009000",
+        "routing": "<Select>"
+      },
+      {
+        "name": "WDT",
+        "enabled": false,
+        "path": "/axi/watchdog@f8005000",
+        "routing": "<Select>"
+      }
+    ],
+    "warnings": [
+      "TTC 内部定时器保留给 Linux 时基；XSA 的外部 TTC I/O 使能不等同于移除 Linux 时钟节点。"
+    ]
+  },
+  "baseline_status": "SD_LINUX_SHELL_PASS; NETWORK_AND_PL_APPLICATION_NOT_ACCEPTED",
+  "image": {
+    "size": 7858807808,
+    "sha256": "ae016a04126cb61a9893cf01e565135c5c49b5479ea75570d83b48917cd38eab",
+    "base_sha256": "203e9f79679c6c77a738c30d06e3232f0907eb2e5b6cafe97e26e8889057835a",
+    "rootfs_unchanged": true,
+    "full_readback": "PASS",
+    "boot_files": "PASS"
+  },
+  "output": "E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_v02_175423_0bb6c6\\output"
+}

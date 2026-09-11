@@ -1,0 +1,291 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20260910125813
+Username: HC-202510241838\Administrator
+RunAs User: HC-202510241838\Administrator
+Configuration Name: 
+Machine: HC-202510241838 (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Bypass -File E:/competition/4_metrics/logs/2026-09-10_sd_boot_static_audit_run01/audit.ps1
+Process ID: 29668
+PSVersion: 5.1.26100.9444
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9444
+BuildVersion: 10.0.26100.9444
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is E:\competition\4_metrics\logs\2026-09-10_sd_boot_static_audit_run01\audit_console.txt
+Scope: static audit only; no board access, SD writes, source edits, or rebuild.
+
+
+Algorithm : SHA256
+Hash      : EB88AA570030FA9D98F5B962C954DED787F0CCB85330326D029730654E466667
+Path      : E:\competition\4_metrics\logs\2026-09-10_pynq_fsbl_rebuild_run03\BOOT_MIN.BIN
+
+
+
+
+
+Algorithm : SHA256
+Hash      : 3FCDD4303567D75AC1E7BE96C4A93816ACB6C150F6FACBF1F123D729A5BD5DEF
+Path      : E:\competition\4_metrics\logs\2026-09-10_pynq_fsbl_rebuild_run03\BOOT_pynq_z2_orig.BIN
+
+
+
+
+
+Algorithm : SHA256
+Hash      : 11E7963B163BD58CEBF9E9322E77399454C1FCEBF6A8B7D25A7EA65735DA8E3C
+Path      : E:\competition\4_metrics\logs\2026-09-10_pynq_fsbl_rebuild_run03\fsbl.elf
+
+
+
+
+
+Algorithm : SHA256
+Hash      : 578CD7CAD005E24200E3429C07E47E3DA184595F83CD74655DB37A28E65BB6DE
+Path      : E:\competition\4_metrics\logs\2026-09-10_pynq_fsbl_rebuild_run03\fsbl_only.bif
+
+
+
+
+
+Algorithm : SHA256
+Hash      : 1D9044B23DFA359765775007CFBA5A057AA98F56E7DC13F7AE1B683D07FFE9C0
+Path      : E:\competition\4_metrics\logs\2026-09-10_pynq_fsbl_rebuild_run03\gen_fsbl_console.log
+
+
+
+
+
+Algorithm : SHA256
+Hash      : A68DF6C1B8ED844D990B4169D944284F371791A87CEBF702ED16D27A157E3961
+Path      : E:\competition\2_fpga\3_pynq_test\vitis\ws_fsbl\pynq_plat\zynq_fsbl\fsbl_debug.h
+
+
+
+
+
+Algorithm : SHA256
+Hash      : B08B6BEFDAEB425337928927836FAFE86FB1BC469E14FE8D64EBF339CC6577A3
+Path      : E:\competition\2_fpga\3_pynq_test\vitis\ws_fsbl\pynq_plat\zynq_fsbl\Makefile
+
+
+
+
+
+Algorithm : SHA256
+Hash      : CAED54C21A843277605F2B916FDDD4FD4C5A01E5C7982F613431DCE176CDC96A
+Path      : E:\competition\2_fpga\3_pynq_test\vitis\ws_fsbl\pynq_plat\zynq_fsbl\main.c
+
+
+
+
+
+Algorithm : SHA256
+Hash      : 353D35F807279393E3F8001922BA7A09A6C77E833B2443B3FB176495CC2B8023
+Path      : E:\competition\2_fpga\3_pynq_test\vitis\ws_fsbl\pynq_plat\zynq_fsbl\ps7_init.c
+
+
+
+
+
+Algorithm : SHA256
+Hash      : 11E7963B163BD58CEBF9E9322E77399454C1FCEBF6A8B7D25A7EA65735DA8E3C
+Path      : E:\competition\2_fpga\3_pynq_test\vitis\ws_fsbl\pynq_plat\zynq_fsbl\fsbl.elf
+
+
+
+BOOT_HEADER BOOT_MIN.BIN
+0020: AA995566
+0024: 584C4E58
+0028: 00000000
+002C: 01010000
+0030: 00000000
+0034: 00000000
+0038: 00000000
+003C: 00000000
+0040: 00000000
+0044: 00000001
+0048: FC195C40
+0098: 000008C0
+009C: 00000C80
+BOOT_HEADER BOOT_pynq_z2_orig.BIN
+0020: AA995566
+0024: 584C4E58
+0028: 00000000
+002C: 01010000
+0030: 00001700
+0034: 00018008
+0038: 00000000
+003C: 00000000
+0040: 00018008
+0044: 00000001
+0048: FC164530
+0098: 000008C0
+009C: 00000C80
+BIF_CONTENT
+all:
+{
+    E:/competition/2_fpga/3_pynq_test/vitis/ws_fsbl/pynq_plat/zynq_fsbl/fsbl.elf
+}
+FSBL_DEBUG_HEADER
+/******************************************************************************
+* Copyright (c) 2012 - 2020 Xilinx, Inc.  All rights reserved.
+* SPDX-License-Identifier: MIT
+******************************************************************************/
+
+/*****************************************************************************/
+/**
+*
+* @file fsbl_debug.h
+*
+* This file contains the debug verbose information for FSBL print functionality
+*
+* <pre>
+* MODIFICATION HISTORY:
+*
+* Ver	Who	Date		Changes
+* ----- ---- -------- -------------------------------------------------------
+* 3.00a mb	01/09/12 Initial release
+*
+* </pre>
+*
+* @note
+*
+******************************************************************************/
+
+#ifndef _FSBL_DEBUG_H
+#define _FSBL_DEBUG_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
+#define DEBUG_GENERAL	0x00000001    /* general debug  messages */
+#define DEBUG_INFO	0x00000002    /* More debug information */
+
+#if defined (FSBL_DEBUG_INFO)
+#define fsbl_dbg_current_types ((DEBUG_INFO) | (DEBUG_GENERAL))
+#elif defined (FSBL_DEBUG)
+#define fsbl_dbg_current_types (DEBUG_GENERAL)
+#else
+#define fsbl_dbg_current_types 0
+#endif
+
+#ifdef STDOUT_BASEADDRESS
+#define fsbl_printf(type,...) \
+		if (((type) & fsbl_dbg_current_types))  {xil_printf (__VA_ARGS__); }
+#else
+#define fsbl_printf(type, ...)
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* _FSBL_DEBUG_H */
+FSBL_MAKEFILE
+# Auto Generated by Xilinx generate_app. Modify at your own risk
+
+CC := arm-none-eabi-gcc
+CC_FLAGS := -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard
+CFLAGS :=
+BSP_FLAGS := -O2 -c
+LN_FLAGS :=  -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec  -lrsa -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxilffs,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lrsa,-lxil,-lgcc,-lc,--end-group                                -Wl,--gc-sections
+
+c_SOURCES := $(wildcard *.c)
+S_SOURCES := $(wildcard *.S)
+INCLUDES := $(wildcard *.h)
+OBJS := $(patsubst %.c, %.o, $(c_SOURCES))
+OBJS += $(patsubst %.S, %.o, $(S_SOURCES))
+LSCRIPT := -Tlscript.ld
+
+CURRENT_DIR = $(shell pwd)
+DEPFILES := $(patsubst %.o, %.d, $(OBJS))
+LIBS := zynq_fsbl_bsp/ps7_cortexa9_0/lib/libxil.a
+EXEC := fsbl.elf
+
+INCLUDEPATH := -Izynq_fsbl_bsp/ps7_cortexa9_0/include -I.
+LIBPATH := -Lzynq_fsbl_bsp/ps7_cortexa9_0/lib -L./
+
+all: $(EXEC)
+
+$(EXEC): $(LIBS) $(OBJS) $(INCLUDES)
+	$(CC) -o $@ $(sort $(OBJS)) $(CC_FLAGS) $(CFLAGS) $(LN_FLAGS) $(LIBPATH) $(LSCRIPT)
+
+$(LIBS):
+	$(MAKE) -C zynq_fsbl_bsp
+
+%.o:%.c
+	$(CC) $(CFLAGS) $(BSP_FLAGS) $(CC_FLAGS) -c $< -o $@ $(INCLUDEPATH)
+
+%.o:%.S
+	$(CC) $(CFLAGS) $(BSP_FLAGS) $(CC_FLAGS) -c $< -o $@ $(INCLUDEPATH)
+
+%.o:%.s
+	$(CC) $(CFLAGS) $(BSP_FLAGS) $(CC_FLAGS) -c $< -o $@ $(INCLUDEPATH)
+
+clean:
+	rm -rf $(OBJS) $(LIBS) $(EXEC) *.o
+
+-include $(DEPFILES)
+STRING_MATCH_COUNT [Xilinx First Stage Boot Loader] = 0
+STRING_MATCH_COUNT [Boot mode is SD] = 0
+STRING_MATCH_COUNT [PS7_INIT_FAIL] = 0
+STRING_MATCH_COUNT [FSBL Status] = 0
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           ARM
+  Version:                           0x1
+  Entry point address:               0x0
+  Start of program headers:          52 (bytes into file)
+  Start of section headers:          366328 (bytes into file)
+  Flags:                             0x5000400, Version5 EABI, hard-float ABI
+  Size of this header:               52 (bytes)
+  Size of program headers:           32 (bytes)
+  Number of program headers:         4
+  Size of section headers:           40 (bytes)
+  Number of section headers:         30
+  Section header string table index: 29
+
+Program Headers:
+  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
+  EXIDX          0x016000 0x00018000 0x00018000 0x00008 0x00008 R   0x4
+  LOAD           0x001000 0x00000000 0x00000000 0x10fac 0x10fac RWE 0x1000
+  LOAD           0x012000 0x00014000 0x00014000 0x04010 0x084e0 RW  0x1000
+  LOAD           0x000000 0xffff0000 0xffff0000 0x00000 0x0d400 RW  0x1000
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     .ARM.exidx
+   01     .text .handoff .init .fini .rodata .data
+   02     .mmu_tbl .ARM.exidx .init_array .fini_array .rsa_ac .bss .heap
+   03     .stack
+SOURCE_ORDER_AND_UART
+
+2_fpga\3_pynq_test\vitis\ws_fsbl\pynq_plat\zynq_fsbl\main.c:12:* The main file for the First Stage Boot Loader (FSBL).
+2_fpga\3_pynq_test\vitis\ws_fsbl\pynq_plat\zynq_fsbl\main.c:239:	Status = ps7_init();
+2_fpga\3_pynq_test\vitis\ws_fsbl\pynq_plat\zynq_fsbl\main.c:285:	fsbl_printf(DEBUG_GENERAL,"\n\rXilinx First Stage Boot
+ Loader \n\r");
+2_fpga\3_pynq_test\vitis\ws_fsbl\pynq_plat\zynq_fsbl\main.c:295:	Status = DDRInitCheck();
+2_fpga\3_pynq_test\vitis\ws_fsbl\pynq_plat\zynq_fsbl\main.c:454:		Status = InitSD("BOOT.BIN");
+2_fpga\3_pynq_test\vitis\ws_fsbl\pynq_plat\zynq_fsbl\main.c:470:		Status = InitSD("BOOT.BIN");
+2_fpga\3_pynq_test\vitis\ws_fsbl\pynq_plat\zynq_fsbl\zynq_fsbl_bsp\ps7_cortexa9_0\include\xparameters.h:22:#define STDO
+UT_BASEADDRESS 0xE0001000
+2_fpga\3_pynq_test\vitis\ws_fsbl\pynq_plat\zynq_fsbl\zynq_fsbl_bsp\ps7_cortexa9_0\include\xparameters.h:364:#define XPA
+R_XSDPS_0_HAS_CD 1
+RESULT: STATIC_BOOT_IMAGE_DEFECT_CONFIRMED; BOARD_BOOT_STATUS_NOT_RETESTED
+**********************
+Windows PowerShell transcript end
+End time: 20260910125814
+**********************

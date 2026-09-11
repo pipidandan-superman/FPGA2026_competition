@@ -1,0 +1,117 @@
+162 INFO: PyInstaller: 6.22.2, contrib hooks: 2026.7
+162 INFO: Python: 3.12.14
+192 INFO: Platform: Windows-11-10.0.26200-SP0
+192 INFO: Python environment: C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python
+193 INFO: wrote E:/competition/4_metrics/logs/2026-09-10_sd_builder_toolkit_run01\EES331SDBootBuilder.spec
+196 INFO: Removing temporary files and cleaning cache in C:\Users\Administrator\AppData\Local\pyinstaller
+E:\competition\4_metrics\logs\2026-09-10_sd_builder_toolkit_run01\python_deps\fs\__init__.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  __import__("pkg_resources").declare_namespace(__name__)  # type: ignore
+696 INFO: Module search paths (PYTHONPATH):
+['E:\\competition',
+ 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps',
+ 'C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python312.zip',
+ 'C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\DLLs',
+ 'C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib',
+ 'C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python',
+ 'C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\site-packages',
+ 'E:\\competition\\3_host\\pynq\\sd_boot_builder',
+ 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps']
+1123 INFO: Appending 'datas' from .spec
+1124 INFO: checking Analysis
+1124 INFO: Building Analysis because Analysis-00.toc is non existent
+1124 INFO: Looking for Python shared library...
+1124 INFO: Using Python shared library: C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python312.dll
+1124 INFO: Running Analysis Analysis-00.toc
+1124 INFO: Target bytecode optimization level: 0
+1124 INFO: Initializing module dependency graph...
+1126 INFO: Initializing module graph hook caches...
+1136 INFO: Analyzing modules for base_library.zip ...
+1802 INFO: Processing standard module hook 'hook-encodings.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks'
+2016 INFO: Processing standard module hook 'hook-math.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks'
+2638 INFO: Processing standard module hook 'hook-pickle.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks'
+3379 INFO: Processing standard module hook 'hook-heapq.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks'
+3632 INFO: Caching module dependency graph...
+3660 INFO: Analyzing E:\competition\3_host\pynq\sd_boot_builder\app.py
+3691 INFO: Processing pre-find-module-path hook 'hook-tkinter.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks\\pre_find_module_path'
+3692 INFO: TclTkInfo: initializing cached Tcl/Tk info...
+4019 INFO: Processing standard module hook 'hook-_tkinter.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks'
+4136 INFO: Processing standard module hook 'hook-platform.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks'
+4202 INFO: Processing standard module hook 'hook-xml.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks'
+4221 INFO: Processing standard module hook 'hook-xml.etree.cElementTree.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks'
+4291 INFO: Processing pre-safe-import-module hook 'hook-backports.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks\\pre_safe_import_module'
+4292 INFO: SetuptoolsInfo: initializing cached setuptools info...
+6800 INFO: Setuptools: 'backports' appears to be a full setuptools-vendored copy - creating alias to 'setuptools._vendor.backports'!
+6806 INFO: Processing standard module hook 'hook-setuptools.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks'
+6813 INFO: Processing pre-safe-import-module hook 'hook-distutils.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks\\pre_safe_import_module'
+6838 INFO: Processing standard module hook 'hook-sysconfig.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks'
+6841 INFO: Processing pre-safe-import-module hook 'hook-jaraco.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks\\pre_safe_import_module'
+6841 INFO: Setuptools: 'jaraco' appears to be a full setuptools-vendored copy - creating alias to 'setuptools._vendor.jaraco'!
+6846 INFO: Processing pre-safe-import-module hook 'hook-more_itertools.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks\\pre_safe_import_module'
+6847 INFO: Setuptools: 'more_itertools' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.more_itertools'!
+6902 INFO: Processing pre-safe-import-module hook 'hook-typing_extensions.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks\\pre_safe_import_module'
+7047 INFO: Processing standard module hook 'hook-multiprocessing.util.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks'
+7249 INFO: Processing standard module hook 'hook-_ctypes.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks'
+7467 INFO: Processing pre-safe-import-module hook 'hook-packaging.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks\\pre_safe_import_module'
+7599 INFO: Processing standard module hook 'hook-setuptools._vendor.jaraco.text.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks'
+7600 INFO: Processing pre-safe-import-module hook 'hook-importlib_resources.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks\\pre_safe_import_module'
+7803 INFO: Processing pre-safe-import-module hook 'hook-importlib_metadata.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks\\pre_safe_import_module'
+7804 INFO: Setuptools: 'importlib_metadata' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.importlib_metadata'!
+7820 INFO: Processing standard module hook 'hook-setuptools._vendor.importlib_metadata.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks'
+7821 INFO: Processing pre-safe-import-module hook 'hook-zipp.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks\\pre_safe_import_module'
+7821 INFO: Setuptools: 'zipp' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.zipp'!
+7984 INFO: Processing pre-safe-import-module hook 'hook-tomli.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks\\pre_safe_import_module'
+7984 INFO: Setuptools: 'tomli' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.tomli'!
+8227 INFO: Processing pre-safe-import-module hook 'hook-wheel.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks\\pre_safe_import_module'
+8286 INFO: Processing pre-safe-import-module hook 'hook-six.moves.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks\\pre_safe_import_module'
+8418 INFO: Processing standard module hook 'hook-pkg_resources.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks'
+8591 INFO: Processing pre-safe-import-module hook 'hook-platformdirs.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks\\pre_safe_import_module'
+8591 INFO: Setuptools: 'platformdirs' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.platformdirs'!
+8635 INFO: Processing standard module hook 'hook-appdirs.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\_pyinstaller_hooks_contrib\\stdhooks'
+8738 INFO: Analyzing hidden import 'pyfatfs.PyFatFSOpener'
+8739 INFO: Analyzing hidden import 'fs.filesize'
+8741 INFO: Analyzing hidden import 'fs.mirror'
+8743 INFO: Analyzing hidden import 'fs.mountfs'
+8749 INFO: Analyzing hidden import 'fs.multifs'
+8755 INFO: Analyzing hidden import 'fs.test'
+8854 INFO: Processing standard module hook 'hook-difflib.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks'
+8898 INFO: Analyzing hidden import 'fs.wrap'
+8903 INFO: Processing module hooks (post-graph stage)...
+9150 INFO: Processing standard module hook 'hook-webbrowser.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks'
+9246 INFO: Processing standard module hook 'hook-_tkinter.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks'
+9253 INFO: Performing binary vs. data reclassification (956 entries)
+9477 INFO: Looking for ctypes DLLs
+9485 INFO: Analyzing run-time hooks ...
+9487 INFO: Including run-time hook 'pyi_rth_inspect.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks\\rthooks'
+9489 INFO: Including run-time hook 'pyi_rth_pkgutil.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks\\rthooks'
+9491 INFO: Including run-time hook 'pyi_rth_multiprocessing.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks\\rthooks'
+9492 INFO: Including run-time hook 'pyi_rth_pkgres.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks\\rthooks'
+9494 INFO: Including run-time hook 'pyi_rth_setuptools.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks\\rthooks'
+9494 INFO: Including run-time hook 'pyi_rth__tkinter.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-10_sd_builder_toolkit_run01\\python_deps\\PyInstaller\\hooks\\rthooks'
+9511 INFO: Creating base_library.zip...
+9523 INFO: Looking for dynamic libraries
+E:\competition\4_metrics\logs\2026-09-10_sd_builder_toolkit_run01\python_deps\PyInstaller\building\build_main.py:227: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  __import__(package)
+9734 INFO: Extra DLL search directories (AddDllDirectory): []
+9734 INFO: Extra DLL search directories (PATH): []
+10006 INFO: Warnings written to E:\competition\4_metrics\logs\2026-09-10_sd_builder_toolkit_run01\pyinstaller_build\EES331SDBootBuilder\warn-EES331SDBootBuilder.txt
+10028 INFO: Graph cross-reference written to E:\competition\4_metrics\logs\2026-09-10_sd_builder_toolkit_run01\pyinstaller_build\EES331SDBootBuilder\xref-EES331SDBootBuilder.html
+10053 INFO: checking PYZ
+10053 INFO: Building PYZ because PYZ-00.toc is non existent
+10053 INFO: Building PYZ (ZlibArchive) E:\competition\4_metrics\logs\2026-09-10_sd_builder_toolkit_run01\pyinstaller_build\EES331SDBootBuilder\PYZ-00.pyz
+10350 INFO: Building PYZ (ZlibArchive) E:\competition\4_metrics\logs\2026-09-10_sd_builder_toolkit_run01\pyinstaller_build\EES331SDBootBuilder\PYZ-00.pyz completed successfully.
+10366 INFO: checking PKG
+10366 INFO: Building PKG because PKG-00.toc is non existent
+10366 INFO: Building PKG (CArchive) EES331SDBootBuilder.pkg
+13003 INFO: Building PKG (CArchive) EES331SDBootBuilder.pkg completed successfully.
+13014 INFO: Bootloader E:\competition\4_metrics\logs\2026-09-10_sd_builder_toolkit_run01\python_deps\PyInstaller\bootloader\Windows-64bit-intel\runw.exe
+13014 INFO: checking EXE
+13014 INFO: Building EXE because EXE-00.toc is non existent
+13014 INFO: Building EXE from EXE-00.toc
+13014 INFO: Copying bootloader EXE to E:\competition\4_metrics\logs\2026-09-10_sd_builder_toolkit_run01\distribution\EES331SDBootBuilder.exe
+13017 INFO: Copying icon to EXE
+13019 INFO: Copying 0 resources to EXE
+13019 INFO: Embedding manifest in EXE
+13020 INFO: Appending PKG archive to EXE
+13029 INFO: Fixing EXE headers
+13098 INFO: Building EXE from EXE-00.toc completed successfully.
+13109 INFO: Build complete! The results are available in: E:\competition\4_metrics\logs\2026-09-10_sd_builder_toolkit_run01\distribution

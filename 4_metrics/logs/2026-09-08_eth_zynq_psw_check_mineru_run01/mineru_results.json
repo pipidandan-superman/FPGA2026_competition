@@ -1,0 +1,19 @@
+﻿{
+    "File":  "EES-331 User Guide.pdf",
+    "InputPath":  "E:\\competition\\1_docs\\pdf\\EES-331 User Guide.pdf",
+    "SHA256":  "27C26F39F3E35132A89FAE2155FA23575E850B0A22E3D9DC64FD73186B3F5949",
+    "ExitCode":  0,
+    "Seconds":  41.4,
+    "Fallback":  false,
+    "Markdown":  true,
+    "ContentJson":  true,
+    "ImageCount":  86,
+    "ChineseQuality":  "pass",
+    "PreferredSource":  "content_list_json",
+    "QualityReasons":  "",
+    "MarkdownPath":  "E:\\competition\\4_metrics\\logs\\2026-09-08_eth_zynq_psw_check_mineru_run01\\EES-331 User Guide\\auto\\EES-331 User Guide.md",
+    "ContentJsonPath":  "E:\\competition\\4_metrics\\logs\\2026-09-08_eth_zynq_psw_check_mineru_run01\\EES-331 User Guide\\auto\\EES-331 User Guide_content_list.json",
+    "OutputFolder":  "E:\\competition\\4_metrics\\logs\\2026-09-08_eth_zynq_psw_check_mineru_run01\\EES-331 User Guide",
+    "StdoutPath":  "E:\\competition\\4_metrics\\logs\\2026-09-08_eth_zynq_psw_check_mineru_run01\\command_logs\\01_EES-331_User_Guide_stdout.txt",
+    "StderrPath":  "E:\\competition\\4_metrics\\logs\\2026-09-08_eth_zynq_psw_check_mineru_run01\\command_logs\\01_EES-331_User_Guide_stderr.txt"
+}

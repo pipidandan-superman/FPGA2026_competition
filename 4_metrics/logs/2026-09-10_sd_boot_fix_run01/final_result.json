@@ -1,0 +1,11 @@
+{
+  "result": "SD_BOOT_FILES_FIXED_AND_DEPLOYED",
+  "static_checks": "PASS_240",
+  "sd_readback": "PASS",
+  "volume_flush": "PASS",
+  "fat_readonly_check": "NO_PROBLEMS_FOUND",
+  "daily_handoff": "PASS",
+  "evidence_file_count": 66,
+  "hardware_boot": "NOT_TESTED",
+  "next_action": "Cold boot with UART capture before power-on"
+}

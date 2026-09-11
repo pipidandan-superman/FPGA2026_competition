@@ -1,0 +1,8 @@
+{
+  "size": 7858807808,
+  "sha256": "ae016a04126cb61a9893cf01e565135c5c49b5479ea75570d83b48917cd38eab",
+  "base_sha256": "203e9f79679c6c77a738c30d06e3232f0907eb2e5b6cafe97e26e8889057835a",
+  "rootfs_unchanged": true,
+  "full_readback": "PASS",
+  "boot_files": "PASS"
+}
