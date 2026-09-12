@@ -6,6 +6,17 @@
 3_host/pynq/sd_boot_builder_v02/** -text
 8_tools/sd_start_tool/** -text
 8_tools/sd_start_tool_v0.2/** -text
+# Published Windows tools and bundled model runtimes use LFS to avoid normal Git bloat.
+8_tools/**/*.exe filter=lfs diff=lfs merge=lfs -text
+8_tools/**/*.dll filter=lfs diff=lfs merge=lfs -text
+8_tools/**/*.pyd filter=lfs diff=lfs merge=lfs -text
+8_tools/**/*.pt filter=lfs diff=lfs merge=lfs -text
+8_tools/**/*.zip filter=lfs diff=lfs merge=lfs -text
+8_tools/**/*.lnk filter=lfs diff=lfs merge=lfs -text
+8_tools/*.exe filter=lfs diff=lfs merge=lfs -text
+8_tools/*.lnk filter=lfs diff=lfs merge=lfs -text
+# The packaged runtime is generated delivery content; do not render thousands of library diffs.
+8_tools/EES331_Gesture_Viewer_v1.0/_internal/** -text -diff
 4_metrics/logs/2026-09-10_*/* -text
 4_metrics/logs/2026-09-10_*/** -text
 4_metrics/logs/2026-09-09_amd_sait_pynq_mineru_run01/** -text
