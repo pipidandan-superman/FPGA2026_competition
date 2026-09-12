@@ -21,6 +21,15 @@ $status=Join-Path $run 'process_status.json'
 $result=Join-Path $run 'result.json'
 $start=Get-Date
 
+Get-ChildItem -LiteralPath $run -File | ForEach-Object {
+  [pscustomobject]@{
+    path=$_.FullName
+    size=$_.Length
+    modified=$_.LastWriteTimeUtc.ToString('o')
+    sha256=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash
+  }
+} | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $run 'run_input_manifest.json') -Encoding UTF8
+
 $psi=[Diagnostics.ProcessStartInfo]::new()
 $psi.FileName=$env:ComSpec
 $psi.UseShellExecute=$false
@@ -52,8 +61,9 @@ if($timedOut){
 $raw=$outTask.Result+"`r`n"+$errTask.Result
 $raw | Set-Content -LiteralPath $console -Encoding UTF8
 $exitCode=if($p.HasExited){$p.ExitCode}else{999}
-$markerFound=Select-String -LiteralPath $console -Pattern ([regex]::Escape($PassMarker)) -Quiet
-$failFound=Select-String -LiteralPath $console -Pattern 'EES_VIVADO_RESULT FAIL|\bERROR:|\bFATAL:|CRITICAL WARNING' -Quiet
+$markerFound=Select-String -LiteralPath $console -Pattern ('^\s*'+[regex]::Escape($PassMarker)+'\s*$') -Quiet
+# Vivado echoes Tcl source with # prefixes; only actual diagnostic lines count.
+$failFound=Select-String -LiteralPath $console -Pattern '^\s*(EES_VIVADO_RESULT FAIL|ERROR:|FATAL:|CRITICAL WARNING:)' -Quiet
 $state=if($timedOut){'TIMEOUT'}elseif($exitCode -ne 0){'PROCESS_FAIL'}elseif($failFound){'DESIGN_FAIL'}elseif(-not $markerFound){'INCONCLUSIVE_NO_MARKER'}else{'PASS'}
 [pscustomobject]@{
   run_id=(Split-Path $run -Leaf)

@@ -1,0 +1,13 @@
+test_interval_validation (test_core.ConfigurationTests.test_interval_validation) ... ok
+test_round_trip (test_core.ConfigurationTests.test_round_trip) ... ok
+test_characteristic_selection (test_core.ProtocolTests.test_characteristic_selection) ... ok
+test_encode_suffix (test_core.ProtocolTests.test_encode_suffix) ... ok
+test_format_payload (test_core.ProtocolTests.test_format_payload) ... ok
+test_invalid_hex_payload (test_core.ProtocolTests.test_invalid_hex_payload) ... ok
+test_normalize_uuid (test_core.ProtocolTests.test_normalize_uuid) ... ok
+test_parse_hex_payload (test_core.ProtocolTests.test_parse_hex_payload) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.004s
+
+OK

@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "device_name": "MLT-BT05",
+  "device_address": "6A:C2:D2:F2:1B:5D",
+  "scan_timeout_s": 5.0,
+  "connect_timeout_s": 15.0,
+  "service_uuid": "0000ffe0-0000-1000-8000-00805f9b34fb",
+  "write_uuid": "0000ffe1-0000-1000-8000-00805f9b34fb",
+  "notify_uuid": "0000ffe1-0000-1000-8000-00805f9b34fb",
+  "write_with_response": false,
+  "tx_mode": "hex",
+  "append": "none",
+  "interval_ms": 1000,
+  "presets": [
+    {
+      "name": "PL接收验证",
+      "mode": "hex",
+      "payload": "55 AA 31 32",
+      "append": "none"
+    },
+    {
+      "name": "ASCII PING",
+      "mode": "utf8",
+      "payload": "PING",
+      "append": "crlf"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "Path": "E:\\competition\\2_fpga\\1_ble_test\\rtl\\ble_uart_debug_top.v",
+    "Hash": "7CE7802D65489364E4A8CA0AD1E2339E52F5C658462AACA81C34698846096734"
+  },
+  {
+    "Path": "E:\\competition\\2_fpga\\1_ble_test\\rtl\\ees331_ble_uart_debug.xdc",
+    "Hash": "69DAC43A6668549708DB160CDF27EC7304DF4BB2DC83BBFA0274E9D1B2B3EDFC"
+  },
+  {
+    "Path": "E:\\competition\\2_fpga\\1_ble_test\\rtl\\uart_rx.v",
+    "Hash": "E3843655591CB52356B82129984D4F2F167CE093C14AD43D6369D351D1AB0F85"
+  },
+  {
+    "Path": "E:\\competition\\2_fpga\\1_ble_test\\sim\\tb_ble_uart_debug_top.v",
+    "Hash": "7E84C4792CF32D7E8B6E362CD36130FC25CF3C8DC8FE31EC4C947DFD2124FB0F"
+  }
+]

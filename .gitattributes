@@ -1,4 +1,12 @@
 # Preserve the 2026-09-07 frozen camera/HDMI evidence byte-for-byte.
+# Preserve selected BLE evidence; Vivado report spacing is intentional raw output.
+4_metrics/logs/2026-09-12_ble_bridge_duplex_run01/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+4_metrics/logs/2026-09-12_ble_unpaired_bridge_run01/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+4_metrics/logs/2026-09-12_ble_bridge_validation_run01/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+4_metrics/logs/2026-09-12_pl_uart_bridge_build_run02/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+4_metrics/logs/2026-09-12_pl_uart_bridge_build_run02/*.rpt -whitespace
+4_metrics/logs/2026-09-12_pl_uart_at_board_run02/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+4_metrics/logs/2026-09-12_ble_validation_publish_run01/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 4_metrics/logs/2026-09-07_camera_display_success_freeze_run01/** -text
 
 # Hash-verified SD builder releases and selected evidence keep original bytes.

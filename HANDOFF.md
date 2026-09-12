@@ -1,5 +1,12 @@
 # EES-331 项目交接
 
+## 2026-09-12 最新蓝牙里程碑
+
+PC与板载MLT-BT05已通过短时双向通信：未配对GATT保持61.703秒，11轮、每方向166字节全部一致，结束主动断开。COM4有线AT正常；不等于长期压力、Windows PIN配对稳定、机械臂互通或正式AXI/BRAM控制通过。复现时直接通过BLE上位机连接并订阅FFE1，COM4=9600/8N1用于另一端收发核对，不需ILA。
+
+入口：[验证状态与复现](1_docs/doc/ees331_ble_validation_status_2026-09-12.md) · [完整开发方案v1.1](1_docs/doc/ees331_ble_axi_bram_development_plan_2026-09-12.md)。下方历史阶段状态以本段及最新验证报告为准；当前电平桥不能替代正式字节级UART/FIFO。
+
+
 ## 2026-09-12 当前最高优先级：板载蓝牙验证
 
 执行入口：[完整开发方案](1_docs/doc/ees331_ble_axi_bram_development_plan_2026-09-12.md)。用户确认自定义AXI-Lite只做控制/状态、BRAM使用独立控制器、蓝牙使用PL板载模块。首先G0核实基线和供电极性，建立独立PL UART诊断副本，B0查询MLT-BT05，B1以Windows主机作BLE Central验证双向收发。PC通路PASS不代表MLT主机模式或BT24直连PASS。之后按C0/C1实现CSR、4KiB TDP BRAM、LED，再接机械臂。方案中给出地址偏移、所有权/CRC/seq/结果确认、心跳和回退；物理基地址待审计。此轮仅编写和发布方案，2_fpga冻结基线保持只读。

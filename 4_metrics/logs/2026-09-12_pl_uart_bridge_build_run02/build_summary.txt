@@ -1,0 +1,4 @@
+BLE_UART_DEBUG_BUILD_PASS
+WNS=5.872
+WHS=0.160
+BITSTREAM=E:/competition/2_fpga/1_ble_test/proj/ble_uart_debug_vivado_2025_2/ble_uart_debug_vivado_2025_2.runs/impl_1/ble_uart_debug_top.bit
