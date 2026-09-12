@@ -1,5 +1,9 @@
 # EES-331 项目交接
 
+## 2026-09-12 当前最高优先级：板载蓝牙验证
+
+执行入口：[完整开发方案](1_docs/doc/ees331_ble_axi_bram_development_plan_2026-09-12.md)。用户确认自定义AXI-Lite只做控制/状态、BRAM使用独立控制器、蓝牙使用PL板载模块。首先G0核实基线和供电极性，建立独立PL UART诊断副本，B0查询MLT-BT05，B1以Windows主机作BLE Central验证双向收发。PC通路PASS不代表MLT主机模式或BT24直连PASS。之后按C0/C1实现CSR、4KiB TDP BRAM、LED，再接机械臂。方案中给出地址偏移、所有权/CRC/seq/结果确认、心跳和回退；物理基地址待审计。此轮仅编写和发布方案，2_fpga冻结基线保持只读。
+
 ## 2026-09-10 关键证据归档与个人分支交付
 
 - 已完成：内容提交 `ae1384aea6f3390fb17ef78562eabf83f4677039` 已推送且远端 HEAD 一致；[草稿 PR #3](https://github.com/pipidandan-superman/FPGA2026_competition/pull/3) 目标 main，尚未合并。归档文件哈希、18 项启动资产、300 项暂存对象、两版 EXE 自检与项目路径审计通过。后续回执提交只补充文档和 Git 结果。
