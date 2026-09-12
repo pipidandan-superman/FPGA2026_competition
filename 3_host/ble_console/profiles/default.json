@@ -8,6 +8,8 @@
   "write_uuid": "0000ffe1-0000-1000-8000-00805f9b34fb",
   "notify_uuid": "0000ffe1-0000-1000-8000-00805f9b34fb",
   "write_with_response": false,
+  "verified_direct": true,
+  "auto_notify": true,
   "tx_mode": "hex",
   "append": "none",
   "interval_ms": 1000,

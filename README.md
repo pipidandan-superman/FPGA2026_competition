@@ -1,5 +1,19 @@
 # 小月文刀队｜AMD 具身智能赛道
 
+## 2026-09-12 BLE Console v1.1 与手动复现
+
+推荐未配对GATT接入已集成上位机：三次无缓存读取/保持门控、自动通知、断连停止发送。
+31项离线/Tk测试、新版后端60.5秒三轮双向及真实EXE按钮双向字节核对通过；
+用户另行确认双向通信成功。TX只是发送记录，HEX旁的文本替代字符不是数据损坏，
+端到端结果以另一端实际收到的HEX为准。
+
+[操作与验证状态](1_docs/doc/ees331_ble_validation_status_2026-09-12.md) ·
+[上位机源码及说明](3_host/ble_console/README.md) ·
+[方案v1.2](1_docs/doc/ees331_ble_axi_bram_development_plan_2026-09-12.md) ·
+[本次发布范围](4_metrics/logs/2026-09-12_ble_v11_publish_run01/REPORT.md)。
+本地新EXE在8_tools/EES331_BLE_Console_v1.1，旧包保留；本次上传源码、说明、精选证据，
+不上传运行依赖树或凭据。冻结FPGA不改；长期/重连/机械臂/AXI-BRAM仍待分阶段执行。
+
 ## 2026-09-12 最新蓝牙里程碑
 
 PC与板载MLT-BT05已通过短时双向通信：未配对GATT保持61.703秒，11轮、每方向166字节全部一致，结束主动断开。COM4有线AT正常；不等于长期压力、Windows PIN配对稳定、机械臂互通或正式AXI/BRAM控制通过。复现时直接通过BLE上位机连接并订阅FFE1，COM4=9600/8N1用于另一端收发核对，不需ILA。

@@ -1,0 +1,36 @@
+test_generic_mode_round_trip (test_backend.ConfigMigrationTests.test_generic_mode_round_trip) ... ok
+test_old_config_defaults_to_verified_flow (test_backend.ConfigMigrationTests.test_old_config_defaults_to_verified_flow) ... ok
+test_cancel_cleans_connection (test_backend.GateTests.test_cancel_cleans_connection) ... ok
+test_connect_timeout_cleans_connection (test_backend.GateTests.test_connect_timeout_cleans_connection) ... ok
+test_generic_mode_does_not_claim_verification (test_backend.GateTests.test_generic_mode_does_not_claim_verification) ... ok
+test_intentional_disconnect_ignores_callback (test_backend.GateTests.test_intentional_disconnect_ignores_callback) ... ok
+test_invalid_timeout_address (test_backend.GateTests.test_invalid_timeout_address) ... ok
+test_io_before_ready_rejected (test_backend.GateTests.test_io_before_ready_rejected) ... ok
+test_missing_service (test_backend.GateTests.test_missing_service) ... ok
+test_no_repeat_subscription (test_backend.GateTests.test_no_repeat_subscription) ... ok
+test_notify_failure_cleans_connection (test_backend.GateTests.test_notify_failure_cleans_connection) ... ok
+test_paired_rejected_without_connect_or_mutation (test_backend.GateTests.test_paired_rejected_without_connect_or_mutation) ... ok
+test_ready_only_after_reads_hold_and_subscribe (test_backend.GateTests.test_ready_only_after_reads_hold_and_subscribe) ... ok
+test_scan_absent (test_backend.GateTests.test_scan_absent) ... ok
+test_short_disconnect_never_ready (test_backend.GateTests.test_short_disconnect_never_ready) ... ok
+test_stale_io_dropped_by_queue (test_backend.GateTests.test_stale_io_dropped_by_queue) ... ok
+test_wrong_name_cleanup (test_backend.GateTests.test_wrong_name_cleanup) ... ok
+test_wrong_notify_service (test_backend.GateTests.test_wrong_notify_service) ... ok
+test_interval_validation (test_core.ConfigurationTests.test_interval_validation) ... ok
+test_round_trip (test_core.ConfigurationTests.test_round_trip) ... ok
+test_characteristic_selection (test_core.ProtocolTests.test_characteristic_selection) ... ok
+test_encode_suffix (test_core.ProtocolTests.test_encode_suffix) ... ok
+test_format_payload (test_core.ProtocolTests.test_format_payload) ... ok
+test_invalid_hex_payload (test_core.ProtocolTests.test_invalid_hex_payload) ... ok
+test_normalize_uuid (test_core.ProtocolTests.test_normalize_uuid) ... ok
+test_parse_hex_payload (test_core.ProtocolTests.test_parse_hex_payload) ... ok
+test_connect_failure_clears_auto_notify_state (test_gui.GuiTests.test_connect_failure_clears_auto_notify_state) ... ok
+test_connect_uses_new_config_disables_io_until_ready (test_gui.GuiTests.test_connect_uses_new_config_disables_io_until_ready) ... ok
+test_disconnect_stops_periodic_and_controls (test_gui.GuiTests.test_disconnect_stops_periodic_and_controls) ... ok
+test_generic_does_not_claim_verified (test_gui.GuiTests.test_generic_does_not_claim_verified) ... ok
+test_stop_notify_uses_actual_subscription (test_gui.GuiTests.test_stop_notify_uses_actual_subscription) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 0.611s
+
+OK

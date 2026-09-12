@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import math
 import os
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
@@ -26,6 +27,8 @@ class AppConfig:
     write_uuid: str = DEFAULT_CHARACTERISTIC_UUID
     notify_uuid: str = DEFAULT_CHARACTERISTIC_UUID
     write_with_response: bool = False
+    verified_direct: bool = True
+    auto_notify: bool = True
     tx_mode: str = "hex"
     append: str = "none"
     interval_ms: int = 1000
@@ -37,9 +40,9 @@ class AppConfig:
     )
 
     def validate(self) -> None:
-        if self.scan_timeout_s <= 0:
+        if not math.isfinite(self.scan_timeout_s) or not 0 < self.scan_timeout_s <= 120:
             raise ValueError("扫描超时必须大于0秒")
-        if self.connect_timeout_s <= 0:
+        if not math.isfinite(self.connect_timeout_s) or not 0 < self.connect_timeout_s <= 120:
             raise ValueError("连接超时必须大于0秒")
         if not 50 <= self.interval_ms <= 3_600_000:
             raise ValueError("循环发送间隔必须在50到3600000毫秒之间")
@@ -69,6 +72,8 @@ class AppConfig:
             write_uuid=str(value.get("write_uuid", DEFAULT_CHARACTERISTIC_UUID)),
             notify_uuid=str(value.get("notify_uuid", DEFAULT_CHARACTERISTIC_UUID)),
             write_with_response=bool(value.get("write_with_response", False)),
+            verified_direct=bool(value.get("verified_direct", True)),
+            auto_notify=bool(value.get("auto_notify", True)),
             tx_mode=str(value.get("tx_mode", "hex")),
             append=str(value.get("append", "none")),
             interval_ms=int(value.get("interval_ms", 1000)),

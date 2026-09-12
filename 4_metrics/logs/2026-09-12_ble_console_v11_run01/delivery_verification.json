@@ -1,0 +1,12 @@
+{
+  "marker": "BLE_CONSOLE_V11_DELIVERY_PASS",
+  "timestamp": "2026-09-12T22:44:05.1748415+08:00",
+  "old_exe_unchanged": true,
+  "offline_tests": 31,
+  "worker_rounds": 3,
+  "worker_hold_s": 60.5,
+  "worker_bytes_each_direction": 18,
+  "frozen_exe_gui_duplex": true,
+  "exe": "82BDD94C77F2090A4A4086EB10D6706443BDE21E216B02AB93A87DD5E0C93381",
+  "formal_long_term_acceptance": false
+}

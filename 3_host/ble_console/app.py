@@ -17,7 +17,7 @@ from protocols import encode_payload, find_characteristic, format_payload
 
 
 APP_NAME = "EES331 BLE Console"
-APP_VERSION = "1.0.0"
+APP_VERSION = "1.1.0"
 
 
 class BleConsoleApp:
@@ -39,6 +39,7 @@ class BleConsoleApp:
         self.characteristics: list[dict[str, object]] = []
         self.connected = False
         self.notify_active = False
+        self.subscribed_uuid = ""
         self.periodic_job: str | None = None
         self.session_log_path = self._create_session_log()
 
@@ -66,6 +67,8 @@ class BleConsoleApp:
         self.write_uuid_var = tk.StringVar()
         self.notify_uuid_var = tk.StringVar()
         self.response_var = tk.BooleanVar()
+        self.verified_direct_var = tk.BooleanVar(value=True)
+        self.auto_notify_var = tk.BooleanVar(value=True)
         self.tx_mode_var = tk.StringVar()
         self.append_var = tk.StringVar()
         self.tx_payload_var = tk.StringVar(value="55 AA 31 32")
@@ -118,8 +121,15 @@ class BleConsoleApp:
             state="disabled",
         )
         self.disconnect_button.grid(row=1, column=7, padx=5, pady=5)
+        ttk.Checkbutton(
+            connection, text="MLT-BT05 已验证直连模式（推荐；取消为通用 GATT）",
+            variable=self.verified_direct_var,
+        ).grid(row=2, column=0, columnspan=5, sticky="w", padx=5, pady=5)
+        ttk.Checkbutton(
+            connection, text="连接后自动订阅通知", variable=self.auto_notify_var,
+        ).grid(row=2, column=5, columnspan=3, sticky="w", padx=5, pady=5)
 
-        parameters = ttk.LabelFrame(self.root, text="2. 实时连接参数（修改后立即用于下一操作）")
+        parameters = ttk.LabelFrame(self.root, text="2. 参数（直连模式/自动订阅下次连接生效；UUID用于下一次操作）")
         parameters.grid(row=1, column=0, sticky="ew", padx=8, pady=4)
         parameters.columnconfigure(1, weight=1)
         parameters.columnconfigure(3, weight=1)
@@ -290,6 +300,8 @@ class BleConsoleApp:
         self.write_uuid_var.set(config.write_uuid)
         self.notify_uuid_var.set(config.notify_uuid)
         self.response_var.set(config.write_with_response)
+        self.verified_direct_var.set(config.verified_direct)
+        self.auto_notify_var.set(config.auto_notify)
         self.tx_mode_var.set(config.tx_mode)
         self.append_var.set(config.append)
         self.interval_var.set(str(config.interval_ms))
@@ -308,6 +320,8 @@ class BleConsoleApp:
             write_uuid=self.write_uuid_var.get().strip(),
             notify_uuid=self.notify_uuid_var.get().strip(),
             write_with_response=self.response_var.get(),
+            verified_direct=self.verified_direct_var.get(),
+            auto_notify=self.auto_notify_var.get(),
             tx_mode=self.tx_mode_var.get(),
             append=self.append_var.get(),
             interval_ms=int(self.interval_var.get()),
@@ -348,15 +362,26 @@ class BleConsoleApp:
             messagebox.showerror(APP_NAME, "请扫描并选择设备，或填写设备地址", parent=self.root)
             return
         try:
-            timeout = float(self.connect_timeout_var.get())
-        except ValueError:
-            messagebox.showerror(APP_NAME, "连接超时必须是数字", parent=self.root)
+            config = self._config_from_ui()
+        except ValueError as exc:
+            messagebox.showerror(APP_NAME, str(exc), parent=self.root)
             return
+        self._set_disconnected_ui()
         self.connect_button.configure(state="disabled")
+        self.scan_button.configure(state="disabled")
+        self.disconnect_button.configure(state="normal", text="取消/断开")
         self.status_var.set("连接中")
-        self.worker.submit("connect", address=address, timeout=timeout)
+        self.worker.submit(
+            "connect", address=address, timeout=config.connect_timeout_s,
+            verified_direct=config.verified_direct, auto_notify=config.auto_notify,
+            service_uuid=config.service_uuid, write_uuid=config.write_uuid,
+            notify_uuid=config.notify_uuid, response=config.write_with_response,
+        )
 
     def _disconnect(self) -> None:
+        self._set_disconnected_ui()
+        self.connect_button.configure(state="disabled")
+        self.scan_button.configure(state="disabled")
         self.status_var.set("正在断开")
         self.worker.submit("disconnect")
 
@@ -391,7 +416,7 @@ class BleConsoleApp:
             self.worker.submit("read", uuid=uuid)
 
     def _toggle_notify(self) -> None:
-        uuid = self.notify_uuid_var.get().strip()
+        uuid = self.subscribed_uuid if self.notify_active else self.notify_uuid_var.get().strip()
         if not uuid:
             messagebox.showerror(APP_NAME, "Notify UUID不能为空", parent=self.root)
             return
@@ -473,23 +498,34 @@ class BleConsoleApp:
             self._log("INFO", f"开始扫描，超时 {data['timeout']} 秒")
         elif kind == "scan_complete":
             self.scan_button.configure(state="normal")
-            self.status_var.set("扫描完成")
+            if not self.connected:
+                self.status_var.set("扫描完成")
             self._show_devices(list(data["devices"]))
         elif kind == "connect_started":
             self._log("INFO", f"正在连接 {data['address']}")
+        elif kind == "connection_stage":
+            self.status_var.set(str(data["message"]))
+            self._log("INFO", str(data["message"]))
+        elif kind == "pairing_status":
+            self._log("INFO", f"目标 Windows 配对状态：{data['paired']}（只读检查）")
+        elif kind in {"cleanup_warning", "operation_cancelled"}:
+            self._log("WARN", str(data))
         elif kind == "connected":
             self.connected = True
-            self.status_var.set("已连接")
+            self.status_var.set("校验通过，可收发" if data.get("verified") else "通用连接（未做MLT校验）")
             self.connect_button.configure(state="disabled")
-            self.disconnect_button.configure(state="normal")
+            self.disconnect_button.configure(state="normal", text="断开")
+            self.scan_button.configure(state="normal")
             self.send_button.configure(state="normal")
             self.read_button.configure(state="normal")
             self.notify_button.configure(state="normal")
-            self._log("INFO", f"连接成功，MTU={data['mtu_size']}")
+            self._log("INFO", f"连接准备完成，MTU={data['mtu_size']}，校验={data.get('verified')}；不代表长期稳定性通过")
         elif kind == "disconnected":
             self._set_disconnected_ui()
             reason = "主动断开" if data.get("expected") else "设备断开"
             self._log("WARN", reason)
+            if not data.get("expected"):
+                self._log("WARN", f"连接持续 {data.get('elapsed_s', '?')} 秒；已停止循环发送，不自动重连/重发。请保存日志，勿盲目更改PIN。")
         elif kind == "services":
             self._show_services(list(data["services"]))
         elif kind == "write_complete":
@@ -503,13 +539,19 @@ class BleConsoleApp:
             self._log("RX", f"NOTIFY {hex_text} | {text} | UUID={data['uuid']}")
         elif kind == "notify_started":
             self.notify_active = True
+            self.subscribed_uuid = str(data["uuid"])
             self.notify_button.configure(text="停止通知")
             self._log("INFO", f"已订阅通知：{data['uuid']}")
         elif kind == "notify_stopped":
             self.notify_active = False
+            self.subscribed_uuid = ""
             self.notify_button.configure(text="订阅通知")
             self._log("INFO", f"已停止通知：{data['uuid']}")
         elif kind == "error":
+            self.periodic_var.set(False)
+            self._periodic_changed()
+            if data["action"] == "connect":
+                self._set_disconnected_ui()
             self.scan_button.configure(state="normal")
             if not self.connected:
                 self.connect_button.configure(state="normal")
@@ -579,9 +621,9 @@ class BleConsoleApp:
             "indicate",
             self.notify_uuid_var.get(),
         )
-        if write_uuid:
+        if write_uuid and not self.verified_direct_var.get():
             self.write_uuid_var.set(write_uuid)
-        if notify_uuid:
+        if notify_uuid and not self.verified_direct_var.get():
             self.notify_uuid_var.set(notify_uuid)
         self._log(
             "INFO",
@@ -591,13 +633,15 @@ class BleConsoleApp:
     def _set_disconnected_ui(self) -> None:
         self.connected = False
         self.notify_active = False
+        self.subscribed_uuid = ""
         self.periodic_var.set(False)
         if self.periodic_job:
             self.root.after_cancel(self.periodic_job)
             self.periodic_job = None
         self.status_var.set("未连接")
         self.connect_button.configure(state="normal")
-        self.disconnect_button.configure(state="disabled")
+        self.scan_button.configure(state="normal")
+        self.disconnect_button.configure(state="disabled", text="断开")
         self.send_button.configure(state="disabled")
         self.read_button.configure(state="disabled")
         self.notify_button.configure(state="disabled", text="订阅通知")

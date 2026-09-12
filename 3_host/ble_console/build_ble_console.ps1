@@ -4,7 +4,8 @@ param(
     [string]$PythonExe =
         'C:\Users\Administrator\AppData\Local\Programs\Python\Python312\python.exe',
     [string]$ReleaseRoot =
-        'E:\competition\8_tools\EES331_BLE_Console_v1.0'
+        'E:\competition\8_tools\EES331_BLE_Console_v1.1',
+    [string]$OfflineWheelhouse = ''
 )
 
 $ErrorActionPreference = 'Stop'
@@ -16,10 +17,10 @@ $resolvedBuildRun = [System.IO.Path]::GetFullPath($BuildRun)
 $resolvedEvidenceRoot = [System.IO.Path]::GetFullPath($evidenceRoot)
 $resolvedReleaseRoot = [System.IO.Path]::GetFullPath($ReleaseRoot)
 $requiredReleaseRoot = [System.IO.Path]::GetFullPath(
-    'E:\competition\8_tools\EES331_BLE_Console_v1.0'
+    'E:\competition\8_tools\EES331_BLE_Console_v1.1'
 )
 
-if (-not $resolvedBuildRun.StartsWith($resolvedEvidenceRoot)) {
+if (-not $resolvedBuildRun.StartsWith($resolvedEvidenceRoot + '\', [System.StringComparison]::OrdinalIgnoreCase)) {
     throw "BuildRun必须位于 $resolvedEvidenceRoot"
 }
 if ($resolvedReleaseRoot -ne $requiredReleaseRoot) {
@@ -44,20 +45,31 @@ foreach ($path in @($venvRoot, $wheelRoot, $distRoot, $workRoot, $specRoot)) {
     }
 }
 
-$releaseItems = Get-ChildItem -LiteralPath $resolvedReleaseRoot -Force
-if ($releaseItems.Count -ne 0) {
-    throw "拒绝覆盖非空发布目录：$resolvedReleaseRoot"
+if (Test-Path -LiteralPath $resolvedReleaseRoot) {
+    if (@(Get-ChildItem -LiteralPath $resolvedReleaseRoot -Force).Count -ne 0) {
+        throw "拒绝覆盖非空发布目录：$resolvedReleaseRoot"
+    }
 }
+New-Item -ItemType Directory -Path $resolvedBuildRun, $resolvedReleaseRoot -Force | Out-Null
 
 & $PythonExe -m venv $venvRoot
+if ($LASTEXITCODE -ne 0) { throw 'venv创建失败' }
 $venvPython = Join-Path $venvRoot 'Scripts\python.exe'
 
+if ($OfflineWheelhouse) {
+    if (-not (Test-Path -LiteralPath $OfflineWheelhouse -PathType Container)) {
+        throw '离线wheelhouse不存在'
+    }
+    New-Item -ItemType Directory -Path $wheelRoot | Out-Null
+    Copy-Item -Path (Join-Path $OfflineWheelhouse '*.whl') -Destination $wheelRoot
+} else {
 & $venvPython -m pip download `
     --only-binary=:all: `
     --dest $wheelRoot `
     -r (Join-Path $sourceRoot 'requirements.in')
 if ($LASTEXITCODE -ne 0) {
     throw "依赖下载失败：$LASTEXITCODE"
+}
 }
 
 & $venvPython -m pip install `
@@ -133,7 +145,7 @@ Copy-Item -LiteralPath (Join-Path $SourceRoot '使用说明.md') `
 Get-ChildItem -LiteralPath $resolvedReleaseRoot -File -Recurse |
     Get-FileHash -Algorithm SHA256 |
     ForEach-Object {
-        $relative = [System.IO.Path]::GetRelativePath($resolvedReleaseRoot, $_.Path)
+        $relative = $_.Path.Substring($resolvedReleaseRoot.TrimEnd('\').Length + 1)
         '{0}  {1}' -f $_.Hash, $relative
     } |
     Set-Content -LiteralPath (Join-Path $resolvedBuildRun 'release_sha256.txt') `

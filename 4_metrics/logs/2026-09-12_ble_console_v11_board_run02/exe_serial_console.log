@@ -1,0 +1,3 @@
+{"event":"serial_ready","port":"COM4","baud":9600}
+{"event":"serial_received","actual":"55AA3132","expected":"55AA3132"}
+{"event":"serial_written","hex":"AA553231","note":"verify EXE notification separately"}
