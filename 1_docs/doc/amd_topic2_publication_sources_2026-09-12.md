@@ -11,6 +11,7 @@
 | [amd_topic2_redesign_2026-09-12.md](../amd_topic2_redesign_2026-09-12.md) | 修改链接前的原始 Markdown | `e97d6f11b5284c84830c5a5e3b20e59e29b24968391326bc9fdb5b454df71042` / 37823 字节 |
 | [amd_arm_fpga_roadmap_2026-09-12.md](amd_arm_fpga_roadmap_2026-09-12.md) | 修改链接前的原始 Markdown | `a5afd875625722ac940a01288b00094fe1b483f94bfbd092d2aaac2f3c30b862` / 32764 字节 |
 | [amd_arm_fpga_roadmap_2026-09-12.docx](amd_arm_fpga_roadmap_2026-09-12.docx) | 发布件 | `a82b01ddaadfb1865493434396001b3718f8014b33e81f365db2b33b8cc56cb7` / 336780 字节 |
+| [amd_dual_model_arm_design_2026-09-12.md](amd_dual_model_arm_design_2026-09-12.md) | 双视角与PC/FPGA双模型新方案；GitHub发布件 | 原始归档SHA-256 `A968D675280F4B5FF626EED6D8CD182E2D19C7D6413FB948D5EC044D70FC689E` / 24827 字节；发布件因链接适配而不同 |
 
 两张 PNG 为本项目生成的最终技术图，按原始字节复制。Word 大小约 0.34 MB，为用户要求的可编辑完整方案；只修改超链接关系，正文和嵌入图片与原始交付件一致。Markdown 发布后的哈希另存本机上传审计 manifest，避免自引用哈希。
 
@@ -58,8 +59,32 @@ SHA-256：`593f196c429115dabd100eec16a3860109e7cd370ffcd8b09d88fa7e89c5fa43`；7
 
 SHA-256：`0a1096f6bdf35e39e608537d92c273418f1e4d79bf26de06f56b5b38b95ef03e`；3565 字节。状态：仅本机留存，本次未上传。
 
+## source-06
+
+来源：`E:/competition/4_metrics/logs/2026-09-12_amd_dual_model_design_run01/research_record.md`。
+
+SHA-256：`829E971D5C4E0F5C792CC945A14FDD7401FBDE9D7D2B35E5FBB267378706BA68`；4047 字节。状态：仅本机留存，记录双模型方案的来源边界与排除项，本次未上传。
+
+## source-07
+
+来源：`E:/competition/4_metrics/logs/2026-09-07_vivado_full_build_run01/post_build_outputs/impl_1/display_test_wrapper_utilization_placed.rpt`。
+
+SHA-256：`E9CA94C4FCA485F2190A25BC9D1272CED4D747E42BCB033F47C620C4D6053972`；16898 字节。状态：仅本机留存的历史placed资源报告；未证明与当前运行位流一致，本次未上传。
+
+## source-08
+
+来源：`E:/competition/4_metrics/logs/2026-09-09_amd_sait_pynq_mineru_run01/AMD赛题/auto/AMD赛题.md`。
+
+SHA-256：`1FDE4DA8CDBB23D900F5177481B11AAE4220097B6F4064028CA2FBC25D1B2F93`；56849 字节。状态：仅本机留存的MinerU Markdown；仓库已有原始赛题PDF，本次未上传解析产物。
+
+## source-09
+
+来源：`E:/competition/4_metrics/logs/2026-09-09_amd_sait_pynq_mineru_run01/AMD赛题/auto/AMD赛题_content_list.json`。
+
+SHA-256：`1F0138FE23DCA11615CCBA1372E68F6810C0B4498F46CBD2CFBE4452CD52CFF7`；146078 字节。状态：仅本机留存的 MinerU content JSON；本次未上传解析产物。
+
 ## 赛题解析与验收边界
 
 赛题输入为 1_docs/pdf/AMD赛题.pdf，SHA-256 为 C6AD82ACD4F7BDCD13BD412E232ED85D05F2A87DD5E2CDD04F9D219F88B569FC。前述方案撰写阶段复用同 SHA 的 MinerU pipeline 结果 MINERU_PARSE_PASS，中文质量 pass、无回退；完整解析路径为 4_metrics/logs/2026-09-09_amd_sait_pynq_mineru_run01/AMD赛题/auto/AMD赛题.md 与同目录 AMD赛题_content_list.json。此处登记既有来源，本次上传未重新解析或进行硬件验收。
 
-本次 Git 审计原始记录位于 E:/competition/4_metrics/logs/2026-09-12_amd_directions_upload_run01；日记索引位于 7_logs/2026-09-12/03_validation_summary.md。未批量上传原始运行目录、模型环境、用户硬件照片、渲染临时文件或冻结工程。
+本次双模型方案 Git 审计原始记录位于 E:/competition/4_metrics/logs/2026-09-12_amd_dual_model_github_run01；日记索引位于 7_logs/2026-09-12/03_validation_summary.md。未批量上传原始运行目录、模型环境、用户硬件照片、渲染临时文件或冻结工程。
