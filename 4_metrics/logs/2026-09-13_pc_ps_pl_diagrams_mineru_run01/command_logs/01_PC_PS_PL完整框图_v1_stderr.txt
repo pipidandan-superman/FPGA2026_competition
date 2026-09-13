@@ -1,0 +1,2 @@
+2026-09-13 18:38:33.924 | INFO     | mineru.cli.client:run_planned_task:832 - Submitting batch 1/1 | 1 document, 1 page in this batch | 1 page total | task#1 [PC_PS_PL完整框图_v1]
+2026-09-13 18:38:42.062 | INFO     | mineru.cli.client:run_planned_task:883 - Completed batch 1/1 | Processed 1/1 page | 1 of 1 batch finished | task#1 [PC_PS_PL完整框图_v1]

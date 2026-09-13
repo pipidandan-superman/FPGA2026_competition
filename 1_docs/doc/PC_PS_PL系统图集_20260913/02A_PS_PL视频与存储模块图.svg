@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- 由 Microsoft Visio, SVG Export 生成 02A_PS_PL视频与存储模块图.svg 02A_PS_PL视频与存储模块图 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="16.5354in" height="11.6929in"
+		viewBox="0 0 1190.55 841.889" xml:space="preserve" color-interpolation-filters="sRGB" class="st29">
+	<title>EES-331 PC PS PL System Atlas</title>
+	<v:documentProperties v:langID="2052" v:metric="true" v:viewMarkup="false"/>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#ffffff;stroke:#087fab;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st2 {fill:#ffffff;stroke:#58707b;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st3 {fill:#eef2f4;stroke:#58707b;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st4 {stroke:#58707b;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.59527}
+		.st5 {marker-end:url(#mrkr13-18);marker-start:url(#mrkr13-16);stroke:#087fab;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.78582}
+		.st6 {fill:#087fab;fill-opacity:1;stroke:#087fab;stroke-opacity:1;stroke-width:0.49802276745626}
+		.st7 {marker-end:url(#mrkr13-24);stroke:#425963;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.19055}
+		.st8 {fill:#425963;fill-opacity:1;stroke:#425963;stroke-opacity:1;stroke-width:0.39810402768721}
+		.st9 {marker-end:url(#mrkr13-32);marker-start:url(#mrkr13-16);stroke:#087fab;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.78582}
+		.st10 {marker-end:url(#mrkr13-43);stroke:#425963;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.19055}
+		.st11 {marker-end:url(#mrkr13-18);stroke:#087fab;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.78582}
+		.st12 {marker-end:url(#mrkr13-83);stroke:#c66a20;stroke-dasharray:8.33385,5.95275;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.19055}
+		.st13 {fill:#c66a20;fill-opacity:1;stroke:#c66a20;stroke-opacity:1;stroke-width:0.39810402768721}
+		.st14 {marker-end:url(#mrkr13-119);stroke:#c66a20;stroke-dasharray:8.33385,5.95275;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.19055}
+		.st15 {fill:none;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st16 {fill:#243d49;font-family:微软雅黑;font-size:1.93465em;font-weight:bold}
+		.st17 {fill:#243d49;font-family:微软雅黑;font-size:1.04173em}
+		.st18 {fill:#243d49;font-family:微软雅黑;font-size:0.843315em}
+		.st19 {fill:#243d49;font-family:微软雅黑;font-size:1.33937em;font-weight:bold}
+		.st20 {fill:#e8f3f9;stroke:#425963;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st21 {font-size:1em}
+		.st22 {fill:#eef2f4;stroke:#425963;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st23 {fill:#e9f2e7;stroke:#425963;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st24 {fill:#243d49;font-family:微软雅黑;font-size:0.992134em}
+		.st25 {fill:#fcead9;stroke:#425963;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st26 {fill:#243d49;font-family:微软雅黑;font-size:0.942513em}
+		.st27 {fill:#58707b;font-family:微软雅黑;font-size:0.992134em}
+		.st28 {fill:#58707b;font-family:微软雅黑;font-size:0.942513em}
+		.st29 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Markers">
+		<g id="lend13">
+			<path d="M 3 1 L 0 0 L 3 -1 L 3 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr13-16" class="st6" v:arrowType="13" v:arrowSize="1" v:setback="5.82223" refX="5.8222329238109"
+				orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend13" transform="scale(2.0079403299325) "/>
+		</marker>
+		<marker id="mrkr13-18" class="st6" v:arrowType="13" v:arrowSize="1" v:setback="6.02382" refX="-6.0238209897974"
+				orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend13" transform="scale(-2.0079403299325,-2.0079403299325) "/>
+		</marker>
+		<marker id="mrkr13-24" class="st8" v:arrowType="13" v:arrowSize="1" v:setback="7.53572" refX="-7.5357187854353"
+				orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend13" transform="scale(-2.5119062618118,-2.5119062618118) "/>
+		</marker>
+		<marker id="mrkr13-32" class="st6" v:arrowType="13" v:arrowSize="1" v:setback="5.82223" refX="-5.8222329238109"
+				orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend13" transform="scale(-2.0079403299325,-2.0079403299325) "/>
+		</marker>
+		<marker id="mrkr13-43" class="st8" v:arrowType="13" v:arrowSize="1" v:setback="7.23334" refX="-7.2333375330729"
+				orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend13" transform="scale(-2.5119062618118,-2.5119062618118) "/>
+		</marker>
+		<marker id="mrkr13-83" class="st13" v:arrowType="13" v:arrowSize="1" v:setback="7.53572" refX="-7.5357187854353"
+				orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend13" transform="scale(-2.5119062618118,-2.5119062618118) "/>
+		</marker>
+		<marker id="mrkr13-119" class="st13" v:arrowType="13" v:arrowSize="1" v:setback="7.23334" refX="-7.2333375330729"
+				orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend13" transform="scale(-2.5119062618118,-2.5119062618118) "/>
+		</marker>
+	</defs>
+	<g v:mID="4" v:index="2" v:groupContext="foregroundPage">
+		<title>02A_PS_PL视频与存储模块图</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<g id="shape1-1" v:mID="1" v:groupContext="shape" transform="translate(23.811,-572.654)">
+			<title>ps</title>
+			<rect x="0" y="682.951" width="1142.93" height="158.938" rx="4.76208" ry="4.76208" class="st1"/>
+		</g>
+		<g id="shape2-3" v:mID="2" v:groupContext="shape" transform="translate(160.724,-164.296)">
+			<title>pl</title>
+			<rect x="0" y="449.008" width="1006.01" height="392.881" rx="4.76208" ry="4.76208" class="st2"/>
+		</g>
+		<g id="shape3-5" v:mID="3" v:groupContext="shape" transform="translate(23.811,-42.2645)">
+			<title>clock</title>
+			<rect x="0" y="738.906" width="1142.93" height="102.982" rx="4.76208" ry="4.76208" class="st3"/>
+		</g>
+		<g id="shape4-7" v:mID="4" v:groupContext="shape" transform="translate(23.811,-749.45)">
+			<title>edge_0</title>
+			<path d="M0 841.89 L1142.93 841.89" class="st4"/>
+		</g>
+		<g id="shape5-10" v:mID="5" v:groupContext="shape" transform="translate(854.643,-642.249) rotate(0.636594)">
+			<title>edge_1</title>
+			<path d="M10.4 841.89 L10.76 841.89 L42.82 841.89" class="st5"/>
+		</g>
+		<g id="shape6-19" v:mID="6" v:groupContext="shape" transform="translate(269.242,-642.002) rotate(-1.52753)">
+			<title>edge_2</title>
+			<path d="M0 841.89 L35.69 841.89" class="st7"/>
+		</g>
+		<g id="shape7-25" v:mID="7" v:groupContext="shape" transform="translate(291.684,-584.559)">
+			<title>edge_3</title>
+			<path d="M0 784.15 L0 784.15 L17.86 784.15 L17.86 841.89 L247.63 841.89 L247.63 784.15 L264.9 784.15 L264.9 784.15"
+					class="st9"/>
+		</g>
+		<g id="shape8-33" v:mID="8" v:groupContext="shape" transform="translate(1243.8,72.9003) rotate(79.249)">
+			<title>edge_4</title>
+			<path d="M0 841.89 L86.76 841.89" class="st7"/>
+		</g>
+		<g id="shape9-38" v:mID="9" v:groupContext="shape" transform="translate(533.695,-492.062) rotate(-0.221047)">
+			<title>edge_5</title>
+			<path d="M0 840.47 L366.69 841.89 L366.69 840.4 L385.74 840.47 L385.74 840.47" class="st10"/>
+		</g>
+		<g id="shape10-44" v:mID="10" v:groupContext="shape" transform="translate(167.175,-393.09) rotate(1.7357)">
+			<title>edge_6</title>
+			<path d="M0 841.89 L28.55 841.89" class="st11"/>
+		</g>
+		<g id="shape11-49" v:mID="11" v:groupContext="shape" transform="translate(336.584,-392.189) rotate(0.868051)">
+			<title>edge_7</title>
+			<path d="M0 841.89 L28.54 841.89" class="st11"/>
+		</g>
+		<g id="shape12-54" v:mID="12" v:groupContext="shape" transform="translate(493.378,-391.28) rotate(-1.78991)">
+			<title>edge_8</title>
+			<path d="M0 841.89 L36.89 841.89" class="st11"/>
+		</g>
+		<g id="shape13-59" v:mID="13" v:groupContext="shape" transform="translate(811.037,-389.965) rotate(5.00797)">
+			<title>edge_9</title>
+			<path d="M10.4 841.89 L10.76 841.89 L47.21 841.89" class="st5"/>
+		</g>
+		<g id="shape14-66" v:mID="14" v:groupContext="shape" transform="translate(658.577,965.493) rotate(-137.684)">
+			<title>edge_10</title>
+			<path d="M0 692.04 L0 692.04 L-22.45 712.48 L95.37 841.89 L306.65 649.53 L359.95 708.07 L377.56 692.04 L377.56 692.04"
+					class="st9"/>
+		</g>
+		<g id="shape15-73" v:mID="15" v:groupContext="shape" transform="translate(522.563,-453.154) rotate(6.08234)">
+			<title>edge_11</title>
+			<path d="M0 830.64 L1.2 841.89 L217.84 818.8 L219.1 830.64 L219.1 830.64" class="st10"/>
+		</g>
+		<g id="shape16-78" v:mID="16" v:groupContext="shape" transform="translate(85.906,1189.97) rotate(-173.517)">
+			<title>edge_12</title>
+			<path d="M0 841.89 L30.57 841.89" class="st12"/>
+		</g>
+		<g id="shape17-84" v:mID="17" v:groupContext="shape" transform="translate(378.876,1203.96) rotate(171.224)">
+			<title>edge_13</title>
+			<path d="M0 828.95 L2 816 L169.66 841.89 L171.66 828.95 L171.66 828.95" class="st10"/>
+		</g>
+		<g id="shape18-89" v:mID="18" v:groupContext="shape" transform="translate(1493.73,470.232) rotate(87.8789)">
+			<title>edge_14</title>
+			<path d="M0 841.89 L37.49 841.89" class="st11"/>
+		</g>
+		<g id="shape19-94" v:mID="19" v:groupContext="shape" transform="translate(570.868,1426.32) rotate(180)">
+			<title>edge_15</title>
+			<path d="M0 841.89 L35.67 841.89" class="st11"/>
+		</g>
+		<g id="shape20-99" v:mID="20" v:groupContext="shape" transform="translate(369.665,1426.32) rotate(180)">
+			<title>edge_16</title>
+			<path d="M0 841.89 L29.13 841.89" class="st11"/>
+		</g>
+		<g id="shape21-104" v:mID="21" v:groupContext="shape" transform="translate(269.757,1421.63) rotate(173.946)">
+			<title>edge_17</title>
+			<path d="M0 841.89 L28.75 841.89" class="st11"/>
+		</g>
+		<g id="shape22-109" v:mID="22" v:groupContext="shape" transform="translate(793.5,1426.61) rotate(-179.716)">
+			<title>edge_18</title>
+			<path d="M0 841.89 L51.15 841.89" class="st7"/>
+		</g>
+		<g id="shape23-114" v:mID="23" v:groupContext="shape" transform="translate(638.183,-191.526) rotate(-1.13218)">
+			<title>edge_19</title>
+			<path d="M0 810.94 L-0.49 835.94 L300.66 841.89 L301.27 810.94 L301.27 810.94" class="st14"/>
+		</g>
+		<g id="shape24-120" v:mID="24" v:groupContext="shape" transform="translate(23.811,-792.906)">
+			<title>title</title>
+			<desc>PSPL 模块图视频、AXI 互连与 DDR</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="559.558" cy="824.626" width="1119.12" height="34.5259"/>
+			<rect x="0" y="807.363" width="1119.12" height="34.5259" rx="2.38104" ry="2.38104" class="st15"/>
+			<text x="0.86" y="831.59" class="st16" v:langID="2052"><v:paragraph/><v:tabList/>PS＋PL 模块图：视频、AXI 互连与 DDR</text>		</g>
+		<g id="shape25-123" v:mID="25" v:groupContext="shape" transform="translate(25.0015,-759.57)">
+			<title>subtitle</title>
+			<desc>依据固定发布 display_test_axi_action_uart.hwh实线模块均有当前连接依据图中频率为配置值而非...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="562.534" cy="827.602" width="1125.07" height="28.5732"/>
+			<rect x="0" y="813.316" width="1125.07" height="28.5732" rx="2.38104" ry="2.38104" class="st15"/>
+			<text x="0.86" y="831.35" class="st17" v:langID="2052"><v:paragraph/><v:tabList/>依据固定发布 display_test_axi_action_uart.hwh；实线模块均有当前连接依据，图中频率为配置值而非现场示波器测量</text>		</g>
+		<g id="shape26-126" v:mID="26" v:groupContext="shape" transform="translate(23.811,-11.9055)">
+			<title>foot</title>
+			<desc>EES-331 / Zynq-7020 · 工程快照 2026-09-13 · 固定动作载荷 + Reloader v1....</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="571.463" cy="833.257" width="1142.93" height="17.263"/>
+			<rect x="0" y="824.626" width="1142.93" height="17.263" rx="2.38104" ry="2.38104" class="st15"/>
+			<text x="0.86" y="836.29" class="st18" v:langID="2052"><v:paragraph/><v:tabList/>EES-331 / Zynq-7020  ·  工程快照 2026-09-13  ·  固定动作载荷 + Reloader v1.4  ·  源文件与证据见阅读说明</text>		</g>
+		<g id="shape27-129" v:mID="27" v:groupContext="shape" transform="translate(33.3354,-701.233)">
+			<title>ps_label</title>
+			<desc>PS / Linux 与片外 DDR软件拥有 VDMAPL 通过 HP 端口直接访问缓冲</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="561.939" cy="830.281" width="1123.88" height="23.2157"/>
+			<rect x="0" y="818.673" width="1123.88" height="23.2157" rx="2.38104" ry="2.38104" class="st15"/>
+			<text x="0.86" y="835.1" class="st19" v:langID="2052"><v:paragraph/><v:tabList/>PS / Linux 与片外 DDR：软件拥有 VDMA，PL 通过 HP 端口直接访问缓冲</text>		</g>
+		<g id="shape28-132" v:mID="28" v:groupContext="shape" transform="translate(38.6928,-598.251)">
+			<title>sw</title>
+			<desc>camera_action_v1.py / Camera Overlay + MMIO + allocate 锁ees33...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="126.496" cy="797.838" width="253" height="88.1006"/>
+			<rect x="0" y="753.788" width="252.992" height="88.1006" rx="2.38104" ry="2.38104" class="st20"/>
+			<text x="35.65" y="771.59" class="st17" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>camera_action_v1.py / Camera<v:newlineChar/><tspan
+						x="44.73" dy="1.2em" class="st21">Overlay + MMIO + allocate<v:newlineChar/></tspan><tspan x="25.95"
+						dy="1.2em" class="st21">锁</tspan>：ees331_camera / ees331_axilt<v:newlineChar/><tspan x="37.64" dy="1.2em"
+						class="st21">快照</tspan>：上一完成槽 → invalidate<v:newlineChar/><tspan x="31.48" dy="1.2em" class="st21">复制</tspan> &#60;10 ms 且写槽未移动才接受</text>		</g>
+		<g id="shape29-139" v:mID="29" v:groupContext="shape" transform="translate(336.33,-611.942)">
+			<title>gp0</title>
+			<desc>processing_system7_0 M_AXI_GP0 · 32-bit 寄存器控制主端</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="80.362" cy="810.339" width="160.73" height="63.0991"/>
+			<rect x="0" y="778.79" width="160.724" height="63.0991" rx="2.38104" ry="2.38104" class="st22"/>
+			<text x="14.27" y="799.09" class="st17" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>processing_system7_0<v:newlineChar/><tspan
+						x="23.02" dy="1.2em" class="st21">M_AXI_GP0 · 32</tspan>-bit<v:newlineChar/><tspan x="36.61" dy="1.2em"
+						class="st21">寄存器控制主端</tspan></text>		</g>
+		<g id="shape30-144" v:mID="30" v:groupContext="shape" transform="translate(556.582,-597.655)">
+			<title>hp</title>
+			<desc>processing_system7_0 / DDR 控制器 S_AXI_HP00x00000000–0x0FFFFFFF...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="144.354" cy="797.243" width="288.71" height="89.2912"/>
+			<rect x="0" y="752.598" width="288.708" height="89.2912" rx="2.38104" ry="2.38104" class="st23"/>
+			<text x="42.77" y="772.24" class="st24" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>processing_system7_0 / DDR 控制器<v:newlineChar/><tspan
+						x="38.33" dy="1.2em" class="st21">S_AXI_HP0</tspan>：0x00000000–0x0FFFFFFF<v:newlineChar/><tspan x="38.33"
+						dy="1.2em" class="st21">S_AXI_HP1</tspan>：0x10000000–0x1FFFFFFF<v:newlineChar/><tspan x="35.61" dy="1.2em"
+						class="st21">两条主通路均可译码</tspan>；当前帧槽落在 HP1<v:newlineChar/><tspan x="41.69" dy="1.2em" class="st21">64</tspan>-bit AXI-MM · FCLK_CLK0 50 MHz</text>		</g>
+		<g id="shape31-151" v:mID="31" v:groupContext="shape" transform="translate(898.864,-597.655)">
+			<title>ddr</title>
+			<desc>片外 DDR · CMA 帧缓冲 3 槽 × 0x100000 B 640×480 / stride=1920 B 启动先...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="125.008" cy="797.838" width="250.02" height="88.1006"/>
+			<rect x="0" y="753.788" width="250.015" height="88.1006" rx="2.38104" ry="2.38104" class="st23"/>
+			<text x="56.56" y="771.59" class="st17" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>片外 DDR · CMA 帧缓冲<v:newlineChar/><tspan
+						x="70.31" dy="1.2em" class="st21">3 </tspan>槽 × 0x100000 B<v:newlineChar/><tspan x="50.12" dy="1.2em"
+						class="st21">640×480 / stride=1920 B<v:newlineChar/></tspan><tspan x="71.23" dy="1.2em" class="st21">启动先清零并</tspan> flush<v:newlineChar/><tspan
+						x="60.98" dy="1.2em" class="st21">CPU </tspan>快照前 invalidate</text>		</g>
+		<g id="shape32-158" v:mID="32" v:groupContext="shape" transform="translate(170.248,-526.818)">
+			<title>pl_label</title>
+			<desc>PL 视频数据通路</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="493.482" cy="830.281" width="986.97" height="23.2157"/>
+			<rect x="0" y="818.673" width="986.965" height="23.2157" rx="2.38104" ry="2.38104" class="st15"/>
+			<text x="0.86" y="835.1" class="st19" v:langID="2052"><v:paragraph/><v:tabList/>PL 视频数据通路</text>		</g>
+		<g id="shape33-161" v:mID="33" v:groupContext="shape" transform="translate(332.163,-469.076)">
+			<title>smc</title>
+			<desc>axi_smc · SmartConnect S00=GP0 → M00=VDMA / M01=ACTL</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="102.387" cy="817.483" width="204.78" height="48.8125"/>
+			<rect x="0" y="793.076" width="204.774" height="48.8125" rx="2.38104" ry="2.38104" class="st22"/>
+			<text x="35.08" y="806.77" class="st24" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>axi_smc · SmartConnect<v:newlineChar/><tspan
+						x="26.44" dy="1.2em" class="st21">S00=GP0 </tspan>→ M00=VDMA / <tspan x="70.54" dy="1.2em" class="st21">M01=ACTL</tspan></text>		</g>
+		<g id="shape34-166" v:mID="34" v:groupContext="shape" transform="translate(922.675,-469.076)">
+			<title>actionref</title>
+			<desc>axi_action_0 → 详见 02B S_AXI · 32-bit / 4 KiB 0x43C00000–0x43C...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="108.638" cy="815.994" width="217.28" height="51.7889"/>
+			<rect x="0" y="790.1" width="217.275" height="51.7889" rx="2.38104" ry="2.38104" class="st25"/>
+			<text x="40.53" y="805.28" class="st24" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>axi_action_0 → 详见 02B<v:newlineChar/><tspan
+						x="50.22" dy="1.2em" class="st21">S_AXI · 32</tspan>-bit / 4 KiB<v:newlineChar/><tspan x="36.56" dy="1.2em"
+						class="st21">0x43C00000</tspan>–0x43C00FFF</text>		</g>
+		<g id="shape35-171" v:mID="35" v:groupContext="shape" transform="translate(23.811,-355.974)">
+			<title>ov</title>
+			<desc>OV5640 D[7:0] / HREF VSYNC / PCLK RGB565 字节流</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="58.9322" cy="804.387" width="117.87" height="75.0046"/>
+			<rect x="0" y="766.884" width="117.864" height="75.0046" rx="2.38104" ry="2.38104" class="st20"/>
+			<text x="34.95" y="785.64" class="st17" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>OV5640<v:newlineChar/><tspan
+						x="19.12" dy="1.2em" class="st21">D[7:0] / HREF<v:newlineChar/></tspan><tspan x="16.51" dy="1.2em"
+						class="st21">VSYNC / PCLK<v:newlineChar/></tspan><tspan x="14.68" dy="1.2em" class="st21">RGB565 </tspan>字节流</text>		</g>
+		<g id="shape36-177" v:mID="36" v:groupContext="shape" transform="translate(180.963,-357.76)">
+			<title>cap</title>
+			<desc>cam_captrue_data_0 cam_captrue_data RGB565→RGB888 等待前 10 个帧同步</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="71.4329" cy="807.363" width="142.87" height="69.0518"/>
+			<rect x="0" y="772.837" width="142.866" height="69.0518" rx="2.38104" ry="2.38104" class="st20"/>
+			<text x="13.86" y="789.5" class="st24" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>cam_captrue_data_0<v:newlineChar/><tspan
+						x="20.02" dy="1.2em" class="st21">cam_captrue_data<v:newlineChar/></tspan><tspan x="20.44" dy="1.2em"
+						class="st21">RGB565</tspan>→RGB888<v:newlineChar/><tspan x="19.26" dy="1.2em" class="st21">等待前</tspan> 10 个帧同步</text>		</g>
+		<g id="shape37-183" v:mID="37" v:groupContext="shape" transform="translate(363.117,-354.784)">
+			<title>vin</title>
+			<desc>v_vid_in_axi4s_0 Video In to AXI4S 相机 PCLK → 50 MHz 24-bit RG...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="78.2786" cy="804.982" width="156.56" height="73.814"/>
+			<rect x="0" y="768.075" width="156.557" height="73.814" rx="2.38104" ry="2.38104" class="st20"/>
+			<text x="30.82" y="786.23" class="st17" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>v_vid_in_axi4s_0<v:newlineChar/><tspan
+						x="25.79" dy="1.2em" class="st21">Video In to AXI4S<v:newlineChar/></tspan><tspan x="15.6" dy="1.2em"
+						class="st21">相机</tspan> PCLK → 50 MHz<v:newlineChar/><tspan x="30.04" dy="1.2em" class="st21">24</tspan>-bit RGB AXIS</text>		</g>
+		<g id="shape38-189" v:mID="38" v:groupContext="shape" transform="translate(567.297,-340.497)">
+			<title>vdma</title>
+			<desc>axi_vdma_0 S2MM流 → 内存写主端 MM2S内存读主端 → 流 3 帧存储 / 无 SG 0x4300000...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="85.1242" cy="789.207" width="170.25" height="105.364"/>
+			<rect x="0" y="736.525" width="170.248" height="105.364" rx="2.38104" ry="2.38104" class="st25"/>
+			<text x="52.6" y="757.06" class="st24" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>axi_vdma_0<v:newlineChar/><tspan
+						x="15.42" dy="1.2em" class="st21">S2MM</tspan>：流 → 内存写主端<v:newlineChar/><tspan x="15.42" dy="1.2em"
+						class="st21">MM2S</tspan>：内存读主端 → 流<v:newlineChar/><tspan x="40.37" dy="1.2em" class="st21">3 </tspan>帧存储 / 无 SG<v:newlineChar/><tspan
+						x="14.35" dy="1.2em" class="st21">0x43000000</tspan>–0x4300FFFF<v:newlineChar/><tspan x="23.36" dy="1.2em"
+						class="st21">流</tspan> 24-bit / 内存 64-bit</text>		</g>
+		<g id="shape39-197" v:mID="39" v:groupContext="shape" transform="translate(795.287,-345.259)">
+			<title>mem</title>
+			<desc>axi_mem_intercon · AXI Interconnect S00 = M_AXI_MM2S读 DDR S01...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="164.593" cy="799.029" width="329.19" height="85.7195"/>
+			<rect x="0" y="756.169" width="329.187" height="85.7195" rx="2.38104" ry="2.38104" class="st23"/>
+			<text x="55.62" y="772.78" class="st17" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>axi_mem_intercon · AXI Interconnect<v:newlineChar/><tspan
+						x="69.65" dy="1.2em" class="st21">S00 = M_AXI_MM2S</tspan>（读 DDR）<v:newlineChar/><tspan x="69.65"
+						dy="1.2em" class="st21">S01 = M_AXI_S2MM</tspan>（写 DDR）<v:newlineChar/><tspan x="43.17" dy="1.2em"
+						class="st21">M00 </tspan>→ HP0；M01 → HP1（按地址译码）<v:newlineChar/><tspan x="86.07" dy="1.2em" class="st21">当前读</tspan>、写帧均在 HP1 窗口</text>		</g>
+		<g id="shape40-204" v:mID="40" v:groupContext="shape" transform="translate(180.963,-457.171)">
+			<title>cfg</title>
+			<desc>ov5640_cfg_top_0 寄存器表 / sccb_protocol 50 MHzSCL / SDA</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="71.4329" cy="810.637" width="142.87" height="62.5038"/>
+			<rect x="0" y="779.385" width="142.866" height="62.5038" rx="2.38104" ry="2.38104" class="st22"/>
+			<text x="22.96" y="800.46" class="st26" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>ov5640_cfg_top_0<v:newlineChar/><tspan
+						x="5.61" dy="1.2em" class="st21">寄存器表</tspan> / sccb_protocol<v:newlineChar/><tspan x="17.53" dy="1.2em"
+						class="st21">50 MHz</tspan>；SCL / SDA</text>		</g>
+		<g id="shape41-209" v:mID="41" v:groupContext="shape" transform="translate(23.811,-472.648)">
+			<title>cfgdone</title>
+			<desc>sccb_cfg_done_0 相机配置完成指示</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="58.9322" cy="821.649" width="117.87" height="40.4787"/>
+			<rect x="0" y="801.41" width="117.864" height="40.4787" rx="2.38104" ry="2.38104" class="st23"/>
+			<text x="13.79" y="818.26" class="st26" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>sccb_cfg_done_0<v:newlineChar/><tspan
+						x="13.69" dy="1.2em" class="st21">相机配置完成指示</tspan></text>		</g>
+		<g id="shape42-213" v:mID="42" v:groupContext="shape" transform="translate(570.868,-222.633)">
+			<title>vout</title>
+			<desc>v_axi4s_vid_out_0 AXI4S to Video Out 50 MHz → 25 MHz 24-bit R...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="83.3384" cy="807.065" width="166.68" height="69.6471"/>
+			<rect x="0" y="772.242" width="166.677" height="69.6471" rx="2.38104" ry="2.38104" class="st20"/>
+			<text x="31.24" y="788.31" class="st17" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>v_axi4s_vid_out_0<v:newlineChar/><tspan
+						x="25.27" dy="1.2em" class="st21">AXI4S to Video Out<v:newlineChar/></tspan><tspan x="27" dy="1.2em"
+						class="st21">50 MHz </tspan>→ 25 MHz<v:newlineChar/><tspan x="5.27" dy="1.2em" class="st21">24</tspan>-bit RGB + DE / HS / VS</text>		</g>
+		<g id="shape43-219" v:mID="43" v:groupContext="shape" transform="translate(369.665,-222.633)">
+			<title>pix</title>
+			<desc>pix_frame_display_0 RGB / 同步处理与框叠加 rom_data 接常量 1 未连接 CNN 识别结果</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="77.3857" cy="807.065" width="154.78" height="69.6471"/>
+			<rect x="0" y="772.242" width="154.771" height="69.6471" rx="2.38104" ry="2.38104" class="st20"/>
+			<text x="20.93" y="789.21" class="st24" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>pix_frame_display_0<v:newlineChar/><tspan
+						x="11.65" dy="1.2em" class="st21">RGB / </tspan>同步处理与框叠加<v:newlineChar/><tspan x="25.6" dy="1.2em"
+						class="st21">rom_data </tspan>接常量 1<v:newlineChar/><tspan x="18.53" dy="1.2em" class="st21">未连接</tspan> CNN 识别结果</text>		</g>
+		<g id="shape44-225" v:mID="44" v:groupContext="shape" transform="translate(180.963,-216.085)">
+			<title>hmodule</title>
+			<desc>hdmi_out_adv7511_v1_0_0 RGB→YCbCr422 板级字节交换 / 输出寄存 adv7511_cf...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="74.4093" cy="800.517" width="148.82" height="82.7431"/>
+			<rect x="0" y="759.146" width="148.819" height="82.7431" rx="2.38104" ry="2.38104" class="st20"/>
+			<text x="2.75" y="776.77" class="st26" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>hdmi_out_adv7511_v1_0_0<v:newlineChar/><tspan
+						x="30.61" dy="1.2em" class="st21">RGB</tspan>→YCbCr422<v:newlineChar/><tspan x="12.1" dy="1.2em"
+						class="st21">板级字节交换</tspan> / 输出寄存<v:newlineChar/><tspan x="15.16" dy="1.2em" class="st21">adv7511_cfg_top / I</tspan>²C<v:newlineChar/><tspan
+						x="14.16" dy="1.2em" class="st21">ODDR </tspan>输出 HDMI_CLK</text>		</g>
+		<g id="shape45-232" v:mID="45" v:groupContext="shape" transform="translate(23.811,-217.87)">
+			<title>adv</title>
+			<desc>板载 ADV7511 16-bit YCbCr422 HS / VS / DE / CLK → HDMI 显示器</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="58.9322" cy="806.47" width="117.87" height="70.8377"/>
+			<rect x="0" y="771.051" width="117.864" height="70.8377" rx="2.38104" ry="2.38104" class="st20"/>
+			<text x="18.55" y="788.61" class="st24" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>板载 ADV7511<v:newlineChar/><tspan
+						x="11.91" dy="1.2em" class="st21">16</tspan>-bit YCbCr422<v:newlineChar/><tspan x="6.61" dy="1.2em"
+						class="st21">HS / VS / DE / CLK<v:newlineChar/></tspan><tspan x="14.89" dy="1.2em" class="st21">→</tspan> HDMI 显示器</text>		</g>
+		<g id="shape46-238" v:mID="46" v:groupContext="shape" transform="translate(797.668,-228.585)">
+			<title>vtc</title>
+			<desc>v_tc_0 · 640×480 时序生成 vtiming_out → v_axi4s_vid_out_0 vtg_ce ...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="157.748" cy="813.316" width="315.5" height="57.1463"/>
+			<rect x="0" y="784.742" width="315.495" height="57.1463" rx="2.38104" ry="2.38104" class="st22"/>
+			<text x="81.05" y="802.07" class="st17" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>v_tc_0 · 640×480 时序生成<v:newlineChar/><tspan
+						x="60.11" dy="1.2em" class="st21">vtiming_out </tspan>→ v_axi4s_vid_out_0<v:newlineChar/><tspan x="56.97"
+						dy="1.2em" class="st21">vtg_ce </tspan>反馈至 gen_clken；25 MHz</text>		</g>
+		<g id="shape47-243" v:mID="47" v:groupContext="shape" transform="translate(178.582,-173.225)">
+			<title>irq</title>
+			<desc>VDMA mm2s_introut / s2mm_introut 未连接 PS当前 Python 用寄存器与槽位轮询。AC...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="476.22" cy="831.471" width="952.44" height="20.8346"/>
+			<rect x="0" y="821.054" width="952.439" height="20.8346" rx="2.38104" ry="2.38104" class="st15"/>
+			<text x="200.81" y="835.04" class="st27" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>VDMA mm2s_introut / s2mm_introut 未连接 PS；当前 Python 用寄存器与槽位轮询。ACTL 无 IRQ。</text>		</g>
+		<g id="shape48-246" v:mID="48" v:groupContext="shape" transform="translate(33.3354,-114.888)">
+			<title>clock_label</title>
+			<desc>时钟 / 复位独立分区避免误把配置频率当成传感器 PCLK 实测</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="561.939" cy="830.281" width="1123.88" height="23.2157"/>
+			<rect x="0" y="818.673" width="1123.88" height="23.2157" rx="2.38104" ry="2.38104" class="st15"/>
+			<text x="0.86" y="835.1" class="st19" v:langID="2052"><v:paragraph/><v:tabList/>时钟 / 复位（独立分区，避免误把配置频率当成传感器 PCLK 实测）</text>		</g>
+		<g id="shape49-249" v:mID="49" v:groupContext="shape" transform="translate(39.8834,-51.1936)">
+			<title>clka</title>
+			<desc>板外 100 MHz → clk_wiz_0 clk_50m=50 MHzSCCBpclk=25 MHz显示 xclk≈2...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="181.559" cy="811.53" width="363.12" height="60.718"/>
+			<rect x="0" y="781.171" width="363.117" height="60.718" rx="2.38104" ry="2.38104" class="st15"/>
+			<text x="0.86" y="800.81" class="st27" v:langID="2052"><v:paragraph/><v:tabList/>板外 100 MHz → clk_wiz_0<v:newlineChar/><tspan
+						x="0.86" dy="1.2em" class="st21">clk_50m=50 MHz</tspan>（SCCB）；pclk=25 MHz（显示）<v:newlineChar/><tspan
+						x="0.86" dy="1.2em" class="st21">xclk</tspan>≈24.038 MHz（相机 XCLK）；pclk_x5 未使用</text>		</g>
+		<g id="shape50-254" v:mID="50" v:groupContext="shape" transform="translate(420.264,-51.1936)">
+			<title>clkb</title>
+			<desc>PS FCLK_CLK0=50 MHz → AXI / VDMA / ACTL FCLK_RESET0_N → rst_p...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="184.535" cy="811.53" width="369.08" height="60.718"/>
+			<rect x="0" y="781.171" width="369.07" height="60.718" rx="2.38104" ry="2.38104" class="st15"/>
+			<text x="0.86" y="800.81" class="st27" v:langID="2052"><v:paragraph/><v:tabList/>PS FCLK_CLK0=50 MHz → AXI / VDMA / ACTL<v:newlineChar/><tspan
+						x="0.86" dy="1.2em" class="st21">FCLK_RESET0_N </tspan>→ rst_ps7_0_50M.ext_reset_in<v:newlineChar/><tspan
+						x="0.86" dy="1.2em" class="st21">aux_reset_in=1</tspan>；dcm_locked=1；mb_debug_sys_rst=0</text>		</g>
+		<g id="shape51-259" v:mID="51" v:groupContext="shape" transform="translate(809.573,-51.1936)">
+			<title>clkc</title>
+			<desc>peripheral_aresetn → 全部 AXI 域复位 clk_wiz.locked → 相机 / SCCB / ...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="169.058" cy="811.53" width="338.12" height="60.718"/>
+			<rect x="0" y="781.171" width="338.116" height="60.718" rx="2.38104" ry="2.38104" class="st15"/>
+			<text x="0.86" y="794.56" class="st28" v:langID="2052"><v:paragraph/><v:tabList/>peripheral_aresetn → 全部 AXI 域复位<v:newlineChar/><tspan
+						x="0.86" dy="1.2em" class="st21">clk_wiz.locked </tspan>→ 相机 / SCCB / 显示释放<v:newlineChar/><tspan x="0.86"
+						dy="1.2em" class="st21">util_vector_logic_0</tspan>：NOT locked → 视频 I/O reset<v:newlineChar/><tspan
+						x="0.86" dy="1.2em" class="st21">相机</tspan> vid_clk=外部 cam_pclk；HWH 100 MHz 为元数据</text>		</g>
+	</g>
+</svg>

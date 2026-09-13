@@ -1,0 +1,50 @@
+﻿{
+    "marker":  "VISIO_BUILD_PASS",
+    "visio_version":  "16.0",
+    "pages":  6,
+    "round_trip":  "PASS",
+    "page_details":  [
+                         {
+                             "page":  "01_PC_PS_PL完整框图",
+                             "shapes":  65,
+                             "native_nodes":  41,
+                             "native_connectors":  24,
+                             "glued_endpoints":  38
+                         },
+                         {
+                             "page":  "02A_PS_PL视频与存储模块图",
+                             "shapes":  51,
+                             "native_nodes":  31,
+                             "native_connectors":  20,
+                             "glued_endpoints":  38
+                         },
+                         {
+                             "page":  "02B_PS_PL动作控制模块图",
+                             "shapes":  54,
+                             "native_nodes":  42,
+                             "native_connectors":  12,
+                             "glued_endpoints":  22
+                         },
+                         {
+                             "page":  "03A_控制流程_启动与就绪",
+                             "shapes":  47,
+                             "native_nodes":  29,
+                             "native_connectors":  18,
+                             "glued_endpoints":  34
+                         },
+                         {
+                             "page":  "03B_控制流程_识别与动作事务",
+                             "shapes":  37,
+                             "native_nodes":  25,
+                             "native_connectors":  12,
+                             "glued_endpoints":  22
+                         },
+                         {
+                             "page":  "03C_控制流程_异常退出与恢复",
+                             "shapes":  44,
+                             "native_nodes":  30,
+                             "native_connectors":  14,
+                             "glued_endpoints":  26
+                         }
+                     ]
+}

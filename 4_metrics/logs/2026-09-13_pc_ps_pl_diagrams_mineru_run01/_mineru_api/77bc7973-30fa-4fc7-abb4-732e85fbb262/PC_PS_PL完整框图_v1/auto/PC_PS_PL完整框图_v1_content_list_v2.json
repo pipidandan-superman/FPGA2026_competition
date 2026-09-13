@@ -1,0 +1,77 @@
+[
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "PC–PS–PL 计算图映射与执行系统框图"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                19,
+                21,
+                375,
+                54
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "面向 FPGA 加速系统的神经网络计算图映射与调度：模型与硬件配置 → 全局计划 → 板端执行"
+                    }
+                ]
+            },
+            "bbox": [
+                19,
+                63,
+                478,
+                85
+            ]
+        },
+        {
+            "type": "image",
+            "content": {
+                "image_source": {
+                    "path": "images/80a7bed3787f6767d4f63958410fe48e930ff38cfd6278b5dc681f1e1cb835b0.jpg"
+                },
+                "image_caption": [],
+                "image_footnote": [
+                    {
+                        "type": "text",
+                        "content": "目标架构讨论稿；首版以旧 GEMM 契约为候选，跨调用串行。实线不代表已实现；核完成、DMA 完成与 CPU 可见须分别确认。"
+                    }
+                ]
+            },
+            "bbox": [
+                19,
+                109,
+                973,
+                948
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "导师讨论稿 · v1"
+                    }
+                ]
+            },
+            "bbox": [
+                885,
+                33,
+                966,
+                52
+            ]
+        }
+    ]
+]

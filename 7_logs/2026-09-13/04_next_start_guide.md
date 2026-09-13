@@ -1,5 +1,11 @@
 # 2026-09-13 下一次启动指南
 
+## 当前文档任务：系统图集
+
+图集已完成，先打开[阅读说明](../../1_docs/doc/PC_PS_PL系统图集_20260913/阅读说明.md)或[完整PDF](../../1_docs/doc/PC_PS_PL系统图集_20260913/PC_PS_PL完整图集_v1.pdf)。修改图件使用同目录原生Visio；重建源保存在 `4_metrics/logs/2026-09-13_pc_ps_pl_diagrams_run01/scene.json` 与生成脚本。当前无制图阻塞，结果 `PC_PS_PL_DIAGRAMS_DOCUMENTATION_PASS`。
+
+后续若硬件/软件改变，先对照HWH与发布哈希更新图件，重新核验文字、地址、时钟和连线。不要把规划中的腕部相机、模型加速或机械臂闭环计为当前实现；本次制图不授权板测、重载、构建或修改冻结2_fpga。
+
 ## 队友唯一入口：v1.4完整复现
 
 先执行`git lfs pull`并核对[完整上板指南](../../1_docs/doc/ees331_pl_reloader_v14_board_guide_2026-09-13.md)。开发板冷启动后等待原HDMI/UDP动态视频，关闭其他UDP5000接收器，再打开`8_tools/EES331_PL_Reloader_v1.4/EES331_PL_Reloader.exe`，检查状态、勾选基线、只加载一次。只有`ACTION_OVERLAY_READY`后才能测动作；模型必须由v1.4内部“打开动作识别”启动，并先看到`ACTION_INITIAL_CLEAR`与`ACTION_LINK_READY`。直接双击Viewer仅显示预测，不输出LED。
@@ -315,3 +321,7 @@ HDMI 确认后更新最终文档和 skill，再选择性提交个人分支
 把桌面 `ees331_pynq_sd_20260913_full.img`、同名 `.sha256` 和 `README_队友复现.txt` 一起交给队友。队友先校验 SHA-256 为 `488939D8CC6B3A62F7F7CF38F8BDC71C79ECED587DF80D623B453EF26178E7CA`，再写入实际容量不小于 `15,634,268,160` 字节的 SD 卡（推荐 32 GB）。不要交付 Builder EXE、基础 IMG、启动分区 ZIP/IMG或 `.partial` 作为替代。
 
 冷启动时保持板卡 `192.168.240.10/24`、PC `192.168.240.2/24`、UDP `5000`，并断开同网段其他同 IP 板卡。只有 HDMI 与 PC UDP 画面均随镜头前物体持续变化，才算队友现场复现通过。
+
+## 分支发布交接
+
+先查看 [Git 发布与合并审计报告](../../4_metrics/logs/2026-09-13_github_upload_main_merge_run01/REPORT.md)，确认个人分支 SHA、合并请求号和远端 `main` SHA。若 GitHub 保护规则拒绝合并，保持个人分支不变并按合并请求要求处理，不直接向 `main` 推送。

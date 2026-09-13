@@ -29,6 +29,35 @@
 8_tools/*.lnk filter=lfs diff=lfs merge=lfs -text
 # The packaged runtime is generated delivery content; do not render thousands of library diffs.
 8_tools/EES331_Gesture_Viewer_v1.0/_internal/** -text -diff
+8_tools/EES331_Action_Viewer_v1.0/_internal/** -text -diff -whitespace
+8_tools/EES331_BLE_Console_v1.0/_internal/** -text -diff -whitespace
+8_tools/EES331_BLE_Console_v1.1/_internal/** -text -diff -whitespace
+
+# Third-party ADV7511 reference sources retain the original vendor formatting.
+1_docs/doc/ADV7511KSTZ/sources/** -text -whitespace
+
+# Raw parser and Git audit records may contain tool-formatted binary/text content.
+4_metrics/logs/2026-09-13_pc_ps_pl_diagrams_mineru_run01/** -text -whitespace
+4_metrics/logs/2026-09-13_github_upload_main_merge_run01/** -text -whitespace
+
+# These pre-existing FPGA source/release files are copied byte-for-byte.
+2_fpga/0_diaplay_test/doc/axi_action_uart_ble_two_version_plan.md -text -whitespace
+2_fpga/0_diaplay_test/release/action_v1_uart_run01/axilt.py -text -whitespace
+2_fpga/0_diaplay_test/release/action_v1_uart_run01/mmio_ordered.c -text -whitespace
+2_fpga/0_diaplay_test/release/action_v1_uart_run02/axilt.py -text -whitespace
+2_fpga/0_diaplay_test/release/action_v1_uart_run02/mmio_ordered.c -text -whitespace
+2_fpga/1_ble_test/proj/dfx_runtime.txt -text -whitespace
+2_fpga/2_axi_lite_test/doc/register_abi.md -text -whitespace
+2_fpga/2_axi_lite_test/proj/create_local_project.ps1 -text -whitespace
+2_fpga/2_axi_lite_test/pynq/test_driver.py -text -whitespace
+2_fpga/2_axi_lite_test/rtl/axi_lite_reg_bank.v -text -whitespace
+2_fpga/2_axi_lite_test/rtl/axi_lite_slave.v -text -whitespace
+2_fpga/2_axi_lite_test/rtl/axi_lite_test_top.v -text -whitespace
+2_fpga/2_axi_lite_test/rtl/reg_test_executor.v -text -whitespace
+2_fpga/2_axi_lite_test/sim/tb_action_reset_baud.sv -text -whitespace
+2_fpga/2_axi_lite_test/sim/tb_axi_action.sv -text -whitespace
+2_fpga/2_axi_lite_test/sim/tb_slave_delay.sv -text -whitespace
+2_fpga/2_axi_lite_test/sim/tb_smoke.sv -text -whitespace
 4_metrics/logs/2026-09-10_*/* -text
 4_metrics/logs/2026-09-10_*/** -text
 4_metrics/logs/2026-09-09_amd_sait_pynq_mineru_run01/** -text

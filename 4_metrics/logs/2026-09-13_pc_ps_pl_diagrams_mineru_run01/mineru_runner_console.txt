@@ -1,0 +1,8 @@
+﻿
+[2026-09-13 18:38:28] workspace=E:\competition
+[2026-09-13 18:38:28] output=E:\competition\4_metrics\logs\2026-09-13_pc_ps_pl_diagrams_mineru_run01
+[2026-09-13 18:38:28] backend=pipeline model_source=local api=http://127.0.0.1:58120
+[2026-09-13 18:38:31] MinerU API healthy.
+[2026-09-13 18:38:31] START file=E:\post_student\2_doc\12_PC_PS_PL完整框图_参考硬件组PPT_20260913\PC_PS_PL完整框图_v1.pdf sha256=AFE096EEF7FD88BEFCC235F64D037AF5F9921AFC17F3331BF0E602939BA7AF15
+[2026-09-13 18:38:43] END file=PC_PS_PL完整框图_v1.pdf code=0 markdown=True content_json=True images=1 fallback=False seconds=11.2
+[2026-09-13 18:38:43] RESULT MINERU_PARSE_PASS file_count=1

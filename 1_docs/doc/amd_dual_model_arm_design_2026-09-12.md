@@ -2,8 +2,6 @@
 
 2026-09-12｜方向设计与评审稿｜DESIGN_ONLY
 
-> GitHub 发布副本。原始归档位于本机 `E:/competition/1_docs/赛题方向/`；本机未随仓库发布的原始证据登记在[来源与文件清单](amd_topic2_publication_sources_2026-09-12.md)中。
-
 当前输入：EES-331/Zynq-7020＋固定摄像头＋带摄像头机械臂＋AMD Ryzen AI PC。用户要求研究 PC 大模型、FPGA 本地小模型与快速场景切换，面向 AMD 赛题二高奖项。本文按本地《全国大学生嵌入式芯片与系统设计竞赛 2026 选题指南（AMD）》3.2 设计。此前两人分工、万元预算只作为延续的规划假设，腕部相机和所选机械臂的实际成本、型号与协议仍未确定。
 
 ## 1. 推荐结论
@@ -20,7 +18,7 @@
 
 ## 2. 与赛题的直接对应
 
-主依据为 [仓库赛题 PDF](../pdf/AMD赛题.pdf) 的 3.2；通过匹配哈希的 MinerU content JSON 阅读物理第13–20页。最新官网版本未成功在线复核，不能把本地版本称为已确认的最新修订。官网最终赛程也未核实。
+主依据为 [本地赛题 PDF](E:/competition/1_docs/pdf/AMD赛题.pdf) 的 3.2；通过匹配哈希的 MinerU content JSON 阅读物理第13–20页。最新官网版本未成功在线复核，不能把本地版本称为已确认的最新修订。官网最终赛程也未核实。
 
 | 评分项 | 权重 | 本作品需要展示的证据 |
 |---|---:|---|
@@ -105,7 +103,7 @@ PC 候选可从 [Qwen2.5-VL 官方说明](https://qwenlm.github.io/blog/qwen2.5-
 
 ## 6. Zynq-7020 容量与实时性的边界
 
-本轮读取的[历史实现资源报告（本机证据登记）](amd_topic2_publication_sources_2026-09-12.md#source-07)来自9月7日 Fully Placed 工程：
+本轮读取的[历史实现资源报告](E:/competition/4_metrics/logs/2026-09-07_vivado_full_build_run01/post_build_outputs/impl_1/display_test_wrapper_utilization_placed.rpt)来自9月7日 Fully Placed 工程：
 
 | 资源 | 历史占用 | 器件总量 | 历史占比 |
 |---|---:|---:|---:|
@@ -124,7 +122,7 @@ PC 候选可从 [Qwen2.5-VL 官方说明](https://qwenlm.github.io/blog/qwen2.5-
 
 建议首轮工程预算：整设计LUT、DSP不超过约75%，BRAM不超过约80%，目标100 MHz；这些是留调试与布线余量的内部警戒线，不是官方门槛。验收需实现后WNS≥0、无未约束的必要路径、实际持续吞吐及与视频并发的正确性。
 
-现有[9月11日图像链路记录](../../4_metrics/logs/2026-09-11_pynq_camera_run01/REPORT.md)上传约5 fps。这不能代表传感器只产生5个新帧，也不能证明传感器为30/60 fps。要让本地模型发挥价值，应从PL原始流观察真实新帧，增加帧号/采集时间戳；若仍从5 fps的软件上传反向取图，推理加速不会消除约200 ms的更新间隔。
+现有[9月11日图像链路记录](E:/competition/4_metrics/logs/2026-09-11_pynq_camera_run01/REPORT.md)上传约5 fps。这不能代表传感器只产生5个新帧，也不能证明传感器为30/60 fps。要让本地模型发挥价值，应从PL原始流观察真实新帧，增加帧号/采集时间戳；若仍从5 fps的软件上传反向取图，推理加速不会消除约200 ms的更新间隔。
 
 ## 7. 双视角、动作与结果的一致性
 
@@ -208,8 +206,8 @@ CNN本身不作为经过认证的急停系统。PC断联或新观测超时后停
 
 本轮完成赛题复用核验、历史资源读取、一手技术来源核对和方向设计；未训练模型、编译硬件、上板运行或操作机械臂。结果为DESIGN_ONLY，不代表国一等奖评审结论。
 
-- [本轮研究记录（本机证据登记）](amd_topic2_publication_sources_2026-09-12.md#source-06)
-- [MinerU原始解析Markdown（本机证据登记）](amd_topic2_publication_sources_2026-09-12.md#source-08)
-- [MinerU原始content JSON（本机证据登记）](amd_topic2_publication_sources_2026-09-12.md#source-09)
+- [本轮研究记录](E:/competition/4_metrics/logs/2026-09-12_amd_dual_model_design_run01/research_record.md)
+- [MinerU原始解析Markdown](E:/competition/4_metrics/logs/2026-09-09_amd_sait_pynq_mineru_run01/AMD赛题/auto/AMD赛题.md)
+- [MinerU原始content JSON](E:/competition/4_metrics/logs/2026-09-09_amd_sait_pynq_mineru_run01/AMD赛题/auto/AMD赛题_content_list.json)
 
 输入SHA-256：`C6AD82ACD4F7BDCD13BD412E232ED85D05F2A87DD5E2CDD04F9D219F88B569FC`。原结果`MINERU_PARSE_PASS`；ChineseQuality=pass，Fallback=false；本轮匹配哈希后复用，未重新解析。相关页内容与表格可读，无新增解析质量告警。

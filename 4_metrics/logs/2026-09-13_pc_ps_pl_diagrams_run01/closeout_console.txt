@@ -1,0 +1,1 @@
+{"marker": "PC_PS_PL_DIAGRAMS_DOCUMENTATION_PASS", "pages": 6, "shapes": 298, "glued_endpoints": 180, "delivery_files": 23, "source_changes": [], "links": "PASS"}

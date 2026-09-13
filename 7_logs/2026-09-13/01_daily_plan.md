@@ -1,5 +1,9 @@
 # 2026-09-13 日计划
 
+## 已完成：PC／PS／PL 三类完整图集
+
+基于当前动作 v1.4 实际工程绘制总框图、PS+PL 模块图及完整控制流程，交付 `1_docs/doc/PC_PS_PL系统图集_20260913/`。以发布 HWH、RTL、PC/PS源码和已有板测为依据，参考外部12号图集的分区、层级和线型；规划功能明确标注。只读工程源和参考文件，本轮不重建、不下载、不连接板卡。
+
 ## 最新交付：v1.4关键资产与队友复现包发布
 
 按用户要求只发布PL重加载器v1.4，淘汰本地v1.0～v1.3；保留旧失败原始证据用于根因追溯。交付范围包括v1.4源码/完整Windows包、固定动作Overlay、动作识别兼容入口、两轮上板成功证据、v1.3首帧失败证据、display-only重开诊断、根README/HANDOFF及零歧义上板指南。使用独立个人分支工作树和显式路径暂存，不接触冻结`2_fpga`或主工作区其他改动。
@@ -310,3 +314,9 @@ NOT_STARTED。
 非目标：不重新成像、不烧卡、不连接队友板卡、不修改冻结 `2_fpga/`。
 
 交付证据：[只读核对报告](../../4_metrics/logs/2026-09-13_teammate_sd_package_selection_run01/REPORT.md)。
+
+## 个人分支关键资产发布与 main 合并
+
+目标：将本轮 PC+PS+PL 图集、完整可复建的 `2_fpga` 源工程、`8_tools` 的 Action Viewer 与 BLE Console 发布包、主机侧环境脚本及对应验证证据提交到 `codex/full/pipidandan-superman`，并经 GitHub 合并请求进入 `main`。
+
+范围：保留 `2_fpga` 的 RTL、BD/XCI、约束、构建脚本、发布 BIT/HWH/XSA 与 PYNQ/PS 软件；保留工具的完整发布内容；不纳入 Vivado cache/gen/runs/sim 等可再生产物。

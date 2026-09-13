@@ -16,6 +16,8 @@ The v1.4 reloader completed two A-to-C board transitions on 2026-09-13, with the
 - `EES331_UDP_Viewer.exe`: OV56 UDP video viewer. SHA-256 and board-video evidence are recorded in the project logs.
 - `EES331_Gesture_Viewer_v1.0/`: folder-form FPGA UDP gesture viewer. Keep its executable and `_internal` directory together. See its Chinese usage guide.
 - `EES331_PL_Reloader_v1.4/`: board-validated online PL reloader with the fixed action BIT/HWH payload, 10-second sensor settle and 30-second first-frame gate.
+- `EES331_Action_Viewer_v1.0/`: action-control verification build (offline passed; board acceptance pending). Uses PC UDP -> PS AXI-Lite -> PL LEDs/UART, never PC-to-COM4 command injection. Use `Start_Action_Verification.ps1` after deploying the paired action-v1 overlay; double-click EXE remains display-only. Keep the full folder intact.
+- `EES331_BLE_Console_v1.0/`: standalone Windows BLE GATT console for the board-mounted MLT-BT05. It supports live UUID/encoding/write-mode/period changes, GATT discovery, read/write/notify, presets, and JSONL export. Keep its executable and `_internal` directory together; see `使用说明.md`.
 - `sd_start_tool_v0.2/`: SD boot-image builder release and its source-hash manifest.
 
 ## Convenience tools and shortcuts

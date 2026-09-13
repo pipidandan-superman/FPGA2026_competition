@@ -1,5 +1,15 @@
 # 2026-09-13 验证摘要
 
+## 新增验证目标：系统图集
+
+通过标准：三项图件齐全，实际模块/地址/方向与固定发布合同一致，可编辑文件重开，PDF/PNG渲染可读；规划部分明确，引用证据可追溯。图件验收不替代板测。
+
+原始证据：[制图与源审计](../../4_metrics/logs/2026-09-13_pc_ps_pl_diagrams_run01/REPORT.md)；[MinerU解析](../../4_metrics/logs/2026-09-13_pc_ps_pl_diagrams_mineru_run01/)。
+
+最终结果：`PC_PS_PL_DIAGRAMS_DOCUMENTATION_PASS`。交付[六页完整图集](../../1_docs/doc/PC_PS_PL系统图集_20260913/阅读说明.md)：总框图1页、模块图2页、控制流程3页；原生Visio/PDF/PNG/SVG、阅读说明、HTML浏览入口和23项交付文件。298个原生图形，180个粘接端点；Visio重开通过，PDF无缺字/文字越界、字体全部嵌入，渲染目检通过，交付链接与BIT/HWH/模型哈希核对通过，正式输入哈希无变化，skill路径审计通过。
+
+参考MinerU标记 `MINERU_PARSE_PASS`，SHA256 `AFE096EEF7FD88BEFCC235F64D037AF5F9921AFC17F3331BF0E602939BA7AF15`，Markdown/content JSON完整，ChineseQuality=review（short_text，主体为图像），已人工复核参考版式，Fallback=false。本轮仅文档与静态源码核对，无板卡连接、构建、下载或冻结2_fpga改动。
+
 ## 最新发布：个人分支远端回执PASS
 
 - 内容提交`63343aa314c27bd64f44210cc35ae144bdc16c13`已推送到`codex/full/pipidandan-superman`。
@@ -409,3 +419,9 @@ run01 完成：板端集成相机 130.053 秒/650 帧；PC 集成窗口 400 帧�
 - 排除项：`EES331SDBootBuilder_v0.2.2.exe` 是生成工具；基础 PYNQ IMG 不含相机开机业务；启动分区 IMG/ZIP 不是整卡部署包。
 - 现场条件：板卡 `192.168.240.10/24`，PC `192.168.240.2/24`，UDP `5000`；目标卡实际容量不得小于 `15,634,268,160` 字节，推荐 32 GB。
 - 状态：`TEAMMATE_SD_PACKAGE_SELECTION_PASS / TEAMMATE_BOARD_NOT_VALIDATED`。证据：[核对报告](../../4_metrics/logs/2026-09-13_teammate_sd_package_selection_run01/REPORT.md)。
+
+## 个人分支关键资产发布与 main 合并
+
+- 发布前状态：个人分支相对最新 `origin/main` 有 3 条待合并提交，覆盖已验证的 PL 重载器、模型 AXI/UART/LED 检查点和发布回执。
+- 补充范围：当前图集、`2_fpga` 的可复建源与发布载荷、`8_tools` 的 Action Viewer/BLE Console、`3_host/model_env` 环境脚本、关键文档和当天证据将先做文件哈希复核后纳入同一分支提交。
+- 证据目录：[Git 发布与合并审计](../../4_metrics/logs/2026-09-13_github_upload_main_merge_run01/)。最终推送、PR 和 `main` 回读结果在该目录的 `REPORT.md` 记录。

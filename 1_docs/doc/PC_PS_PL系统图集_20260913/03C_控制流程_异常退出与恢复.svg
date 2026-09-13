@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- 由 Microsoft Visio, SVG Export 生成 03C_控制流程_异常退出与恢复.svg 03C_控制流程_异常退出与恢复 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="16.5354in" height="11.6929in"
+		viewBox="0 0 1190.55 841.889" xml:space="preserve" color-interpolation-filters="sRGB" class="st27">
+	<title>EES-331 PC PS PL System Atlas</title>
+	<v:documentProperties v:langID="2052" v:metric="true" v:viewMarkup="false"/>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#ffffff;stroke:#087fab;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st2 {fill:#ffffff;stroke:#58707b;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st3 {stroke:#58707b;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.59527}
+		.st4 {marker-end:url(#mrkr13-15);stroke:#c66a20;stroke-dasharray:8.33385,5.95275;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.19055}
+		.st5 {fill:#c66a20;fill-opacity:1;stroke:#c66a20;stroke-opacity:1;stroke-width:0.39810402768721}
+		.st6 {marker-end:url(#mrkr13-21);stroke:#c66a20;stroke-dasharray:8.33385,5.95275;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.19055}
+		.st7 {marker-end:url(#mrkr13-27);stroke:#425963;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.19055}
+		.st8 {fill:#425963;fill-opacity:1;stroke:#425963;stroke-opacity:1;stroke-width:0.39810402768721}
+		.st9 {marker-end:url(#mrkr13-63);stroke:#425963;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.19055}
+		.st10 {fill:none;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st11 {fill:#243d49;font-family:微软雅黑;font-size:1.93465em;font-weight:bold}
+		.st12 {fill:#243d49;font-family:微软雅黑;font-size:1.04173em}
+		.st13 {fill:#243d49;font-family:微软雅黑;font-size:0.843315em}
+		.st14 {fill:#243d49;font-family:微软雅黑;font-size:1.33937em;font-weight:bold}
+		.st15 {fill:#e8f3f9;stroke:#425963;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st16 {fill:#243d49;font-family:微软雅黑;font-size:1.09133em}
+		.st17 {font-size:1em}
+		.st18 {fill:#eef2f4;stroke:#425963;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st19 {fill:#fff1ef;stroke:#425963;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st20 {fill:#e9f2e7;stroke:#425963;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st21 {fill:#ffffff;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st22 {fill:#58707b;font-family:微软雅黑;font-size:0.843315em}
+		.st23 {fill:#fff1ef;stroke:#b84646;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st24 {fill:#b84646;font-family:微软雅黑;font-size:1.24015em}
+		.st25 {fill:#f2eaf6;stroke:#9064aa;stroke-dasharray:6.25037,4.46455;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st26 {fill:#243d49;font-family:微软雅黑;font-size:1.14095em}
+		.st27 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Markers">
+		<g id="lend13">
+			<path d="M 3 1 L 0 0 L 3 -1 L 3 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr13-15" class="st5" v:arrowType="13" v:arrowSize="1" v:setback="7.23334" refX="-7.2333375330729"
+				orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend13" transform="scale(-2.5119062618118,-2.5119062618118) "/>
+		</marker>
+		<marker id="mrkr13-21" class="st5" v:arrowType="13" v:arrowSize="1" v:setback="7.53572" refX="-7.5357187854353"
+				orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend13" transform="scale(-2.5119062618118,-2.5119062618118) "/>
+		</marker>
+		<marker id="mrkr13-27" class="st8" v:arrowType="13" v:arrowSize="1" v:setback="7.53572" refX="-7.5357187854353"
+				orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend13" transform="scale(-2.5119062618118,-2.5119062618118) "/>
+		</marker>
+		<marker id="mrkr13-63" class="st8" v:arrowType="13" v:arrowSize="1" v:setback="7.23334" refX="-7.2333375330729"
+				orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend13" transform="scale(-2.5119062618118,-2.5119062618118) "/>
+		</marker>
+	</defs>
+	<g v:mID="8" v:index="6" v:groupContext="foregroundPage">
+		<title>03C_控制流程_异常退出与恢复</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<g id="shape1-1" v:mID="1" v:groupContext="shape" transform="translate(23.811,-186.916)">
+			<title>lane0</title>
+			<rect x="0" y="298.999" width="369.07" height="542.89" rx="4.76208" ry="4.76208" class="st1"/>
+		</g>
+		<g id="shape2-3" v:mID="2" v:groupContext="shape" transform="translate(410.739,-186.916)">
+			<title>lane1</title>
+			<rect x="0" y="298.999" width="369.07" height="542.89" rx="4.76208" ry="4.76208" class="st2"/>
+		</g>
+		<g id="shape3-5" v:mID="3" v:groupContext="shape" transform="translate(797.668,-186.916)">
+			<title>lane2</title>
+			<rect x="0" y="298.999" width="369.07" height="542.89" rx="4.76208" ry="4.76208" class="st2"/>
+		</g>
+		<g id="shape4-7" v:mID="4" v:groupContext="shape" transform="translate(23.811,-749.45)">
+			<title>edge_0</title>
+			<path d="M0 841.89 L1142.93 841.89" class="st3"/>
+		</g>
+		<g id="shape5-10" v:mID="5" v:groupContext="shape" transform="translate(874.629,426.685) rotate(90)">
+			<title>edge_1</title>
+			<path d="M0 831.77 L0 841.89 L160.72 841.89 L160.72 831.77 L160.72 831.77" class="st4"/>
+		</g>
+		<g id="shape6-16" v:mID="6" v:groupContext="shape" transform="translate(1050.23,537.108) rotate(90)">
+			<title>edge_2</title>
+			<path d="M0 841.89 L11.27 841.89" class="st6"/>
+		</g>
+		<g id="shape7-22" v:mID="7" v:groupContext="shape" transform="translate(1437.16,215.66) rotate(90)">
+			<title>edge_3</title>
+			<path d="M0 841.89 L11.27 841.89" class="st7"/>
+		</g>
+		<g id="shape8-28" v:mID="8" v:groupContext="shape" transform="translate(1437.16,296.022) rotate(90)">
+			<title>edge_4</title>
+			<path d="M0 841.89 L11.27 841.89" class="st7"/>
+		</g>
+		<g id="shape9-33" v:mID="9" v:groupContext="shape" transform="translate(1437.16,376.384) rotate(90)">
+			<title>edge_5</title>
+			<path d="M0 841.89 L11.27 841.89" class="st7"/>
+		</g>
+		<g id="shape10-38" v:mID="10" v:groupContext="shape" transform="translate(1437.16,456.746) rotate(90)">
+			<title>edge_6</title>
+			<path d="M0 841.89 L11.27 841.89" class="st7"/>
+		</g>
+		<g id="shape11-43" v:mID="11" v:groupContext="shape" transform="translate(1437.16,537.108) rotate(90)">
+			<title>edge_7</title>
+			<path d="M0 841.89 L11.27 841.89" class="st7"/>
+		</g>
+		<g id="shape12-48" v:mID="12" v:groupContext="shape" transform="translate(1824.09,215.66) rotate(90)">
+			<title>edge_8</title>
+			<path d="M0 841.89 L11.27 841.89" class="st7"/>
+		</g>
+		<g id="shape13-53" v:mID="13" v:groupContext="shape" transform="translate(1824.09,296.022) rotate(90)">
+			<title>edge_9</title>
+			<path d="M0 841.89 L11.27 841.89" class="st6"/>
+		</g>
+		<g id="shape14-58" v:mID="14" v:groupContext="shape" transform="translate(1647.89,265.961) rotate(90)">
+			<title>edge_10</title>
+			<path d="M0 831.17 L0 841.89 L160.72 841.89 L160.72 831.17 L160.72 831.17" class="st9"/>
+		</g>
+		<g id="shape15-64" v:mID="15" v:groupContext="shape" transform="translate(1824.09,456.746) rotate(90)">
+			<title>edge_11</title>
+			<path d="M0 841.89 L11.27 841.89" class="st7"/>
+		</g>
+		<g id="shape16-69" v:mID="16" v:groupContext="shape" transform="translate(1824.09,537.108) rotate(90)">
+			<title>edge_12</title>
+			<path d="M0 841.89 L11.27 841.89" class="st7"/>
+		</g>
+		<g id="shape17-74" v:mID="17" v:groupContext="shape" transform="translate(32.9937,263.248) rotate(-57.7901)">
+			<title>edge_13</title>
+			<path d="M0 664.55 L-21.66 678.2 L81.46 841.89 L400.53 640.88 L415.45 664.55 L415.45 664.55" class="st9"/>
+		</g>
+		<g id="shape18-79" v:mID="18" v:groupContext="shape" transform="translate(23.811,-792.906)">
+			<title>title</title>
+			<desc>完整控制流程 C拒绝、超时、退出与恢复</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="559.558" cy="824.626" width="1119.12" height="34.5259"/>
+			<rect x="0" y="807.363" width="1119.12" height="34.5259" rx="2.38104" ry="2.38104" class="st10"/>
+			<text x="0.86" y="831.59" class="st11" v:langID="2052"><v:paragraph/><v:tabList/>完整控制流程 C：拒绝、超时、退出与恢复</text>		</g>
+		<g id="shape19-82" v:mID="19" v:groupContext="shape" transform="translate(25.0015,-759.57)">
+			<title>subtitle</title>
+			<desc>三条分支分别处理协议拒绝、动作链路异常和服务切换当前版缺少板端断联 watchdog通信丢失不会自动保证 LED 全灭。</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="562.534" cy="827.602" width="1125.07" height="28.5732"/>
+			<rect x="0" y="813.316" width="1125.07" height="28.5732" rx="2.38104" ry="2.38104" class="st10"/>
+			<text x="0.86" y="831.35" class="st12" v:langID="2052"><v:paragraph/><v:tabList/>三条分支分别处理协议拒绝、动作链路异常和服务切换；当前版缺少板端断联 watchdog，通信丢失不会自动保证 LED 全灭。</text>		</g>
+		<g id="shape20-85" v:mID="20" v:groupContext="shape" transform="translate(23.811,-11.9055)">
+			<title>foot</title>
+			<desc>EES-331 / Zynq-7020 · 工程快照 2026-09-13 · 固定动作载荷 + Reloader v1....</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="571.463" cy="833.257" width="1142.93" height="17.263"/>
+			<rect x="0" y="824.626" width="1142.93" height="17.263" rx="2.38104" ry="2.38104" class="st10"/>
+			<text x="0.86" y="836.29" class="st13" v:langID="2052"><v:paragraph/><v:tabList/>EES-331 / Zynq-7020  ·  工程快照 2026-09-13  ·  固定动作载荷 + Reloader v1.4  ·  源文件与证据见阅读说明</text>		</g>
+		<g id="shape21-88" v:mID="21" v:groupContext="shape" transform="translate(33.3354,-699.447)">
+			<title>lane0_label</title>
+			<desc>C1 · 输入拒绝与动作链路停止</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="175.011" cy="830.281" width="350.03" height="23.2157"/>
+			<rect x="0" y="818.673" width="350.021" height="23.2157" rx="2.38104" ry="2.38104" class="st10"/>
+			<text x="0.86" y="835.1" class="st14" v:langID="2052"><v:paragraph/><v:tabList/>C1 · 输入拒绝与动作链路停止</text>		</g>
+		<g id="shape22-91" v:mID="22" v:groupContext="shape" transform="translate(420.264,-699.447)">
+			<title>lane1_label</title>
+			<desc>C2 · 正常关闭 / 请求恢复原视频</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="175.011" cy="830.281" width="350.03" height="23.2157"/>
+			<rect x="0" y="818.673" width="350.021" height="23.2157" rx="2.38104" ry="2.38104" class="st10"/>
+			<text x="0.86" y="835.1" class="st14" v:langID="2052"><v:paragraph/><v:tabList/>C2 · 正常关闭 / 请求恢复原视频</text>		</g>
+		<g id="shape23-94" v:mID="23" v:groupContext="shape" transform="translate(807.192,-699.447)">
+			<title>lane2_label</title>
+			<desc>C3 · 失败时的清理与恢复判定</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="175.011" cy="830.281" width="350.03" height="23.2157"/>
+			<rect x="0" y="818.673" width="350.021" height="23.2157" rx="2.38104" ry="2.38104" class="st10"/>
+			<text x="0.86" y="835.1" class="st14" v:langID="2052"><v:paragraph/><v:tabList/>C3 · 失败时的清理与恢复判定</text>		</g>
+		<g id="shape24-97" v:mID="24" v:groupContext="shape" transform="translate(42.8598,-626.229)">
+			<title>a1</title>
+			<desc>来源错误 / 包长、版本、CRC 错误 ActionService 丢弃并记录不写 START</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="165.486" cy="811.827" width="330.98" height="60.1227"/>
+			<rect x="0" y="781.766" width="330.973" height="60.1227" rx="2.38104" ry="2.38104" class="st15"/>
+			<text x="65.26" y="807.9" class="st16" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>来源错误 / 包长、版本、CRC 错误<v:newlineChar/><tspan
+						x="46.62" dy="1.2em" class="st17">ActionService </tspan>丢弃并记录；不写 START</text>		</g>
+		<g id="shape25-101" v:mID="25" v:groupContext="shape" transform="translate(42.8598,-545.867)">
+			<title>a2</title>
+			<desc>已有在途命令 → BUSY 已完成的同 seq/action → DUPLICATE seq ≤ ACCEPT 且非重复 ...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="165.486" cy="811.827" width="330.98" height="60.1227"/>
+			<rect x="0" y="781.766" width="330.973" height="60.1227" rx="2.38104" ry="2.38104" class="st18"/>
+			<text x="102.07" y="800.58" class="st12" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>已有在途命令 → BUSY<v:newlineChar/><tspan
+						x="57.03" dy="1.2em" class="st17">已完成的同</tspan> seq/action → DUPLICATE<v:newlineChar/><tspan x="37.49"
+						dy="1.2em" class="st17">seq </tspan>≤ ACCEPT 且非重复 → BAD_SEQUENCE</text>		</g>
+		<g id="shape26-106" v:mID="26" v:groupContext="shape" transform="translate(42.8598,-465.505)">
+			<title>a3</title>
+			<desc>新帧不足 / 低置信 / 多类别 / 过期 清连续计数并等待已发布动作失效 ≥1 s 链路健康时提交 CLEARactio...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="165.486" cy="811.827" width="330.98" height="60.1227"/>
+			<rect x="0" y="781.766" width="330.973" height="60.1227" rx="2.38104" ry="2.38104" class="st18"/>
+			<text x="71.37" y="800.58" class="st12" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>新帧不足 / 低置信 / 多类别 / 过期<v:newlineChar/><tspan
+						x="50.59" dy="1.2em" class="st17">清连续计数并等待</tspan>；已发布动作失效 ≥1 s<v:newlineChar/><tspan x="61.37" dy="1.2em"
+						class="st17">链路健康时提交</tspan> CLEAR（action=0）</text>		</g>
+		<g id="shape27-111" v:mID="27" v:groupContext="shape" transform="translate(42.8598,-385.143)">
+			<title>a4</title>
+			<desc>PC 完成超时 / 回执不一致 / 队列满 ACTION_LINK_FAILEDready=false 不重发不再发布新动作</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="165.486" cy="811.827" width="330.98" height="60.1227"/>
+			<rect x="0" y="781.766" width="330.973" height="60.1227" rx="2.38104" ry="2.38104" class="st19"/>
+			<text x="67.89" y="800.58" class="st12" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>PC 完成超时 / 回执不一致 / 队列满<v:newlineChar/><tspan
+						x="59.35" dy="1.2em" class="st17">ACTION_LINK_FAILED</tspan>；ready=false<v:newlineChar/><tspan x="96.73"
+						dy="1.2em" class="st17">不重发</tspan>；不再发布新动作</text>		</g>
+		<g id="shape28-116" v:mID="28" v:groupContext="shape" transform="translate(42.8598,-304.78)">
+			<title>a5</title>
+			<desc>PS 轮询超时 / CSR 不一致 / 访问异常 driver.failed=trueACTION_SERVICE_FAI...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="165.486" cy="811.827" width="330.98" height="60.1227"/>
+			<rect x="0" y="781.766" width="330.973" height="60.1227" rx="2.38104" ry="2.38104" class="st19"/>
+			<text x="60.99" y="800.58" class="st12" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>PS 轮询超时 / CSR 不一致 / 访问异常<v:newlineChar/><tspan
+						x="31.68" dy="1.2em" class="st17">driver.failed=true</tspan>；ACTION_SERVICE_FAILED<v:newlineChar/><tspan
+						x="56.2" dy="1.2em" class="st17">动作禁用</tspan>；视频可继续（DEGRADED）</text>		</g>
+		<g id="shape29-121" v:mID="29" v:groupContext="shape" transform="translate(42.8598,-224.418)">
+			<title>a6</title>
+			<desc>结果不确定时先保存首次证据 LED 可能保持原值没有板端自动 CLEAR 停止测试按现场状态选择恢复路径</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="165.486" cy="811.827" width="330.98" height="60.1227"/>
+			<rect x="0" y="781.766" width="330.973" height="60.1227" rx="2.38104" ry="2.38104" class="st19"/>
+			<text x="84.23" y="800.58" class="st12" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>结果不确定时先保存首次证据<v:newlineChar/><tspan
+						x="49.82" dy="1.2em" class="st17">LED </tspan>可能保持原值；没有板端自动 CLEAR<v:newlineChar/><tspan x="65.48"
+						dy="1.2em" class="st17">停止测试</tspan>，按现场状态选择恢复路径</text>		</g>
+		<g id="shape30-126" v:mID="30" v:groupContext="shape" transform="translate(429.788,-626.229)">
+			<title>b1</title>
+			<desc>正常关闭 Viewer 链路健康且无不确定命令 → 一次 CLOSE_CLEAR 异常状态不强行再发 CLEAR</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="165.486" cy="811.827" width="330.98" height="60.1227"/>
+			<rect x="0" y="781.766" width="330.973" height="60.1227" rx="2.38104" ry="2.38104" class="st15"/>
+			<text x="118.33" y="800.58" class="st12" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>正常关闭 Viewer<v:newlineChar/><tspan
+						x="30.8" dy="1.2em" class="st17">链路健康且无不确定命令</tspan> → 一次 CLOSE_CLEAR<v:newlineChar/><tspan x="88.08"
+						dy="1.2em" class="st17">异常状态不强行再发</tspan> CLEAR</text>		</g>
+		<g id="shape31-131" v:mID="31" v:groupContext="shape" transform="translate(429.788,-545.867)">
+			<title>b2</title>
+			<desc>仅关闭 Viewer 不恢复原视频位流 需要退出动作版时点击“恢复原视频” 控制器 restore_original 开始</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="165.486" cy="811.827" width="330.98" height="60.1227"/>
+			<rect x="0" y="781.766" width="330.973" height="60.1227" rx="2.38104" ry="2.38104" class="st18"/>
+			<text x="72.73" y="800.58" class="st12" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>仅关闭 Viewer 不恢复原视频位流<v:newlineChar/><tspan
+						x="52.98" dy="1.2em" class="st17">需要退出动作版时</tspan>，点击“恢复原视频”<v:newlineChar/><tspan x="84.02" dy="1.2em"
+						class="st17">控制器</tspan> restore_original 开始</text>		</g>
+		<g id="shape32-136" v:mID="32" v:groupContext="shape" transform="translate(429.788,-465.505)">
+			<title>b3</title>
+			<desc>若原服务已运行且无动作进程 直接返回 ORIGINAL_ALREADY_RUNNING 仍需动态画面人工确认跳到 C3⑥</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="165.486" cy="811.827" width="330.98" height="60.1227"/>
+			<rect x="0" y="781.766" width="330.973" height="60.1227" rx="2.38104" ry="2.38104" class="st18"/>
+			<text x="84.23" y="800.58" class="st12" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>若原服务已运行且无动作进程<v:newlineChar/><tspan
+						x="44.32" dy="1.2em" class="st17">直接返回</tspan> ORIGINAL_ALREADY_RUNNING<v:newlineChar/><tspan x="62.03"
+						dy="1.2em" class="st17">仍需动态画面人工确认</tspan>（跳到 C3⑥）</text>		</g>
+		<g id="shape33-141" v:mID="33" v:groupContext="shape" transform="translate(429.788,-385.143)">
+			<title>b4</title>
+			<desc>否则停止动作 systemd unit ActionService.close停止接收完成在途轮询 Camera.clos...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="165.486" cy="811.827" width="330.98" height="60.1227"/>
+			<rect x="0" y="781.766" width="330.973" height="60.1227" rx="2.38104" ry="2.38104" class="st18"/>
+			<text x="87.77" y="800.58" class="st12" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>否则停止动作 systemd unit<v:newlineChar/><tspan
+						x="33.25" dy="1.2em" class="st17">ActionService.close</tspan>：停止接收，完成在途轮询<v:newlineChar/><tspan x="70.75"
+						dy="1.2em" class="st17">Camera.close</tspan>：清除两通道 RS 位</text>		</g>
+		<g id="shape34-146" v:mID="34" v:groupContext="shape" transform="translate(429.788,-304.78)">
+			<title>b5</title>
+			<desc>等待 VDMA 双向 Halted2 s 未停止则复位再检查 Halted 尚未 Halted → 保留缓冲不释放、不竞争启动</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="165.486" cy="811.827" width="330.98" height="60.1227"/>
+			<rect x="0" y="781.766" width="330.973" height="60.1227" rx="2.38104" ry="2.38104" class="st20"/>
+			<text x="74.71" y="800.58" class="st12" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>等待 VDMA 双向 Halted（2 s）<v:newlineChar/><tspan
+						x="81.31" dy="1.2em" class="st17">未停止则复位</tspan>，再检查 Halted<v:newlineChar/><tspan x="33.86" dy="1.2em"
+						class="st17">尚未</tspan> Halted → 保留缓冲，不释放、不竞争启动</text>		</g>
+		<g id="shape35-151" v:mID="35" v:groupContext="shape" transform="translate(429.788,-224.418)">
+			<title>b6</title>
+			<desc>确认 Halted 后 freebuffer 按 VDMA_HALTED → BUFFER_FREED 记录 动作进程退出...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="165.486" cy="811.827" width="330.98" height="60.1227"/>
+			<rect x="0" y="781.766" width="330.973" height="60.1227" rx="2.38104" ry="2.38104" class="st20"/>
+			<text x="91.6" y="800.58" class="st12" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>确认 Halted 后 freebuffer<v:newlineChar/><tspan
+						x="41.99" dy="1.2em" class="st17">按</tspan> VDMA_HALTED → BUFFER_FREED 记录<v:newlineChar/><tspan x="75.6"
+						dy="1.2em" class="st17">动作进程退出</tspan>，释放锁与 socket</text>		</g>
+		<g id="shape36-156" v:mID="36" v:groupContext="shape" transform="translate(816.716,-626.229)">
+			<title>c1</title>
+			<desc>① 启动阶段 FAIL / 首帧超时 / READY 超时 控制器停止动作 unit并请求自动恢复 若仅动作服务故障、视频...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="165.486" cy="811.827" width="330.98" height="60.1227"/>
+			<rect x="0" y="781.766" width="330.973" height="60.1227" rx="2.38104" ry="2.38104" class="st19"/>
+			<text x="45.23" y="800.58" class="st12" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>① 启动阶段 FAIL / 首帧超时 / READY 超时<v:newlineChar/><tspan
+						x="58.19" dy="1.2em" class="st17">控制器停止动作</tspan> unit，并请求自动恢复<v:newlineChar/><tspan x="34.23" dy="1.2em"
+						class="st17">若仅动作服务故障</tspan>、视频仍运行，则待人工恢复</text>		</g>
+		<g id="shape37-161" v:mID="37" v:groupContext="shape" transform="translate(816.716,-545.867)">
+			<title>c2</title>
+			<desc>② 恢复前检查动作进程是否退出 若曾分配 DMA 缓冲则必须找到 VDMA_HALTED 早于 BUFFER_FREED</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="165.486" cy="811.827" width="330.98" height="60.1227"/>
+			<rect x="0" y="781.766" width="330.973" height="60.1227" rx="2.38104" ry="2.38104" class="st18"/>
+			<text x="76.13" y="800.58" class="st12" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>② 恢复前检查动作进程是否退出<v:newlineChar/><tspan
+						x="71.52" dy="1.2em" class="st17">若曾分配</tspan> DMA 缓冲，则必须找到<v:newlineChar/><tspan x="58.19" dy="1.2em"
+						class="st17">VDMA_HALTED </tspan>早于 BUFFER_FREED</text>		</g>
+		<g id="shape38-166" v:mID="38" v:groupContext="shape" transform="translate(816.716,-465.505)">
+			<title>c3</title>
+			<desc>③ 进程仍在 / DMA 释放未被证明 ACTION_STOP_UNSAFE拒绝启动竞争所有者 保存证据软件挂死时转受控断...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="165.486" cy="811.827" width="330.98" height="60.1227"/>
+			<rect x="0" y="781.766" width="330.973" height="60.1227" rx="2.38104" ry="2.38104" class="st19"/>
+			<text x="71.4" y="800.58" class="st12" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>③ 进程仍在 / DMA 释放未被证明<v:newlineChar/><tspan
+						x="32.59" dy="1.2em" class="st17">ACTION_STOP_UNSAFE</tspan>：拒绝启动竞争所有者<v:newlineChar/><tspan x="59.23"
+						dy="1.2em" class="st17">保存证据</tspan>；软件挂死时转受控断电恢复</text>		</g>
+		<g id="shape39-171" v:mID="39" v:groupContext="shape" transform="translate(816.716,-385.143)">
+			<title>c4</title>
+			<desc>④ 清理安全 → 启动原 ees331-camera 加载原位流、重建 VDMA 与帧缓冲 最多 35 s 查原服务状态与...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="165.486" cy="811.827" width="330.98" height="60.1227"/>
+			<rect x="0" y="781.766" width="330.973" height="60.1227" rx="2.38104" ry="2.38104" class="st20"/>
+			<text x="56.31" y="800.58" class="st12" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>④ 清理安全 → 启动原 ees331-camera<v:newlineChar/><tspan
+						x="67.29" dy="1.2em" class="st17">加载原位流</tspan>、重建 VDMA 与帧缓冲<v:newlineChar/><tspan x="62.21" dy="1.2em"
+						class="st17">最多</tspan> 35 s 查原服务状态与新就绪标记</text>		</g>
+		<g id="shape40-176" v:mID="40" v:groupContext="shape" transform="translate(816.716,-304.78)">
+			<title>c5</title>
+			<desc>⑤ active / PID 有效 + 新 PL_LOADED 且 HEARTBEAT 或 CAPTURE_VDMA_RU...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="165.486" cy="811.827" width="330.98" height="60.1227"/>
+			<rect x="0" y="781.766" width="330.973" height="60.1227" rx="2.38104" ry="2.38104" class="st18"/>
+			<text x="56.91" y="800.58" class="st12" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>⑤ active / PID 有效 + 新 PL_LOADED<v:newlineChar/><tspan
+						x="9" dy="1.2em" class="st17">且</tspan> HEARTBEAT 或 CAPTURE_VDMA_RUN_COMPLETE<v:newlineChar/><tspan
+						x="13.44" dy="1.2em" class="st17">→</tspan> ORIGINAL_RESTORE_READY；否则 INCOMPLETE</text>		</g>
+		<g id="shape41-181" v:mID="41" v:groupContext="shape" transform="translate(816.716,-224.418)">
+			<title>c6</title>
+			<desc>⑥ 人工确认 HDMI / UDP 持续动态 颜色正确、流畅保存物理确认 通过才记“原视频恢复成功”结束本次操作</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="165.486" cy="811.827" width="330.98" height="60.1227"/>
+			<rect x="0" y="781.766" width="330.973" height="60.1227" rx="2.38104" ry="2.38104" class="st20"/>
+			<text x="66.52" y="800.58" class="st12" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>⑥ 人工确认 HDMI / UDP 持续动态<v:newlineChar/><tspan
+						x="77.98" dy="1.2em" class="st17">颜色正确</tspan>、流畅；保存物理确认<v:newlineChar/><tspan x="40.48" dy="1.2em"
+						class="st17">通过才记</tspan>“原视频恢复成功”，结束本次操作</text>		</g>
+		<g id="shape42-186" v:mID="42" v:groupContext="shape" transform="translate(806.002,-472.648)">
+			<title>safe</title>
+			<desc>安全</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="28.5732" cy="830.876" width="57.15" height="22.0252"/>
+			<rect x="0" y="819.864" width="57.1463" height="22.0252" rx="2.38104" ry="2.38104" class="st21"/>
+			<text x="18.45" y="833.91" class="st22" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>安全</text>		</g>
+		<g id="shape43-189" v:mID="43" v:groupContext="shape" transform="translate(23.811,-114.888)">
+			<title>scope</title>
+			<desc>本页描述现有软件处理边界网络超时不等于硬件复位UART DONE 不等于控制器反馈CLEAR 不等于机械臂急停。</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="571.463" cy="815.994" width="1142.93" height="51.7889"/>
+			<rect x="0" y="790.1" width="1142.93" height="51.7889" rx="2.38104" ry="2.38104" class="st23"/>
+			<text x="180.13" y="820.46" class="st24" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>本页描述现有软件处理边界：网络超时不等于硬件复位；UART DONE 不等于控制器反馈；CLEAR 不等于机械臂急停。</text>		</g>
+		<g id="shape44-192" v:mID="44" v:groupContext="shape" transform="translate(23.811,-48.2172)">
+			<title>goal</title>
+			<desc>机械臂目标闭环DESIGN_ONLY任务 → 全局新观测 → 需要时腕部近拍复核 → 检查目标版本/有效期 → 有界命令 ...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="571.463" cy="814.506" width="1142.93" height="54.7652"/>
+			<rect x="0" y="787.124" width="1142.93" height="54.7652" rx="2.38104" ry="2.38104" class="st25"/>
+			<text x="210.51" y="810.4" class="st26" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>机械臂目标闭环（DESIGN_ONLY）：任务 → 全局新观测 → 需要时腕部近拍复核 → 检查目标版本/有效期 → 有界命令<v:newlineChar/><tspan
+						x="202.43" dy="1.2em" class="st17">→</tspan> 控制器真实到位/故障反馈 → 抓取、放置后视觉复核 → 才计任务完成；控制器协议、停止语义与整任务实验仍待确定。</text>		</g>
+	</g>
+</svg>

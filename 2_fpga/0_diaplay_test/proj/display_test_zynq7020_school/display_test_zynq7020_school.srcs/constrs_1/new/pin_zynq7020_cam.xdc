@@ -1,5 +1,10 @@
 set_property PACKAGE_PIN M19 [get_ports clk_in1_0]
 set_property IOSTANDARD LVCMOS33 [get_ports clk_in1_0]
+# EES-331 routes the fixed 100 MHz PL reference to non-CCIO M19. Vivado
+# therefore needs the real primary-clock constraint and an explicit waiver
+# for the IBUF-to-PLL non-dedicated path.
+create_clock -period 10.000 -name clk_in1_0 [get_ports clk_in1_0]
+# Post-link clock net and PLL constraints are in action_v1_clock_impl.xdc.
 set_property PACKAGE_PIN Y20 [get_ports sccb_clk_0]
 set_property IOSTANDARD LVCMOS33 [get_ports sccb_clk_0]
 set_property PACKAGE_PIN L18 [get_ports resetn_0]
@@ -27,9 +32,7 @@ set_property PACKAGE_PIN AB22 [get_ports cam_xclk_0]
 
 # The camera returns PCLK at the configured xclk frequency: 24.03846 MHz.
 create_clock -period 41.600 -name cam_pclk [get_ports cam_pclk_0]
-# AA22 is not a CCIO pin. Allow the camera PCLK IBUF-to-BUFG path so
-# place_design can complete; verify this clock domain in the timing report.
-set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets cam_pclk_0_IBUF]
+# The camera PCLK physical routing exception is implementation-only.
 
 set_property PACKAGE_PIN V4 [get_ports sccb_cfg_done_0]
 set_property PACKAGE_PIN Y21 [get_ports sccb_data_0]
@@ -91,3 +94,5 @@ set_property IOSTANDARD LVCMOS33 [get_ports HDMI_CLK_0]
 
 set_property CFGBVS VCCO [current_design]
 set_property CONFIG_VOLTAGE 3.3 [current_design]
+
+# Action UART/LED pins are in the shared action_v1_pins.xdc.

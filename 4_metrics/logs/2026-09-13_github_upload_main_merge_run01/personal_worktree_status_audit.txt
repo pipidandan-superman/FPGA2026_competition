@@ -1,0 +1,5 @@
+## codex/full/pipidandan-superman...origin/codex/full/pipidandan-superman
+?? 4_metrics/logs/2026-09-11_pynq_checkpoint_upload_run01/git_graph.txt
+?? 4_metrics/logs/2026-09-11_pynq_checkpoint_upload_run01/staged_changes.txt
+?? 4_metrics/logs/2026-09-11_pynq_checkpoint_upload_run01/untracked_paths.txt
+?? 4_metrics/logs/2026-09-11_workspace_baseline_cleanup_run01/top_level_sizes_before.txt

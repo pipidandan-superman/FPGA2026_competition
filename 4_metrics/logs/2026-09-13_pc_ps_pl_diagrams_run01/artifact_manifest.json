@@ -1,0 +1,112 @@
+[
+  {
+    "file": "01_PC_PS_PL完整框图.pdf",
+    "bytes": 312697,
+    "sha256": "ed71f952626e97d42fd51c759c8bb2ff9885433283606a714dbfd0a5d9ce17e2"
+  },
+  {
+    "file": "01_PC_PS_PL完整框图.png",
+    "bytes": 1020541,
+    "sha256": "a6d6fce05f4f107c85828df226838b7470ce965f37febd21155520bba2f83428"
+  },
+  {
+    "file": "01_PC_PS_PL完整框图.svg",
+    "bytes": 39635,
+    "sha256": "8a86e1a9b3728438acd947ea128db806438c599bf441140d9f9810d59f25aca3"
+  },
+  {
+    "file": "02A_PS_PL视频与存储模块图.pdf",
+    "bytes": 312986,
+    "sha256": "55720c331eb04a0da74679ecef7dbef3136e94c04a23debdaf2c98ef8508ccb3"
+  },
+  {
+    "file": "02A_PS_PL视频与存储模块图.png",
+    "bytes": 1136924,
+    "sha256": "07b0104ab4629698da78b607da5872ce2d00dc13e28cdd39713a6a0657924b34"
+  },
+  {
+    "file": "02A_PS_PL视频与存储模块图.svg",
+    "bytes": 34395,
+    "sha256": "798d50332ed5f6cbdbcfcec1895439f50a279256553322d23ef4172cbe670c2a"
+  },
+  {
+    "file": "02B_PS_PL动作控制模块图.pdf",
+    "bytes": 310955,
+    "sha256": "def2a693a59018522778ebcf0e4ec733d5cac7833aaec48988e47c3400bb1ea7"
+  },
+  {
+    "file": "02B_PS_PL动作控制模块图.png",
+    "bytes": 963442,
+    "sha256": "51e447d8f679eb4f2a65533e716257429b90b738dff5b440a933f5bee76753d8"
+  },
+  {
+    "file": "02B_PS_PL动作控制模块图.svg",
+    "bytes": 34583,
+    "sha256": "5cef8011c567b4c607e0ad56ad1117d6babd01cdb3c2b6f7c258d83839a6dbaa"
+  },
+  {
+    "file": "03A_控制流程_启动与就绪.pdf",
+    "bytes": 337442,
+    "sha256": "cf83115206e548533c335ae2747e8f491c451a1b826f99517e971afeaf2b25ab"
+  },
+  {
+    "file": "03A_控制流程_启动与就绪.png",
+    "bytes": 1152504,
+    "sha256": "c4ff221c7ecb73d5f28b840fbc3441f9dda175ee25563e2ae674d312d9f89e40"
+  },
+  {
+    "file": "03A_控制流程_启动与就绪.svg",
+    "bytes": 31077,
+    "sha256": "a29dfdef4df28f37273825703857ff9600ea2b1dc873135d8c507cff16242c1b"
+  },
+  {
+    "file": "03B_控制流程_识别与动作事务.pdf",
+    "bytes": 344329,
+    "sha256": "85eda94300445bce58eafad7791c3a2fade43635ed5dfa1d20d631e7b5a4f647"
+  },
+  {
+    "file": "03B_控制流程_识别与动作事务.png",
+    "bytes": 1178514,
+    "sha256": "9cb452cf439a4ddb30b5c89e8c90eec9128d9937c2afb30ce6dd7a5ee0396662"
+  },
+  {
+    "file": "03B_控制流程_识别与动作事务.svg",
+    "bytes": 26995,
+    "sha256": "354b4dc6322f4b72a718123a09d47026f8ed17f8e47413021a85ce636bea840f"
+  },
+  {
+    "file": "03C_控制流程_异常退出与恢复.pdf",
+    "bytes": 311869,
+    "sha256": "bf06490a96911d89ce757660a5cd773fa2a89af7995dcf34bf8ac5d34754831a"
+  },
+  {
+    "file": "03C_控制流程_异常退出与恢复.png",
+    "bytes": 1313414,
+    "sha256": "bb91ede8d224e4613b16ed90ef8fb41f157bfd093171936eb0048896d6843f57"
+  },
+  {
+    "file": "03C_控制流程_异常退出与恢复.svg",
+    "bytes": 30748,
+    "sha256": "29e46966adf1825240dcc401db134b56f1bbd96dc7c5ecf48752b3a160bc749b"
+  },
+  {
+    "file": "PC_PS_PL完整图集_v1.pdf",
+    "bytes": 423918,
+    "sha256": "1297bd6859fcc85faa07b17ade4d739b0a08624a84ca76f70e4623b431269746"
+  },
+  {
+    "file": "PC_PS_PL完整图集_v1.vsdx",
+    "bytes": 83614,
+    "sha256": "04bec9b6b14d34d834138d6047497b0729687bb2b7a002d87c137ee943499782"
+  },
+  {
+    "file": "图集浏览.html",
+    "bytes": 4390,
+    "sha256": "ba86240bf8a9917a8cd9aa7deadffeff93ef5d3304e1356a5969d77c9f551a6d"
+  },
+  {
+    "file": "阅读说明.md",
+    "bytes": 11526,
+    "sha256": "5568952de2bf362650809ae561733b7b26c595affd3b5450ddef2ae8b42c381e"
+  }
+]

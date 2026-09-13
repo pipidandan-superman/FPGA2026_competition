@@ -1,0 +1,115 @@
+[
+    {
+        "layout_dets": [
+            {
+                "cls_id": 17,
+                "label": "paragraph_title",
+                "score": 0.909,
+                "bbox": [
+                    64,
+                    50,
+                    1242,
+                    128
+                ],
+                "index": 2
+            },
+            {
+                "cls_id": 12,
+                "label": "header",
+                "score": 0.871,
+                "bbox": [
+                    2930,
+                    78,
+                    3195,
+                    123
+                ],
+                "index": 3
+            },
+            {
+                "cls_id": 22,
+                "label": "text",
+                "score": 0.7341,
+                "bbox": [
+                    66,
+                    149,
+                    1586,
+                    200
+                ],
+                "index": 4
+            },
+            {
+                "cls_id": 14,
+                "label": "image",
+                "score": 0.9782,
+                "bbox": [
+                    64,
+                    257,
+                    3220,
+                    2219
+                ],
+                "index": 5
+            },
+            {
+                "cls_id": 24,
+                "label": "vision_footnote",
+                "score": 0.9125,
+                "bbox": [
+                    66,
+                    2251,
+                    1688,
+                    2296
+                ],
+                "index": 6
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    75,
+                    56,
+                    1232,
+                    127
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    2934,
+                    76,
+                    3189,
+                    126
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    78,
+                    157,
+                    1575,
+                    193
+                ],
+                "score": 1.0,
+                "text": ""
+            },
+            {
+                "label": "ocr_text",
+                "bbox": [
+                    77,
+                    2258,
+                    1677,
+                    2289
+                ],
+                "score": 1.0,
+                "text": ""
+            }
+        ],
+        "page_info": {
+            "page_no": 0,
+            "width": 3308,
+            "height": 2339
+        }
+    }
+]
