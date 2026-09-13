@@ -1,0 +1,21 @@
+{
+  "state": "PASS",
+  "marker": "REAL_MODEL_AXI_UART_CHECK",
+  "inference_frames": 600,
+  "stable_actions": [
+    1,
+    7
+  ],
+  "confirmed": 8,
+  "serial_bytes": 56,
+  "expected_bytes": 56,
+  "publisher_error": null,
+  "rx_stats": {
+    "startup_packets_discarded": 533,
+    "packets": 384001,
+    "complete_frames": 600,
+    "lost_frames": 0
+  },
+  "physical_led": "USER_CONFIRMATION_REQUIRED",
+  "model_sha256": "68db7cacbdd6d9c9a583e1c50a9f5934a3a6b78675b215ec86717827be8bfc79"
+}

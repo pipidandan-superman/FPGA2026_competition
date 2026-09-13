@@ -1,0 +1,42 @@
+{"event": "MODEL_LOADED", "monotonic": 108143.656, "sha256": "68db7cacbdd6d9c9a583e1c50a9f5934a3a6b78675b215ec86717827be8bfc79", "names": {"0": "Down", "1": "Left", "2": "Right", "3": "Stop", "4": "Thumbs Down", "5": "Thumbs up", "6": "Up"}}
+{"event": "REAL_MODEL_WINDOW_BEGIN", "monotonic": 108143.953, "seconds": 120.0}
+{"event": "ACTION_INITIAL_CLEAR", "monotonic": 108143.968, "status": 0, "seq": 1012, "action": 0, "done_seq": 1012, "elapsed_ms": 14.999999999417923}
+{"event": "ACTION_LINK_READY", "monotonic": 108143.968, "prior_state": {"status": 5, "seq": 1011, "action": 0, "done_seq": 1011}}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108149.078, "frames": 25, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108154.078, "frames": 50, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108159.062, "frames": 75, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108164.062, "frames": 100, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108169.078, "frames": 125, "latest": [{"label": "Up", "confidence": 0.6183604598045349, "xyxy": [194.51028442382812, 175.3756866455078, 298.3038635253906, 345.29644775390625]}]}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108174.062, "frames": 150, "latest": [{"label": "Up", "confidence": 0.7213101983070374, "xyxy": [213.4356689453125, 101.97172546386719, 320.891357421875, 347.15179443359375]}]}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108179.078, "frames": 175, "latest": [{"label": "Up", "confidence": 0.8169564008712769, "xyxy": [209.98861694335938, 93.63035583496094, 319.1799621582031, 334.7684326171875]}]}
+{"event": "ACTION_DECISION", "monotonic": 108179.281, "action": 7, "label": "Up", "fid": 2691, "confidence": 0.8006220459938049, "streak": 3, "reason": "stable"}
+{"event": "ACTION_CONFIRMED", "monotonic": 108179.296, "decision": {"action": 7, "label": "Up", "fid": 2691, "confidence": 0.8006220459938049, "streak": 3, "reason": "stable"}, "status": 0, "seq": 1013, "action": 7, "done_seq": 1013, "elapsed_ms": 14.999999999417923}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108184.078, "frames": 200, "latest": [{"label": "Up", "confidence": 0.8448840379714966, "xyxy": [217.75743103027344, 90.49278259277344, 322.7176513671875, 336.507568359375]}]}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108189.078, "frames": 225, "latest": [{"label": "Up", "confidence": 0.7941442728042603, "xyxy": [219.567138671875, 85.59811401367188, 326.4620361328125, 320.5074157714844]}]}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108194.078, "frames": 250, "latest": [{"label": "Up", "confidence": 0.8342031836509705, "xyxy": [228.08883666992188, 163.961669921875, 334.9745178222656, 326.90118408203125]}]}
+{"event": "ACTION_DECISION", "monotonic": 108198.484, "action": 0, "label": "CLEAR", "reason": "invalid_for_one_second"}
+{"event": "ACTION_CONFIRMED", "monotonic": 108198.5, "decision": {"action": 0, "label": "CLEAR", "reason": "invalid_for_one_second"}, "status": 0, "seq": 1014, "action": 0, "done_seq": 1014, "elapsed_ms": 16.00000000325963}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108199.078, "frames": 275, "latest": [{"label": "Up", "confidence": 0.7287818193435669, "xyxy": [229.5308837890625, 145.8557891845703, 335.4473876953125, 321.10833740234375]}]}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108204.078, "frames": 300, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108209.078, "frames": 325, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108214.078, "frames": 350, "latest": []}
+{"event": "ACTION_DECISION", "monotonic": 108218.875, "action": 1, "label": "Down", "fid": 2889, "confidence": 0.8170024156570435, "streak": 3, "reason": "stable"}
+{"event": "ACTION_CONFIRMED", "monotonic": 108218.906, "decision": {"action": 1, "label": "Down", "fid": 2889, "confidence": 0.8170024156570435, "streak": 3, "reason": "stable"}, "status": 0, "seq": 1015, "action": 1, "done_seq": 1015, "elapsed_ms": 31.000000002677552}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108219.078, "frames": 375, "latest": [{"label": "Down", "confidence": 0.7862310409545898, "xyxy": [268.7759094238281, 6.78924560546875, 368.4424743652344, 225.865478515625]}]}
+{"event": "ACTION_DECISION", "monotonic": 108221.875, "action": 0, "label": "CLEAR", "reason": "invalid_for_one_second"}
+{"event": "ACTION_CONFIRMED", "monotonic": 108221.906, "decision": {"action": 0, "label": "CLEAR", "reason": "invalid_for_one_second"}, "status": 0, "seq": 1016, "action": 0, "done_seq": 1016, "elapsed_ms": 31.000000002677552}
+{"event": "ACTION_DECISION", "monotonic": 108222.875, "action": 1, "label": "Down", "fid": 2909, "confidence": 0.8422451019287109, "streak": 3, "reason": "stable"}
+{"event": "ACTION_CONFIRMED", "monotonic": 108222.89, "decision": {"action": 1, "label": "Down", "fid": 2909, "confidence": 0.8422451019287109, "streak": 3, "reason": "stable"}, "status": 0, "seq": 1017, "action": 1, "done_seq": 1017, "elapsed_ms": 14.999999999417923}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108224.078, "frames": 400, "latest": [{"label": "Down", "confidence": 0.8811075091362, "xyxy": [274.75689697265625, 7.411651611328125, 373.46221923828125, 252.830810546875]}]}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108229.078, "frames": 425, "latest": [{"label": "Down", "confidence": 0.9124518632888794, "xyxy": [280.108154296875, 10.923126220703125, 385.099365234375, 262.2419128417969]}]}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108234.078, "frames": 450, "latest": [{"label": "Down", "confidence": 0.891194760799408, "xyxy": [286.5567321777344, 12.034942626953125, 389.3879699707031, 258.0193786621094]}]}
+{"event": "ACTION_DECISION", "monotonic": 108235.671, "action": 0, "label": "CLEAR", "reason": "invalid_for_one_second"}
+{"event": "ACTION_CONFIRMED", "monotonic": 108235.687, "decision": {"action": 0, "label": "CLEAR", "reason": "invalid_for_one_second"}, "status": 0, "seq": 1018, "action": 0, "done_seq": 1018, "elapsed_ms": 16.00000000325963}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108239.078, "frames": 475, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108244.078, "frames": 500, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108249.078, "frames": 525, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108254.078, "frames": 550, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108259.078, "frames": 575, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108264.078, "frames": 600, "latest": []}
+{"event": "ACTION_CLOSE_CLEAR", "monotonic": 108264.14, "status": 0, "seq": 1019, "action": 0, "done_seq": 1019, "elapsed_ms": 31.000000002677552}
+{"event": "FINAL", "monotonic": 108278.921, "state": "PASS", "marker": "REAL_MODEL_AXI_UART_CHECK", "inference_frames": 600, "stable_actions": [1, 7], "confirmed": 8, "serial_bytes": 56, "expected_bytes": 56, "publisher_error": null, "rx_stats": {"startup_packets_discarded": 533, "packets": 384001, "complete_frames": 600, "lost_frames": 0}, "physical_led": "USER_CONFIRMATION_REQUIRED", "model_sha256": "68db7cacbdd6d9c9a583e1c50a9f5934a3a6b78675b215ec86717827be8bfc79"}

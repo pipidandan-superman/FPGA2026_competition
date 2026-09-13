@@ -1,0 +1,1 @@
+{"source":"user","stage":"1000_axi_commands_with_video","initial_answer":"led在1-6之间快速轮换，cfg_done正常，hdmi正常","correction":"我说错了，就是led1-7","cfg_done":true,"hdmi_normal":true,"led1_through_7_cycle":true}

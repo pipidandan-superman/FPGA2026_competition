@@ -1,0 +1,72 @@
+{
+  "marker": "ACTION_V1_RELEASE_PASS",
+  "hardware": {
+    "marker": "ACTION_HARDWARE_CONTRACT_PASS",
+    "design": "display_test",
+    "axi_lite_base": "0x43c00000",
+    "axi_lite_range": 4096,
+    "vdma_base": "0x43000000",
+    "control_clock_hz": 50000000,
+    "board_clock_hz": 100000000,
+    "bluetooth_ports": 0,
+    "action_leds": 7,
+    "uart_baud": 9600,
+    "bridge_ready_external": false
+  },
+  "build": "E:\\competition\\4_metrics\\logs\\2026-09-13_action_v1_main_build_run03",
+  "board_validated": false,
+  "files": {
+    "action_driver.py": {
+      "sha256": "f326a7910bfef4bb186b83150c4c76569c732973c6e47222e013c996020e920c",
+      "bytes": 4152
+    },
+    "action_hardware_contract.py": {
+      "sha256": "28e9d52b60b9e75d3527cdd3fd29952bb0117094bad7dd903b0f417edbb6067b",
+      "bytes": 5632
+    },
+    "action_protocol.py": {
+      "sha256": "5ec6f09b9fd9df1ba2312c8399ecd6aa3322eba3c98813e7ae30e0d2fd882591",
+      "bytes": 3107
+    },
+    "action_service.py": {
+      "sha256": "2c6be6aabd009a87b7f6d41b7e3687f7907c9f8a2db28e7bc183719c31e16c80",
+      "bytes": 4247
+    },
+    "axilt.py": {
+      "sha256": "20d828bb6a4d2500786fba49b0a8d1c132cc345759a6d03dc3801b0e9415c67d",
+      "bytes": 5370
+    },
+    "camera.py": {
+      "sha256": "8c8b75442d97c99e1db72ff0c8a43ffafbe16cce26715534b09515b0f9d5d0a5",
+      "bytes": 14488
+    },
+    "camera_action_v1.py": {
+      "sha256": "db9a030d96e5261f9e6e8fb3cbffa0ab4c5b599e43e387637a9bf7fba07147f6",
+      "bytes": 6639
+    },
+    "display_test_axi_action_uart.bit": {
+      "sha256": "bffaa83565d60ea28e04a31497b4c3dff828b0359012dafe1d5d1ea5a390e16d",
+      "bytes": 4045696
+    },
+    "display_test_axi_action_uart.hwh": {
+      "sha256": "64ff7724c56c97b52fac699168f762e30ea42b4d25910a30caf00f58c8b55ed0",
+      "bytes": 454664
+    },
+    "main_hardware_contract.py": {
+      "sha256": "3bd8eb8ccc213463db794b52998f29bf0c0a6ea6dce79cf586439d341555eb68",
+      "bytes": 5353
+    },
+    "mmio_ordered.c": {
+      "sha256": "701c2754ef730b25c9cdc10cb2964204811c2894ec6b8dfccfbc2d886af71f9a",
+      "bytes": 923
+    },
+    "run_action_v1.sh": {
+      "sha256": "8a0d04311848c424c78660c1cf0418f636c8f2f248c67b62ad4bd843ac853b19",
+      "bytes": 287
+    },
+    "build_artifacts/display_test_axi_action_uart.xsa": {
+      "sha256": "3056c44f32fe92535ac726ba0b80ce4a7ee353f86f2da17afd954e8df7e319b4",
+      "bytes": 628229
+    }
+  }
+}

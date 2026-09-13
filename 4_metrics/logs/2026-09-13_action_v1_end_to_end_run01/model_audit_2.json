@@ -1,0 +1,131 @@
+{
+  "marker": "REAL_PREDICTION_THREE_FRAME_WIRE_AUDIT_PASS",
+  "stable_actions": [
+    1,
+    4,
+    5,
+    6,
+    7
+  ],
+  "rows": [
+    {
+      "run": "real_model",
+      "seq": 1003,
+      "action": 4,
+      "label": "Stop",
+      "fids": [
+        1765,
+        1766,
+        1767
+      ],
+      "confidence": [
+        0.8733820915222168,
+        0.8463118076324463,
+        0.8155760765075684
+      ],
+      "uart_hex": "a55aeb04da0d0a"
+    },
+    {
+      "run": "real_model",
+      "seq": 1005,
+      "action": 6,
+      "label": "Thumbs up",
+      "fids": [
+        2001,
+        2002,
+        2003
+      ],
+      "confidence": [
+        0.8031975626945496,
+        0.7962512373924255,
+        0.872939944267273
+      ],
+      "uart_hex": "a55aed06aa0d0a"
+    },
+    {
+      "run": "real_model",
+      "seq": 1007,
+      "action": 5,
+      "label": "Thumbs Down",
+      "fids": [
+        2112,
+        2113,
+        2114
+      ],
+      "confidence": [
+        0.7743181586265564,
+        0.7730374336242676,
+        0.8125124573707581
+      ],
+      "uart_hex": "a55aef05890d0a"
+    },
+    {
+      "run": "real_model",
+      "seq": 1009,
+      "action": 4,
+      "label": "Stop",
+      "fids": [
+        2166,
+        2167,
+        2168
+      ],
+      "confidence": [
+        0.7972515821456909,
+        0.8763384819030762,
+        0.8125124573707581
+      ],
+      "uart_hex": "a55af1040f0d0a"
+    },
+    {
+      "run": "real_model_up_down",
+      "seq": 1013,
+      "action": 7,
+      "label": "Up",
+      "fids": [
+        2689,
+        2690,
+        2691
+      ],
+      "confidence": [
+        0.7865262031555176,
+        0.8169564008712769,
+        0.8006220459938049
+      ],
+      "uart_hex": "a55af507520d0a"
+    },
+    {
+      "run": "real_model_up_down",
+      "seq": 1015,
+      "action": 1,
+      "label": "Down",
+      "fids": [
+        2887,
+        2888,
+        2889
+      ],
+      "confidence": [
+        0.8896079659461975,
+        0.8490785360336304,
+        0.8170024156570435
+      ],
+      "uart_hex": "a55af7016a0d0a"
+    },
+    {
+      "run": "real_model_up_down",
+      "seq": 1017,
+      "action": 1,
+      "label": "Down",
+      "fids": [
+        2907,
+        2908,
+        2909
+      ],
+      "confidence": [
+        0.871097207069397,
+        0.8150126338005066,
+        0.8422451019287109
+      ],
+      "uart_hex": "a55af901bc0d0a"
+    }
+  ]
+}

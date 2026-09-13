@@ -1,0 +1,18 @@
+COMMAND: systemctl show ees331-action-e2e-manual2 -p MainPID -p ActiveState -p SubState; journalctl -b -u ees331-action-e2e-manual2 -n 12 --no-pager -o cat
+MainPID=5783
+ActiveState=active
+SubState=running
+{"event": "PL_LOADED", "monotonic": 2869.393349537, "bit_sha256": "bffaa83565d60ea28e04a31497b4c3dff828b0359012dafe1d5d1ea5a390e16d", "state": "operating", "base": "0x43000000"}
+{"event": "SENSOR_SETTLE_COMPLETE", "monotonic": 2870.582880605, "seconds": 1.0}
+{"event": "VDMA_RESET_OK", "monotonic": 2870.589875327}
+{"event": "BUFFER_ALLOCATED", "monotonic": 2870.608642313, "address": "0x10100000", "size": 3145728, "coherent": false}
+{"event": "STARTUP_STATUS", "monotonic": 2870.831858474, "mm2s_sr": "0x11000", "s2mm_sr": "0x15810"}
+{"event": "VDMA_STREAM_STARTED", "monotonic": 2870.867358122, "mm2s_cr": "0x1008b", "mm2s_sr": "0x11000", "s2mm_cr": "0x180cb", "s2mm_sr": "0x11000", "slots": [2, 0], "observed_transitions": [1, 1]}
+{"event": "VIDEO_READY_BEFORE_ACTION", "monotonic": 2870.8728479}
+{"event": "ACTION_ATTACH_BEGIN", "monotonic": 2870.87799104}
+{"event": "ACTION_SERVICE_READY", "monotonic": 2870.888254004, "status": 1, "accept_seq": 0, "done_seq": 0, "action": 0, "count": 0, "failed": false, "peer": "192.168.240.2", "bind": ["0.0.0.0", 5001]}
+{"event": "VIDEO_HEARTBEAT", "monotonic": 2873.03536017, "frames": 11, "packets": 7040, "changes": 10, "mm2s_cr": "0x1008b", "mm2s_sr": "0x11000", "s2mm_cr": "0x180cb", "s2mm_sr": "0x11000", "slots": [2, 0], "observed_transitions": [25, 30]}
+{"event": "VIDEO_HEARTBEAT", "monotonic": 2875.042462831, "frames": 21, "packets": 13440, "changes": 20, "mm2s_cr": "0x1008b", "mm2s_sr": "0x11000", "s2mm_cr": "0x180cb", "s2mm_sr": "0x11000", "slots": [1, 0], "observed_transitions": [53, 59]}
+{"event": "VIDEO_HEARTBEAT", "monotonic": 2877.035248641, "frames": 31, "packets": 19840, "changes": 30, "mm2s_cr": "0x1008b", "mm2s_sr": "0x11000", "s2mm_cr": "0x180cb", "s2mm_sr": "0x11000", "slots": [2, 0], "observed_transitions": [80, 82]}
+
+EXIT: 0

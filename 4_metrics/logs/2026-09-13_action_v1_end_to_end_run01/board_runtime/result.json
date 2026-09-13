@@ -1,0 +1,31 @@
+{
+  "state": "COMPLETE",
+  "frames": 4296,
+  "packets": 2749440,
+  "changes": 4295,
+  "seconds": 859.5027483430001,
+  "vdma": {
+    "mm2s_cr": "0x1008b",
+    "mm2s_sr": "0x11000",
+    "s2mm_cr": "0x180cb",
+    "s2mm_sr": "0x11000",
+    "slots": [
+      2,
+      0
+    ],
+    "observed_transitions": [
+      11104,
+      12184
+    ]
+  },
+  "action": {
+    "status": 1,
+    "accept_seq": 1028,
+    "done_seq": 1028,
+    "action": 0,
+    "count": 1028,
+    "failed": false
+  },
+  "action_error": null,
+  "hdmi": "MANUAL_CONFIRMATION_REQUIRED"
+}

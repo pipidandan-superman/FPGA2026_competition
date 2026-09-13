@@ -1,0 +1,900 @@
+{"fid": 1362, "arrival": 107913.406, "inference_finished": 107913.421, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1363, "arrival": 107913.609, "inference_finished": 107913.625, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1364, "arrival": 107913.796, "inference_finished": 107913.812, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1365, "arrival": 107914.0, "inference_finished": 107914.015, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1366, "arrival": 107914.203, "inference_finished": 107914.218, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1367, "arrival": 107914.406, "inference_finished": 107914.421, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1368, "arrival": 107914.609, "inference_finished": 107914.625, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1369, "arrival": 107914.796, "inference_finished": 107914.812, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1370, "arrival": 107915.0, "inference_finished": 107915.015, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1371, "arrival": 107915.218, "inference_finished": 107915.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1372, "arrival": 107915.468, "inference_finished": 107915.484, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1373, "arrival": 107915.625, "inference_finished": 107915.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1374, "arrival": 107915.812, "inference_finished": 107915.828, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 1375, "arrival": 107916.015, "inference_finished": 107916.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1376, "arrival": 107916.218, "inference_finished": 107916.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1377, "arrival": 107916.421, "inference_finished": 107916.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1378, "arrival": 107916.625, "inference_finished": 107916.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1379, "arrival": 107916.828, "inference_finished": 107916.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1380, "arrival": 107917.031, "inference_finished": 107917.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1381, "arrival": 107917.234, "inference_finished": 107917.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1382, "arrival": 107917.421, "inference_finished": 107917.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1383, "arrival": 107917.625, "inference_finished": 107917.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1384, "arrival": 107917.812, "inference_finished": 107917.828, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 1385, "arrival": 107918.015, "inference_finished": 107918.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1386, "arrival": 107918.218, "inference_finished": 107918.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1387, "arrival": 107918.421, "inference_finished": 107918.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1388, "arrival": 107918.625, "inference_finished": 107918.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1389, "arrival": 107918.812, "inference_finished": 107918.828, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 1390, "arrival": 107919.015, "inference_finished": 107919.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1391, "arrival": 107919.218, "inference_finished": 107919.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1392, "arrival": 107919.421, "inference_finished": 107919.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1393, "arrival": 107919.625, "inference_finished": 107919.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1394, "arrival": 107919.828, "inference_finished": 107919.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1395, "arrival": 107920.031, "inference_finished": 107920.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1396, "arrival": 107920.218, "inference_finished": 107920.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1397, "arrival": 107920.421, "inference_finished": 107920.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1398, "arrival": 107920.625, "inference_finished": 107920.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1399, "arrival": 107920.812, "inference_finished": 107920.843, "inference_ms": 30.999999988125637, "detections": []}
+{"fid": 1400, "arrival": 107921.015, "inference_finished": 107921.046, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 1401, "arrival": 107921.218, "inference_finished": 107921.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1402, "arrival": 107921.421, "inference_finished": 107921.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1403, "arrival": 107921.625, "inference_finished": 107921.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1404, "arrival": 107921.812, "inference_finished": 107921.843, "inference_ms": 30.999999988125637, "detections": []}
+{"fid": 1405, "arrival": 107922.015, "inference_finished": 107922.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1406, "arrival": 107922.218, "inference_finished": 107922.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1407, "arrival": 107922.421, "inference_finished": 107922.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1408, "arrival": 107922.625, "inference_finished": 107922.656, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 1409, "arrival": 107922.828, "inference_finished": 107922.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1410, "arrival": 107923.015, "inference_finished": 107923.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1411, "arrival": 107923.218, "inference_finished": 107923.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1412, "arrival": 107923.421, "inference_finished": 107923.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1413, "arrival": 107923.625, "inference_finished": 107923.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1414, "arrival": 107923.812, "inference_finished": 107923.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1415, "arrival": 107924.015, "inference_finished": 107924.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1416, "arrival": 107924.218, "inference_finished": 107924.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1417, "arrival": 107924.421, "inference_finished": 107924.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1418, "arrival": 107924.625, "inference_finished": 107924.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1419, "arrival": 107924.812, "inference_finished": 107924.843, "inference_ms": 30.999999988125637, "detections": []}
+{"fid": 1420, "arrival": 107925.015, "inference_finished": 107925.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1421, "arrival": 107925.234, "inference_finished": 107925.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1422, "arrival": 107925.421, "inference_finished": 107925.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1423, "arrival": 107925.625, "inference_finished": 107925.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1424, "arrival": 107925.812, "inference_finished": 107925.828, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 1425, "arrival": 107926.015, "inference_finished": 107926.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1426, "arrival": 107926.218, "inference_finished": 107926.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1427, "arrival": 107926.421, "inference_finished": 107926.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1428, "arrival": 107926.609, "inference_finished": 107926.625, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1429, "arrival": 107926.812, "inference_finished": 107926.828, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 1430, "arrival": 107927.015, "inference_finished": 107927.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1431, "arrival": 107927.218, "inference_finished": 107927.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1432, "arrival": 107927.421, "inference_finished": 107927.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1433, "arrival": 107927.64, "inference_finished": 107927.656, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1434, "arrival": 107927.843, "inference_finished": 107927.859, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1435, "arrival": 107928.031, "inference_finished": 107928.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1436, "arrival": 107928.234, "inference_finished": 107928.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1437, "arrival": 107928.421, "inference_finished": 107928.453, "inference_ms": 31.999999991967343, "detections": []}
+{"fid": 1438, "arrival": 107928.625, "inference_finished": 107928.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1439, "arrival": 107928.812, "inference_finished": 107928.828, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 1440, "arrival": 107929.015, "inference_finished": 107929.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1441, "arrival": 107929.218, "inference_finished": 107929.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1442, "arrival": 107929.421, "inference_finished": 107929.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1443, "arrival": 107929.625, "inference_finished": 107929.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1444, "arrival": 107929.812, "inference_finished": 107929.843, "inference_ms": 30.999999988125637, "detections": []}
+{"fid": 1445, "arrival": 107930.015, "inference_finished": 107930.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1446, "arrival": 107930.234, "inference_finished": 107930.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1447, "arrival": 107930.421, "inference_finished": 107930.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1448, "arrival": 107930.625, "inference_finished": 107930.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1449, "arrival": 107930.828, "inference_finished": 107930.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1450, "arrival": 107931.031, "inference_finished": 107931.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1451, "arrival": 107931.234, "inference_finished": 107931.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1452, "arrival": 107931.421, "inference_finished": 107931.453, "inference_ms": 31.999999991967343, "detections": []}
+{"fid": 1453, "arrival": 107931.625, "inference_finished": 107931.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1454, "arrival": 107931.812, "inference_finished": 107931.843, "inference_ms": 30.999999988125637, "detections": []}
+{"fid": 1455, "arrival": 107932.015, "inference_finished": 107932.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1456, "arrival": 107932.218, "inference_finished": 107932.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1457, "arrival": 107932.421, "inference_finished": 107932.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1458, "arrival": 107932.625, "inference_finished": 107932.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1459, "arrival": 107932.812, "inference_finished": 107932.843, "inference_ms": 30.999999988125637, "detections": []}
+{"fid": 1460, "arrival": 107933.015, "inference_finished": 107933.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1461, "arrival": 107933.218, "inference_finished": 107933.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1462, "arrival": 107933.421, "inference_finished": 107933.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1463, "arrival": 107933.625, "inference_finished": 107933.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1464, "arrival": 107933.828, "inference_finished": 107933.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1465, "arrival": 107934.031, "inference_finished": 107934.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1466, "arrival": 107934.234, "inference_finished": 107934.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1467, "arrival": 107934.421, "inference_finished": 107934.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1468, "arrival": 107934.625, "inference_finished": 107934.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1469, "arrival": 107934.812, "inference_finished": 107934.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1470, "arrival": 107935.015, "inference_finished": 107935.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1471, "arrival": 107935.218, "inference_finished": 107935.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1472, "arrival": 107935.421, "inference_finished": 107935.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1473, "arrival": 107935.625, "inference_finished": 107935.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1474, "arrival": 107935.812, "inference_finished": 107935.843, "inference_ms": 30.999999988125637, "detections": []}
+{"fid": 1475, "arrival": 107936.015, "inference_finished": 107936.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1476, "arrival": 107936.218, "inference_finished": 107936.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1477, "arrival": 107936.421, "inference_finished": 107936.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1478, "arrival": 107936.625, "inference_finished": 107936.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1479, "arrival": 107936.828, "inference_finished": 107936.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1480, "arrival": 107937.031, "inference_finished": 107937.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1481, "arrival": 107937.218, "inference_finished": 107937.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1482, "arrival": 107937.421, "inference_finished": 107937.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1483, "arrival": 107937.625, "inference_finished": 107937.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1484, "arrival": 107937.812, "inference_finished": 107937.843, "inference_ms": 30.999999988125637, "detections": []}
+{"fid": 1485, "arrival": 107938.015, "inference_finished": 107938.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1486, "arrival": 107938.218, "inference_finished": 107938.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1487, "arrival": 107938.421, "inference_finished": 107938.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1488, "arrival": 107938.609, "inference_finished": 107938.671, "inference_ms": 46.000000002095476, "detections": []}
+{"fid": 1489, "arrival": 107938.812, "inference_finished": 107938.828, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 1490, "arrival": 107939.015, "inference_finished": 107939.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1491, "arrival": 107939.218, "inference_finished": 107939.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1492, "arrival": 107939.453, "inference_finished": 107939.468, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1493, "arrival": 107939.656, "inference_finished": 107939.671, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1494, "arrival": 107939.828, "inference_finished": 107939.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1495, "arrival": 107940.015, "inference_finished": 107940.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1496, "arrival": 107940.218, "inference_finished": 107940.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1497, "arrival": 107940.421, "inference_finished": 107940.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1498, "arrival": 107940.625, "inference_finished": 107940.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1499, "arrival": 107940.828, "inference_finished": 107940.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1500, "arrival": 107941.015, "inference_finished": 107941.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1501, "arrival": 107941.218, "inference_finished": 107941.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1502, "arrival": 107941.421, "inference_finished": 107941.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1503, "arrival": 107941.625, "inference_finished": 107941.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1504, "arrival": 107941.812, "inference_finished": 107941.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1505, "arrival": 107942.015, "inference_finished": 107942.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1506, "arrival": 107942.234, "inference_finished": 107942.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1507, "arrival": 107942.421, "inference_finished": 107942.453, "inference_ms": 31.999999991967343, "detections": []}
+{"fid": 1508, "arrival": 107942.625, "inference_finished": 107942.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1509, "arrival": 107942.812, "inference_finished": 107942.843, "inference_ms": 30.999999988125637, "detections": []}
+{"fid": 1510, "arrival": 107943.015, "inference_finished": 107943.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1511, "arrival": 107943.218, "inference_finished": 107943.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1512, "arrival": 107943.421, "inference_finished": 107943.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1513, "arrival": 107943.625, "inference_finished": 107943.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1514, "arrival": 107943.812, "inference_finished": 107943.843, "inference_ms": 30.999999988125637, "detections": []}
+{"fid": 1515, "arrival": 107944.015, "inference_finished": 107944.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1516, "arrival": 107944.218, "inference_finished": 107944.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1517, "arrival": 107944.421, "inference_finished": 107944.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1518, "arrival": 107944.609, "inference_finished": 107944.64, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 1519, "arrival": 107944.812, "inference_finished": 107944.828, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 1520, "arrival": 107945.031, "inference_finished": 107945.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1521, "arrival": 107945.218, "inference_finished": 107945.25, "inference_ms": 32.00000000651926, "detections": []}
+{"fid": 1522, "arrival": 107945.421, "inference_finished": 107945.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1523, "arrival": 107945.609, "inference_finished": 107945.625, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1524, "arrival": 107945.812, "inference_finished": 107945.843, "inference_ms": 30.999999988125637, "detections": []}
+{"fid": 1525, "arrival": 107946.015, "inference_finished": 107946.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1526, "arrival": 107946.218, "inference_finished": 107946.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1527, "arrival": 107946.421, "inference_finished": 107946.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1528, "arrival": 107946.625, "inference_finished": 107946.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1529, "arrival": 107946.812, "inference_finished": 107946.843, "inference_ms": 30.999999988125637, "detections": []}
+{"fid": 1530, "arrival": 107947.015, "inference_finished": 107947.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1531, "arrival": 107947.218, "inference_finished": 107947.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1532, "arrival": 107947.421, "inference_finished": 107947.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1533, "arrival": 107947.625, "inference_finished": 107947.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1534, "arrival": 107947.828, "inference_finished": 107947.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1535, "arrival": 107948.031, "inference_finished": 107948.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1536, "arrival": 107948.234, "inference_finished": 107948.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1537, "arrival": 107948.437, "inference_finished": 107948.453, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 1538, "arrival": 107948.625, "inference_finished": 107948.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1539, "arrival": 107948.812, "inference_finished": 107948.843, "inference_ms": 30.999999988125637, "detections": []}
+{"fid": 1540, "arrival": 107949.015, "inference_finished": 107949.046, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 1541, "arrival": 107949.218, "inference_finished": 107949.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1542, "arrival": 107949.421, "inference_finished": 107949.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1543, "arrival": 107949.625, "inference_finished": 107949.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1544, "arrival": 107949.828, "inference_finished": 107949.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1545, "arrival": 107950.015, "inference_finished": 107950.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1546, "arrival": 107950.218, "inference_finished": 107950.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1547, "arrival": 107950.421, "inference_finished": 107950.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1548, "arrival": 107950.625, "inference_finished": 107950.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1549, "arrival": 107950.828, "inference_finished": 107950.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1550, "arrival": 107951.031, "inference_finished": 107951.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1551, "arrival": 107951.234, "inference_finished": 107951.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1552, "arrival": 107951.421, "inference_finished": 107951.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1553, "arrival": 107951.656, "inference_finished": 107951.671, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1554, "arrival": 107951.828, "inference_finished": 107951.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1555, "arrival": 107952.015, "inference_finished": 107952.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1556, "arrival": 107952.218, "inference_finished": 107952.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1557, "arrival": 107952.421, "inference_finished": 107952.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1558, "arrival": 107952.625, "inference_finished": 107952.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1559, "arrival": 107952.828, "inference_finished": 107952.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1560, "arrival": 107953.015, "inference_finished": 107953.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1561, "arrival": 107953.218, "inference_finished": 107953.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1562, "arrival": 107953.421, "inference_finished": 107953.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1563, "arrival": 107953.625, "inference_finished": 107953.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1564, "arrival": 107953.828, "inference_finished": 107953.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1565, "arrival": 107954.031, "inference_finished": 107954.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1566, "arrival": 107954.218, "inference_finished": 107954.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1567, "arrival": 107954.421, "inference_finished": 107954.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1568, "arrival": 107954.625, "inference_finished": 107954.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1569, "arrival": 107954.812, "inference_finished": 107954.843, "inference_ms": 30.999999988125637, "detections": []}
+{"fid": 1570, "arrival": 107955.015, "inference_finished": 107955.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1571, "arrival": 107955.218, "inference_finished": 107955.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1572, "arrival": 107955.421, "inference_finished": 107955.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1573, "arrival": 107955.625, "inference_finished": 107955.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1574, "arrival": 107955.812, "inference_finished": 107955.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1575, "arrival": 107956.015, "inference_finished": 107956.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1576, "arrival": 107956.218, "inference_finished": 107956.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1577, "arrival": 107956.421, "inference_finished": 107956.453, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 1578, "arrival": 107956.625, "inference_finished": 107956.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1579, "arrival": 107956.828, "inference_finished": 107956.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1580, "arrival": 107957.015, "inference_finished": 107957.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1581, "arrival": 107957.218, "inference_finished": 107957.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1582, "arrival": 107957.421, "inference_finished": 107957.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1583, "arrival": 107957.625, "inference_finished": 107957.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1584, "arrival": 107957.812, "inference_finished": 107957.828, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 1585, "arrival": 107958.015, "inference_finished": 107958.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1586, "arrival": 107958.218, "inference_finished": 107958.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1587, "arrival": 107958.421, "inference_finished": 107958.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1588, "arrival": 107958.625, "inference_finished": 107958.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1589, "arrival": 107958.812, "inference_finished": 107958.828, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 1590, "arrival": 107959.015, "inference_finished": 107959.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1591, "arrival": 107959.234, "inference_finished": 107959.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1592, "arrival": 107959.421, "inference_finished": 107959.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1593, "arrival": 107959.625, "inference_finished": 107959.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1594, "arrival": 107959.828, "inference_finished": 107959.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1595, "arrival": 107960.015, "inference_finished": 107960.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1596, "arrival": 107960.218, "inference_finished": 107960.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1597, "arrival": 107960.421, "inference_finished": 107960.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1598, "arrival": 107960.625, "inference_finished": 107960.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1599, "arrival": 107960.812, "inference_finished": 107960.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1600, "arrival": 107961.015, "inference_finished": 107961.046, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 1601, "arrival": 107961.218, "inference_finished": 107961.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1602, "arrival": 107961.421, "inference_finished": 107961.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1603, "arrival": 107961.625, "inference_finished": 107961.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1604, "arrival": 107961.828, "inference_finished": 107961.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1605, "arrival": 107962.031, "inference_finished": 107962.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1606, "arrival": 107962.234, "inference_finished": 107962.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1607, "arrival": 107962.421, "inference_finished": 107962.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1608, "arrival": 107962.609, "inference_finished": 107962.64, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 1609, "arrival": 107962.812, "inference_finished": 107962.828, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 1610, "arrival": 107963.015, "inference_finished": 107963.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1611, "arrival": 107963.265, "inference_finished": 107963.281, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1612, "arrival": 107963.437, "inference_finished": 107963.453, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 1613, "arrival": 107963.625, "inference_finished": 107963.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1614, "arrival": 107963.828, "inference_finished": 107963.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1615, "arrival": 107964.015, "inference_finished": 107964.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1616, "arrival": 107964.218, "inference_finished": 107964.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1617, "arrival": 107964.421, "inference_finished": 107964.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1618, "arrival": 107964.625, "inference_finished": 107964.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1619, "arrival": 107964.828, "inference_finished": 107964.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1620, "arrival": 107965.031, "inference_finished": 107965.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1621, "arrival": 107965.234, "inference_finished": 107965.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1622, "arrival": 107965.421, "inference_finished": 107965.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1623, "arrival": 107965.625, "inference_finished": 107965.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1624, "arrival": 107965.828, "inference_finished": 107965.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1625, "arrival": 107966.015, "inference_finished": 107966.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1626, "arrival": 107966.218, "inference_finished": 107966.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1627, "arrival": 107966.421, "inference_finished": 107966.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1628, "arrival": 107966.625, "inference_finished": 107966.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1629, "arrival": 107966.828, "inference_finished": 107966.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1630, "arrival": 107967.015, "inference_finished": 107967.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1631, "arrival": 107967.218, "inference_finished": 107967.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1632, "arrival": 107967.421, "inference_finished": 107967.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1633, "arrival": 107967.625, "inference_finished": 107967.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1634, "arrival": 107967.828, "inference_finished": 107967.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1635, "arrival": 107968.031, "inference_finished": 107968.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1636, "arrival": 107968.218, "inference_finished": 107968.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1637, "arrival": 107968.421, "inference_finished": 107968.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1638, "arrival": 107968.625, "inference_finished": 107968.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1639, "arrival": 107968.812, "inference_finished": 107968.828, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 1640, "arrival": 107969.015, "inference_finished": 107969.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1641, "arrival": 107969.218, "inference_finished": 107969.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1642, "arrival": 107969.421, "inference_finished": 107969.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1643, "arrival": 107969.625, "inference_finished": 107969.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1644, "arrival": 107969.828, "inference_finished": 107969.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1645, "arrival": 107970.015, "inference_finished": 107970.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1646, "arrival": 107970.218, "inference_finished": 107970.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1647, "arrival": 107970.421, "inference_finished": 107970.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1648, "arrival": 107970.625, "inference_finished": 107970.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1649, "arrival": 107970.828, "inference_finished": 107970.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1650, "arrival": 107971.031, "inference_finished": 107971.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1651, "arrival": 107971.218, "inference_finished": 107971.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1652, "arrival": 107971.421, "inference_finished": 107971.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1653, "arrival": 107971.625, "inference_finished": 107971.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1654, "arrival": 107971.828, "inference_finished": 107971.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1655, "arrival": 107972.015, "inference_finished": 107972.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1656, "arrival": 107972.218, "inference_finished": 107972.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1657, "arrival": 107972.421, "inference_finished": 107972.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1658, "arrival": 107972.625, "inference_finished": 107972.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1659, "arrival": 107972.828, "inference_finished": 107972.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1660, "arrival": 107973.015, "inference_finished": 107973.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1661, "arrival": 107973.218, "inference_finished": 107973.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1662, "arrival": 107973.421, "inference_finished": 107973.453, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 1663, "arrival": 107973.625, "inference_finished": 107973.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1664, "arrival": 107973.828, "inference_finished": 107973.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1665, "arrival": 107974.015, "inference_finished": 107974.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1666, "arrival": 107974.218, "inference_finished": 107974.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1667, "arrival": 107974.421, "inference_finished": 107974.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1668, "arrival": 107974.625, "inference_finished": 107974.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1669, "arrival": 107974.812, "inference_finished": 107974.828, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 1670, "arrival": 107975.015, "inference_finished": 107975.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1671, "arrival": 107975.218, "inference_finished": 107975.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1672, "arrival": 107975.421, "inference_finished": 107975.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1673, "arrival": 107975.671, "inference_finished": 107975.687, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1674, "arrival": 107975.828, "inference_finished": 107975.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1675, "arrival": 107976.015, "inference_finished": 107976.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1676, "arrival": 107976.234, "inference_finished": 107976.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1677, "arrival": 107976.421, "inference_finished": 107976.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1678, "arrival": 107976.625, "inference_finished": 107976.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1679, "arrival": 107976.828, "inference_finished": 107976.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1680, "arrival": 107977.015, "inference_finished": 107977.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1681, "arrival": 107977.218, "inference_finished": 107977.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1682, "arrival": 107977.421, "inference_finished": 107977.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1683, "arrival": 107977.625, "inference_finished": 107977.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1684, "arrival": 107977.828, "inference_finished": 107977.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1685, "arrival": 107978.015, "inference_finished": 107978.046, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 1686, "arrival": 107978.218, "inference_finished": 107978.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1687, "arrival": 107978.421, "inference_finished": 107978.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1688, "arrival": 107978.625, "inference_finished": 107978.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1689, "arrival": 107978.828, "inference_finished": 107978.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1690, "arrival": 107979.031, "inference_finished": 107979.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1691, "arrival": 107979.234, "inference_finished": 107979.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1692, "arrival": 107979.421, "inference_finished": 107979.453, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 1693, "arrival": 107979.625, "inference_finished": 107979.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1694, "arrival": 107979.843, "inference_finished": 107979.859, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1695, "arrival": 107980.015, "inference_finished": 107980.046, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 1696, "arrival": 107980.218, "inference_finished": 107980.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1697, "arrival": 107980.421, "inference_finished": 107980.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1698, "arrival": 107980.625, "inference_finished": 107980.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1699, "arrival": 107980.812, "inference_finished": 107980.843, "inference_ms": 30.999999988125637, "detections": []}
+{"fid": 1700, "arrival": 107981.015, "inference_finished": 107981.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1701, "arrival": 107981.218, "inference_finished": 107981.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1702, "arrival": 107981.421, "inference_finished": 107981.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1703, "arrival": 107981.625, "inference_finished": 107981.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1704, "arrival": 107981.828, "inference_finished": 107981.859, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1705, "arrival": 107982.031, "inference_finished": 107982.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1706, "arrival": 107982.234, "inference_finished": 107982.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1707, "arrival": 107982.421, "inference_finished": 107982.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1708, "arrival": 107982.625, "inference_finished": 107982.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1709, "arrival": 107982.828, "inference_finished": 107982.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1710, "arrival": 107983.015, "inference_finished": 107983.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1711, "arrival": 107983.218, "inference_finished": 107983.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1712, "arrival": 107983.421, "inference_finished": 107983.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1713, "arrival": 107983.625, "inference_finished": 107983.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1714, "arrival": 107983.828, "inference_finished": 107983.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1715, "arrival": 107984.015, "inference_finished": 107984.046, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 1716, "arrival": 107984.218, "inference_finished": 107984.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1717, "arrival": 107984.421, "inference_finished": 107984.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1718, "arrival": 107984.625, "inference_finished": 107984.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1719, "arrival": 107984.828, "inference_finished": 107984.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1720, "arrival": 107985.031, "inference_finished": 107985.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1721, "arrival": 107985.218, "inference_finished": 107985.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1722, "arrival": 107985.421, "inference_finished": 107985.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1723, "arrival": 107985.625, "inference_finished": 107985.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1724, "arrival": 107985.828, "inference_finished": 107985.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1725, "arrival": 107986.015, "inference_finished": 107986.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1726, "arrival": 107986.218, "inference_finished": 107986.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1727, "arrival": 107986.421, "inference_finished": 107986.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1728, "arrival": 107986.625, "inference_finished": 107986.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1729, "arrival": 107986.828, "inference_finished": 107986.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1730, "arrival": 107987.015, "inference_finished": 107987.046, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 1731, "arrival": 107987.218, "inference_finished": 107987.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1732, "arrival": 107987.437, "inference_finished": 107987.453, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 1733, "arrival": 107987.625, "inference_finished": 107987.656, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 1734, "arrival": 107987.828, "inference_finished": 107987.89, "inference_ms": 62.000000005355105, "detections": []}
+{"fid": 1735, "arrival": 107988.031, "inference_finished": 107988.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1736, "arrival": 107988.265, "inference_finished": 107988.281, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1737, "arrival": 107988.421, "inference_finished": 107988.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1738, "arrival": 107988.625, "inference_finished": 107988.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1739, "arrival": 107988.812, "inference_finished": 107988.843, "inference_ms": 30.999999988125637, "detections": []}
+{"fid": 1740, "arrival": 107989.015, "inference_finished": 107989.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1741, "arrival": 107989.218, "inference_finished": 107989.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1742, "arrival": 107989.421, "inference_finished": 107989.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1743, "arrival": 107989.625, "inference_finished": 107989.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1744, "arrival": 107989.828, "inference_finished": 107989.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1745, "arrival": 107990.015, "inference_finished": 107990.046, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 1746, "arrival": 107990.218, "inference_finished": 107990.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1747, "arrival": 107990.437, "inference_finished": 107990.453, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 1748, "arrival": 107990.625, "inference_finished": 107990.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1749, "arrival": 107990.843, "inference_finished": 107990.859, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1750, "arrival": 107991.015, "inference_finished": 107991.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1751, "arrival": 107991.218, "inference_finished": 107991.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1752, "arrival": 107991.421, "inference_finished": 107991.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1753, "arrival": 107991.625, "inference_finished": 107991.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1754, "arrival": 107991.812, "inference_finished": 107991.843, "inference_ms": 30.999999988125637, "detections": []}
+{"fid": 1755, "arrival": 107992.015, "inference_finished": 107992.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1756, "arrival": 107992.218, "inference_finished": 107992.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1757, "arrival": 107992.421, "inference_finished": 107992.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1758, "arrival": 107992.625, "inference_finished": 107992.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1759, "arrival": 107992.812, "inference_finished": 107992.843, "inference_ms": 30.999999988125637, "detections": [{"label": "Stop", "confidence": 0.832183301448822, "xyxy": [313.34588623046875, 7.067657470703125, 640.0, 337.0592346191406]}]}
+{"fid": 1760, "arrival": 107993.031, "inference_finished": 107993.046, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.8028465509414673, "xyxy": [317.475830078125, 5.4393310546875, 639.7153930664062, 315.4527587890625]}]}
+{"fid": 1761, "arrival": 107993.234, "inference_finished": 107993.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1762, "arrival": 107993.421, "inference_finished": 107993.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.7064178586006165, "xyxy": [386.71417236328125, 1.73443603515625, 635.9820556640625, 330.30078125]}]}
+{"fid": 1763, "arrival": 107993.625, "inference_finished": 107993.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.7708266973495483, "xyxy": [356.95697021484375, 0.0, 633.8243408203125, 333.154541015625]}]}
+{"fid": 1764, "arrival": 107993.812, "inference_finished": 107993.828, "inference_ms": 15.999999988707714, "detections": [{"label": "Stop", "confidence": 0.7487197518348694, "xyxy": [312.24627685546875, 12.92340087890625, 640.0, 362.79681396484375]}]}
+{"fid": 1765, "arrival": 107994.015, "inference_finished": 107994.031, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8733820915222168, "xyxy": [245.7135467529297, 0.0, 578.8190307617188, 433.10186767578125]}]}
+{"fid": 1766, "arrival": 107994.218, "inference_finished": 107994.234, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8463118076324463, "xyxy": [210.9503173828125, 0.0, 540.01611328125, 405.023193359375]}, {"label": "Stop", "confidence": 0.7213143706321716, "xyxy": [163.61727905273438, 0.0, 505.5193786621094, 457.3812255859375]}]}
+{"fid": 1767, "arrival": 107994.421, "inference_finished": 107994.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8155760765075684, "xyxy": [156.85177612304688, 6.830078125, 485.5594177246094, 381.36810302734375]}]}
+{"fid": 1768, "arrival": 107994.625, "inference_finished": 107994.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.7812773585319519, "xyxy": [161.6397247314453, 0.0, 454.65509033203125, 354.5201416015625]}]}
+{"fid": 1769, "arrival": 107994.812, "inference_finished": 107994.843, "inference_ms": 30.999999988125637, "detections": [{"label": "Stop", "confidence": 0.7165847420692444, "xyxy": [185.31578063964844, 2.080078125, 409.0501708984375, 300.05322265625]}]}
+{"fid": 1770, "arrival": 107995.015, "inference_finished": 107995.031, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.739300012588501, "xyxy": [154.73841857910156, 8.0477294921875, 445.8172607421875, 312.4789733886719]}]}
+{"fid": 1771, "arrival": 107995.218, "inference_finished": 107995.234, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8023248314857483, "xyxy": [156.408935546875, 8.3001708984375, 487.9766845703125, 334.05938720703125]}]}
+{"fid": 1772, "arrival": 107995.421, "inference_finished": 107995.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.806797444820404, "xyxy": [152.97198486328125, 9.83367919921875, 457.01641845703125, 345.10699462890625]}]}
+{"fid": 1773, "arrival": 107995.625, "inference_finished": 107995.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.8793447017669678, "xyxy": [165.69801330566406, 0.0, 452.365966796875, 342.59033203125]}]}
+{"fid": 1774, "arrival": 107995.812, "inference_finished": 107995.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.885388970375061, "xyxy": [163.63470458984375, 6.267425537109375, 447.2315673828125, 357.4292297363281]}]}
+{"fid": 1775, "arrival": 107996.031, "inference_finished": 107996.046, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.9126140475273132, "xyxy": [162.4597625732422, 9.878677368164062, 441.80694580078125, 362.5677490234375]}]}
+{"fid": 1776, "arrival": 107996.234, "inference_finished": 107996.25, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8984361886978149, "xyxy": [164.54159545898438, 10.28802490234375, 444.8535461425781, 358.34930419921875]}]}
+{"fid": 1777, "arrival": 107996.437, "inference_finished": 107996.453, "inference_ms": 15.999999988707714, "detections": [{"label": "Stop", "confidence": 0.9213614463806152, "xyxy": [166.7974090576172, 7.040740966796875, 449.04510498046875, 364.4691467285156]}]}
+{"fid": 1778, "arrival": 107996.625, "inference_finished": 107996.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.914150595664978, "xyxy": [164.08578491210938, 9.403213500976562, 445.3694152832031, 362.402587890625]}]}
+{"fid": 1779, "arrival": 107996.828, "inference_finished": 107996.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.9125972986221313, "xyxy": [167.9285888671875, 8.806808471679688, 449.203125, 363.14654541015625]}]}
+{"fid": 1780, "arrival": 107997.015, "inference_finished": 107997.046, "inference_ms": 31.000000002677552, "detections": [{"label": "Stop", "confidence": 0.8953487873077393, "xyxy": [167.99481201171875, 10.9112548828125, 447.03179931640625, 362.25872802734375]}]}
+{"fid": 1781, "arrival": 107997.218, "inference_finished": 107997.234, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.9216392040252686, "xyxy": [169.1023712158203, 7.4834136962890625, 443.79718017578125, 360.6427001953125]}]}
+{"fid": 1782, "arrival": 107997.421, "inference_finished": 107997.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.9120576977729797, "xyxy": [166.33721923828125, 8.95257568359375, 443.37713623046875, 363.24609375]}]}
+{"fid": 1783, "arrival": 107997.625, "inference_finished": 107997.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.8716113567352295, "xyxy": [160.53671264648438, 13.85406494140625, 423.1035461425781, 366.3330078125]}]}
+{"fid": 1784, "arrival": 107997.828, "inference_finished": 107997.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.8886717557907104, "xyxy": [160.9937744140625, 12.237548828125, 425.61859130859375, 358.45721435546875]}]}
+{"fid": 1785, "arrival": 107998.015, "inference_finished": 107998.031, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8948786854743958, "xyxy": [159.56716918945312, 12.56597900390625, 438.7804260253906, 364.162353515625]}]}
+{"fid": 1786, "arrival": 107998.218, "inference_finished": 107998.234, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8916483521461487, "xyxy": [162.06158447265625, 12.037200927734375, 436.461181640625, 363.7900085449219]}]}
+{"fid": 1787, "arrival": 107998.421, "inference_finished": 107998.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8877551555633545, "xyxy": [160.36375427246094, 12.487442016601562, 437.322509765625, 364.05224609375]}]}
+{"fid": 1788, "arrival": 107998.625, "inference_finished": 107998.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.8903472423553467, "xyxy": [158.85247802734375, 12.425949096679688, 440.88983154296875, 364.68585205078125]}]}
+{"fid": 1789, "arrival": 107998.828, "inference_finished": 107998.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.9023734331130981, "xyxy": [159.5614013671875, 12.01287841796875, 438.84869384765625, 366.30548095703125]}]}
+{"fid": 1790, "arrival": 107999.031, "inference_finished": 107999.046, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.8957647085189819, "xyxy": [163.206298828125, 12.965789794921875, 442.6185302734375, 365.3088684082031]}]}
+{"fid": 1791, "arrival": 107999.234, "inference_finished": 107999.25, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8899930119514465, "xyxy": [163.2291717529297, 3.6025543212890625, 443.23126220703125, 364.7313232421875]}]}
+{"fid": 1792, "arrival": 107999.421, "inference_finished": 107999.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8869516849517822, "xyxy": [164.4054718017578, 11.29937744140625, 439.46087646484375, 366.50518798828125]}]}
+{"fid": 1793, "arrival": 107999.625, "inference_finished": 107999.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.9013229012489319, "xyxy": [165.04119873046875, 12.09747314453125, 442.5157470703125, 370.203125]}]}
+{"fid": 1794, "arrival": 107999.828, "inference_finished": 107999.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.9028297066688538, "xyxy": [165.42259216308594, 10.764694213867188, 443.87890625, 364.80438232421875]}]}
+{"fid": 1795, "arrival": 108000.015, "inference_finished": 108000.046, "inference_ms": 31.000000002677552, "detections": [{"label": "Stop", "confidence": 0.8988291621208191, "xyxy": [167.8911590576172, 8.676971435546875, 445.98956298828125, 371.3234558105469]}]}
+{"fid": 1796, "arrival": 108000.218, "inference_finished": 108000.234, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8703098893165588, "xyxy": [169.62484741210938, 7.59228515625, 447.6513366699219, 369.87445068359375]}]}
+{"fid": 1797, "arrival": 108000.421, "inference_finished": 108000.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8395583033561707, "xyxy": [170.63543701171875, 11.57891845703125, 448.83148193359375, 369.91741943359375]}]}
+{"fid": 1798, "arrival": 108000.64, "inference_finished": 108000.656, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8552979826927185, "xyxy": [171.120849609375, 10.722732543945312, 449.1749267578125, 369.60626220703125]}]}
+{"fid": 1799, "arrival": 108000.875, "inference_finished": 108000.89, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.86627197265625, "xyxy": [170.54730224609375, 8.077102661132812, 448.8995361328125, 364.89910888671875]}]}
+{"fid": 1800, "arrival": 108001.015, "inference_finished": 108001.031, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8721926808357239, "xyxy": [172.42254638671875, 6.72076416015625, 448.92999267578125, 363.940185546875]}]}
+{"fid": 1801, "arrival": 108001.218, "inference_finished": 108001.234, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8615851998329163, "xyxy": [172.91204833984375, 8.71807861328125, 448.79412841796875, 363.76861572265625]}]}
+{"fid": 1802, "arrival": 108001.421, "inference_finished": 108001.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8547044396400452, "xyxy": [170.66685485839844, 12.04718017578125, 444.069091796875, 359.2183837890625]}]}
+{"fid": 1803, "arrival": 108001.625, "inference_finished": 108001.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.8501973152160645, "xyxy": [182.7595672607422, 11.4351806640625, 445.36199951171875, 366.80389404296875]}]}
+{"fid": 1804, "arrival": 108001.828, "inference_finished": 108001.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.8854630589485168, "xyxy": [180.6145477294922, 9.236968994140625, 449.96307373046875, 357.7807312011719]}]}
+{"fid": 1805, "arrival": 108002.031, "inference_finished": 108002.046, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.871214747428894, "xyxy": [180.95106506347656, 5.24688720703125, 450.252197265625, 360.8997802734375]}]}
+{"fid": 1806, "arrival": 108002.218, "inference_finished": 108002.234, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8492807149887085, "xyxy": [172.6866455078125, 10.498626708984375, 449.854736328125, 366.8620300292969]}]}
+{"fid": 1807, "arrival": 108002.421, "inference_finished": 108002.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8554736971855164, "xyxy": [181.96974182128906, 5.56878662109375, 447.5965576171875, 360.28985595703125]}]}
+{"fid": 1808, "arrival": 108002.625, "inference_finished": 108002.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.8787528276443481, "xyxy": [182.8829803466797, 6.9754638671875, 445.64410400390625, 358.762451171875]}]}
+{"fid": 1809, "arrival": 108002.828, "inference_finished": 108002.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.8598889708518982, "xyxy": [183.04249572753906, 6.5677490234375, 447.2750244140625, 365.76861572265625]}]}
+{"fid": 1810, "arrival": 108003.015, "inference_finished": 108003.046, "inference_ms": 31.000000002677552, "detections": [{"label": "Stop", "confidence": 0.8784069418907166, "xyxy": [189.553466796875, 6.85772705078125, 449.11553955078125, 358.4256591796875]}]}
+{"fid": 1811, "arrival": 108003.218, "inference_finished": 108003.234, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.9004374146461487, "xyxy": [189.69119262695312, 3.14154052734375, 451.6077575683594, 361.14544677734375]}]}
+{"fid": 1812, "arrival": 108003.421, "inference_finished": 108003.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.9156750440597534, "xyxy": [183.64842224121094, 7.7264862060546875, 447.1773681640625, 358.32391357421875]}]}
+{"fid": 1813, "arrival": 108003.625, "inference_finished": 108003.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.9115544557571411, "xyxy": [198.4560089111328, 1.77154541015625, 449.90447998046875, 358.72711181640625]}]}
+{"fid": 1814, "arrival": 108003.828, "inference_finished": 108003.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.9174797534942627, "xyxy": [188.91400146484375, 7.5, 447.08160400390625, 357.431396484375]}]}
+{"fid": 1815, "arrival": 108004.031, "inference_finished": 108004.046, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.9148496985435486, "xyxy": [203.65419006347656, 4.8288116455078125, 456.7855224609375, 356.40460205078125]}]}
+{"fid": 1816, "arrival": 108004.218, "inference_finished": 108004.234, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8852391242980957, "xyxy": [189.4263153076172, 3.5303802490234375, 452.97808837890625, 363.5458984375]}]}
+{"fid": 1817, "arrival": 108004.437, "inference_finished": 108004.453, "inference_ms": 15.999999988707714, "detections": [{"label": "Stop", "confidence": 0.8883367776870728, "xyxy": [186.43045043945312, 7.30743408203125, 448.4261779785156, 363.44317626953125]}]}
+{"fid": 1818, "arrival": 108004.625, "inference_finished": 108004.656, "inference_ms": 31.000000002677552, "detections": [{"label": "Stop", "confidence": 0.8960315585136414, "xyxy": [188.779296875, 7.82196044921875, 450.872314453125, 363.07855224609375]}]}
+{"fid": 1819, "arrival": 108004.828, "inference_finished": 108004.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.9099995493888855, "xyxy": [188.18048095703125, 9.146270751953125, 450.77886962890625, 359.4265441894531]}]}
+{"fid": 1820, "arrival": 108005.015, "inference_finished": 108005.046, "inference_ms": 31.000000002677552, "detections": [{"label": "Stop", "confidence": 0.9138419032096863, "xyxy": [191.7459716796875, 8.511932373046875, 456.24749755859375, 363.0742492675781]}]}
+{"fid": 1821, "arrival": 108005.218, "inference_finished": 108005.234, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.9029442071914673, "xyxy": [193.5721435546875, 8.563323974609375, 449.423095703125, 361.5641784667969]}]}
+{"fid": 1822, "arrival": 108005.421, "inference_finished": 108005.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.9162778258323669, "xyxy": [201.70089721679688, 6.4009552001953125, 453.4345397949219, 365.27008056640625]}]}
+{"fid": 1823, "arrival": 108005.625, "inference_finished": 108005.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.9173921346664429, "xyxy": [197.83383178710938, 8.791854858398438, 450.8719177246094, 358.3155517578125]}]}
+{"fid": 1824, "arrival": 108005.828, "inference_finished": 108005.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.9211764931678772, "xyxy": [200.78408813476562, 7.77825927734375, 457.2063903808594, 346.610107421875]}]}
+{"fid": 1825, "arrival": 108006.015, "inference_finished": 108006.046, "inference_ms": 31.000000002677552, "detections": [{"label": "Stop", "confidence": 0.9212204813957214, "xyxy": [203.1291046142578, 4.543914794921875, 459.20867919921875, 359.3840637207031]}]}
+{"fid": 1826, "arrival": 108006.218, "inference_finished": 108006.234, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.9052377939224243, "xyxy": [202.11932373046875, 4.01141357421875, 463.10760498046875, 360.699951171875]}]}
+{"fid": 1827, "arrival": 108006.421, "inference_finished": 108006.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.9204074144363403, "xyxy": [201.55557250976562, 5.6155242919921875, 467.9893493652344, 356.44097900390625]}]}
+{"fid": 1828, "arrival": 108006.625, "inference_finished": 108006.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.9071698784828186, "xyxy": [200.6975860595703, 5.0529632568359375, 461.35736083984375, 358.0966796875]}]}
+{"fid": 1829, "arrival": 108006.828, "inference_finished": 108006.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.9148818850517273, "xyxy": [197.88131713867188, 1.67510986328125, 464.9239807128906, 349.60888671875]}]}
+{"fid": 1830, "arrival": 108007.015, "inference_finished": 108007.046, "inference_ms": 31.000000002677552, "detections": [{"label": "Stop", "confidence": 0.9148769378662109, "xyxy": [202.35214233398438, 5.533447265625, 456.0785217285156, 355.49835205078125]}]}
+{"fid": 1831, "arrival": 108007.234, "inference_finished": 108007.25, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8928431868553162, "xyxy": [199.12185668945312, 2.14111328125, 466.0571594238281, 350.25146484375]}]}
+{"fid": 1832, "arrival": 108007.437, "inference_finished": 108007.453, "inference_ms": 15.999999988707714, "detections": [{"label": "Stop", "confidence": 0.8979566693305969, "xyxy": [201.6005096435547, 4.155975341796875, 461.45330810546875, 354.4790954589844]}]}
+{"fid": 1833, "arrival": 108007.625, "inference_finished": 108007.656, "inference_ms": 31.000000002677552, "detections": [{"label": "Stop", "confidence": 0.924502968788147, "xyxy": [205.78033447265625, 4.327880859375, 463.64013671875, 352.5855712890625]}]}
+{"fid": 1834, "arrival": 108007.828, "inference_finished": 108007.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.9123730659484863, "xyxy": [204.306396484375, 6.3282470703125, 456.74652099609375, 353.02020263671875]}]}
+{"fid": 1835, "arrival": 108008.015, "inference_finished": 108008.046, "inference_ms": 31.000000002677552, "detections": [{"label": "Stop", "confidence": 0.9037142395973206, "xyxy": [201.8804168701172, 5.41278076171875, 462.22991943359375, 360.644775390625]}]}
+{"fid": 1836, "arrival": 108008.218, "inference_finished": 108008.234, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.9077000617980957, "xyxy": [205.0151824951172, 8.2574462890625, 462.98162841796875, 358.8365478515625]}]}
+{"fid": 1837, "arrival": 108008.421, "inference_finished": 108008.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8833234906196594, "xyxy": [204.28384399414062, 10.0162353515625, 463.2642517089844, 357.087158203125]}]}
+{"fid": 1838, "arrival": 108008.625, "inference_finished": 108008.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.877216100692749, "xyxy": [202.24237060546875, 7.8449554443359375, 460.23175048828125, 355.6507568359375]}]}
+{"fid": 1839, "arrival": 108008.812, "inference_finished": 108008.843, "inference_ms": 30.999999988125637, "detections": [{"label": "Stop", "confidence": 0.9101578593254089, "xyxy": [204.1092529296875, 6.76177978515625, 457.792724609375, 355.138671875]}]}
+{"fid": 1840, "arrival": 108009.015, "inference_finished": 108009.031, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8977736830711365, "xyxy": [203.88417053222656, 3.65582275390625, 463.125732421875, 357.518798828125]}]}
+{"fid": 1841, "arrival": 108009.218, "inference_finished": 108009.234, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.9153150320053101, "xyxy": [205.4578094482422, 8.49737548828125, 458.31512451171875, 357.06634521484375]}]}
+{"fid": 1842, "arrival": 108009.421, "inference_finished": 108009.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.9047990441322327, "xyxy": [204.01287841796875, 9.7264404296875, 459.515380859375, 359.284423828125]}]}
+{"fid": 1843, "arrival": 108009.625, "inference_finished": 108009.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.9084099531173706, "xyxy": [202.15269470214844, 9.42523193359375, 462.672607421875, 358.972412109375]}]}
+{"fid": 1844, "arrival": 108009.812, "inference_finished": 108009.828, "inference_ms": 15.999999988707714, "detections": [{"label": "Stop", "confidence": 0.9007645845413208, "xyxy": [205.13304138183594, 4.5745849609375, 460.6090087890625, 361.86944580078125]}]}
+{"fid": 1845, "arrival": 108010.015, "inference_finished": 108010.046, "inference_ms": 31.000000002677552, "detections": [{"label": "Stop", "confidence": 0.8997513651847839, "xyxy": [196.7750244140625, 0.7445068359375, 454.84686279296875, 356.77972412109375]}]}
+{"fid": 1846, "arrival": 108010.234, "inference_finished": 108010.25, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8991121053695679, "xyxy": [204.05873107910156, 5.6383056640625, 453.59326171875, 360.28851318359375]}]}
+{"fid": 1847, "arrival": 108010.437, "inference_finished": 108010.453, "inference_ms": 15.999999988707714, "detections": [{"label": "Stop", "confidence": 0.8864044547080994, "xyxy": [204.94537353515625, 10.61370849609375, 467.370361328125, 370.67999267578125]}]}
+{"fid": 1848, "arrival": 108010.625, "inference_finished": 108010.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.889129638671875, "xyxy": [208.84762573242188, 14.928955078125, 468.6194763183594, 373.90618896484375]}]}
+{"fid": 1849, "arrival": 108010.828, "inference_finished": 108010.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.9163740277290344, "xyxy": [205.9071044921875, 22.580230712890625, 464.0218505859375, 377.8090515136719]}]}
+{"fid": 1850, "arrival": 108011.015, "inference_finished": 108011.046, "inference_ms": 31.000000002677552, "detections": [{"label": "Stop", "confidence": 0.924716055393219, "xyxy": [197.97808837890625, 22.2696533203125, 459.17626953125, 389.3616943359375]}]}
+{"fid": 1851, "arrival": 108011.218, "inference_finished": 108011.234, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.9198740124702454, "xyxy": [187.71771240234375, 30.777313232421875, 454.7408447265625, 390.6888122558594]}]}
+{"fid": 1852, "arrival": 108011.421, "inference_finished": 108011.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.9274507164955139, "xyxy": [201.2281036376953, 22.851638793945312, 457.00201416015625, 382.89739990234375]}]}
+{"fid": 1853, "arrival": 108011.625, "inference_finished": 108011.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.8873834609985352, "xyxy": [204.939697265625, 12.395706176757812, 471.6915283203125, 378.00970458984375]}]}
+{"fid": 1854, "arrival": 108011.828, "inference_finished": 108011.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.8744155168533325, "xyxy": [202.32994079589844, 8.985321044921875, 473.1785888671875, 372.9748229980469]}]}
+{"fid": 1855, "arrival": 108012.015, "inference_finished": 108012.031, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.9185692071914673, "xyxy": [218.34536743164062, 6.7278594970703125, 483.7796325683594, 365.97430419921875]}]}
+{"fid": 1856, "arrival": 108012.218, "inference_finished": 108012.234, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8995152115821838, "xyxy": [230.48822021484375, 13.1966552734375, 493.787841796875, 359.17950439453125]}]}
+{"fid": 1857, "arrival": 108012.421, "inference_finished": 108012.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8837941288948059, "xyxy": [233.39236450195312, 8.510986328125, 506.4864807128906, 368.74786376953125]}]}
+{"fid": 1858, "arrival": 108012.671, "inference_finished": 108012.703, "inference_ms": 31.999999991967343, "detections": [{"label": "Stop", "confidence": 0.9042708873748779, "xyxy": [243.64654541015625, 10.856643676757812, 515.2382202148438, 365.22235107421875]}]}
+{"fid": 1859, "arrival": 108012.828, "inference_finished": 108012.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.884909987449646, "xyxy": [258.7144775390625, 5.09332275390625, 537.5357666015625, 365.5849609375]}]}
+{"fid": 1860, "arrival": 108013.031, "inference_finished": 108013.046, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.8849204778671265, "xyxy": [258.4183349609375, 7.41937255859375, 544.5194091796875, 373.3258056640625]}]}
+{"fid": 1861, "arrival": 108013.234, "inference_finished": 108013.25, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8880442380905151, "xyxy": [259.5723876953125, 9.744873046875, 539.5174560546875, 368.809814453125]}]}
+{"fid": 1862, "arrival": 108013.421, "inference_finished": 108013.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8889755606651306, "xyxy": [249.611083984375, 8.704940795898438, 536.8363037109375, 375.9854736328125]}]}
+{"fid": 1863, "arrival": 108013.625, "inference_finished": 108013.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.8970218300819397, "xyxy": [244.60760498046875, 10.02337646484375, 523.41552734375, 370.72552490234375]}]}
+{"fid": 1864, "arrival": 108013.812, "inference_finished": 108013.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.9139660596847534, "xyxy": [243.474609375, 3.9975738525390625, 515.556640625, 363.1204833984375]}]}
+{"fid": 1865, "arrival": 108014.015, "inference_finished": 108014.031, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.9056677222251892, "xyxy": [239.879150390625, 0.0, 514.4952392578125, 365.57122802734375]}]}
+{"fid": 1866, "arrival": 108014.218, "inference_finished": 108014.234, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.9046081900596619, "xyxy": [241.98809814453125, 0.0, 517.3088989257812, 352.8009948730469]}]}
+{"fid": 1867, "arrival": 108014.421, "inference_finished": 108014.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8889109492301941, "xyxy": [241.816650390625, 0.0, 506.01043701171875, 346.98443603515625]}]}
+{"fid": 1868, "arrival": 108014.625, "inference_finished": 108014.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.8952631950378418, "xyxy": [239.69378662109375, 0.0, 508.0477294921875, 352.64984130859375]}]}
+{"fid": 1869, "arrival": 108014.828, "inference_finished": 108014.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.880495548248291, "xyxy": [237.0435791015625, 1.5472564697265625, 496.7056884765625, 356.91259765625]}]}
+{"fid": 1870, "arrival": 108015.015, "inference_finished": 108015.046, "inference_ms": 31.000000002677552, "detections": [{"label": "Stop", "confidence": 0.8944027423858643, "xyxy": [243.62432861328125, 10.354339599609375, 477.18316650390625, 360.0567321777344]}]}
+{"fid": 1871, "arrival": 108015.218, "inference_finished": 108015.234, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.815511167049408, "xyxy": [259.10235595703125, 54.298828125, 460.74847412109375, 355.934814453125]}]}
+{"fid": 1872, "arrival": 108015.421, "inference_finished": 108015.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8016678094863892, "xyxy": [237.5782012939453, 56.82374572753906, 460.10723876953125, 361.109619140625]}]}
+{"fid": 1873, "arrival": 108015.625, "inference_finished": 108015.656, "inference_ms": 31.000000002677552, "detections": [{"label": "Stop", "confidence": 0.8355801701545715, "xyxy": [238.0127410888672, 59.47023010253906, 452.47686767578125, 360.1826171875]}]}
+{"fid": 1874, "arrival": 108015.828, "inference_finished": 108015.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.7881794571876526, "xyxy": [247.03883361816406, 83.80101013183594, 444.82421875, 358.793701171875]}]}
+{"fid": 1875, "arrival": 108016.031, "inference_finished": 108016.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1876, "arrival": 108016.234, "inference_finished": 108016.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1877, "arrival": 108016.421, "inference_finished": 108016.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1878, "arrival": 108016.625, "inference_finished": 108016.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1879, "arrival": 108016.812, "inference_finished": 108016.843, "inference_ms": 30.999999988125637, "detections": []}
+{"fid": 1880, "arrival": 108017.015, "inference_finished": 108017.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1881, "arrival": 108017.218, "inference_finished": 108017.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1882, "arrival": 108017.421, "inference_finished": 108017.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1883, "arrival": 108017.625, "inference_finished": 108017.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1884, "arrival": 108017.828, "inference_finished": 108017.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1885, "arrival": 108018.015, "inference_finished": 108018.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1886, "arrival": 108018.218, "inference_finished": 108018.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1887, "arrival": 108018.421, "inference_finished": 108018.453, "inference_ms": 31.999999991967343, "detections": []}
+{"fid": 1888, "arrival": 108018.625, "inference_finished": 108018.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1889, "arrival": 108018.828, "inference_finished": 108018.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1890, "arrival": 108019.031, "inference_finished": 108019.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1891, "arrival": 108019.218, "inference_finished": 108019.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1892, "arrival": 108019.421, "inference_finished": 108019.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1893, "arrival": 108019.625, "inference_finished": 108019.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1894, "arrival": 108019.812, "inference_finished": 108019.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1895, "arrival": 108020.015, "inference_finished": 108020.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1896, "arrival": 108020.218, "inference_finished": 108020.234, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs up", "confidence": 0.6326175928115845, "xyxy": [206.46002197265625, 55.583953857421875, 329.38385009765625, 314.1714782714844]}]}
+{"fid": 1897, "arrival": 108020.421, "inference_finished": 108020.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1898, "arrival": 108020.625, "inference_finished": 108020.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1899, "arrival": 108020.828, "inference_finished": 108020.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1900, "arrival": 108021.031, "inference_finished": 108021.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1901, "arrival": 108021.218, "inference_finished": 108021.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1902, "arrival": 108021.437, "inference_finished": 108021.453, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 1903, "arrival": 108021.625, "inference_finished": 108021.656, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 1904, "arrival": 108021.828, "inference_finished": 108021.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1905, "arrival": 108022.015, "inference_finished": 108022.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1906, "arrival": 108022.218, "inference_finished": 108022.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1907, "arrival": 108022.421, "inference_finished": 108022.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1908, "arrival": 108022.625, "inference_finished": 108022.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1909, "arrival": 108022.828, "inference_finished": 108022.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1910, "arrival": 108023.015, "inference_finished": 108023.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1911, "arrival": 108023.218, "inference_finished": 108023.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1912, "arrival": 108023.421, "inference_finished": 108023.453, "inference_ms": 31.999999991967343, "detections": []}
+{"fid": 1913, "arrival": 108023.625, "inference_finished": 108023.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1914, "arrival": 108023.812, "inference_finished": 108023.843, "inference_ms": 30.999999988125637, "detections": []}
+{"fid": 1915, "arrival": 108024.031, "inference_finished": 108024.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1916, "arrival": 108024.234, "inference_finished": 108024.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1917, "arrival": 108024.437, "inference_finished": 108024.453, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 1918, "arrival": 108024.625, "inference_finished": 108024.656, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 1919, "arrival": 108024.828, "inference_finished": 108024.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1920, "arrival": 108025.062, "inference_finished": 108025.078, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 1921, "arrival": 108025.218, "inference_finished": 108025.234, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs up", "confidence": 0.7752977609634399, "xyxy": [263.4228210449219, 64.45196533203125, 399.7978210449219, 327.56524658203125]}]}
+{"fid": 1922, "arrival": 108025.421, "inference_finished": 108025.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs up", "confidence": 0.5605160593986511, "xyxy": [282.47393798828125, 73.47140502929688, 402.46881103515625, 335.0948791503906]}]}
+{"fid": 1923, "arrival": 108025.625, "inference_finished": 108025.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1924, "arrival": 108025.828, "inference_finished": 108025.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1925, "arrival": 108026.015, "inference_finished": 108026.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1926, "arrival": 108026.218, "inference_finished": 108026.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1927, "arrival": 108026.421, "inference_finished": 108026.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1928, "arrival": 108026.625, "inference_finished": 108026.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1929, "arrival": 108026.828, "inference_finished": 108026.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1930, "arrival": 108027.031, "inference_finished": 108027.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1931, "arrival": 108027.234, "inference_finished": 108027.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1932, "arrival": 108027.437, "inference_finished": 108027.453, "inference_ms": 15.999999988707714, "detections": [{"label": "Thumbs up", "confidence": 0.5196667909622192, "xyxy": [233.3322296142578, 81.613525390625, 371.34954833984375, 357.5556640625]}]}
+{"fid": 1933, "arrival": 108027.625, "inference_finished": 108027.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1934, "arrival": 108027.828, "inference_finished": 108027.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Thumbs up", "confidence": 0.5320688486099243, "xyxy": [212.88539123535156, 76.85906982421875, 373.1771240234375, 330.31689453125]}]}
+{"fid": 1935, "arrival": 108028.015, "inference_finished": 108028.046, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 1936, "arrival": 108028.218, "inference_finished": 108028.234, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs up", "confidence": 0.80085289478302, "xyxy": [229.5567169189453, 106.55398559570312, 353.32623291015625, 324.7920227050781]}]}
+{"fid": 1937, "arrival": 108028.421, "inference_finished": 108028.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs up", "confidence": 0.7541049122810364, "xyxy": [212.48594665527344, 146.22982788085938, 333.4581298828125, 354.0105285644531]}]}
+{"fid": 1938, "arrival": 108028.625, "inference_finished": 108028.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Thumbs up", "confidence": 0.674927294254303, "xyxy": [230.13589477539062, 156.5602569580078, 341.2764587402344, 359.73919677734375]}]}
+{"fid": 1939, "arrival": 108028.828, "inference_finished": 108028.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1940, "arrival": 108029.015, "inference_finished": 108029.046, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 1941, "arrival": 108029.218, "inference_finished": 108029.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1942, "arrival": 108029.421, "inference_finished": 108029.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1943, "arrival": 108029.625, "inference_finished": 108029.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1944, "arrival": 108029.828, "inference_finished": 108029.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1945, "arrival": 108030.031, "inference_finished": 108030.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1946, "arrival": 108030.234, "inference_finished": 108030.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1947, "arrival": 108030.421, "inference_finished": 108030.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1948, "arrival": 108030.625, "inference_finished": 108030.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1949, "arrival": 108030.828, "inference_finished": 108030.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1950, "arrival": 108031.015, "inference_finished": 108031.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1951, "arrival": 108031.218, "inference_finished": 108031.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1952, "arrival": 108031.421, "inference_finished": 108031.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1953, "arrival": 108031.625, "inference_finished": 108031.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1954, "arrival": 108031.828, "inference_finished": 108031.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1955, "arrival": 108032.031, "inference_finished": 108032.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1956, "arrival": 108032.218, "inference_finished": 108032.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1957, "arrival": 108032.421, "inference_finished": 108032.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1958, "arrival": 108032.625, "inference_finished": 108032.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1959, "arrival": 108032.828, "inference_finished": 108032.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1960, "arrival": 108033.031, "inference_finished": 108033.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1961, "arrival": 108033.234, "inference_finished": 108033.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1962, "arrival": 108033.421, "inference_finished": 108033.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1963, "arrival": 108033.625, "inference_finished": 108033.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1964, "arrival": 108033.828, "inference_finished": 108033.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1965, "arrival": 108034.015, "inference_finished": 108034.046, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 1966, "arrival": 108034.218, "inference_finished": 108034.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1967, "arrival": 108034.421, "inference_finished": 108034.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1968, "arrival": 108034.625, "inference_finished": 108034.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1969, "arrival": 108034.828, "inference_finished": 108034.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1970, "arrival": 108035.015, "inference_finished": 108035.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1971, "arrival": 108035.218, "inference_finished": 108035.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1972, "arrival": 108035.437, "inference_finished": 108035.453, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 1973, "arrival": 108035.625, "inference_finished": 108035.656, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 1974, "arrival": 108035.828, "inference_finished": 108035.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1975, "arrival": 108036.031, "inference_finished": 108036.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1976, "arrival": 108036.218, "inference_finished": 108036.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1977, "arrival": 108036.421, "inference_finished": 108036.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1978, "arrival": 108036.625, "inference_finished": 108036.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1979, "arrival": 108036.828, "inference_finished": 108036.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1980, "arrival": 108037.015, "inference_finished": 108037.046, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 1981, "arrival": 108037.218, "inference_finished": 108037.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1982, "arrival": 108037.421, "inference_finished": 108037.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1983, "arrival": 108037.64, "inference_finished": 108037.656, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1984, "arrival": 108037.875, "inference_finished": 108037.906, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 1985, "arrival": 108038.046, "inference_finished": 108038.062, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1986, "arrival": 108038.218, "inference_finished": 108038.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1987, "arrival": 108038.437, "inference_finished": 108038.453, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 1988, "arrival": 108038.625, "inference_finished": 108038.656, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 1989, "arrival": 108038.828, "inference_finished": 108038.859, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 1990, "arrival": 108039.015, "inference_finished": 108039.046, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 1991, "arrival": 108039.218, "inference_finished": 108039.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1992, "arrival": 108039.421, "inference_finished": 108039.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1993, "arrival": 108039.625, "inference_finished": 108039.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1994, "arrival": 108039.828, "inference_finished": 108039.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1995, "arrival": 108040.031, "inference_finished": 108040.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1996, "arrival": 108040.218, "inference_finished": 108040.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1997, "arrival": 108040.421, "inference_finished": 108040.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 1998, "arrival": 108040.625, "inference_finished": 108040.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 1999, "arrival": 108040.828, "inference_finished": 108040.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2000, "arrival": 108041.031, "inference_finished": 108041.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2001, "arrival": 108041.234, "inference_finished": 108041.25, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs up", "confidence": 0.8031975626945496, "xyxy": [221.66314697265625, 219.48126220703125, 329.26513671875, 415.22967529296875]}]}
+{"fid": 2002, "arrival": 108041.437, "inference_finished": 108041.453, "inference_ms": 15.999999988707714, "detections": [{"label": "Thumbs up", "confidence": 0.7962512373924255, "xyxy": [191.28652954101562, 135.1529083251953, 314.10870361328125, 361.98809814453125]}]}
+{"fid": 2003, "arrival": 108041.64, "inference_finished": 108041.656, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs up", "confidence": 0.872939944267273, "xyxy": [184.65390014648438, 117.3973388671875, 310.1786193847656, 342.66424560546875]}]}
+{"fid": 2004, "arrival": 108041.812, "inference_finished": 108041.843, "inference_ms": 30.999999988125637, "detections": [{"label": "Thumbs up", "confidence": 0.837424099445343, "xyxy": [177.83871459960938, 151.38717651367188, 293.991943359375, 349.9166564941406]}]}
+{"fid": 2005, "arrival": 108042.015, "inference_finished": 108042.046, "inference_ms": 31.000000002677552, "detections": [{"label": "Thumbs up", "confidence": 0.8014224171638489, "xyxy": [171.15097045898438, 126.86566162109375, 287.1219177246094, 352.6405029296875]}]}
+{"fid": 2006, "arrival": 108042.218, "inference_finished": 108042.234, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs up", "confidence": 0.7626432180404663, "xyxy": [177.6170654296875, 160.892822265625, 294.1784362792969, 354.56243896484375]}]}
+{"fid": 2007, "arrival": 108042.421, "inference_finished": 108042.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs up", "confidence": 0.8166300654411316, "xyxy": [177.04098510742188, 161.48321533203125, 295.6129455566406, 354.1396484375]}]}
+{"fid": 2008, "arrival": 108042.625, "inference_finished": 108042.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Thumbs up", "confidence": 0.846858561038971, "xyxy": [181.4229736328125, 133.35391235351562, 298.0360107421875, 352.2879943847656]}]}
+{"fid": 2009, "arrival": 108042.828, "inference_finished": 108042.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Thumbs up", "confidence": 0.8487269878387451, "xyxy": [180.72613525390625, 129.36544799804688, 298.15447998046875, 353.2470397949219]}]}
+{"fid": 2010, "arrival": 108043.015, "inference_finished": 108043.046, "inference_ms": 14.999999999417923, "detections": [{"label": "Thumbs up", "confidence": 0.8521531820297241, "xyxy": [184.429443359375, 131.8842315673828, 296.43731689453125, 350.53045654296875]}]}
+{"fid": 2011, "arrival": 108043.218, "inference_finished": 108043.234, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs up", "confidence": 0.8592408895492554, "xyxy": [181.68426513671875, 130.10699462890625, 293.9864501953125, 351.2520751953125]}]}
+{"fid": 2012, "arrival": 108043.421, "inference_finished": 108043.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs up", "confidence": 0.8477490544319153, "xyxy": [179.75564575195312, 131.84521484375, 296.468505859375, 353.29193115234375]}]}
+{"fid": 2013, "arrival": 108043.625, "inference_finished": 108043.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Thumbs up", "confidence": 0.8493081331253052, "xyxy": [179.85430908203125, 135.3251953125, 295.832275390625, 352.7369384765625]}]}
+{"fid": 2014, "arrival": 108043.828, "inference_finished": 108043.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Thumbs up", "confidence": 0.8388538956642151, "xyxy": [183.9376220703125, 124.81681823730469, 298.0960693359375, 350.62774658203125]}]}
+{"fid": 2015, "arrival": 108044.031, "inference_finished": 108044.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2016, "arrival": 108044.234, "inference_finished": 108044.25, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.4619554281234741, "xyxy": [190.02059936523438, 6.721954345703125, 314.3912353515625, 193.44647216796875]}]}
+{"fid": 2017, "arrival": 108044.437, "inference_finished": 108044.453, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 2018, "arrival": 108044.625, "inference_finished": 108044.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2019, "arrival": 108044.828, "inference_finished": 108044.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2020, "arrival": 108045.015, "inference_finished": 108045.031, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2021, "arrival": 108045.218, "inference_finished": 108045.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2022, "arrival": 108045.421, "inference_finished": 108045.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2023, "arrival": 108045.625, "inference_finished": 108045.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2024, "arrival": 108045.828, "inference_finished": 108045.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2025, "arrival": 108046.015, "inference_finished": 108046.031, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs up", "confidence": 0.7261644005775452, "xyxy": [169.4495849609375, 0.0, 281.1324462890625, 153.94180297851562]}]}
+{"fid": 2026, "arrival": 108046.218, "inference_finished": 108046.234, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs up", "confidence": 0.7216504812240601, "xyxy": [215.37701416015625, 18.76636505126953, 287.7619323730469, 177.157470703125]}]}
+{"fid": 2027, "arrival": 108046.421, "inference_finished": 108046.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2028, "arrival": 108046.625, "inference_finished": 108046.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2029, "arrival": 108046.828, "inference_finished": 108046.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2030, "arrival": 108047.031, "inference_finished": 108047.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2031, "arrival": 108047.234, "inference_finished": 108047.25, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs up", "confidence": 0.6964770555496216, "xyxy": [172.389404296875, 50.602264404296875, 281.4266052246094, 200.08837890625]}]}
+{"fid": 2032, "arrival": 108047.421, "inference_finished": 108047.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2033, "arrival": 108047.625, "inference_finished": 108047.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2034, "arrival": 108047.828, "inference_finished": 108047.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2035, "arrival": 108048.031, "inference_finished": 108048.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2036, "arrival": 108048.218, "inference_finished": 108048.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2037, "arrival": 108048.421, "inference_finished": 108048.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs Down", "confidence": 0.5005519390106201, "xyxy": [198.8369903564453, 50.337890625, 314.38800048828125, 291.8001708984375]}]}
+{"fid": 2038, "arrival": 108048.625, "inference_finished": 108048.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2039, "arrival": 108048.828, "inference_finished": 108048.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2040, "arrival": 108049.031, "inference_finished": 108049.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2041, "arrival": 108049.218, "inference_finished": 108049.234, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs up", "confidence": 0.6898624897003174, "xyxy": [243.8780517578125, 49.202667236328125, 345.720458984375, 213.3857421875]}]}
+{"fid": 2042, "arrival": 108049.421, "inference_finished": 108049.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2043, "arrival": 108049.64, "inference_finished": 108049.656, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2044, "arrival": 108049.828, "inference_finished": 108049.859, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 2045, "arrival": 108050.078, "inference_finished": 108050.093, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2046, "arrival": 108050.25, "inference_finished": 108050.265, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2047, "arrival": 108050.437, "inference_finished": 108050.453, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 2048, "arrival": 108050.625, "inference_finished": 108050.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2049, "arrival": 108050.828, "inference_finished": 108050.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2050, "arrival": 108051.031, "inference_finished": 108051.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2051, "arrival": 108051.25, "inference_finished": 108051.265, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2052, "arrival": 108051.421, "inference_finished": 108051.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2053, "arrival": 108051.625, "inference_finished": 108051.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2054, "arrival": 108051.828, "inference_finished": 108051.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2055, "arrival": 108052.031, "inference_finished": 108052.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2056, "arrival": 108052.234, "inference_finished": 108052.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2057, "arrival": 108052.421, "inference_finished": 108052.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2058, "arrival": 108052.625, "inference_finished": 108052.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2059, "arrival": 108052.843, "inference_finished": 108052.859, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2060, "arrival": 108053.031, "inference_finished": 108053.062, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 2061, "arrival": 108053.234, "inference_finished": 108053.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2062, "arrival": 108053.421, "inference_finished": 108053.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2063, "arrival": 108053.625, "inference_finished": 108053.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2064, "arrival": 108053.828, "inference_finished": 108053.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2065, "arrival": 108054.031, "inference_finished": 108054.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2066, "arrival": 108054.234, "inference_finished": 108054.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2067, "arrival": 108054.421, "inference_finished": 108054.453, "inference_ms": 31.999999991967343, "detections": []}
+{"fid": 2068, "arrival": 108054.625, "inference_finished": 108054.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2069, "arrival": 108054.828, "inference_finished": 108054.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2070, "arrival": 108055.031, "inference_finished": 108055.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2071, "arrival": 108055.234, "inference_finished": 108055.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2072, "arrival": 108055.421, "inference_finished": 108055.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2073, "arrival": 108055.64, "inference_finished": 108055.656, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2074, "arrival": 108055.843, "inference_finished": 108055.859, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2075, "arrival": 108056.031, "inference_finished": 108056.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2076, "arrival": 108056.234, "inference_finished": 108056.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2077, "arrival": 108056.421, "inference_finished": 108056.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2078, "arrival": 108056.625, "inference_finished": 108056.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2079, "arrival": 108056.828, "inference_finished": 108056.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2080, "arrival": 108057.031, "inference_finished": 108057.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2081, "arrival": 108057.234, "inference_finished": 108057.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2082, "arrival": 108057.421, "inference_finished": 108057.453, "inference_ms": 31.999999991967343, "detections": []}
+{"fid": 2083, "arrival": 108057.625, "inference_finished": 108057.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2084, "arrival": 108057.828, "inference_finished": 108057.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2085, "arrival": 108058.031, "inference_finished": 108058.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2086, "arrival": 108058.234, "inference_finished": 108058.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2087, "arrival": 108058.421, "inference_finished": 108058.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2088, "arrival": 108058.64, "inference_finished": 108058.656, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2089, "arrival": 108058.828, "inference_finished": 108058.859, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 2090, "arrival": 108059.031, "inference_finished": 108059.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2091, "arrival": 108059.218, "inference_finished": 108059.25, "inference_ms": 32.00000000651926, "detections": []}
+{"fid": 2092, "arrival": 108059.421, "inference_finished": 108059.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2093, "arrival": 108059.625, "inference_finished": 108059.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2094, "arrival": 108059.828, "inference_finished": 108059.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2095, "arrival": 108060.031, "inference_finished": 108060.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2096, "arrival": 108060.218, "inference_finished": 108060.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2097, "arrival": 108060.421, "inference_finished": 108060.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2098, "arrival": 108060.625, "inference_finished": 108060.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2099, "arrival": 108060.828, "inference_finished": 108060.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2100, "arrival": 108061.031, "inference_finished": 108061.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2101, "arrival": 108061.234, "inference_finished": 108061.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2102, "arrival": 108061.437, "inference_finished": 108061.453, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 2103, "arrival": 108061.64, "inference_finished": 108061.656, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2104, "arrival": 108061.828, "inference_finished": 108061.843, "inference_ms": 0.0, "detections": []}
+{"fid": 2105, "arrival": 108062.031, "inference_finished": 108062.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2106, "arrival": 108062.234, "inference_finished": 108062.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2107, "arrival": 108062.468, "inference_finished": 108062.484, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2108, "arrival": 108062.625, "inference_finished": 108062.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2109, "arrival": 108062.828, "inference_finished": 108062.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2110, "arrival": 108063.031, "inference_finished": 108063.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2111, "arrival": 108063.218, "inference_finished": 108063.25, "inference_ms": 32.00000000651926, "detections": [{"label": "Thumbs Down", "confidence": 0.7054794430732727, "xyxy": [189.4764404296875, 73.59527587890625, 301.94940185546875, 416.6397705078125]}, {"label": "Thumbs up", "confidence": 0.5198973417282104, "xyxy": [189.63766479492188, 87.29217529296875, 300.72650146484375, 416.48284912109375]}]}
+{"fid": 2112, "arrival": 108063.421, "inference_finished": 108063.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs Down", "confidence": 0.7743181586265564, "xyxy": [197.55654907226562, 148.64114379882812, 307.1015930175781, 412.5845642089844]}]}
+{"fid": 2113, "arrival": 108063.625, "inference_finished": 108063.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Thumbs Down", "confidence": 0.7730374336242676, "xyxy": [200.19931030273438, 168.89186096191406, 310.7403564453125, 417.10302734375]}]}
+{"fid": 2114, "arrival": 108063.828, "inference_finished": 108063.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Thumbs Down", "confidence": 0.8125124573707581, "xyxy": [196.83743286132812, 171.58010864257812, 303.7964172363281, 413.1473083496094]}]}
+{"fid": 2115, "arrival": 108064.031, "inference_finished": 108064.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2116, "arrival": 108064.234, "inference_finished": 108064.25, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs Down", "confidence": 0.7697364091873169, "xyxy": [182.76248168945312, 181.00360107421875, 291.1759033203125, 427.52105712890625]}]}
+{"fid": 2117, "arrival": 108064.437, "inference_finished": 108064.453, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 2118, "arrival": 108064.625, "inference_finished": 108064.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Thumbs Down", "confidence": 0.5809429883956909, "xyxy": [187.53125, 174.17039489746094, 303.91693115234375, 423.908447265625]}]}
+{"fid": 2119, "arrival": 108064.828, "inference_finished": 108064.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Thumbs Down", "confidence": 0.5102518796920776, "xyxy": [188.6396484375, 168.76107788085938, 301.9045104980469, 420.9552307128906]}]}
+{"fid": 2120, "arrival": 108065.031, "inference_finished": 108065.046, "inference_ms": 14.999999999417923, "detections": [{"label": "Thumbs Down", "confidence": 0.6692023873329163, "xyxy": [190.35470581054688, 173.84561157226562, 306.343994140625, 422.5742492675781]}]}
+{"fid": 2121, "arrival": 108065.234, "inference_finished": 108065.25, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs Down", "confidence": 0.700930655002594, "xyxy": [189.23837280273438, 172.88612365722656, 306.6133728027344, 421.159423828125]}]}
+{"fid": 2122, "arrival": 108065.421, "inference_finished": 108065.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs Down", "confidence": 0.7703119516372681, "xyxy": [191.1324462890625, 171.03778076171875, 303.83380126953125, 421.02984619140625]}]}
+{"fid": 2123, "arrival": 108065.625, "inference_finished": 108065.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Thumbs Down", "confidence": 0.5690182447433472, "xyxy": [191.02804565429688, 171.2414093017578, 302.77886962890625, 422.02349853515625]}]}
+{"fid": 2124, "arrival": 108065.828, "inference_finished": 108065.937, "inference_ms": 109.00000001129229, "detections": []}
+{"fid": 2125, "arrival": 108066.031, "inference_finished": 108066.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2126, "arrival": 108066.234, "inference_finished": 108066.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2127, "arrival": 108066.421, "inference_finished": 108066.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2128, "arrival": 108066.625, "inference_finished": 108066.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2129, "arrival": 108066.828, "inference_finished": 108066.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2130, "arrival": 108067.031, "inference_finished": 108067.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2131, "arrival": 108067.234, "inference_finished": 108067.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2132, "arrival": 108067.437, "inference_finished": 108067.453, "inference_ms": 15.999999988707714, "detections": [{"label": "Thumbs up", "confidence": 0.577358067035675, "xyxy": [173.956298828125, 245.57537841796875, 300.44659423828125, 475.3175048828125]}]}
+{"fid": 2133, "arrival": 108067.625, "inference_finished": 108067.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2134, "arrival": 108067.828, "inference_finished": 108067.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2135, "arrival": 108068.031, "inference_finished": 108068.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2136, "arrival": 108068.218, "inference_finished": 108068.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2137, "arrival": 108068.421, "inference_finished": 108068.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2138, "arrival": 108068.625, "inference_finished": 108068.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2139, "arrival": 108068.828, "inference_finished": 108068.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2140, "arrival": 108069.031, "inference_finished": 108069.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2141, "arrival": 108069.234, "inference_finished": 108069.25, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs up", "confidence": 0.5782819986343384, "xyxy": [102.37258911132812, 80.94659423828125, 231.48153686523438, 325.15045166015625]}]}
+{"fid": 2142, "arrival": 108069.421, "inference_finished": 108069.453, "inference_ms": 31.999999991967343, "detections": [{"label": "Thumbs up", "confidence": 0.7276582717895508, "xyxy": [103.52157592773438, 86.4010009765625, 231.23394775390625, 325.9366455078125]}]}
+{"fid": 2143, "arrival": 108069.625, "inference_finished": 108069.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Thumbs up", "confidence": 0.7187269330024719, "xyxy": [99.67971801757812, 80.76622009277344, 235.95956420898438, 323.6414794921875]}]}
+{"fid": 2144, "arrival": 108069.843, "inference_finished": 108069.859, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs up", "confidence": 0.5829454064369202, "xyxy": [100.67808532714844, 82.9017333984375, 233.03306579589844, 327.03289794921875]}]}
+{"fid": 2145, "arrival": 108070.031, "inference_finished": 108070.062, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 2146, "arrival": 108070.234, "inference_finished": 108070.25, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs up", "confidence": 0.6180033683776855, "xyxy": [100.36470794677734, 81.53475952148438, 231.25656127929688, 327.5029602050781]}]}
+{"fid": 2147, "arrival": 108070.421, "inference_finished": 108070.453, "inference_ms": 31.999999991967343, "detections": []}
+{"fid": 2148, "arrival": 108070.625, "inference_finished": 108070.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2149, "arrival": 108070.828, "inference_finished": 108070.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Thumbs up", "confidence": 0.6885177493095398, "xyxy": [209.55242919921875, 45.080955505371094, 343.261962890625, 294.3942565917969]}]}
+{"fid": 2150, "arrival": 108071.031, "inference_finished": 108071.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2151, "arrival": 108071.234, "inference_finished": 108071.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2152, "arrival": 108071.421, "inference_finished": 108071.453, "inference_ms": 31.999999991967343, "detections": []}
+{"fid": 2153, "arrival": 108071.625, "inference_finished": 108071.656, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 2154, "arrival": 108071.828, "inference_finished": 108071.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Thumbs up", "confidence": 0.5760047435760498, "xyxy": [227.09918212890625, 64.71661376953125, 361.0606689453125, 336.30096435546875]}]}
+{"fid": 2155, "arrival": 108072.031, "inference_finished": 108072.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2156, "arrival": 108072.234, "inference_finished": 108072.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2157, "arrival": 108072.421, "inference_finished": 108072.453, "inference_ms": 31.999999991967343, "detections": [{"label": "Thumbs up", "confidence": 0.48598676919937134, "xyxy": [238.4857940673828, 86.90681457519531, 384.64349365234375, 363.57305908203125]}]}
+{"fid": 2158, "arrival": 108072.64, "inference_finished": 108072.656, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2159, "arrival": 108072.843, "inference_finished": 108072.859, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2160, "arrival": 108073.031, "inference_finished": 108073.062, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 2161, "arrival": 108073.234, "inference_finished": 108073.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2162, "arrival": 108073.421, "inference_finished": 108073.453, "inference_ms": 31.999999991967343, "detections": []}
+{"fid": 2163, "arrival": 108073.625, "inference_finished": 108073.656, "inference_ms": 31.000000002677552, "detections": [{"label": "Stop", "confidence": 0.8043927550315857, "xyxy": [168.3977813720703, 0.0, 433.55364990234375, 247.834716796875]}]}
+{"fid": 2164, "arrival": 108073.828, "inference_finished": 108073.859, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 2165, "arrival": 108074.031, "inference_finished": 108074.046, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.5586780309677124, "xyxy": [114.56219482421875, 0.0, 431.54388427734375, 406.1222839355469]}]}
+{"fid": 2166, "arrival": 108074.234, "inference_finished": 108074.25, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.7972515821456909, "xyxy": [154.47923278808594, 34.1116943359375, 423.2840576171875, 401.06072998046875]}]}
+{"fid": 2167, "arrival": 108074.421, "inference_finished": 108074.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8763384819030762, "xyxy": [154.9346160888672, 48.241119384765625, 404.19329833984375, 398.6230773925781]}]}
+{"fid": 2168, "arrival": 108074.656, "inference_finished": 108074.671, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.8125124573707581, "xyxy": [161.69564819335938, 51.50248718261719, 440.1947937011719, 397.91217041015625]}]}
+{"fid": 2169, "arrival": 108074.843, "inference_finished": 108074.859, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8631010055541992, "xyxy": [161.3730926513672, 46.18598937988281, 411.84552001953125, 398.37689208984375]}]}
+{"fid": 2170, "arrival": 108075.031, "inference_finished": 108075.046, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.8611842393875122, "xyxy": [171.13917541503906, 51.8917236328125, 435.1220703125, 397.5496826171875]}]}
+{"fid": 2171, "arrival": 108075.218, "inference_finished": 108075.25, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.8940541744232178, "xyxy": [176.51364135742188, 53.786956787109375, 434.9220886230469, 404.2785949707031]}]}
+{"fid": 2172, "arrival": 108075.437, "inference_finished": 108075.453, "inference_ms": 15.999999988707714, "detections": [{"label": "Stop", "confidence": 0.9202625155448914, "xyxy": [180.54393005371094, 52.37255859375, 424.762939453125, 398.7103271484375]}]}
+{"fid": 2173, "arrival": 108075.64, "inference_finished": 108075.656, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.874874472618103, "xyxy": [185.24371337890625, 46.5562744140625, 432.5504150390625, 384.77496337890625]}]}
+{"fid": 2174, "arrival": 108075.843, "inference_finished": 108075.859, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2175, "arrival": 108076.031, "inference_finished": 108076.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2176, "arrival": 108076.234, "inference_finished": 108076.25, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs up", "confidence": 0.5895372629165649, "xyxy": [203.91513061523438, 65.06106567382812, 338.6731872558594, 309.1147155761719]}]}
+{"fid": 2177, "arrival": 108076.421, "inference_finished": 108076.453, "inference_ms": 31.999999991967343, "detections": [{"label": "Thumbs up", "confidence": 0.5157005786895752, "xyxy": [199.0822296142578, 97.07530212402344, 335.11700439453125, 342.76806640625]}]}
+{"fid": 2178, "arrival": 108076.625, "inference_finished": 108076.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2179, "arrival": 108076.828, "inference_finished": 108076.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2180, "arrival": 108077.031, "inference_finished": 108077.046, "inference_ms": 14.999999999417923, "detections": [{"label": "Thumbs up", "confidence": 0.6579893827438354, "xyxy": [198.5150146484375, 111.12057495117188, 335.7403564453125, 355.1777038574219]}]}
+{"fid": 2181, "arrival": 108077.234, "inference_finished": 108077.25, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs up", "confidence": 0.7404986023902893, "xyxy": [198.47784423828125, 110.5987548828125, 335.36273193359375, 359.18890380859375]}]}
+{"fid": 2182, "arrival": 108077.421, "inference_finished": 108077.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs up", "confidence": 0.5260749459266663, "xyxy": [198.9794921875, 110.38522338867188, 335.6717529296875, 360.7320251464844]}]}
+{"fid": 2183, "arrival": 108077.625, "inference_finished": 108077.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Thumbs up", "confidence": 0.5039200186729431, "xyxy": [202.70668029785156, 112.70674133300781, 334.38330078125, 358.89849853515625]}]}
+{"fid": 2184, "arrival": 108077.828, "inference_finished": 108077.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2185, "arrival": 108078.031, "inference_finished": 108078.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2186, "arrival": 108078.234, "inference_finished": 108078.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2187, "arrival": 108078.437, "inference_finished": 108078.453, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 2188, "arrival": 108078.64, "inference_finished": 108078.656, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2189, "arrival": 108078.828, "inference_finished": 108078.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Thumbs up", "confidence": 0.7440986633300781, "xyxy": [186.35275268554688, 72.32020568847656, 340.6588439941406, 317.68408203125]}]}
+{"fid": 2190, "arrival": 108079.031, "inference_finished": 108079.046, "inference_ms": 14.999999999417923, "detections": [{"label": "Thumbs up", "confidence": 0.8525668978691101, "xyxy": [191.53634643554688, 47.14530944824219, 349.4458312988281, 325.17083740234375]}]}
+{"fid": 2191, "arrival": 108079.218, "inference_finished": 108079.234, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2192, "arrival": 108079.421, "inference_finished": 108079.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs up", "confidence": 0.4787544310092926, "xyxy": [278.31475830078125, 191.03802490234375, 397.9412841796875, 453.7369384765625]}]}
+{"fid": 2193, "arrival": 108079.625, "inference_finished": 108079.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2194, "arrival": 108079.828, "inference_finished": 108079.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2195, "arrival": 108080.031, "inference_finished": 108080.046, "inference_ms": 14.999999999417923, "detections": [{"label": "Thumbs up", "confidence": 0.6336826086044312, "xyxy": [182.9903564453125, 209.12478637695312, 312.7083435058594, 398.5088195800781]}]}
+{"fid": 2196, "arrival": 108080.234, "inference_finished": 108080.25, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs up", "confidence": 0.7599904537200928, "xyxy": [176.08770751953125, 140.9864501953125, 318.7127685546875, 399.16534423828125]}]}
+{"fid": 2197, "arrival": 108080.421, "inference_finished": 108080.437, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs up", "confidence": 0.6464268565177917, "xyxy": [178.80223083496094, 133.0695037841797, 333.75244140625, 385.67071533203125]}]}
+{"fid": 2198, "arrival": 108080.625, "inference_finished": 108080.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2199, "arrival": 108080.828, "inference_finished": 108080.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2200, "arrival": 108081.031, "inference_finished": 108081.062, "inference_ms": 31.000000002677552, "detections": []}
+{"fid": 2201, "arrival": 108081.234, "inference_finished": 108081.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2202, "arrival": 108081.437, "inference_finished": 108081.453, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 2203, "arrival": 108081.64, "inference_finished": 108081.656, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2204, "arrival": 108081.828, "inference_finished": 108081.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2205, "arrival": 108082.031, "inference_finished": 108082.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2206, "arrival": 108082.234, "inference_finished": 108082.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2207, "arrival": 108082.421, "inference_finished": 108082.453, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 2208, "arrival": 108082.625, "inference_finished": 108082.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2209, "arrival": 108082.828, "inference_finished": 108082.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2210, "arrival": 108083.031, "inference_finished": 108083.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2211, "arrival": 108083.234, "inference_finished": 108083.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2212, "arrival": 108083.421, "inference_finished": 108083.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2213, "arrival": 108083.625, "inference_finished": 108083.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2214, "arrival": 108083.828, "inference_finished": 108083.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2215, "arrival": 108084.031, "inference_finished": 108084.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2216, "arrival": 108084.234, "inference_finished": 108084.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2217, "arrival": 108084.437, "inference_finished": 108084.453, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 2218, "arrival": 108084.625, "inference_finished": 108084.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2219, "arrival": 108084.828, "inference_finished": 108084.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2220, "arrival": 108085.031, "inference_finished": 108085.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2221, "arrival": 108085.234, "inference_finished": 108085.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2222, "arrival": 108085.421, "inference_finished": 108085.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2223, "arrival": 108085.625, "inference_finished": 108085.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2224, "arrival": 108085.828, "inference_finished": 108085.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2225, "arrival": 108086.031, "inference_finished": 108086.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2226, "arrival": 108086.218, "inference_finished": 108086.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2227, "arrival": 108086.421, "inference_finished": 108086.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2228, "arrival": 108086.625, "inference_finished": 108086.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2229, "arrival": 108086.843, "inference_finished": 108086.859, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2230, "arrival": 108087.078, "inference_finished": 108087.093, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2231, "arrival": 108087.234, "inference_finished": 108087.25, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs Down", "confidence": 0.508738100528717, "xyxy": [253.9259490966797, 74.26176452636719, 372.54620361328125, 323.16595458984375]}]}
+{"fid": 2232, "arrival": 108087.421, "inference_finished": 108087.453, "inference_ms": 15.999999988707714, "detections": [{"label": "Thumbs Down", "confidence": 0.5313597917556763, "xyxy": [250.180419921875, 70.6051025390625, 368.66107177734375, 321.23876953125]}]}
+{"fid": 2233, "arrival": 108087.625, "inference_finished": 108087.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2234, "arrival": 108087.828, "inference_finished": 108087.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Thumbs Down", "confidence": 0.6853814125061035, "xyxy": [248.965576171875, 69.26329040527344, 372.70001220703125, 321.0135498046875]}]}
+{"fid": 2235, "arrival": 108088.031, "inference_finished": 108088.046, "inference_ms": 14.999999999417923, "detections": [{"label": "Thumbs Down", "confidence": 0.5968252420425415, "xyxy": [250.7190399169922, 78.5572509765625, 371.05157470703125, 327.04150390625]}]}
+{"fid": 2236, "arrival": 108088.234, "inference_finished": 108088.25, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs Down", "confidence": 0.6755245923995972, "xyxy": [250.6036834716797, 81.39256286621094, 371.31719970703125, 332.18115234375]}]}
+{"fid": 2237, "arrival": 108088.437, "inference_finished": 108088.437, "inference_ms": 0.0, "detections": []}
+{"fid": 2238, "arrival": 108088.625, "inference_finished": 108088.64, "inference_ms": 14.999999999417923, "detections": [{"label": "Thumbs Down", "confidence": 0.7063455581665039, "xyxy": [254.1531219482422, 87.31153869628906, 370.70233154296875, 338.9830322265625]}]}
+{"fid": 2239, "arrival": 108088.828, "inference_finished": 108088.843, "inference_ms": 14.999999999417923, "detections": [{"label": "Thumbs Down", "confidence": 0.4730134606361389, "xyxy": [258.32183837890625, 97.56472778320312, 374.12896728515625, 337.2063293457031]}]}
+{"fid": 2240, "arrival": 108089.031, "inference_finished": 108089.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2241, "arrival": 108089.234, "inference_finished": 108089.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2242, "arrival": 108089.437, "inference_finished": 108089.453, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 2243, "arrival": 108089.64, "inference_finished": 108089.656, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs Down", "confidence": 0.5239302515983582, "xyxy": [258.5918884277344, 93.01792907714844, 374.9676208496094, 339.6785888671875]}]}
+{"fid": 2244, "arrival": 108089.843, "inference_finished": 108089.859, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2245, "arrival": 108090.031, "inference_finished": 108090.062, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs Down", "confidence": 0.5576433539390564, "xyxy": [260.6479187011719, 90.78094482421875, 378.9203796386719, 338.66412353515625]}]}
+{"fid": 2246, "arrival": 108090.234, "inference_finished": 108090.25, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs Down", "confidence": 0.47387760877609253, "xyxy": [263.28985595703125, 90.69842529296875, 384.47381591796875, 331.96826171875]}]}
+{"fid": 2247, "arrival": 108090.421, "inference_finished": 108090.437, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2248, "arrival": 108090.625, "inference_finished": 108090.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2249, "arrival": 108090.828, "inference_finished": 108090.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2250, "arrival": 108091.031, "inference_finished": 108091.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2251, "arrival": 108091.234, "inference_finished": 108091.25, "inference_ms": 16.00000000325963, "detections": [{"label": "Thumbs Down", "confidence": 0.46550217270851135, "xyxy": [270.87255859375, 94.10678100585938, 390.4451904296875, 345.6665954589844]}]}
+{"fid": 2252, "arrival": 108091.421, "inference_finished": 108091.453, "inference_ms": 31.999999991967343, "detections": []}
+{"fid": 2253, "arrival": 108091.625, "inference_finished": 108091.64, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2254, "arrival": 108091.828, "inference_finished": 108091.843, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2255, "arrival": 108092.031, "inference_finished": 108092.046, "inference_ms": 14.999999999417923, "detections": []}
+{"fid": 2256, "arrival": 108092.234, "inference_finished": 108092.25, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2257, "arrival": 108092.437, "inference_finished": 108092.453, "inference_ms": 15.999999988707714, "detections": []}
+{"fid": 2258, "arrival": 108092.64, "inference_finished": 108092.656, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2259, "arrival": 108092.843, "inference_finished": 108092.859, "inference_ms": 16.00000000325963, "detections": []}
+{"fid": 2260, "arrival": 108093.031, "inference_finished": 108093.046, "inference_ms": 14.999999999417923, "detections": [{"label": "Stop", "confidence": 0.8644618391990662, "xyxy": [238.74781799316406, 43.57818603515625, 455.189697265625, 338.4698486328125]}]}
+{"fid": 2261, "arrival": 108093.234, "inference_finished": 108093.25, "inference_ms": 16.00000000325963, "detections": [{"label": "Stop", "confidence": 0.9052175879478455, "xyxy": [236.21868896484375, 50.154571533203125, 465.89556884765625, 387.0025329589844]}]}
