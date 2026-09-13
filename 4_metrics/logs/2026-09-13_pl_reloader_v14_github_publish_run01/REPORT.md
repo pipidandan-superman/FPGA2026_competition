@@ -2,7 +2,7 @@
 
 ## Result
 
-`PUBLICATION_PENDING_REMOTE_VERIFICATION`
+`PL_RELOADER_V14_PERSONAL_BRANCH_PUBLISH_PASS`
 
 Target branch: `codex/full/pipidandan-superman`.
 
@@ -86,5 +86,16 @@ command or PL download.
 
 ## Remote receipt
 
-Commit, push result, Git LFS audit and remote HEAD will be appended after successful
-remote verification. Until then, publication is not complete.
+- Content commit: `63343aa314c27bd64f44210cc35ae144bdc16c13` (`feat: publish
+  board-validated PL reloader v1.4`).
+- Push: `612d7b3..63343aa` to `origin/codex/full/pipidandan-superman`.
+- Git LFS upload: 20/20 objects, 72 MB, complete.
+- Fresh `git fetch` plus `git ls-remote` returned remote branch HEAD
+  `63343aa314c27bd64f44210cc35ae144bdc16c13`, exactly matching local HEAD.
+- `git lfs push --dry-run origin HEAD` reported no remaining object to upload.
+- The branch contains no staged/committed `2_fpga/` path and no PL reloader v1.0-v1.3
+  path from this publication.
+
+The four pre-existing untracked audit files in the independent worktree were left
+unmodified and uncommitted. A small follow-up receipt commit will update this report;
+the final remote HEAD must be rechecked after that push.

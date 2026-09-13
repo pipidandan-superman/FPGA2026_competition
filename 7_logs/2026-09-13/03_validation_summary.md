@@ -1,5 +1,12 @@
 # 2026-09-13 验证摘要
 
+## 最新发布：个人分支远端回执PASS
+
+- 内容提交`63343aa314c27bd64f44210cc35ae144bdc16c13`已推送到`codex/full/pipidandan-superman`。
+- Git LFS上传20/20对象、72 MB完成；重新fetch与`ls-remote`均返回同一远端HEAD，dry-run无待上传LFS对象。
+- 暂存/提交范围不含冻结`2_fpga`和PL重加载器v1.0～v1.3；独立工作树原有4个无关未跟踪审计文件仍未纳入。
+- 详细范围、清理记录、测试与远端回执见[发布报告](../../4_metrics/logs/2026-09-13_pl_reloader_v14_github_publish_run01/REPORT.md)。
+
 ## 最新验证：v1.4发布候选离线核验
 
 - `test_pl_reloader.py`：19项通过。
