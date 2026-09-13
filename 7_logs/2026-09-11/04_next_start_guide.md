@@ -19,3 +19,35 @@
 4. 新生成的整合 IMG 必须另行写卡并做物理断电冷启动、HDMI 和 UDP/PC 实测，才可记为整卡 PASS。
 
 禁止直接在污染的 `E:\competition` 工作区切分支或批量暂存；禁止 `git add .`、`git add -A`、reset、clean 和 force push。
+
+## Builder v0.2.1 完成后的下一入口
+
+Builder 整合、冻结 EXE 完整构建和零基础教程已完成。下一次从以下文件开始：
+
+- `1_docs/PYNQ零基础开发与EES331摄像头工程实战.md`
+- `4_metrics/logs/2026-09-11_sd_builder_pynq_integration_run01/REPORT.md`
+- `8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.2.exe`
+
+最小下一动作：
+
+1. 使用 Win32DiskImager 将 `9_pynq/sd/02_integrated_camera_hdmi_udp/ees331_pynq_sd_20260911_222654.img` 写入备用 SD 卡，并核对 SHA256 `8d22bcde0268678050bcc1429bee5ecadb0020e5ce3f5ba4df7045066deafcca`。
+2. 完全断电，SW8 保持 SD 启动，连接摄像头、HDMI、网线和串口后上电。
+3. PC 设置 `192.168.240.2/24` 并打开 UDP 上位机。
+4. 保存完整 UART、`systemctl status`、`journalctl`、PC 统计和现场双路画面结果。
+
+该 222654 镜像已由用户在 2026-09-11 实际写卡验证成功：无需人工板端命令，OV5640 配置 LED 点亮，HDMI 与 PC 画面均随动作变化。此前 PC 零帧由网线未连接导致。下一轮复现仍按相同标准重新保存 UART、服务、HDMI 和 UDP 证据。
+
+如验证失败，保留首次失败证据并在启动链、service、Overlay/CMA、VDMA、网络的首个失败阶段停止；不要立即覆盖已验证 SD 卡或绕过 XSA 哈希门禁。
+
+## 当前应用入口：v0.2.2
+
+运行 `8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.2.exe`，在“2 选择导出方式”填写部署包输出目录或点“选择…”。留空使用默认；指定目录下每次生成独立子目录。完成后“打开输出目录”进入实际保存位置。构建盘临时文件仍在 4_metrics/logs。已通过真实完整 IMG 构建和复制读回；板级冷启动结论不扩展。
+
+## 工作区收敛后的固定入口
+
+- PYNQ/SD：`9_pynq/sd/02_integrated_camera_hdmi_udp/ees331_pynq_sd_20260911_222654.img`
+- EES-331 最小系统：`9_pynq/sd/01_base_ees331/ees331_pynq_v3.0.1_ps_sd_20260910.img`
+- Vitis/JTAG 发布文件：`2_fpga/0_diaplay_test/release/ees331_vitis_board_pass/`
+- Builder：`8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.2.exe`
+
+不要恢复通用 PYNQ-Z2 镜像、旧 Builder 或已清理的阶段性工程作为当前基线。复现时核对镜像 SHA-256、PC `192.168.240.2/24`、UDP 5000、UART、OV5640 LED、HDMI 动态画面和 PC UDP 动态画面。

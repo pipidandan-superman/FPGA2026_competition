@@ -1,0 +1,18 @@
+[Unit]
+Description=EES-331 OV5640 HDMI and UDP camera on PYNQ
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/xilinx/ees331_camera
+ExecStart=/bin/bash /home/xilinx/ees331_camera/run_camera.sh --peer 192.168.240.2 --port 5000 --fps 5
+KillSignal=SIGTERM
+TimeoutStopSec=15
+SendSIGKILL=no
+Restart=no
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

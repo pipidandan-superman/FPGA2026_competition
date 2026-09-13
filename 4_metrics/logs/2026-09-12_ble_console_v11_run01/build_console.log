@@ -1,0 +1,139 @@
+Looking in links: e:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\wheelhouse
+Processing e:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\wheelhouse\bleak-3.0.2-py3-none-any.whl (from -r E:\competition\3_host\ble_console\requirements.in (line 1))
+Processing e:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\wheelhouse\pyinstaller-6.22.2-py3-none-win_amd64.whl (from -r E:\competition\3_host\ble_console\requirements.in (line 2))
+Processing e:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\wheelhouse\winrt_runtime-3.2.1-cp312-cp312-win_amd64.whl (from bleak==3.0.2->-r E:\competition\3_host\ble_console\requirements.in (line 1))
+Processing e:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\wheelhouse\winrt_windows_devices_bluetooth-3.2.1-cp312-cp312-win_amd64.whl (from bleak==3.0.2->-r E:\competition\3_host\ble_console\requirements.in (line 1))
+Processing e:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\wheelhouse\winrt_windows_devices_bluetooth_advertisement-3.2.1-cp312-cp312-win_amd64.whl (from bleak==3.0.2->-r E:\competition\3_host\ble_console\requirements.in (line 1))
+Processing e:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\wheelhouse\winrt_windows_devices_bluetooth_genericattributeprofile-3.2.1-cp312-cp312-win_amd64.whl (from bleak==3.0.2->-r E:\competition\3_host\ble_console\requirements.in (line 1))
+Processing e:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\wheelhouse\winrt_windows_devices_enumeration-3.2.1-cp312-cp312-win_amd64.whl (from bleak==3.0.2->-r E:\competition\3_host\ble_console\requirements.in (line 1))
+Processing e:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\wheelhouse\winrt_windows_devices_radios-3.2.1-cp312-cp312-win_amd64.whl (from bleak==3.0.2->-r E:\competition\3_host\ble_console\requirements.in (line 1))
+Processing e:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\wheelhouse\winrt_windows_foundation-3.2.1-cp312-cp312-win_amd64.whl (from bleak==3.0.2->-r E:\competition\3_host\ble_console\requirements.in (line 1))
+Processing e:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\wheelhouse\winrt_windows_foundation_collections-3.2.1-cp312-cp312-win_amd64.whl (from bleak==3.0.2->-r E:\competition\3_host\ble_console\requirements.in (line 1))
+Processing e:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\wheelhouse\winrt_windows_storage_streams-3.2.1-cp312-cp312-win_amd64.whl (from bleak==3.0.2->-r E:\competition\3_host\ble_console\requirements.in (line 1))
+Processing e:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\wheelhouse\altgraph-0.17.5-py2.py3-none-any.whl (from pyinstaller==6.22.2->-r E:\competition\3_host\ble_console\requirements.in (line 2))
+Processing e:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\wheelhouse\packaging-26.3-py3-none-any.whl (from pyinstaller==6.22.2->-r E:\competition\3_host\ble_console\requirements.in (line 2))
+Processing e:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\wheelhouse\pefile-2024.8.26-py3-none-any.whl (from pyinstaller==6.22.2->-r E:\competition\3_host\ble_console\requirements.in (line 2))
+Processing e:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\wheelhouse\pyinstaller_hooks_contrib-2026.7-py3-none-any.whl (from pyinstaller==6.22.2->-r E:\competition\3_host\ble_console\requirements.in (line 2))
+Processing e:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\wheelhouse\pywin32_ctypes-0.2.3-py3-none-any.whl (from pyinstaller==6.22.2->-r E:\competition\3_host\ble_console\requirements.in (line 2))
+Processing e:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\wheelhouse\setuptools-84.0.0-py3-none-any.whl (from pyinstaller==6.22.2->-r E:\competition\3_host\ble_console\requirements.in (line 2))
+Processing e:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\wheelhouse\typing_extensions-4.16.0-py3-none-any.whl (from winrt-runtime>=3.1->bleak==3.0.2->-r E:\competition\3_host\ble_console\requirements.in (line 1))
+Installing collected packages: altgraph, typing_extensions, setuptools, pywin32-ctypes, pefile, packaging, winrt-runtime, pyinstaller-hooks-contrib, winrt-windows-storage-streams, winrt-windows-foundation-collections, winrt-windows-foundation, winrt-windows-devices-radios, winrt-windows-devices-enumeration, winrt-windows-devices-bluetooth-genericattributeprofile, winrt-windows-devices-bluetooth-advertisement, winrt-windows-devices-bluetooth, pyinstaller, bleak
+Successfully installed altgraph-0.17.5 bleak-3.0.2 packaging-26.3 pefile-2024.8.26 pyinstaller-6.22.2 pyinstaller-hooks-contrib-2026.7 pywin32-ctypes-0.2.3 setuptools-84.0.0 typing_extensions-4.16.0 winrt-runtime-3.2.1 winrt-windows-devices-bluetooth-3.2.1 winrt-windows-devices-bluetooth-advertisement-3.2.1 winrt-windows-devices-bluetooth-genericattributeprofile-3.2.1 winrt-windows-devices-enumeration-3.2.1 winrt-windows-devices-radios-3.2.1 winrt-windows-foundation-3.2.1 winrt-windows-foundation-collections-3.2.1 winrt-windows-storage-streams-3.2.1
+test_generic_mode_round_trip (test_backend.ConfigMigrationTests.test_generic_mode_round_trip) ... ok
+test_old_config_defaults_to_verified_flow (test_backend.ConfigMigrationTests.test_old_config_defaults_to_verified_flow) ... ok
+test_cancel_cleans_connection (test_backend.GateTests.test_cancel_cleans_connection) ... ok
+test_connect_timeout_cleans_connection (test_backend.GateTests.test_connect_timeout_cleans_connection) ... ok
+test_generic_mode_does_not_claim_verification (test_backend.GateTests.test_generic_mode_does_not_claim_verification) ... ok
+test_intentional_disconnect_ignores_callback (test_backend.GateTests.test_intentional_disconnect_ignores_callback) ... ok
+test_invalid_timeout_address (test_backend.GateTests.test_invalid_timeout_address) ... ok
+test_io_before_ready_rejected (test_backend.GateTests.test_io_before_ready_rejected) ... ok
+test_missing_service (test_backend.GateTests.test_missing_service) ... ok
+test_no_repeat_subscription (test_backend.GateTests.test_no_repeat_subscription) ... ok
+test_notify_failure_cleans_connection (test_backend.GateTests.test_notify_failure_cleans_connection) ... ok
+test_paired_rejected_without_connect_or_mutation (test_backend.GateTests.test_paired_rejected_without_connect_or_mutation) ... ok
+test_ready_only_after_reads_hold_and_subscribe (test_backend.GateTests.test_ready_only_after_reads_hold_and_subscribe) ... ok
+test_scan_absent (test_backend.GateTests.test_scan_absent) ... ok
+test_short_disconnect_never_ready (test_backend.GateTests.test_short_disconnect_never_ready) ... ok
+test_stale_io_dropped_by_queue (test_backend.GateTests.test_stale_io_dropped_by_queue) ... ok
+test_wrong_name_cleanup (test_backend.GateTests.test_wrong_name_cleanup) ... ok
+test_wrong_notify_service (test_backend.GateTests.test_wrong_notify_service) ... ok
+test_interval_validation (test_core.ConfigurationTests.test_interval_validation) ... ok
+test_round_trip (test_core.ConfigurationTests.test_round_trip) ... ok
+test_characteristic_selection (test_core.ProtocolTests.test_characteristic_selection) ... ok
+test_encode_suffix (test_core.ProtocolTests.test_encode_suffix) ... ok
+test_format_payload (test_core.ProtocolTests.test_format_payload) ... ok
+test_invalid_hex_payload (test_core.ProtocolTests.test_invalid_hex_payload) ... ok
+test_normalize_uuid (test_core.ProtocolTests.test_normalize_uuid) ... ok
+test_parse_hex_payload (test_core.ProtocolTests.test_parse_hex_payload) ... ok
+test_connect_failure_clears_auto_notify_state (test_gui.GuiTests.test_connect_failure_clears_auto_notify_state) ... ok
+test_connect_uses_new_config_disables_io_until_ready (test_gui.GuiTests.test_connect_uses_new_config_disables_io_until_ready) ... ok
+test_disconnect_stops_periodic_and_controls (test_gui.GuiTests.test_disconnect_stops_periodic_and_controls) ... ok
+test_generic_does_not_claim_verified (test_gui.GuiTests.test_generic_does_not_claim_verified) ... ok
+test_stop_notify_uses_actual_subscription (test_gui.GuiTests.test_stop_notify_uses_actual_subscription) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 0.707s
+
+OK
+93 INFO: PyInstaller: 6.22.2, contrib hooks: 2026.7
+93 INFO: Python: 3.12.10
+112 INFO: Platform: Windows-11-10.0.26200-SP0
+112 INFO: Python environment: E:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\venv
+113 INFO: wrote E:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\spec\EES331_BLE_Console.spec
+115 INFO: Removing temporary files and cleaning cache in C:\Users\Administrator\AppData\Local\pyinstaller
+86 WARNING: Failed to collect submodules for 'bleak.backends.corebluetooth' because importing 'bleak.backends.corebluetooth' raised: ModuleNotFoundError: No module named 'objc'
+389 INFO: Module search paths (PYTHONPATH):
+['E:\\competition\\3_host\\ble_console',
+ 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\python312.zip',
+ 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\DLLs',
+ 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\Lib',
+ 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312',
+ 'E:\\competition\\4_metrics\\logs\\2026-09-12_ble_console_v11_run01\\venv',
+ 'E:\\competition\\4_metrics\\logs\\2026-09-12_ble_console_v11_run01\\venv\\Lib\\site-packages',
+ 'E:\\competition\\3_host\\ble_console']
+586 INFO: Appending 'datas' from .spec
+587 INFO: checking Analysis
+587 INFO: Building Analysis because Analysis-00.toc is non existent
+587 INFO: Looking for Python shared library...
+587 INFO: Using Python shared library: C:\Users\Administrator\AppData\Local\Programs\Python\Python312\python312.dll
+587 INFO: Running Analysis Analysis-00.toc
+587 INFO: Target bytecode optimization level: 0
+587 INFO: Initializing module dependency graph...
+590 INFO: Initializing module graph hook caches...
+596 INFO: Analyzing modules for base_library.zip ...
+1283 INFO: Processing standard module hook 'hook-heapq.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-12_ble_console_v11_run01\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+1336 INFO: Processing standard module hook 'hook-encodings.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-12_ble_console_v11_run01\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+2078 INFO: Processing standard module hook 'hook-math.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-12_ble_console_v11_run01\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+2190 INFO: Processing standard module hook 'hook-pickle.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-12_ble_console_v11_run01\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+3077 INFO: Caching module dependency graph...
+3097 INFO: Analyzing E:\competition\3_host\ble_console\app.py
+3136 INFO: Processing pre-find-module-path hook 'hook-tkinter.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-12_ble_console_v11_run01\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_find_module_path'
+3136 INFO: TclTkInfo: initializing cached Tcl/Tk info...
+3378 INFO: Processing standard module hook 'hook-_tkinter.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-12_ble_console_v11_run01\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+3503 INFO: Processing standard module hook 'hook-multiprocessing.util.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-12_ble_console_v11_run01\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+3590 INFO: Processing standard module hook 'hook-xml.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-12_ble_console_v11_run01\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+3727 INFO: Processing standard module hook 'hook-_ctypes.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-12_ble_console_v11_run01\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+3928 INFO: Processing standard module hook 'hook-bleak.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-12_ble_console_v11_run01\\venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+3955 INFO: Processing standard module hook 'hook-platform.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-12_ble_console_v11_run01\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+3958 INFO: Processing pre-safe-import-module hook 'hook-typing_extensions.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-12_ble_console_v11_run01\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+3959 INFO: SetuptoolsInfo: initializing cached setuptools info...
+4589 INFO: Analyzing hidden import 'bleak.backends._manufacturers'
+4612 INFO: Processing module hooks (post-graph stage)...
+4742 INFO: Processing standard module hook 'hook-_tkinter.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-12_ble_console_v11_run01\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+4750 INFO: Performing binary vs. data reclassification (980 entries)
+5016 INFO: Looking for ctypes DLLs
+5024 INFO: Analyzing run-time hooks ...
+5025 INFO: Including run-time hook 'pyi_rth_inspect.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-12_ble_console_v11_run01\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+5027 INFO: Including run-time hook 'pyi_rth_pkgutil.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-12_ble_console_v11_run01\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+5028 INFO: Including run-time hook 'pyi_rth_multiprocessing.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-12_ble_console_v11_run01\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+5029 INFO: Including run-time hook 'pyi_rth__tkinter.py' from 'E:\\competition\\4_metrics\\logs\\2026-09-12_ble_console_v11_run01\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+5049 INFO: Creating base_library.zip...
+5061 INFO: Looking for dynamic libraries
+5244 INFO: Extra DLL search directories (AddDllDirectory): []
+5244 INFO: Extra DLL search directories (PATH): []
+5655 INFO: Warnings written to E:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\pyinstaller_work\EES331_BLE_Console\warn-EES331_BLE_Console.txt
+5669 INFO: Graph cross-reference written to E:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\pyinstaller_work\EES331_BLE_Console\xref-EES331_BLE_Console.html
+5690 INFO: checking PYZ
+5690 INFO: Building PYZ because PYZ-00.toc is non existent
+5690 INFO: Building PYZ (ZlibArchive) E:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\pyinstaller_work\EES331_BLE_Console\PYZ-00.pyz
+5861 INFO: Building PYZ (ZlibArchive) E:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\pyinstaller_work\EES331_BLE_Console\PYZ-00.pyz completed successfully.
+5866 INFO: checking PKG
+5866 INFO: Building PKG because PKG-00.toc is non existent
+5866 INFO: Building PKG (CArchive) EES331_BLE_Console.pkg
+5887 INFO: Building PKG (CArchive) EES331_BLE_Console.pkg completed successfully.
+5888 INFO: Bootloader E:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\venv\Lib\site-packages\PyInstaller\bootloader\Windows-64bit-intel\runw.exe
+5888 INFO: checking EXE
+5888 INFO: Building EXE because EXE-00.toc is non existent
+5888 INFO: Building EXE from EXE-00.toc
+5888 INFO: Copying bootloader EXE to E:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\pyinstaller_work\EES331_BLE_Console\EES331_BLE_Console.exe
+5890 INFO: Copying icon to EXE
+5891 INFO: Copying 0 resources to EXE
+5891 INFO: Embedding manifest in EXE
+5893 INFO: Appending PKG archive to EXE
+5894 INFO: Fixing EXE headers
+5928 INFO: Building EXE from EXE-00.toc completed successfully.
+5935 INFO: checking COLLECT
+5935 INFO: Building COLLECT because COLLECT-00.toc is non existent
+5935 INFO: Building COLLECT COLLECT-00.toc
+6564 INFO: Building COLLECT COLLECT-00.toc completed successfully.
+6575 INFO: Build complete! The results are available in: E:\competition\4_metrics\logs\2026-09-12_ble_console_v11_run01\dist

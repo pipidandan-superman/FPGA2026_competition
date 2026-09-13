@@ -1,0 +1,1 @@
+BLE_CONSOLE_SELF_TEST_PASS version=1.1.0

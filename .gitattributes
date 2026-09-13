@@ -1,4 +1,16 @@
 # Preserve the 2026-09-07 frozen camera/HDMI evidence byte-for-byte.
+# Preserve selected BLE evidence; Vivado report spacing is intentional raw output.
+4_metrics/logs/2026-09-12_ble_console_v11_run01/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+4_metrics/logs/2026-09-12_ble_console_v11_board_run02/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+4_metrics/logs/2026-09-12_ble_manual_confirmation_run01/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+4_metrics/logs/2026-09-12_ble_v11_publish_run01/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+4_metrics/logs/2026-09-12_ble_bridge_duplex_run01/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+4_metrics/logs/2026-09-12_ble_unpaired_bridge_run01/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+4_metrics/logs/2026-09-12_ble_bridge_validation_run01/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+4_metrics/logs/2026-09-12_pl_uart_bridge_build_run02/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+4_metrics/logs/2026-09-12_pl_uart_bridge_build_run02/*.rpt -whitespace
+4_metrics/logs/2026-09-12_pl_uart_at_board_run02/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+4_metrics/logs/2026-09-12_ble_validation_publish_run01/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 4_metrics/logs/2026-09-07_camera_display_success_freeze_run01/** -text
 
 # Hash-verified SD builder releases and selected evidence keep original bytes.
@@ -6,6 +18,17 @@
 3_host/pynq/sd_boot_builder_v02/** -text
 8_tools/sd_start_tool/** -text
 8_tools/sd_start_tool_v0.2/** -text
+# Published Windows tools and bundled model runtimes use LFS to avoid normal Git bloat.
+8_tools/**/*.exe filter=lfs diff=lfs merge=lfs -text
+8_tools/**/*.dll filter=lfs diff=lfs merge=lfs -text
+8_tools/**/*.pyd filter=lfs diff=lfs merge=lfs -text
+8_tools/**/*.pt filter=lfs diff=lfs merge=lfs -text
+8_tools/**/*.zip filter=lfs diff=lfs merge=lfs -text
+8_tools/**/*.lnk filter=lfs diff=lfs merge=lfs -text
+8_tools/*.exe filter=lfs diff=lfs merge=lfs -text
+8_tools/*.lnk filter=lfs diff=lfs merge=lfs -text
+# The packaged runtime is generated delivery content; do not render thousands of library diffs.
+8_tools/EES331_Gesture_Viewer_v1.0/_internal/** -text -diff
 4_metrics/logs/2026-09-10_*/* -text
 4_metrics/logs/2026-09-10_*/** -text
 4_metrics/logs/2026-09-09_amd_sait_pynq_mineru_run01/** -text

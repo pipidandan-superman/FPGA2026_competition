@@ -1,0 +1,332 @@
+[
+  {
+    "path": "1_docs/doc/ees331_ble_axi_bram_development_plan_2026-09-12.md",
+    "sha256": "668843D3F9993A489B94857CD77D592FF87C22E80A4CD7920FB5FB2CEB55BBC7",
+    "bytes": 24605,
+    "prior_sha256": "4EACD07CCB19E362C7E0EB84B438985E66D6EBD52D5AAED99EDFFE8F60A390F8"
+  },
+  {
+    "path": "1_docs/doc/ees331_ble_validation_status_2026-09-12.md",
+    "sha256": "11292E3BF7F7CB1767DF9EBEE920D444CAC467B96D00C8A099074FC5BBFA27AE",
+    "bytes": 3236,
+    "prior_sha256": null
+  },
+  {
+    "path": "2_fpga/1_ble_test/README.md",
+    "sha256": "5D6D4F9FC7A350406CD0A8FB797FFAE0CBCC8CDDB244BADF155426AF455CEAE2",
+    "bytes": 4718,
+    "prior_sha256": null
+  },
+  {
+    "path": "2_fpga/1_ble_test/rtl/ble_at_test_ctrl.v",
+    "sha256": "B541C8AA6786379491B283FF1E9D5C1EF76A699DE79BF3C1C0345454215B248A",
+    "bytes": 8591,
+    "prior_sha256": null
+  },
+  {
+    "path": "2_fpga/1_ble_test/rtl/ble_test_top.v",
+    "sha256": "6E23E1CF965D6F9408DE1F066634981B5D0864EE82A9BC18217E12B5DF847C25",
+    "bytes": 4238,
+    "prior_sha256": null
+  },
+  {
+    "path": "2_fpga/1_ble_test/rtl/ble_uart_debug_top.v",
+    "sha256": "7CE7802D65489364E4A8CA0AD1E2339E52F5C658462AACA81C34698846096734",
+    "bytes": 5220,
+    "prior_sha256": null
+  },
+  {
+    "path": "2_fpga/1_ble_test/rtl/ees331_ble_test.xdc",
+    "sha256": "80078A89CA1D44AC0B0324A8C00A370E19E5888CBA1DF0970C7A95C1F0F3AEF0",
+    "bytes": 2219,
+    "prior_sha256": null
+  },
+  {
+    "path": "2_fpga/1_ble_test/rtl/ees331_ble_uart_debug.xdc",
+    "sha256": "69DAC43A6668549708DB160CDF27EC7304DF4BB2DC83BBFA0274E9D1B2B3EDFC",
+    "bytes": 1378,
+    "prior_sha256": null
+  },
+  {
+    "path": "2_fpga/1_ble_test/rtl/uart_rx.v",
+    "sha256": "E3843655591CB52356B82129984D4F2F167CE093C14AD43D6369D351D1AB0F85",
+    "bytes": 5554,
+    "prior_sha256": null
+  },
+  {
+    "path": "2_fpga/1_ble_test/rtl/uart_tx.v",
+    "sha256": "95900AA26DA28536D0992F7B4F70313875A9A0B0ADD22CC5E6B2A01A51DE53A6",
+    "bytes": 5296,
+    "prior_sha256": null
+  },
+  {
+    "path": "2_fpga/1_ble_test/sim/run_xsim.ps1",
+    "sha256": "1EE63005C71AFEF7C1E6884E8944C0CAB071A5928D6A34765AE7461D633EE73D",
+    "bytes": 1844,
+    "prior_sha256": null
+  },
+  {
+    "path": "2_fpga/1_ble_test/sim/tb_ble_test_top.v",
+    "sha256": "B27B53B72F748D8578CE89DC99709C91A60AA7252224F00217205C7A299242DC",
+    "bytes": 7587,
+    "prior_sha256": null
+  },
+  {
+    "path": "2_fpga/1_ble_test/sim/tb_ble_uart_debug_top.v",
+    "sha256": "7E84C4792CF32D7E8B6E362CD36130FC25CF3C8DC8FE31EC4C947DFD2124FB0F",
+    "bytes": 8011,
+    "prior_sha256": null
+  },
+  {
+    "path": "2_fpga/1_ble_test/proj/create_ble_test_project.tcl",
+    "sha256": "F9FFA3309AF7DF857D74BA071CB80047E3C79B9077440E375019F824738BC057",
+    "bytes": 4809,
+    "prior_sha256": null
+  },
+  {
+    "path": "3_host/ble_console/README.md",
+    "sha256": "5186CB9DF429278BF784FFADFF45AE6D9A4E9E90E26DEC460DFA6A70174F3040",
+    "bytes": 3143,
+    "prior_sha256": null
+  },
+  {
+    "path": "3_host/ble_console/使用说明.md",
+    "sha256": "D18F30256F92A65FE633F8FB2454813176AFF5A50239FEF0F1136BB211FBAFA3",
+    "bytes": 3864,
+    "prior_sha256": null
+  },
+  {
+    "path": "3_host/ble_console/app.py",
+    "sha256": "B2BF22926A43CCA68E38F8E23049580D2B10857A8062CF408D3EE705E099424A",
+    "bytes": 28029,
+    "prior_sha256": null
+  },
+  {
+    "path": "3_host/ble_console/ble_backend.py",
+    "sha256": "97EF0A418B7A75F035E2830B8386E02AA8B54BE74194C0DCD2FEEF217B3CB0F7",
+    "bytes": 7807,
+    "prior_sha256": null
+  },
+  {
+    "path": "3_host/ble_console/build_ble_console.ps1",
+    "sha256": "78AC2B24D666BF20DB6EB8A8907D909DE191D6186639A430650649CF10E7F3FD",
+    "bytes": 4751,
+    "prior_sha256": null
+  },
+  {
+    "path": "3_host/ble_console/config_store.py",
+    "sha256": "8A493803D770D9A10CB3585EDFB49743E2CEEFCEDAD93BB5626D5B40F55803D1",
+    "bytes": 4272,
+    "prior_sha256": null
+  },
+  {
+    "path": "3_host/ble_console/probe.py",
+    "sha256": "C7A99F198291C9A37D2498CA491EA07F0998AEB5F850CAFA6EE42A37D153A62E",
+    "bytes": 2858,
+    "prior_sha256": null
+  },
+  {
+    "path": "3_host/ble_console/protocols.py",
+    "sha256": "BA6D7AF2ABD022A544C177B1AB107AD3DEB6E7862190F789D15D795DE7856E5C",
+    "bytes": 3806,
+    "prior_sha256": null
+  },
+  {
+    "path": "3_host/ble_console/requirements.in",
+    "sha256": "4E13A1C0EEB84BCFA6DD98BB08B6FF1C19D467001948C0950FD28B9E3E4F6F6C",
+    "bytes": 33,
+    "prior_sha256": null
+  },
+  {
+    "path": "3_host/ble_console/tests/test_core.py",
+    "sha256": "73FD67A0B53DC4557410D09B4D88BF25468FAC88343CF6138928CBCFA3BCD776",
+    "bytes": 2620,
+    "prior_sha256": null
+  },
+  {
+    "path": "3_host/ble_console/profiles/default.json",
+    "sha256": "79A08153C33BBF16DDF840BEE12444F8F70919C966408587452B636444DE4CA1",
+    "bytes": 660,
+    "prior_sha256": null
+  },
+  {
+    "path": "8_tools/EES331_BLE_Console_v1.0/使用说明.md",
+    "sha256": "D18F30256F92A65FE633F8FB2454813176AFF5A50239FEF0F1136BB211FBAFA3",
+    "bytes": 3864,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/scripts/run_vivado_standalone_ees.ps1",
+    "sha256": "225A07F575D2230C388832D9AB79A567B8066888D628F421108C3DE6355F69A1",
+    "bytes": 3229,
+    "prior_sha256": "4AE1A2FA445264C5E620CE6B3A7C65D4E7EF340F137E9BE81F28D64D9EBE104C"
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_ble_bridge_duplex_run01/REPORT.md",
+    "sha256": "F7992CD0D52194A7480254C948D3CB159218E6E35CB249921B1B95ACBF8C777B",
+    "bytes": 3005,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_ble_bridge_duplex_run01/test_duplex.py",
+    "sha256": "FAE344BC52D9F189B8A7B6CA8632B9CE99C0B35CD6D7309CDB4D48B38BC3DD4F",
+    "bytes": 7009,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_ble_bridge_duplex_run01/serial_rpc.ps1",
+    "sha256": "FBC43EE284156ACB1C2172F0E9F802840FA5A4486B1A0E8004DBDA26FDC10842",
+    "bytes": 1453,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_ble_bridge_duplex_run01/test_events.json",
+    "sha256": "A5CF7F7318DCF6FB9953A9B54D97A3CCEE6ABBE158A52D9A8DF7CDF133BBBA59",
+    "bytes": 9434,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_ble_bridge_duplex_run01/skill_path_audit.json",
+    "sha256": "2AA5AD416077A93671C39279FBB41A4FC8127D485A0397CA37C8155F55BAC7CD",
+    "bytes": 98,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_ble_unpaired_bridge_run01/REPORT.md",
+    "sha256": "4E7F94391EE1924B4A5D2B330694C75966C8219E768041CCC674DCCCA62ECD16",
+    "bytes": 1428,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_ble_unpaired_bridge_run01/unpair_events.jsonl",
+    "sha256": "5D816392E71115C387FFBF1E25CD9D3F86A4A53311C3BE20958414F4C6DF404B",
+    "bytes": 263,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_ble_unpaired_bridge_run01/gate_events.json",
+    "sha256": "B8B582E85D23A23C3A6AAE466C42C3BAEE25C4CAEB03A7FDDB8B13D7521286CD",
+    "bytes": 886,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_ble_unpaired_bridge_run01/connect_gate.py",
+    "sha256": "B5F5164B23418DF27E083B60CC27331283DDCC763B25D51CC6E3B9E5D7EB3FD0",
+    "bytes": 2264,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_ble_unpaired_bridge_run01/unpair_target.py",
+    "sha256": "5D6B356196DA7F5FFC2F23C1B347CB81233F04E835950151503799C056A87972",
+    "bytes": 1502,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_ble_bridge_validation_run01/REPORT.md",
+    "sha256": "CD9FAC6CEBA3290B6DCE64427732338A2EC1FA3A011493670FCFEBD02A4D23D3",
+    "bytes": 2283,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_ble_bridge_validation_run01/gate_events.json",
+    "sha256": "A91EB0446C8D47C4F96B57D8E1813EF57C13E917AEB59BEE43BCCBBAB8E4C93E",
+    "bytes": 328,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_ble_bridge_validation_run01/connection_counts.json",
+    "sha256": "7647F79A7293DAFC4F82F7F0F0786A821897D57942DB60190430A14E9AE25CB3",
+    "bytes": 79,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_ble_bridge_validation_run01/connect_gate.py",
+    "sha256": "B5F5164B23418DF27E083B60CC27331283DDCC763B25D51CC6E3B9E5D7EB3FD0",
+    "bytes": 2264,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_pl_uart_bridge_build_run02/REPORT.md",
+    "sha256": "9C8D0A1B1DCB4C1CF8AE1084569D8FEF06FD2F18C16A940EB18C8B777D928628",
+    "bytes": 3006,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_pl_uart_bridge_build_run02/run.tcl",
+    "sha256": "65850B86B2097AADA9B186BD8DE5884B84228216ADEF5636DBCB35949F4A0D5E",
+    "bytes": 3370,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_pl_uart_bridge_build_run02/build_summary.txt",
+    "sha256": "325DE215FD81DCE55ECF2753E6CA0756ECFF1D53BDB922E38E2EB6C2CAB40929",
+    "bytes": 191,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_pl_uart_bridge_build_run02/timing_summary.rpt",
+    "sha256": "0641034715F5FC34A39D51F6EBCF7860E382EEF1553776AB7FC6D632C37E1F55",
+    "bytes": 30124,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_pl_uart_bridge_build_run02/drc.rpt",
+    "sha256": "C4DE4831CC67CAC221BEF1F5319EDF1F2B252DC0F91DD3A7DC485B557484D64D",
+    "bytes": 1621,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_pl_uart_bridge_build_run02/cdc.rpt",
+    "sha256": "499DF195C212D98D720DFB54F097E3342DB6271C9CE90B686B137AFAA9F59232",
+    "bytes": 1289,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_pl_uart_bridge_build_run02/utilization.rpt",
+    "sha256": "92486E7CC0217C82B758A9FF92E81DBB439C4D06B79392C0FF561811CCFF7BFA",
+    "bytes": 10725,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_pl_uart_bridge_build_run02/project_sources.txt",
+    "sha256": "C420BA27A058025BB8BFEB64E17068A52E47A0D27DA3BA476813DCCF329A9CAD",
+    "bytes": 123,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_pl_uart_bridge_build_run02/source_hashes.json",
+    "sha256": "D86B2B029270C2A295FB4FF0460D56BAA838B53A490913B0646EE02BDE835C41",
+    "bytes": 682,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_pl_uart_bridge_build_run02/bit_hashes.json",
+    "sha256": "8FADA781737611A14C2EF9EC9E6D30C64DCD8B8FDFB69EB1BEA3144ECE5AC6F5",
+    "bytes": 479,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_pl_uart_bridge_build_run02/baseline_verification.json",
+    "sha256": "1E1FCC9C44C5A92A78DA6E684298A9600195B0D1297200F633329544D482BC91",
+    "bytes": 944,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_pl_uart_bridge_build_run02/process_status.json",
+    "sha256": "565340217A8FC860FAE2F91C654545F4758C1002C1D605B2906C70CB7FDDE7D2",
+    "bytes": 432,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_pl_uart_bridge_build_run02/skill_path_audit.json",
+    "sha256": "2AA5AD416077A93671C39279FBB41A4FC8127D485A0397CA37C8155F55BAC7CD",
+    "bytes": 98,
+    "prior_sha256": null
+  },
+  {
+    "path": "4_metrics/logs/2026-09-12_pl_uart_at_board_run02/REPORT.md",
+    "sha256": "0D0AFD712284407C9AEE530C719BD7AC6D142C81210FA682746FCE8DAE8A1AFF",
+    "bytes": 949,
+    "prior_sha256": null
+  }
+]

@@ -1,5 +1,6 @@
 """EES-331 XSA-to-SD builder. All new builds are isolated, never written to a card."""
 import argparse
+import ctypes
 from datetime import datetime
 import hashlib
 import json
@@ -16,13 +17,14 @@ import zipfile
 from hardware import BuildError,digest,read_xsa
 from fdt_reader import parse,be,text
 from images import build_image,verify_base,BASE_NAME
+from rootfs import prepare_application_bundle
 from board_profile import dts_rules,validate_generated
 
 APP=Path(getattr(sys,'_MEIPASS',Path(__file__).resolve().parent))
 ASSETS=APP/'assets'
 WORKSPACE=Path('E:/competition')
 DEFAULT_VITIS='F:/vivado2025/2025.2/Vitis'
-DEFAULT_BASE='E:/competition/4_metrics/logs/2026-09-10_ees331_img_package_run01/'+BASE_NAME
+DEFAULT_BASE='E:/competition/9_pynq/sd/01_base_ees331/'+BASE_NAME
 near_exe=Path(sys.executable).parent/BASE_NAME
 if near_exe.is_file(): DEFAULT_BASE=str(near_exe)
 
@@ -35,6 +37,11 @@ def verify_assets():
         data=(ASSETS/name).read_bytes()
         if len(data)!=m['size'] or digest(data)!=m['sha256']:
             raise BuildError('基线资源损坏：'+name)
+    application=json.loads((ASSETS/'pynq_app/manifest.json').read_text(encoding='utf-8'))
+    for name,m in application['files'].items():
+        data=(ASSETS/'pynq_app'/name).read_bytes()
+        if len(data)!=m['size'] or digest(data)!=m['sha256']:
+            raise BuildError('PYNQ 应用资源损坏：'+name)
 
 def inspect(xsa):
     verify_assets()
@@ -72,15 +79,50 @@ def validate_dtb(data,ps):
         raise BuildError(f'设备树结构或当前板级路径不匹配：{exc}') from exc
 
 class Builder:
-    def __init__(self,xsa,vitis=DEFAULT_VITIS,base=DEFAULT_BASE,dtb='',mode='manual',full_image=False,rebuild_fsbl=False,log=print,usb_role='otg'):
+    def __init__(self,xsa,vitis=DEFAULT_VITIS,base=DEFAULT_BASE,dtb='',mode='manual',full_image=False,rebuild_fsbl=False,log=print,usb_role='otg',integrate_pynq=False,debugfs='',output_dir=''):
         if mode not in ('manual','linux','fsbl'): raise BuildError('未知 PL 加载方式。')
         self.xsa=Path(xsa); self.vitis=Path(vitis); self.base=Path(base)
         self.custom_dtb=Path(dtb) if dtb else None
         self.mode=mode; self.full_image=full_image; self.force=rebuild_fsbl
-        self.usb_role=usb_role
+        self.usb_role=usb_role; self.integrate_pynq=integrate_pynq; self.debugfs=debugfs
         self.callback=log; self.command_index=0
         self.run=WORKSPACE/'4_metrics/logs'/(''+datetime.now().strftime('%Y-%m-%d_sd_builder_v02_%H%M%S_')+uuid.uuid4().hex[:6])
         self.work=self.run/'work'; self.boot=self.run/'boot'; self.out=self.run/'.pending-output'
+        self.output_dir=Path(output_dir.strip()).expanduser().resolve() if output_dir.strip() else None
+
+    def prepare_export(self):
+        if self.output_dir is None: return
+        if self.output_dir.is_relative_to((WORKSPACE/'2_fpga').resolve()):
+            raise BuildError('输出目录不能位于冻结的 2_fpga 工程内，请选择其他目录。')
+        self.output_dir.mkdir(parents=True,exist_ok=True)
+        # Probe writability before invoking Vitis or building a multi-GB image.
+        probe=self.output_dir/('.sd-builder-probe-'+uuid.uuid4().hex)
+        with probe.open('xb') as stream: stream.write(b'probe')
+        probe.unlink()
+
+    def publish_export(self,source):
+        if self.output_dir is None: return source
+        final=self.output_dir/self.run.name
+        pending=self.output_dir/('.pending-'+self.run.name)
+        if final.exists(): raise BuildError('目标部署包目录已存在，不覆盖：'+str(final))
+        pending.mkdir(exist_ok=False)
+        records={}
+        self.log('复制部署包到指定目录，并逐文件读回校验。')
+        for item in sorted(source.iterdir()):
+            target=pending/item.name
+            with item.open('rb') as src,target.open('xb') as dest:
+                expected=hashlib.sha256()
+                while chunk:=src.read(8*1024*1024):
+                    expected.update(chunk); dest.write(chunk)
+                dest.flush(); os.fsync(dest.fileno())
+            with target.open('rb') as check:
+                actual=hashlib.file_digest(check,'sha256').hexdigest()
+            if actual!=expected.hexdigest():
+                raise BuildError('指定输出目录文件读回失败：'+item.name)
+            records[item.name]=dict(size=target.stat().st_size,sha256=actual)
+        pending.rename(final)
+        save(self.run/'export_validation.json',dict(result='CUSTOM_OUTPUT_READBACK_PASS',output=str(final),files=records))
+        return final
 
     def log(self,line):
         line=str(line)
@@ -96,8 +138,15 @@ class Builder:
         self.log('运行 '+Path(args[0]).name)
         with logfile.open('w',encoding='utf-8') as capture:
             capture.write(json.dumps(args,ensure_ascii=False)+'\n'); capture.flush()
-            result=subprocess.run(args,cwd=str(cwd or self.work),env=env,stdout=capture,stderr=subprocess.STDOUT,timeout=1200,
-                                  creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
+            restore_dll_dir=str(APP) if os.name=='nt' and getattr(sys,'frozen',False) else None
+            if restore_dll_dir:
+                ctypes.windll.kernel32.SetDllDirectoryW(None)
+            try:
+                result=subprocess.run(args,cwd=str(cwd or self.work),env=env,stdout=capture,stderr=subprocess.STDOUT,timeout=1200,
+                                      creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
+            finally:
+                if restore_dll_dir:
+                    ctypes.windll.kernel32.SetDllDirectoryW(restore_dll_dir)
         if result.returncode:
             tail='\n'.join(logfile.read_text(encoding='utf-8',errors='replace').splitlines()[-14:])
             raise BuildError(f'{Path(args[0]).name} 失败，见 {logfile}\n{tail}')
@@ -106,7 +155,10 @@ class Builder:
         self.log('从当前 XSA 生成新的 FSBL/BSP。')
         script=self.work/'generate_fsbl.tcl'
         script.write_text('setws $::env(SD_BUILDER_WS)\nplatform create -name sd_platform -hw $::env(SD_BUILDER_XSA) -proc ps7_cortexa9_0 -os standalone\nplatform generate\nputs "SD_BUILDER_PLATFORM_GENERATED"\nexit\n')
-        env=os.environ.copy(); env['SD_BUILDER_WS']=str(self.work/'vitis_workspace').replace('\\','/')
+        env=os.environ.copy()
+        for key in ('TCL_LIBRARY','TCLLIBPATH','TCLLIBRARY','TCLLIB'):
+            env.pop(key,None)
+        env['SD_BUILDER_WS']=str(self.work/'vitis_workspace').replace('\\','/')
         env['SD_BUILDER_XSA']=str(self.work/'input.xsa').replace('\\','/')
         self.command([self.vitis/'bin/xsct.bat',script],env=env)
         generated=self.work/'vitis_workspace/sd_platform/zynq_fsbl'
@@ -237,6 +289,11 @@ class Builder:
         for d in (self.work,self.boot,self.out): d.mkdir(parents=True,exist_ok=False)
         try:
             self.log('检查输入 XSA 与基线资源。')
+            self.prepare_export()
+            if self.integrate_pynq and not self.full_image:
+                raise BuildError('整合 EES-331 摄像头 PYNQ 应用必须同时输出完整 IMG。')
+            if self.integrate_pynq and self.mode!='manual':
+                raise BuildError('整合摄像头服务时 PL 加载方式必须为“手动加载”；systemd 服务负责唯一一次 Overlay 加载。')
             verify_assets()
             summary,inputs=read_xsa(self.xsa,ASSETS)
             save(self.run/'hardware_analysis.json',summary)
@@ -262,13 +319,26 @@ class Builder:
             else:
                 hook+='print("EES-331: PL loading mode '+self.mode+'")\n'
             (self.boot/'boot.py').write_text(hook,encoding='utf-8',newline='\n')
+            application=None
+            application_manifest=None
+            if self.integrate_pynq:
+                self.log('准备经过板测的 EES-331 摄像头 PYNQ 应用。')
+                shutil.copyfile(ASSETS/'pynq_app/uEnv.txt',self.boot/'uEnv.txt')
+                application=self.work/'pynq_application'
+                application_manifest=prepare_application_bundle(
+                    ASSETS/'pynq_app',self.boot,summary['xsa_sha256'],application)
             files={p.name:dict(size=p.stat().st_size,sha256=digest(p.read_bytes())) for p in self.boot.iterdir()}
-            manifest=dict(result='SD_PACKAGE_STATIC_PASS',tool_version='0.2.0',created=datetime.now().isoformat(),
+            manifest=dict(result='SD_PACKAGE_STATIC_PASS',tool_version='0.2.2',created=datetime.now().isoformat(),
                           xsa=summary,pl_loading=self.mode,files=files,hardware_status='NOT_TESTED',
                           usb_role=self.usb_role,device_tree_generation=json.loads((self.run/'device_tree_generation.json').read_text(encoding='utf-8')),
-                          baseline_status='SD_LINUX_SHELL_PASS; NETWORK_AND_PL_APPLICATION_NOT_ACCEPTED')
+                          pynq_application=application_manifest,
+                          baseline_status=('PYNQ_APPLICATION_IMAGE_INTEGRATED; REQUIRES_COLD_BOOT_VALIDATION'
+                                           if application_manifest else
+                                           'SD_LINUX_SHELL_PASS; NETWORK_AND_PL_APPLICATION_NOT_ACCEPTED'))
+            manifest['output']=str(self.output_dir/self.run.name if self.output_dir else self.run/'output')
+            manifest['evidence_dir']=str(self.run)
             save(self.out/'manifest.json',manifest)
-            note='EES-331 SD boot package\nCopy every file in boot/ to the SD boot partition together.\nPL mode: '+self.mode+'\nXSA SHA256: '+summary['xsa_sha256']+'\nNew hardware configuration requires cold-boot and application validation.\n'
+            note='EES-331 SD boot package\nCopy every file in boot/ to the SD boot partition together.\nPL mode: '+self.mode+'\nXSA SHA256: '+summary['xsa_sha256']+'\nPYNQ camera application: '+('integrated in full IMG' if application_manifest else 'not integrated')+'\nNew hardware configuration requires cold-boot and application validation.\n'
             (self.out/'README.txt').write_text(note,encoding='utf-8')
             archive=self.out/'sd_boot_package.zip'
             with zipfile.ZipFile(archive,'x',compression=zipfile.ZIP_DEFLATED) as z:
@@ -281,14 +351,13 @@ class Builder:
             if self.full_image:
                 self.log('生成完整 IMG 并进行全文件读回。')
                 image=self.out/'ees331_pynq_sd.img'
-                validation=build_image(self.base,self.boot,image,self.log)
+                validation=build_image(self.base,self.boot,image,self.log,application,self.debugfs)
                 manifest['image']=validation
                 (self.out/'ees331_pynq_sd.img.sha256').write_text(validation['sha256']+'  '+image.name+'\n')
             final_output=self.run/'output'
-            manifest['output']=str(final_output)
             save(self.out/'result.json',manifest)
             self.out.rename(final_output)
-            self.out=final_output
+            self.out=self.publish_export(final_output)
             save(self.run/'result.json',manifest)
             self.log('导出完成：'+str(self.out))
             return manifest
@@ -306,10 +375,14 @@ def main():
     parser.add_argument('--dtb',default=''); parser.add_argument('--mode',choices=['manual','linux','fsbl'],default='manual')
     parser.add_argument('--full-image',action='store_true'); parser.add_argument('--rebuild-fsbl',action='store_true')
     parser.add_argument('--usb-role',choices=['otg','host','peripheral'],default='otg')
+    parser.add_argument('--integrate-pynq-app',action='store_true')
+    parser.add_argument('--debugfs',default='')
+    parser.add_argument('--output-dir',default='',help='部署包输出父目录；留空使用构建记录中的 output')
     args=parser.parse_args()
     try:
         if args.inspect: print(json.dumps(inspect(args.xsa),ensure_ascii=False,indent=2))
-        else: Builder(args.xsa,args.vitis,args.base_img,args.dtb,args.mode,args.full_image,args.rebuild_fsbl,usb_role=args.usb_role).execute()
+        else: Builder(args.xsa,args.vitis,args.base_img,args.dtb,args.mode,args.full_image,args.rebuild_fsbl,
+                      usb_role=args.usb_role,integrate_pynq=args.integrate_pynq_app,debugfs=args.debugfs,output_dir=args.output_dir).execute()
     except Exception as exc:
         print(str(exc),file=sys.stderr); return 1
     return 0

@@ -1,0 +1,29 @@
+[
+  {
+    "time": "2026-09-12T22:34:44.156119+08:00",
+    "event": "worker_ready"
+  },
+  {
+    "time": "2026-09-12T22:34:44.156119+08:00",
+    "event": "connect_started",
+    "address": "6A:C2:D2:F2:1B:5D"
+  },
+  {
+    "time": "2026-09-12T22:34:44.156119+08:00",
+    "event": "connection_stage",
+    "message": "\u91cd\u65b0\u626b\u63cf\u76ee\u6807\u5e7f\u64ad"
+  },
+  {
+    "time": "2026-09-12T22:34:59.231587+08:00",
+    "event": "error",
+    "action": "connect",
+    "message": "\u672a\u627e\u5230\u76ee\u6807\u5e7f\u64ad\uff1b\u68c0\u67e5\u677f\u5361\u4e0a\u7535\u53ca\u662f\u5426\u88ab\u5176\u4ed6\u8f6f\u4ef6\u5360\u7528",
+    "traceback": "Traceback (most recent call last):\n  File \"E:\\competition\\3_host\\ble_console\\ble_backend.py\", line 112, in _command_pump\n    await self._active_task\n  File \"E:\\competition\\3_host\\ble_console\\ble_backend.py\", line 133, in _dispatch\n    await self._connect(\n  File \"E:\\competition\\3_host\\ble_console\\ble_backend.py\", line 195, in _connect\n    raise ConnectionError(\"\u672a\u627e\u5230\u76ee\u6807\u5e7f\u64ad\uff1b\u68c0\u67e5\u677f\u5361\u4e0a\u7535\u53ca\u662f\u5426\u88ab\u5176\u4ed6\u8f6f\u4ef6\u5360\u7528\")\nConnectionError: \u672a\u627e\u5230\u76ee\u6807\u5e7f\u64ad\uff1b\u68c0\u67e5\u677f\u5361\u4e0a\u7535\u53ca\u662f\u5426\u88ab\u5176\u4ed6\u8f6f\u4ef6\u5360\u7528\n"
+  },
+  {
+    "time": "2026-09-12T22:34:59.231587+08:00",
+    "event": "result",
+    "marker": "BLE_CONSOLE_V11_WORKER_BOARD_FAIL",
+    "error": "RuntimeError('{\\'action\\': \\'connect\\', \\'message\\': \\'\u672a\u627e\u5230\u76ee\u6807\u5e7f\u64ad\uff1b\u68c0\u67e5\u677f\u5361\u4e0a\u7535\u53ca\u662f\u5426\u88ab\u5176\u4ed6\u8f6f\u4ef6\u5360\u7528\\', \\'traceback\\': \\'Traceback (most recent call last):\\\\n  File \"E:\\\\\\\\competition\\\\\\\\3_host\\\\\\\\ble_console\\\\\\\\ble_backend.py\", line 112, in _command_pump\\\\n    await self._active_task\\\\n  File \"E:\\\\\\\\competition\\\\\\\\3_host\\\\\\\\ble_console\\\\\\\\ble_backend.py\", line 133, in _dispatch\\\\n    await self._connect(\\\\n  File \"E:\\\\\\\\competition\\\\\\\\3_host\\\\\\\\ble_console\\\\\\\\ble_backend.py\", line 195, in _connect\\\\n    raise ConnectionError(\"\u672a\u627e\u5230\u76ee\u6807\u5e7f\u64ad\uff1b\u68c0\u67e5\u677f\u5361\u4e0a\u7535\u53ca\u662f\u5426\u88ab\u5176\u4ed6\u8f6f\u4ef6\u5360\u7528\")\\\\nConnectionError: \u672a\u627e\u5230\u76ee\u6807\u5e7f\u64ad\uff1b\u68c0\u67e5\u677f\u5361\u4e0a\u7535\u53ca\u662f\u5426\u88ab\u5176\u4ed6\u8f6f\u4ef6\u5360\u7528\\\\n\\'}')"
+  }
+]

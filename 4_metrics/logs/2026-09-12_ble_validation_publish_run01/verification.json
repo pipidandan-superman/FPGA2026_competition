@@ -1,0 +1,8 @@
+{
+  "rounds": 11,
+  "ble_to_serial": 166,
+  "serial_to_ble": 166,
+  "connected_s": 61.703,
+  "raw_payload_comparison": "PASS",
+  "unit_tests": 8
+}

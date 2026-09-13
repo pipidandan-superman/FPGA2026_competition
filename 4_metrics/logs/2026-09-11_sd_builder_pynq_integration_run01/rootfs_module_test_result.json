@@ -1,0 +1,6 @@
+{
+  "result": "ROOTFS_MODULE_TEST_PASS",
+  "application": "ees331-camera",
+  "validated_files": 12,
+  "service_link": "../ees331-camera.service"
+}

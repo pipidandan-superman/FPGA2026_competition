@@ -1,10 +1,10 @@
-# EES-331 SD Builder v0.2
+# EES-331 SD Builder v0.2.2
 
-Windows 工具：输入 Vivado 2025.2 导出的 **含 bitstream 的 XSA**，自动生成 EES-331 的配套 SD 启动 ZIP，可同时导出整卡 IMG。v0.1 源码、EXE 和 ZIP 独立保留，本版源码在 `3_host/pynq/sd_boot_builder_v02/`。
+Windows 工具：输入 Vivado 2025.2 导出的 **含 bitstream 的 XSA**，自动生成 EES-331 的配套 SD 启动 ZIP，可同时导出整卡 IMG，并可注入已经板测的 OV5640 → HDMI + UDP 应用、网络配置、CMA 参数和 systemd 服务。当前只保留 v0.2.2，源码在 `3_host/pynq/sd_boot_builder_v02/`。
 
 ## 打开与使用
 
-程序：`E:/competition/4_metrics/logs/2026-09-10_sd_builder_v02_run01/distribution/EES331SDBootBuilder_v0.2.exe`。EXE 自带 Python/Tk 和板级资源，不需单独装 Python。本机仍需 Vitis 2025.2 的 Bootgen、DTC、XSCT 与 ARM GCC，默认目录 `F:/vivado2025/2025.2/Vitis`，可在高级设置中调整。
+推荐程序：`E:/competition/8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.2.exe`。EXE 自带 Python/Tk、板级资源和摄像头应用文件，不需单独装 Python。本机仍需 Vitis 2025.2 的 Bootgen、DTC、XSCT 与 ARM GCC，默认目录 `F:/vivado2025/2025.2/Vitis`，可在高级设置中调整。EES-331 基础镜像默认从 `E:/competition/9_pynq/sd/01_base_ees331/` 读取。
 
 1. Vivado 生成 bitstream，Export Hardware 时勾选 Include bitstream。
 2. 选择 XSA，点击“检查 XSA / 配置差异”。单独 bit、不含位流、错误器件或不兼容启动引脚均拒绝。XSA 有多个 HWH 时自动选择唯一包含 PS7 的系统 HWH；辅助 SmartConnect HWH 不再导致误拒绝。
@@ -19,7 +19,7 @@ Windows 工具：输入 Vivado 2025.2 导出的 **含 bitstream 的 XSA**，自�
 
 v0.2 不再要求原版 PYNQ-Z2 镜像。完整 IMG 只接受已经完成本板启动适配的固定基线：
 
-- 文件：`E:/competition/4_metrics/logs/2026-09-10_ees331_img_package_run01/ees331_pynq_v3.0.1_ps_sd_20260910.img`
+- 文件：`E:/competition/9_pynq/sd/01_base_ees331/ees331_pynq_v3.0.1_ps_sd_20260910.img`
 - 大小：7,858,807,808 字节（约 7.32 GiB）。
 - SHA256：`203e9f79679c6c77a738c30d06e3232f0907eb2e5b6cafe97e26e8889057835a`。
 
@@ -67,15 +67,11 @@ BOOT 中的控制 DTB 与 FIT 内 Linux DTB 同步更新。检查 BOOT 头/分�
 
 构建完成前存于 .pending-output，所有选定检查通过才发布 output；失败构建只留诊断记录。程序不写物理 SD 卡。ZIP 的 boot/ 文件应作为一套更新，勿混用旧 BOOT 与新 FIT。IMG 可交给烧录软件作为整卡安装镜像。
 
-## 验证边界与版本保留
+## 验证边界与版本收敛
 
 `SD_PACKAGE_STATIC_PASS` 表示构建和文件检查成功，不表示已经在板上验证。当前历史基线 UART 已证明 SD → FSBL → U-Boot → Linux Shell；网络/Jupyter和新 PL 应用仍需独立验收。v0.2 新增 PHY 复位和设备树规则的输出也需要重新冷启动验证，不能继承旧版的板级 PASS。
 
-v0.1 保留位置：
-- 源码：`E:/competition/3_host/pynq/sd_boot_builder/`
-- EXE/ZIP：`E:/competition/4_metrics/logs/2026-09-10_sd_builder_toolkit_run01/distribution/`
-
-v0.2 的测试、FSBL 重建、整卡读回、EXE 验证和旧版哈希核对见 `E:/competition/4_metrics/logs/2026-09-10_sd_builder_v02_run01/REPORT.md`。
+旧 v0.1、v0.2 和 v0.2.1 的可执行包、重复 ZIP、依赖缓存和中间 IMG 已在基线收敛后清理。当前开发和复现只使用 v0.2.2、EES-331 最小系统基线和 222654 板测成功业务镜像。
 
 ## 源码运行
 
@@ -91,3 +87,31 @@ python app.py
 board_profile.py 管理板级规则，hardware.py 解析 XSA，builder.py 编排构建，images.py 校验/封装 IMG，app.py 为界面。assets/ 的每个资源均校验 SHA256。
 
 基线资源来自同项目的 SD 修复记录及 PYNQ 3.0.1。U-Boot 沿用原有二进制载荷，FSBL 可按当前 XSA 重编；资源原许可证不因工具封装而改变，应用不包含 Vitis 安装介质。
+
+## 摄像头整合与写卡
+
+生成上电自动运行的整卡镜像时，配置必须满足：
+
+1. 勾选“同时输出完整 .img”。
+2. 勾选“整合 EES-331 摄像头 PYNQ 应用”。
+3. PL 加载方式选择“手动加载”。这里表示启动阶段不由 FSBL/boot.py 抢先加载，开机后的 `ees331-camera.service` 会自动调用 PYNQ Overlay，用户无需手动执行命令。
+4. 高级设置中的 `debugfs.exe` 指向 `C:/cygwin64/usr/sbin/debugfs.exe`。Cygwin 需安装 `e2fsprogs`，同目录还应存在 `e2fsck.exe`。
+5. 当前整合功能只接受已板测摄像头工程 XSA：`d69fb256b66106da87514fc3821fe177bbe538c128e74485f43a4a265f092ebc`。
+
+当前发布文件：
+
+- `EES331SDBootBuilder_v0.2.2.exe`
+- 大小：22,464,864 字节
+- SHA256：`b104e7ca7fcdf54d80382195c9374a459f71f68c62fa2593fe1cc4ec7ad5760b`
+- 完整 EXE 构建证据：`4_metrics/logs/2026-09-11_sd_builder_v02_222654_1789ce/`
+- 构建生成 IMG SHA256：`8d22bcde0268678050bcc1429bee5ecadb0020e5ce3f5ba4df7045066deafcca`
+
+构建成功后，使用 `E:/competition/8_tools/win32diskimager-1.0.0-install.exe` 安装 Win32DiskImager。以管理员身份打开，选择 Builder 输出的 `ees331_pynq_sd.img`，再次按容量和盘符确认目标 SD 卡，然后点击 **Write**。写入会覆盖整张目标卡。写完安全弹出，将 SW8 设为 SD 启动，连接 OV5640、HDMI 和网线后再上电。
+
+PC 有线网卡设为 `192.168.240.2/24`，打开 `E:/competition/3_host/udp_video/dist/EES331_UDP_Viewer.exe`，等待约 60 至 90 秒。当前归档的 222654 集成 IMG 已完成实际写卡验证，HDMI 和 PC 均显示随镜头动作变化的画面。
+
+## v0.2.2 输出路径选择
+
+推荐使用本目录的 `EES331SDBootBuilder_v0.2.2.exe`。在“2 选择导出方式”中设置“部署包输出目录”，支持浏览选择或手动输入。留空保持默认；指定路径后自动创建本次独立子目录，完成后点“打开输出目录”。ZIP、完整 IMG（如勾选）和校验清单会复制并校验到所选位置，不覆盖旧包。原构建及临时文件仍在 `E:/competition/4_metrics/logs`，不会因为选择其他盘而转移。
+
+JSON 配置支持 `output_dir`；命令行源码支持 `--output-dir`。新生成的镜像仍需独立板测，不能自动继承 222654 基线的板级结论。

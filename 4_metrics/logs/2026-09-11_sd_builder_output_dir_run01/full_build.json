@@ -1,0 +1,10 @@
+{
+  "xsa": "E:/competition/2_fpga/0_diaplay_test/vitis/display_test_wrapper.xsa",
+  "vitis": "F:/vivado2025/2025.2/Vitis",
+  "base": "E:/competition/4_metrics/logs/2026-09-10_ees331_img_package_run01/ees331_pynq_v3.0.1_ps_sd_20260910.img",
+  "mode": "manual",
+  "full_image": true,
+  "integrate_pynq": true,
+  "debugfs": "C:/cygwin64/usr/sbin/debugfs.exe",
+  "output_dir": "E:/competition/4_metrics/logs/2026-09-11_sd_builder_output_dir_run01/自定义 部署包"
+}

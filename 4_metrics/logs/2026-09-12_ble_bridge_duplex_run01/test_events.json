@@ -1,0 +1,374 @@
+[
+  {
+    "time": "2026-09-12T21:54:56.809665+08:00",
+    "event": "serial_open",
+    "ready": true,
+    "port": "COM4",
+    "baud": 9600
+  },
+  {
+    "time": "2026-09-12T21:54:58.765710+08:00",
+    "event": "connected",
+    "paired": false,
+    "mtu": 23
+  },
+  {
+    "time": "2026-09-12T21:54:58.817734+08:00",
+    "event": "notification_subscription_ready"
+  },
+  {
+    "time": "2026-09-12T21:54:59.308006+08:00",
+    "event": "serial_initial",
+    "hex": ""
+  },
+  {
+    "time": "2026-09-12T21:54:59.309007+08:00",
+    "event": "ble_write_requested",
+    "index": 0,
+    "hex": "55aa313200ff"
+  },
+  {
+    "time": "2026-09-12T21:54:59.938863+08:00",
+    "event": "serial_received",
+    "index": 0,
+    "hex": "55aa313200ff"
+  },
+  {
+    "time": "2026-09-12T21:54:59.938863+08:00",
+    "event": "serial_write_requested",
+    "index": 0,
+    "hex": "aa553231ff00"
+  },
+  {
+    "time": "2026-09-12T21:54:59.995451+08:00",
+    "event": "notification",
+    "hex": "aa553231ff00"
+  },
+  {
+    "time": "2026-09-12T21:55:00.203528+08:00",
+    "event": "round_pass",
+    "index": 0,
+    "ble_to_serial": 6,
+    "serial_to_ble": 6
+  },
+  {
+    "time": "2026-09-12T21:55:05.208341+08:00",
+    "event": "ble_write_requested",
+    "index": 1,
+    "hex": "c3011112131415161718191a1b1c1d1e"
+  },
+  {
+    "time": "2026-09-12T21:55:05.893612+08:00",
+    "event": "serial_received",
+    "index": 1,
+    "hex": "c3011112131415161718191a1b1c1d1e"
+  },
+  {
+    "time": "2026-09-12T21:55:05.893612+08:00",
+    "event": "serial_write_requested",
+    "index": 1,
+    "hex": "3c01f2f1f0efeeedecebeae9e8e7e6e5"
+  },
+  {
+    "time": "2026-09-12T21:55:05.957225+08:00",
+    "event": "notification",
+    "hex": "3c01f2f1f0efeeedecebeae9e8e7e6e5"
+  },
+  {
+    "time": "2026-09-12T21:55:06.157225+08:00",
+    "event": "round_pass",
+    "index": 1,
+    "ble_to_serial": 22,
+    "serial_to_ble": 22
+  },
+  {
+    "time": "2026-09-12T21:55:11.165503+08:00",
+    "event": "ble_write_requested",
+    "index": 2,
+    "hex": "c30222232425262728292a2b2c2d2e2f"
+  },
+  {
+    "time": "2026-09-12T21:55:11.851187+08:00",
+    "event": "serial_received",
+    "index": 2,
+    "hex": "c30222232425262728292a2b2c2d2e2f"
+  },
+  {
+    "time": "2026-09-12T21:55:11.851187+08:00",
+    "event": "serial_write_requested",
+    "index": 2,
+    "hex": "3c02e5e4e3e2e1e0dfdedddcdbdad9d8"
+  },
+  {
+    "time": "2026-09-12T21:55:11.920236+08:00",
+    "event": "notification",
+    "hex": "3c02e5e4e3e2e1e0dfdedddcdbdad9d8"
+  },
+  {
+    "time": "2026-09-12T21:55:12.130716+08:00",
+    "event": "round_pass",
+    "index": 2,
+    "ble_to_serial": 38,
+    "serial_to_ble": 38
+  },
+  {
+    "time": "2026-09-12T21:55:17.144251+08:00",
+    "event": "ble_write_requested",
+    "index": 3,
+    "hex": "c303333435363738393a3b3c3d3e3f40"
+  },
+  {
+    "time": "2026-09-12T21:55:17.816973+08:00",
+    "event": "serial_received",
+    "index": 3,
+    "hex": "c303333435363738393a3b3c3d3e3f40"
+  },
+  {
+    "time": "2026-09-12T21:55:17.816973+08:00",
+    "event": "serial_write_requested",
+    "index": 3,
+    "hex": "3c03d8d7d6d5d4d3d2d1d0cfcecdcccb"
+  },
+  {
+    "time": "2026-09-12T21:55:17.882898+08:00",
+    "event": "notification",
+    "hex": "3c03d8d7d6d5d4d3d2d1d0cfcecdcccb"
+  },
+  {
+    "time": "2026-09-12T21:55:18.097492+08:00",
+    "event": "round_pass",
+    "index": 3,
+    "ble_to_serial": 54,
+    "serial_to_ble": 54
+  },
+  {
+    "time": "2026-09-12T21:55:23.097914+08:00",
+    "event": "ble_write_requested",
+    "index": 4,
+    "hex": "c3044445464748494a4b4c4d4e4f5051"
+  },
+  {
+    "time": "2026-09-12T21:55:23.817960+08:00",
+    "event": "serial_received",
+    "index": 4,
+    "hex": "c3044445464748494a4b4c4d4e4f5051"
+  },
+  {
+    "time": "2026-09-12T21:55:23.817960+08:00",
+    "event": "serial_write_requested",
+    "index": 4,
+    "hex": "3c04cbcac9c8c7c6c5c4c3c2c1c0bfbe"
+  },
+  {
+    "time": "2026-09-12T21:55:23.883269+08:00",
+    "event": "notification",
+    "hex": "3c04cbcac9c8c7c6c5c4c3c2c1c0bfbe"
+  },
+  {
+    "time": "2026-09-12T21:55:24.098581+08:00",
+    "event": "round_pass",
+    "index": 4,
+    "ble_to_serial": 70,
+    "serial_to_ble": 70
+  },
+  {
+    "time": "2026-09-12T21:55:29.105979+08:00",
+    "event": "ble_write_requested",
+    "index": 5,
+    "hex": "c30555565758595a5b5c5d5e5f606162"
+  },
+  {
+    "time": "2026-09-12T21:55:29.823819+08:00",
+    "event": "serial_received",
+    "index": 5,
+    "hex": "c30555565758595a5b5c5d5e5f606162"
+  },
+  {
+    "time": "2026-09-12T21:55:29.823819+08:00",
+    "event": "serial_write_requested",
+    "index": 5,
+    "hex": "3c05bebdbcbbbab9b8b7b6b5b4b3b2b1"
+  },
+  {
+    "time": "2026-09-12T21:55:29.883345+08:00",
+    "event": "notification",
+    "hex": "3c05bebdbcbbbab9b8b7b6b5b4b3b2b1"
+  },
+  {
+    "time": "2026-09-12T21:55:30.089146+08:00",
+    "event": "round_pass",
+    "index": 5,
+    "ble_to_serial": 86,
+    "serial_to_ble": 86
+  },
+  {
+    "time": "2026-09-12T21:55:35.096691+08:00",
+    "event": "ble_write_requested",
+    "index": 6,
+    "hex": "c306666768696a6b6c6d6e6f70717273"
+  },
+  {
+    "time": "2026-09-12T21:55:35.851775+08:00",
+    "event": "serial_received",
+    "index": 6,
+    "hex": "c306666768696a6b6c6d6e6f70717273"
+  },
+  {
+    "time": "2026-09-12T21:55:35.851775+08:00",
+    "event": "serial_write_requested",
+    "index": 6,
+    "hex": "3c06b1b0afaeadacabaaa9a8a7a6a5a4"
+  },
+  {
+    "time": "2026-09-12T21:55:35.921758+08:00",
+    "event": "notification",
+    "hex": "3c06b1b0afaeadacabaaa9a8a7a6a5a4"
+  },
+  {
+    "time": "2026-09-12T21:55:36.132655+08:00",
+    "event": "round_pass",
+    "index": 6,
+    "ble_to_serial": 102,
+    "serial_to_ble": 102
+  },
+  {
+    "time": "2026-09-12T21:55:41.134453+08:00",
+    "event": "ble_write_requested",
+    "index": 7,
+    "hex": "c3077778797a7b7c7d7e7f8081828384"
+  },
+  {
+    "time": "2026-09-12T21:55:41.896914+08:00",
+    "event": "serial_received",
+    "index": 7,
+    "hex": "c3077778797a7b7c7d7e7f8081828384"
+  },
+  {
+    "time": "2026-09-12T21:55:41.896914+08:00",
+    "event": "serial_write_requested",
+    "index": 7,
+    "hex": "3c07a4a3a2a1a09f9e9d9c9b9a999897"
+  },
+  {
+    "time": "2026-09-12T21:55:41.958564+08:00",
+    "event": "notification",
+    "hex": "3c07a4a3a2a1a09f9e9d9c9b9a999897"
+  },
+  {
+    "time": "2026-09-12T21:55:42.161499+08:00",
+    "event": "round_pass",
+    "index": 7,
+    "ble_to_serial": 118,
+    "serial_to_ble": 118
+  },
+  {
+    "time": "2026-09-12T21:55:47.170554+08:00",
+    "event": "ble_write_requested",
+    "index": 8,
+    "hex": "c30888898a8b8c8d8e8f909192939495"
+  },
+  {
+    "time": "2026-09-12T21:55:47.934658+08:00",
+    "event": "serial_received",
+    "index": 8,
+    "hex": "c30888898a8b8c8d8e8f909192939495"
+  },
+  {
+    "time": "2026-09-12T21:55:47.934658+08:00",
+    "event": "serial_write_requested",
+    "index": 8,
+    "hex": "3c0897969594939291908f8e8d8c8b8a"
+  },
+  {
+    "time": "2026-09-12T21:55:47.996135+08:00",
+    "event": "notification",
+    "hex": "3c0897969594939291908f8e8d8c8b8a"
+  },
+  {
+    "time": "2026-09-12T21:55:48.198273+08:00",
+    "event": "round_pass",
+    "index": 8,
+    "ble_to_serial": 134,
+    "serial_to_ble": 134
+  },
+  {
+    "time": "2026-09-12T21:55:53.200241+08:00",
+    "event": "ble_write_requested",
+    "index": 9,
+    "hex": "c309999a9b9c9d9e9fa0a1a2a3a4a5a6"
+  },
+  {
+    "time": "2026-09-12T21:55:53.965049+08:00",
+    "event": "serial_received",
+    "index": 9,
+    "hex": "c309999a9b9c9d9e9fa0a1a2a3a4a5a6"
+  },
+  {
+    "time": "2026-09-12T21:55:53.965049+08:00",
+    "event": "serial_write_requested",
+    "index": 9,
+    "hex": "3c098a898887868584838281807f7e7d"
+  },
+  {
+    "time": "2026-09-12T21:55:53.996558+08:00",
+    "event": "notification",
+    "hex": "3c098a898887868584838281807f7e7d"
+  },
+  {
+    "time": "2026-09-12T21:55:54.199630+08:00",
+    "event": "round_pass",
+    "index": 9,
+    "ble_to_serial": 150,
+    "serial_to_ble": 150
+  },
+  {
+    "time": "2026-09-12T21:55:59.203074+08:00",
+    "event": "ble_write_requested",
+    "index": 10,
+    "hex": "c30aaaabacadaeafb0b1b2b3b4b5b6b7"
+  },
+  {
+    "time": "2026-09-12T21:55:59.965941+08:00",
+    "event": "serial_received",
+    "index": 10,
+    "hex": "c30aaaabacadaeafb0b1b2b3b4b5b6b7"
+  },
+  {
+    "time": "2026-09-12T21:55:59.965941+08:00",
+    "event": "serial_write_requested",
+    "index": 10,
+    "hex": "3c0a7d7c7b7a79787776757473727170"
+  },
+  {
+    "time": "2026-09-12T21:55:59.996293+08:00",
+    "event": "notification",
+    "hex": "3c0a7d7c7b7a79787776757473727170"
+  },
+  {
+    "time": "2026-09-12T21:56:00.200366+08:00",
+    "event": "round_pass",
+    "index": 10,
+    "ble_to_serial": 166,
+    "serial_to_ble": 166
+  },
+  {
+    "time": "2026-09-12T21:56:00.466963+08:00",
+    "event": "result",
+    "marker": "BLE_UART_DUPLEX_11_ROUNDS_60S_PASS",
+    "rounds": 11,
+    "connected_s": 61.703,
+    "ble_to_serial": 166,
+    "serial_to_ble": 166
+  },
+  {
+    "time": "2026-09-12T21:56:00.466963+08:00",
+    "event": "disconnected",
+    "expected": true,
+    "elapsed_s": 61.703
+  },
+  {
+    "time": "2026-09-12T21:56:00.615514+08:00",
+    "event": "serial_closed",
+    "returncode": 0
+  }
+]

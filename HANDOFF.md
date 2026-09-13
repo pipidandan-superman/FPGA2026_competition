@@ -1,5 +1,30 @@
 # EES-331 项目交接
 
+## 2026-09-12 BLE Console v1.1 与手动复现
+
+推荐未配对GATT接入已集成上位机：三次无缓存读取/保持门控、自动通知、断连停止发送。
+31项离线/Tk测试、新版后端60.5秒三轮双向及真实EXE按钮双向字节核对通过；
+用户另行确认双向通信成功。TX只是发送记录，HEX旁的文本替代字符不是数据损坏，
+端到端结果以另一端实际收到的HEX为准。
+
+[操作与验证状态](1_docs/doc/ees331_ble_validation_status_2026-09-12.md) ·
+[上位机源码及说明](3_host/ble_console/README.md) ·
+[方案v1.2](1_docs/doc/ees331_ble_axi_bram_development_plan_2026-09-12.md) ·
+[本次发布范围](4_metrics/logs/2026-09-12_ble_v11_publish_run01/REPORT.md)。
+本地新EXE在8_tools/EES331_BLE_Console_v1.1，旧包保留；本次上传源码、说明、精选证据，
+不上传运行依赖树或凭据。冻结FPGA不改；长期/重连/机械臂/AXI-BRAM仍待分阶段执行。
+
+## 2026-09-12 最新蓝牙里程碑
+
+PC与板载MLT-BT05已通过短时双向通信：未配对GATT保持61.703秒，11轮、每方向166字节全部一致，结束主动断开。COM4有线AT正常；不等于长期压力、Windows PIN配对稳定、机械臂互通或正式AXI/BRAM控制通过。复现时直接通过BLE上位机连接并订阅FFE1，COM4=9600/8N1用于另一端收发核对，不需ILA。
+
+入口：[验证状态与复现](1_docs/doc/ees331_ble_validation_status_2026-09-12.md) · [完整开发方案v1.1](1_docs/doc/ees331_ble_axi_bram_development_plan_2026-09-12.md)。下方历史阶段状态以本段及最新验证报告为准；当前电平桥不能替代正式字节级UART/FIFO。
+
+
+## 2026-09-12 当前最高优先级：板载蓝牙验证
+
+执行入口：[完整开发方案](1_docs/doc/ees331_ble_axi_bram_development_plan_2026-09-12.md)。用户确认自定义AXI-Lite只做控制/状态、BRAM使用独立控制器、蓝牙使用PL板载模块。首先G0核实基线和供电极性，建立独立PL UART诊断副本，B0查询MLT-BT05，B1以Windows主机作BLE Central验证双向收发。PC通路PASS不代表MLT主机模式或BT24直连PASS。之后按C0/C1实现CSR、4KiB TDP BRAM、LED，再接机械臂。方案中给出地址偏移、所有权/CRC/seq/结果确认、心跳和回退；物理基地址待审计。此轮仅编写和发布方案，2_fpga冻结基线保持只读。
+
 ## 2026-09-10 关键证据归档与个人分支交付
 
 - 已完成：内容提交 `ae1384aea6f3390fb17ef78562eabf83f4677039` 已推送且远端 HEAD 一致；[草稿 PR #3](https://github.com/pipidandan-superman/FPGA2026_competition/pull/3) 目标 main，尚未合并。归档文件哈希、18 项启动资产、300 项暂存对象、两版 EXE 自检与项目路径审计通过。后续回执提交只补充文档和 Git 结果。
@@ -34,7 +59,7 @@
 ## 2026-09-10 SD/Linux Shell 启动已证实，完整 IMG 可交付（启动基线）
 
 - 用户 `2026-09-10_pynq_v301_baseline_boot_run02/uart_pynq_log.txt` 证实 FSBL→U-Boot→EES-331 Linux→`xilinx@pynq:~$`，阶段结果 SD_BOOT_TO_LINUX_SHELL_PASS。
-- 可烧录完整镜像：`4_metrics/logs/2026-09-10_ees331_img_package_run01/ees331_pynq_v3.0.1_ps_sd_20260910.img`，7,858,807,808 B，SHA256 `203e9f79679c6c77a738c30d06e3232f0907eb2e5b6cafe97e26e8889057835a`。
+- EES-331 最小系统基线已归档为 `9_pynq/sd/01_base_ees331/ees331_pynq_v3.0.1_ps_sd_20260910.img`，7,858,807,808 B，SHA256 `203e9f79679c6c77a738c30d06e3232f0907eb2e5b6cafe97e26e8889057835a`。
 - FULL_IMG_PACKAGE_READBACK_PASS：六个启动文件与已部署版本一致，启动分区外所有字节保持原版。新的完整 IMG 尚未复烧上板；不含首次启动后的运行状态。
 - 网络/Jupyter/应用 Overlay 待验收，UART 中 U-Boot PHY/default-env、Linux随机MAC和部分 FSBL调试格式问题未因打包而修复。当前已通过的是 SD/Linux Shell 启动。
 - PL开发通常更新同版本 `.bit`+同名`.hwh`和应用，需要Linux内核驱动时再处理`.dtbo`/模块；PS启动配置变化需新XSA/FSBL/BOOT及实际使用DTB。当前BOOT不含PL位流；冻结工程不改。
@@ -352,3 +377,30 @@ Vitis Run 日志缺少完整下载/运行流程，调试器反汇编出现无效
 - 验证边界：软件重启自动恢复已经通过，物理断电冷启动尚未单独验收。若重刷当前基础 IMG，业务文件、CMA 参数、网络配置和 systemd 服务会丢失，需要重新部署。
 - 原 XSA、`main.c`、`BOOT.BIN`、`IMAGE.UB`、`BOOT.SCR` 未修改。完整证据见 `4_metrics/logs/2026-09-11_pynq_camera_run01/REPORT.md`。
 - 后续顺序已冻结：先将当前成果上传至 `codex/full/pipidandan-superman`；确认远端提交后，再为 SD Builder v0.2 增加完整 IMG 的 PYNQ 应用注入，并在 `1_docs` 编写零基础开发教程。
+
+## 2026-09-11 SD Builder v0.2.1 整合完成
+
+- Gate 1 已上传并核对远端提交 `927548961e5cc3d13d5de67cc613071aa5df63a5`，随后才开始 Builder 和教程工作。
+- `3_host/pynq/sd_boot_builder_v02` 已增加完整 IMG 的 PYNQ rootfs 注入，写入摄像头应用、配对 Overlay、`cma=128M@0x10000000`、固定网络和 `ees331-camera.service`。
+- 整合模式固定要求当前已板测 XSA 哈希、完整 IMG 和 `manual` PL 模式。这里由 systemd 在 Linux 启动后自动调用 Overlay，日常上电无需人工运行 Python。
+- Cygwin `debugfs/e2fsck` 1.44.5 的模块测试、逐文件读回和文件系统检查通过。MSYS2 e2fsprogs 获取失败作为历史失败保留，不是最终依赖路径。
+- 冻结 EXE 首次完整构建在 `2026-09-11_sd_builder_v02_220613_158787` 因 PyInstaller Tcl/DLL 污染 XSCT 而失败；修复 `SetDllDirectoryW(None)` 和 Tcl 环境变量清理后重打包。
+- 最终 `EES331SDBootBuilder_v0.2.1.exe` 大小 22,520,487 字节，SHA256 `c2966e6fa52bfb8786c0232221e4eb540b96b383406be1e38d581bf3a070f49a`，GUI 自检通过。
+- 最终 EXE 完整构建目录：`4_metrics/logs/2026-09-11_sd_builder_v02_222654_1789ce`；结果 `SD_PACKAGE_STATIC_PASS`，应用注入、启动文件、完整读回均 PASS。
+- 输出 IMG 大小 7,858,807,808 字节，SHA256 `8d22bcde0268678050bcc1429bee5ecadb0020e5ce3f5ba4df7045066deafcca`。完整 IMG 不上传 Git。
+- 写卡使用 `8_tools/win32diskimager-1.0.0-install.exe`。该新 IMG 尚未写卡；下一步是备用 SD 卡物理断电冷启动、UART、HDMI 和 UDP/PC 联合验收。
+- 零基础教程：`1_docs/PYNQ零基础开发与EES331摄像头工程实战.md`。
+- 整合报告：`4_metrics/logs/2026-09-11_sd_builder_pynq_integration_run01/REPORT.md`。
+- Git 功能提交 `87ce6f3` 已与最新 main 合并，第一轮远端核对提交为 `6f76d67dfa597cb56281a9242256f889d1e3205c`；上传回执见同一整合证据目录的 `upload_result.json`。
+
+## 2026-09-11 SD Builder v0.2.2
+
+增加自定义部署包输出目录（GUI、CLI --output-dir、JSON output_dir）。独立子目录避免覆盖，逐文件 SHA256 验证后发布；留空兼容旧版。5 项测试、冻结 EXE 自检和真实完整 IMG/自定义复制读回通过。发布入口 `8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.2.exe`；报告 `4_metrics/logs/2026-09-11_sd_builder_output_dir_run01/REPORT.md`。新 IMG 未写卡冷启动。保留 v0.2.1。
+
+## 2026-09-11 集成 IMG 板测与归档入口
+
+- 用户实际写卡并验证成功的镜像来自 `4_metrics/logs/2026-09-11_sd_builder_v02_222654_1789ce/output/ees331_pynq_sd.img`，不是后续仅完成离线构建的 224206 镜像。
+- 本机正式归档副本为 `9_pynq/sd/02_integrated_camera_hdmi_udp/ees331_pynq_sd_20260911_222654.img`，大小 7,858,807,808 字节，SHA256 `8d22bcde0268678050bcc1429bee5ecadb0020e5ce3f5ba4df7045066deafcca`。
+- 板测结果：SD 启动正常，OV5640 配置完成 LED 点亮，HDMI 和 PC UDP 上位机都显示随动作变化的实时画面。最初 PC 零帧是网线未连接，插好网线后恢复正常。
+- EES-331 最小系统基线、当前集成镜像和配套启动分区分别归档于 `9_pynq/sd/01_base_ees331`、`02_integrated_camera_hdmi_udp`、`03_boot_partition`；通用 PYNQ-Z2 镜像已退出项目基线，清单见 `9_pynq/sd/manifests/images.json`。
+- 后续写卡、复现和排障从 `9_pynq/sd/README.md` 开始；不要把 224206 镜像描述为已板测版本。

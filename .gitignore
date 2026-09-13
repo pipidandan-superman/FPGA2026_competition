@@ -60,5 +60,8 @@ venv/
 # ---- 例外: 正式交付的模型权重允许入库 ----
 !3_host/model/*.pt
 !3_host/model/*.onnx
+# 8_tools is an explicitly published deliverable. Its binaries use Git LFS.
+!8_tools/
+!8_tools/**
 # Multi-GB SD images remain local; archive their manifests and readback reports.
 *.img

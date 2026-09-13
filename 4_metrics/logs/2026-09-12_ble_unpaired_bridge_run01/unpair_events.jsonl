@@ -1,0 +1,2 @@
+{"timestamp": "2026-09-12T21:52:59.345938+08:00", "event": "before", "name": "MLT-BT05", "address": "6A:C2:D2:F2:1B:5D", "paired": true, "protection": 3}
+{"timestamp": "2026-09-12T21:52:59.459906+08:00", "event": "unpair_result", "name": "UNPAIRED", "code": 0}

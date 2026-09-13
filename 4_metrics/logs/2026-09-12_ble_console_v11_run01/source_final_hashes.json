@@ -1,0 +1,67 @@
+[
+  {
+    "Algorithm": "SHA256",
+    "Hash": "2B864C44A4DB77CA73848E3567B874EE220A9700224425A4283963548AB572B9",
+    "Path": "E:\\competition\\3_host\\ble_console\\使用说明.md"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "C748843F3BF1EF0D35DF5D732DC069AD54923832B209E4B1FD35FACFEA93437C",
+    "Path": "E:\\competition\\3_host\\ble_console\\app.py"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "DC77FF477F9FAD257A1493DD859A2C80F7EA53B356FC728A6E55E672AA184D96",
+    "Path": "E:\\competition\\3_host\\ble_console\\ble_backend.py"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "7419B904E76EC2541CE1A04D39C9DD1A25C55FAB88B4A48C57AF4B9408BE9884",
+    "Path": "E:\\competition\\3_host\\ble_console\\build_ble_console.ps1"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "CF6DBF1258B61745AF1C14827703644F445C88D6803A25E0ABAFC09D6B7AB6D1",
+    "Path": "E:\\competition\\3_host\\ble_console\\config_store.py"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "C7A99F198291C9A37D2498CA491EA07F0998AEB5F850CAFA6EE42A37D153A62E",
+    "Path": "E:\\competition\\3_host\\ble_console\\probe.py"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "BA6D7AF2ABD022A544C177B1AB107AD3DEB6E7862190F789D15D795DE7856E5C",
+    "Path": "E:\\competition\\3_host\\ble_console\\protocols.py"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "D14E12C946EA448E489E93ED05220FEF78B3727C20E80496CBEA8767A0F1C410",
+    "Path": "E:\\competition\\3_host\\ble_console\\README.md"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "4E13A1C0EEB84BCFA6DD98BB08B6FF1C19D467001948C0950FD28B9E3E4F6F6C",
+    "Path": "E:\\competition\\3_host\\ble_console\\requirements.in"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "D717C580F23A69780C3263CFDEC83DD4621F8A8F54EDECB20A3D7E82B7A922A5",
+    "Path": "E:\\competition\\3_host\\ble_console\\profiles\\default.json"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "9BAD67390BBF6C7A914911452FFCED97BD0C7661AC43D0EDDA934C7D2907ADF4",
+    "Path": "E:\\competition\\3_host\\ble_console\\tests\\test_backend.py"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "73FD67A0B53DC4557410D09B4D88BF25468FAC88343CF6138928CBCFA3BCD776",
+    "Path": "E:\\competition\\3_host\\ble_console\\tests\\test_core.py"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "E53F12F11924952B4FCE0D5F491D33EDC3B0EB6B74BC5167FE314A67E7919C8E",
+    "Path": "E:\\competition\\3_host\\ble_console\\tests\\test_gui.py"
+  }
+]

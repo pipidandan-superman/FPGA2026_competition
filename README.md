@@ -1,5 +1,26 @@
 # 小月文刀队｜AMD 具身智能赛道
 
+## 2026-09-12 BLE Console v1.1 与手动复现
+
+推荐未配对GATT接入已集成上位机：三次无缓存读取/保持门控、自动通知、断连停止发送。
+31项离线/Tk测试、新版后端60.5秒三轮双向及真实EXE按钮双向字节核对通过；
+用户另行确认双向通信成功。TX只是发送记录，HEX旁的文本替代字符不是数据损坏，
+端到端结果以另一端实际收到的HEX为准。
+
+[操作与验证状态](1_docs/doc/ees331_ble_validation_status_2026-09-12.md) ·
+[上位机源码及说明](3_host/ble_console/README.md) ·
+[方案v1.2](1_docs/doc/ees331_ble_axi_bram_development_plan_2026-09-12.md) ·
+[本次发布范围](4_metrics/logs/2026-09-12_ble_v11_publish_run01/REPORT.md)。
+本地新EXE在8_tools/EES331_BLE_Console_v1.1，旧包保留；本次上传源码、说明、精选证据，
+不上传运行依赖树或凭据。冻结FPGA不改；长期/重连/机械臂/AXI-BRAM仍待分阶段执行。
+
+## 2026-09-12 最新蓝牙里程碑
+
+PC与板载MLT-BT05已通过短时双向通信：未配对GATT保持61.703秒，11轮、每方向166字节全部一致，结束主动断开。COM4有线AT正常；不等于长期压力、Windows PIN配对稳定、机械臂互通或正式AXI/BRAM控制通过。复现时直接通过BLE上位机连接并订阅FFE1，COM4=9600/8N1用于另一端收发核对，不需ILA。
+
+入口：[验证状态与复现](1_docs/doc/ees331_ble_validation_status_2026-09-12.md) · [完整开发方案v1.1](1_docs/doc/ees331_ble_axi_bram_development_plan_2026-09-12.md)。下方历史阶段状态以本段及最新验证报告为准；当前电平桥不能替代正式字节级UART/FIFO。
+
+
 本项目面向全国大学生嵌入式芯片与系统设计竞赛 2026，当前选择：
 
 > **AMD 具身智能赛道（赛题 3.2）**
@@ -10,12 +31,13 @@
 
 > **AMD Ryzen AI PC（上位机"大脑"）+ AMD Zynq-7000 FPGA（实时"小脑"）异构协同**
 
-## 当前进展与交付入口（2026-09-10）
+## 当前进展与交付入口（2026-09-11）
 
 - 本批归档已上传 `codex/full/pipidandan-superman`（内容提交 `ae1384a`），[草稿 PR #3](https://github.com/pipidandan-superman/FPGA2026_competition/pull/3) 等待审核；未合入 main。推送核对见 [回执](4_metrics/logs/2026-09-10_session_archive_upload_run01/upload_result.json)。
 - **EES-331 SD → Linux Shell 已启动**：原始串口见 [uart_pynq_log.txt](4_metrics/logs/2026-09-10_pynq_v301_baseline_boot_run02/uart_pynq_log.txt)。网络、Jupyter、自定义 Overlay 和完整分拣闭环仍需分别验收。
-- **SD Builder v0.2**：[Windows EXE](8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.exe) · [使用说明与源码](3_host/pynq/sd_boot_builder_v02/README.md)。强制输入含 bitstream 的 Vivado 2025.2 XSA，以 EES-331 板级模板生成 PS 设备树，按需重建 FSBL/BSP，导出启动包或完整 IMG；原版 PYNQ-Z2 入口已移除。v0.1 在 [旧版目录](8_tools/sd_start_tool/) 保留。
-- v0.2 的 22 项测试、真实构建、EXE 检查及整卡读回通过；**这些新输出尚未上板**。完整 IMG 依赖外部 Vitis 2025.2 和 7,858,807,808 字节的 EES-331 基础镜像，Git 不包含大镜像；获取本机路径和校验值见 [归档索引](4_metrics/logs/2026-09-10_session_archive_upload_run01/REPORT.md)。
+- **SD Builder v0.2.2**：[Windows EXE](8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.2.exe) · [使用说明与源码](3_host/pynq/sd_boot_builder_v02/README.md)。当前只保留 EES-331 版本，默认基线为 `9_pynq/sd/01_base_ees331`，支持 XSA/FSBL/设备树/完整 IMG、摄像头 PYNQ 应用注入及自定义输出路径。
+- **已验证写卡镜像**：本机统一入口为 `9_pynq/sd/02_integrated_camera_hdmi_udp/ees331_pynq_sd_20260911_222654.img`，SHA-256 `8d22bcde0268678050bcc1429bee5ecadb0020e5ce3f5ba4df7045066deafcca`。该镜像已于 2026-09-11 完成 SD 启动、OV5640 配置、HDMI 动态画面和 PC UDP 动态画面验证。
+- 写卡使用 [Win32DiskImager 安装器](8_tools/win32diskimager-1.0.0-install.exe)；零基础操作、手工部署和开发流程见 [PYNQ 教程](1_docs/PYNQ零基础开发与EES331摄像头工程实战.md)。
 - **AIPC 借用报告**：[两页 Word 报告](<1_docs/doc/AMD AIPC 借用报告 - 锐眼智行具身智能分拣.docx>)。正文和排版检查完成，队员/学校/联系方式、团队编号及机型确认仍待补充，尚未提交申请。
 - 9 月 8 日裸机 UDP 摄像头传输及 PC 端 BGR 修复结论继续有效，详见下方原始记录；不能将这些结果直接计作 Linux/PYNQ 网络验收。
 - [交接文档](HANDOFF.md) · [当日验证记录](7_logs/2026-09-10/03_validation_summary.md) · [关键证据与上传范围](4_metrics/logs/2026-09-10_session_archive_upload_run01/REPORT.md)。本轮仅归档和更新文档，冻结 `2_fpga/` 无改动。
@@ -142,7 +164,9 @@ competition/
 ├─ 4_metrics/   # metrics.csv、原始日志、测试脚本、截图/波形证据
 ├─ 5_report/    # 设计报告、复现说明、归档清单
 ├─ 6_skill/     # 可复用 Skill 与工具说明
-└─ 7_logs/      # 内部工程日志（不替代 4_metrics/ 下的提交证据）
+├─ 7_logs/      # 内部工程日志（不替代 4_metrics/ 下的提交证据）
+├─ 8_tools/     # Builder、Win32DiskImager 等本机工具
+└─ 9_pynq/sd/   # 面向写卡的基础/集成镜像归档和哈希清单
 ```
 
 ## 当前状态
@@ -172,8 +196,12 @@ competition/
 
 ## SD/PYNQ 摄像头运行入口（2026-09-11）
 
-当前已部署且未重刷的 SD 卡可在 SW8 保持 SD 启动时自动运行摄像头业务。连接 OV5640、HDMI 和网线后上电，等待约 60 至 90 秒；`ees331-camera.service` 会自动加载 PL、配置 VDMA、输出 HDMI，并向 `192.168.240.2:5000` 发送 UDP 视频，无需启动 Vitis、JTAG 下载、Jupyter 或手动 Python。
+使用 `9_pynq/sd/02_integrated_camera_hdmi_udp/ees331_pynq_sd_20260911_222654.img` 写卡后，SW8 保持 SD 启动即可自动运行摄像头业务。连接 OV5640、HDMI 和网线后上电，等待约 60 至 90 秒；`ees331-camera.service` 会自动加载 PL、配置 VDMA、输出 HDMI，并向 `192.168.240.2:5000` 发送 UDP 视频，无需启动 Vitis、JTAG 下载、Jupyter 或手动 Python。
 
-PC 有线网卡设置为 `192.168.240.2/24`，然后运行 `3_host/udp_video/dist/EES331_UDP_Viewer.exe`。开发板业务地址为 `192.168.240.10/24`。当前结果为 `PYNQ_CAMERA_HDMI_UDP_PASS` 和 `SD_REBOOT_AUTOSTART_PASS`；用户已确认 HDMI 与 PC 均显示随动作变化的实时画面。软件重启自动恢复已经验证，物理断电冷启动尚未单独验收。
+PC 有线网卡设置为 `192.168.240.2/24`，然后运行 `3_host/udp_video/dist/EES331_UDP_Viewer.exe`。开发板业务地址为 `192.168.240.10/24`。当前结果为 `PYNQ_CAMERA_HDMI_UDP_PASS`、`SD_REBOOT_AUTOSTART_PASS` 和集成 IMG 板级复现 PASS；用户已确认 HDMI 与 PC 均显示随动作变化的实时画面。此前 PC 零帧现象由网线未连接导致，不是镜像或相机服务故障。
 
-源码与部署说明见 `2_fpga/0_diaplay_test/pynq/README.md`，原始证据见 `4_metrics/logs/2026-09-11_pynq_camera_run01/REPORT.md`。当前完整 IMG 尚未整合这些 rootfs 业务文件，重刷基础 IMG 后需要重新安装；SD Builder 的完整 IMG 应用注入是下一阶段工作。
+源码与部署说明见 `2_fpga/0_diaplay_test/pynq/README.md`，镜像入口和写卡说明见 `9_pynq/sd/README.md`，原始证据见 `4_metrics/logs/2026-09-11_pynq_camera_run01/REPORT.md`。若改刷 `9_pynq/sd/01_base_ees331` 中的 EES-331 最小系统 IMG，则仍需手工安装业务文件、CMA、网络和 systemd 服务；通用 PYNQ-Z2 镜像不再作为项目基线。
+
+## SD Builder v0.2.2：指定部署包输出目录
+
+[当前 EXE](8_tools/sd_start_tool_v0.2/EES331SDBootBuilder_v0.2.2.exe) 增加“部署包输出目录”输入和浏览选择。留空沿用默认位置；指定后生成独立子目录，复制 ZIP、可选 IMG 和校验清单并逐文件读回验证。清理后重新打包版本大小 22,464,864 字节，SHA-256 `b104e7ca7fcdf54d80382195c9374a459f71f68c62fa2593fe1cc4ec7ad5760b`，自检通过；默认 EES-331 基线已改为 `9_pynq/sd/01_base_ees331`。

@@ -1,0 +1,58 @@
+{
+  "result": "PYNQ_ROOTFS_INJECTION_PASS",
+  "debugfs": "C:\\cygwin64\\usr\\sbin\\debugfs.exe",
+  "debugfs_version": "debugfs 1.44.5 (15-Dec-2018)\n\tUsing EXT2FS Library version 1.44.5",
+  "files": {
+    "/home/xilinx/ees331_camera/camera.py": {
+      "source_sha256": "c2e8a0da0669b19b3bc8e2c656e5ad693e1a0cf8d16b0c3a9b4c68d453600bcb",
+      "readback_sha256": "c2e8a0da0669b19b3bc8e2c656e5ad693e1a0cf8d16b0c3a9b4c68d453600bcb"
+    },
+    "/home/xilinx/ees331_camera/run_camera.sh": {
+      "source_sha256": "2a0c20cfa63c0dc481bfa0e2a4f9855fa158011d5af3e6d1dce09d1c5704eb33",
+      "readback_sha256": "2a0c20cfa63c0dc481bfa0e2a4f9855fa158011d5af3e6d1dce09d1c5704eb33"
+    },
+    "/home/xilinx/ees331_camera/install.sh": {
+      "source_sha256": "3a0312958028ef84684d135a017350f8783b248a84410c081f5901f928bd4d8c",
+      "readback_sha256": "3a0312958028ef84684d135a017350f8783b248a84410c081f5901f928bd4d8c"
+    },
+    "/home/xilinx/ees331_camera/inspect_board.py": {
+      "source_sha256": "956b2a3ac683e5ad99eb6c0447f55809b9009b56ee2edc5444eb644b0b82fb2b",
+      "readback_sha256": "956b2a3ac683e5ad99eb6c0447f55809b9009b56ee2edc5444eb644b0b82fb2b"
+    },
+    "/home/xilinx/ees331_camera/ees331-camera.service": {
+      "source_sha256": "8e0ee449bef795fe94ef2f2e988320cd611e5c6727df8aef1bcf61339ca1f0fb",
+      "readback_sha256": "8e0ee449bef795fe94ef2f2e988320cd611e5c6727df8aef1bcf61339ca1f0fb"
+    },
+    "/home/xilinx/ees331_camera/ees331_camera.network": {
+      "source_sha256": "1f914077ae64e7d93311fff5d4854f44013930a622b7643f119d442b93ca0516",
+      "readback_sha256": "1f914077ae64e7d93311fff5d4854f44013930a622b7643f119d442b93ca0516"
+    },
+    "/home/xilinx/ees331_camera/uEnv.txt": {
+      "source_sha256": "097c7cb88cef29c767459fe252c433d40a93fa98460430c7a4bd1a777fac6aa0",
+      "readback_sha256": "097c7cb88cef29c767459fe252c433d40a93fa98460430c7a4bd1a777fac6aa0"
+    },
+    "/home/xilinx/ees331_camera/overlay.bit": {
+      "source_sha256": "0518c46b4dca4dca83b1e94ae5c1e8cbc8bb68fbf4537e5a90c025a10b76db87",
+      "readback_sha256": "0518c46b4dca4dca83b1e94ae5c1e8cbc8bb68fbf4537e5a90c025a10b76db87"
+    },
+    "/home/xilinx/ees331_camera/overlay.hwh": {
+      "source_sha256": "96eeba65209e66ac3e05a65907f48cc374dab490b9d88e2e72e22689e939a4dd",
+      "readback_sha256": "96eeba65209e66ac3e05a65907f48cc374dab490b9d88e2e72e22689e939a4dd"
+    },
+    "/home/xilinx/ees331_camera/deployment_manifest.json": {
+      "source_sha256": "f2e8f7261fa4ae908ec97a9c9159cac594a6a99bf7cb9d7a2fa2e58c4a38c69d",
+      "readback_sha256": "f2e8f7261fa4ae908ec97a9c9159cac594a6a99bf7cb9d7a2fa2e58c4a38c69d"
+    },
+    "/etc/systemd/system/ees331-camera.service": {
+      "source_sha256": "8e0ee449bef795fe94ef2f2e988320cd611e5c6727df8aef1bcf61339ca1f0fb",
+      "readback_sha256": "8e0ee449bef795fe94ef2f2e988320cd611e5c6727df8aef1bcf61339ca1f0fb"
+    },
+    "/etc/network/interfaces.d/ees331_camera": {
+      "source_sha256": "1f914077ae64e7d93311fff5d4854f44013930a622b7643f119d442b93ca0516",
+      "readback_sha256": "1f914077ae64e7d93311fff5d4854f44013930a622b7643f119d442b93ca0516"
+    }
+  },
+  "service_link": "../ees331-camera.service",
+  "filesystem_check": "PASS",
+  "hardware_status": "REQUIRES_COLD_BOOT_VALIDATION"
+}

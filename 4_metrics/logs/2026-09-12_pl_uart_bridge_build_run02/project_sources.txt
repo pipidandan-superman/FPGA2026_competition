@@ -1,0 +1,2 @@
+E:/competition/2_fpga/1_ble_test/rtl/ble_uart_debug_top.v
+E:/competition/2_fpga/1_ble_test/rtl/ees331_ble_uart_debug.xdc

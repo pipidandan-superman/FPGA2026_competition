@@ -1,0 +1,26 @@
+[
+  {
+    "path": "E:\\competition\\9_pynq\\sd\\01_base_ees331\\ees331_pynq_v3.0.1_ps_sd_20260910.img",
+    "size_bytes": 7858807808,
+    "sha256": "203E9F79679C6C77A738C30D06E3232F0907EB2E5B6CAFE97E26E8889057835A",
+    "source": "2026-09-10 EES-331 PS/SD adaptation build",
+    "purpose": "EES-331 PYNQ 3.0.1 minimal system baseline for rollback and new builds",
+    "validation": "EES331_SD_LINUX_BOOT_PASS_2026-09-10"
+  },
+  {
+    "path": "E:\\competition\\9_pynq\\sd\\02_integrated_camera_hdmi_udp\\ees331_pynq_sd_20260911_222654.img",
+    "size_bytes": 7858807808,
+    "sha256": "8D22BCDE0268678050BCC1429BEE5ECADB0020E5CE3F5BA4DF7045066DEAFCCA",
+    "source": "2026-09-11 sd_builder_v02_222654 board-verified build; original duplicate removed after archival",
+    "purpose": "EES-331 OV5640 HDMI and UDP autostart deployment",
+    "validation": "BOARD_PASS_2026-09-11"
+  },
+  {
+    "path": "E:\\competition\\9_pynq\\sd\\03_boot_partition\\boot_partition_20260911_222654.img",
+    "size_bytes": 136314880,
+    "sha256": "CBE7D0240D0BDE11BC5EAF3BDC7718E3AF34F2AD5C347532E4F3AE962C38DDEA",
+    "source": "2026-09-11 sd_builder_v02_222654 work image; original intermediate removed after archival",
+    "purpose": "Boot partition recovery and inspection only",
+    "validation": "MATCHED_TO_BOARD_PASS_BUILD"
+  }
+]

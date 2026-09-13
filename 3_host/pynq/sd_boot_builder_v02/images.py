@@ -2,9 +2,11 @@
 import hashlib
 import json
 import os
+import shutil
 import struct
 from pathlib import Path
 from hardware import BuildError,digest
+from rootfs import inject_application
 
 BASE_SIZE=7858807808
 BASE_HASH='203e9f79679c6c77a738c30d06e3232f0907eb2e5b6cafe97e26e8889057835a'
@@ -12,6 +14,8 @@ BASE_NAME='ees331_pynq_v3.0.1_ps_sd_20260910.img'
 OFFSET=4096
 LENGTH=136314880
 CHUNK=8*1024*1024
+ROOT_OFFSET=268288*512
+ROOT_LENGTH=15080946*512
 
 def u16(b,o): return struct.unpack_from('<H',b,o)[0]
 def u32(b,o): return struct.unpack_from('<I',b,o)[0]
@@ -49,7 +53,8 @@ def verify_base(base,log=lambda line:None):
         raise BuildError('需要 EES-331 基础系统镜像 '+BASE_NAME+'（7858807808 字节），请在高级设置中定位。')
     with base.open('rb') as f:
         mbr=f.read(512)
-        if mbr[510:512]!=b'\x55\xaa' or u32(mbr,454)*512!=OFFSET or u32(mbr,458)*512!=LENGTH:
+        if (mbr[510:512]!=b'\x55\xaa' or u32(mbr,454)*512!=OFFSET or u32(mbr,458)*512!=LENGTH
+                or mbr[466]!=0x83 or u32(mbr,470)*512!=ROOT_OFFSET or u32(mbr,474)*512!=ROOT_LENGTH):
             raise BuildError('基础镜像分区布局不匹配。')
         f.seek(OFFSET); files=fat_read(f.read(LENGTH))
         from fdt_reader import parse,text
@@ -61,7 +66,7 @@ def verify_base(base,log=lambda line:None):
     log('EES-331 基础镜像身份与 SHA256 校验通过。')
     return dict(name=BASE_NAME,path=str(base.resolve()),size=BASE_SIZE,sha256=BASE_HASH,board='EES-331')
 
-def build_image(base,boot,out,log):
+def build_image(base,boot,out,log,application=None,debugfs=''):
     from pyfatfs.PyFatFS import PyFatFS
     base=Path(base); out=Path(out)
     if not base.is_file() or base.stat().st_size!=BASE_SIZE:
@@ -103,6 +108,38 @@ def build_image(base,boot,out,log):
                 if len(blocks)%128==0: log(f'写入 IMG {pos/BASE_SIZE:.0%}')
         dest.flush(); os.fsync(dest.fileno())
     if original_hash.hexdigest()!=BASE_HASH: raise BuildError('基础镜像 SHA256 不匹配，输出不可发布。')
+    application_validation=None
+    if application:
+        root=out.parent.parent/'work'/'root_partition.img'
+        log('提取 Linux ext4 根分区用于 PYNQ 应用注入。')
+        with out.open('rb') as source,root.open('xb') as target:
+            source.seek(ROOT_OFFSET); remaining=ROOT_LENGTH
+            while remaining:
+                data=source.read(min(CHUNK,remaining))
+                if not data: raise BuildError('IMG 根分区意外结束。')
+                target.write(data); remaining-=len(data)
+                if remaining%(CHUNK*128)==0: log(f'提取根分区 {(ROOT_LENGTH-remaining)/ROOT_LENGTH:.0%}')
+            target.flush(); os.fsync(target.fileno())
+        application_validation=inject_application(root,application,debugfs,out.parent.parent,log)
+        log('将已验证的 ext4 根分区写回完整 IMG。')
+        with root.open('rb') as source,out.open('r+b') as target:
+            target.seek(ROOT_OFFSET); remaining=ROOT_LENGTH
+            while remaining:
+                data=source.read(min(CHUNK,remaining))
+                if not data: raise BuildError('已修改根分区意外结束。')
+                target.write(data); remaining-=len(data)
+                if remaining%(CHUNK*128)==0: log(f'写回根分区 {(ROOT_LENGTH-remaining)/ROOT_LENGTH:.0%}')
+            if source.read(1): raise BuildError('根分区暂存文件长度异常。')
+            target.flush(); os.fsync(target.fileno())
+        with out.open('rb') as verify:
+            for block in blocks:
+                begin=block['offset']; end=begin+block['size']
+                if begin<ROOT_OFFSET+ROOT_LENGTH and end>ROOT_OFFSET:
+                    verify.seek(begin); block['output']=digest(verify.read(block['size'])); block['patched']=True
+        shutil.copyfile(out.parent.parent/'rootfs_application_validation.json',
+                        out.parent/'rootfs_application_validation.json')
+        shutil.copyfile(Path(application)/'deployment_manifest.json',
+                        out.parent/'pynq_application_manifest.json')
     total=hashlib.sha256()
     with out.open('rb') as f:
         for i,b in enumerate(blocks):
@@ -117,6 +154,8 @@ def build_image(base,boot,out,log):
         if fat_read(f.read(LENGTH))!=files: raise BuildError('IMG 中启动文件不一致。')
     (out.parent/'image_block_checks.json').write_text(json.dumps(blocks,indent=2))
     result=dict(size=out.stat().st_size,sha256=total.hexdigest(),base_sha256=BASE_HASH,
-                rootfs_unchanged=True,full_readback='PASS',boot_files='PASS')
+                rootfs_unchanged=not bool(application),full_readback='PASS',boot_files='PASS',
+                pynq_application=('PASS' if application_validation else 'NOT_INCLUDED'),
+                hardware_status='REQUIRES_COLD_BOOT_VALIDATION')
     (out.parent/'image_validation.json').write_text(json.dumps(result,indent=2))
     return result

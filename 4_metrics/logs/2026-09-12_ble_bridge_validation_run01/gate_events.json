@@ -1,0 +1,15 @@
+[
+  {
+    "time": "2026-09-12T21:48:35.632826+08:00",
+    "event": "target_seen",
+    "address": "6A:C2:D2:F2:1B:5D",
+    "name": "MLT-BT05"
+  },
+  {
+    "time": "2026-09-12T21:48:50.676302+08:00",
+    "event": "result",
+    "marker": "BLE_READ_HOLD_GATE_FAIL",
+    "error": "TimeoutError()",
+    "writes": 0
+  }
+]

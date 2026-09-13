@@ -35,3 +35,50 @@ SD FAT 文件名显示为 OVERLAY.BIT/HWH；已复制到应用目录统一为小
 阶段成果上传审计目录：[`4_metrics/logs/2026-09-11_pynq_checkpoint_upload_run01`](../../4_metrics/logs/2026-09-11_pynq_checkpoint_upload_run01/)。本轮选择上传源码、部署配置、报告、结果 JSON、最终服务日志、PC 最终状态和协议测试；不上传完整 IMG、Overlay 二进制、板端压缩包、依赖目录或整包日志。
 
 远端 `codex/full/pipidandan-superman` 确认包含本次提交之前，SD Builder 集成和 `1_docs` 教程均不开始。
+
+## SD Builder v0.2.1 PYNQ 整合
+
+[完整报告](../../4_metrics/logs/2026-09-11_sd_builder_pynq_integration_run01/REPORT.md)。
+
+- Gate 1 已通过：远端个人分支提交 `927548961e5cc3d13d5de67cc613071aa5df63a5` 与本地一致。
+- rootfs 模块测试：`ROOTFS_MODULE_TEST_PASS`；12 个文件读回、systemd 链接和 e2fsck 均通过。
+- 源码版完整构建：`4_metrics/logs/2026-09-11_sd_builder_v02_220217_3f0ee9`，结果 `SD_PACKAGE_STATIC_PASS` / `PYNQ_ROOTFS_INJECTION_PASS`。
+- 冻结 EXE 首次完整构建在 `2026-09-11_sd_builder_v02_220613_158787` 失败，原因为 PyInstaller Tcl/DLL 环境污染外部 XSCT；失败证据保留。
+- 修复外部工具调用的 DLL 目录与 Tcl 环境变量后，`FROZEN_GUI_SELF_TEST_PASS`。
+- 最终 EXE 全构建：`4_metrics/logs/2026-09-11_sd_builder_v02_222654_1789ce`，`SD_PACKAGE_STATIC_PASS`；启动文件、PYNQ 应用注入和完整镜像读回均 PASS。
+- EXE：22,520,487 字节，SHA256 `c2966e6fa52bfb8786c0232221e4eb540b96b383406be1e38d581bf3a070f49a`。
+- IMG：7,858,807,808 字节，SHA256 `8d22bcde0268678050bcc1429bee5ecadb0020e5ce3f5ba4df7045066deafcca`。
+- Win32DiskImager 安装器已定位于 `8_tools/win32diskimager-1.0.0-install.exe`。
+- 教程已创建：`1_docs/PYNQ零基础开发与EES331摄像头工程实战.md`。
+
+验证边界：最终 IMG 尚未写入 SD 卡，物理断电冷启动、UART、HDMI 和 UDP/PC 联合验收未执行，状态保持 `REQUIRES_COLD_BOOT_VALIDATION`。
+
+## Git 交付
+
+- 功能提交：`87ce6f3`（Builder v0.2.1、应用资源、教程、发布 EXE 和精选证据）。
+- 与最新 `origin/main` 合并提交：`6f76d67dfa597cb56281a9242256f889d1e3205c`，无冲突。
+- 第一轮远端核对：个人分支远端 HEAD 与 `6f76d67dfa597cb56281a9242256f889d1e3205c` 一致。
+- 上传回执：`../../4_metrics/logs/2026-09-11_sd_builder_pynq_integration_run01/upload_result.json`。
+- 完整 IMG、Cygwin/MSYS2 安装包、依赖目录和全量运行目录未上传。
+
+## v0.2.2 自定义输出验证
+
+[报告](../../4_metrics/logs/2026-09-11_sd_builder_output_dir_run01/REPORT.md)。5 项针对性测试通过；EXE 自检、实际 FSBL/BSP/完整 IMG/PYNQ 注入构建通过；中文空格目标目录复制并逐文件 SHA256 读回为 CUSTOM_OUTPUT_READBACK_PASS。证据：`4_metrics/logs/2026-09-11_sd_builder_v02_224206_ba86f2`。新 IMG 尚未写卡板测。EXE 大小 22520633 字节，SHA256 `9402787351f333a6ba5c46b65970359c5485a8072465e3a310aaf0eb0049eb6a`；从本轮源码由 PyInstaller 打包，上传原因是交付可直接运行的 Windows GUI，完整来源和证据见报告。
+
+## 集成 IMG 板测与归档（2026-09-11）
+
+- 实际写卡并完成板测的是 `2026-09-11_sd_builder_v02_222654_1789ce/output/ees331_pynq_sd.img`。
+- 归档副本：`9_pynq/sd/02_integrated_camera_hdmi_udp/ees331_pynq_sd_20260911_222654.img`。
+- 大小：7,858,807,808 字节；SHA256：`8d22bcde0268678050bcc1429bee5ecadb0020e5ce3f5ba4df7045066deafcca`。
+- 用户确认 SD 启动后 OV5640 配置 LED 点亮，HDMI 与 PC 上位机均显示随动作变化的摄像头画面。最初 PC 接收 0 帧是网线未连接，连接后正常。
+- 结论：该 222654 镜像为当前板级成功基线；224206 镜像只有离线构建/复制读回证据，不替代此板测结论。
+- 本次归档和清理证据：`4_metrics/logs/2026-09-11_pynq_archive_cleanup_run01`。
+
+## EES-331 工作区基线收敛
+
+- 清理证据：`4_metrics/logs/2026-09-11_workspace_baseline_cleanup_run01`。
+- 顶层误生成 Cygwin 缓存、旧 Builder 运行目录、旧工具、通用 PYNQ-Z2 下载镜像、阶段性 FPGA 工程和大部分 Vivado/Vitis 缓存已移入回收站。
+- Vitis 发布文件：`2_fpga/0_diaplay_test/release/ees331_vitis_board_pass/`，哈希见 `SHA256.json`。
+- v0.2.2 重新打包自检通过，SHA-256 `b104e7ca7fcdf54d80382195c9374a459f71f68c62fa2593fe1cc4ec7ad5760b`。
+- 用户截图已保存为 `pynq_udp_board_pass.png`，显示 PC UDP 动态画面和接收统计。
+- 完整 IMG 不进入 Git；EES-331 最小系统基线、PYNQ 集成镜像和 Vitis 发布文件保留。
