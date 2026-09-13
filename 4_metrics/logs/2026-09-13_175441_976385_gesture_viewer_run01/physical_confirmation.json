@@ -1,0 +1,19 @@
+{
+  "marker": "ACTION_VIEWER_INTERNAL_LAUNCH_RECOVERY_PASS",
+  "recorded_at": "2026-09-13T17:55:53.5106689+08:00",
+  "source": "user_manual_observation",
+  "user_statement": "对的对的，在1.4内部打开动作识别可以成功",
+  "meaning": "Launching Action Viewer from the v1.4 internal button enabled the action link and restored gesture-to-LED behavior without reloading PL.",
+  "software_evidence": {
+    "events": "E:\\competition\\4_metrics\\logs\\2026-09-13_175441_976385_gesture_viewer_run01\\events.jsonl",
+    "events_sha256": "4cba4198579ffcc18b4ba7d3b82562e8328297af4e87acdd3608df18c455f8f6",
+    "result": "E:\\competition\\4_metrics\\logs\\2026-09-13_175441_976385_gesture_viewer_run01\\result.json",
+    "result_sha256": "19c88962486d80d8d78b8a4e38dab3232f8e7ca6e5ece07251b4740466675b1b",
+    "initial_clear_seq": 9,
+    "prior_done_seq": 8,
+    "final_clear_seq": 17,
+    "complete_frames": 85,
+    "lost_frames": 0,
+    "action_error": null
+  }
+}

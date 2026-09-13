@@ -1,0 +1,21 @@
+{
+  "result": "VIEWER_CLOSED",
+  "inference_frames": 272,
+  "rx_stats": {
+    "packets": 178287,
+    "complete_frames": 278,
+    "lost_frames": 0,
+    "consumer_skipped_frames": 6
+  },
+  "error": null,
+  "action_error": null,
+  "action_last": {
+    "status": 0,
+    "seq": 8,
+    "action": 0,
+    "done_seq": 8,
+    "elapsed_ms": 14.999999999417923
+  },
+  "model_sha256": "68db7cacbdd6d9c9a583e1c50a9f5934a3a6b78675b215ec86717827be8bfc79",
+  "last_test": null
+}

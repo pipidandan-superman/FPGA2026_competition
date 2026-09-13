@@ -1,5 +1,7 @@
 # EES331 手势识别上位机 v1.0
 
+> 2026-09-13更新：动作链路已与PL重加载器v1.4完成两轮上板验证。直接双击EXE仍故意进入显示模式，不会输出LED；请从v1.4内部“打开动作识别”启动，或显式传入`--action-control`。完整流程见[PL重加载v1.4上板复现指南](../../1_docs/doc/ees331_pl_reloader_v14_board_guide_2026-09-13.md)。
+
 ## 从上电开始
 
 1. 保留已验证的SD卡、摄像头和网线连接，FPGA上电后等待60～90秒。
@@ -22,7 +24,7 @@
 
 提示启动失败或端口冲突：先关闭旧接收者，再点击重新连接。不要同时启动两个实例；不需要更改模型或重装环境。
 
-关闭窗口或Esc退出。未完成的测试不会记为通过。默认显示模式不输出控制；显式`--action-control`会启用以下AXI动作路径，但不控制机械臂。
+关闭窗口或Esc退出。未完成的测试不会记为通过。默认显示模式不输出控制；此时日志中的`protocol=null`是预期行为。显式`--action-control`会启用以下AXI动作路径，但不控制机械臂。
 
 ## 第一版 AXI 动作控制
 
@@ -32,7 +34,7 @@
 Down/Stop/Thumbs Down/Thumbs up/Up对应LED1/4/5/6/7；左右不自动下发。同类保持不重复发；无有效动作1秒清灯，重新有效需再次稳定3帧。网络中断不保证清灯命令送达，不作为机械臂安全协议。
 COM4为9600/8N1只读观察口。普通UDP接收器和本上位机不能同时占用5000端口；自动串口核验时关闭其他COM4程序。
 自动实机证据入口`model_action_validation.py --run-dir E:/competition/4_metrics/logs/<new-run> --seconds 180`使用真实视频与模型，同时捕获COM4，保存预测/序号/字节比对；不能与GUI同时运行。其PASS仅覆盖该次观察到的动作，仍须检查stable_actions集合及用户LED确认。
-2026-09-13已完成五种启用动作的真实模型/AXI/COM4对应，但热重载仍有独立已复现故障，详情见[板测报告](../../4_metrics/logs/2026-09-13_action_v1_end_to_end_run01/REPORT.md)。不以一次链路通过替代启动可靠性或模型精度验收。
+2026-09-13已完成五种启用动作的真实模型/AXI/COM4对应；配套v1.4又完成两轮A→C成功，第二轮为用户确认断电重启后的复现。直接重开模型无LED的日志显示`protocol=null`，从v1.4内部重新打开后`ACTION_INITIAL_CLEAR`、`ACTION_LINK_READY`和后续ACK恢复正常。详见[第一轮](../../4_metrics/logs/2026-09-13_pl_reloader_v14_board_acceptance_run01/REPORT.md)、[第二轮](../../4_metrics/logs/2026-09-13_pl_reloader_v14_board_acceptance_run02/REPORT.md)和[重开诊断](../../4_metrics/logs/2026-09-13_action_viewer_reopen_diagnosis_run01/REPORT.md)。不以2/2链路通过替代长期启动可靠性或模型泛化精度验收。
 
 ## 日志与发布目录
 

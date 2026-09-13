@@ -1,5 +1,14 @@
 # EES-331 项目交接
 
+## 2026-09-13 当前交接：PL重加载v1.4
+
+- 唯一支持的重加载包为`8_tools/EES331_PL_Reloader_v1.4/`；v1.0～v1.3已淘汰，不要从旧聊天附件或旧目录复现。
+- v1.4已完成两轮A→C上板成功，第二轮为用户确认断电重启后的成功。五种启用动作Stop/Up/Down/Thumbs Up/Thumbs Down对应LED4/7/1/6/5均由用户确认。
+- 复现必须从原`ees331-camera`动态HDMI/UDP基线开始。v1.4执行10秒传感器预等待与30秒首帧门控；只有`ACTION_OVERLAY_READY`才算软件加载通过，系统服务`active`、`FOUND`或文件同步完成都不算。
+- 动作识别必须从v1.4内部按钮打开，或显式`--action-control`。直接双击EXE默认显示模式，日志`protocol=null`，会识别但不会输出LED。
+- 操作入口：[v1.4上板复现指南](1_docs/doc/ees331_pl_reloader_v14_board_guide_2026-09-13.md)；证据：[run01](4_metrics/logs/2026-09-13_pl_reloader_v14_board_acceptance_run01/REPORT.md)、[断电后run02](4_metrics/logs/2026-09-13_pl_reloader_v14_board_acceptance_run02/REPORT.md)、[模型重开诊断](4_metrics/logs/2026-09-13_action_viewer_reopen_diagnosis_run01/REPORT.md)。
+- 验收边界：当前只有2/2样本，第二轮断电由用户确认而非boot ID自动证明；不能称为长期稳定、机械臂安全闭环或模型泛化精度PASS。原SD/BOOT和冻结`2_fpga`不变。
+
 ## 2026-09-12 BLE Console v1.1 与手动复现
 
 推荐未配对GATT接入已集成上位机：三次无缓存读取/保持门控、自动通知、断连停止发送。

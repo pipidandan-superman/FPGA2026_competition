@@ -1,0 +1,32 @@
+{"event": "PAYLOAD_VERIFIED", "monotonic": 120187.045884, "files": 13, "hardware": {"marker": "ACTION_HARDWARE_CONTRACT_PASS", "design": "display_test", "axi_lite_base": "0x43c00000", "axi_lite_range": 4096, "vdma_base": "0x43000000", "control_clock_hz": 50000000, "board_clock_hz": 100000000, "bluetooth_ports": 0, "action_leds": 7, "uart_baud": 9600, "bridge_ready_external": false}}
+test_board_controller_validates_same_payload (test_pl_reloader.PayloadTests.test_board_controller_validates_same_payload) ... ok
+test_local_release_manifest_and_hashes (test_pl_reloader.PayloadTests.test_local_release_manifest_and_hashes) ... ok
+{"event": "PAYLOAD_HASH_FAIL", "monotonic": 120187.0563732, "failures": [{"file": "payload.bin", "expected": "0000000000000000000000000000000000000000000000000000000000000000", "actual": "d67e2e944994496c8d8ec76eed0cf9f09679448d584b532bebf941852a37f5ed"}]}
+test_payload_tamper_is_rejected (test_pl_reloader.PayloadTests.test_payload_tamper_is_rejected) ... ok
+test_action_process_parser_accepts_real_python_process (test_pl_reloader.SafetyTests.test_action_process_parser_accepts_real_python_process) ... ok
+test_action_process_parser_rejects_pgrep_self_match (test_pl_reloader.SafetyTests.test_action_process_parser_rejects_pgrep_self_match) ... ok
+test_action_running_uses_non_self_matching_pattern (test_pl_reloader.SafetyTests.test_action_running_uses_non_self_matching_pattern) ... ok
+test_askpass_reads_only_temporary_environment (test_pl_reloader.SafetyTests.test_askpass_reads_only_temporary_environment) ... ok
+test_camera_uses_extended_diagnostic_waits (test_pl_reloader.SafetyTests.test_camera_uses_extended_diagnostic_waits) ... ok
+test_journal_delta_returns_only_new_lines (test_pl_reloader.SafetyTests.test_journal_delta_returns_only_new_lines) ... ok
+test_password_is_not_an_ssh_command_argument (test_pl_reloader.SafetyTests.test_password_is_not_an_ssh_command_argument) ... ok
+{"event": "RESTORE_BEGIN", "monotonic": 120187.0612686, "reason": "TEST"}
+{"event": "ORIGINAL_ALREADY_RUNNING_NO_RELOAD", "monotonic": 120187.0613483, "service": "ees331-camera", "properties": {"MainPID": "123", "ActiveState": "active", "SubState": "running"}, "physical_confirmation": "REQUIRED"}
+test_restore_is_idempotent_when_original_is_running (test_pl_reloader.SafetyTests.test_restore_is_idempotent_when_original_is_running) ... ok
+{"event": "RESTORE_BEGIN", "monotonic": 120187.0621168, "reason": "TEST"}
+{"event": "ACTION_STOP_UNSAFE", "monotonic": 120187.0622801, "units": ["ees331-action-test.service"], "halted": false, "freed": false}
+test_restore_requires_action_dma_release_markers (test_pl_reloader.SafetyTests.test_restore_requires_action_dma_release_markers) ... ok
+{"event": "RESTORE_BEGIN", "monotonic": 120187.0631034, "reason": "TEST"}
+{"event": "ORIGINAL_RESTORE_READY", "monotonic": 120187.0633506, "service": "ees331-camera", "properties": {"MainPID": "456", "ActiveState": "active", "SubState": "running"}, "physical_confirmation": "REQUIRED"}
+test_restore_starts_original_after_proven_release (test_pl_reloader.SafetyTests.test_restore_starts_original_after_proven_release) ... ok
+test_run_can_stream_output_without_losing_full_text (test_pl_reloader.SafetyTests.test_run_can_stream_output_without_losing_full_text) ... ok
+test_self_test_marker (test_pl_reloader.SafetyTests.test_self_test_marker) ... ok
+test_tcp_preflight_accepts_reachable_ssh (test_pl_reloader.SafetyTests.test_tcp_preflight_accepts_reachable_ssh) ... ok
+test_tcp_preflight_reports_board_network_problem (test_pl_reloader.SafetyTests.test_tcp_preflight_reports_board_network_problem) ... ok
+test_v14_default_password_is_xilinx (test_pl_reloader.SafetyTests.test_v14_default_password_is_xilinx) ... ok
+test_wait_until_success_and_timeout (test_pl_reloader.SafetyTests.test_wait_until_success_and_timeout) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.070s
+
+OK
