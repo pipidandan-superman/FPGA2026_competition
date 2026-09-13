@@ -1,0 +1,8 @@
+PAGE_BUILT 01_PC_PS_PL完整框图 shapes=65
+PAGE_BUILT 02A_PS_PL视频与存储模块图 shapes=51
+PAGE_BUILT 02B_PS_PL动作控制模块图 shapes=54
+PAGE_BUILT 03A_控制流程_启动与就绪 shapes=47
+PAGE_BUILT 03B_控制流程_识别与动作事务 shapes=37
+PAGE_BUILT 03C_控制流程_异常退出与恢复 shapes=44
+0
+VISIO_BUILD_PASS pages=6

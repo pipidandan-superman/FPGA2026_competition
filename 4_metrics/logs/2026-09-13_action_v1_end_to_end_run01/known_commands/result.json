@@ -1,0 +1,15 @@
+{
+  "state": "PASS",
+  "marker": "ACTION_V1_COM4_BOARD_PASS",
+  "commands": 1000,
+  "total_with_clear": 1001,
+  "bytes": 7007,
+  "final": {
+    "status": 0,
+    "seq": 1001,
+    "action": 0,
+    "done_seq": 1001,
+    "elapsed_ms": 31.999999991967343
+  },
+  "physical_led": "USER_CONFIRMATION_REQUIRED"
+}

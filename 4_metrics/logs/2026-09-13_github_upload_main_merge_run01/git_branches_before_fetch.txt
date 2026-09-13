@@ -1,0 +1,6 @@
++ codex/full/pipidandan-superman                800a0d6 (E:/competition_worktrees/FPGA2026_competition/pipidandan-superman) [origin/codex/full/pipidandan-superman] docs: record v1.4 publication receipt
+* main                                          66c7329 [origin/main: behind 51] fix: freeze EES-331 OV5640 camera HDMI visual pass
+  remotes/origin/HEAD                           -> origin/main
+  remotes/origin/codex/full/pipidandan-superman 800a0d6 docs: record v1.4 publication receipt
+  remotes/origin/feat/gesture-model-v1          ce44fe0 merge origin/main into feat/gesture-model-v1
+  remotes/origin/main                           236678c Merge pull request #5 from pipidandan-superman/codex/full/pipidandan-superman

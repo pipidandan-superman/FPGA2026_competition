@@ -1,0 +1,10 @@
+{"event": "HARDWARE_CONTRACT", "monotonic": 2590.657414574, "marker": "ACTION_HARDWARE_CONTRACT_PASS", "design": "display_test", "axi_lite_base": "0x43c00000", "axi_lite_range": 4096, "vdma_base": "0x43000000", "control_clock_hz": 50000000, "board_clock_hz": 100000000, "bluetooth_ports": 0, "action_leds": 7, "uart_baud": 9600, "bridge_ready_external": false}
+{"event": "PL_LOADED", "monotonic": 2592.399762194, "bit_sha256": "bffaa83565d60ea28e04a31497b4c3dff828b0359012dafe1d5d1ea5a390e16d", "state": "operating", "base": "0x43000000"}
+{"event": "SENSOR_SETTLE_COMPLETE", "monotonic": 2593.445945226, "seconds": 1.0}
+{"event": "VDMA_RESET_OK", "monotonic": 2593.451954802}
+{"event": "BUFFER_ALLOCATED", "monotonic": 2593.479504102, "address": "0x10100000", "size": 3145728, "coherent": false}
+{"event": "FIRST_FRAME_TIMEOUT", "monotonic": 2598.48607652, "seen": [false, false], "mm2s_sr": "0x11000", "s2mm_sr": "0x10000", "mm2s_cr": "0x1008b", "s2mm_cr": "0x180cb"}
+{"event": "FAIL", "monotonic": 2598.500373308, "error": "RuntimeError('No real frame transition: [False, False]')"}
+{"event": "VDMA_HALTED", "monotonic": 2598.50647754}
+{"event": "BUFFER_FREED", "monotonic": 2598.512893562}
+{"event": "FINAL", "monotonic": 2598.517598534, "state": "FAIL", "error": "RuntimeError('No real frame transition: [False, False]')"}

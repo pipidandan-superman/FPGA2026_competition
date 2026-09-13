@@ -1,0 +1,14 @@
+{
+  "mode": "normal",
+  "stale": false,
+  "effective_action": "UNKNOWN",
+  "inference_frames": 1178,
+  "rx_stats": {
+    "packets": 757760,
+    "complete_frames": 1184,
+    "lost_frames": 0,
+    "consumer_skipped_frames": 6
+  },
+  "error": null,
+  "protocol": null
+}

@@ -1,0 +1,58 @@
+{"event": "MODEL_LOADED", "monotonic": 107912.906, "sha256": "68db7cacbdd6d9c9a583e1c50a9f5934a3a6b78675b215ec86717827be8bfc79", "names": {"0": "Down", "1": "Left", "2": "Right", "3": "Stop", "4": "Thumbs Down", "5": "Thumbs up", "6": "Up"}}
+{"event": "REAL_MODEL_WINDOW_BEGIN", "monotonic": 107913.218, "seconds": 180.0}
+{"event": "ACTION_INITIAL_CLEAR", "monotonic": 107913.234, "status": 0, "seq": 1002, "action": 0, "done_seq": 1002, "elapsed_ms": 16.00000000325963}
+{"event": "ACTION_LINK_READY", "monotonic": 107913.234, "prior_state": {"status": 5, "seq": 1001, "action": 0, "done_seq": 1001}}
+{"event": "INFERENCE_PROGRESS", "monotonic": 107918.234, "frames": 25, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 107923.234, "frames": 50, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 107928.25, "frames": 75, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 107933.234, "frames": 100, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 107938.234, "frames": 125, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 107943.234, "frames": 150, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 107948.25, "frames": 175, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 107953.234, "frames": 200, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 107958.234, "frames": 225, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 107963.281, "frames": 250, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 107968.234, "frames": 275, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 107973.234, "frames": 300, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 107978.234, "frames": 325, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 107983.234, "frames": 350, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 107988.281, "frames": 375, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 107993.25, "frames": 400, "latest": []}
+{"event": "ACTION_DECISION", "monotonic": 107994.437, "action": 4, "label": "Stop", "fid": 1767, "confidence": 0.8155760765075684, "streak": 3, "reason": "stable"}
+{"event": "ACTION_CONFIRMED", "monotonic": 107994.453, "decision": {"action": 4, "label": "Stop", "fid": 1767, "confidence": 0.8155760765075684, "streak": 3, "reason": "stable"}, "status": 0, "seq": 1003, "action": 4, "done_seq": 1003, "elapsed_ms": 15.999999988707714}
+{"event": "INFERENCE_PROGRESS", "monotonic": 107998.234, "frames": 425, "latest": [{"label": "Stop", "confidence": 0.8916483521461487, "xyxy": [162.06158447265625, 12.037200927734375, 436.461181640625, 363.7900085449219]}]}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108003.234, "frames": 450, "latest": [{"label": "Stop", "confidence": 0.9004374146461487, "xyxy": [189.69119262695312, 3.14154052734375, 451.6077575683594, 361.14544677734375]}]}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108008.234, "frames": 475, "latest": [{"label": "Stop", "confidence": 0.9077000617980957, "xyxy": [205.0151824951172, 8.2574462890625, 462.98162841796875, 358.8365478515625]}]}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108013.25, "frames": 500, "latest": [{"label": "Stop", "confidence": 0.8880442380905151, "xyxy": [259.5723876953125, 9.744873046875, 539.5174560546875, 368.809814453125]}]}
+{"event": "ACTION_DECISION", "monotonic": 108016.843, "action": 0, "label": "CLEAR", "reason": "invalid_for_one_second"}
+{"event": "ACTION_CONFIRMED", "monotonic": 108016.859, "decision": {"action": 0, "label": "CLEAR", "reason": "invalid_for_one_second"}, "status": 0, "seq": 1004, "action": 0, "done_seq": 1004, "elapsed_ms": 16.00000000325963}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108018.234, "frames": 525, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108023.234, "frames": 550, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108028.234, "frames": 575, "latest": [{"label": "Thumbs up", "confidence": 0.80085289478302, "xyxy": [229.5567169189453, 106.55398559570312, 353.32623291015625, 324.7920227050781]}]}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108033.25, "frames": 600, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108038.234, "frames": 625, "latest": []}
+{"event": "ACTION_DECISION", "monotonic": 108041.656, "action": 6, "label": "Thumbs up", "fid": 2003, "confidence": 0.872939944267273, "streak": 3, "reason": "stable"}
+{"event": "ACTION_CONFIRMED", "monotonic": 108041.671, "decision": {"action": 6, "label": "Thumbs up", "fid": 2003, "confidence": 0.872939944267273, "streak": 3, "reason": "stable"}, "status": 0, "seq": 1005, "action": 6, "done_seq": 1005, "elapsed_ms": 14.999999999417923}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108043.234, "frames": 650, "latest": [{"label": "Thumbs up", "confidence": 0.8592408895492554, "xyxy": [181.68426513671875, 130.10699462890625, 293.9864501953125, 351.2520751953125]}]}
+{"event": "ACTION_DECISION", "monotonic": 108044.843, "action": 0, "label": "CLEAR", "reason": "invalid_for_one_second"}
+{"event": "ACTION_CONFIRMED", "monotonic": 108044.859, "decision": {"action": 0, "label": "CLEAR", "reason": "invalid_for_one_second"}, "status": 0, "seq": 1006, "action": 0, "done_seq": 1006, "elapsed_ms": 16.00000000325963}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108048.234, "frames": 675, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108053.25, "frames": 700, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108058.25, "frames": 725, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108063.25, "frames": 750, "latest": [{"label": "Thumbs Down", "confidence": 0.7054794430732727, "xyxy": [189.4764404296875, 73.59527587890625, 301.94940185546875, 416.6397705078125]}, {"label": "Thumbs up", "confidence": 0.5198973417282104, "xyxy": [189.63766479492188, 87.29217529296875, 300.72650146484375, 416.48284912109375]}]}
+{"event": "ACTION_DECISION", "monotonic": 108063.843, "action": 5, "label": "Thumbs Down", "fid": 2114, "confidence": 0.8125124573707581, "streak": 3, "reason": "stable"}
+{"event": "ACTION_CONFIRMED", "monotonic": 108063.875, "decision": {"action": 5, "label": "Thumbs Down", "fid": 2114, "confidence": 0.8125124573707581, "streak": 3, "reason": "stable"}, "status": 0, "seq": 1007, "action": 5, "done_seq": 1007, "elapsed_ms": 32.00000000651926}
+{"event": "ACTION_DECISION", "monotonic": 108065.25, "action": 0, "label": "CLEAR", "reason": "invalid_for_one_second"}
+{"event": "ACTION_CONFIRMED", "monotonic": 108065.265, "decision": {"action": 0, "label": "CLEAR", "reason": "invalid_for_one_second"}, "status": 0, "seq": 1008, "action": 0, "done_seq": 1008, "elapsed_ms": 14.999999999417923}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108068.25, "frames": 775, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108073.25, "frames": 800, "latest": []}
+{"event": "ACTION_DECISION", "monotonic": 108074.671, "action": 4, "label": "Stop", "fid": 2168, "confidence": 0.8125124573707581, "streak": 3, "reason": "stable"}
+{"event": "ACTION_CONFIRMED", "monotonic": 108074.718, "decision": {"action": 4, "label": "Stop", "fid": 2168, "confidence": 0.8125124573707581, "streak": 3, "reason": "stable"}, "status": 0, "seq": 1009, "action": 4, "done_seq": 1009, "elapsed_ms": 46.999999991385266}
+{"event": "ACTION_DECISION", "monotonic": 108076.671, "action": 0, "label": "CLEAR", "reason": "invalid_for_one_second"}
+{"event": "ACTION_CONFIRMED", "monotonic": 108076.703, "decision": {"action": 0, "label": "CLEAR", "reason": "invalid_for_one_second"}, "status": 0, "seq": 1010, "action": 0, "done_seq": 1010, "elapsed_ms": 31.999999991967343}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108078.25, "frames": 825, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108083.25, "frames": 850, "latest": []}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108088.25, "frames": 875, "latest": [{"label": "Thumbs Down", "confidence": 0.6755245923995972, "xyxy": [250.6036834716797, 81.39256286621094, 371.31719970703125, 332.18115234375]}]}
+{"event": "INFERENCE_PROGRESS", "monotonic": 108093.25, "frames": 900, "latest": [{"label": "Stop", "confidence": 0.9052175879478455, "xyxy": [236.21868896484375, 50.154571533203125, 465.89556884765625, 387.0025329589844]}]}
+{"event": "ACTION_CLOSE_CLEAR", "monotonic": 108093.296, "status": 0, "seq": 1011, "action": 0, "done_seq": 1011, "elapsed_ms": 31.000000002677552}
+{"event": "FINAL", "monotonic": 108108.187, "state": "PASS", "marker": "REAL_MODEL_AXI_UART_CHECK", "inference_frames": 900, "stable_actions": [4, 5, 6], "confirmed": 10, "serial_bytes": 70, "expected_bytes": 70, "publisher_error": null, "rx_stats": {"packets": 576001, "complete_frames": 900, "lost_frames": 0}, "physical_led": "USER_CONFIRMATION_REQUIRED", "model_sha256": "68db7cacbdd6d9c9a583e1c50a9f5934a3a6b78675b215ec86717827be8bfc79"}

@@ -1,0 +1,18 @@
+{"event": "START", "elapsed": 0.014999999999417923, "model_sha256": "68db7cacbdd6d9c9a583e1c50a9f5934a3a6b78675b215ec86717827be8bfc79", "mode": "normal", "source": "192.168.240.10", "port": 5000}
+{"event": "ACTION_INITIAL_CLEAR", "elapsed": 0.031000000002677552, "status": 0, "seq": 9, "action": 0, "done_seq": 9, "elapsed_ms": 31.000000002677552}
+{"event": "ACTION_LINK_READY", "elapsed": 0.031000000002677552, "prior_state": {"status": 5, "seq": 8, "action": 0, "done_seq": 8}}
+{"event": "ACTION_DECISION", "elapsed": 2.8590000000112923, "action": 4, "label": "Stop", "fid": 1584, "confidence": 0.8803976774215698, "streak": 3, "reason": "stable"}
+{"event": "ACTION_CONFIRMED", "elapsed": 2.875, "decision": {"action": 4, "label": "Stop", "fid": 1584, "confidence": 0.8803976774215698, "streak": 3, "reason": "stable"}, "status": 0, "seq": 10, "action": 4, "done_seq": 10, "elapsed_ms": 15.999999988707714}
+{"event": "ACTION_DECISION", "elapsed": 4.843000000008033, "action": 7, "label": "Up", "fid": 1594, "confidence": 0.8803608417510986, "streak": 3, "reason": "stable"}
+{"event": "ACTION_CONFIRMED", "elapsed": 4.875, "decision": {"action": 7, "label": "Up", "fid": 1594, "confidence": 0.8803608417510986, "streak": 3, "reason": "stable"}, "status": 0, "seq": 11, "action": 7, "done_seq": 11, "elapsed_ms": 31.999999991967343}
+{"event": "ACTION_DECISION", "elapsed": 7.453000000008615, "action": 5, "label": "Thumbs Down", "fid": 1607, "confidence": 0.7504165172576904, "streak": 3, "reason": "stable"}
+{"event": "ACTION_CONFIRMED", "elapsed": 7.468000000008033, "decision": {"action": 5, "label": "Thumbs Down", "fid": 1607, "confidence": 0.7504165172576904, "streak": 3, "reason": "stable"}, "status": 0, "seq": 12, "action": 5, "done_seq": 12, "elapsed_ms": 14.999999999417923}
+{"event": "ACTION_DECISION", "elapsed": 11.453000000008615, "action": 7, "label": "Up", "fid": 1627, "confidence": 0.7974097728729248, "streak": 3, "reason": "stable"}
+{"event": "ACTION_CONFIRMED", "elapsed": 11.468000000008033, "decision": {"action": 7, "label": "Up", "fid": 1627, "confidence": 0.7974097728729248, "streak": 3, "reason": "stable"}, "status": 0, "seq": 13, "action": 7, "done_seq": 13, "elapsed_ms": 14.999999999417923}
+{"event": "ACTION_DECISION", "elapsed": 13.453000000008615, "action": 1, "label": "Down", "fid": 1637, "confidence": 0.8926365375518799, "streak": 3, "reason": "stable"}
+{"event": "ACTION_CONFIRMED", "elapsed": 13.468000000008033, "decision": {"action": 1, "label": "Down", "fid": 1637, "confidence": 0.8926365375518799, "streak": 3, "reason": "stable"}, "status": 0, "seq": 14, "action": 1, "done_seq": 14, "elapsed_ms": 14.999999999417923}
+{"event": "ACTION_DECISION", "elapsed": 15.047000000005937, "action": 4, "label": "Stop", "fid": 1645, "confidence": 0.8970651626586914, "streak": 3, "reason": "stable"}
+{"event": "ACTION_CONFIRMED", "elapsed": 15.078000000008615, "decision": {"action": 4, "label": "Stop", "fid": 1645, "confidence": 0.8970651626586914, "streak": 3, "reason": "stable"}, "status": 0, "seq": 15, "action": 4, "done_seq": 15, "elapsed_ms": 31.000000002677552}
+{"event": "ACTION_DECISION", "elapsed": 16.656000000002678, "action": 0, "label": "CLEAR", "reason": "invalid_for_one_second"}
+{"event": "ACTION_CONFIRMED", "elapsed": 16.672000000005937, "decision": {"action": 0, "label": "CLEAR", "reason": "invalid_for_one_second"}, "status": 0, "seq": 16, "action": 0, "done_seq": 16, "elapsed_ms": 16.00000000325963}
+{"event": "ACTION_CLOSE_CLEAR", "elapsed": 17.312000000005355, "status": 0, "seq": 17, "action": 0, "done_seq": 17, "elapsed_ms": 31.000000002677552}

@@ -1,0 +1,17 @@
+{
+  "marker": "PL_RELOADER_V14_PACKAGE_PASS",
+  "checks": {
+    "package_hash_failures": 0,
+    "self_test_marker": "PL_RELOADER_SELF_TEST_PASS",
+    "self_test_version": "1.4",
+    "payload_files": 13,
+    "sensor_settle_10": true,
+    "first_frame_timeout_30": true,
+    "bit_sha256": "bffaa83565d60ea28e04a31497b4c3dff828b0359012dafe1d5d1ea5a390e16d",
+    "hwh_sha256": "64ff7724c56c97b52fac699168f762e30ea42b4d25910a30caf00f58c8b55ed0",
+    "bit_unchanged": true,
+    "hwh_unchanged": true,
+    "manifest_camera_sha": "8471f6aeb2f08a51a7d18171de8d667f1c7dc4bbd44538ae8efb3775e749c9b4"
+  },
+  "failures": []
+}

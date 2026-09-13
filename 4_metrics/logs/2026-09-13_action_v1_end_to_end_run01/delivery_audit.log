@@ -1,0 +1,11 @@
+RELEASE_MANIFEST_HASH_PASS 13
+REAL_MODEL_WIRE_THREE_FRAME_PASS real_model 10
+REAL_MODEL_WIRE_THREE_FRAME_PASS real_model_up_down 8
+Traceback (most recent call last):
+  File "E:\competition\4_metrics\logs\2026-09-13_action_v1_end_to_end_run01\verify_delivery.py", line 43, in <module>
+    physical = json.loads((run/'physical_gui_manual.json').read_text())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\pathlib.py", line 1028, in read_text
+    return f.read()
+           ^^^^^^^^
+UnicodeDecodeError: 'gbk' codec can't decode byte 0x8a in position 98: illegal multibyte sequence

@@ -1,0 +1,5916 @@
+{
+  "output_dir": "E:\\competition\\1_docs\\doc\\PC_PS_PL系统图集_20260913",
+  "basename": "PC_PS_PL完整图集_v1",
+  "pages": [
+    {
+      "name": "01_PC_PS_PL完整框图",
+      "title": "PC＋PS＋PL 完整系统框图",
+      "basename": "01_PC_PS_PL完整框图",
+      "width": 2000,
+      "height": 1414,
+      "width_inches": 16.5354,
+      "height_inches": 11.6929,
+      "shapes": [
+        {
+          "id": "title",
+          "x": 40,
+          "y": 24,
+          "w": 1880,
+          "h": 58,
+          "text": "PC＋PS＋PL 完整系统框图",
+          "fs": 39,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "subtitle",
+          "x": 42,
+          "y": 90,
+          "w": 1890,
+          "h": 48,
+          "text": "当前闭环：OV5640 → PL 视频 → PS / DDR → PC 手势模型 → PS / AXI-Lite → PL LED 与 UART → 回执",
+          "fs": 21,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "foot",
+          "x": 40,
+          "y": 1365,
+          "w": 1920,
+          "h": 29,
+          "text": "EES-331 / Zynq-7020  ·  工程快照 2026-09-13  ·  固定动作载荷 + Reloader v1.4  ·  源文件与证据见阅读说明",
+          "fs": 17,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "legend0",
+          "x": 129,
+          "y": 176,
+          "w": 380,
+          "h": 36,
+          "text": "控制 / 寄存器访问",
+          "fs": 20,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#58707B",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "legend1",
+          "x": 609,
+          "y": 176,
+          "w": 380,
+          "h": 36,
+          "text": "图像 / DDR 数据",
+          "fs": 20,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#58707B",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "legend2",
+          "x": 1089,
+          "y": 176,
+          "w": 380,
+          "h": 36,
+          "text": "状态 / 完成反馈",
+          "fs": 20,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#58707B",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "legend3",
+          "x": 1569,
+          "y": 176,
+          "w": 380,
+          "h": 36,
+          "text": "规划功能（未接入）",
+          "fs": 20,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#58707B",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "pc",
+          "x": 40,
+          "y": 238,
+          "w": 535,
+          "h": 895,
+          "text": "",
+          "fs": 22,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#087FAB",
+          "dash": false,
+          "align": 1,
+          "kind": "container",
+          "color": "#243D49",
+          "radius": 8,
+          "lw": 1.5
+        },
+        {
+          "id": "pc_label",
+          "x": 56,
+          "y": 250,
+          "w": 503,
+          "h": 39,
+          "text": "PC：识别、判定与运行管理",
+          "fs": 27,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "soc",
+          "x": 645,
+          "y": 238,
+          "w": 1315,
+          "h": 895,
+          "text": "",
+          "fs": 22,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#58707B",
+          "dash": false,
+          "align": 1,
+          "kind": "container",
+          "color": "#243D49",
+          "radius": 8,
+          "lw": 1.5
+        },
+        {
+          "id": "soc_label",
+          "x": 661,
+          "y": 250,
+          "w": 1283,
+          "h": 39,
+          "text": "EES-331 · Zynq-7020：PS 运行时 + PL 视频 / 动作硬件",
+          "fs": 27,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "ps",
+          "x": 680,
+          "y": 310,
+          "w": 510,
+          "h": 660,
+          "text": "",
+          "fs": 22,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#087FAB",
+          "dash": false,
+          "align": 1,
+          "kind": "container",
+          "color": "#243D49",
+          "radius": 8,
+          "lw": 1.5
+        },
+        {
+          "id": "ps_label",
+          "x": 696,
+          "y": 322,
+          "w": 478,
+          "h": 39,
+          "text": "PS：ARM / Linux / PYNQ 3.0.1",
+          "fs": 27,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "pl",
+          "x": 1225,
+          "y": 310,
+          "w": 700,
+          "h": 660,
+          "text": "",
+          "fs": 22,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#58707B",
+          "dash": false,
+          "align": 1,
+          "kind": "container",
+          "color": "#243D49",
+          "radius": 8,
+          "lw": 1.5
+        },
+        {
+          "id": "pl_label",
+          "x": 1241,
+          "y": 322,
+          "w": 668,
+          "h": 39,
+          "text": "PL：采集、搬运、显示与动作输出",
+          "fs": 27,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "reload",
+          "x": 80,
+          "y": 312,
+          "w": 455,
+          "h": 88,
+          "text": "PL Reloader v1.4\n检查状态 / 加载 / 恢复",
+          "fs": 22,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "rx",
+          "x": 80,
+          "y": 460,
+          "w": 455,
+          "h": 96,
+          "text": "validated_receiver.Receiver\nOV56 重组 / CRC32 / BGR 解码",
+          "fs": 22,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "model",
+          "x": 80,
+          "y": 600,
+          "w": 455,
+          "h": 104,
+          "text": "gesture_viewer.py · best.pt\nUltralytics YOLO · device=cpu\n7 类预测；当前非 PL 推理",
+          "fs": 22,
+          "bold": false,
+          "fill": "#FCEAD9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "gate",
+          "x": 80,
+          "y": 752,
+          "w": 455,
+          "h": 104,
+          "text": "StableAction\n≥0.75 · 同类 3 个不同新推理帧\n仅 5 类自动下发 / 1 s 无效→CLEAR",
+          "fs": 22,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "client",
+          "x": 80,
+          "y": 902,
+          "w": 455,
+          "h": 100,
+          "text": "ActionPublisher / ActionClient\nQUERY 同步 → seq++ → ACTN\n单条在途 / 匹配 ACTA 完成",
+          "fs": 22,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "evidence",
+          "x": 80,
+          "y": 1050,
+          "w": 455,
+          "h": 57,
+          "text": "UI / predictions / events / 接收统计",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "supervisor",
+          "x": 720,
+          "y": 380,
+          "w": 430,
+          "h": 73,
+          "text": "重载控制器 + systemd\n单一 Camera / ACTL 所有者",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "snapshot",
+          "x": 720,
+          "y": 495,
+          "w": 430,
+          "h": 105,
+          "text": "camera_action_v1.py + Camera\n三槽快照 / invalidate / OV56 打包\n视频默认 5 fps → PC UDP 5000",
+          "fs": 22,
+          "bold": false,
+          "fill": "#E9F2E7",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "service",
+          "x": 720,
+          "y": 675,
+          "w": 430,
+          "h": 100,
+          "text": "ActionService · UDP 5001\n来源 / CRC / 序号 / 忙闲检查\n去重；单一控制事务",
+          "fs": 22,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "driver",
+          "x": 720,
+          "y": 845,
+          "w": 430,
+          "h": 98,
+          "text": "ActionDriver + OrderedMMIO\n写动作/序号/START → 轮询 DONE\n核对结果 → ACK → READY",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "camera",
+          "x": 1280,
+          "y": 380,
+          "w": 590,
+          "h": 74,
+          "text": "OV5640 固定相机 → DVP 采集 / SCCB\ncam_captrue_data → Video In to AXIS",
+          "fs": 22,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "vdma",
+          "x": 1280,
+          "y": 500,
+          "w": 590,
+          "h": 91,
+          "text": "axi_vdma_0 + axi_mem_intercon\nS2MM：流→DDR；MM2S：DDR→流\n24-bit AXIS / 64-bit AXI-MM",
+          "fs": 22,
+          "bold": false,
+          "fill": "#FCEAD9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "hdmi",
+          "x": 1370,
+          "y": 656,
+          "w": 500,
+          "h": 84,
+          "text": "AXIS Video Out → pix_frame_display\nRGB→YCbCr422 → ADV7511 → HDMI",
+          "fs": 21,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "actl",
+          "x": 1280,
+          "y": 845,
+          "w": 365,
+          "h": 98,
+          "text": "axi_action_0 · ACTL v1\nCSR / 执行 FSM / UART TX\n50 MHz · 0x43C00000",
+          "fs": 21,
+          "bold": false,
+          "fill": "#FCEAD9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "outputs",
+          "x": 1720,
+          "y": 825,
+          "w": 170,
+          "h": 138,
+          "text": "ACTION_LED[6:0]\n7 个 LED\nUART 9600/8N1\n→ PC COM4 采集",
+          "fs": 20,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "ddr",
+          "x": 720,
+          "y": 1016,
+          "w": 1170,
+          "h": 95,
+          "text": "片外 DDR（经 PS DDR 控制器）\nLinux CMA 分配 3 × 1 MiB 槽；每帧 640 × 480 × 3 = 921,600 B\n当前分配范围 0x10000000 ≤ buffer < 0x20000000；读、写均路由至 HP1",
+          "fs": 22,
+          "bold": false,
+          "fill": "#E9F2E7",
+          "stroke": "#59845D",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "ssh",
+          "x": 571,
+          "y": 330,
+          "w": 145,
+          "h": 45,
+          "text": "SSH / TCP 22",
+          "fs": 17,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "none",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#58707B",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "udp5000",
+          "x": 573,
+          "y": 480,
+          "w": 140,
+          "h": 55,
+          "text": "视频上行\nUDP 5000",
+          "fs": 18,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "none",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#58707B",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "actn",
+          "x": 574,
+          "y": 791,
+          "w": 135,
+          "h": 48,
+          "text": "ACTN\nUDP 5001",
+          "fs": 18,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "none",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#58707B",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "acta",
+          "x": 577,
+          "y": 1021,
+          "w": 136,
+          "h": 40,
+          "text": "ACTA 回执",
+          "fs": 18,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#58707B",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "gp",
+          "x": 1150,
+          "y": 857,
+          "w": 130,
+          "h": 36,
+          "text": "GP0 / MMIO",
+          "fs": 17,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "none",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#58707B",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "future",
+          "x": 40,
+          "y": 1170,
+          "w": 1920,
+          "h": 167,
+          "text": "",
+          "fs": 22,
+          "bold": false,
+          "fill": "#F2EAF6",
+          "stroke": "#9064AA",
+          "dash": true,
+          "align": 1,
+          "kind": "container",
+          "color": "#243D49",
+          "radius": 8,
+          "lw": 1.5
+        },
+        {
+          "id": "future_label",
+          "x": 56,
+          "y": 1182,
+          "w": 1888,
+          "h": 39,
+          "text": "赛题目标扩展 · DESIGN_ONLY：以下尚未接入当前动作位流",
+          "fs": 27,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "fpc",
+          "x": 68,
+          "y": 1233,
+          "w": 570,
+          "h": 78,
+          "text": "PC：腕部相机 → Qwen2.5-VL 语义复核\n任务状态机 / 实际 Ryzen 推理后端待验证",
+          "fs": 21,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#9064AA",
+          "dash": true,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "fps",
+          "x": 710,
+          "y": 1233,
+          "w": 580,
+          "h": 78,
+          "text": "PS：新观测 / 对象版本 / 有效期检查\n控制协议适配 → 机械臂控制器 → 实际反馈",
+          "fs": 21,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#9064AA",
+          "dash": true,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "fpl",
+          "x": 1360,
+          "y": 1233,
+          "w": 570,
+          "h": 78,
+          "text": "PL：ROI / 小模型 / 时间戳等候选模块\n须独立完成精度、资源、时序与板级验证",
+          "fs": 21,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#9064AA",
+          "dash": true,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge_0",
+          "points": [
+            [
+              40,
+              155
+            ],
+            [
+              1960,
+              155
+            ]
+          ],
+          "color": "#58707B",
+          "lw": 1,
+          "end": false,
+          "start": false,
+          "dash": false,
+          "src": null,
+          "dst": null
+        },
+        {
+          "id": "edge_1",
+          "points": [
+            [
+              55,
+              193
+            ],
+            [
+              117,
+              193
+            ]
+          ],
+          "color": "#425963",
+          "lw": 3,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": null,
+          "dst": null
+        },
+        {
+          "id": "edge_2",
+          "points": [
+            [
+              535,
+              193
+            ],
+            [
+              597,
+              193
+            ]
+          ],
+          "color": "#087FAB",
+          "lw": 3,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": null,
+          "dst": null
+        },
+        {
+          "id": "edge_3",
+          "points": [
+            [
+              1015,
+              193
+            ],
+            [
+              1077,
+              193
+            ]
+          ],
+          "color": "#C66A20",
+          "lw": 3,
+          "end": true,
+          "start": false,
+          "dash": true,
+          "src": null,
+          "dst": null
+        },
+        {
+          "id": "edge_4",
+          "points": [
+            [
+              1495,
+              193
+            ],
+            [
+              1557,
+              193
+            ]
+          ],
+          "color": "#9064AA",
+          "lw": 3,
+          "end": true,
+          "start": false,
+          "dash": true,
+          "src": null,
+          "dst": null
+        },
+        {
+          "id": "edge_5",
+          "points": [
+            [
+              535,
+              356.0
+            ],
+            [
+              720,
+              416.5
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "reload",
+          "dst": "supervisor"
+        },
+        {
+          "id": "edge_6",
+          "points": [
+            [
+              720,
+              547.5
+            ],
+            [
+              620,
+              547
+            ],
+            [
+              620,
+              508
+            ],
+            [
+              535,
+              508.0
+            ]
+          ],
+          "color": "#087FAB",
+          "lw": 3,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "snapshot",
+          "dst": "rx"
+        },
+        {
+          "id": "edge_7",
+          "points": [
+            [
+              307.5,
+              556
+            ],
+            [
+              307.5,
+              600
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "rx",
+          "dst": "model"
+        },
+        {
+          "id": "edge_8",
+          "points": [
+            [
+              307.5,
+              704
+            ],
+            [
+              307.5,
+              752
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "model",
+          "dst": "gate"
+        },
+        {
+          "id": "edge_9",
+          "points": [
+            [
+              307.5,
+              856
+            ],
+            [
+              307.5,
+              902
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "gate",
+          "dst": "client"
+        },
+        {
+          "id": "edge_10",
+          "points": [
+            [
+              307.5,
+              1002
+            ],
+            [
+              307.5,
+              1050
+            ]
+          ],
+          "color": "#C66A20",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": true,
+          "src": "client",
+          "dst": "evidence"
+        },
+        {
+          "id": "edge_11",
+          "points": [
+            [
+              535,
+              952.0
+            ],
+            [
+              605,
+              952
+            ],
+            [
+              605,
+              725
+            ],
+            [
+              720,
+              725.0
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "client",
+          "dst": "service"
+        },
+        {
+          "id": "edge_12",
+          "points": [
+            [
+              720,
+              725.0
+            ],
+            [
+              632,
+              725
+            ],
+            [
+              632,
+              978
+            ],
+            [
+              535,
+              978
+            ],
+            [
+              535,
+              952.0
+            ]
+          ],
+          "color": "#C66A20",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": true,
+          "src": "service",
+          "dst": "client"
+        },
+        {
+          "id": "edge_13",
+          "points": [
+            [
+              935.0,
+              775
+            ],
+            [
+              935.0,
+              845
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "service",
+          "dst": "driver"
+        },
+        {
+          "id": "edge_14",
+          "points": [
+            [
+              1150,
+              894.0
+            ],
+            [
+              1280,
+              894.0
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "driver",
+          "dst": "actl"
+        },
+        {
+          "id": "edge_15",
+          "points": [
+            [
+              1462.5,
+              943
+            ],
+            [
+              1462.5,
+              966
+            ],
+            [
+              935,
+              966
+            ],
+            [
+              935.0,
+              943
+            ]
+          ],
+          "color": "#C66A20",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": true,
+          "src": "actl",
+          "dst": "driver"
+        },
+        {
+          "id": "edge_16",
+          "points": [
+            [
+              1575.0,
+              454
+            ],
+            [
+              1575.0,
+              500
+            ]
+          ],
+          "color": "#087FAB",
+          "lw": 3,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "camera",
+          "dst": "vdma"
+        },
+        {
+          "id": "edge_17",
+          "points": [
+            [
+              1575.0,
+              591
+            ],
+            [
+              1575,
+              623
+            ],
+            [
+              1620,
+              623
+            ],
+            [
+              1620.0,
+              656
+            ]
+          ],
+          "color": "#087FAB",
+          "lw": 3,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "vdma",
+          "dst": "hdmi"
+        },
+        {
+          "id": "edge_18",
+          "points": [
+            [
+              1645,
+              894.0
+            ],
+            [
+              1720,
+              894.0
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "actl",
+          "dst": "outputs"
+        },
+        {
+          "id": "edge_19",
+          "points": [
+            [
+              935.0,
+              453
+            ],
+            [
+              935.0,
+              495
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "supervisor",
+          "dst": "snapshot"
+        },
+        {
+          "id": "edge_20",
+          "points": [
+            [
+              1280,
+              545.5
+            ],
+            [
+              1250,
+              545.5
+            ],
+            [
+              1250,
+              990
+            ],
+            [
+              1937,
+              990
+            ],
+            [
+              1937,
+              1063.5
+            ],
+            [
+              1890,
+              1063.5
+            ]
+          ],
+          "color": "#087FAB",
+          "lw": 3,
+          "end": true,
+          "start": true,
+          "dash": false,
+          "src": "vdma",
+          "dst": "ddr"
+        },
+        {
+          "id": "edge_21",
+          "points": [
+            [
+              720,
+              1063.5
+            ],
+            [
+              697,
+              1063.5
+            ],
+            [
+              697,
+              626
+            ],
+            [
+              935,
+              626
+            ],
+            [
+              935.0,
+              600
+            ]
+          ],
+          "color": "#087FAB",
+          "lw": 3,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "ddr",
+          "dst": "snapshot"
+        },
+        {
+          "id": "edge_22",
+          "points": [
+            [
+              638,
+              1272.0
+            ],
+            [
+              710,
+              1272.0
+            ]
+          ],
+          "color": "#9064AA",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": true,
+          "src": "fpc",
+          "dst": "fps"
+        },
+        {
+          "id": "edge_23",
+          "points": [
+            [
+              1360,
+              1272.0
+            ],
+            [
+              1290,
+              1272.0
+            ]
+          ],
+          "color": "#9064AA",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": true,
+          "src": "fpl",
+          "dst": "fps"
+        }
+      ]
+    },
+    {
+      "name": "02A_PS_PL视频与存储模块图",
+      "title": "PS＋PL 模块图：视频、AXI 互连与 DDR",
+      "basename": "02A_PS_PL视频与存储模块图",
+      "width": 2000,
+      "height": 1414,
+      "width_inches": 16.5354,
+      "height_inches": 11.6929,
+      "shapes": [
+        {
+          "id": "title",
+          "x": 40,
+          "y": 24,
+          "w": 1880,
+          "h": 58,
+          "text": "PS＋PL 模块图：视频、AXI 互连与 DDR",
+          "fs": 39,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "subtitle",
+          "x": 42,
+          "y": 90,
+          "w": 1890,
+          "h": 48,
+          "text": "依据固定发布 display_test_axi_action_uart.hwh；实线模块均有当前连接依据，图中频率为配置值而非现场示波器测量",
+          "fs": 21,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "foot",
+          "x": 40,
+          "y": 1365,
+          "w": 1920,
+          "h": 29,
+          "text": "EES-331 / Zynq-7020  ·  工程快照 2026-09-13  ·  固定动作载荷 + Reloader v1.4  ·  源文件与证据见阅读说明",
+          "fs": 17,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "ps",
+          "x": 40,
+          "y": 185,
+          "w": 1920,
+          "h": 267,
+          "text": "",
+          "fs": 22,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#087FAB",
+          "dash": false,
+          "align": 1,
+          "kind": "container",
+          "color": "#243D49",
+          "radius": 8,
+          "lw": 1.5
+        },
+        {
+          "id": "ps_label",
+          "x": 56,
+          "y": 197,
+          "w": 1888,
+          "h": 39,
+          "text": "PS / Linux 与片外 DDR：软件拥有 VDMA，PL 通过 HP 端口直接访问缓冲",
+          "fs": 27,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "sw",
+          "x": 65,
+          "y": 261,
+          "w": 425,
+          "h": 148,
+          "text": "camera_action_v1.py / Camera\nOverlay + MMIO + allocate\n锁：ees331_camera / ees331_axilt\n快照：上一完成槽 → invalidate\n复制 <10 ms 且写槽未移动才接受",
+          "fs": 21,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "gp0",
+          "x": 565,
+          "y": 280,
+          "w": 270,
+          "h": 106,
+          "text": "processing_system7_0\nM_AXI_GP0 · 32-bit\n寄存器控制主端",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "hp",
+          "x": 935,
+          "y": 260,
+          "w": 485,
+          "h": 150,
+          "text": "processing_system7_0 / DDR 控制器\nS_AXI_HP0：0x00000000–0x0FFFFFFF\nS_AXI_HP1：0x10000000–0x1FFFFFFF\n两条主通路均可译码；当前帧槽落在 HP1\n64-bit AXI-MM · FCLK_CLK0 50 MHz",
+          "fs": 20,
+          "bold": false,
+          "fill": "#E9F2E7",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "ddr",
+          "x": 1510,
+          "y": 262,
+          "w": 420,
+          "h": 148,
+          "text": "片外 DDR · CMA 帧缓冲\n3 槽 × 0x100000 B\n640×480 / stride=1920 B\n启动先清零并 flush\nCPU 快照前 invalidate",
+          "fs": 21,
+          "bold": false,
+          "fill": "#E9F2E7",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "pl",
+          "x": 270,
+          "y": 478,
+          "w": 1690,
+          "h": 660,
+          "text": "",
+          "fs": 22,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#58707B",
+          "dash": false,
+          "align": 1,
+          "kind": "container",
+          "color": "#243D49",
+          "radius": 8,
+          "lw": 1.5
+        },
+        {
+          "id": "pl_label",
+          "x": 286,
+          "y": 490,
+          "w": 1658,
+          "h": 39,
+          "text": "PL 视频数据通路",
+          "fs": 27,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "smc",
+          "x": 558,
+          "y": 544,
+          "w": 344,
+          "h": 82,
+          "text": "axi_smc · SmartConnect\nS00=GP0 → M00=VDMA / M01=ACTL",
+          "fs": 20,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "actionref",
+          "x": 1550,
+          "y": 539,
+          "w": 365,
+          "h": 87,
+          "text": "axi_action_0 → 详见 02B\nS_AXI · 32-bit / 4 KiB\n0x43C00000–0x43C00FFF",
+          "fs": 20,
+          "bold": false,
+          "fill": "#FCEAD9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "ov",
+          "x": 40,
+          "y": 690,
+          "w": 198,
+          "h": 126,
+          "text": "OV5640\nD[7:0] / HREF\nVSYNC / PCLK\nRGB565 字节流",
+          "fs": 21,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "cap",
+          "x": 304,
+          "y": 697,
+          "w": 240,
+          "h": 116,
+          "text": "cam_captrue_data_0\ncam_captrue_data\nRGB565→RGB888\n等待前 10 个帧同步",
+          "fs": 20,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "vin",
+          "x": 610,
+          "y": 694,
+          "w": 263,
+          "h": 124,
+          "text": "v_vid_in_axi4s_0\nVideo In to AXI4S\n相机 PCLK → 50 MHz\n24-bit RGB AXIS",
+          "fs": 21,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "vdma",
+          "x": 953,
+          "y": 665,
+          "w": 286,
+          "h": 177,
+          "text": "axi_vdma_0\nS2MM：流 → 内存写主端\nMM2S：内存读主端 → 流\n3 帧存储 / 无 SG\n0x43000000–0x4300FFFF\n流 24-bit / 内存 64-bit",
+          "fs": 20,
+          "bold": false,
+          "fill": "#FCEAD9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "mem",
+          "x": 1336,
+          "y": 690,
+          "w": 553,
+          "h": 144,
+          "text": "axi_mem_intercon · AXI Interconnect\nS00 = M_AXI_MM2S（读 DDR）\nS01 = M_AXI_S2MM（写 DDR）\nM00 → HP0；M01 → HP1（按地址译码）\n当前读、写帧均在 HP1 窗口",
+          "fs": 21,
+          "bold": false,
+          "fill": "#E9F2E7",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "cfg",
+          "x": 304,
+          "y": 541,
+          "w": 240,
+          "h": 105,
+          "text": "ov5640_cfg_top_0\n寄存器表 / sccb_protocol\n50 MHz；SCL / SDA",
+          "fs": 19,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "cfgdone",
+          "x": 40,
+          "y": 552,
+          "w": 198,
+          "h": 68,
+          "text": "sccb_cfg_done_0\n相机配置完成指示",
+          "fs": 19,
+          "bold": false,
+          "fill": "#E9F2E7",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "vout",
+          "x": 959,
+          "y": 923,
+          "w": 280,
+          "h": 117,
+          "text": "v_axi4s_vid_out_0\nAXI4S to Video Out\n50 MHz → 25 MHz\n24-bit RGB + DE / HS / VS",
+          "fs": 21,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "pix",
+          "x": 621,
+          "y": 923,
+          "w": 260,
+          "h": 117,
+          "text": "pix_frame_display_0\nRGB / 同步处理与框叠加\nrom_data 接常量 1\n未连接 CNN 识别结果",
+          "fs": 20,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "hmodule",
+          "x": 304,
+          "y": 912,
+          "w": 250,
+          "h": 139,
+          "text": "hdmi_out_adv7511_v1_0_0\nRGB→YCbCr422\n板级字节交换 / 输出寄存\nadv7511_cfg_top / I²C\nODDR 输出 HDMI_CLK",
+          "fs": 19,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "adv",
+          "x": 40,
+          "y": 929,
+          "w": 198,
+          "h": 119,
+          "text": "板载 ADV7511\n16-bit YCbCr422\nHS / VS / DE / CLK\n→ HDMI 显示器",
+          "fs": 20,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "vtc",
+          "x": 1340,
+          "y": 934,
+          "w": 530,
+          "h": 96,
+          "text": "v_tc_0 · 640×480 时序生成\nvtiming_out → v_axi4s_vid_out_0\nvtg_ce 反馈至 gen_clken；25 MHz",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "irq",
+          "x": 300,
+          "y": 1088,
+          "w": 1600,
+          "h": 35,
+          "text": "VDMA mm2s_introut / s2mm_introut 未连接 PS；当前 Python 用寄存器与槽位轮询。ACTL 无 IRQ。",
+          "fs": 20,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#58707B",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "clock",
+          "x": 40,
+          "y": 1170,
+          "w": 1920,
+          "h": 173,
+          "text": "",
+          "fs": 22,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#58707B",
+          "dash": false,
+          "align": 1,
+          "kind": "container",
+          "color": "#243D49",
+          "radius": 8,
+          "lw": 1.5
+        },
+        {
+          "id": "clock_label",
+          "x": 56,
+          "y": 1182,
+          "w": 1888,
+          "h": 39,
+          "text": "时钟 / 复位（独立分区，避免误把配置频率当成传感器 PCLK 实测）",
+          "fs": 27,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "clka",
+          "x": 67,
+          "y": 1226,
+          "w": 610,
+          "h": 102,
+          "text": "板外 100 MHz → clk_wiz_0\nclk_50m=50 MHz（SCCB）；pclk=25 MHz（显示）\nxclk≈24.038 MHz（相机 XCLK）；pclk_x5 未使用",
+          "fs": 20,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#58707B",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "clkb",
+          "x": 706,
+          "y": 1226,
+          "w": 620,
+          "h": 102,
+          "text": "PS FCLK_CLK0=50 MHz → AXI / VDMA / ACTL\nFCLK_RESET0_N → rst_ps7_0_50M.ext_reset_in\naux_reset_in=1；dcm_locked=1；mb_debug_sys_rst=0",
+          "fs": 20,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#58707B",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "clkc",
+          "x": 1360,
+          "y": 1226,
+          "w": 568,
+          "h": 102,
+          "text": "peripheral_aresetn → 全部 AXI 域复位\nclk_wiz.locked → 相机 / SCCB / 显示释放\nutil_vector_logic_0：NOT locked → 视频 I/O reset\n相机 vid_clk=外部 cam_pclk；HWH 100 MHz 为元数据",
+          "fs": 19,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#58707B",
+          "radius": 4,
+          "lw": 1.5
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge_0",
+          "points": [
+            [
+              40,
+              155
+            ],
+            [
+              1960,
+              155
+            ]
+          ],
+          "color": "#58707B",
+          "lw": 1,
+          "end": false,
+          "start": false,
+          "dash": false,
+          "src": null,
+          "dst": null
+        },
+        {
+          "id": "edge_1",
+          "points": [
+            [
+              1420,
+              335.0
+            ],
+            [
+              1510,
+              336.0
+            ]
+          ],
+          "color": "#087FAB",
+          "lw": 3,
+          "end": true,
+          "start": true,
+          "dash": false,
+          "src": "hp",
+          "dst": "ddr"
+        },
+        {
+          "id": "edge_2",
+          "points": [
+            [
+              490,
+              335.0
+            ],
+            [
+              565,
+              333.0
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "sw",
+          "dst": "gp0"
+        },
+        {
+          "id": "edge_3",
+          "points": [
+            [
+              490,
+              335.0
+            ],
+            [
+              520,
+              335
+            ],
+            [
+              520,
+              432
+            ],
+            [
+              906,
+              432
+            ],
+            [
+              906,
+              335
+            ],
+            [
+              935,
+              335.0
+            ]
+          ],
+          "color": "#087FAB",
+          "lw": 3,
+          "end": true,
+          "start": true,
+          "dash": false,
+          "src": "sw",
+          "dst": "hp"
+        },
+        {
+          "id": "edge_4",
+          "points": [
+            [
+              700.0,
+              386
+            ],
+            [
+              730.0,
+              544
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "gp0",
+          "dst": "smc"
+        },
+        {
+          "id": "edge_5",
+          "points": [
+            [
+              902,
+              585.0
+            ],
+            [
+              1518,
+              585
+            ],
+            [
+              1518,
+              582.5
+            ],
+            [
+              1550,
+              582.5
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "smc",
+          "dst": "actionref"
+        },
+        {
+          "id": "edge_6",
+          "points": [
+            [
+              238,
+              753.0
+            ],
+            [
+              304,
+              755.0
+            ]
+          ],
+          "color": "#087FAB",
+          "lw": 3,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "ov",
+          "dst": "cap"
+        },
+        {
+          "id": "edge_7",
+          "points": [
+            [
+              544,
+              755.0
+            ],
+            [
+              610,
+              756.0
+            ]
+          ],
+          "color": "#087FAB",
+          "lw": 3,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "cap",
+          "dst": "vin"
+        },
+        {
+          "id": "edge_8",
+          "points": [
+            [
+              873,
+              756.0
+            ],
+            [
+              953,
+              753.5
+            ]
+          ],
+          "color": "#087FAB",
+          "lw": 3,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "vin",
+          "dst": "vdma"
+        },
+        {
+          "id": "edge_9",
+          "points": [
+            [
+              1239,
+              753.5
+            ],
+            [
+              1336,
+              762.0
+            ]
+          ],
+          "color": "#087FAB",
+          "lw": 3,
+          "end": true,
+          "start": true,
+          "dash": false,
+          "src": "vdma",
+          "dst": "mem"
+        },
+        {
+          "id": "edge_10",
+          "points": [
+            [
+              1889,
+              762.0
+            ],
+            [
+              1940,
+              762
+            ],
+            [
+              1940,
+              468
+            ],
+            [
+              1460,
+              468
+            ],
+            [
+              1460,
+              335
+            ],
+            [
+              1420,
+              335.0
+            ]
+          ],
+          "color": "#087FAB",
+          "lw": 3,
+          "end": true,
+          "start": true,
+          "dash": false,
+          "src": "mem",
+          "dst": "hp"
+        },
+        {
+          "id": "edge_11",
+          "points": [
+            [
+              730.0,
+              626
+            ],
+            [
+              730,
+              645
+            ],
+            [
+              1096,
+              645
+            ],
+            [
+              1096.0,
+              665
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "smc",
+          "dst": "vdma"
+        },
+        {
+          "id": "edge_12",
+          "points": [
+            [
+              304,
+              593.5
+            ],
+            [
+              238,
+              586.0
+            ]
+          ],
+          "color": "#C66A20",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": true,
+          "src": "cfg",
+          "dst": "cfgdone"
+        },
+        {
+          "id": "edge_13",
+          "points": [
+            [
+              424.0,
+              646
+            ],
+            [
+              424,
+              668
+            ],
+            [
+              139,
+              668
+            ],
+            [
+              139.0,
+              690
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "cfg",
+          "dst": "ov"
+        },
+        {
+          "id": "edge_14",
+          "points": [
+            [
+              1096.0,
+              842
+            ],
+            [
+              1099.0,
+              923
+            ]
+          ],
+          "color": "#087FAB",
+          "lw": 3,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "vdma",
+          "dst": "vout"
+        },
+        {
+          "id": "edge_15",
+          "points": [
+            [
+              959,
+              981.5
+            ],
+            [
+              881,
+              981.5
+            ]
+          ],
+          "color": "#087FAB",
+          "lw": 3,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "vout",
+          "dst": "pix"
+        },
+        {
+          "id": "edge_16",
+          "points": [
+            [
+              621,
+              981.5
+            ],
+            [
+              554,
+              981.5
+            ]
+          ],
+          "color": "#087FAB",
+          "lw": 3,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "pix",
+          "dst": "hmodule"
+        },
+        {
+          "id": "edge_17",
+          "points": [
+            [
+              304,
+              981.5
+            ],
+            [
+              238,
+              988.5
+            ]
+          ],
+          "color": "#087FAB",
+          "lw": 3,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "hmodule",
+          "dst": "adv"
+        },
+        {
+          "id": "edge_18",
+          "points": [
+            [
+              1340,
+              982.0
+            ],
+            [
+              1239,
+              981.5
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "vtc",
+          "dst": "vout"
+        },
+        {
+          "id": "edge_19",
+          "points": [
+            [
+              1099.0,
+              1040
+            ],
+            [
+              1099,
+              1082
+            ],
+            [
+              1605,
+              1082
+            ],
+            [
+              1605.0,
+              1030
+            ]
+          ],
+          "color": "#C66A20",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": true,
+          "src": "vout",
+          "dst": "vtc"
+        }
+      ]
+    },
+    {
+      "name": "02B_PS_PL动作控制模块图",
+      "title": "PS＋PL 模块图：ACTL 寄存器、执行 FSM 与物理输出",
+      "basename": "02B_PS_PL动作控制模块图",
+      "width": 2000,
+      "height": 1414,
+      "width_inches": 16.5354,
+      "height_inches": 11.6929,
+      "shapes": [
+        {
+          "id": "title",
+          "x": 40,
+          "y": 24,
+          "w": 1880,
+          "h": 58,
+          "text": "PS＋PL 模块图：ACTL 寄存器、执行 FSM 与物理输出",
+          "fs": 39,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "subtitle",
+          "x": 42,
+          "y": 90,
+          "w": 1890,
+          "h": 48,
+          "text": "实际层级：axi_action_0 / video_axi_action_uart_top / u_action:axi_action_control_top；本动作位流没有 BLE 桥、BRAM 命令队列或模型核",
+          "fs": 21,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "foot",
+          "x": 40,
+          "y": 1365,
+          "w": 1920,
+          "h": 29,
+          "text": "EES-331 / Zynq-7020  ·  工程快照 2026-09-13  ·  固定动作载荷 + Reloader v1.4  ·  源文件与证据见阅读说明",
+          "fs": 17,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "ps",
+          "x": 40,
+          "y": 196,
+          "w": 445,
+          "h": 822,
+          "text": "",
+          "fs": 22,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#087FAB",
+          "dash": false,
+          "align": 1,
+          "kind": "container",
+          "color": "#243D49",
+          "radius": 8,
+          "lw": 1.5
+        },
+        {
+          "id": "ps_label",
+          "x": 56,
+          "y": 208,
+          "w": 413,
+          "h": 39,
+          "text": "PS 软件控制栈",
+          "fs": 27,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "udp",
+          "x": 73,
+          "y": 271,
+          "w": 380,
+          "h": 110,
+          "text": "action_service.ActionService\nUDP 5001；单所有者线程\nQUERY / 去重 / BUSY / 序号检查",
+          "fs": 21,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "driver",
+          "x": 73,
+          "y": 430,
+          "w": 380,
+          "h": 137,
+          "text": "action_driver.ActionDriver\nfrom_overlay → IP_ID / ABI / CAPS\nbegin：ACTION_CODE → CMD_SEQ\n→ CONTROL.START\npoll：检查结果 → CONTROL.ACK",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "io",
+          "x": 73,
+          "y": 621,
+          "w": 380,
+          "h": 132,
+          "text": "axilt.OrderedMMIO\nmmio_ordered.c / libmmio_ordered.so\n32-bit 有序 MMIO 访问\nPYNQ MMIO：4 KiB 地址窗",
+          "fs": 20,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "gp",
+          "x": 73,
+          "y": 810,
+          "w": 380,
+          "h": 102,
+          "text": "processing_system7_0.M_AXI_GP0\n→ axi_smc.S00 → M01\nAXI-Lite 32-bit，地址低 12 bit",
+          "fs": 20,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "pl",
+          "x": 530,
+          "y": 196,
+          "w": 1430,
+          "h": 822,
+          "text": "",
+          "fs": 22,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#58707B",
+          "dash": false,
+          "align": 1,
+          "kind": "container",
+          "color": "#243D49",
+          "radius": 8,
+          "lw": 1.5
+        },
+        {
+          "id": "pl_label",
+          "x": 546,
+          "y": 208,
+          "w": 1398,
+          "h": 39,
+          "text": "PL · axi_action_0（0x43C00000–0x43C00FFF）",
+          "fs": 27,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "uaction",
+          "x": 557,
+          "y": 269,
+          "w": 1365,
+          "h": 710,
+          "text": "",
+          "fs": 22,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#58707B",
+          "dash": false,
+          "align": 1,
+          "kind": "container",
+          "color": "#243D49",
+          "radius": 8,
+          "lw": 1.5
+        },
+        {
+          "id": "uaction_label",
+          "x": 573,
+          "y": 281,
+          "w": 1333,
+          "h": 39,
+          "text": "u_action : axi_action_control_top · clock_freq_hz=50,000,000 / baud_rate=9,600",
+          "fs": 27,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "slave",
+          "x": 600,
+          "y": 369,
+          "w": 365,
+          "h": 173,
+          "text": "u_slave : axi_lite_slave\nAW / W 独立握手与缓冲\nB / R 响应回压\nwr_valid / wr_addr / wr_data / WSTRB\nrd_valid / rd_addr → rd_data",
+          "fs": 21,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "regs",
+          "x": 1090,
+          "y": 369,
+          "w": 425,
+          "h": 173,
+          "text": "u_regs : axi_action_reg_bank\nCSR 译码 / 参数锁存 / 序号状态\nREADY / BUSY / DONE\nSTART 接受后触发 exec_start\nDONE 保持，直到软件 ACK",
+          "fs": 21,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "executor",
+          "x": 1080,
+          "y": 650,
+          "w": 450,
+          "h": 185,
+          "text": "u_executor : action_command_executor\nIDLE → LOAD → LAUNCH → WAIT → DONE\nstart 锁存 action / seq[7:0] / CRC8\n立即更新 LED；顺序发送 7 字节\n第 7 字节完成后产生 exec_done",
+          "fs": 21,
+          "bold": false,
+          "fill": "#FCEAD9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "uart",
+          "x": 1600,
+          "y": 677,
+          "w": 285,
+          "h": 132,
+          "text": "u_uart_tx : action_uart_tx\nIDLE→START→DATA\n→STOP→DONE\n9600 / 8N1 / LSB first",
+          "fs": 20,
+          "bold": false,
+          "fill": "#FCEAD9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "led",
+          "x": 1624,
+          "y": 370,
+          "w": 264,
+          "h": 138,
+          "text": "ACTION_LED[6:0]\naction=1..7 → one-hot\naction=0 → 全灭\n无断联自动熄灯逻辑",
+          "fs": 20,
+          "bold": false,
+          "fill": "#E9F2E7",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "tx",
+          "x": 1600,
+          "y": 890,
+          "w": 285,
+          "h": 67,
+          "text": "PL_RS232_TX → USB串口\nPC COM4（仅接收核验）",
+          "fs": 19,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "csrbus",
+          "x": 964,
+          "y": 420,
+          "w": 125,
+          "h": 73,
+          "text": "wr_* / rd_*\n响应/数据",
+          "fs": 17,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "none",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#58707B",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "execute",
+          "x": 1130,
+          "y": 568,
+          "w": 325,
+          "h": 56,
+          "text": "exec_start / exec_seq[31:0]\nexec_action[7:0]",
+          "fs": 18,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "none",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#58707B",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "execdone",
+          "x": 737,
+          "y": 665,
+          "w": 283,
+          "h": 110,
+          "text": "exec_done / exec_result\nexec_error_code / exec_frame\nuart_busy → CSR 状态",
+          "fs": 20,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#C66A20",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "frame",
+          "x": 602,
+          "y": 872,
+          "w": 910,
+          "h": 75,
+          "text": "UART 帧：A5 5A seq[7:0] action CRC8 0D 0A\nCRC8(poly=0x07, init=0)；UDP/CSR 保留完整 32-bit seq",
+          "fs": 22,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "pollnote",
+          "x": 70,
+          "y": 946,
+          "w": 405,
+          "h": 50,
+          "text": "完成依据为 CSR 轮询，非中断\n软件回执不替代串口 / LED 实测",
+          "fs": 18,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#C66A20",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "table",
+          "x": 40,
+          "y": 1050,
+          "w": 1920,
+          "h": 285,
+          "text": "",
+          "fs": 22,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#58707B",
+          "dash": false,
+          "align": 1,
+          "kind": "container",
+          "color": "#243D49",
+          "radius": 8,
+          "lw": 1.5
+        },
+        {
+          "id": "table_label",
+          "x": 56,
+          "y": 1062,
+          "w": 1888,
+          "h": 39,
+          "text": "ACTL v1 寄存器（偏移相对 0x43C00000；所有寄存器 32 bit）",
+          "fs": 27,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "cell00",
+          "x": 60,
+          "y": 1114,
+          "w": 475,
+          "h": 49,
+          "text": "0x00  IP_ID = 0x4143544C",
+          "fs": 18,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 0,
+          "lw": 1.5
+        },
+        {
+          "id": "cell01",
+          "x": 535,
+          "y": 1114,
+          "w": 475,
+          "h": 49,
+          "text": "0x04  ABI_VERSION = 0x00010000",
+          "fs": 18,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 0,
+          "lw": 1.5
+        },
+        {
+          "id": "cell02",
+          "x": 1010,
+          "y": 1114,
+          "w": 475,
+          "h": 49,
+          "text": "0x08  CAPS = 7",
+          "fs": 18,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 0,
+          "lw": 1.5
+        },
+        {
+          "id": "cell03",
+          "x": 1485,
+          "y": 1114,
+          "w": 475,
+          "h": 49,
+          "text": "0x0C  SCRATCH（读写测试）",
+          "fs": 18,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 0,
+          "lw": 1.5
+        },
+        {
+          "id": "cell10",
+          "x": 60,
+          "y": 1163,
+          "w": 475,
+          "h": 49,
+          "text": "0x10  ACTION_CODE（0..7）",
+          "fs": 18,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 0,
+          "lw": 1.5
+        },
+        {
+          "id": "cell11",
+          "x": 535,
+          "y": 1163,
+          "w": 475,
+          "h": 49,
+          "text": "0x14  CMD_SEQ（递增非零）",
+          "fs": 18,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 0,
+          "lw": 1.5
+        },
+        {
+          "id": "cell12",
+          "x": 1010,
+          "y": 1163,
+          "w": 475,
+          "h": 49,
+          "text": "0x18  CONTROL：1=START / 2=ACK",
+          "fs": 18,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 0,
+          "lw": 1.5
+        },
+        {
+          "id": "cell13",
+          "x": 1485,
+          "y": 1163,
+          "w": 475,
+          "h": 49,
+          "text": "0x1C  STATUS 位0/1/2/4：READY/BUSY/DONE/TX_BUSY",
+          "fs": 18,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 0,
+          "lw": 1.5
+        },
+        {
+          "id": "cell20",
+          "x": 60,
+          "y": 1212,
+          "w": 475,
+          "h": 49,
+          "text": "0x20  ACCEPT_SEQ",
+          "fs": 18,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 0,
+          "lw": 1.5
+        },
+        {
+          "id": "cell21",
+          "x": 535,
+          "y": 1212,
+          "w": 475,
+          "h": 49,
+          "text": "0x24  DONE_SEQ",
+          "fs": 18,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 0,
+          "lw": 1.5
+        },
+        {
+          "id": "cell22",
+          "x": 1010,
+          "y": 1212,
+          "w": 475,
+          "h": 49,
+          "text": "0x28  LAST_ACTION",
+          "fs": 18,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 0,
+          "lw": 1.5
+        },
+        {
+          "id": "cell23",
+          "x": 1485,
+          "y": 1212,
+          "w": 475,
+          "h": 49,
+          "text": "0x2C  ERROR_CODE",
+          "fs": 18,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 0,
+          "lw": 1.5
+        },
+        {
+          "id": "cell30",
+          "x": 60,
+          "y": 1261,
+          "w": 475,
+          "h": 49,
+          "text": "0x30  EXEC_COUNT",
+          "fs": 18,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 0,
+          "lw": 1.5
+        },
+        {
+          "id": "cell31",
+          "x": 535,
+          "y": 1261,
+          "w": 475,
+          "h": 49,
+          "text": "0x34  LAST_FRAME：00 CRC SEQ ACTION",
+          "fs": 18,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 0,
+          "lw": 1.5
+        },
+        {
+          "id": "cell32",
+          "x": 1010,
+          "y": 1261,
+          "w": 475,
+          "h": 49,
+          "text": "0x38  OUTPUT_STATUS：bit0=1 / bit4=TX_BUSY",
+          "fs": 18,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 0,
+          "lw": 1.5
+        },
+        {
+          "id": "cell33",
+          "x": 1485,
+          "y": 1261,
+          "w": 475,
+          "h": 49,
+          "text": "0x3C  FRAME_COUNT（EXEC_COUNT 映射）",
+          "fs": 18,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 0,
+          "lw": 1.5
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge_0",
+          "points": [
+            [
+              40,
+              155
+            ],
+            [
+              1960,
+              155
+            ]
+          ],
+          "color": "#58707B",
+          "lw": 1,
+          "end": false,
+          "start": false,
+          "dash": false,
+          "src": null,
+          "dst": null
+        },
+        {
+          "id": "edge_1",
+          "points": [
+            [
+              263.0,
+              381
+            ],
+            [
+              263.0,
+              430
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "udp",
+          "dst": "driver"
+        },
+        {
+          "id": "edge_2",
+          "points": [
+            [
+              263.0,
+              567
+            ],
+            [
+              263.0,
+              621
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "driver",
+          "dst": "io"
+        },
+        {
+          "id": "edge_3",
+          "points": [
+            [
+              263.0,
+              753
+            ],
+            [
+              263.0,
+              810
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "io",
+          "dst": "gp"
+        },
+        {
+          "id": "edge_4",
+          "points": [
+            [
+              453,
+              861.0
+            ],
+            [
+              510,
+              861
+            ],
+            [
+              510,
+              455.5
+            ],
+            [
+              600,
+              455.5
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "gp",
+          "dst": "slave"
+        },
+        {
+          "id": "edge_5",
+          "points": [
+            [
+              965,
+              455.5
+            ],
+            [
+              1090,
+              455.5
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": true,
+          "dash": false,
+          "src": "slave",
+          "dst": "regs"
+        },
+        {
+          "id": "edge_6",
+          "points": [
+            [
+              1302.5,
+              542
+            ],
+            [
+              1305.0,
+              650
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "regs",
+          "dst": "executor"
+        },
+        {
+          "id": "edge_7",
+          "points": [
+            [
+              1080,
+              742.5
+            ],
+            [
+              1035,
+              742.5
+            ],
+            [
+              1035,
+              455.5
+            ],
+            [
+              1090,
+              455.5
+            ]
+          ],
+          "color": "#C66A20",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": true,
+          "src": "executor",
+          "dst": "regs"
+        },
+        {
+          "id": "edge_8",
+          "points": [
+            [
+              1530,
+              742.5
+            ],
+            [
+              1600,
+              743.0
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "executor",
+          "dst": "uart"
+        },
+        {
+          "id": "edge_9",
+          "points": [
+            [
+              1742.5,
+              809
+            ],
+            [
+              1742.5,
+              860
+            ],
+            [
+              1305,
+              860
+            ],
+            [
+              1305.0,
+              835
+            ]
+          ],
+          "color": "#C66A20",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": true,
+          "src": "uart",
+          "dst": "executor"
+        },
+        {
+          "id": "edge_10",
+          "points": [
+            [
+              1305.0,
+              650
+            ],
+            [
+              1305,
+              597
+            ],
+            [
+              1756,
+              597
+            ],
+            [
+              1756.0,
+              508
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "executor",
+          "dst": "led"
+        },
+        {
+          "id": "edge_11",
+          "points": [
+            [
+              1742.5,
+              809
+            ],
+            [
+              1742.5,
+              890
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "uart",
+          "dst": "tx"
+        }
+      ]
+    },
+    {
+      "name": "03A_控制流程_启动与就绪",
+      "title": "完整控制流程 A：从 SD 启动到动作就绪",
+      "basename": "03A_控制流程_启动与就绪",
+      "width": 2000,
+      "height": 1414,
+      "width_inches": 16.5354,
+      "height_inches": 11.6929,
+      "shapes": [
+        {
+          "id": "title",
+          "x": 40,
+          "y": 24,
+          "w": 1880,
+          "h": 58,
+          "text": "完整控制流程 A：从 SD 启动到动作就绪",
+          "fs": 39,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "subtitle",
+          "x": 42,
+          "y": 90,
+          "w": 1890,
+          "h": 48,
+          "text": "按 v1.4 实际代码顺序；此页每项检查失败均进入 03C。阶段等待完成与硬件真实就绪分别表示。",
+          "fs": 21,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "foot",
+          "x": 40,
+          "y": 1365,
+          "w": 1920,
+          "h": 29,
+          "text": "EES-331 / Zynq-7020  ·  工程快照 2026-09-13  ·  固定动作载荷 + Reloader v1.4  ·  源文件与证据见阅读说明",
+          "fs": 17,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "lane0",
+          "x": 40,
+          "y": 188,
+          "w": 620,
+          "h": 912,
+          "text": "",
+          "fs": 22,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#087FAB",
+          "dash": false,
+          "align": 1,
+          "kind": "container",
+          "color": "#243D49",
+          "radius": 8,
+          "lw": 1.5
+        },
+        {
+          "id": "lane0_label",
+          "x": 56,
+          "y": 200,
+          "w": 588,
+          "h": 39,
+          "text": "A1 · PC / 运维前置",
+          "fs": 27,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "lane1",
+          "x": 690,
+          "y": 188,
+          "w": 620,
+          "h": 912,
+          "text": "",
+          "fs": 22,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#58707B",
+          "dash": false,
+          "align": 1,
+          "kind": "container",
+          "color": "#243D49",
+          "radius": 8,
+          "lw": 1.5
+        },
+        {
+          "id": "lane1_label",
+          "x": 706,
+          "y": 200,
+          "w": 588,
+          "h": 39,
+          "text": "A2 · PS / PL 视频恢复",
+          "fs": 27,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "lane2",
+          "x": 1340,
+          "y": 188,
+          "w": 620,
+          "h": 912,
+          "text": "",
+          "fs": 22,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#58707B",
+          "dash": false,
+          "align": 1,
+          "kind": "container",
+          "color": "#243D49",
+          "radius": 8,
+          "lw": 1.5
+        },
+        {
+          "id": "lane2_label",
+          "x": 1356,
+          "y": 200,
+          "w": 588,
+          "h": 39,
+          "text": "A3 · PS 动作服务 / PC 同步",
+          "fs": 27,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "a1",
+          "x": 72,
+          "y": 261,
+          "w": 556,
+          "h": 101,
+          "text": "① SD 启动 PYNQ / 原摄像头服务\n等待约 60–90 s；确认真实动态视频",
+          "fs": 22,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "a2",
+          "x": 72,
+          "y": 396,
+          "w": 556,
+          "h": 101,
+          "text": "② 检查 PC .2 / 板 .10，TCP 22\n关闭其他 UDP5000 接收器；确认基线",
+          "fs": 22,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "a3",
+          "x": 72,
+          "y": 531,
+          "w": 556,
+          "h": 101,
+          "text": "③ v1.4：只点击一次“加载动作版”\n若真实动作进程已运行 → SKIPPED\n跳过加载分支；核对就绪后走重开入口",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "a4",
+          "x": 72,
+          "y": 666,
+          "w": 556,
+          "h": 101,
+          "text": "④ SSH 同步载荷；核验 manifest / SHA256\n检查 HWH 合同；编译有序 MMIO 库",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "a5",
+          "x": 72,
+          "y": 801,
+          "w": 556,
+          "h": 101,
+          "text": "⑤ stop_original：停止原服务\n确认 PID 消失，先 VDMA_HALTED\n后 BUFFER_FREED → ORIGINAL_STOP_SAFE",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "a6",
+          "x": 72,
+          "y": 936,
+          "w": 556,
+          "h": 101,
+          "text": "⑥ systemd-run 启动作业（不设开机启用）\nCamera / ACTL 双锁 → 重新核验 BIT/HWH\nOverlay.download → FPGA state=operating",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "b1",
+          "x": 722,
+          "y": 261,
+          "w": 556,
+          "h": 101,
+          "text": "⑦ PL_LOADED 后固定等待 10 s\n逐秒进度；该等待不等于 SCCB/PCLK 健康",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "b2",
+          "x": 722,
+          "y": 396,
+          "w": 556,
+          "h": 101,
+          "text": "⑧ 复位 VDMA 双通道（各限 2 s）\n分配 3×1 MiB CMA；检查 HP1 地址范围\n缓冲清零 + flush",
+          "fs": 21,
+          "bold": false,
+          "fill": "#E9F2E7",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "b3",
+          "x": 722,
+          "y": 531,
+          "w": 556,
+          "h": 101,
+          "text": "⑨ 先配置 S2MM，再配置 MM2S\n写帧地址 / STRIDE / HSIZE；VSIZE 最后\n寄存器读回必须与预期一致",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "b4",
+          "x": 722,
+          "y": 666,
+          "w": 556,
+          "h": 101,
+          "text": "⑩ 最多 30 s 等待 MM2S 槽位变化\n记录双向 seen；超时 FIRST_FRAME_TIMEOUT\n观察到 MM2S 后再等待 0.1 s",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "b5",
+          "x": 722,
+          "y": 801,
+          "w": 556,
+          "h": 101,
+          "text": "⑪ 检查不可恢复错误；仅清一次启动粘滞位\n清除后 2 s 内必须同时出现读、写新转换\n持续错误 / 停滞 → 失败",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "b6",
+          "x": 722,
+          "y": 936,
+          "w": 556,
+          "h": 101,
+          "text": "⑫ VDMA_STREAM_STARTED\nVIDEO_READY_BEFORE_ACTION\n此后才允许附着 ACTL",
+          "fs": 22,
+          "bold": false,
+          "fill": "#E9F2E7",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "c1",
+          "x": 1372,
+          "y": 261,
+          "w": 556,
+          "h": 101,
+          "text": "⑬ ActionDriver.from_overlay\n校验 ACTL IP_ID / ABI=1.0 / CAPS=7\n必须 STATUS=READY",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "c2",
+          "x": 1372,
+          "y": 396,
+          "w": 556,
+          "h": 101,
+          "text": "⑭ ActionService 绑定 UDP 5001\nACTION_SERVICE_READY\n控制器发布 ACTION_OVERLAY_READY",
+          "fs": 21,
+          "bold": false,
+          "fill": "#E9F2E7",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "c3",
+          "x": 1372,
+          "y": 531,
+          "w": 556,
+          "h": 101,
+          "text": "⑮ v1.4 内部“打开动作识别”\nStart_Action_Verification.ps1\n显式 --action-control；校验模型哈希",
+          "fs": 21,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "c4",
+          "x": 1372,
+          "y": 666,
+          "w": 556,
+          "h": 101,
+          "text": "⑯ PC QUERY 同步现有序号\n要求 QUERY 且 accept_seq=done_seq\n客户端从当前序号续接",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "c5",
+          "x": 1372,
+          "y": 801,
+          "w": 556,
+          "h": 101,
+          "text": "⑰ 通过正常 ACTL 通道执行 action=0\nACTION_INITIAL_CLEAR\n成功后 ACTION_LINK_READY",
+          "fs": 21,
+          "bold": false,
+          "fill": "#E9F2E7",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "c6",
+          "x": 1372,
+          "y": 936,
+          "w": 556,
+          "h": 101,
+          "text": "⑱ 视频接收 / 模型 / 动作发布并行运行\n进入 03B：逐个新推理帧判定与事务\n人工观察动态视频、LED / UART",
+          "fs": 21,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "fail",
+          "x": 40,
+          "y": 1135,
+          "w": 1920,
+          "h": 78,
+          "text": "任何阶段 FAIL / FIRST_FRAME_TIMEOUT / DEGRADED / READY 超时 → 保留首次证据，进入 03C；控制器等待 ACTION_SERVICE_READY 上限 75 s。",
+          "fs": 23,
+          "bold": false,
+          "fill": "#FFF1EF",
+          "stroke": "#B84646",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#B84646",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "notes",
+          "x": 40,
+          "y": 1240,
+          "w": 1920,
+          "h": 91,
+          "text": "重开动作窗口无需再次加载 PL：使用 v1.4 内部入口并重新 QUERY + CLEAR。直接双击 Viewer 默认 protocol=null，仅识别显示。\n软件就绪之后仍需确认 HDMI / UDP 真实动态、颜色正确且流畅；花屏或卡顿时停止动作验证。",
+          "fs": 23,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#087FAB",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge_0",
+          "points": [
+            [
+              40,
+              155
+            ],
+            [
+              1960,
+              155
+            ]
+          ],
+          "color": "#58707B",
+          "lw": 1,
+          "end": false,
+          "start": false,
+          "dash": false,
+          "src": null,
+          "dst": null
+        },
+        {
+          "id": "edge_1",
+          "points": [
+            [
+              350.0,
+              362
+            ],
+            [
+              350.0,
+              396
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "a1",
+          "dst": "a2"
+        },
+        {
+          "id": "edge_2",
+          "points": [
+            [
+              350.0,
+              497
+            ],
+            [
+              350.0,
+              531
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "a2",
+          "dst": "a3"
+        },
+        {
+          "id": "edge_3",
+          "points": [
+            [
+              350.0,
+              632
+            ],
+            [
+              350.0,
+              666
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "a3",
+          "dst": "a4"
+        },
+        {
+          "id": "edge_4",
+          "points": [
+            [
+              350.0,
+              767
+            ],
+            [
+              350.0,
+              801
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "a4",
+          "dst": "a5"
+        },
+        {
+          "id": "edge_5",
+          "points": [
+            [
+              350.0,
+              902
+            ],
+            [
+              350.0,
+              936
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "a5",
+          "dst": "a6"
+        },
+        {
+          "id": "edge_6",
+          "points": [
+            [
+              1000.0,
+              362
+            ],
+            [
+              1000.0,
+              396
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "b1",
+          "dst": "b2"
+        },
+        {
+          "id": "edge_7",
+          "points": [
+            [
+              1000.0,
+              497
+            ],
+            [
+              1000.0,
+              531
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "b2",
+          "dst": "b3"
+        },
+        {
+          "id": "edge_8",
+          "points": [
+            [
+              1000.0,
+              632
+            ],
+            [
+              1000.0,
+              666
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "b3",
+          "dst": "b4"
+        },
+        {
+          "id": "edge_9",
+          "points": [
+            [
+              1000.0,
+              767
+            ],
+            [
+              1000.0,
+              801
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "b4",
+          "dst": "b5"
+        },
+        {
+          "id": "edge_10",
+          "points": [
+            [
+              1000.0,
+              902
+            ],
+            [
+              1000.0,
+              936
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "b5",
+          "dst": "b6"
+        },
+        {
+          "id": "edge_11",
+          "points": [
+            [
+              1650.0,
+              362
+            ],
+            [
+              1650.0,
+              396
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "c1",
+          "dst": "c2"
+        },
+        {
+          "id": "edge_12",
+          "points": [
+            [
+              1650.0,
+              497
+            ],
+            [
+              1650.0,
+              531
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "c2",
+          "dst": "c3"
+        },
+        {
+          "id": "edge_13",
+          "points": [
+            [
+              1650.0,
+              632
+            ],
+            [
+              1650.0,
+              666
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "c3",
+          "dst": "c4"
+        },
+        {
+          "id": "edge_14",
+          "points": [
+            [
+              1650.0,
+              767
+            ],
+            [
+              1650.0,
+              801
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "c4",
+          "dst": "c5"
+        },
+        {
+          "id": "edge_15",
+          "points": [
+            [
+              1650.0,
+              902
+            ],
+            [
+              1650.0,
+              936
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "c5",
+          "dst": "c6"
+        },
+        {
+          "id": "edge_16",
+          "points": [
+            [
+              350.0,
+              1037
+            ],
+            [
+              350,
+              1080
+            ],
+            [
+              675,
+              1080
+            ],
+            [
+              675,
+              237
+            ],
+            [
+              1000,
+              237
+            ],
+            [
+              1000.0,
+              261
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "a6",
+          "dst": "b1"
+        },
+        {
+          "id": "edge_17",
+          "points": [
+            [
+              1000.0,
+              1037
+            ],
+            [
+              1000,
+              1080
+            ],
+            [
+              1325,
+              1080
+            ],
+            [
+              1325,
+              237
+            ],
+            [
+              1650,
+              237
+            ],
+            [
+              1650.0,
+              261
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "b6",
+          "dst": "c1"
+        }
+      ]
+    },
+    {
+      "name": "03B_控制流程_识别与动作事务",
+      "title": "完整控制流程 B：新帧识别 → 单命令执行 → 完成回执",
+      "basename": "03B_控制流程_识别与动作事务",
+      "width": 2000,
+      "height": 1414,
+      "width_inches": 16.5354,
+      "height_inches": 11.6929,
+      "shapes": [
+        {
+          "id": "title",
+          "x": 40,
+          "y": 24,
+          "w": 1880,
+          "h": 58,
+          "text": "完整控制流程 B：新帧识别 → 单命令执行 → 完成回执",
+          "fs": 39,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "subtitle",
+          "x": 42,
+          "y": 90,
+          "w": 1890,
+          "h": 48,
+          "text": "视频持续独立运行；以下为一个动作事务的因果顺序。动作完成仅描述本版 LED / UART，不代表机械臂物理执行。",
+          "fs": 21,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "foot",
+          "x": 40,
+          "y": 1365,
+          "w": 1920,
+          "h": 29,
+          "text": "EES-331 / Zynq-7020  ·  工程快照 2026-09-13  ·  固定动作载荷 + Reloader v1.4  ·  源文件与证据见阅读说明",
+          "fs": 17,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "lane0",
+          "x": 40,
+          "y": 195,
+          "w": 620,
+          "h": 1105,
+          "text": "",
+          "fs": 22,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#087FAB",
+          "dash": false,
+          "align": 1,
+          "kind": "container",
+          "color": "#243D49",
+          "radius": 8,
+          "lw": 1.5
+        },
+        {
+          "id": "lane0_label",
+          "x": 56,
+          "y": 207,
+          "w": 588,
+          "h": 39,
+          "text": "PC：Receiver / YOLO / StableAction",
+          "fs": 27,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "lane1",
+          "x": 690,
+          "y": 195,
+          "w": 620,
+          "h": 1105,
+          "text": "",
+          "fs": 22,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#58707B",
+          "dash": false,
+          "align": 1,
+          "kind": "container",
+          "color": "#243D49",
+          "radius": 8,
+          "lw": 1.5
+        },
+        {
+          "id": "lane1_label",
+          "x": 706,
+          "y": 207,
+          "w": 588,
+          "h": 39,
+          "text": "PS：ActionService / ActionDriver",
+          "fs": 27,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "lane2",
+          "x": 1340,
+          "y": 195,
+          "w": 620,
+          "h": 1105,
+          "text": "",
+          "fs": 22,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#58707B",
+          "dash": false,
+          "align": 1,
+          "kind": "container",
+          "color": "#243D49",
+          "radius": 8,
+          "lw": 1.5
+        },
+        {
+          "id": "lane2_label",
+          "x": 1356,
+          "y": 207,
+          "w": 588,
+          "h": 39,
+          "text": "PL：CSR / Executor / UART TX",
+          "fs": 27,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "rx",
+          "x": 76,
+          "y": 274,
+          "w": 548,
+          "h": 125,
+          "text": "① OV56 分包重组 + CRC32 → BGR 图像\n7 类模型 CPU 推理（conf=.45 / iou=.7）\n只处理不同 fid 且 arrival 更新的新帧",
+          "fs": 22,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "gate",
+          "x": 76,
+          "y": 456,
+          "w": 548,
+          "h": 158,
+          "text": "② 有效动作门\n单一允许类别，置信度 ≥0.75，帧龄 <1 s\n同类连续 3 个不同新推理帧，动作不同于已发布\n否则等待；已发布动作失效 ≥1 s → CLEAR\nLeft / Right 不自动下发",
+          "fs": 22,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "send",
+          "x": 76,
+          "y": 690,
+          "w": 548,
+          "h": 121,
+          "text": "③ 序号递增；发送 ACTN 整包 16 B\n包含 4 B CRC32；网络字段使用大端编码\n仅一条在途；启动本地 1 s 完成期限",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "filter",
+          "x": 726,
+          "y": 277,
+          "w": 548,
+          "h": 142,
+          "text": "④ UDP 5001 接收并校验\npeer 必须为 192.168.240.2；包头/长度/CRC\n同 seq/action 已完成 → DUPLICATE（不执行）\n忙 → BUSY；旧序号 → BAD_SEQUENCE",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "begin",
+          "x": 726,
+          "y": 483,
+          "w": 548,
+          "h": 117,
+          "text": "⑤ 新序号且空闲 → driver.begin\n确认 STATUS=1；写 ACTION_CODE / CMD_SEQ\n写 CONTROL=1（START），记录期望计数",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "poll",
+          "x": 726,
+          "y": 696,
+          "w": 548,
+          "h": 125,
+          "text": "⑧ driver.poll：轮询至 STATUS=4\nACCEPT_SEQ=DONE_SEQ=seq；action 匹配\nERROR=0；EXEC_COUNT/FRAME_COUNT 各+1\nLAST_FRAME 匹配；OUTPUT_STATUS=1",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "ack",
+          "x": 726,
+          "y": 902,
+          "w": 548,
+          "h": 115,
+          "text": "⑨ CONTROL=2（ACK）→ 必须 STATUS=1\n生成 ACTION_DONE\n回复 ACTA 20 B：OK / seq / action / done_seq",
+          "fs": 21,
+          "bold": false,
+          "fill": "#E9F2E7",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "accept",
+          "x": 1376,
+          "y": 277,
+          "w": 548,
+          "h": 134,
+          "text": "⑥ AXI-Lite 握手 → CSR 接受 START\nREADY → BUSY；锁存完整 CMD_SEQ / action\n更新 ACCEPT_SEQ；向 executor 发 exec_start\nLED 在 executor 接受 start 时立即更新",
+          "fs": 21,
+          "bold": false,
+          "fill": "#FCEAD9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "uart",
+          "x": 1376,
+          "y": 488,
+          "w": 548,
+          "h": 160,
+          "text": "⑦ Executor 逐字节发送（共 7 字节）\nA5 5A seq[7:0] action CRC8 0D 0A\nUART TX：每字节等待完整停止位 / uart_done\n最后一字节结束 → exec_done → DONE 保持\n写 DONE_SEQ / LAST_ACTION / 计数 / 帧签名",
+          "fs": 21,
+          "bold": false,
+          "fill": "#FCEAD9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "ready",
+          "x": 1376,
+          "y": 895,
+          "w": 548,
+          "h": 110,
+          "text": "⑩ CSR 接受 ACK，回到 READY\n上次 ACCEPT / DONE / LAST_ACTION 保留\n供 PS 服务重启后的最后一次命令去重",
+          "fs": 21,
+          "bold": false,
+          "fill": "#E9F2E7",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "acknote",
+          "x": 1320,
+          "y": 1017,
+          "w": 610,
+          "h": 46,
+          "text": "ACK 的状态读回成功之后，PS 才发 UDP OK",
+          "fs": 20,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#C66A20",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "confirm",
+          "x": 76,
+          "y": 944,
+          "w": 548,
+          "h": 139,
+          "text": "⑪ PC 接收 ACTA 并核对\n忽略其他 seq 的旧回执；仅 OK / DUPLICATE\n要求 action 一致且 done_seq=当前 seq\nACTION_CONFIRMED → 接收下一动作",
+          "fs": 21,
+          "bold": false,
+          "fill": "#E9F2E7",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "psnote",
+          "x": 726,
+          "y": 1090,
+          "w": 548,
+          "h": 149,
+          "text": "QUERY（kind=2，seq/action=0）走状态分支\n合法 QUERY 不触发 START；新会话先同步再 CLEAR\n驱动完成超时 1 s → failed，不再提交\n坏包直接丢弃；所有拒绝与异常见 03C",
+          "fs": 21,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "outnote",
+          "x": 1376,
+          "y": 1090,
+          "w": 548,
+          "h": 149,
+          "text": "物理观察分支\nLED：0 全灭；1..7 对应 LED1..7\nUART：COM4 捕获原始 7 B 并核验 CRC8\nCSR DONE 证明内部发送结束，不证明外部已接收",
+          "fs": 21,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "map",
+          "x": 74,
+          "y": 1130,
+          "w": 556,
+          "h": 95,
+          "text": "自动动作：Down=1 / Stop=4 / Thumbs Down=5\nThumbs up=6 / Up=7；CLEAR=0\n持续保持同一动作不周期重复下发",
+          "fs": 20,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#58707B",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "errors",
+          "x": 40,
+          "y": 1311,
+          "w": 1920,
+          "h": 40,
+          "text": "任意完成不一致 / 超时 / 队列溢出 → 停止动作发布并保留不确定状态；不自动重发，不把“软件 ACK”当成安全停机或机械臂到位。",
+          "fs": 22,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#B84646",
+          "radius": 4,
+          "lw": 1.5
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge_0",
+          "points": [
+            [
+              40,
+              155
+            ],
+            [
+              1960,
+              155
+            ]
+          ],
+          "color": "#58707B",
+          "lw": 1,
+          "end": false,
+          "start": false,
+          "dash": false,
+          "src": null,
+          "dst": null
+        },
+        {
+          "id": "edge_1",
+          "points": [
+            [
+              350.0,
+              399
+            ],
+            [
+              350.0,
+              456
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "rx",
+          "dst": "gate"
+        },
+        {
+          "id": "edge_2",
+          "points": [
+            [
+              350.0,
+              614
+            ],
+            [
+              350.0,
+              690
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "gate",
+          "dst": "send"
+        },
+        {
+          "id": "edge_3",
+          "points": [
+            [
+              624,
+              750.5
+            ],
+            [
+              674,
+              750.5
+            ],
+            [
+              674,
+              348
+            ],
+            [
+              726,
+              348.0
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "send",
+          "dst": "filter"
+        },
+        {
+          "id": "edge_4",
+          "points": [
+            [
+              1000.0,
+              419
+            ],
+            [
+              1000.0,
+              483
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "filter",
+          "dst": "begin"
+        },
+        {
+          "id": "edge_5",
+          "points": [
+            [
+              1000.0,
+              821
+            ],
+            [
+              1000.0,
+              902
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "poll",
+          "dst": "ack"
+        },
+        {
+          "id": "edge_6",
+          "points": [
+            [
+              1274,
+              541.5
+            ],
+            [
+              1325,
+              541.5
+            ],
+            [
+              1325,
+              344
+            ],
+            [
+              1376,
+              344.0
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "begin",
+          "dst": "accept"
+        },
+        {
+          "id": "edge_7",
+          "points": [
+            [
+              1650.0,
+              411
+            ],
+            [
+              1650.0,
+              488
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "accept",
+          "dst": "uart"
+        },
+        {
+          "id": "edge_8",
+          "points": [
+            [
+              1376,
+              568.0
+            ],
+            [
+              1328,
+              568
+            ],
+            [
+              1328,
+              758.5
+            ],
+            [
+              1274,
+              758.5
+            ]
+          ],
+          "color": "#C66A20",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": true,
+          "src": "uart",
+          "dst": "poll"
+        },
+        {
+          "id": "edge_9",
+          "points": [
+            [
+              1274,
+              959.5
+            ],
+            [
+              1376,
+              950.0
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "ack",
+          "dst": "ready"
+        },
+        {
+          "id": "edge_10",
+          "points": [
+            [
+              726,
+              959.5
+            ],
+            [
+              689,
+              959.5
+            ],
+            [
+              689,
+              1013.5
+            ],
+            [
+              624,
+              1013.5
+            ]
+          ],
+          "color": "#C66A20",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": true,
+          "src": "ack",
+          "dst": "confirm"
+        },
+        {
+          "id": "edge_11",
+          "points": [
+            [
+              76,
+              1013.5
+            ],
+            [
+              57,
+              1013.5
+            ],
+            [
+              57,
+              336.5
+            ],
+            [
+              76,
+              336.5
+            ]
+          ],
+          "color": "#C66A20",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": true,
+          "src": "confirm",
+          "dst": "rx"
+        }
+      ]
+    },
+    {
+      "name": "03C_控制流程_异常退出与恢复",
+      "title": "完整控制流程 C：拒绝、超时、退出与恢复",
+      "basename": "03C_控制流程_异常退出与恢复",
+      "width": 2000,
+      "height": 1414,
+      "width_inches": 16.5354,
+      "height_inches": 11.6929,
+      "shapes": [
+        {
+          "id": "title",
+          "x": 40,
+          "y": 24,
+          "w": 1880,
+          "h": 58,
+          "text": "完整控制流程 C：拒绝、超时、退出与恢复",
+          "fs": 39,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "subtitle",
+          "x": 42,
+          "y": 90,
+          "w": 1890,
+          "h": 48,
+          "text": "三条分支分别处理协议拒绝、动作链路异常和服务切换；当前版缺少板端断联 watchdog，通信丢失不会自动保证 LED 全灭。",
+          "fs": 21,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "foot",
+          "x": 40,
+          "y": 1365,
+          "w": 1920,
+          "h": 29,
+          "text": "EES-331 / Zynq-7020  ·  工程快照 2026-09-13  ·  固定动作载荷 + Reloader v1.4  ·  源文件与证据见阅读说明",
+          "fs": 17,
+          "bold": false,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "lane0",
+          "x": 40,
+          "y": 188,
+          "w": 620,
+          "h": 912,
+          "text": "",
+          "fs": 22,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#087FAB",
+          "dash": false,
+          "align": 1,
+          "kind": "container",
+          "color": "#243D49",
+          "radius": 8,
+          "lw": 1.5
+        },
+        {
+          "id": "lane0_label",
+          "x": 56,
+          "y": 200,
+          "w": 588,
+          "h": 39,
+          "text": "C1 · 输入拒绝与动作链路停止",
+          "fs": 27,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "lane1",
+          "x": 690,
+          "y": 188,
+          "w": 620,
+          "h": 912,
+          "text": "",
+          "fs": 22,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#58707B",
+          "dash": false,
+          "align": 1,
+          "kind": "container",
+          "color": "#243D49",
+          "radius": 8,
+          "lw": 1.5
+        },
+        {
+          "id": "lane1_label",
+          "x": 706,
+          "y": 200,
+          "w": 588,
+          "h": 39,
+          "text": "C2 · 正常关闭 / 请求恢复原视频",
+          "fs": 27,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "lane2",
+          "x": 1340,
+          "y": 188,
+          "w": 620,
+          "h": 912,
+          "text": "",
+          "fs": 22,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "#58707B",
+          "dash": false,
+          "align": 1,
+          "kind": "container",
+          "color": "#243D49",
+          "radius": 8,
+          "lw": 1.5
+        },
+        {
+          "id": "lane2_label",
+          "x": 1356,
+          "y": 200,
+          "w": 588,
+          "h": 39,
+          "text": "C3 · 失败时的清理与恢复判定",
+          "fs": 27,
+          "bold": true,
+          "fill": "none",
+          "stroke": "none",
+          "dash": false,
+          "align": 0,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "a1",
+          "x": 72,
+          "y": 261,
+          "w": 556,
+          "h": 101,
+          "text": "来源错误 / 包长、版本、CRC 错误\nActionService 丢弃并记录；不写 START",
+          "fs": 22,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "a2",
+          "x": 72,
+          "y": 396,
+          "w": 556,
+          "h": 101,
+          "text": "已有在途命令 → BUSY\n已完成的同 seq/action → DUPLICATE\nseq ≤ ACCEPT 且非重复 → BAD_SEQUENCE",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "a3",
+          "x": 72,
+          "y": 531,
+          "w": 556,
+          "h": 101,
+          "text": "新帧不足 / 低置信 / 多类别 / 过期\n清连续计数并等待；已发布动作失效 ≥1 s\n链路健康时提交 CLEAR（action=0）",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "a4",
+          "x": 72,
+          "y": 666,
+          "w": 556,
+          "h": 101,
+          "text": "PC 完成超时 / 回执不一致 / 队列满\nACTION_LINK_FAILED；ready=false\n不重发；不再发布新动作",
+          "fs": 21,
+          "bold": false,
+          "fill": "#FFF1EF",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "a5",
+          "x": 72,
+          "y": 801,
+          "w": 556,
+          "h": 101,
+          "text": "PS 轮询超时 / CSR 不一致 / 访问异常\ndriver.failed=true；ACTION_SERVICE_FAILED\n动作禁用；视频可继续（DEGRADED）",
+          "fs": 21,
+          "bold": false,
+          "fill": "#FFF1EF",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "a6",
+          "x": 72,
+          "y": 936,
+          "w": 556,
+          "h": 101,
+          "text": "结果不确定时先保存首次证据\nLED 可能保持原值；没有板端自动 CLEAR\n停止测试，按现场状态选择恢复路径",
+          "fs": 21,
+          "bold": false,
+          "fill": "#FFF1EF",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "b1",
+          "x": 722,
+          "y": 261,
+          "w": 556,
+          "h": 101,
+          "text": "正常关闭 Viewer\n链路健康且无不确定命令 → 一次 CLOSE_CLEAR\n异常状态不强行再发 CLEAR",
+          "fs": 21,
+          "bold": false,
+          "fill": "#E8F3F9",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "b2",
+          "x": 722,
+          "y": 396,
+          "w": 556,
+          "h": 101,
+          "text": "仅关闭 Viewer 不恢复原视频位流\n需要退出动作版时，点击“恢复原视频”\n控制器 restore_original 开始",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "b3",
+          "x": 722,
+          "y": 531,
+          "w": 556,
+          "h": 101,
+          "text": "若原服务已运行且无动作进程\n直接返回 ORIGINAL_ALREADY_RUNNING\n仍需动态画面人工确认（跳到 C3⑥）",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "b4",
+          "x": 722,
+          "y": 666,
+          "w": 556,
+          "h": 101,
+          "text": "否则停止动作 systemd unit\nActionService.close：停止接收，完成在途轮询\nCamera.close：清除两通道 RS 位",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "b5",
+          "x": 722,
+          "y": 801,
+          "w": 556,
+          "h": 101,
+          "text": "等待 VDMA 双向 Halted（2 s）\n未停止则复位，再检查 Halted\n尚未 Halted → 保留缓冲，不释放、不竞争启动",
+          "fs": 21,
+          "bold": false,
+          "fill": "#E9F2E7",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "b6",
+          "x": 722,
+          "y": 936,
+          "w": 556,
+          "h": 101,
+          "text": "确认 Halted 后 freebuffer\n按 VDMA_HALTED → BUFFER_FREED 记录\n动作进程退出，释放锁与 socket",
+          "fs": 21,
+          "bold": false,
+          "fill": "#E9F2E7",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "c1",
+          "x": 1372,
+          "y": 261,
+          "w": 556,
+          "h": 101,
+          "text": "① 启动阶段 FAIL / 首帧超时 / READY 超时\n控制器停止动作 unit，并请求自动恢复\n若仅动作服务故障、视频仍运行，则待人工恢复",
+          "fs": 21,
+          "bold": false,
+          "fill": "#FFF1EF",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "c2",
+          "x": 1372,
+          "y": 396,
+          "w": 556,
+          "h": 101,
+          "text": "② 恢复前检查动作进程是否退出\n若曾分配 DMA 缓冲，则必须找到\nVDMA_HALTED 早于 BUFFER_FREED",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "c3",
+          "x": 1372,
+          "y": 531,
+          "w": 556,
+          "h": 101,
+          "text": "③ 进程仍在 / DMA 释放未被证明\nACTION_STOP_UNSAFE：拒绝启动竞争所有者\n保存证据；软件挂死时转受控断电恢复",
+          "fs": 21,
+          "bold": false,
+          "fill": "#FFF1EF",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "c4",
+          "x": 1372,
+          "y": 666,
+          "w": 556,
+          "h": 101,
+          "text": "④ 清理安全 → 启动原 ees331-camera\n加载原位流、重建 VDMA 与帧缓冲\n最多 35 s 查原服务状态与新就绪标记",
+          "fs": 21,
+          "bold": false,
+          "fill": "#E9F2E7",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "c5",
+          "x": 1372,
+          "y": 801,
+          "w": 556,
+          "h": 101,
+          "text": "⑤ active / PID 有效 + 新 PL_LOADED\n且 HEARTBEAT 或 CAPTURE_VDMA_RUN_COMPLETE\n→ ORIGINAL_RESTORE_READY；否则 INCOMPLETE",
+          "fs": 21,
+          "bold": false,
+          "fill": "#EEF2F4",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "c6",
+          "x": 1372,
+          "y": 936,
+          "w": 556,
+          "h": 101,
+          "text": "⑥ 人工确认 HDMI / UDP 持续动态\n颜色正确、流畅；保存物理确认\n通过才记“原视频恢复成功”，结束本次操作",
+          "fs": 21,
+          "bold": false,
+          "fill": "#E9F2E7",
+          "stroke": "#425963",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "safe",
+          "x": 1354,
+          "y": 583,
+          "w": 96,
+          "h": 37,
+          "text": "安全",
+          "fs": 17,
+          "bold": false,
+          "fill": "#FFFFFF",
+          "stroke": "none",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#58707B",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "scope",
+          "x": 40,
+          "y": 1134,
+          "w": 1920,
+          "h": 87,
+          "text": "本页描述现有软件处理边界：网络超时不等于硬件复位；UART DONE 不等于控制器反馈；CLEAR 不等于机械臂急停。",
+          "fs": 25,
+          "bold": false,
+          "fill": "#FFF1EF",
+          "stroke": "#B84646",
+          "dash": false,
+          "align": 1,
+          "kind": "node",
+          "color": "#B84646",
+          "radius": 4,
+          "lw": 1.5
+        },
+        {
+          "id": "goal",
+          "x": 40,
+          "y": 1241,
+          "w": 1920,
+          "h": 92,
+          "text": "机械臂目标闭环（DESIGN_ONLY）：任务 → 全局新观测 → 需要时腕部近拍复核 → 检查目标版本/有效期 → 有界命令\n→ 控制器真实到位/故障反馈 → 抓取、放置后视觉复核 → 才计任务完成；控制器协议、停止语义与整任务实验仍待确定。",
+          "fs": 23,
+          "bold": false,
+          "fill": "#F2EAF6",
+          "stroke": "#9064AA",
+          "dash": true,
+          "align": 1,
+          "kind": "node",
+          "color": "#243D49",
+          "radius": 4,
+          "lw": 1.5
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge_0",
+          "points": [
+            [
+              40,
+              155
+            ],
+            [
+              1960,
+              155
+            ]
+          ],
+          "color": "#58707B",
+          "lw": 1,
+          "end": false,
+          "start": false,
+          "dash": false,
+          "src": null,
+          "dst": null
+        },
+        {
+          "id": "edge_1",
+          "points": [
+            [
+              72,
+              716.5
+            ],
+            [
+              55,
+              716.5
+            ],
+            [
+              55,
+              986.5
+            ],
+            [
+              72,
+              986.5
+            ]
+          ],
+          "color": "#C66A20",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": true,
+          "src": "a4",
+          "dst": "a6"
+        },
+        {
+          "id": "edge_2",
+          "points": [
+            [
+              350.0,
+              902
+            ],
+            [
+              350.0,
+              936
+            ]
+          ],
+          "color": "#C66A20",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": true,
+          "src": "a5",
+          "dst": "a6"
+        },
+        {
+          "id": "edge_3",
+          "points": [
+            [
+              1000.0,
+              362
+            ],
+            [
+              1000.0,
+              396
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "b1",
+          "dst": "b2"
+        },
+        {
+          "id": "edge_4",
+          "points": [
+            [
+              1000.0,
+              497
+            ],
+            [
+              1000.0,
+              531
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "b2",
+          "dst": "b3"
+        },
+        {
+          "id": "edge_5",
+          "points": [
+            [
+              1000.0,
+              632
+            ],
+            [
+              1000.0,
+              666
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "b3",
+          "dst": "b4"
+        },
+        {
+          "id": "edge_6",
+          "points": [
+            [
+              1000.0,
+              767
+            ],
+            [
+              1000.0,
+              801
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "b4",
+          "dst": "b5"
+        },
+        {
+          "id": "edge_7",
+          "points": [
+            [
+              1000.0,
+              902
+            ],
+            [
+              1000.0,
+              936
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "b5",
+          "dst": "b6"
+        },
+        {
+          "id": "edge_8",
+          "points": [
+            [
+              1650.0,
+              362
+            ],
+            [
+              1650.0,
+              396
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "c1",
+          "dst": "c2"
+        },
+        {
+          "id": "edge_9",
+          "points": [
+            [
+              1650.0,
+              497
+            ],
+            [
+              1650.0,
+              531
+            ]
+          ],
+          "color": "#C66A20",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": true,
+          "src": "c2",
+          "dst": "c3"
+        },
+        {
+          "id": "edge_10",
+          "points": [
+            [
+              1372,
+              446.5
+            ],
+            [
+              1354,
+              446.5
+            ],
+            [
+              1354,
+              716.5
+            ],
+            [
+              1372,
+              716.5
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "c2",
+          "dst": "c4"
+        },
+        {
+          "id": "edge_11",
+          "points": [
+            [
+              1650.0,
+              767
+            ],
+            [
+              1650.0,
+              801
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "c4",
+          "dst": "c5"
+        },
+        {
+          "id": "edge_12",
+          "points": [
+            [
+              1650.0,
+              902
+            ],
+            [
+              1650.0,
+              936
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "c5",
+          "dst": "c6"
+        },
+        {
+          "id": "edge_13",
+          "points": [
+            [
+              1000.0,
+              1037
+            ],
+            [
+              1000,
+              1080
+            ],
+            [
+              1325,
+              1080
+            ],
+            [
+              1325,
+              446.5
+            ],
+            [
+              1372,
+              446.5
+            ]
+          ],
+          "color": "#425963",
+          "lw": 2,
+          "end": true,
+          "start": false,
+          "dash": false,
+          "src": "b6",
+          "dst": "c2"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "seconds": 13.093999999997322,
+  "stats": {
+    "packets": 41601,
+    "complete_frames": 65,
+    "lost_frames": 0
+  },
+  "error": null,
+  "unique_crc": 65,
+  "first_id": 151,
+  "last_id": 215,
+  "frames": 65,
+  "hdmi": "USER_CONFIRMATION_REQUIRED",
+  "pass": true,
+  "marker": "MAIN_VIDEO_UDP_COEXIST_PASS"
+}

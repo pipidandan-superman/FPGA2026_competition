@@ -107,3 +107,22 @@ sudo systemctl disable --now ees331-camera
 
 以上停止业务且保留 Linux 和网络。若要恢复原 CMA 布局，将 `/boot/uEnv.txt` 改名为不被启动脚本加载的备份后重启；若此前有自己的 uEnv，恢复对应备份。网络配置恢复 `/home/xilinx/ees331_camera/backup/` 的原文件。
 原 RTL/BD/Vitis 工程和 BOOT.BIN/image.ub/boot.scr 均未因 PYNQ 迁移改写。恢复 JTAG 基线时应先正常关闭 Linux，再按原流程切换启动模式。
+
+## 2026-09-13 AXI-Lite／蓝牙集成 Overlay
+
+本目录的 `overlay.bit/.hwh` 已更新为主视频工程集成版本，除原 OV5640、VDMA、
+ADV7511 外增加 `axi_lite_test_0` 和 `ble_uart_bridge_0`。部署前先执行：
+
+```bash
+python3 audit_release.py
+```
+
+该命令核对 `release_manifest.json`、BIT/HWH 哈希、`camera.py` 固定哈希和 HWH
+地址/时钟/复位/模块合同。AXI 寄存器基址由 HWH 解析为 `0x43C00000`，驱动在
+`axi_lite.py`；`mmio_ordered.c` 必须在 ARM 板端编译，不能复制 PC 二进制库。
+
+上板共存自动化已经通过：130 秒视频运行、PC 400 帧零丢失、1000 条 AXI 命令、
+蓝牙双向 11 轮，以及恢复原服务后的 100 帧零丢失。当前仍等待 HDMI 物理观察确认，
+完整结果见
+[板测报告](../../../4_metrics/logs/2026-09-13_main_axi_ble_board_run01/REPORT.md)。
+BRAM 字节回环没有包含在该 Overlay 中。

@@ -1,0 +1,46 @@
+===RUN_FILES===
+/home/xilinx/pl_reload_runs/20221022_081904/events.jsonl 1314_bytes
+/home/xilinx/pl_reload_runs/20221022_081904/result.json 92_bytes
+===RUN_CONTENT===
+---/home/xilinx/pl_reload_runs/20221022_081904/events.jsonl---
+{"event": "HARDWARE_CONTRACT", "monotonic": 141.180197285, "marker": "ACTION_HARDWARE_CONTRACT_PASS", "design": "display_test", "axi_lite_base": "0x43c00000", "axi_lite_range": 4096, "vdma_base": "0x43000000", "control_clock_hz": 50000000, "board_clock_hz": 100000000, "bluetooth_ports": 0, "action_leds": 7, "uart_baud": 9600, "bridge_ready_external": false}
+{"event": "PL_LOADED", "monotonic": 144.289809066, "bit_sha256": "bffaa83565d60ea28e04a31497b4c3dff828b0359012dafe1d5d1ea5a390e16d", "state": "operating", "base": "0x43000000"}
+{"event": "SENSOR_SETTLE_COMPLETE", "monotonic": 145.713373958, "seconds": 1.0}
+{"event": "VDMA_RESET_OK", "monotonic": 145.7270423}
+{"event": "BUFFER_ALLOCATED", "monotonic": 145.746442598, "address": "0x10100000", "size": 3145728, "coherent": false}
+{"event": "FIRST_FRAME_TIMEOUT", "monotonic": 150.75292933, "seen": [false, false], "mm2s_sr": "0x11000", "s2mm_sr": "0x10000", "mm2s_cr": "0x1008b", "s2mm_cr": "0x180cb"}
+{"event": "FAIL", "monotonic": 150.772803472, "error": "RuntimeError('No real frame transition: [False, False]')"}
+{"event": "VDMA_HALTED", "monotonic": 150.77782684}
+{"event": "BUFFER_FREED", "monotonic": 150.78407122}
+{"event": "FINAL", "monotonic": 150.789333862, "state": "FAIL", "error": "RuntimeError('No real frame transition: [False, False]')"}
+---/home/xilinx/pl_reload_runs/20221022_081904/result.json---
+{
+  "state": "FAIL",
+  "error": "RuntimeError('No real frame transition: [False, False]')"
+}===ACTION_JOURNAL===
+Started /bin/bash -lc cd /home/xilinx/pl_reloader/action_v1_20260913 && exec bash ./run_action_v1.sh --evidence /home/xilinx/pl_reload_runs/20221022_081904 --seconds 0.
+{"event": "HARDWARE_CONTRACT", "monotonic": 141.180197285, "marker": "ACTION_HARDWARE_CONTRACT_PASS", "design": "display_test", "axi_lite_base": "0x43c00000", "axi_lite_range": 4096, "vdma_base": "0x43000000", "control_clock_hz": 50000000, "board_clock_hz": 100000000, "bluetooth_ports": 0, "action_leds": 7, "uart_baud": 9600, "bridge_ready_external": false}
+{"event": "PL_LOADED", "monotonic": 144.289809066, "bit_sha256": "bffaa83565d60ea28e04a31497b4c3dff828b0359012dafe1d5d1ea5a390e16d", "state": "operating", "base": "0x43000000"}
+{"event": "SENSOR_SETTLE_COMPLETE", "monotonic": 145.713373958, "seconds": 1.0}
+{"event": "VDMA_RESET_OK", "monotonic": 145.7270423}
+{"event": "BUFFER_ALLOCATED", "monotonic": 145.746442598, "address": "0x10100000", "size": 3145728, "coherent": false}
+{"event": "FIRST_FRAME_TIMEOUT", "monotonic": 150.75292933, "seen": [false, false], "mm2s_sr": "0x11000", "s2mm_sr": "0x10000", "mm2s_cr": "0x1008b", "s2mm_cr": "0x180cb"}
+{"event": "FAIL", "monotonic": 150.772803472, "error": "RuntimeError('No real frame transition: [False, False]')"}
+{"event": "VDMA_HALTED", "monotonic": 150.77782684}
+{"event": "BUFFER_FREED", "monotonic": 150.78407122}
+{"event": "FINAL", "monotonic": 150.789333862, "state": "FAIL", "error": "RuntimeError('No real frame transition: [False, False]')"}
+Stopping /bin/bash -lc cd /home/xilinx/pl_reloader/action_v1_20260913 && exec bash ./run_action_v1.sh --evidence /home/xilinx/pl_reload_runs/20221022_081904 --seconds 0...
+ees331-action-reloader-20221022_081904.service: Deactivated successfully.
+Stopped /bin/bash -lc cd /home/xilinx/pl_reloader/action_v1_20260913 && exec bash ./run_action_v1.sh --evidence /home/xilinx/pl_reload_runs/20221022_081904 --seconds 0.
+ees331-action-reloader-20221022_081904.service: Consumed 14.107s CPU time.
+===ACTION_PROPERTIES===
+MainPID=0
+Result=success
+ExecMainCode=0
+ExecMainStatus=0
+ActiveState=inactive
+SubState=dead
+===ORIGINAL_PROPERTIES===
+MainPID=1284
+ActiveState=active
+SubState=running

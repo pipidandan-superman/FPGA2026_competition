@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- 由 Microsoft Visio, SVG Export 生成 02B_PS_PL动作控制模块图.svg 02B_PS_PL动作控制模块图 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="16.5354in" height="11.6929in"
+		viewBox="0 0 1190.55 841.889" xml:space="preserve" color-interpolation-filters="sRGB" class="st31">
+	<title>EES-331 PC PS PL System Atlas</title>
+	<v:documentProperties v:langID="2052" v:metric="true" v:viewMarkup="false"/>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#ffffff;stroke:#087fab;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st2 {fill:#ffffff;stroke:#58707b;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st3 {fill:#eef2f4;stroke:#58707b;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st4 {stroke:#58707b;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.59527}
+		.st5 {marker-end:url(#mrkr13-17);stroke:#425963;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.19055}
+		.st6 {fill:#425963;fill-opacity:1;stroke:#425963;stroke-opacity:1;stroke-width:0.39810402768721}
+		.st7 {marker-end:url(#mrkr13-33);stroke:#425963;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.19055}
+		.st8 {marker-end:url(#mrkr13-17);marker-start:url(#mrkr13-40);stroke:#425963;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.19055}
+		.st9 {marker-end:url(#mrkr13-52);stroke:#c66a20;stroke-dasharray:8.33385,5.95275;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.19055}
+		.st10 {fill:#c66a20;fill-opacity:1;stroke:#c66a20;stroke-opacity:1;stroke-width:0.39810402768721}
+		.st11 {fill:none;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st12 {fill:#243d49;font-family:微软雅黑;font-size:1.93465em;font-weight:bold}
+		.st13 {fill:#243d49;font-family:微软雅黑;font-size:1.04173em}
+		.st14 {fill:#243d49;font-family:微软雅黑;font-size:0.843315em}
+		.st15 {fill:#243d49;font-family:微软雅黑;font-size:1.33937em;font-weight:bold}
+		.st16 {fill:#e8f3f9;stroke:#425963;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st17 {font-size:1em}
+		.st18 {fill:#eef2f4;stroke:#425963;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st19 {fill:#243d49;font-family:微软雅黑;font-size:0.992134em}
+		.st20 {fill:#fcead9;stroke:#425963;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st21 {fill:#e9f2e7;stroke:#425963;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st22 {fill:#243d49;font-family:微软雅黑;font-size:0.942513em}
+		.st23 {fill:#ffffff;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st24 {fill:#58707b;font-family:微软雅黑;font-size:0.843315em}
+		.st25 {fill:#58707b;font-family:微软雅黑;font-size:0.892914em}
+		.st26 {fill:#c66a20;font-family:微软雅黑;font-size:0.992134em}
+		.st27 {fill:#243d49;font-family:微软雅黑;font-size:1.09133em}
+		.st28 {fill:#c66a20;font-family:微软雅黑;font-size:0.892914em}
+		.st29 {fill:#ffffff;stroke:#425963;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.89291}
+		.st30 {fill:#243d49;font-family:微软雅黑;font-size:0.892914em}
+		.st31 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Markers">
+		<g id="lend13">
+			<path d="M 3 1 L 0 0 L 3 -1 L 3 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr13-17" class="st6" v:arrowType="13" v:arrowSize="1" v:setback="7.53572" refX="-7.5357187854353"
+				orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend13" transform="scale(-2.5119062618118,-2.5119062618118) "/>
+		</marker>
+		<marker id="mrkr13-33" class="st6" v:arrowType="13" v:arrowSize="1" v:setback="7.23334" refX="-7.2333375330729"
+				orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend13" transform="scale(-2.5119062618118,-2.5119062618118) "/>
+		</marker>
+		<marker id="mrkr13-40" class="st6" v:arrowType="13" v:arrowSize="1" v:setback="7.23334" refX="7.2333375330729"
+				orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend13" transform="scale(2.5119062618118) "/>
+		</marker>
+		<marker id="mrkr13-52" class="st10" v:arrowType="13" v:arrowSize="1" v:setback="7.23334" refX="-7.2333375330729"
+				orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend13" transform="scale(-2.5119062618118,-2.5119062618118) "/>
+		</marker>
+	</defs>
+	<g v:mID="5" v:index="3" v:groupContext="foregroundPage">
+		<title>02B_PS_PL动作控制模块图</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<g id="shape1-1" v:mID="1" v:groupContext="shape" transform="translate(23.811,-235.729)">
+			<title>ps</title>
+			<rect x="0" y="352.573" width="264.897" height="489.316" rx="4.76208" ry="4.76208" class="st1"/>
+		</g>
+		<g id="shape2-3" v:mID="2" v:groupContext="shape" transform="translate(315.495,-235.729)">
+			<title>pl</title>
+			<rect x="0" y="352.573" width="851.242" height="489.316" rx="4.76208" ry="4.76208" class="st2"/>
+		</g>
+		<g id="shape3-5" v:mID="3" v:groupContext="shape" transform="translate(331.568,-258.944)">
+			<title>uaction</title>
+			<rect x="0" y="419.244" width="812.55" height="422.645" rx="4.76208" ry="4.76208" class="st3"/>
+		</g>
+		<g id="shape4-7" v:mID="4" v:groupContext="shape" transform="translate(23.811,-47.0267)">
+			<title>table</title>
+			<rect x="0" y="672.236" width="1142.93" height="169.653" rx="4.76208" ry="4.76208" class="st2"/>
+		</g>
+		<g id="shape5-9" v:mID="5" v:groupContext="shape" transform="translate(23.811,-749.45)">
+			<title>edge_0</title>
+			<path d="M0 841.89 L1142.93 841.89" class="st4"/>
+		</g>
+		<g id="shape6-12" v:mID="6" v:groupContext="shape" transform="translate(998.446,226.97) rotate(90)">
+			<title>edge_1</title>
+			<path d="M0 841.89 L20.2 841.89" class="st5"/>
+		</g>
+		<g id="shape7-18" v:mID="7" v:groupContext="shape" transform="translate(998.446,337.691) rotate(90)">
+			<title>edge_2</title>
+			<path d="M0 841.89 L23.17 841.89" class="st5"/>
+		</g>
+		<g id="shape8-23" v:mID="8" v:groupContext="shape" transform="translate(998.446,448.412) rotate(90)">
+			<title>edge_3</title>
+			<path d="M0 841.89 L24.96 841.89" class="st5"/>
+		</g>
+		<g id="shape9-28" v:mID="9" v:groupContext="shape" transform="translate(-491.837,236.648) rotate(-70.0736)">
+			<title>edge_4</title>
+			<path d="M0 809.99 L11.56 841.89 L238.5 759.62 L256.76 809.99 L256.76 809.99" class="st7"/>
+		</g>
+		<g id="shape10-34" v:mID="10" v:groupContext="shape" transform="translate(574.44,-570.571)">
+			<title>edge_5</title>
+			<path d="M8.61 841.89 L8.97 841.89 L65.44 841.89" class="st8"/>
+		</g>
+		<g id="shape11-42" v:mID="11" v:groupContext="shape" transform="translate(1617.01,303.327) rotate(88.6739)">
+			<title>edge_6</title>
+			<path d="M0 841.89 L55.34 841.89" class="st5"/>
+		</g>
+		<g id="shape12-47" v:mID="12" v:groupContext="shape" transform="translate(-198.482,412.846) rotate(-88.0044)">
+			<title>edge_7</title>
+			<path d="M0 841.89 L-0.93 815.12 L169.81 809.17 L170.95 841.89 L170.95 841.89" class="st9"/>
+		</g>
+		<g id="shape13-53" v:mID="13" v:groupContext="shape" transform="translate(916.783,-399.705) rotate(0.409249)">
+			<title>edge_8</title>
+			<path d="M0 841.89 L32.7 841.89" class="st5"/>
+		</g>
+		<g id="shape14-58" v:mID="14" v:groupContext="shape" transform="translate(1087.21,1322.15) rotate(176.599)">
+			<title>edge_9</title>
+			<path d="M0 841.89 L1.8 811.58 L261.77 827.03 L260.89 841.89 L260.89 841.89" class="st9"/>
+		</g>
+		<g id="shape15-63" v:mID="15" v:groupContext="shape" transform="translate(539.172,-367.725) rotate(-17.4769)">
+			<title>edge_10</title>
+			<path d="M0 791.36 L9.48 761.26 L265.55 841.89 L281.46 791.36 L281.46 791.36" class="st7"/>
+		</g>
+		<g id="shape16-68" v:mID="16" v:groupContext="shape" transform="translate(1879.15,481.748) rotate(90)">
+			<title>edge_11</title>
+			<path d="M0 841.89 L39.25 841.89" class="st5"/>
+		</g>
+		<g id="shape17-73" v:mID="17" v:groupContext="shape" transform="translate(23.811,-792.906)">
+			<title>title</title>
+			<desc>PSPL 模块图ACTL 寄存器、执行 FSM 与物理输出</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="559.558" cy="824.626" width="1119.12" height="34.5259"/>
+			<rect x="0" y="807.363" width="1119.12" height="34.5259" rx="2.38104" ry="2.38104" class="st11"/>
+			<text x="0.86" y="831.59" class="st12" v:langID="2052"><v:paragraph/><v:tabList/>PS＋PL 模块图：ACTL 寄存器、执行 FSM 与物理输出</text>		</g>
+		<g id="shape18-76" v:mID="18" v:groupContext="shape" transform="translate(25.0015,-759.57)">
+			<title>subtitle</title>
+			<desc>实际层级axi_action_0 / video_axi_action_uart_top / u_action:axi_a...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="562.534" cy="827.602" width="1125.07" height="28.5732"/>
+			<rect x="0" y="813.316" width="1125.07" height="28.5732" rx="2.38104" ry="2.38104" class="st11"/>
+			<text x="0.86" y="831.35" class="st13" v:langID="2052"><v:paragraph/><v:tabList/>实际层级：axi_action_0 / video_axi_action_uart_top / u_action:axi_action_control_top；本动作位流没有 BLE 桥、BRAM 命令队列或模型核</text>		</g>
+		<g id="shape19-79" v:mID="19" v:groupContext="shape" transform="translate(23.811,-11.9055)">
+			<title>foot</title>
+			<desc>EES-331 / Zynq-7020 · 工程快照 2026-09-13 · 固定动作载荷 + Reloader v1....</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="571.463" cy="833.257" width="1142.93" height="17.263"/>
+			<rect x="0" y="824.626" width="1142.93" height="17.263" rx="2.38104" ry="2.38104" class="st11"/>
+			<text x="0.86" y="836.29" class="st14" v:langID="2052"><v:paragraph/><v:tabList/>EES-331 / Zynq-7020  ·  工程快照 2026-09-13  ·  固定动作载荷 + Reloader v1.4  ·  源文件与证据见阅读说明</text>		</g>
+		<g id="shape20-82" v:mID="20" v:groupContext="shape" transform="translate(33.3354,-694.685)">
+			<title>ps_label</title>
+			<desc>PS 软件控制栈</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="122.924" cy="830.281" width="245.85" height="23.2157"/>
+			<rect x="0" y="818.673" width="245.848" height="23.2157" rx="2.38104" ry="2.38104" class="st11"/>
+			<text x="0.86" y="835.1" class="st15" v:langID="2052"><v:paragraph/><v:tabList/>PS 软件控制栈</text>		</g>
+		<g id="shape21-85" v:mID="21" v:groupContext="shape" transform="translate(43.455,-614.918)">
+			<title>udp</title>
+			<desc>action_service.ActionService UDP 5001单所有者线程 QUERY / 去重 / BUSY...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="113.102" cy="809.149" width="226.21" height="65.4802"/>
+			<rect x="0" y="776.409" width="226.204" height="65.4802" rx="2.38104" ry="2.38104" class="st16"/>
+			<text x="29.42" y="797.9" class="st13" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>action_service.ActionService<v:newlineChar/><tspan
+						x="39.59" dy="1.2em" class="st17">UDP 5001</tspan>；单所有者线程<v:newlineChar/><tspan x="19.47" dy="1.2em"
+						class="st17">QUERY / </tspan>去重 / BUSY / 序号检查</text>		</g>
+		<g id="shape22-90" v:mID="22" v:groupContext="shape" transform="translate(43.455,-504.197)">
+			<title>driver</title>
+			<desc>action_driver.ActionDriver from_overlay → IP_ID / ABI / CAPS ...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="113.102" cy="801.113" width="226.21" height="81.5526"/>
+			<rect x="0" y="760.336" width="226.204" height="81.5526" rx="2.38104" ry="2.38104" class="st18"/>
+			<text x="35.75" y="774.86" class="st13" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>action_driver.ActionDriver<v:newlineChar/><tspan
+						x="10.39" dy="1.2em" class="st17">from_overlay </tspan>→ IP_ID / ABI / CAPS<v:newlineChar/><tspan x="5.41"
+						dy="1.2em" class="st17">begin</tspan>：ACTION_CODE → CMD_SEQ<v:newlineChar/><tspan x="53.92" dy="1.2em"
+						class="st17">→</tspan> CONTROL.START<v:newlineChar/><tspan x="16.24" dy="1.2em" class="st17">poll</tspan>：检查结果 → CONTROL.ACK</text>		</g>
+		<g id="shape23-97" v:mID="23" v:groupContext="shape" transform="translate(43.455,-393.476)">
+			<title>io</title>
+			<desc>axilt.OrderedMMIO mmio_ordered.c / libmmio_ordered.so 32-bit ...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="113.102" cy="802.601" width="226.21" height="78.5762"/>
+			<rect x="0" y="763.313" width="226.204" height="78.5762" rx="2.38104" ry="2.38104" class="st18"/>
+			<text x="57.98" y="784.74" class="st19" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>axilt.OrderedMMIO<v:newlineChar/><tspan
+						x="3.89" dy="1.2em" class="st17">mmio_ordered.c / libmmio_ordered.so<v:newlineChar/></tspan><tspan
+						x="48.61" dy="1.2em" class="st17">32</tspan>-bit 有序 MMIO 访问<v:newlineChar/><tspan x="36.26" dy="1.2em"
+						class="st17">PYNQ MMIO</tspan>：4 KiB 地址窗</text>		</g>
+		<g id="shape24-103" v:mID="24" v:groupContext="shape" transform="translate(43.455,-298.828)">
+			<title>gp</title>
+			<desc>processing_system7_0.M_AXI_GP0 → axi_smc.S00 → M01 AXI-Lite 3...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="113.102" cy="811.53" width="226.21" height="60.718"/>
+			<rect x="0" y="781.171" width="226.204" height="60.718" rx="2.38104" ry="2.38104" class="st18"/>
+			<text x="16.23" y="800.81" class="st19" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>processing_system7_0.M_AXI_GP0<v:newlineChar/><tspan
+						x="49.39" dy="1.2em" class="st17">→</tspan> axi_smc.S00 → M01<v:newlineChar/><tspan x="29.67" dy="1.2em"
+						class="st17">AXI</tspan>-Lite 32-bit，地址低 12 bit</text>		</g>
+		<g id="shape25-108" v:mID="25" v:groupContext="shape" transform="translate(325.02,-694.685)">
+			<title>pl_label</title>
+			<desc>PL · axi_action_00x43C00000–0x43C00FFF</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="416.097" cy="830.281" width="832.2" height="23.2157"/>
+			<rect x="0" y="818.673" width="832.194" height="23.2157" rx="2.38104" ry="2.38104" class="st11"/>
+			<text x="0.86" y="835.1" class="st15" v:langID="2052"><v:paragraph/><v:tabList/>PL · axi_action_0（0x43C00000–0x43C00FFF）</text>		</g>
+		<g id="shape26-111" v:mID="26" v:groupContext="shape" transform="translate(341.092,-651.23)">
+			<title>uaction_label</title>
+			<desc>u_action : axi_action_control_top · clock_freq_hz=50,000,000 ...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="396.75" cy="830.281" width="793.51" height="23.2157"/>
+			<rect x="0" y="818.673" width="793.501" height="23.2157" rx="2.38104" ry="2.38104" class="st11"/>
+			<text x="0.86" y="835.1" class="st15" v:langID="2052"><v:paragraph/><v:tabList/>u_action : axi_action_control_top · clock_freq_hz=50,000,000 / baud_rate=9,600</text>		</g>
+		<g id="shape27-114" v:mID="27" v:groupContext="shape" transform="translate(357.165,-519.079)">
+			<title>slave</title>
+			<desc>u_slave : axi_lite_slave AW / W 独立握手与缓冲 B / R 响应回压 wr_valid /...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="108.638" cy="790.398" width="217.28" height="102.982"/>
+			<rect x="0" y="738.906" width="217.275" height="102.982" rx="2.38104" ry="2.38104" class="st16"/>
+			<text x="44.01" y="756.65" class="st13" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>u_slave : axi_lite_slave<v:newlineChar/><tspan
+						x="39.55" dy="1.2em" class="st17">AW / W </tspan>独立握手与缓冲<v:newlineChar/><tspan x="67.41" dy="1.2em"
+						class="st17">B / R </tspan>响应回压<v:newlineChar/><tspan x="19.87" dy="1.2em" class="st17">wr_valid / wr_addr / wr_data / </tspan><tspan
+						x="87.08" dy="1.2em" class="st17">WSTRB<v:newlineChar/></tspan><tspan x="23.63" dy="1.2em" class="st17">rd_valid / rd_addr </tspan>→ rd_data</text>		</g>
+		<g id="shape28-122" v:mID="28" v:groupContext="shape" transform="translate(648.849,-519.079)">
+			<title>regs</title>
+			<desc>u_regs : axi_action_reg_bank CSR 译码 / 参数锁存 / 序号状态 READY / BUS...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="126.496" cy="790.398" width="253" height="102.982"/>
+			<rect x="0" y="738.906" width="252.992" height="102.982" rx="2.38104" ry="2.38104" class="st16"/>
+			<text x="42.09" y="764.15" class="st13" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>u_regs : axi_action_reg_bank<v:newlineChar/><tspan
+						x="37.53" dy="1.2em" class="st17">CSR </tspan>译码 / 参数锁存 / 序号状态<v:newlineChar/><tspan x="58.97" dy="1.2em"
+						class="st17">READY / BUSY / DONE<v:newlineChar/></tspan><tspan x="42.7" dy="1.2em" class="st17">START </tspan>接受后触发 exec_start<v:newlineChar/><tspan
+						x="48.12" dy="1.2em" class="st17">DONE </tspan>保持，直到软件 ACK</text>		</g>
+		<g id="shape29-129" v:mID="29" v:groupContext="shape" transform="translate(642.896,-344.664)">
+			<title>executor</title>
+			<desc>u_executor : action_command_executor IDLE → LOAD → LAUNCH → W...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="133.937" cy="786.826" width="267.88" height="110.126"/>
+			<rect x="0" y="731.763" width="267.873" height="110.126" rx="2.38104" ry="2.38104" class="st20"/>
+			<text x="16.07" y="760.57" class="st13" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>u_executor : action_command_executor<v:newlineChar/><tspan
+						x="2.52" dy="1.2em" class="st17">IDLE </tspan>→ LOAD → LAUNCH → WAIT → DONE<v:newlineChar/><tspan x="33.64"
+						dy="1.2em" class="st17">start </tspan>锁存 action / seq[7:0] / CRC8<v:newlineChar/><tspan x="44.56"
+						dy="1.2em" class="st17">立即更新</tspan> LED；顺序发送 7 字节<v:newlineChar/><tspan x="43.15" dy="1.2em" class="st17">第</tspan> 7 字节完成后产生 exec_done</text>		</g>
+		<g id="shape30-136" v:mID="30" v:groupContext="shape" transform="translate(952.439,-360.141)">
+			<title>uart</title>
+			<desc>u_uart_tx : action_uart_tx IDLE→START→DATA →STOP→DONE 9600 / ...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="84.8266" cy="802.601" width="169.66" height="78.5762"/>
+			<rect x="0" y="763.313" width="169.653" height="78.5762" rx="2.38104" ry="2.38104" class="st20"/>
+			<text x="14.63" y="784.74" class="st19" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>u_uart_tx : action_uart_tx<v:newlineChar/><tspan
+						x="25.65" dy="1.2em" class="st17">IDLE</tspan>→START→DATA<v:newlineChar/><tspan x="40.08" dy="1.2em"
+						class="st17">→</tspan>STOP→DONE<v:newlineChar/><tspan x="24.03" dy="1.2em" class="st17">9600 / 8N1 / LSB first</tspan></text>		</g>
+		<g id="shape31-142" v:mID="31" v:groupContext="shape" transform="translate(966.726,-539.319)">
+			<title>led</title>
+			<desc>ACTION_LED[6:0] action=1..7 → one-hot action=0 → 全灭 无断联自动熄灯逻辑</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="78.5762" cy="800.815" width="157.16" height="82.1479"/>
+			<rect x="0" y="759.741" width="157.152" height="82.1479" rx="2.38104" ry="2.38104" class="st21"/>
+			<text x="29.63" y="782.96" class="st19" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>ACTION_LED[6:0]<v:newlineChar/><tspan
+						x="14.23" dy="1.2em" class="st17">action=1..7 </tspan>→ one-hot<v:newlineChar/><tspan x="31.76" dy="1.2em"
+						class="st17">action=0 </tspan>→ 全灭<v:newlineChar/><tspan x="25" dy="1.2em" class="st17">无断联自动熄灯逻辑</tspan></text>		</g>
+		<g id="shape32-148" v:mID="32" v:groupContext="shape" transform="translate(952.439,-272.04)">
+			<title>tx</title>
+			<desc>PL_RS232_TX → USB串口 PC COM4仅接收核验</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="84.8266" cy="821.947" width="169.66" height="39.8834"/>
+			<rect x="0" y="802.005" width="169.653" height="39.8834" rx="2.38104" ry="2.38104" class="st16"/>
+			<text x="18.26" y="818.55" class="st22" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>PL_RS232_TX → USB串口<v:newlineChar/><tspan
+						x="19.09" dy="1.2em" class="st17">PC COM4</tspan>（仅接收核验）</text>		</g>
+		<g id="shape33-152" v:mID="33" v:groupContext="shape" transform="translate(573.845,-548.248)">
+			<title>csrbus</title>
+			<desc>wr_* / rd_* 响应/数据</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="37.2047" cy="820.161" width="74.41" height="43.455"/>
+			<rect x="0" y="798.434" width="74.4093" height="43.455" rx="2.38104" ry="2.38104" class="st23"/>
+			<text x="11.81" y="817.13" class="st24" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>wr_* / rd_*<v:newlineChar/><tspan
+						x="14.8" dy="1.2em" class="st17">响应</tspan>/数据</text>		</g>
+		<g id="shape34-156" v:mID="34" v:groupContext="shape" transform="translate(672.66,-470.267)">
+			<title>execute</title>
+			<desc>exec_start / exec_seq[31:0] exec_action[7:0]</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="96.7321" cy="825.221" width="193.47" height="33.3354"/>
+			<rect x="0" y="808.553" width="193.464" height="33.3354" rx="2.38104" ry="2.38104" class="st23"/>
+			<text x="28.79" y="822.01" class="st25" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>exec_start / exec_seq[31:0]<v:newlineChar/><tspan
+						x="55.92" dy="1.2em" class="st17">exec_action[7:0]</tspan></text>		</g>
+		<g id="shape35-160" v:mID="35" v:groupContext="shape" transform="translate(438.717,-380.38)">
+			<title>execdone</title>
+			<desc>exec_done / exec_result exec_error_code / exec_frame uart_bus...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="84.2313" cy="809.149" width="168.47" height="65.4802"/>
+			<rect x="0" y="776.409" width="168.463" height="65.4802" rx="2.38104" ry="2.38104" class="st11"/>
+			<text x="16.8" y="791.29" class="st26" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>exec_done / exec_result<v:newlineChar/><tspan
+						x="33.9" dy="1.2em" class="st17">exec_error_code / </tspan><tspan x="52.22" dy="1.2em" class="st17">exec_frame<v:newlineChar/></tspan><tspan
+						x="22.29" dy="1.2em" class="st17">uart_busy </tspan>→ CSR 状态</text>		</g>
+		<g id="shape36-166" v:mID="36" v:groupContext="shape" transform="translate(358.355,-277.993)">
+			<title>frame</title>
+			<desc>UART 帧A5 5A seq[7:0] action CRC8 0D 0A CRC8(poly=0x07, init=0...</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="270.85" cy="819.566" width="541.7" height="44.6456"/>
+			<rect x="0" y="797.243" width="541.7" height="44.6456" rx="2.38104" ry="2.38104" class="st11"/>
+			<text x="131.78" y="815.64" class="st27" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>UART 帧：A5 5A seq[7:0] action CRC8 0D 0A<v:newlineChar/><tspan
+						x="96.7" dy="1.2em" class="st17">CRC8(poly=0x07, init=0)</tspan>；UDP/CSR 保留完整 32-bit seq</text>		</g>
+		<g id="shape37-170" v:mID="37" v:groupContext="shape" transform="translate(41.6692,-248.825)">
+			<title>pollnote</title>
+			<desc>完成依据为 CSR 轮询非中断 软件回执不替代串口 / LED 实测</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="120.543" cy="827.007" width="241.09" height="29.7637"/>
+			<rect x="0" y="812.125" width="241.086" height="29.7637" rx="2.38104" ry="2.38104" class="st11"/>
+			<text x="48.27" y="823.79" class="st28" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>完成依据为 CSR 轮询，非中断<v:newlineChar/><tspan
+						x="44.79" dy="1.2em" class="st17">软件回执不替代串口</tspan> / LED 实测</text>		</g>
+		<g id="shape38-174" v:mID="38" v:groupContext="shape" transform="translate(33.3354,-186.321)">
+			<title>table_label</title>
+			<desc>ACTL v1 寄存器偏移相对 0x43C00000所有寄存器 32 bit</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="561.939" cy="830.281" width="1123.88" height="23.2157"/>
+			<rect x="0" y="818.673" width="1123.88" height="23.2157" rx="2.38104" ry="2.38104" class="st11"/>
+			<text x="0.86" y="835.1" class="st15" v:langID="2052"><v:paragraph/><v:tabList/>ACTL v1 寄存器（偏移相对 0x43C00000；所有寄存器 32 bit）</text>		</g>
+		<g id="shape39-177" v:mID="39" v:groupContext="shape" transform="translate(35.7165,-149.414)">
+			<title>cell00</title>
+			<desc>0x00 IP_ID = 0x4143544C</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="141.378" cy="827.305" width="282.76" height="29.1684"/>
+			<rect x="0" y="812.72" width="282.755" height="29.1684" class="st29"/>
+			<text x="74.58" y="830.52" class="st30" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>0x00  IP_ID = 0x4143544C</text>		</g>
+		<g id="shape40-180" v:mID="40" v:groupContext="shape" transform="translate(318.472,-149.414)">
+			<title>cell01</title>
+			<desc>0x04 ABI_VERSION = 0x00010000</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="141.378" cy="827.305" width="282.76" height="29.1684"/>
+			<rect x="0" y="812.72" width="282.755" height="29.1684" class="st29"/>
+			<text x="53.37" y="830.52" class="st30" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>0x04  ABI_VERSION = 0x00010000</text>		</g>
+		<g id="shape41-183" v:mID="41" v:groupContext="shape" transform="translate(601.227,-149.414)">
+			<title>cell02</title>
+			<desc>0x08 CAPS = 7</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="141.378" cy="827.305" width="282.76" height="29.1684"/>
+			<rect x="0" y="812.72" width="282.755" height="29.1684" class="st29"/>
+			<text x="102.06" y="830.52" class="st30" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>0x08  CAPS = 7</text>		</g>
+		<g id="shape42-186" v:mID="42" v:groupContext="shape" transform="translate(883.982,-149.414)">
+			<title>cell03</title>
+			<desc>0x0C SCRATCH读写测试</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="141.378" cy="827.305" width="282.76" height="29.1684"/>
+			<rect x="0" y="812.72" width="282.755" height="29.1684" class="st29"/>
+			<text x="68.74" y="830.52" class="st30" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>0x0C  SCRATCH（读写测试）</text>		</g>
+		<g id="shape43-189" v:mID="43" v:groupContext="shape" transform="translate(35.7165,-120.245)">
+			<title>cell10</title>
+			<desc>0x10 ACTION_CODE0..7</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="141.378" cy="827.305" width="282.76" height="29.1684"/>
+			<rect x="0" y="812.72" width="282.755" height="29.1684" class="st16"/>
+			<text x="68.39" y="830.52" class="st30" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>0x10  ACTION_CODE（0..7）</text>		</g>
+		<g id="shape44-192" v:mID="44" v:groupContext="shape" transform="translate(318.472,-120.245)">
+			<title>cell11</title>
+			<desc>0x14 CMD_SEQ递增非零</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="141.378" cy="827.305" width="282.76" height="29.1684"/>
+			<rect x="0" y="812.72" width="282.755" height="29.1684" class="st16"/>
+			<text x="68.22" y="830.52" class="st30" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>0x14  CMD_SEQ（递增非零）</text>		</g>
+		<g id="shape45-195" v:mID="45" v:groupContext="shape" transform="translate(601.227,-120.245)">
+			<title>cell12</title>
+			<desc>0x18 CONTROL1=START / 2=ACK</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="141.378" cy="827.305" width="282.76" height="29.1684"/>
+			<rect x="0" y="812.72" width="282.755" height="29.1684" class="st16"/>
+			<text x="47.77" y="830.52" class="st30" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>0x18  CONTROL：1=START / 2=ACK</text>		</g>
+		<g id="shape46-198" v:mID="46" v:groupContext="shape" transform="translate(883.982,-120.245)">
+			<title>cell13</title>
+			<desc>0x1C STATUS 位0/1/2/4READY/BUSY/DONE/TX_BUSY</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="141.378" cy="827.305" width="282.76" height="29.1684"/>
+			<rect x="0" y="812.72" width="282.755" height="29.1684" class="st16"/>
+			<text x="73.79" y="824.09" class="st30" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>0x1C  STATUS 位0/1/2/4：<tspan
+						x="64.93" dy="1.2em" class="st17">READY/BUSY/DONE/TX_BUSY</tspan></text>		</g>
+		<g id="shape47-202" v:mID="47" v:groupContext="shape" transform="translate(35.7165,-91.077)">
+			<title>cell20</title>
+			<desc>0x20 ACCEPT_SEQ</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="141.378" cy="827.305" width="282.76" height="29.1684"/>
+			<rect x="0" y="812.72" width="282.755" height="29.1684" class="st29"/>
+			<text x="93.03" y="830.52" class="st30" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>0x20  ACCEPT_SEQ</text>		</g>
+		<g id="shape48-205" v:mID="48" v:groupContext="shape" transform="translate(318.472,-91.077)">
+			<title>cell21</title>
+			<desc>0x24 DONE_SEQ</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="141.378" cy="827.305" width="282.76" height="29.1684"/>
+			<rect x="0" y="812.72" width="282.755" height="29.1684" class="st29"/>
+			<text x="97.51" y="830.52" class="st30" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>0x24  DONE_SEQ</text>		</g>
+		<g id="shape49-208" v:mID="49" v:groupContext="shape" transform="translate(601.227,-91.077)">
+			<title>cell22</title>
+			<desc>0x28 LAST_ACTION</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="141.378" cy="827.305" width="282.76" height="29.1684"/>
+			<rect x="0" y="812.72" width="282.755" height="29.1684" class="st29"/>
+			<text x="90.26" y="830.52" class="st30" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>0x28  LAST_ACTION</text>		</g>
+		<g id="shape50-211" v:mID="50" v:groupContext="shape" transform="translate(883.982,-91.077)">
+			<title>cell23</title>
+			<desc>0x2C ERROR_CODE</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="141.378" cy="827.305" width="282.76" height="29.1684"/>
+			<rect x="0" y="812.72" width="282.755" height="29.1684" class="st29"/>
+			<text x="90.44" y="830.52" class="st30" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>0x2C  ERROR_CODE</text>		</g>
+		<g id="shape51-214" v:mID="51" v:groupContext="shape" transform="translate(35.7165,-61.9085)">
+			<title>cell30</title>
+			<desc>0x30 EXEC_COUNT</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="141.378" cy="827.305" width="282.76" height="29.1684"/>
+			<rect x="0" y="812.72" width="282.755" height="29.1684" class="st16"/>
+			<text x="91.36" y="830.52" class="st30" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>0x30  EXEC_COUNT</text>		</g>
+		<g id="shape52-217" v:mID="52" v:groupContext="shape" transform="translate(318.472,-61.9085)">
+			<title>cell31</title>
+			<desc>0x34 LAST_FRAME00 CRC SEQ ACTION</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="141.378" cy="827.305" width="282.76" height="29.1684"/>
+			<rect x="0" y="812.72" width="282.755" height="29.1684" class="st16"/>
+			<text x="34.5" y="830.52" class="st30" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>0x34  LAST_FRAME：00 CRC SEQ ACTION</text>		</g>
+		<g id="shape53-220" v:mID="53" v:groupContext="shape" transform="translate(601.227,-61.9085)">
+			<title>cell32</title>
+			<desc>0x38 OUTPUT_STATUSbit0=1 / bit4=TX_BUSY</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="141.378" cy="827.305" width="282.76" height="29.1684"/>
+			<rect x="0" y="812.72" width="282.755" height="29.1684" class="st16"/>
+			<text x="17.29" y="830.52" class="st30" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>0x38  OUTPUT_STATUS：bit0=1 / bit4=TX_BUSY</text>		</g>
+		<g id="shape54-223" v:mID="54" v:groupContext="shape" transform="translate(883.982,-61.9085)">
+			<title>cell33</title>
+			<desc>0x3C FRAME_COUNTEXEC_COUNT 映射</desc>
+			<v:textBlock v:margins="rect(0.288,0.864,0.288,0.864)" v:tabSpace="42.5197"/>
+			<v:textRect cx="141.378" cy="827.305" width="282.76" height="29.1684"/>
+			<rect x="0" y="812.72" width="282.755" height="29.1684" class="st16"/>
+			<text x="27.83" y="830.52" class="st30" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>0x3C  FRAME_COUNT（EXEC_COUNT 映射）</text>		</g>
+	</g>
+</svg>

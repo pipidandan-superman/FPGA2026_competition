@@ -1,0 +1,57 @@
+* 800a0d6 (HEAD -> codex/full/pipidandan-superman, origin/codex/full/pipidandan-superman) docs: record v1.4 publication receipt
+* 63343aa feat: publish board-validated PL reloader v1.4
+* 612d7b3 feat: deliver verified model AXI UART LED checkpoint with reload caveat
+*   236678c (origin/main, origin/HEAD) Merge pull request #5 from pipidandan-superman/codex/full/pipidandan-superman
+|\  
+| * 51a01a5 feat: integrate verified BLE GATT flow and record manual duplex acceptance
+| * c101d87 feat: archive BLE diagnostics and verified short bidirectional communication
+| * dd1dff1 docs: prioritize onboard BLE validation and define AXI BRAM control plan
+| * fa418a0 chore: normalize existing tool binary to Git LFS
+| * aca4910 feat: publish Windows host tools with Git LFS
+| * aa33fb2 docs: add dual-model robotic arm direction
+| * ed12062 docs: publish two AMD topic 2 design directions
+| *   11c79aa Merge remote-tracking branch 'origin/main' into codex/full/pipidandan-superman
+| |\  
+| |/  
+|/|   
+* |   031aaf1 Merge pull request #4 from pipidandan-superman/feat/gesture-model-v1
+|\ \  
+| * \   ce44fe0 (origin/feat/gesture-model-v1) merge origin/main into feat/gesture-model-v1
+| |\ \  
+| |/ /  
+|/| |   
+| * | fee0bd5 3_host/model: add gesture model v1 weights (best.pt/onnx) and fill MODEL.md
+| | * 354bf1d evidence: retain EES-331 Vitis release artifacts
+| | * 8ad3cfc chore: converge workspace on EES-331 baselines
+| | * 7f55465 evidence: record PYNQ archive upload
+| | * eed26e7 docs: archive verified PYNQ SD deployment
+| | * dc0f715 feat: allow custom SD package output directory
+| | * a417423 docs: record SD builder upload handoff
+| | *   6f76d67 Merge remote-tracking branch 'origin/main' into codex/full/pipidandan-superman
+| | |\  
+| |_|/  
+|/| |   
+* | |   376fb1e Merge pull request #3 from pipidandan-superman/codex/full/pipidandan-superman
+|\ \ \  
+| |/ /  
+|/| |   
+| | * 87ce6f3 feat: integrate PYNQ camera app into SD builder
+| |/  
+| * 9275489 feat: archive verified EES-331 PYNQ camera service
+| * a0f1b6d docs: record archive upload receipt and draft PR handoff
+| * ae1384a feat: archive EES-331 SD boot builder releases and verified evidence
+|/  
+*   c60291a Merge pull request #2 from pipidandan-superman/codex/full/pipidandan-superman
+|\  
+| * ec70fe4 docs: point top-level README/HANDOFF to the BGR-fixed exe (V1.2) and color-fix freeze
+| * 5b4d99f docs: record color-fix branch upload result and PR handoff
+| * 75ac99a (tag: udp-color-fix-pass-20260908) evidence: archive UDP color-swap root cause, fix verification and final board visual pass
+| * 58caa58 fix: decode UDP camera frames as BGR (VDMA little-endian byte order)
+| * fc76580 fix: revert zero-copy experiment, freeze C1.2 66ms proven state (6.3 fps)
+| * 84b2f3f docs: archive C1.2 zero-defect evidence and quality-pass records
+| * 02ad699 docs: archive C1.1/C1.2 validation, freeze udp-camera-c12-pass-20260908
+| * eaa6a82 fix: stage C1.1/C1.2 — dual-buffer snapshot, chunked copy, burst spreading
+| * cee2115 feat: stage C1 — stream live camera frames over UDP to PC (V3.1.3)
+| * bd8ec6c docs: record stage B1 pass, protocol design and GUI tools
+| * 86f44c5 feat: add board-to-PC UDP video sender, stage B1 (V3.1.2)
+| * c0a870c docs: record main project ethernet loopback PASS and new baseline

@@ -1,0 +1,6 @@
+warning: in the working copy of '2_fpga/0_diaplay_test/pynq/current.hwh', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '2_fpga/0_diaplay_test/pynq/overlay.hwh', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '2_fpga/0_diaplay_test/release/action_v1_uart_run01/display_test_axi_action_uart.hwh', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '2_fpga/0_diaplay_test/release/action_v1_uart_run02/display_test_axi_action_uart.hwh', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '2_fpga/1_ble_test/proj/ble_test_vivado_2025_2/ble_test_vivado_2025_2.hw/hw_1/layout/hw_ila_1.layout', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '2_fpga/2_axi_lite_test/proj/release/AXI_LITE_test.hwh', LF will be replaced by CRLF the next time Git touches it

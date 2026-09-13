@@ -1,0 +1,19 @@
+test_exact_completion_and_duplicate (test_action_v1.DriverTests.test_exact_completion_and_duplicate) ... ok
+test_fail_closed_timeout_and_corruption (test_action_v1.DriverTests.test_fail_closed_timeout_and_corruption) ... ok
+test_inference_publisher_to_udp_service (test_action_v1.DriverTests.test_inference_publisher_to_udp_service) ... ok
+test_publisher_connection_failure_is_visible (test_action_v1.DriverTests.test_publisher_connection_failure_is_visible) ... ok
+test_real_udp_idempotency (test_action_v1.DriverTests.test_real_udp_idempotency) ... ok
+test_wrong_identity (test_action_v1.DriverTests.test_wrong_identity) ... ok
+test_corrupt_packet_rejected (test_action_v1.ProtocolTests.test_corrupt_packet_rejected) ... ok
+test_known_crc (test_action_v1.ProtocolTests.test_known_crc) ... ok
+test_packets_and_stream_chunks (test_action_v1.ProtocolTests.test_packets_and_stream_chunks) ... ok
+test_clear_once_then_rearm (test_action_v1.StableTests.test_clear_once_then_rearm) ... ok
+test_confidence_conflict_and_stale (test_action_v1.StableTests.test_confidence_conflict_and_stale) ... ok
+test_invalid_breaks_streak (test_action_v1.StableTests.test_invalid_breaks_streak) ... ok
+test_new_label_needs_three_and_old_frame_ignored (test_action_v1.StableTests.test_new_label_needs_three_and_old_frame_ignored) ... ok
+test_three_distinct_frames_once (test_action_v1.StableTests.test_three_distinct_frames_once) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 5.816s
+
+OK

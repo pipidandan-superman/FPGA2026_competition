@@ -1,0 +1,11 @@
+{
+  "marker": "PL_RELOADER_SELF_TEST_PASS",
+  "version": "1.4",
+  "payload_files": 13,
+  "bit_sha256": "bffaa83565d60ea28e04a31497b4c3dff828b0359012dafe1d5d1ea5a390e16d",
+  "hwh_sha256": "64ff7724c56c97b52fac699168f762e30ea42b4d25910a30caf00f58c8b55ed0",
+  "ssh": "C:\\Windows\\System32\\OpenSSH\\ssh.exe",
+  "scp": "C:\\Windows\\System32\\OpenSSH\\scp.exe",
+  "askpass": "E:\\competition\\8_tools\\EES331_PL_Reloader_v1.4\\askpass\\EES331_SSH_AskPass.exe",
+  "controller": "E:\\competition\\8_tools\\EES331_PL_Reloader_v1.4\\payload\\action_v1_20260913\\board_pl_reload_controller.py"
+}

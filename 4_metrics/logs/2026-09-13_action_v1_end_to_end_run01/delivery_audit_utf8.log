@@ -1,0 +1,45 @@
+test_action_init (__main__.Tests.test_action_init) ... ok
+test_action_start (__main__.Tests.test_action_start) ... ok
+test_final_status (__main__.Tests.test_final_status) ... ok
+test_normal (__main__.Tests.test_normal) ... ok
+test_partial_camera_cleanup (__main__.Tests.test_partial_camera_cleanup) ... ok
+test_worker (__main__.Tests.test_worker) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.058s
+
+OK
+test_exact_completion_and_duplicate (__main__.DriverTests.test_exact_completion_and_duplicate) ... ok
+test_fail_closed_timeout_and_corruption (__main__.DriverTests.test_fail_closed_timeout_and_corruption) ... ok
+test_inference_publisher_to_udp_service (__main__.DriverTests.test_inference_publisher_to_udp_service) ... ok
+test_publisher_connection_failure_is_visible (__main__.DriverTests.test_publisher_connection_failure_is_visible) ... ok
+test_real_udp_idempotency (__main__.DriverTests.test_real_udp_idempotency) ... ok
+test_wrong_identity (__main__.DriverTests.test_wrong_identity) ... ok
+test_corrupt_packet_rejected (__main__.ProtocolTests.test_corrupt_packet_rejected) ... ok
+test_known_crc (__main__.ProtocolTests.test_known_crc) ... ok
+test_packets_and_stream_chunks (__main__.ProtocolTests.test_packets_and_stream_chunks) ... ok
+test_clear_once_then_rearm (__main__.StableTests.test_clear_once_then_rearm) ... ok
+test_confidence_conflict_and_stale (__main__.StableTests.test_confidence_conflict_and_stale) ... ok
+test_invalid_breaks_streak (__main__.StableTests.test_invalid_breaks_streak) ... ok
+test_new_label_needs_three_and_old_frame_ignored (__main__.StableTests.test_new_label_needs_three_and_old_frame_ignored) ... ok
+test_three_distinct_frames_once (__main__.StableTests.test_three_distinct_frames_once) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 5.860s
+
+OK
+test_all_manual_rounds (__main__.ViewerTests.test_all_manual_rounds) ... ok
+test_decisions (__main__.ViewerTests.test_decisions) ... ok
+test_duplicate_old_frames (__main__.ViewerTests.test_duplicate_old_frames) ... ok
+test_failure_stale_reset_preserves_history (__main__.ViewerTests.test_failure_stale_reset_preserves_history) ... ok
+test_no_automatic_progress (__main__.ViewerTests.test_no_automatic_progress) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK
+RELEASE_MANIFEST_HASH_PASS 13
+REAL_MODEL_WIRE_THREE_FRAME_PASS real_model 10
+REAL_MODEL_WIRE_THREE_FRAME_PASS real_model_up_down 8
+FIVE_PHYSICAL_ACTIONS_AND_1000_COMMAND_CAPTURE_PASS
+DELIVERY_OFFLINE_AUDIT_PASS; hot reload remains unresolved; no board accessed

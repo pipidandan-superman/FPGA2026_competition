@@ -1,0 +1,24 @@
+{
+  "marker": "MAIN_AXI_BLE_RELEASE_MANIFEST",
+  "design": "display_test",
+  "vivado": "2025.2",
+  "generated": "2026-09-13T10:31:18+08:00",
+  "files": {
+    "overlay.bit": {
+      "sha256": "633e7846da5fbeda5c3554c25c255647114ca50d1b1d246dc8ce421c05d9a5d0",
+      "bytes": 4045696
+    },
+    "overlay.hwh": {
+      "sha256": "8f75976076d36ebdaee4f7af4f89f2a66b464241bf30c4cf5ddb73098a4beec0",
+      "bytes": 457912
+    }
+  },
+  "contracts": {
+    "axi_lite": "0x43c00000/0x1000",
+    "vdma": "0x43000000/0x10000",
+    "control_clock_hz": 50000000,
+    "board_clock_hz": 100000000,
+    "m19_pll_compensation": "BUF_IN",
+    "bridge_ready_external": false
+  }
+}

@@ -1,0 +1,11 @@
+test_action_init (__main__.Tests.test_action_init) ... ok
+test_action_start (__main__.Tests.test_action_start) ... ok
+test_final_status (__main__.Tests.test_final_status) ... ok
+test_normal (__main__.Tests.test_normal) ... ok
+test_partial_camera_cleanup (__main__.Tests.test_partial_camera_cleanup) ... ok
+test_worker (__main__.Tests.test_worker) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.044s
+
+OK

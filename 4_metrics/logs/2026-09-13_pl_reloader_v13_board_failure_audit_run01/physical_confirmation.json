@@ -1,0 +1,7 @@
+{
+  "evidence_type": "manual_user_confirmation",
+  "observation": "HDMI restored and displaying normally after automatic recovery",
+  "scope": "original ees331-camera service after v1.3 action-load failure",
+  "result": "ORIGINAL_HDMI_RESTORED_PASS",
+  "limitations": "Does not validate the failed action overlay, UDP action link, AXI, UART, or LEDs"
+}

@@ -1,0 +1,372 @@
+[
+  {
+    "path": "E:\\competition\\1_docs\\doc\\amd_dual_model_arm_design_2026-09-12.md",
+    "bytes": 24827,
+    "sha256": "a968d675280f4b5ff626eed6d8cd182e2d19c7d6413fb948d5ec044d70fc689e"
+  },
+  {
+    "path": "E:\\competition\\1_docs\\doc\\ees331_pl_reloader_v14_board_guide_2026-09-13.md",
+    "bytes": 7441,
+    "sha256": "c4f02f826d0ac55c19997097cdfe797568a23afca78231c247995c433ea2e246"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\0_diaplay_test\\rtl\\control\\video_axi_action_uart_top.v",
+    "bytes": 4375,
+    "sha256": "86b91c13100e33cf1e5756563bb66483d483f6915f2c1f28a6792ba526c0a960"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\0_diaplay_test\\rtl\\control\\video_axi_lite_control_top.v",
+    "bytes": 4213,
+    "sha256": "f5bc4aa84c6be5234abe6660d9d91c057cbfcba9ad6983d7c41e21edea45e31f"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\0_diaplay_test\\rtl\\data_pre\\gray_to_bin.v",
+    "bytes": 1163,
+    "sha256": "56ff8427e311fa06015326d6bd660d615b67bb39376c1ff7bb358ad6b8de463b"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\0_diaplay_test\\rtl\\data_pre\\image_downsample.v",
+    "bytes": 3987,
+    "sha256": "95eb111ed5718b27a96a5e2dc6d6db14b3122411962774be000ea23ff6a1a445"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\0_diaplay_test\\rtl\\data_pre\\ram_ctrl.v",
+    "bytes": 1947,
+    "sha256": "6605c15489fe1700741711c26210c9a142d1ebb35f2268d11bbba965072c82f9"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\0_diaplay_test\\rtl\\data_pre\\vid_to_gary.v",
+    "bytes": 2328,
+    "sha256": "40e251417efd1b189248974e84a022d63514691a776a91c79265116493106ddf"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\0_diaplay_test\\rtl\\fr_display\\pix_frame_dispaly.v",
+    "bytes": 3016,
+    "sha256": "459bdb36fff8e9655198e2b1f57dcc3621d520c1011152e9e71606eb88ec36d5"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\0_diaplay_test\\rtl\\HDMI\\data_gen.v",
+    "bytes": 987,
+    "sha256": "374245671bc5a9554a794ae78a08340164923956d7c8daa937815fdaf3133133"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\0_diaplay_test\\rtl\\HDMI\\HDMI_top.v",
+    "bytes": 3217,
+    "sha256": "cf2d1aa1b697c43b25094a182b0a46febab7b9e96a549d56a21f6cfbc3d15cad"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\0_diaplay_test\\rtl\\HDMI\\par_to_ser.v",
+    "bytes": 4645,
+    "sha256": "482c767f10caf34ed5069c28e7a27ae0b3482537a1a39c745c0d66f926f9c705"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\0_diaplay_test\\rtl\\HDMI\\ser_to_diff.v",
+    "bytes": 513,
+    "sha256": "591d70338f03287fa275e989788dc6ea93e2e3114f4365de6e62a21baec0cdb8"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\0_diaplay_test\\rtl\\HDMI\\TMDS_encode.v",
+    "bytes": 12065,
+    "sha256": "ca0d9abaaf4a66a4d1a9102e117e0277399c5ec39c09849cb0e797e11f6b60b4"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\0_diaplay_test\\rtl\\hdmi_new\\hdmi_colorbar_vtc_top.v",
+    "bytes": 10104,
+    "sha256": "a18e0b5419681e62de18ca6ca0d93f7cf3b525a72df10de0b8b4e37c891db0dc"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\0_diaplay_test\\rtl\\hdmi_new\\hdmi_out_adv7511.v",
+    "bytes": 3654,
+    "sha256": "a0387bc97a3f839e21dd69507d8d6f39dd11f829fd32ebe4a605dfc1b66fe7cf"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\0_diaplay_test\\rtl\\hdmi_new\\hdmi_out_adv7511_v1_0.v",
+    "bytes": 3763,
+    "sha256": "f955b006fc964d216e5abcdd07a3f00a19dd53917cc729cdffeac4054e4f66ad"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\0_diaplay_test\\rtl\\hdmi_new\\vtc_480p_1ppc.v",
+    "bytes": 2203,
+    "sha256": "8ede9c605b112aa7bdca5e8db33cae3e721d82d5dba53226124cea33093d6ebe"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\0_diaplay_test\\rtl\\iic\\iic_multi_byte.v",
+    "bytes": 10651,
+    "sha256": "78558e35fc633c8e688b36acb310a6366ae71b5598e1a97666791b5fdb7f0c6c"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\0_diaplay_test\\rtl\\iic\\iic_protocal.v",
+    "bytes": 10178,
+    "sha256": "8b260c3d0b6dbbb03a098a7430423d9b456ddcb4c85884bb352d778a72c8a4a7"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\0_diaplay_test\\rtl\\ov5640_cfg\\ov5640_cfg_top.v",
+    "bytes": 3528,
+    "sha256": "196aa7ff561ecf841aad1144a8bf2bbb16bd3c6c2865ec8d72c7dec0a266bc25"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\0_diaplay_test\\rtl\\ov5640_cfg\\OV5640_REG.v",
+    "bytes": 12385,
+    "sha256": "182eaa6bab0c38561d780abb73c6eccb26ce0cc258d2d63f818d23dbad9e010f"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\0_diaplay_test\\rtl\\ov5640_cfg\\SCCB.v",
+    "bytes": 8612,
+    "sha256": "06bb5316bea22ed440389d6b4c2fe2ceec7db5c0e141753b60cd2110567fa38e"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\0_diaplay_test\\rtl\\ov5640_data_cap\\cam_cap_data.v",
+    "bytes": 3709,
+    "sha256": "4511cc14af78fbcc44cc4a68e1f1cfda62fdd343d22ee3517e0e13d372b57efc"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\2_axi_lite_test\\rtl\\action_command_executor.v",
+    "bytes": 6500,
+    "sha256": "2cfc622f3eb475aa80da670814ca035edf549bbdd43b505cb2ab19ed3838c0cc"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\2_axi_lite_test\\rtl\\action_uart_tx.v",
+    "bytes": 4573,
+    "sha256": "ab56d62c131423b19379e7511f54e828e3d300049b4dd2fb2f912ccbc193f5f9"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\2_axi_lite_test\\rtl\\axi_action_control_top.v",
+    "bytes": 6796,
+    "sha256": "d3b81b2b6bda6d4351040a4bc359bd8990539017fe22ca7a7c982460274b5aa1"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\2_axi_lite_test\\rtl\\axi_action_reg_bank.v",
+    "bytes": 7907,
+    "sha256": "893649bc9918b8f691075f4011527b4825aafc7992658357cea875b6a0926f0c"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\2_axi_lite_test\\rtl\\axi_lite_reg_bank.v",
+    "bytes": 5885,
+    "sha256": "065602ad619ee8a1373233fed2af8472d844603aa2e27b4742c42539f8f24d34"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\2_axi_lite_test\\rtl\\axi_lite_slave.v",
+    "bytes": 6728,
+    "sha256": "4e2c204a010625b7250c3b2fb4e878c121476033137c0fe34b4923831d369fca"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\2_axi_lite_test\\rtl\\axi_lite_test_top.v",
+    "bytes": 6049,
+    "sha256": "9f919f64a052d147fdd122d9f36464372ab1acb3abe2d575263377b8e664f103"
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\2_axi_lite_test\\rtl\\reg_test_executor.v",
+    "bytes": 1961,
+    "sha256": "611076b3240ff59516165fd2ed7d1c099d083bb3a8c556cda5a629bff8e983f5"
+  },
+  {
+    "path": "E:\\competition\\3_host\\model_env\\action_board_test.py",
+    "bytes": 4790,
+    "sha256": "5ba7d80fc2e6d5f537a766fcc4385f016c95e05f393dd6b338c48243b870245f"
+  },
+  {
+    "path": "E:\\competition\\3_host\\model_env\\action_link.py",
+    "bytes": 5263,
+    "sha256": "b6891190e06b7e907ec99e13ab48281cb1b6c4d6980c401aa62d300ff30359da"
+  },
+  {
+    "path": "E:\\competition\\3_host\\model_env\\check_camera_signal.py",
+    "bytes": 2236,
+    "sha256": "4009018b2efa444645d6987bda77bf67bea60921a07266a1e147be84f1c5eef8"
+  },
+  {
+    "path": "E:\\competition\\3_host\\model_env\\direction_calibration.py",
+    "bytes": 11644,
+    "sha256": "06d50e43d8e8ad00527dd20cadf8fc740e9806c8a4a4b63456bce789df39b97b"
+  },
+  {
+    "path": "E:\\competition\\3_host\\model_env\\fpga_video_validation.py",
+    "bytes": 11808,
+    "sha256": "10e835faa3462318bff2fa1fc2f7e45b5a2067544027c32329b718039bf2b176"
+  },
+  {
+    "path": "E:\\competition\\3_host\\model_env\\gesture_viewer.py",
+    "bytes": 21139,
+    "sha256": "f0690406000e65a80f13d035c049f523f7a75d429a4f9396f331b896972fdfc7"
+  },
+  {
+    "path": "E:\\competition\\3_host\\model_env\\gesture_viewer_core.py",
+    "bytes": 2295,
+    "sha256": "74254b5118a291dac9db4620527c6bfa921fcef08453ff4e535541f6d8d3bc73"
+  },
+  {
+    "path": "E:\\competition\\3_host\\model_env\\left_right_validation.py",
+    "bytes": 13985,
+    "sha256": "8491ee356b39e3c1ba95611e319abeab82f2d46e37c1e7e57479036b0e9bc090"
+  },
+  {
+    "path": "E:\\competition\\3_host\\model_env\\manual_gesture_protocol.py",
+    "bytes": 4532,
+    "sha256": "65ba341ccdb7eae1d552adf5a7bead1e3c24b0490ad49f4d7618e3cdcbc541d8"
+  },
+  {
+    "path": "E:\\competition\\3_host\\model_env\\model_action_validation.py",
+    "bytes": 6723,
+    "sha256": "4d9bdf141efeafacb889d9fee73c3732024e3ced2d609b338351a5e95fc800b8"
+  },
+  {
+    "path": "E:\\competition\\3_host\\model_env\\stable_action.py",
+    "bytes": 2607,
+    "sha256": "c840b37a236a876bbf53d0832d598de64ece060dd57d1aed71fa3baf44db6f4a"
+  },
+  {
+    "path": "E:\\competition\\3_host\\model_env\\test_gesture_viewer.py",
+    "bytes": 2408,
+    "sha256": "bf2a81861dd2101e51eb12697852eaec6c50b96a16634843f4d1931df350dff3"
+  },
+  {
+    "path": "E:\\competition\\3_host\\model_env\\verify_environment.py",
+    "bytes": 4388,
+    "sha256": "3f423455a96545d6ee72b24f8364c5ea1cda0884f6da5ded180dfb96e0764e45"
+  },
+  {
+    "path": "E:\\competition\\3_host\\model_env\\webcam_validation.py",
+    "bytes": 13010,
+    "sha256": "01e0fdfba296428f07c415c25e92bd4fd20b373145385cce1aeef73fb68937ae"
+  },
+  {
+    "path": "E:\\competition\\3_host\\pynq\\pl_reloader\\board_pl_reload_controller.py",
+    "bytes": 14431,
+    "sha256": "6dc2187b8d9ca300cf7af83b72cdb2260ed35bae3c0c52e45dadc2c51fd04274"
+  },
+  {
+    "path": "E:\\competition\\3_host\\pynq\\pl_reloader\\pl_reloader_gui.py",
+    "bytes": 24103,
+    "sha256": "7372c4b8a0291e382bf8365f16e9e70a44e1161979f87a5a038df5033099f4e1"
+  },
+  {
+    "path": "E:\\competition\\3_host\\pynq\\pl_reloader\\ssh_askpass.py",
+    "bytes": 415,
+    "sha256": "78e8b2670a1f9084f30360649f5fb7acba5c23340aceae3b93c830ae661246d1"
+  },
+  {
+    "path": "E:\\competition\\3_host\\pynq\\pl_reloader\\test_pl_reloader.py",
+    "bytes": 9490,
+    "sha256": "5eba620011823846c6077a97181e12f365b25aeffa2bf5b39e23482e43c052b9"
+  },
+  {
+    "path": "E:\\competition\\3_host\\udp_video\\mock_sender.py",
+    "bytes": 3716,
+    "sha256": "c211724c7d542d207f4d8b03ab9eed0dc6d83bce93080c4b9988304fc34b53bf"
+  },
+  {
+    "path": "E:\\competition\\3_host\\udp_video\\udp_video_gui.py",
+    "bytes": 10012,
+    "sha256": "493597431d936ec39461dabe9485f868b55fb19294e25f3cd5f6a72ec315a382"
+  },
+  {
+    "path": "E:\\competition\\3_host\\udp_video\\udp_video_rx.py",
+    "bytes": 5714,
+    "sha256": "6547b302821577ce162155b4db1866cd168c1bbb327347fe987636a0719fcc87"
+  },
+  {
+    "path": "E:\\competition\\3_host\\udp_video\\validated_receiver.py",
+    "bytes": 4819,
+    "sha256": "5fd2a65508cc6d0f2d64a6c180c565085a249580a695bf36947cde4c3c149a0a"
+  },
+  {
+    "path": "E:\\competition\\4_metrics\\logs\\2026-09-13_pl_reloader_v14_board_acceptance_run01\\REPORT.md",
+    "bytes": 2901,
+    "sha256": "0f36f8860b9a5cc01dababca44f2a93c616948e667f58a71bc11a03a82a62ff4"
+  },
+  {
+    "path": "E:\\competition\\4_metrics\\logs\\2026-09-13_pl_reloader_v14_board_acceptance_run02\\REPORT.md",
+    "bytes": 2461,
+    "sha256": "05c33aea902ac9b6301b804baec26d2e3456eea5d03c30ea4c52803c87d2e4d0"
+  },
+  {
+    "path": "E:\\competition\\9_pynq\\overlays\\action_v1_20260913\\action_driver.py",
+    "bytes": 4152,
+    "sha256": "f326a7910bfef4bb186b83150c4c76569c732973c6e47222e013c996020e920c"
+  },
+  {
+    "path": "E:\\competition\\9_pynq\\overlays\\action_v1_20260913\\action_hardware_contract.py",
+    "bytes": 5632,
+    "sha256": "28e9d52b60b9e75d3527cdd3fd29952bb0117094bad7dd903b0f417edbb6067b"
+  },
+  {
+    "path": "E:\\competition\\9_pynq\\overlays\\action_v1_20260913\\action_protocol.py",
+    "bytes": 3107,
+    "sha256": "5ec6f09b9fd9df1ba2312c8399ecd6aa3322eba3c98813e7ae30e0d2fd882591"
+  },
+  {
+    "path": "E:\\competition\\9_pynq\\overlays\\action_v1_20260913\\action_service.py",
+    "bytes": 4247,
+    "sha256": "2c6be6aabd009a87b7f6d41b7e3687f7907c9f8a2db28e7bc183719c31e16c80"
+  },
+  {
+    "path": "E:\\competition\\9_pynq\\overlays\\action_v1_20260913\\axilt.py",
+    "bytes": 5370,
+    "sha256": "20d828bb6a4d2500786fba49b0a8d1c132cc345759a6d03dc3801b0e9415c67d"
+  },
+  {
+    "path": "E:\\competition\\9_pynq\\overlays\\action_v1_20260913\\camera.py",
+    "bytes": 16222,
+    "sha256": "8471f6aeb2f08a51a7d18171de8d667f1c7dc4bbd44538ae8efb3775e749c9b4"
+  },
+  {
+    "path": "E:\\competition\\9_pynq\\overlays\\action_v1_20260913\\camera_action_v1.py",
+    "bytes": 6639,
+    "sha256": "db9a030d96e5261f9e6e8fb3cbffa0ab4c5b599e43e387637a9bf7fba07147f6"
+  },
+  {
+    "path": "E:\\competition\\9_pynq\\overlays\\action_v1_20260913\\display_test_axi_action_uart.hwh",
+    "bytes": 454664,
+    "sha256": "64ff7724c56c97b52fac699168f762e30ea42b4d25910a30caf00f58c8b55ed0"
+  },
+  {
+    "path": "E:\\competition\\9_pynq\\overlays\\action_v1_20260913\\main_hardware_contract.py",
+    "bytes": 5353,
+    "sha256": "3bd8eb8ccc213463db794b52998f29bf0c0a6ea6dce79cf586439d341555eb68"
+  },
+  {
+    "path": "E:\\competition\\9_pynq\\overlays\\action_v1_20260913\\mmio_ordered.c",
+    "bytes": 923,
+    "sha256": "701c2754ef730b25c9cdc10cb2964204811c2894ec6b8dfccfbc2d886af71f9a"
+  },
+  {
+    "path": "E:\\competition\\9_pynq\\overlays\\action_v1_20260913\\release_manifest.json",
+    "bytes": 2466,
+    "sha256": "4181154d9cc3794f62c429b08120cc52b4d90eabbdd6308a5a54f9413cb5b27e"
+  },
+  {
+    "path": "E:\\post_student\\2_doc\\12_PC_PS_PL完整框图_参考硬件组PPT_20260913\\PC_PS_PL完整框图_v1.pdf",
+    "bytes": 196275,
+    "sha256": "afe096eef7fd88befcc235f64d037af5f9921afc17f3331bf0e602939ba7af15"
+  },
+  {
+    "path": "E:\\post_student\\2_doc\\12_PC_PS_PL完整框图_参考硬件组PPT_20260913\\PC_PS_PL完整框图_v1.png",
+    "bytes": 1120415,
+    "sha256": "9579f8f5cfb919d6b2e193b37c8801cdcc3fe1cfcae7fbb7529d9cb1cefac9e9"
+  },
+  {
+    "path": "E:\\post_student\\2_doc\\12_PC_PS_PL完整框图_参考硬件组PPT_20260913\\PC_PS_PL完整框图_v1.svg",
+    "bytes": 78713,
+    "sha256": "9662213a0698fcfe3d67ef570a0b5443a93658b2fe10297c20387ddc75a6d588"
+  },
+  {
+    "path": "E:\\post_student\\2_doc\\12_PC_PS_PL完整框图_参考硬件组PPT_20260913\\PC_PS_PL完整框图_v1.vsdx",
+    "bytes": 49494,
+    "sha256": "dc10029f79a512cfb082c6b4824bce51feda974ce700ded7ce0cc411f6694106"
+  },
+  {
+    "path": "E:\\post_student\\2_doc\\12_PC_PS_PL完整框图_参考硬件组PPT_20260913\\preview.png",
+    "bytes": 811355,
+    "sha256": "8ddd1d7c9edcfc3fec063a76ebcbb77b6883a3cbaa78aed35ed59d4d95d98a43"
+  },
+  {
+    "path": "E:\\post_student\\2_doc\\12_PC_PS_PL完整框图_参考硬件组PPT_20260913\\~$$PC_PS_PL完整框图_v1.~vsdx",
+    "bytes": 4096,
+    "sha256": "be4c7b76a476a81c4b65da29f7610d2b842e74f6bc120b1cd7f0fed7401fc4b0"
+  },
+  {
+    "path": "E:\\post_student\\2_doc\\12_PC_PS_PL完整框图_参考硬件组PPT_20260913\\阅读说明.md",
+    "bytes": 4030,
+    "sha256": "e8792793802d6c04d907afa2acdd3e1d5eb6a22b78d8b9729c0f593e867456b0"
+  }
+]

@@ -1,5 +1,11 @@
 # 小月文刀队｜AMD 具身智能赛道
 
+## 2026-09-13 PL重加载v1.4与动作LED复现
+
+当前唯一PL重加载交付为`8_tools/EES331_PL_Reloader_v1.4/`；旧v1.0～v1.3不再发布。固定动作BIT/HWH经v1.4完成两轮A→C上板成功，第二轮发生在用户确认断电重启之后；Stop、Up、Down、Thumbs Up、Thumbs Down均已由用户确认对应LED4/7/1/6/5。当前结论是2/2成功样本，不是长期冷启动稳定性保证。
+
+队友必须先按[零歧义上板指南](1_docs/doc/ees331_pl_reloader_v14_board_guide_2026-09-13.md)确认原HDMI/UDP动态基线，再只点击一次加载。动作识别要从v1.4内部“打开动作识别”启动；直接双击识别EXE默认`protocol=null`，只显示识别结果而不会下发LED。精选证据见[第一轮](4_metrics/logs/2026-09-13_pl_reloader_v14_board_acceptance_run01/REPORT.md)、[断电后第二轮](4_metrics/logs/2026-09-13_pl_reloader_v14_board_acceptance_run02/REPORT.md)与[重开诊断](4_metrics/logs/2026-09-13_action_viewer_reopen_diagnosis_run01/REPORT.md)。原SD、BOOT和冻结`2_fpga`均未纳入本次变更。
+
 ## 2026-09-12 BLE Console v1.1 与手动复现
 
 推荐未配对GATT接入已集成上位机：三次无缓存读取/保持门控、自动通知、断连停止发送。

@@ -1,0 +1,17 @@
+{
+  "marker": "ACTION_V14_POWER_CYCLE_REPRO_CONFIRMATION_PASS",
+  "recorded_at": "2026-09-13T17:50:40.7006527+08:00",
+  "source": "user_manual_observation",
+  "user_statement": "断电后重新运行运行1.4加载PL扔正确",
+  "normalized_meaning": "After a real power-off restart, running v1.4 and loading the action PL remained correct.",
+  "power_cycle_evidence": "USER_CONFIRMED; boot_id was not captured by the v1.4 host log.",
+  "software_evidence": {
+    "reloader_log": "E:\\competition\\4_metrics\\logs\\2026-09-13_174815_607100_pl_reloader_gui_run01\\application.log",
+    "reloader_log_sha256": "9a0a7850a2f9053a4db8d4420976cfd12f3a04b235e9441a6dc275086d510f24",
+    "gesture_events": "E:\\competition\\4_metrics\\logs\\2026-09-13_174929_021251_gesture_viewer_run01\\events.jsonl",
+    "gesture_events_sha256": "6a56c1396f629dd3fd3e3aaf644d7b02b3cfafe63065fa463d3deab28c1d4348",
+    "gesture_result": "E:\\competition\\4_metrics\\logs\\2026-09-13_174929_021251_gesture_viewer_run01\\result.json",
+    "gesture_result_sha256": "f2d9889ad65947338d0ed26c5eb9c2b581e4c328d82bdff3f74c0438d175c81f"
+  },
+  "boundary": "The power cycle and overall correctness are user-confirmed. The host logs independently prove the second PL/video/action READY sequence and five gesture action acknowledgements, but not the physical power transition itself."
+}

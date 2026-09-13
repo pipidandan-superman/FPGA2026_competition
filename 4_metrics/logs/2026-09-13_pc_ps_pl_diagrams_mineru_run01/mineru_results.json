@@ -1,0 +1,19 @@
+﻿{
+    "File":  "PC_PS_PL完整框图_v1.pdf",
+    "InputPath":  "E:\\post_student\\2_doc\\12_PC_PS_PL完整框图_参考硬件组PPT_20260913\\PC_PS_PL完整框图_v1.pdf",
+    "SHA256":  "AFE096EEF7FD88BEFCC235F64D037AF5F9921AFC17F3331BF0E602939BA7AF15",
+    "ExitCode":  0,
+    "Seconds":  11.2,
+    "Fallback":  false,
+    "Markdown":  true,
+    "ContentJson":  true,
+    "ImageCount":  1,
+    "ChineseQuality":  "review",
+    "PreferredSource":  "content_list_json",
+    "QualityReasons":  "short_text",
+    "MarkdownPath":  "E:\\competition\\4_metrics\\logs\\2026-09-13_pc_ps_pl_diagrams_mineru_run01\\PC_PS_PL完整框图_v1\\auto\\PC_PS_PL完整框图_v1.md",
+    "ContentJsonPath":  "E:\\competition\\4_metrics\\logs\\2026-09-13_pc_ps_pl_diagrams_mineru_run01\\PC_PS_PL完整框图_v1\\auto\\PC_PS_PL完整框图_v1_content_list.json",
+    "OutputFolder":  "E:\\competition\\4_metrics\\logs\\2026-09-13_pc_ps_pl_diagrams_mineru_run01\\PC_PS_PL完整框图_v1",
+    "StdoutPath":  "E:\\competition\\4_metrics\\logs\\2026-09-13_pc_ps_pl_diagrams_mineru_run01\\command_logs\\01_PC_PS_PL完整框图_v1_stdout.txt",
+    "StderrPath":  "E:\\competition\\4_metrics\\logs\\2026-09-13_pc_ps_pl_diagrams_mineru_run01\\command_logs\\01_PC_PS_PL完整框图_v1_stderr.txt"
+}

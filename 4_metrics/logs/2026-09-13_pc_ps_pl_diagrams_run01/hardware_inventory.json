@@ -1,0 +1,1179 @@
+{
+  "contract": {
+    "marker": "ACTION_HARDWARE_CONTRACT_PASS",
+    "design": "display_test",
+    "axi_lite_base": "0x43c00000",
+    "axi_lite_range": 4096,
+    "vdma_base": "0x43000000",
+    "control_clock_hz": 50000000,
+    "board_clock_hz": 100000000,
+    "bluetooth_ports": 0,
+    "action_leds": 7,
+    "uart_baud": 9600,
+    "bridge_ready_external": false
+  },
+  "modules": [
+    {
+      "instance": "axi_action_0",
+      "type": "video_axi_action_uart_top",
+      "buses": [
+        {
+          "BUSNAME": "axi_smc_M01_AXI",
+          "DATAWIDTH": "32",
+          "NAME": "S_AXI",
+          "TYPE": "SLAVE",
+          "VLNV": "xilinx.com:interface:aximm:1.0",
+          "connections": []
+        }
+      ],
+      "timing": [
+        {
+          "CLKFREQUENCY": "50000000",
+          "DIR": "I",
+          "NAME": "clk",
+          "SIGIS": "clk",
+          "SIGNAME": "processing_system7_0_FCLK_CLK0"
+        },
+        {
+          "DIR": "I",
+          "NAME": "resetn",
+          "POLARITY": "ACTIVE_LOW",
+          "SIGIS": "rst",
+          "SIGNAME": "rst_ps7_0_50M_peripheral_aresetn"
+        }
+      ]
+    },
+    {
+      "instance": "axi_mem_intercon",
+      "type": "axi_interconnect",
+      "buses": [
+        {
+          "BUSNAME": "axi_vdma_0_M_AXI_MM2S",
+          "DATAWIDTH": "64",
+          "NAME": "S00_AXI",
+          "TYPE": "SLAVE",
+          "VLNV": "xilinx.com:interface:aximm:1.0",
+          "connections": []
+        },
+        {
+          "BUSNAME": "axi_mem_intercon_M00_AXI",
+          "DATAWIDTH": "64",
+          "NAME": "M00_AXI",
+          "TYPE": "MASTER",
+          "VLNV": "xilinx.com:interface:aximm:1.0",
+          "connections": []
+        },
+        {
+          "BUSNAME": "axi_vdma_0_M_AXI_S2MM",
+          "DATAWIDTH": "64",
+          "NAME": "S01_AXI",
+          "TYPE": "SLAVE",
+          "VLNV": "xilinx.com:interface:aximm:1.0",
+          "connections": []
+        },
+        {
+          "BUSNAME": "axi_mem_intercon_M01_AXI",
+          "DATAWIDTH": "64",
+          "NAME": "M01_AXI",
+          "TYPE": "MASTER",
+          "VLNV": "xilinx.com:interface:aximm:1.0",
+          "connections": []
+        }
+      ],
+      "timing": [
+        {
+          "DIR": "I",
+          "NAME": "ACLK",
+          "SIGIS": "clk",
+          "SIGNAME": "processing_system7_0_FCLK_CLK0"
+        },
+        {
+          "DIR": "I",
+          "NAME": "ARESETN",
+          "SIGIS": "rst",
+          "SIGNAME": "rst_ps7_0_50M_peripheral_aresetn"
+        },
+        {
+          "DIR": "I",
+          "NAME": "M00_ACLK",
+          "SIGIS": "clk",
+          "SIGNAME": "processing_system7_0_FCLK_CLK0"
+        },
+        {
+          "DIR": "I",
+          "NAME": "M00_ARESETN",
+          "SIGIS": "rst",
+          "SIGNAME": "rst_ps7_0_50M_peripheral_aresetn"
+        },
+        {
+          "DIR": "I",
+          "NAME": "M01_ACLK",
+          "SIGIS": "clk",
+          "SIGNAME": "processing_system7_0_FCLK_CLK0"
+        },
+        {
+          "DIR": "I",
+          "NAME": "M01_ARESETN",
+          "SIGIS": "rst",
+          "SIGNAME": "rst_ps7_0_50M_peripheral_aresetn"
+        },
+        {
+          "DIR": "I",
+          "NAME": "S00_ACLK",
+          "SIGIS": "clk",
+          "SIGNAME": "processing_system7_0_FCLK_CLK0"
+        },
+        {
+          "DIR": "I",
+          "NAME": "S00_ARESETN",
+          "SIGIS": "rst",
+          "SIGNAME": "rst_ps7_0_50M_peripheral_aresetn"
+        },
+        {
+          "DIR": "I",
+          "NAME": "S01_ACLK",
+          "SIGIS": "clk",
+          "SIGNAME": "processing_system7_0_FCLK_CLK0"
+        },
+        {
+          "DIR": "I",
+          "NAME": "S01_ARESETN",
+          "SIGIS": "rst",
+          "SIGNAME": "rst_ps7_0_50M_peripheral_aresetn"
+        }
+      ]
+    },
+    {
+      "instance": "axi_smc",
+      "type": "smartconnect",
+      "buses": [
+        {
+          "BUSNAME": "processing_system7_0_M_AXI_GP0",
+          "DATAWIDTH": "32",
+          "NAME": "S00_AXI",
+          "TYPE": "SLAVE",
+          "VLNV": "xilinx.com:interface:aximm:1.0",
+          "connections": []
+        },
+        {
+          "BUSNAME": "axi_smc_M00_AXI",
+          "DATAWIDTH": "32",
+          "NAME": "M00_AXI",
+          "TYPE": "MASTER",
+          "VLNV": "xilinx.com:interface:aximm:1.0",
+          "connections": []
+        },
+        {
+          "BUSNAME": "axi_smc_M01_AXI",
+          "DATAWIDTH": "32",
+          "NAME": "M01_AXI",
+          "TYPE": "MASTER",
+          "VLNV": "xilinx.com:interface:aximm:1.0",
+          "connections": []
+        }
+      ],
+      "timing": [
+        {
+          "CLKFREQUENCY": "5e+07",
+          "DIR": "I",
+          "NAME": "aclk",
+          "SIGIS": "clk",
+          "SIGNAME": "processing_system7_0_FCLK_CLK0"
+        },
+        {
+          "DIR": "I",
+          "NAME": "aresetn",
+          "POLARITY": "ACTIVE_LOW",
+          "SIGIS": "rst",
+          "SIGNAME": "rst_ps7_0_50M_peripheral_aresetn"
+        }
+      ]
+    },
+    {
+      "instance": "axi_vdma_0",
+      "type": "axi_vdma",
+      "buses": [
+        {
+          "BUSNAME": "axi_smc_M00_AXI",
+          "DATAWIDTH": "32",
+          "NAME": "S_AXI_LITE",
+          "TYPE": "SLAVE",
+          "VLNV": "xilinx.com:interface:aximm:1.0",
+          "connections": []
+        },
+        {
+          "BUSNAME": "axi_vdma_0_M_AXI_MM2S",
+          "DATAWIDTH": "64",
+          "NAME": "M_AXI_MM2S",
+          "TYPE": "MASTER",
+          "VLNV": "xilinx.com:interface:aximm:1.0",
+          "connections": []
+        },
+        {
+          "BUSNAME": "axi_vdma_0_M_AXI_S2MM",
+          "DATAWIDTH": "64",
+          "NAME": "M_AXI_S2MM",
+          "TYPE": "MASTER",
+          "VLNV": "xilinx.com:interface:aximm:1.0",
+          "connections": []
+        },
+        {
+          "BUSNAME": "axi_vdma_0_M_AXIS_MM2S",
+          "NAME": "M_AXIS_MM2S",
+          "TYPE": "INITIATOR",
+          "VLNV": "xilinx.com:interface:axis:1.0",
+          "connections": []
+        },
+        {
+          "BUSNAME": "v_vid_in_axi4s_0_video_out",
+          "NAME": "S_AXIS_S2MM",
+          "TYPE": "TARGET",
+          "VLNV": "xilinx.com:interface:axis:1.0",
+          "connections": []
+        }
+      ],
+      "timing": [
+        {
+          "DIR": "I",
+          "NAME": "axi_resetn",
+          "POLARITY": "ACTIVE_LOW",
+          "SIGIS": "rst",
+          "SIGNAME": "rst_ps7_0_50M_peripheral_aresetn"
+        },
+        {
+          "CLKFREQUENCY": "5e+07",
+          "DIR": "I",
+          "NAME": "m_axi_mm2s_aclk",
+          "SIGIS": "clk",
+          "SIGNAME": "processing_system7_0_FCLK_CLK0"
+        },
+        {
+          "CLKFREQUENCY": "5e+07",
+          "DIR": "I",
+          "NAME": "m_axi_s2mm_aclk",
+          "SIGIS": "clk",
+          "SIGNAME": "processing_system7_0_FCLK_CLK0"
+        },
+        {
+          "CLKFREQUENCY": "5e+07",
+          "DIR": "I",
+          "NAME": "m_axis_mm2s_aclk",
+          "SIGIS": "clk",
+          "SIGNAME": "processing_system7_0_FCLK_CLK0"
+        },
+        {
+          "DIR": "O",
+          "NAME": "mm2s_introut",
+          "SENSITIVITY": "LEVEL_HIGH",
+          "SIGIS": "INTERRUPT"
+        },
+        {
+          "DIR": "O",
+          "NAME": "s2mm_introut",
+          "SENSITIVITY": "LEVEL_HIGH",
+          "SIGIS": "INTERRUPT"
+        },
+        {
+          "CLKFREQUENCY": "5e+07",
+          "DIR": "I",
+          "NAME": "s_axi_lite_aclk",
+          "SIGIS": "clk",
+          "SIGNAME": "processing_system7_0_FCLK_CLK0"
+        },
+        {
+          "CLKFREQUENCY": "5e+07",
+          "DIR": "I",
+          "NAME": "s_axis_s2mm_aclk",
+          "SIGIS": "clk",
+          "SIGNAME": "processing_system7_0_FCLK_CLK0"
+        }
+      ]
+    },
+    {
+      "instance": "cam_captrue_data_0",
+      "type": "cam_captrue_data",
+      "buses": [],
+      "timing": [
+        {
+          "DIR": "I",
+          "NAME": "cam_pclk",
+          "SIGIS": "undef",
+          "SIGNAME": "External_Ports_cam_pclk_0"
+        },
+        {
+          "DIR": "O",
+          "NAME": "cam_xclk",
+          "SIGIS": "undef",
+          "SIGNAME": "cam_captrue_data_0_cam_xclk"
+        },
+        {
+          "DIR": "I",
+          "NAME": "i_xclk",
+          "SIGIS": "undef",
+          "SIGNAME": "clk_wiz_0_xclk"
+        },
+        {
+          "CLKFREQUENCY": "100000000",
+          "DIR": "O",
+          "NAME": "vid_clk",
+          "SIGIS": "clk",
+          "SIGNAME": "cam_captrue_data_0_vid_clk"
+        }
+      ]
+    },
+    {
+      "instance": "clk_wiz_0",
+      "type": "clk_wiz",
+      "buses": [],
+      "timing": [
+        {
+          "CLKFREQUENCY": "50000000",
+          "DIR": "O",
+          "NAME": "clk_50m",
+          "SIGIS": "clk",
+          "SIGNAME": "clk_wiz_0_clk_50m"
+        },
+        {
+          "CLKFREQUENCY": "100000000",
+          "DIR": "I",
+          "NAME": "clk_in1",
+          "SIGIS": "clk",
+          "SIGNAME": "External_Ports_clk_in1_0"
+        },
+        {
+          "DIR": "O",
+          "NAME": "locked",
+          "SIGIS": "undef",
+          "SIGNAME": "clk_wiz_0_locked"
+        },
+        {
+          "CLKFREQUENCY": "25000000",
+          "DIR": "O",
+          "NAME": "pclk",
+          "SIGIS": "clk",
+          "SIGNAME": "clk_wiz_0_pclk"
+        },
+        {
+          "CLKFREQUENCY": "125000000",
+          "DIR": "O",
+          "NAME": "pclk_x5",
+          "SIGIS": "clk"
+        },
+        {
+          "DIR": "I",
+          "NAME": "resetn",
+          "POLARITY": "ACTIVE_LOW",
+          "SIGIS": "rst",
+          "SIGNAME": "External_Ports_resetn_0"
+        },
+        {
+          "CLKFREQUENCY": "24038461",
+          "DIR": "O",
+          "NAME": "xclk",
+          "SIGIS": "clk",
+          "SIGNAME": "clk_wiz_0_xclk"
+        }
+      ]
+    },
+    {
+      "instance": "control_const_one",
+      "type": "xlconstant",
+      "buses": [],
+      "timing": []
+    },
+    {
+      "instance": "control_const_zero",
+      "type": "xlconstant",
+      "buses": [],
+      "timing": []
+    },
+    {
+      "instance": "hdmi_out_adv7511_v1_0_0",
+      "type": "hdmi_out_adv7511_v1_0",
+      "buses": [],
+      "timing": [
+        {
+          "CLKFREQUENCY": "25000000",
+          "DIR": "O",
+          "NAME": "HDMI_CLK",
+          "SIGIS": "clk",
+          "SIGNAME": "hdmi_out_adv7511_v1_0_0_HDMI_CLK"
+        },
+        {
+          "CLKFREQUENCY": "25000000",
+          "DIR": "I",
+          "NAME": "PIX_CLK",
+          "SIGIS": "clk",
+          "SIGNAME": "clk_wiz_0_pclk"
+        }
+      ]
+    },
+    {
+      "instance": "ov5640_cfg_top_0",
+      "type": "ov5640_cfg_top",
+      "buses": [],
+      "timing": [
+        {
+          "CLKFREQUENCY": "100000000",
+          "DIR": "O",
+          "NAME": "sccb_clk",
+          "SIGIS": "clk",
+          "SIGNAME": "ov5640_cfg_top_0_sccb_clk"
+        },
+        {
+          "CLKFREQUENCY": "50000000",
+          "DIR": "I",
+          "NAME": "sys_clk",
+          "SIGIS": "clk",
+          "SIGNAME": "clk_wiz_0_clk_50m"
+        }
+      ]
+    },
+    {
+      "instance": "pix_frame_display_0",
+      "type": "pix_frame_display",
+      "buses": [],
+      "timing": [
+        {
+          "CLKFREQUENCY": "25000000",
+          "DIR": "I",
+          "NAME": "vio_clk",
+          "SIGIS": "clk",
+          "SIGNAME": "clk_wiz_0_pclk"
+        }
+      ]
+    },
+    {
+      "instance": "processing_system7_0",
+      "type": "processing_system7",
+      "buses": [
+        {
+          "BUSNAME": "__NOC__",
+          "NAME": "GPIO_0",
+          "TYPE": "INITIATOR",
+          "VLNV": "xilinx.com:interface:gpio:1.0",
+          "connections": []
+        },
+        {
+          "BUSNAME": "processing_system7_0_DDR",
+          "DATAWIDTH": "8",
+          "NAME": "DDR",
+          "TYPE": "INITIATOR",
+          "VLNV": "xilinx.com:interface:ddrx:1.0",
+          "connections": []
+        },
+        {
+          "BUSNAME": "processing_system7_0_FIXED_IO",
+          "NAME": "FIXED_IO",
+          "TYPE": "INITIATOR",
+          "VLNV": "xilinx.com:display_processing_system7:fixedio:1.0",
+          "connections": []
+        },
+        {
+          "BUSNAME": "__NOC__",
+          "NAME": "S_AXI_HP0_FIFO_CTRL",
+          "TYPE": "TARGET",
+          "VLNV": "xilinx.com:display_processing_system7:hpstatusctrl:1.0",
+          "connections": []
+        },
+        {
+          "BUSNAME": "__NOC__",
+          "NAME": "S_AXI_HP1_FIFO_CTRL",
+          "TYPE": "TARGET",
+          "VLNV": "xilinx.com:display_processing_system7:hpstatusctrl:1.0",
+          "connections": []
+        },
+        {
+          "BUSNAME": "processing_system7_0_M_AXI_GP0",
+          "DATAWIDTH": "32",
+          "NAME": "M_AXI_GP0",
+          "TYPE": "MASTER",
+          "VLNV": "xilinx.com:interface:aximm:1.0",
+          "connections": []
+        },
+        {
+          "BUSNAME": "axi_mem_intercon_M00_AXI",
+          "DATAWIDTH": "64",
+          "NAME": "S_AXI_HP0",
+          "TYPE": "SLAVE",
+          "VLNV": "xilinx.com:interface:aximm:1.0",
+          "connections": []
+        },
+        {
+          "BUSNAME": "axi_mem_intercon_M01_AXI",
+          "DATAWIDTH": "64",
+          "NAME": "S_AXI_HP1",
+          "TYPE": "SLAVE",
+          "VLNV": "xilinx.com:interface:aximm:1.0",
+          "connections": []
+        }
+      ],
+      "timing": [
+        {
+          "DIR": "IO",
+          "NAME": "DDR_Clk",
+          "SIGIS": "clk",
+          "SIGNAME": "processing_system7_0_DDR_Clk"
+        },
+        {
+          "DIR": "IO",
+          "NAME": "DDR_Clk_n",
+          "SIGIS": "clk",
+          "SIGNAME": "processing_system7_0_DDR_Clk_n"
+        },
+        {
+          "CLKFREQUENCY": "5e+07",
+          "DIR": "O",
+          "NAME": "FCLK_CLK0",
+          "SIGIS": "clk",
+          "SIGNAME": "processing_system7_0_FCLK_CLK0"
+        },
+        {
+          "DIR": "O",
+          "NAME": "FCLK_RESET0_N",
+          "POLARITY": "ACTIVE_LOW",
+          "SIGIS": "rst",
+          "SIGNAME": "processing_system7_0_FCLK_RESET0_N"
+        },
+        {
+          "CLKFREQUENCY": "5e+07",
+          "DIR": "I",
+          "NAME": "M_AXI_GP0_ACLK",
+          "SIGIS": "clk",
+          "SIGNAME": "processing_system7_0_FCLK_CLK0"
+        },
+        {
+          "DIR": "IO",
+          "NAME": "PS_CLK",
+          "SIGIS": "undef",
+          "SIGNAME": "processing_system7_0_PS_CLK"
+        },
+        {
+          "CLKFREQUENCY": "5e+07",
+          "DIR": "I",
+          "NAME": "S_AXI_HP0_ACLK",
+          "SIGIS": "clk",
+          "SIGNAME": "processing_system7_0_FCLK_CLK0"
+        },
+        {
+          "CLKFREQUENCY": "5e+07",
+          "DIR": "I",
+          "NAME": "S_AXI_HP1_ACLK",
+          "SIGIS": "clk",
+          "SIGNAME": "processing_system7_0_FCLK_CLK0"
+        }
+      ]
+    },
+    {
+      "instance": "rst_ps7_0_50M",
+      "type": "proc_sys_reset",
+      "buses": [],
+      "timing": [
+        {
+          "DIR": "I",
+          "NAME": "aux_reset_in",
+          "POLARITY": "ACTIVE_LOW",
+          "SIGIS": "rst",
+          "SIGNAME": "control_const_one_dout"
+        },
+        {
+          "DIR": "O",
+          "LEFT": "0",
+          "NAME": "bus_struct_reset",
+          "POLARITY": "ACTIVE_HIGH",
+          "RIGHT": "0",
+          "SIGIS": "rst"
+        },
+        {
+          "DIR": "I",
+          "NAME": "dcm_locked",
+          "SIGIS": "undef",
+          "SIGNAME": "control_const_one_dout"
+        },
+        {
+          "DIR": "I",
+          "NAME": "ext_reset_in",
+          "POLARITY": "ACTIVE_LOW",
+          "SIGIS": "rst",
+          "SIGNAME": "processing_system7_0_FCLK_RESET0_N"
+        },
+        {
+          "DIR": "O",
+          "LEFT": "0",
+          "NAME": "interconnect_aresetn",
+          "POLARITY": "ACTIVE_LOW",
+          "RIGHT": "0",
+          "SIGIS": "rst"
+        },
+        {
+          "DIR": "O",
+          "NAME": "mb_reset",
+          "POLARITY": "ACTIVE_HIGH",
+          "SIGIS": "rst"
+        },
+        {
+          "DIR": "O",
+          "LEFT": "0",
+          "NAME": "peripheral_aresetn",
+          "POLARITY": "ACTIVE_LOW",
+          "RIGHT": "0",
+          "SIGIS": "rst",
+          "SIGNAME": "rst_ps7_0_50M_peripheral_aresetn"
+        },
+        {
+          "DIR": "O",
+          "LEFT": "0",
+          "NAME": "peripheral_reset",
+          "POLARITY": "ACTIVE_HIGH",
+          "RIGHT": "0",
+          "SIGIS": "rst"
+        },
+        {
+          "CLKFREQUENCY": "5e+07",
+          "DIR": "I",
+          "NAME": "slowest_sync_clk",
+          "SIGIS": "clk",
+          "SIGNAME": "processing_system7_0_FCLK_CLK0"
+        }
+      ]
+    },
+    {
+      "instance": "util_vector_logic_0",
+      "type": "util_vector_logic",
+      "buses": [],
+      "timing": []
+    },
+    {
+      "instance": "v_axi4s_vid_out_0",
+      "type": "v_axi4s_vid_out",
+      "buses": [
+        {
+          "BUSNAME": "axi_vdma_0_M_AXIS_MM2S",
+          "NAME": "video_in",
+          "TYPE": "TARGET",
+          "VLNV": "xilinx.com:interface:axis:1.0",
+          "connections": []
+        },
+        {
+          "BUSNAME": "v_tc_0_vtiming_out",
+          "NAME": "vtiming_in",
+          "TYPE": "TARGET",
+          "VLNV": "xilinx.com:interface:video_timing:2.0",
+          "connections": []
+        },
+        {
+          "BUSNAME": "__NOC__",
+          "NAME": "vid_io_out",
+          "TYPE": "INITIATOR",
+          "VLNV": "xilinx.com:interface:vid_io:1.0",
+          "connections": []
+        }
+      ],
+      "timing": [
+        {
+          "CLKFREQUENCY": "5e+07",
+          "DIR": "I",
+          "NAME": "aclk",
+          "SIGIS": "clk",
+          "SIGNAME": "processing_system7_0_FCLK_CLK0"
+        },
+        {
+          "DIR": "I",
+          "NAME": "aclken",
+          "POLARITY": "ACTIVE_HIGH",
+          "SIGIS": "ce",
+          "SIGNAME": "xlconstant_0_dout"
+        },
+        {
+          "DIR": "I",
+          "NAME": "aresetn",
+          "POLARITY": "ACTIVE_LOW",
+          "SIGIS": "rst",
+          "SIGNAME": "rst_ps7_0_50M_peripheral_aresetn"
+        },
+        {
+          "DIR": "O",
+          "NAME": "locked",
+          "SIGIS": "undef"
+        },
+        {
+          "CLKFREQUENCY": "25000000",
+          "DIR": "I",
+          "NAME": "vid_io_out_clk",
+          "SIGIS": "clk",
+          "SIGNAME": "clk_wiz_0_pclk"
+        },
+        {
+          "DIR": "I",
+          "NAME": "vid_io_out_reset",
+          "POLARITY": "ACTIVE_HIGH",
+          "SIGIS": "rst",
+          "SIGNAME": "util_vector_logic_0_Res"
+        }
+      ]
+    },
+    {
+      "instance": "v_tc_0",
+      "type": "v_tc",
+      "buses": [
+        {
+          "BUSNAME": "v_tc_0_vtiming_out",
+          "NAME": "vtiming_out",
+          "TYPE": "INITIATOR",
+          "VLNV": "xilinx.com:interface:video_timing:2.0",
+          "connections": []
+        }
+      ],
+      "timing": [
+        {
+          "CLKFREQUENCY": "25000000",
+          "DIR": "I",
+          "NAME": "clk",
+          "SIGIS": "clk",
+          "SIGNAME": "clk_wiz_0_pclk"
+        },
+        {
+          "DIR": "I",
+          "NAME": "clken",
+          "POLARITY": "ACTIVE_HIGH",
+          "SIGIS": "ce",
+          "SIGNAME": "clk_wiz_0_locked"
+        },
+        {
+          "DIR": "I",
+          "NAME": "gen_clken",
+          "SIGIS": "undef",
+          "SIGNAME": "v_axi4s_vid_out_0_vtg_ce"
+        },
+        {
+          "DIR": "I",
+          "NAME": "resetn",
+          "POLARITY": "ACTIVE_LOW",
+          "SIGIS": "rst",
+          "SIGNAME": "clk_wiz_0_locked"
+        }
+      ]
+    },
+    {
+      "instance": "v_vid_in_axi4s_0",
+      "type": "v_vid_in_axi4s",
+      "buses": [
+        {
+          "BUSNAME": "v_vid_in_axi4s_0_video_out",
+          "NAME": "video_out",
+          "TYPE": "INITIATOR",
+          "VLNV": "xilinx.com:interface:axis:1.0",
+          "connections": []
+        },
+        {
+          "BUSNAME": "__NOC__",
+          "NAME": "vtiming_out",
+          "TYPE": "INITIATOR",
+          "VLNV": "xilinx.com:interface:video_timing:2.0",
+          "connections": []
+        },
+        {
+          "BUSNAME": "__NOC__",
+          "NAME": "vid_io_in",
+          "TYPE": "TARGET",
+          "VLNV": "xilinx.com:interface:vid_io:1.0",
+          "connections": []
+        }
+      ],
+      "timing": [
+        {
+          "CLKFREQUENCY": "5e+07",
+          "DIR": "I",
+          "NAME": "aclk",
+          "SIGIS": "clk",
+          "SIGNAME": "processing_system7_0_FCLK_CLK0"
+        },
+        {
+          "DIR": "I",
+          "NAME": "aclken",
+          "POLARITY": "ACTIVE_HIGH",
+          "SIGIS": "ce"
+        },
+        {
+          "DIR": "I",
+          "NAME": "aresetn",
+          "POLARITY": "ACTIVE_LOW",
+          "SIGIS": "rst",
+          "SIGNAME": "rst_ps7_0_50M_peripheral_aresetn"
+        },
+        {
+          "CLKFREQUENCY": "100000000",
+          "DIR": "I",
+          "NAME": "vid_io_in_clk",
+          "SIGIS": "clk",
+          "SIGNAME": "cam_captrue_data_0_vid_clk"
+        },
+        {
+          "DIR": "I",
+          "NAME": "vid_io_in_reset",
+          "POLARITY": "ACTIVE_HIGH",
+          "SIGIS": "rst",
+          "SIGNAME": "util_vector_logic_0_Res"
+        }
+      ]
+    },
+    {
+      "instance": "xlconstant_0",
+      "type": "xlconstant",
+      "buses": [],
+      "timing": []
+    }
+  ],
+  "external": [
+    {
+      "DIR": "O",
+      "LEFT": "6",
+      "NAME": "ACTION_LED",
+      "RIGHT": "0",
+      "SIGIS": "undef",
+      "SIGNAME": "axi_action_0_ACTION_LED"
+    },
+    {
+      "DIR": "IO",
+      "LEFT": "14",
+      "NAME": "DDR_addr",
+      "RIGHT": "0",
+      "SIGIS": "undef",
+      "SIGNAME": "processing_system7_0_DDR_Addr"
+    },
+    {
+      "DIR": "IO",
+      "LEFT": "2",
+      "NAME": "DDR_ba",
+      "RIGHT": "0",
+      "SIGIS": "undef",
+      "SIGNAME": "processing_system7_0_DDR_BankAddr"
+    },
+    {
+      "DIR": "IO",
+      "NAME": "DDR_cas_n",
+      "SIGIS": "undef",
+      "SIGNAME": "processing_system7_0_DDR_CAS_n"
+    },
+    {
+      "DIR": "IO",
+      "NAME": "DDR_ck_n",
+      "SIGIS": "clk",
+      "SIGNAME": "processing_system7_0_DDR_Clk_n"
+    },
+    {
+      "DIR": "IO",
+      "NAME": "DDR_ck_p",
+      "SIGIS": "clk",
+      "SIGNAME": "processing_system7_0_DDR_Clk"
+    },
+    {
+      "DIR": "IO",
+      "NAME": "DDR_cke",
+      "SIGIS": "undef",
+      "SIGNAME": "processing_system7_0_DDR_CKE"
+    },
+    {
+      "DIR": "IO",
+      "NAME": "DDR_cs_n",
+      "SIGIS": "undef",
+      "SIGNAME": "processing_system7_0_DDR_CS_n"
+    },
+    {
+      "DIR": "IO",
+      "LEFT": "3",
+      "NAME": "DDR_dm",
+      "RIGHT": "0",
+      "SIGIS": "undef",
+      "SIGNAME": "processing_system7_0_DDR_DM"
+    },
+    {
+      "DIR": "IO",
+      "LEFT": "31",
+      "NAME": "DDR_dq",
+      "RIGHT": "0",
+      "SIGIS": "undef",
+      "SIGNAME": "processing_system7_0_DDR_DQ"
+    },
+    {
+      "DIR": "IO",
+      "LEFT": "3",
+      "NAME": "DDR_dqs_n",
+      "RIGHT": "0",
+      "SIGIS": "undef",
+      "SIGNAME": "processing_system7_0_DDR_DQS_n"
+    },
+    {
+      "DIR": "IO",
+      "LEFT": "3",
+      "NAME": "DDR_dqs_p",
+      "RIGHT": "0",
+      "SIGIS": "undef",
+      "SIGNAME": "processing_system7_0_DDR_DQS"
+    },
+    {
+      "DIR": "IO",
+      "NAME": "DDR_odt",
+      "SIGIS": "undef",
+      "SIGNAME": "processing_system7_0_DDR_ODT"
+    },
+    {
+      "DIR": "IO",
+      "NAME": "DDR_ras_n",
+      "SIGIS": "undef",
+      "SIGNAME": "processing_system7_0_DDR_RAS_n"
+    },
+    {
+      "DIR": "IO",
+      "NAME": "DDR_reset_n",
+      "SIGIS": "rst",
+      "SIGNAME": "processing_system7_0_DDR_DRSTB"
+    },
+    {
+      "DIR": "IO",
+      "NAME": "DDR_we_n",
+      "SIGIS": "undef",
+      "SIGNAME": "processing_system7_0_DDR_WEB"
+    },
+    {
+      "DIR": "IO",
+      "NAME": "FIXED_IO_ddr_vrn",
+      "SIGIS": "undef",
+      "SIGNAME": "processing_system7_0_DDR_VRN"
+    },
+    {
+      "DIR": "IO",
+      "NAME": "FIXED_IO_ddr_vrp",
+      "SIGIS": "undef",
+      "SIGNAME": "processing_system7_0_DDR_VRP"
+    },
+    {
+      "DIR": "IO",
+      "LEFT": "53",
+      "NAME": "FIXED_IO_mio",
+      "RIGHT": "0",
+      "SIGIS": "undef",
+      "SIGNAME": "processing_system7_0_MIO"
+    },
+    {
+      "DIR": "IO",
+      "NAME": "FIXED_IO_ps_clk",
+      "SIGIS": "undef",
+      "SIGNAME": "processing_system7_0_PS_CLK"
+    },
+    {
+      "DIR": "IO",
+      "NAME": "FIXED_IO_ps_porb",
+      "SIGIS": "undef",
+      "SIGNAME": "processing_system7_0_PS_PORB"
+    },
+    {
+      "DIR": "IO",
+      "NAME": "FIXED_IO_ps_srstb",
+      "SIGIS": "undef",
+      "SIGNAME": "processing_system7_0_PS_SRSTB"
+    },
+    {
+      "CLKFREQUENCY": "25000000",
+      "DIR": "O",
+      "NAME": "HDMI_CLK_0",
+      "SIGIS": "clk",
+      "SIGNAME": "hdmi_out_adv7511_v1_0_0_HDMI_CLK"
+    },
+    {
+      "DIR": "O",
+      "LEFT": "15",
+      "NAME": "HDMI_DATA_0",
+      "RIGHT": "0",
+      "SIGIS": "undef",
+      "SIGNAME": "hdmi_out_adv7511_v1_0_0_HDMI_DATA"
+    },
+    {
+      "DIR": "O",
+      "NAME": "HDMI_DE_0",
+      "SIGIS": "undef",
+      "SIGNAME": "hdmi_out_adv7511_v1_0_0_HDMI_DE"
+    },
+    {
+      "DIR": "O",
+      "NAME": "HDMI_HSYNC_0",
+      "SIGIS": "undef",
+      "SIGNAME": "hdmi_out_adv7511_v1_0_0_HDMI_HSYNC"
+    },
+    {
+      "DIR": "I",
+      "NAME": "HDMI_INT_0",
+      "SIGIS": "undef",
+      "SIGNAME": "External_Ports_HDMI_INT_0"
+    },
+    {
+      "DIR": "O",
+      "NAME": "HDMI_SCL_0",
+      "SIGIS": "undef",
+      "SIGNAME": "hdmi_out_adv7511_v1_0_0_HDMI_SCL"
+    },
+    {
+      "DIR": "IO",
+      "NAME": "HDMI_SDA_0",
+      "SIGIS": "undef",
+      "SIGNAME": "External_Ports_HDMI_SDA_0"
+    },
+    {
+      "DIR": "O",
+      "NAME": "HDMI_VSYNC_0",
+      "SIGIS": "undef",
+      "SIGNAME": "hdmi_out_adv7511_v1_0_0_HDMI_VSYNC"
+    },
+    {
+      "DIR": "O",
+      "NAME": "PL_RS232_TX",
+      "SIGIS": "undef",
+      "SIGNAME": "axi_action_0_PL_RS232_TX"
+    },
+    {
+      "DIR": "I",
+      "LEFT": "7",
+      "NAME": "cam_data_0",
+      "RIGHT": "0",
+      "SIGIS": "undef",
+      "SIGNAME": "External_Ports_cam_data_0"
+    },
+    {
+      "DIR": "I",
+      "NAME": "cam_href_0",
+      "SIGIS": "undef",
+      "SIGNAME": "External_Ports_cam_href_0"
+    },
+    {
+      "DIR": "I",
+      "NAME": "cam_pclk_0",
+      "SIGIS": "undef",
+      "SIGNAME": "External_Ports_cam_pclk_0"
+    },
+    {
+      "DIR": "I",
+      "NAME": "cam_vsync_0",
+      "SIGIS": "undef",
+      "SIGNAME": "External_Ports_cam_vsync_0"
+    },
+    {
+      "DIR": "O",
+      "NAME": "cam_xclk_0",
+      "SIGIS": "undef",
+      "SIGNAME": "cam_captrue_data_0_cam_xclk"
+    },
+    {
+      "CLKFREQUENCY": "100000000",
+      "DIR": "I",
+      "NAME": "clk_in1_0",
+      "SIGIS": "clk",
+      "SIGNAME": "External_Ports_clk_in1_0"
+    },
+    {
+      "DIR": "I",
+      "NAME": "resetn_0",
+      "POLARITY": "ACTIVE_LOW",
+      "SIGIS": "rst",
+      "SIGNAME": "External_Ports_resetn_0"
+    },
+    {
+      "DIR": "O",
+      "NAME": "sccb_cfg_done_0",
+      "SIGIS": "undef",
+      "SIGNAME": "ov5640_cfg_top_0_sccb_cfg_done"
+    },
+    {
+      "CLKFREQUENCY": "100000000",
+      "DIR": "O",
+      "NAME": "sccb_clk_0",
+      "SIGIS": "clk",
+      "SIGNAME": "ov5640_cfg_top_0_sccb_clk"
+    },
+    {
+      "DIR": "IO",
+      "NAME": "sccb_data_0",
+      "SIGIS": "undef",
+      "SIGNAME": "External_Ports_sccb_data_0"
+    }
+  ],
+  "addresses": [
+    {
+      "ADDRESSBLOCK": "HP0_DDR_LOWOCM",
+      "BASENAME": "C_BASEADDR",
+      "BASEVALUE": "0x00000000",
+      "HIGHNAME": "C_HIGHADDR",
+      "HIGHVALUE": "0x0FFFFFFF",
+      "INSTANCE": "processing_system7_0",
+      "IS_DATA": "TRUE",
+      "IS_INSTRUCTION": "TRUE",
+      "MASTERBUSINTERFACE": "M_AXI_MM2S",
+      "MEMTYPE": "MEMORY",
+      "SLAVEBUSINTERFACE": "S_AXI_HP0"
+    },
+    {
+      "ADDRESSBLOCK": "HP0_DDR_LOWOCM",
+      "BASENAME": "C_BASEADDR",
+      "BASEVALUE": "0x00000000",
+      "HIGHNAME": "C_HIGHADDR",
+      "HIGHVALUE": "0x0FFFFFFF",
+      "INSTANCE": "processing_system7_0",
+      "IS_DATA": "TRUE",
+      "IS_INSTRUCTION": "TRUE",
+      "MASTERBUSINTERFACE": "M_AXI_S2MM",
+      "MEMTYPE": "MEMORY",
+      "SLAVEBUSINTERFACE": "S_AXI_HP0"
+    },
+    {
+      "ADDRESSBLOCK": "HP1_DDR_LOWOCM",
+      "BASENAME": "C_BASEADDR",
+      "BASEVALUE": "0x10000000",
+      "HIGHNAME": "C_HIGHADDR",
+      "HIGHVALUE": "0x1FFFFFFF",
+      "INSTANCE": "processing_system7_0",
+      "IS_DATA": "TRUE",
+      "IS_INSTRUCTION": "TRUE",
+      "MASTERBUSINTERFACE": "M_AXI_MM2S",
+      "MEMTYPE": "MEMORY",
+      "SLAVEBUSINTERFACE": "S_AXI_HP1"
+    },
+    {
+      "ADDRESSBLOCK": "HP1_DDR_LOWOCM",
+      "BASENAME": "C_BASEADDR",
+      "BASEVALUE": "0x10000000",
+      "HIGHNAME": "C_HIGHADDR",
+      "HIGHVALUE": "0x1FFFFFFF",
+      "INSTANCE": "processing_system7_0",
+      "IS_DATA": "TRUE",
+      "IS_INSTRUCTION": "TRUE",
+      "MASTERBUSINTERFACE": "M_AXI_S2MM",
+      "MEMTYPE": "MEMORY",
+      "SLAVEBUSINTERFACE": "S_AXI_HP1"
+    },
+    {
+      "ADDRESSBLOCK": "Reg",
+      "BASENAME": "C_BASEADDR",
+      "BASEVALUE": "0x43000000",
+      "HIGHNAME": "C_HIGHADDR",
+      "HIGHVALUE": "0x4300FFFF",
+      "INSTANCE": "axi_vdma_0",
+      "IS_DATA": "TRUE",
+      "IS_INSTRUCTION": "TRUE",
+      "MASTERBUSINTERFACE": "M_AXI_GP0",
+      "MEMTYPE": "REGISTER",
+      "SLAVEBUSINTERFACE": "S_AXI_LITE"
+    },
+    {
+      "ADDRESSBLOCK": "reg0",
+      "BASENAME": "C_BASEADDR",
+      "BASEVALUE": "0x43C00000",
+      "HIGHNAME": "C_HIGHADDR",
+      "HIGHVALUE": "0x43C00FFF",
+      "INSTANCE": "axi_action_0",
+      "IS_DATA": "TRUE",
+      "IS_INSTRUCTION": "TRUE",
+      "MASTERBUSINTERFACE": "M_AXI_GP0",
+      "MEMTYPE": "REGISTER",
+      "SLAVEBUSINTERFACE": "S_AXI"
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "marker": "PC_PS_PL_DIAGRAMS_DOCUMENTATION_PASS",
+  "pages": [
+    {
+      "page": "01_PC_PS_PL完整框图",
+      "native_shapes": 65,
+      "connections": 38,
+      "text_missing": [],
+      "text_overflow": [],
+      "fonts": [
+        {
+          "name": "/BCDEEE+MicrosoftYaHei-Bold",
+          "embedded": true
+        },
+        {
+          "name": "/BCDFEE+MicrosoftYaHei-Bold",
+          "embedded": true
+        },
+        {
+          "name": "/BCDGEE+MicrosoftYaHei",
+          "embedded": true
+        },
+        {
+          "name": "/BCDHEE+MicrosoftYaHei",
+          "embedded": true
+        },
+        {
+          "name": "/BCDIEE+MicrosoftYaHei",
+          "embedded": true
+        }
+      ]
+    },
+    {
+      "page": "02A_PS_PL视频与存储模块图",
+      "native_shapes": 51,
+      "connections": 38,
+      "text_missing": [],
+      "text_overflow": [],
+      "fonts": [
+        {
+          "name": "/BCDEEE+MicrosoftYaHei-Bold",
+          "embedded": true
+        },
+        {
+          "name": "/BCDFEE+MicrosoftYaHei-Bold",
+          "embedded": true
+        },
+        {
+          "name": "/BCDGEE+MicrosoftYaHei",
+          "embedded": true
+        },
+        {
+          "name": "/BCDHEE+MicrosoftYaHei",
+          "embedded": true
+        },
+        {
+          "name": "/BCDIEE+MicrosoftYaHei",
+          "embedded": true
+        }
+      ]
+    },
+    {
+      "page": "02B_PS_PL动作控制模块图",
+      "native_shapes": 54,
+      "connections": 22,
+      "text_missing": [],
+      "text_overflow": [],
+      "fonts": [
+        {
+          "name": "/BCDEEE+MicrosoftYaHei-Bold",
+          "embedded": true
+        },
+        {
+          "name": "/BCDFEE+MicrosoftYaHei-Bold",
+          "embedded": true
+        },
+        {
+          "name": "/BCDGEE+MicrosoftYaHei",
+          "embedded": true
+        },
+        {
+          "name": "/BCDHEE+MicrosoftYaHei",
+          "embedded": true
+        },
+        {
+          "name": "/BCDIEE+MicrosoftYaHei",
+          "embedded": true
+        }
+      ]
+    },
+    {
+      "page": "03A_控制流程_启动与就绪",
+      "native_shapes": 47,
+      "connections": 34,
+      "text_missing": [],
+      "text_overflow": [],
+      "fonts": [
+        {
+          "name": "/BCDFEE+MicrosoftYaHei-Bold",
+          "embedded": true
+        },
+        {
+          "name": "/BCDEEE+MicrosoftYaHei-Bold",
+          "embedded": true
+        },
+        {
+          "name": "/BCDGEE+MicrosoftYaHei",
+          "embedded": true
+        },
+        {
+          "name": "/BCDHEE+MicrosoftYaHei",
+          "embedded": true
+        },
+        {
+          "name": "/BCDIEE+MicrosoftYaHei",
+          "embedded": true
+        },
+        {
+          "name": "/BCDJEE+CambriaMath",
+          "embedded": true
+        }
+      ]
+    },
+    {
+      "page": "03B_控制流程_识别与动作事务",
+      "native_shapes": 37,
+      "connections": 22,
+      "text_missing": [],
+      "text_overflow": [],
+      "fonts": [
+        {
+          "name": "/BCDFEE+MicrosoftYaHei-Bold",
+          "embedded": true
+        },
+        {
+          "name": "/BCDEEE+MicrosoftYaHei-Bold",
+          "embedded": true
+        },
+        {
+          "name": "/BCDKEE+MicrosoftYaHei-Bold",
+          "embedded": true
+        },
+        {
+          "name": "/BCDGEE+MicrosoftYaHei",
+          "embedded": true
+        },
+        {
+          "name": "/BCDHEE+MicrosoftYaHei",
+          "embedded": true
+        },
+        {
+          "name": "/BCDIEE+MicrosoftYaHei",
+          "embedded": true
+        },
+        {
+          "name": "/BCDJEE+CambriaMath",
+          "embedded": true
+        }
+      ]
+    },
+    {
+      "page": "03C_控制流程_异常退出与恢复",
+      "native_shapes": 44,
+      "connections": 26,
+      "text_missing": [],
+      "text_overflow": [],
+      "fonts": [
+        {
+          "name": "/BCDFEE+MicrosoftYaHei-Bold",
+          "embedded": true
+        },
+        {
+          "name": "/BCDEEE+MicrosoftYaHei-Bold",
+          "embedded": true
+        },
+        {
+          "name": "/BCDGEE+MicrosoftYaHei",
+          "embedded": true
+        },
+        {
+          "name": "/BCDHEE+MicrosoftYaHei",
+          "embedded": true
+        },
+        {
+          "name": "/BCDIEE+MicrosoftYaHei",
+          "embedded": true
+        }
+      ]
+    }
+  ],
+  "input_hash_changes": [],
+  "excluded_transient_lock_files": [
+    "E:\\post_student\\2_doc\\12_PC_PS_PL完整框图_参考硬件组PPT_20260913\\~$$PC_PS_PL完整框图_v1.~vsdx"
+  ],
+  "embedded_diagram_images": [],
+  "visual_review": "PASS: all six rendered pages inspected; VDMA text overflow and title-line intersection corrected",
+  "scope": "Authored artifact checks only; no hardware tests executed",
+  "native_round_trip": "PASS",
+  "native_shape_total": 298,
+  "glued_endpoints": 180,
+  "delivery_links": "PASS",
+  "payload_hashes": {
+    "display_test_axi_action_uart.bit": "bffaa83565d60ea28e04a31497b4c3dff828b0359012dafe1d5d1ea5a390e16d",
+    "display_test_axi_action_uart.hwh": "64ff7724c56c97b52fac699168f762e30ea42b4d25910a30caf00f58c8b55ed0",
+    "best.pt": "68db7cacbdd6d9c9a583e1c50a9f5934a3a6b78675b215ec86717827be8bfc79"
+  }
+}

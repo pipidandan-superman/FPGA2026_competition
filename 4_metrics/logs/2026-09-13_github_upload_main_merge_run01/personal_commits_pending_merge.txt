@@ -1,0 +1,3 @@
+612d7b3d0fd3e427f47498885fc9debab2b429e6	feat: deliver verified model AXI UART LED checkpoint with reload caveat
+63343aa314c27bd64f44210cc35ae144bdc16c13	feat: publish board-validated PL reloader v1.4
+800a0d6e2d74ff5051658995321b79e1555673ed	docs: record v1.4 publication receipt

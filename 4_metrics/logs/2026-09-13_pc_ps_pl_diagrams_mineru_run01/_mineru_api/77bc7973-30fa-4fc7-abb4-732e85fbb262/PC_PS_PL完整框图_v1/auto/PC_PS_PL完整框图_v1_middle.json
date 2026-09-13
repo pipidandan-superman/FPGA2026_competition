@@ -1,0 +1,357 @@
+{
+    "pdf_info": [
+        {
+            "preproc_blocks": [
+                {
+                    "score": 0.909,
+                    "bbox": [
+                        23,
+                        18,
+                        447,
+                        46
+                    ],
+                    "index": 1,
+                    "type": "title",
+                    "lines": [
+                        {
+                            "bbox": [
+                                27,
+                                20,
+                                443,
+                                45
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        27,
+                                        20,
+                                        443,
+                                        45
+                                    ],
+                                    "type": "text",
+                                    "content": "PC–PS–PL 计算图映射与执行系统框图",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ],
+                    "level": 2
+                },
+                {
+                    "score": 0.7341,
+                    "bbox": [
+                        23,
+                        53,
+                        570,
+                        72
+                    ],
+                    "index": 3,
+                    "type": "text",
+                    "lines": [
+                        {
+                            "bbox": [
+                                28,
+                                56,
+                                567,
+                                69
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        28,
+                                        56,
+                                        567,
+                                        69
+                                    ],
+                                    "type": "text",
+                                    "content": "面向 FPGA 加速系统的神经网络计算图映射与调度：模型与硬件配置 → 全局计划 → 板端执行",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "image",
+                    "bbox": [
+                        23,
+                        92,
+                        1159,
+                        798
+                    ],
+                    "blocks": [
+                        {
+                            "score": 0.9782,
+                            "bbox": [
+                                23,
+                                92,
+                                1159,
+                                798
+                            ],
+                            "index": 4,
+                            "type": "image_body",
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        23,
+                                        92,
+                                        1159,
+                                        798
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                23,
+                                                92,
+                                                1159,
+                                                798
+                                            ],
+                                            "type": "image",
+                                            "image_path": "80a7bed3787f6767d4f63958410fe48e930ff38cfd6278b5dc681f1e1cb835b0.jpg"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "score": 0.9125,
+                            "bbox": [
+                                23,
+                                810,
+                                607,
+                                826
+                            ],
+                            "index": 5,
+                            "type": "image_footnote",
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        27,
+                                        812,
+                                        603,
+                                        824
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                27,
+                                                812,
+                                                603,
+                                                824
+                                            ],
+                                            "type": "text",
+                                            "content": "目标架构讨论稿；首版以旧 GEMM 契约为候选，跨调用串行。实线不代表已实现；核完成、DMA 完成与 CPU 可见须分别确认。",
+                                            "score": 1.0
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "index": 4,
+                    "score": 0.9782
+                }
+            ],
+            "page_idx": 0,
+            "page_size": [
+                1190,
+                841
+            ],
+            "discarded_blocks": [
+                {
+                    "score": 0.871,
+                    "bbox": [
+                        1054,
+                        28,
+                        1150,
+                        44
+                    ],
+                    "index": 2,
+                    "type": "header",
+                    "lines": [
+                        {
+                            "bbox": [
+                                1056,
+                                27,
+                                1148,
+                                45
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        1056,
+                                        27,
+                                        1148,
+                                        45
+                                    ],
+                                    "type": "text",
+                                    "content": "导师讨论稿 · v1",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "para_blocks": [
+                {
+                    "score": 0.909,
+                    "bbox": [
+                        23,
+                        18,
+                        447,
+                        46
+                    ],
+                    "index": 1,
+                    "type": "title",
+                    "lines": [
+                        {
+                            "bbox": [
+                                27,
+                                20,
+                                443,
+                                45
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        27,
+                                        20,
+                                        443,
+                                        45
+                                    ],
+                                    "type": "text",
+                                    "content": "PC–PS–PL 计算图映射与执行系统框图",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ],
+                    "level": 2
+                },
+                {
+                    "score": 0.7341,
+                    "bbox": [
+                        23,
+                        53,
+                        570,
+                        72
+                    ],
+                    "index": 3,
+                    "type": "text",
+                    "lines": [
+                        {
+                            "bbox": [
+                                28,
+                                56,
+                                567,
+                                69
+                            ],
+                            "spans": [
+                                {
+                                    "bbox": [
+                                        28,
+                                        56,
+                                        567,
+                                        69
+                                    ],
+                                    "type": "text",
+                                    "content": "面向 FPGA 加速系统的神经网络计算图映射与调度：模型与硬件配置 → 全局计划 → 板端执行",
+                                    "score": 1.0
+                                }
+                            ]
+                        }
+                    ],
+                    "bbox_fs": [
+                        28,
+                        56,
+                        567,
+                        69
+                    ]
+                },
+                {
+                    "type": "image",
+                    "bbox": [
+                        23,
+                        92,
+                        1159,
+                        798
+                    ],
+                    "blocks": [
+                        {
+                            "score": 0.9782,
+                            "bbox": [
+                                23,
+                                92,
+                                1159,
+                                798
+                            ],
+                            "index": 4,
+                            "type": "image_body",
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        23,
+                                        92,
+                                        1159,
+                                        798
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                23,
+                                                92,
+                                                1159,
+                                                798
+                                            ],
+                                            "type": "image",
+                                            "image_path": "80a7bed3787f6767d4f63958410fe48e930ff38cfd6278b5dc681f1e1cb835b0.jpg"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "score": 0.9125,
+                            "bbox": [
+                                23,
+                                810,
+                                607,
+                                826
+                            ],
+                            "index": 5,
+                            "type": "image_footnote",
+                            "lines": [
+                                {
+                                    "bbox": [
+                                        27,
+                                        812,
+                                        603,
+                                        824
+                                    ],
+                                    "spans": [
+                                        {
+                                            "bbox": [
+                                                27,
+                                                812,
+                                                603,
+                                                824
+                                            ],
+                                            "type": "text",
+                                            "content": "目标架构讨论稿；首版以旧 GEMM 契约为候选，跨调用串行。实线不代表已实现；核完成、DMA 完成与 CPU 可见须分别确认。",
+                                            "score": 1.0
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "index": 4,
+                    "score": 0.9782
+                }
+            ]
+        }
+    ],
+    "_backend": "pipeline",
+    "_version_name": "3.4.4"
+}

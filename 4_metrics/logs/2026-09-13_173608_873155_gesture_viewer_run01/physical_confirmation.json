@@ -1,0 +1,22 @@
+{
+  "marker": "ACTION_V14_PHYSICAL_LED_CONFIRMATION_PASS",
+  "recorded_at": "2026-09-13T17:37:53.9446095+08:00",
+  "source": "user_manual_observation",
+  "user_statement": "成功，全部手势对应led成功",
+  "confirmed_actions": [
+    {"label": "Stop", "action": 4, "led": 4},
+    {"label": "Up", "action": 7, "led": 7},
+    {"label": "Down", "action": 1, "led": 1},
+    {"label": "Thumbs up", "action": 6, "led": 6},
+    {"label": "Thumbs Down", "action": 5, "led": 5}
+  ],
+  "evidence_boundary": "LED mapping is confirmed by the user's physical observation; action sequence/ACK and video statistics are confirmed by software logs.",
+  "software_evidence": {
+    "reloader_log": "E:\\competition\\4_metrics\\logs\\2026-09-13_173347_248500_pl_reloader_gui_run01\\application.log",
+    "reloader_log_sha256": "d18c9c3f26a9e523203ba46296a221f75e90d00c5f3fc522004ff2c31c4f11d0",
+    "gesture_events": "E:\\competition\\4_metrics\\logs\\2026-09-13_173608_873155_gesture_viewer_run01\\events.jsonl",
+    "gesture_events_sha256": "7794d0ce0103078e4e766f9c60bf00d2ab6c4cf482c14aa1cede9650af3673ee",
+    "gesture_result": "E:\\competition\\4_metrics\\logs\\2026-09-13_173608_873155_gesture_viewer_run01\\result.json",
+    "gesture_result_sha256": "18e3911442631b1ab8349924ac0bf0edba8529203392fff74d677d95603488d6"
+  }
+}
