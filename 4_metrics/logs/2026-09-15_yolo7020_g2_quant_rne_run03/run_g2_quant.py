@@ -75,6 +75,18 @@ cases = [(5, 1, 2), (7, 1, 4), (-5, 1, -2), (-7, 1, -4), (3, 0, 3), (1, 1, 0), (
          (2, 1, 1), (6, 1, 3), (-2, 1, -1), (9, 2, 2), (-9, 2, -2), (6, 2, 2), (10, 2, 2)]
 ok = all(int(rne_shift(np.array([a], dtype=np.int64), s)[0]) == e for a, s, e in cases)
 assert ok, 'RNE hand cases failed'
+# NEP50 shift-dtype guard (bug found 2026-09-15 via PS offline regression):
+# np.frexp exponents arrive as np.int32; under NEP50 `1 << np.int32(41)` wraps
+# to 0, so the tie threshold `full` collapses and RNE degrades to
+# round-away-from-zero (+0.5 LSB mean bias) for every shift >= 32 — which this
+# net uses for nearly all channels. rne_shift must normalize s to Python int.
+n41 = np.array([2**41 * 5 + 2**40, 2**41 * 5 - 2**40, 2**41 * 3 + 3, 1, -1, 0], dtype=np.int64)
+ref41 = np.array([6, 4, 3, 0, 0, 0], dtype=np.int64)   # ties 5.5->6, 4.5->4 (to even)
+assert np.array_equal(rne_shift(n41, 41), ref41), 'RNE s=41 hand cases failed'
+assert np.array_equal(rne_shift(n41, np.int32(41)), ref41), 'np.int32 shift not normalized'
+_rng41 = np.random.RandomState(SEED)
+_n41 = _rng41.randint(-(2**53), 2**53, 4096, dtype=np.int64)
+assert np.array_equal(rne_shift(_n41, np.int32(45)), rne_shift(_n41, 45)), 'np.int32 A/B mismatch'
 status['rne_unit'] = 'PASS'
 
 rng = np.random.RandomState(SEED)
@@ -417,7 +429,7 @@ def fp_forward(canvas_u8):
 # itself (so the fit absorbs both fresh and inherited gain error). Fixed-point
 # sweeps: all scales applied simultaneously after each pass; requant domains
 # (|pre) and quantized weights untouched — pure stored-scale recalibration.
-FIT_SUBSAMPLE = 128
+FIT_SUBSAMPLE = 420   # run03: 全量校准集 LSQ（去除子采样噪声）
 _rng = np.random.default_rng(SEED)
 _fit_imgs = [cal_imgs[i] for i in np.sort(_rng.choice(len(cal_imgs), FIT_SUBSAMPLE, replace=False))]
 fit_sites = list(nodes.keys())
