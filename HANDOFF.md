@@ -138,7 +138,7 @@ PC与板载MLT-BT05已通过短时双向通信：未配对GATT保持61.703秒，
 - Symptom: UDP camera frames showed red/blue-swapped colors (yellow object -> pale blue, blue-violet -> orange, lavender -> pink); HDMI was always correct. Root cause: VDMA S2MM packs the 24-bit {R,G,B} AXIS word little-endian, so DDR/UDP type=0x01 payload bytes are [B,G,R] per pixel, while the host decoded them as [R,G,B]. OV5640 registers (`0x4300=0x61`, RGB565 sequence 1) are NOT at fault — do NOT change them to "fix" colors (that would swap HDMI).
 - **Current receiver: `3_host/udp_video/dist/EES331_UDP_Viewer.exe` — 31,187,867 B, SHA-256 `a4b75ed3423aeb2ca292623b00310ac166be6c09171527ad8397435ca193dd1d` (built from `udp_video_gui.py` V1.2, type-aware decode: type=0x01 -> BGR, type=0x02 -> RGB). Discard older copies (V1.0 31,187,636 B / V1.1 31,188,255 B) — they render camera frames with red/blue swapped.** `udp_video_rx.py` V1.1 carries the same type-aware fix; camera payload is already cv2-native BGR, so model-side frame grabbing needs no channel flip.
 - Board side unchanged: the C1.2 frozen pairing below stays valid (BIT `7CB11F7D...` + ELF `3E295D51...` + XSA `30644B31...`); no rebuild or re-programming is needed to get correct colors on the PC.
-- Verified: localhost end-to-end injection `ALL_COLOR_SWAP_FIX_TESTS_PASS`; user visual pass on the live board stream (recorded video: natural skin tones, 6.25 fps, ~1% loss/CRC consistent with C1.2). Byte-order erratum in the design contract: `1_docs/OV5640_UDP视频传输数据格式与上位机设计_2026-09-08.md` §10.
+- Verified: localhost end-to-end injection `ALL_COLOR_SWAP_FIX_TESTS_PASS`; user visual pass on the live board stream (recorded video: natural skin tones, 6.25 fps, ~1% loss/CRC consistent with C1.2). Byte-order erratum in the design contract: `1_docs/doc/OV5640_UDP视频传输数据格式与上位机设计_2026-09-08.md` §10.
 - Evidence: `4_metrics/logs/2026-09-08_udp_color_swap_fix_run01/` (RUN_REPORT, verification scripts + raw console log, user screenshots + final board-stream video, per-file SHA-256). Tag: `udp-color-fix-pass-20260908`.
 
 ## 2026-09-08 FREEZE udp-camera-c12-pass-20260908 (C1.2 quality PASS, 4.77 fps zero-defect)
@@ -165,7 +165,7 @@ PC与板载MLT-BT05已通过短时双向通信：未配对GATT保持61.703秒，
 - Result: `UDP_TX_B1_PASS`. `app_component` V3.1.2 streams 640x480 RGB888 synthetic frames (921,600 B = 640 packets x 1,440 B + 32 B header, whole-frame CRC32, SOF/EOF flags) from the board to the PC peer at 1 fps; serial shows `UDP_TX frame=N packets=640 errors=0` (58+ frames, zero TX errors) and the GUI receiver shows the moving color-bar pattern with `完整帧` increasing at ~1 fps, `丢帧=0`, `CRC 错=0`.
 - New sources: `2_fpga/0_diaplay_test/vitis/app_component/src/udp_video_tx.c/h` (sender; `UDP_TX_USE_CAMERA=0` gates stage C1), `main.c` rework — lwIP timers now scheduled on the ARM Global Timer (`xiltimer.h`/`XTime_GetTime`, 250/500 ms) because the ScuTimer interrupt path proved dead in this SDT build; `udp_video_tx_yield()` keeps ARP/RX alive mid-burst without recursion.
 - PC tools (`3_host/udp_video/`): `mock_sender.py` (protocol-conformant pattern sender), `udp_video_rx.py` (CLI receiver, localhost self-test PASS 178 frames/0 loss/0 CRC), `udp_video_gui.py` → packaged `dist/EES331_UDP_Viewer.exe` (V1.0 31,187,636 B / V1.1 31,188,255 B at this milestone; **superseded 2026-09-08 by the V1.2 BGR-fix build 31,187,867 B, SHA-256 `a4b75ed3...` — see FREEZE udp-color-fix-pass-20260908 at the top**).
-- Design contract: `1_docs/OV5640_UDP视频传输数据格式与上位机设计_2026-09-08.md` (32 B header table, 640-packet framing, skip-on-loss policy, staged plan; supersedes the old plan's 192.168.1.x addressing with 192.168.240.x).
+- Design contract: `1_docs/doc/OV5640_UDP视频传输数据格式与上位机设计_2026-09-08.md` (32 B header table, 640-packet framing, skip-on-loss policy, staged plan; supersedes the old plan's 192.168.1.x addressing with 192.168.240.x).
 - Evidence: `4_metrics/logs/2026-09-08_mainproj_eth_loopback_integrate_run01/` (B1 screenshots, full serial log, per-file hashes), `..._udp_host_tools_v1_run01/`, `..._udp_gui_exe_build_run01/`, `..._udp_video_protocol_design_run01/`.
 - Known open items: camera S2MM stream error (`SR=0x15810`, SOF-early class) blocks stage C1 — check camera cabling/power first; PS config change verified clock-clean (BD diff: only ENET0/MDIO/GPIO-EMIO entries, FCLK/PLL untouched). GUI fps field reads 0/1.9 on a 1 fps stream (sampling display quirk). `UDP_TX_INIT_OK` prints "ticks" but means ms.
 - Next: stage C1 — replace the pattern source with a VDMA completed-slot snapshot (PARKPTR-selected), camera S2MM must pass first; then C2 rate scale 5/15 FPS.
@@ -182,7 +182,7 @@ PC与板载MLT-BT05已通过短时双向通信：未配对GATT保持61.703秒，
   - Binaries live under `2_fpga/0_diaplay_test/vitis/hw_20260908_eth/`.
 - Evidence: `4_metrics/logs/2026-09-08_mainproj_eth_loopback_integrate_run01/` (integration report, before/after hashes, PASS screenshot SHA-256 `4AA8933B02B449F314D2E336908B41252FC9DE3DB91BF4E6B2742635AFF7CE0E`).
 - Still owed: full UART serial capture (ETH heartbeat + HDMI heartbeat lines) for the raw serial record.
-- Next: board-to-PC UDP frame sender (synthetic pattern + incrementing frame/packet IDs), then one VDMA frame snapshot; camera transport gates stay per `1_docs/OV5640_PS以太网传输实施计划_2026-09-08.md`.
+- Next: board-to-PC UDP frame sender (synthetic pattern + incrementing frame/packet IDs), then one VDMA frame snapshot; camera transport gates stay per `1_docs/doc/OV5640_PS以太网传输实施计划_2026-09-08.md`.
 
 ## 2026-09-07 OV5640 + PS VDMA + HDMI frozen visual PASS
 
@@ -403,8 +403,8 @@ Vitis Run 日志缺少完整下载/运行流程，调试器反汇编出现无效
 - 开发机迁移：项目根目录现为 `E:\Work\Projects\AMD_proj\FPGA_competition_2026`（本仓库完整克隆），Vivado 2025.2 ML Standard 已装（仅 Zynq-7000 家族）。旧开始菜单快捷方式指向失效路径，桌面快捷方式已修复。
 - 2_fpga 更新：以队友交付的验证版 zip 整体合入——`0_diaplay_test`（hdmi_new V1.8：`adv7511_init_table.sv` 含 CSC 与读回校验，新增 rtl/HDMI TMDS 直出、data_pre、fr_display、ov5640_data_cap；proj display_test 工程；sim 新增 4 个测试台）、`1_zynqtest_2025`（本地恢复，含 ILA，按约定不入库）。合入前旧版已备份至本地 0_assets（不入库）。
 - ADV7511 颜色根因分析（文档级，未板测）：4:2:2 输入映射受 R0x48[4:3] 对齐与 R0x16[3:2] Style 双控制，且寄存器 Style 值与手册编号不对应（Linux 驱动注释佐证）；EES-331 仅接 D[15:0]，Style 2/3 使芯片读 D[23:16] 悬空脚。队友 CSC 直出 RGB 方案已板测通过，维持不动；分析留作 422 直通备援路线资料。证据：`7_logs/2026-09-07/`（HWUG Table 7、EES-331 手册页截图）。
-- AI 侧（3_host）：手势模型 v1 训练完成（YOLOv8n + Roboflow hand-gesture v6，7 类，test mAP50 0.730；Stop/Thumbs up/Up/Down 优秀，Left/Right/Thumbs Down 为弱项）；PC 全链路（摄像头→JPEG→UDP→ONNX CPU→JSON 回传）实测通过，P50 62ms；UDP 协议 v1 定稿于 `1_docs/interface.md`（分片/心跳/异常处理）。
-- 待办：①2025.2 环境基线 bit 复现（Reset Runs→板测彩条）②PS 显示验证 ③lwIP 发帧端（协议见 1_docs/interface.md）④AI 侧自采 Left/Right/Thumbs Down 数据重训 v2 ⑤舵机臂下单 ⑥中期报告 10-09。
+- AI 侧（3_host）：手势模型 v1 训练完成（YOLOv8n + Roboflow hand-gesture v6，7 类，test mAP50 0.730；Stop/Thumbs up/Up/Down 优秀，Left/Right/Thumbs Down 为弱项）；PC 全链路（摄像头→JPEG→UDP→ONNX CPU→JSON 回传）实测通过，P50 62ms；UDP 协议 v1 定稿于 `1_docs/legacy/interface.md`（分片/心跳/异常处理）。
+- 待办：①2025.2 环境基线 bit 复现（Reset Runs→板测彩条）②PS 显示验证 ③lwIP 发帧端（协议见 1_docs/legacy/interface.md）④AI 侧自采 Left/Right/Thumbs Down 数据重训 v2 ⑤舵机臂下单 ⑥中期报告 10-09。
 - 详细记录：`7_logs/2026-09-07/` 四件套。
 
 ## 2026-09-11 SD/PYNQ 摄像头双路输出
