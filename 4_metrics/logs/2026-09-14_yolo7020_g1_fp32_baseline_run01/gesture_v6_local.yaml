@@ -1,0 +1,6 @@
+path: E:/competition/3_host/model_datasets/dataset
+train: train/images
+val: valid/images
+test: test/images
+nc: 7
+names: ['Down', 'Left', 'Right', 'Stop', 'Thumbs Down', 'Thumbs up', 'Up']

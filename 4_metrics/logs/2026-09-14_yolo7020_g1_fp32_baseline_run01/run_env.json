@@ -1,0 +1,8 @@
+{
+  "python": "E:\\competition\\4_metrics\\logs\\2026-09-12_model_env_run01\\venv\\Scripts\\python.exe",
+  "torch": "2.10.0+cpu",
+  "ultralytics": "8.4.142",
+  "numpy": "2.2.6",
+  "seed": 20260914,
+  "cal_target_per_class": 60
+}
