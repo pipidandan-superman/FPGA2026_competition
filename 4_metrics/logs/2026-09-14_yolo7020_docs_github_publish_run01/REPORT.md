@@ -1,6 +1,6 @@
 # YOLO7020 r3文档发布审计
 
-日期：2026-09-14。范围：本轮完整硬件部署讨论、数据前置要求、公开v6下载结果及工程交接。发布目标为`codex/full/pipidandan-superman` → PR → `main`；另一成员审核必须满足。本报告初始状态为PUBLICATION_IN_PROGRESS，后续收据追加于此。
+日期：2026-09-14。范围：本轮完整硬件部署讨论、数据前置要求、公开v6下载结果及工程交接。发布目标为`codex/full/pipidandan-superman` → PR → `main`；另一成员审核必须满足。当前状态：`PERSONAL_BRANCH_PUSH_PASS / PR_CREATED / MAIN_MERGE_BLOCKED_REVIEW_REQUIRED`。
 
 ## 本轮修订
 
@@ -18,6 +18,14 @@
 原始审计见本目录preflight.log（本地保存，不发布完整污染路径清单）；发布文件清单、验证记录及Git收据分别记录在本目录。通过标准：文档事实与JSON相符、关键相对链接在发布树有效、无非范围或二进制暂存、diff --check通过、远端个人分支可确认、PR明确指向main。只有实际显示合并并经远端核对才记MERGED。
 
 ## 发布前验证结果
+
+### GitHub收据与下一动作
+
+内容提交`f7c55a1526e3e8c91fe0d750fcd9ccc9f9941445`已推送个人分支。已创建[PR #8：docs: YOLO7020硬件部署路线r3与手势数据准备](https://github.com/pipidandan-superman/FPGA2026_competition/pull/8)，base=main，head=codex/full/pipidandan-superman。随后本报告和四份日志的收据更新以追加提交发布，不改写内容提交。
+
+GitHub实际页面显示：`Awaiting approval`、`Review required`、`At least 1 approving review is required by reviewers with write access.`、`Merging is blocked`、`New changes require approval from someone other than the last pusher.`，Merge pull request按钮禁用，Checks=0。未点击合并、未启用管理员绕过、未改保护规则，main尚未合入本轮内容。审核人选择器搜索xiaokaiyuan未出现可选项，因此没有声称已指派审核人。
+
+最小下一动作：请另一位有仓库写权限的成员在PR #8对最终提交完成审核批准；若队友账号已变化，先确认其GitHub用户名与现有权限，不由本轮自动授予权限。审核和所有分支规则满足后再正常合并，并fetch验证main包含内容提交。不要混入另一个成员的PR #7或删除长期个人分支。
 
 `DOCUMENT_VALIDATION_PASS`：r3的66项检查通过，13章节与14个本地链接正常，模型及r1快照hash不变，项目路径审计15项通过。r3 SHA-256为`772478ADA4E1D35E7237951E5A54336E18C859B325E9F5CF9552254305270835`。原始结果见[validation_console.log](validation_console.log)。
 

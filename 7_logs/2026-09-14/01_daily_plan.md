@@ -2,6 +2,8 @@
 
 ## 当前：r3文档与GitHub发布（2026-09-14）
 
+发布收据：内容提交f7c55a1已推送个人分支，已创建[PR #8](https://github.com/pipidandan-superman/FPGA2026_competition/pull/8)指向main。GitHub显示Awaiting approval / Merging is blocked，需另一位有写权限成员批准，尚未合并。xiaokaiyuan未出现在审核人搜索结果，未成功指派。下一动作是队友审核最终提交；本轮不绕过保护、不操作他人PR #7。r3文档66项检查与路径审计15项通过，量化/硬件阶段仍未执行。
+
 本轮目标：发布部署计划r3、模型数据说明、四份日志和精选文本证据到codex/full/pipidandan-superman，创建面向main的PR。数据已下载且结构检查通过；不重复下载，不运行量化/训练/RTL/板测，不上传ZIP、图片、权重或冻结2_fpga。另一成员审核是main合并前置。
 
 [部署计划r3](../../1_docs/yolo7020_hardware_deployment_plan_20260914.md)｜[发布审计与交接](../../4_metrics/logs/2026-09-14_yolo7020_docs_github_publish_run01/REPORT.md)。以下为同日过程记录，旧“当前/最新/等待”标题只表示当时状态，与本节冲突时以本节及发布报告为准。

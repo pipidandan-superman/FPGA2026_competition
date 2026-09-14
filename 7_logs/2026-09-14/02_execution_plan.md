@@ -2,6 +2,8 @@
 
 ## 当前：r3文档与GitHub发布（2026-09-14）
 
+发布收据：内容提交f7c55a1已推送个人分支，已创建[PR #8](https://github.com/pipidandan-superman/FPGA2026_competition/pull/8)指向main。GitHub显示Awaiting approval / Merging is blocked，需另一位有写权限成员批准，尚未合并。xiaokaiyuan未出现在审核人搜索结果，未成功指派。下一动作是队友审核最终提交；本轮不绕过保护、不操作他人PR #7。r3文档66项检查与路径审计15项通过，量化/硬件阶段仍未执行。
+
 顺序：核对下载JSON与模型合同→修订r3和MODEL.md→保留历史证据并标明过时停点→在独立个人工作树同步origin/main→逐文件清单复制、哈希/链接/暂存审计→提交推送→创建PR并请求另一成员审核。原E:/competition大量无关改动及个人工作树4个历史未跟踪文件保持原样。发生冲突或审核未满足则停止合并，不强推或绕过保护。
 
 [部署计划r3](../../1_docs/yolo7020_hardware_deployment_plan_20260914.md)｜[发布审计与交接](../../4_metrics/logs/2026-09-14_yolo7020_docs_github_publish_run01/REPORT.md)。以下为同日过程记录，旧“当前/最新/等待”标题只表示当时状态，与本节冲突时以本节及发布报告为准。

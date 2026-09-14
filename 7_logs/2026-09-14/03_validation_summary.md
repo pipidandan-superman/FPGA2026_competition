@@ -1,6 +1,19 @@
 # 2026-09-14 验证摘要
 
+## 当前：zynq-pynq-overlay-workflow skill修复（2026-09-14）
+
+用户反馈按该skill执行在线加载失败而EES331_PL_Reloader_v1.4 EXE正常。根因：skill于2026-09-13仅做格式/镜像一致性校验，未包含v1.0–v1.3失败、v1.4验证通过的摄像头overlay热重载关键序列（v1.3实测：BIT下载PASS+fpga_manager operating仍FIRST_FRAME_TIMEOUT，被误读为"无法在线加载"）。本轮修复：
+
+- `references/ees331.md`新增"Camera overlay hot-reload: proven load sequence"一节：安全停原服务（VDMA_HALTED→BUFFER_FREED）、两阶段Overlay(download=False)预校验、fpga_manager state检查、10s传感器settle、30s首帧门控（每秒槽位报告）、fail-closed恢复；标注载荷常量与v1.4工具入口；引用v13失败审计与v14两轮验收证据。同轮修复该文件数字与单位间空格丢失的粘连问题。
+- `SKILL.md`新增通用条目：重载成功判据必须是观测到数据流动而非下载完成；热重载丢失上电隐式传感器settle（如SCCB），需显式定时settle+有界首帧窗口+超时fail-closed。
+- 三层同步（6_skill、.codex/skills、.claude/skills）后逐文件SHA-256一致（SKILL.md 636c1f31...，ees331.md 5fa5b999...）。
+- 另：本项目10个skill已安装到E:/competition/.claude/skills（Claude Code原生调用层），与6_skill参考层全量哈希一致。
+
+边界：本轮为文档/skill修复，未改RTL、载荷、EXE或板卡状态；未复现实机加载，v1.4证据仍为2/2样本。
+
 ## 当前：r3文档与GitHub发布（2026-09-14）
+
+发布收据：内容提交f7c55a1已推送个人分支，已创建[PR #8](https://github.com/pipidandan-superman/FPGA2026_competition/pull/8)指向main。GitHub显示Awaiting approval / Merging is blocked，需另一位有写权限成员批准，尚未合并。xiaokaiyuan未出现在审核人搜索结果，未成功指派。下一动作是队友审核最终提交；本轮不绕过保护、不操作他人PR #7。r3文档66项检查与路径审计15项通过，量化/硬件阶段仍未执行。
 
 已确认远端旧PR #6已合并，origin/main=91f3974，个人分支已快进同步。数据实际1765/59/69及七类顺序与MODEL.md一致；结构PASS不能提升为精度/量化PASS。发布验证和最终PR状态见下方本轮报告。既有r2的66项验证仅覆盖r2历史版本，不冒充r3验证。
 
