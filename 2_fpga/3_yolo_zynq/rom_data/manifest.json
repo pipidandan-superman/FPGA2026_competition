@@ -7,7 +7,7 @@
     "list": "G1/calibration_list.txt",
     "images": 420,
     "seed": 20260914,
-    "method": "p99.99 percentile clip per-tensor symmetric + layerwise LSQ stored-scale refit (S'=<v,fp>/<v,v> on the int-pipeline outputs vs FP module outputs, 2 fixed-point sweeps over a 128-img subsample; raw-MSE clip rejected: collapses to ~absmax/1000 on near-zero-dominated post-SiLU tensors)",
+    "method": "p99.99 percentile clip per-tensor symmetric + layerwise LSQ stored-scale refit (S'=<v,fp>/<v,v> on the int-pipeline outputs vs FP module outputs, 3 fixed-point sweeps over a 420-img subsample; raw-MSE clip rejected: collapses to ~absmax/1000 on near-zero-dominated post-SiLU tensors)",
     "clipped_nodes": 191,
     "total_nodes": 191,
     "median_shrink": 0.57958984375,
@@ -15,15 +15,21 @@
     "refit_trace": [
       {
         "iter": 0,
-        "median": 0.9518917975833996,
-        "min": 0.8393556251986882,
-        "max": 1.0143190399695594
+        "median": 0.9974983355075152,
+        "min": 0.9659268560935813,
+        "max": 1.046661675972384
       },
       {
         "iter": 1,
-        "median": 0.9588837547502539,
-        "min": 0.8349898824278054,
-        "max": 1.0189639571792335
+        "median": 0.9947417906166315,
+        "min": 0.9750373649886994,
+        "max": 1.0317782077211588
+      },
+      {
+        "iter": 2,
+        "median": 0.9947404126144953,
+        "min": 0.9705444755287156,
+        "max": 1.0230326452386411
       }
     ]
   },
@@ -33,9 +39,9 @@
   },
   "files": {
     "weights.bin": "3548b8fab6f2d4c92bb1cfa5111e5eba49e3a049257d377d419b19e0036118a4",
-    "bias.bin": "868ad8b8388e5fc2aa29a855f2aedcfa9a4280b07f21e95373e9adfee15723e9",
-    "lut.bin": "8e4e302633d0735567b9e391453cb48f6f1f4dfeaecc59592c29ede6c00fdb38",
-    "quant.json": "8e88df7bf6fb9a39d73d6502624ac2341cf6d7e5d1ee9f32a7d51cfa2af9726d"
+    "bias.bin": "c5a7825832c1f9f0beeb5c3600790f0a5d2b1f42884f9207ea5e4521fd513ac7",
+    "lut.bin": "91c3a1b87c914c2cbc2ace92e506297b285a4a485d51036aaec8d7c363f2609f",
+    "quant.json": "6b2392d3402a40f6c692f8a49a459ef639fbefb6519a9bb4e2bb722a52b35433"
   },
   "env": {
     "python": "E:\\competition\\4_metrics\\logs\\2026-09-12_model_env_run01\\venv\\Scripts\\python.exe",

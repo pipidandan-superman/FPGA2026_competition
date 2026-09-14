@@ -1,0 +1,45 @@
+[1] unit tests PASS (RNE 14 hand cases + dyadic oracle exact)
+[2] calibrated 420 images -> 191 tensor scales (p99.99 clip: 191/191 nodes, median shrink 0.580)
+[3] built 63 QConv nodes
+E:\competition\4_metrics\logs\2026-09-15_yolo7020_ps_runtime_run01\probe_g2state\intref_yolov8.py:49: RuntimeWarning: overflow encountered in scalar negative
+  q = q + np.where(twice > full, 1, 0) + np.where(twice < -full, -1, 0)
+E:\competition\4_metrics\logs\2026-09-15_yolo7020_ps_runtime_run01\probe_g2state\intref_yolov8.py:50: RuntimeWarning: overflow encountered in scalar negative
+  tie = (twice == full) | (twice == -full)
+[3b] refit iter 0/2: scale/old median 0.9519 range [0.8394, 1.0143] (84s)
+[3b] refit iter 1/2: scale/old median 0.9589 range [0.8350, 1.0190] (84s)
+[4] layer cosine: worst=0.9305 @ model.22.cv3.1.1 over 165 checks
+[5] exported: 63 nodes
+--- probe: node state vs package ---
+model.0:
+  req  match: True  mem[0]=(1840478927, np.int32(41)) pkg[0]=(1840478927, 41)
+  b_q  match: e3efddd69da47b7a vs e3efddd69da47b7a  dtype int32
+  w_q  match: 65a8d7f2bda52caf vs 65a8d7f2bda52caf
+  x_scale mem 0.00392156862745098 pkg 0.00392156862745098 eq True
+  y_scale mem 0.4123591062590832 pkg 0.4123591062590832 eq True
+  s_stored mem 0.37053630572231105 pkg 0.37053630572231105 eq True
+  w_scales mem[0] np.float64(0.08800691491916186) pkg[0] 0.08800691491916186
+  lut  match: b220029dbd856253 vs b220029dbd856253
+model.1:
+  req  match: True  mem[0]=(1911365911, np.int32(38)) pkg[0]=(1911365911, 38)
+  b_q  match: 37fb92b379398391 vs 37fb92b379398391  dtype int32
+  w_q  match: 4afb0b9d7341f0e3 vs 4afb0b9d7341f0e3
+  x_scale mem 0.37053630572231105 pkg 0.37053630572231105 eq True
+  y_scale mem 0.9373806504987356 pkg 0.9373806504987356 eq True
+  s_stored mem 0.7003511205601687 pkg 0.7003511205601687 eq True
+  w_scales mem[0] np.float64(0.0175909469241924) pkg[0] 0.0175909469241924
+  lut  match: f20d44c955de0a10 vs f20d44c955de0a10
+model.22.cv2.0.2:
+  req  match: True  mem[0]=(1643287774, np.int32(39)) pkg[0]=(1643287774, 39)
+  b_q  match: ad3027fe290e49d4 vs ad3027fe290e49d4  dtype int32
+  w_q  match: 61047d8235b7d0bc vs 61047d8235b7d0bc
+  x_scale mem 0.12157762788798603 pkg 0.12157762788798603 eq True
+  y_scale mem 0.10062936917852763 pkg 0.10062936917852763 eq True
+  s_stored mem 0.10062936917852763 pkg 0.10062936917852763 eq True
+  w_scales mem[0] np.float64(0.0024740864911417322) pkg[0] 0.0024740864911417322
+int_forward[model.0] == golden npz: True (0 diff)
+int_forward[model.1] == golden npz: True (0 diff)
+int_forward[model.2.cv1] == golden npz: True (0 diff)
+pkg-recompute model.0 == int_forward t: False
+pkg-recompute model.0 == golden npz  : False
+int_forward - pkg-recompute hist: {-1: 3705, 0: 266023, 1: 127600, 2: 12272}
+# PROBE DONE
