@@ -9,6 +9,36 @@
 - 操作入口：[v1.4上板复现指南](1_docs/doc/ees331_pl_reloader_v14_board_guide_2026-09-13.md)；证据：[run01](4_metrics/logs/2026-09-13_pl_reloader_v14_board_acceptance_run01/REPORT.md)、[断电后run02](4_metrics/logs/2026-09-13_pl_reloader_v14_board_acceptance_run02/REPORT.md)、[模型重开诊断](4_metrics/logs/2026-09-13_action_viewer_reopen_diagnosis_run01/REPORT.md)。
 - 验收边界：当前只有2/2样本，第二轮断电由用户确认而非boot ID自动证明；不能称为长期稳定、机械臂安全闭环或模型泛化精度PASS。原SD/BOOT和冻结`2_fpga`不变。
 
+## 2026-09-13 AXI复位修复与后续授权
+
+独立AXI-Lite已修复BD辅助复位低有效却接0的错误；官方IP仿真通过，原4份RTL未改，重新构建100MHz时序/DRC通过。修复版1000轮命令、3次重载实机通过，原视频服务恢复后UDP60帧零CRC/丢帧/坏头；HDMI最终人工确认仍待用户答复。新发布包在独立proj/release，旧版保留且禁止加载。
+
+[实机和故障证据](4_metrics/logs/2026-09-13_axilt_reg_board_run02/REPORT.md)；[通用skill](6_skill/zynq-pynq-overlay-workflow/SKILL.md)，已同步安装并校验。
+
+用户新增授权：独立验收后创建skill、集成主FPGA工程、综合/实现/实机视频+蓝牙+控制共存、更新并推送codex/full/pipidandan-superman，全部成功保存且无其他未保存工作后正常可取消延时关机，不强制退出。主工程已确认是2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.xpr；尚未开始修改。BRAM未实现，不混入。此授权不是Git main合并许可。当前未推送、未关机。
+
+## 2026-09-12 AXI_LITE_test 实体工程交付
+
+用户最新要求已完成：实体工程在2_fpga/2_axi_lite_test/proj/AXI_LITE_test.xpr，
+BD精确命名AXI_LITE_test。4份.v源码与通过仿真版本一致，
+综合/布局布线/bit生成通过，100MHz，WNS/WHS=2.925/0.013ns，DRC错误和黑盒0。
+本地proj/release含AXI_LITE_test.bit/.hwh/.xsa及成套哈希；
+51项交付审计、28个链接通过。该工程保存位置为用户本轮明确指定。
+入口：[BD说明](2_fpga/2_axi_lite_test/doc/bd_design.md)、
+[本轮报告](4_metrics/logs/2026-09-12_axilt_local_project_run01/REPORT.md)。
+未进行板卡下载/主工程合并；寄存器板测及后续BRAM阶段仍待接续。
+
+## 2026-09-12 PS–PL AXI-Lite 独立工程
+
+用户已授权在2_fpga/2_axi_lite_test独立开发。当前4份自研RTL、寄存器ABI、
+PYNQ驱动/ARM MMIO辅助层源码、板测脚本和Vivado重建入口已交付。
+26282项RTL检查、1001命令、3随机种子及延迟后端通过；100MHz构建通过，
+WNS/WHS=2.925/0.013ns、LUT719/FF1116、DRC错误和黑盒0，BIT/HWH/XSA成套归档。
+8项软件离线测试通过；板卡192.168.240.10:22超时，实机尚未验收、ARM helper未板端编译。
+按用户计划，寄存器实机验收与视频恢复通过后才进入BRAM阶段。未合并/推送。
+入口：[独立工程](2_fpga/2_axi_lite_test/README.md)、
+[完整报告](4_metrics/logs/2026-09-12_axilt_handoff_run01/REPORT.md)。
+
 ## 2026-09-12 BLE Console v1.1 与手动复现
 
 推荐未配对GATT接入已集成上位机：三次无缓存读取/保持门控、自动通知、断连停止发送。
@@ -413,3 +443,27 @@ Vitis Run 日志缺少完整下载/运行流程，调试器反汇编出现无效
 - 板测结果：SD 启动正常，OV5640 配置完成 LED 点亮，HDMI 和 PC UDP 上位机都显示随动作变化的实时画面。最初 PC 零帧是网线未连接，插好网线后恢复正常。
 - EES-331 最小系统基线、当前集成镜像和配套启动分区分别归档于 `9_pynq/sd/01_base_ees331`、`02_integrated_camera_hdmi_udp`、`03_boot_partition`；通用 PYNQ-Z2 镜像已退出项目基线，清单见 `9_pynq/sd/manifests/images.json`。
 - 后续写卡、复现和排障从 `9_pynq/sd/README.md` 开始；不要把 224206 镜像描述为已板测版本。
+
+## 2026-09-12 PL 板载蓝牙 UART 诊断工程
+
+- 新入口：`2_fpga/1_ble_test/README.md`；Vivado 2025.2 工程位于
+  `2_fpga/1_ble_test/proj/ble_test_vivado_2025_2`。
+- UART TX、UART RX 和 AT 控制器均已改为严格三段式 FSM：时序状态寄存、组合
+  次态、时序输出/数据通路；三个复位状态均为 `STATE_IDLE`。
+- XSim 重跑已覆盖 `AT\r\n -> OK` PASS 和无响应 timeout FAIL，标记
+  `BLE_RTL_SIM_PASS`。
+- 强制重置综合后重新完成实现和 bitstream：WNS `+2.148 ns`、WHS `+0.083 ns`；
+  当前 bitstream SHA-256 为
+  `B00770EDC2EE381ED195DD2068CE058088F6A5CEF95CDDD6295AC40C897029F8`。
+- 初版 hash `E96E995D...` 因不符合 FSM 编写规范已作废，不得上板。
+- 上板同时使用 `impl_1/ble_test_top.bit` 与 `impl_1/ble_test_top.ltx`。ILA 已含
+  TX/RX、字节、握手、状态、电源和复位信号；LED0/1/2/3 分别为 PASS、timeout、
+  response seen、frame error。
+- 用户已完成上板门禁：LED0--LED7=`10100110` 解码为 PASS=1、timeout=0、
+  response_seen=1、frame_error=0、state=`0110`（`STATE_PASS`）；ILA 以
+  `rx_done==1` 触发并捕获 `rx_data=4F`。AT/UART 有序 `OK` 返回判定为
+  `BLE_PL_UART_AT_RESPONSE_BOARD_PASS`。
+- 当前证明范围是 PL UART 与板载 MLT-BT05 的 AT 响应链路；尚未证明 PC 或机械臂
+  BLE 无线连接、角色、UUID与双向透明传输。下一步保持现有 bitstream，先做 PC
+  扫描和连接验证。完整报告：
+  `4_metrics/logs/2026-09-12_ble_board_at_response_run01/REPORT.md`。

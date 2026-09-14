@@ -1,0 +1,37 @@
+[
+  {
+    "name": "AXI_LITE_test.bit",
+    "sha256": "a1eeb997b6691306b991b441d3eba48bbdcd05d11c6c3ed0ec5f2f40b996449e",
+    "size": 4045697
+  },
+  {
+    "name": "AXI_LITE_test.hwh",
+    "sha256": "d9a611f938a6ed7806aabe3195a9e76f463960c3105d8881ee177f8e50bbcd4c",
+    "size": 127598
+  },
+  {
+    "name": "artifact_manifest.json",
+    "sha256": "92878cfaa952d42b9412409b5370265bfa2fce1ea46cb6ef9bce6bc8c485f78a",
+    "size": 868
+  },
+  {
+    "name": "axilt.py",
+    "sha256": "20d828bb6a4d2500786fba49b0a8d1c132cc345759a6d03dc3801b0e9415c67d",
+    "size": 5370
+  },
+  {
+    "name": "board_test.py",
+    "sha256": "962ca541b850938a7e7a03e26a3b504a7e8628bb79cf973e94bbe7cec01fd265",
+    "size": 6986
+  },
+  {
+    "name": "mmio_ordered.c",
+    "sha256": "701c2754ef730b25c9cdc10cb2964204811c2894ec6b8dfccfbc2d886af71f9a",
+    "size": 923
+  },
+  {
+    "name": "hardware_contract.py",
+    "sha256": "a7649ac913d245474c1fc718ddbadc194e613a71d7b06bee9c00d5e71736b9a6",
+    "size": 1416
+  }
+]

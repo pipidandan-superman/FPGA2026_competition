@@ -1,0 +1,8 @@
+{
+  "timestamp": "2026-09-13T09:31:41+08:00",
+  "confirmation_source": "user",
+  "hdmi_dynamic_video_restored": true,
+  "user_statement": "HDMI正常",
+  "related_udp_evidence": "video_after.json",
+  "marker": "AXILT_VIDEO_RESTORATION_PASS"
+}

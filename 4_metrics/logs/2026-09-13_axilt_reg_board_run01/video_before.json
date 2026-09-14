@@ -1,0 +1,14 @@
+{
+  "seconds": 12.264999999999418,
+  "stats": {
+    "packets": 39041,
+    "complete_frames": 61,
+    "lost_frames": 0
+  },
+  "error": null,
+  "unique_crc": 61,
+  "first_id": 276,
+  "last_id": 336,
+  "hdmi": "USER_CONFIRMATION_REQUIRED",
+  "pass": true
+}

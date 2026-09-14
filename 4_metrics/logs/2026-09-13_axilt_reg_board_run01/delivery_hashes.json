@@ -1,0 +1,37 @@
+[
+  {
+    "name": "AXI_LITE_test.bit",
+    "sha256": "5763f8e9adf8f1f1a59ec2fc72a6bdc9131e75feb5fdc4290529b64a39090f5f",
+    "size": 4045697
+  },
+  {
+    "name": "AXI_LITE_test.hwh",
+    "sha256": "931fb11a7cb4ab624534013d6c9a901ce77461793de42d076063d7d70e9a8040",
+    "size": 127622
+  },
+  {
+    "name": "AXI_LITE_test.xsa",
+    "sha256": "a4ab3334482200e84728f120d2532d7fbc008b855f6b7edd6d8557e0ec353142",
+    "size": 386378
+  },
+  {
+    "name": "artifact_manifest.json",
+    "sha256": "3a5a2bd162dd66044cdeee1b6d9c8139bf90e0cd2602f8b65983750b2bf0568b",
+    "size": 698
+  },
+  {
+    "name": "axilt.py",
+    "sha256": "20d828bb6a4d2500786fba49b0a8d1c132cc345759a6d03dc3801b0e9415c67d",
+    "size": 5370
+  },
+  {
+    "name": "board_test.py",
+    "sha256": "40a547fcb83fcc8443a4bc9e323c2501b70eb8f11dc0b35c07ffc78986740abb",
+    "size": 6490
+  },
+  {
+    "name": "mmio_ordered.c",
+    "sha256": "701c2754ef730b25c9cdc10cb2964204811c2894ec6b8dfccfbc2d886af71f9a",
+    "size": 923
+  }
+]

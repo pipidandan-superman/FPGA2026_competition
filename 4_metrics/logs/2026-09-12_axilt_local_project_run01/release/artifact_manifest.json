@@ -1,0 +1,24 @@
+{
+  "marker": "AXILT_RELEASE_AUDIT_PASS",
+  "stage": "REGISTER_ONLY",
+  "design_name": "AXI_LITE_test",
+  "artifact_stem": "AXI_LITE_test",
+  "board_status": "PENDING",
+  "base": "0x43C00000",
+  "range": 4096,
+  "control_clock_mhz": 100,
+  "files": {
+    "AXI_LITE_test.bit": {
+      "size": 4045697,
+      "sha256": "5763f8e9adf8f1f1a59ec2fc72a6bdc9131e75feb5fdc4290529b64a39090f5f"
+    },
+    "AXI_LITE_test.hwh": {
+      "size": 127622,
+      "sha256": "931fb11a7cb4ab624534013d6c9a901ce77461793de42d076063d7d70e9a8040"
+    },
+    "AXI_LITE_test.xsa": {
+      "size": 386378,
+      "sha256": "a4ab3334482200e84728f120d2532d7fbc008b855f6b7edd6d8557e0ec353142"
+    }
+  }
+}

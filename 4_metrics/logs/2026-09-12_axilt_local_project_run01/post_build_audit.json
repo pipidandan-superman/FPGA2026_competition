@@ -1,0 +1,261 @@
+{
+  "marker": "AXI_LITE_TEST_POST_BUILD_AUDIT_PASS",
+  "checks": [
+    {
+      "name": "BD name",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "BD validated",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Part",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Source exists",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\rtl\\axi_lite_reg_bank.v"
+    },
+    {
+      "name": "Source exists",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\rtl\\axi_lite_slave.v"
+    },
+    {
+      "name": "Source exists",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\rtl\\reg_test_executor.v"
+    },
+    {
+      "name": "Source exists",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\rtl\\axi_lite_test_top.v"
+    },
+    {
+      "name": "Source exists",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\proj\\AXI_LITE_test.srcs\\sources_1\\bd\\AXI_LITE_test\\AXI_LITE_test.bd"
+    },
+    {
+      "name": "Source exists",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\proj\\AXI_LITE_test.gen\\sources_1\\bd\\AXI_LITE_test\\hdl\\AXI_LITE_test_wrapper.v"
+    },
+    {
+      "name": "Live .v module reference",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Verilog system top",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Baseline unchanged",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\0_diaplay_test\\proj\\display_test_zynq7020_school\\display_test_zynq7020_school.srcs\\sources_1\\bd\\display_test\\display_test.bd"
+    },
+    {
+      "name": "Baseline unchanged",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\0_diaplay_test\\pynq\\overlay.bit"
+    },
+    {
+      "name": "Baseline unchanged",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\0_diaplay_test\\pynq\\overlay.hwh"
+    },
+    {
+      "name": "RTL still simulated version",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\rtl\\axi_lite_reg_bank.v"
+    },
+    {
+      "name": "RTL still simulated version",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\rtl\\axi_lite_slave.v"
+    },
+    {
+      "name": "RTL still simulated version",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\rtl\\axi_lite_test_top.v"
+    },
+    {
+      "name": "RTL still simulated version",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\rtl\\reg_test_executor.v"
+    },
+    {
+      "name": "Local release matches evidence",
+      "passed": true,
+      "detail": "AXI_LITE_test.bit"
+    },
+    {
+      "name": "Local release matches evidence",
+      "passed": true,
+      "detail": "AXI_LITE_test.hwh"
+    },
+    {
+      "name": "Local release matches evidence",
+      "passed": true,
+      "detail": "AXI_LITE_test.xsa"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\proj\\AXI_LITE_test.xpr"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\proj\\AXI_LITE_test.srcs\\sources_1\\bd\\AXI_LITE_test\\AXI_LITE_test.bd"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\proj\\create_local_project.ps1"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\doc\\bd_design.md"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\doc\\register_abi.md"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\doc\\validation.md"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\doc\\status.md"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\proj\\run.ps1"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\pynq\\axilt.py"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\pynq\\board_test.py"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\pynq\\demo.ipynb"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\proj\\AXI_LITE_test.xpr"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\rtl\\axi_lite_test_top.v"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\proj\\release\\AXI_LITE_test.bit"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\proj\\release\\AXI_LITE_test.hwh"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\proj\\release\\AXI_LITE_test.xsa"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\proj\\release\\artifact_manifest.json"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\4_metrics\\logs\\2026-09-12_axilt_local_project_run01"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\2_fpga\\2_axi_lite_test\\doc\\bd_design.md"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\4_metrics\\logs\\2026-09-12_axilt_local_project_run01\\local_project_receipt.json"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\4_metrics\\logs\\2026-09-12_axilt_reg_sim_run02\\vivado_console.log"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\4_metrics\\logs\\2026-09-12_axilt_reg_sim_run02\\process_status.json"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\4_metrics\\logs\\2026-09-12_axilt_reg_build_run03\\vivado_console.log"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\4_metrics\\logs\\2026-09-12_axilt_reg_build_run03\\timing.rpt"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\4_metrics\\logs\\2026-09-12_axilt_reg_build_run03\\utilization.rpt"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\4_metrics\\logs\\2026-09-12_axilt_reg_build_run03\\release"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\4_metrics\\logs\\2026-09-12_axilt_reg_build_run03\\release\\artifact_manifest.json"
+    },
+    {
+      "name": "Local document link",
+      "passed": true,
+      "detail": "E:\\competition\\4_metrics\\logs\\2026-09-12_axilt_offline_run02\\result.json"
+    },
+    {
+      "name": "Python build helpers parse",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Notebook code parses",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "link_count": 28
+}

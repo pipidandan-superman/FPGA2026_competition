@@ -1,0 +1,118 @@
+﻿{
+    "marker":  "AXILT_HANDOFF_AUDIT_PASS",
+    "rtl":  [
+                {
+                    "file":  "axi_lite_reg_bank.v",
+                    "sha256":  "065602AD619EE8A1373233FED2AF8472D844603AA2E27B4742C42539F8F24D34",
+                    "build_match":  true,
+                    "sim_match":  true
+                },
+                {
+                    "file":  "axi_lite_slave.v",
+                    "sha256":  "4E2C204A010625B7250C3B2FB4E878C121476033137C0FE34B4923831D369FCA",
+                    "build_match":  true,
+                    "sim_match":  true
+                },
+                {
+                    "file":  "axi_lite_test_top.v",
+                    "sha256":  "9F919F64A052D147FDD122D9F36464372AB1ACB3ABE2D575263377B8E664F103",
+                    "build_match":  true,
+                    "sim_match":  true
+                },
+                {
+                    "file":  "reg_test_executor.v",
+                    "sha256":  "611076B3240FF59516165FD2ED7D1C099D083BB3A8C556CDA5A629BFF8E983F5",
+                    "build_match":  true,
+                    "sim_match":  true
+                }
+            ],
+    "baseline":  [
+                     {
+                         "path":  "E:\\competition\\2_fpga\\0_diaplay_test\\pynq\\overlay.bit",
+                         "unchanged":  true
+                     },
+                     {
+                         "path":  "E:\\competition\\2_fpga\\0_diaplay_test\\pynq\\overlay.hwh",
+                         "unchanged":  true
+                     }
+                 ],
+    "links":  [
+                  {
+                      "file":  "E:\\competition\\2_fpga\\2_axi_lite_test\\README.md",
+                      "target":  "E:\\competition\\2_fpga\\2_axi_lite_test\\doc\\register_abi.md",
+                      "exists":  true
+                  },
+                  {
+                      "file":  "E:\\competition\\2_fpga\\2_axi_lite_test\\README.md",
+                      "target":  "E:\\competition\\2_fpga\\2_axi_lite_test\\doc\\validation.md",
+                      "exists":  true
+                  },
+                  {
+                      "file":  "E:\\competition\\2_fpga\\2_axi_lite_test\\README.md",
+                      "target":  "E:\\competition\\2_fpga\\2_axi_lite_test\\doc\\status.md",
+                      "exists":  true
+                  },
+                  {
+                      "file":  "E:\\competition\\2_fpga\\2_axi_lite_test\\README.md",
+                      "target":  "E:\\competition\\2_fpga\\2_axi_lite_test\\proj\\run.ps1",
+                      "exists":  true
+                  },
+                  {
+                      "file":  "E:\\competition\\2_fpga\\2_axi_lite_test\\README.md",
+                      "target":  "E:\\competition\\2_fpga\\2_axi_lite_test\\pynq\\axilt.py",
+                      "exists":  true
+                  },
+                  {
+                      "file":  "E:\\competition\\2_fpga\\2_axi_lite_test\\README.md",
+                      "target":  "E:\\competition\\2_fpga\\2_axi_lite_test\\pynq\\board_test.py",
+                      "exists":  true
+                  },
+                  {
+                      "file":  "E:\\competition\\2_fpga\\2_axi_lite_test\\README.md",
+                      "target":  "E:\\competition\\2_fpga\\2_axi_lite_test\\pynq\\demo.ipynb",
+                      "exists":  true
+                  },
+                  {
+                      "file":  "E:\\competition\\2_fpga\\2_axi_lite_test\\doc\\status.md",
+                      "target":  "E:\\competition\\4_metrics\\logs\\2026-09-12_axilt_reg_sim_run02\\vivado_console.log",
+                      "exists":  true
+                  },
+                  {
+                      "file":  "E:\\competition\\2_fpga\\2_axi_lite_test\\doc\\status.md",
+                      "target":  "E:\\competition\\4_metrics\\logs\\2026-09-12_axilt_reg_sim_run02\\process_status.json",
+                      "exists":  true
+                  },
+                  {
+                      "file":  "E:\\competition\\2_fpga\\2_axi_lite_test\\doc\\status.md",
+                      "target":  "E:\\competition\\4_metrics\\logs\\2026-09-12_axilt_reg_build_run03\\vivado_console.log",
+                      "exists":  true
+                  },
+                  {
+                      "file":  "E:\\competition\\2_fpga\\2_axi_lite_test\\doc\\status.md",
+                      "target":  "E:\\competition\\4_metrics\\logs\\2026-09-12_axilt_reg_build_run03\\timing.rpt",
+                      "exists":  true
+                  },
+                  {
+                      "file":  "E:\\competition\\2_fpga\\2_axi_lite_test\\doc\\status.md",
+                      "target":  "E:\\competition\\4_metrics\\logs\\2026-09-12_axilt_reg_build_run03\\utilization.rpt",
+                      "exists":  true
+                  },
+                  {
+                      "file":  "E:\\competition\\2_fpga\\2_axi_lite_test\\doc\\status.md",
+                      "target":  "E:\\competition\\4_metrics\\logs\\2026-09-12_axilt_reg_build_run03\\release\\",
+                      "exists":  true
+                  },
+                  {
+                      "file":  "E:\\competition\\2_fpga\\2_axi_lite_test\\doc\\status.md",
+                      "target":  "E:\\competition\\4_metrics\\logs\\2026-09-12_axilt_reg_build_run03\\release\\artifact_manifest.json",
+                      "exists":  true
+                  },
+                  {
+                      "file":  "E:\\competition\\2_fpga\\2_axi_lite_test\\doc\\status.md",
+                      "target":  "E:\\competition\\4_metrics\\logs\\2026-09-12_axilt_offline_run02\\result.json",
+                      "exists":  true
+                  }
+              ],
+    "board_status":  "REG_BOARD_PENDING",
+    "bram_status":  "NOT_STARTED_GATE_PENDING"
+}

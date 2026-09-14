@@ -1,49 +1,31 @@
 ---
 name: daily-engineering-log
-description: Project-adapted daily engineering log workflow for E:\competition. Create or update exactly E:\competition\7_logs\YYYY-MM-DD with plan, execution, validation, and handoff files at the start and continuation of every engineering/project session.
+description: Project-enforced engineering log workflow for E:\competition. Use at the start and continuation of every engineering, FPGA, hardware, research, or project session. The only valid log root is E:\competition\7_logs.
 ---
 
-# Daily Engineering Log
+# Project Daily Engineering Log
 
-> This is a project-local copy. Edit this file for competition-specific prompts and paths; do not modify the global Skill installation.
+## Mandatory Root
 
-## Core Rule
+For this project, the only valid engineering-log root is:
 
-At the start of each engineering project session, create or update the dated
-folder under the one fixed canonical log root:
+```text
+E:\competition\7_logs
+```
+
+The daily record path must be exactly:
 
 ```text
 E:\competition\7_logs\YYYY-MM-DD
 ```
 
-Do not create or update `E:\competition\log\`, `E:\competition\logs\`, or
-`E:\competition\2_log\`. Migration from a legacy root is allowed only when the
-user explicitly requests it and only toward the fixed `7_logs` root. Never use
-a legacy root as the fallback.
+`2_log`, `log`, `logs`, and any other log root are forbidden for new records. Do not create them. If a session discovers records in `2_log`, treat that path as retired, migrate the dated folders into `7_logs`, preserve all existing content, verify the destination, and remove only the now-empty retired root.
 
-### Path Enforcement
+Do not use the global default `2_log` rule for this workspace. This project override takes precedence.
 
-For this competition workspace, the only valid engineering-log root is
-`E:\competition\7_logs`. Treat `1_log/`, `2_log/`, `log/`, and generic `logs/`
-as retired legacy locations: never create them, never place new records there,
-and never use them as a fallback. Before writing a daily record, resolve the
-destination and require that it is exactly
-`E:\competition\7_logs\YYYY-MM-DD\`; if it is not, stop and correct the path
-before creating any file.
+## Required Files
 
-## Merged ViTA log-management rules
-
-The following project rules are merged from `D:\VitA\12_skills\log-management\SKILL.md` and adapted for this workspace:
-
-- This Skill owns only dated `7_logs/YYYY-MM-DD/` plans, execution records, validation summaries, evidence indexes, and next-start guidance. It does not update a long-term progress board or an external handoff file, and it does not trigger global synchronization.
-- Complete build, simulation, synthesis, board, UART, and console output belongs
-  in `E:\competition\4_metrics\logs\YYYY-MM-DD_<task>_runNN\`. The dated log
-  stores the run ID, summary, result boundary, and evidence path rather than
-  copying large raw output.
-- Every validation result is `pending` unless the raw evidence and coverage boundary are present. Exit code zero alone is not a functional PASS.
-- Existing dated folders are updated incrementally. Historical records are preserved and are not rewritten merely to cosmetically change old paths.
-
-Keep four Markdown files in that folder:
+Every daily folder must contain exactly these four working files:
 
 ```text
 01_daily_plan.md
@@ -52,84 +34,37 @@ Keep four Markdown files in that folder:
 04_next_start_guide.md
 ```
 
-If the folder or files already exist, read them first and update them instead of replacing useful content. Preserve merged legacy records in clearly labelled archival files or sections; do not present historical instructions as current execution instructions.
+If the folder or files already exist, read them first and update them without deleting useful content. Use dated run folders under `4_metrics/logs` or another project-approved evidence root for raw build, simulation, board, UART, ILA, scope, and screenshot artifacts. Summarize and link those artifacts from `03_validation_summary.md`; do not replace raw evidence with only a conclusion.
+
+## Required Content
+
+`01_daily_plan.md` must record current judgment, main objective, prioritized tasks, explicit non-goals, and expected deliverables.
+
+`02_execution_plan.md` must record the ordered execution strategy, relevant modules or tools, likely files, risks, and fallback.
+
+`03_validation_summary.md` must record already verified facts, current verification targets, exact PASS/FAIL criteria, commands, board runs, captured evidence, and final results. Preserve complete raw terminal, Vivado, simulation, ILA, UART, and screenshot evidence in a dedicated run folder.
+
+`04_next_start_guide.md` must record the first file or action for the next session, forbidden immediate actions, success criteria, and any blocker plus its smallest useful next step.
 
 ## Workflow
 
-1. Resolve the workspace root as `E:\competition`; do not infer another root
-   from a generic skill, an old desktop path, or `D:\VitA`.
-2. Create `E:\competition\7_logs\YYYY-MM-DD\` using the current local date.
-3. Read existing project context before writing:
-   - top-level README or project notes, if present
-   - existing task checklist, if present
-   - previous `7_logs/` project log or latest dated log folder, if present
-   - yesterday's or latest dated log folder, if present
-4. Create or update the four daily files.
-5. Keep the content practical and specific to the current project state.
-6. In the final response, link to the daily folder and summarize the immediate next action.
+1. Resolve the workspace root as `E:\competition`.
+2. Resolve the destination as `E:\competition\7_logs\YYYY-MM-DD` before writing.
+3. If the destination is not exactly that path, stop and correct it.
+4. Read `7_logs\README.md`, the latest existing dated folder, and the current dated files when present.
+5. Create or update the four required files.
+6. Keep current facts separate from recommendations and mark assumptions explicitly.
+7. When continuing the same day, append or revise the files and keep the next-session handoff current.
 
-## File Contents
+## Validation
 
-### `01_daily_plan.md`
+Before ending a session that uses this skill, verify:
 
-Include:
+```powershell
+Test-Path 'E:\competition\7_logs\YYYY-MM-DD\01_daily_plan.md'
+Test-Path 'E:\competition\7_logs\YYYY-MM-DD\02_execution_plan.md'
+Test-Path 'E:\competition\7_logs\YYYY-MM-DD\03_validation_summary.md'
+Test-Path 'E:\competition\7_logs\YYYY-MM-DD\04_next_start_guide.md'
+```
 
-- Current project judgment.
-- Today's main objective.
-- Prioritized task list.
-- Explicit non-goals for today.
-- Expected deliverables.
-
-### `02_execution_plan.md`
-
-Include:
-
-- Step-by-step execution strategy.
-- Responsibility split between modules, tools, or subsystems.
-- Recommended order of implementation.
-- Key files likely to be edited or inspected.
-- Risk points and fallback path.
-
-### `03_validation_summary.md`
-
-Include:
-
-- What has already been verified before today.
-- What needs verification today.
-- Exact pass/fail criteria.
-- Commands, board runs, simulations, screenshots, UART logs, CSVs, or other evidence to capture.
-- Requirement that every validation run preserve the complete raw terminal, UART, build, simulation, or console printout in that run's record folder.
-- A placeholder for final results if validation has not run yet.
-
-### `04_next_start_guide.md`
-
-Include:
-
-- Files to read first next time.
-- The first concrete action to take next time.
-- What not to do immediately.
-- Success criteria for the next session.
-- If there is a blocker, state the blocker and the smallest useful next step.
-
-## Updating Existing Logs
-
-When continuing work during the same day:
-
-- Append or revise the daily files to reflect new facts.
-- Keep completed verification evidence in `03_validation_summary.md`.
-- For each compile, simulation, board run, or hardware validation, save the full raw printout to a dedicated artifact such as `uart_terminal.txt`, `console_output.txt`, or `build_log.txt`; summaries may quote key lines, but must not replace the complete raw log.
-- Keep the next-session handoff current in `04_next_start_guide.md`.
-- Do not duplicate stale plans if the project direction changed.
-
-When a user asks for a daily plan but a dated folder already exists:
-
-- Prefer updating that folder.
-- Mention that the existing folder was reused.
-
-## Style
-
-- Be concrete rather than motivational.
-- Separate current facts from recommendations.
-- Mark assumptions clearly.
-- Keep the plan scoped to what can be acted on in the current project.
-- Prefer checklists and short sections.
+All four results must be `True`. The session handoff is incomplete if any file is missing or still points new work to a forbidden log root.
