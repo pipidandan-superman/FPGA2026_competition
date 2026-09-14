@@ -1,0 +1,69 @@
+# 模型说明 — 手势识别 YOLOv8n v1
+
+## 模型名称与来源
+
+- **模型**：YOLOv8n 目标检测，Ultralytics COCO 预训练底座微调（官方预训练权重 `yolov8n.pt`，AGPL-3.0）
+- **微调数据**：Roboflow Universe `yolo-zxvpk/hand-gesture-r7qgb` v6，许可证 CC BY 4.0
+  （train 1765 / valid 59 / test 69，7 类）
+- **版本**：gesture_v1（2026-09-07 训练），训练代码环境 Ultralytics 8.4.142
+
+## 类别表（顺序即类别 id）
+
+| id | 类别 | 语义 |
+|---|---|---|
+| 0 | Down | 食指指向下方 |
+| 1 | Left | 食指指向左侧 |
+| 2 | Right | 食指指向右侧 |
+| 3 | Stop | 掌心朝前停止 |
+| 4 | Thumbs Down | 拇指朝下（取消） |
+| 5 | Thumbs up | 拇指朝上（确认） |
+| 6 | Up | 食指指向上方 |
+
+## 权重文件
+
+| 文件 | 格式 | 大小 | 用途 |
+366:- Smoke checks covered model SHA-256, seven class names, ONNX `[1,3,640,640]` input / `[1,11,8400]` output, torchvision NMS, and synthetic preprocessing/postprocessing. They do not establish accuracy or real-time performance. [Task 1]
+# 2026-09-14 日计划
+
+## 当前：部署计划r2统一收敛
+
+本轮用户要求把所有硬件部署讨论整合到既有计划。已形成r2唯一主路线：浮点基线 → 硬件一致的整数参考 → 单模块验证 → 子图验证 → 整网验证 → 实时系统验收，穿插B0–B4小规模板测。补齐公共数据前置、整数合同、golden/布局包、验证矩阵及停止条件；保留原算量/预算。本轮非目标为数据下载、量化、RTL、构建或板测。
+
+[部署计划r2](../../1_docs/yolo7020_hardware_deployment_plan_20260914.md)｜[修订与文档验证](../../4_metrics/logs/2026-09-14_yolo7020_plan_consolidation_run01/REPORT.md)。
+
+## 本日历史记录（与r2冲突时以以上当前状态为准）
+# 2026-09-14 执行计划
+
+## 当前：部署计划r2统一收敛
+
+先读取原r1和同日数据/预处理讨论，保存r1快照，再原位整合第4/9/10/12节并新增第13节当前状态；更新工程记录后检查链接、编码、章节、覆盖项和原模型哈希。所有改动仅文档/记录，旧图集和模型不动。后续实施从数据准入与最低算术合同并行准备开始，不以等待队友数据或完整RTL为前提。
+
+[部署计划r2](../../1_docs/yolo7020_hardware_deployment_plan_20260914.md)｜[修订与文档验证](../../4_metrics/logs/2026-09-14_yolo7020_plan_consolidation_run01/REPORT.md)。
+
+## 本日历史记录（与r2冲突时以以上当前状态为准）
+# 2026-09-14 验证摘要
+
+## 当前：部署计划r2统一收敛
+
+r2内容已整合，DOCUMENT_VALIDATION_PASS：66项检查全部通过、13个主章节、12个本地链接有效、UTF-8及代码围栏正常、原权重与r1快照哈希一致、四份工程记录齐全，技能路径审计15项通过。原始输出见本轮证据目录validation_console.log。原静态模型证据继续有效于其原范围；量化、整数参考、RTL、仿真、上板和实时验收均未执行，文档校验不升级任何技术阶段状态。
+
+[部署计划r2](../../1_docs/yolo7020_hardware_deployment_plan_20260914.md)｜[修订与文档验证](../../4_metrics/logs/2026-09-14_yolo7020_plan_consolidation_run01/REPORT.md)。
+
+## 本日历史记录（与r2冲突时以以上当前状态为准）
+# 2026-09-14 下次启动指南
+
+## 当前：部署计划r2统一收敛
+
+首先阅读部署计划r2第13节，再按第4.4节完成公共/自采数据准入和划分，同时准备第4.6节整数算术合同、oracle与导出器；用户要求实施后按G0/G1/G2推进。主路线和B0–B4板测位置已经明确，不再等待选择早期PC预处理分支。禁止直接改冻结2_fpga、升级环境或自动上板；成功标准是对应阶段证据，而非一份导出的INT8文件。
+
+[部署计划r2](../../1_docs/yolo7020_hardware_deployment_plan_20260914.md)｜[修订与文档验证](../../4_metrics/logs/2026-09-14_yolo7020_plan_consolidation_run01/REPORT.md)。
+
+## 本日历史记录（与r2冲突时以以上当前状态为准）
+{
+    "workspace":  "E:\\competition",
+    "skill_count":  15,
+    "pass":  true,
+    "failures":  [
+
+                 ]
+}

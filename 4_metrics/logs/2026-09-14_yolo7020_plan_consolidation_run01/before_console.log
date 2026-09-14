@@ -1,0 +1,17 @@
+
+FullName
+--------
+E:\competition\4_metrics\logs\2026-09-14_yolo7020_plan_consolidation_run01
+
+
+Algorithm : SHA256
+Hash      : 9632590C505ABF45EEB2BADDB3BBA91DFEA53DC142C2A8051AFDF794E657859F
+Path      : E:\competition\1_docs\yolo7020_hardware_deployment_plan_20260914.md
+
+Algorithm : SHA256
+Hash      : 68DB7CACBDD6D9C9A583E1C50A9F5934A3A6B78675B215EC86717827BE8BFC79
+Path      : E:\competition\3_host\model\best.pt
+
+Algorithm : SHA256
+Hash      : AC45C457BE282EA1D9DB819180930B062436ECC834219C3418FF06E9E6BBBF0F
+Path      : E:\competition\3_host\model\best.onnx
