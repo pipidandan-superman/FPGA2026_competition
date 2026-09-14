@@ -1,5 +1,9 @@
 # Hand Gesture v6 YOLOv8：下载与结构校验完成
 
+## 2026-09-14 数据集迁移（本报告更新）
+
+应用户要求，数据本体已从本run迁至`3_host/model_datasets/`（ZIP+解压dataset/，磁盘mv，内容未变）：原始ZIP现为`3_host/model_datasets/Hand_Gesture_v6_yolov8.zip`，解压目录为`3_host/model_datasets/dataset/`，说明见[3_host/model_datasets/README.md](../../../3_host/model_datasets/README.md)。本run保留全部校验证据（REPORT/validation.json/image_manifest.csv/verify_dataset.py/validation_console.log），"本run下"的旧表述按迁移后位置理解。数据本体不上传Git。
+
 ## 当前结果
 
 用户明确同意接受服务条款后，已勾选并提交，再选择v6、YOLOv8、Download zip to computer完成下载。DOWNLOAD_AND_ZIP_CRC_PASS / PACKAGE_STRUCTURE_PASS；未执行校准、训练或量化，未修改原模型/冻结FPGA工程。
