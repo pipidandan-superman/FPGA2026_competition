@@ -21,6 +21,8 @@ hdmi_*_lib/
 # Build outputs and local archives
 *.bit
 *.bin
+# G2 deployment package (hash-verified payloads, see rom_data/README.md)
+!2_fpga/3_yolo_zynq/rom_data/*.bin
 *.ltx
 *.xsa
 *.hwh
