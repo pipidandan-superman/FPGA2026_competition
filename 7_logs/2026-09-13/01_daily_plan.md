@@ -320,3 +320,42 @@ NOT_STARTED。
 目标：将本轮 PC+PS+PL 图集、完整可复建的 `2_fpga` 源工程、`8_tools` 的 Action Viewer 与 BLE Console 发布包、主机侧环境脚本及对应验证证据提交到 `codex/full/pipidandan-superman`，并经 GitHub 合并请求进入 `main`。
 
 范围：保留 `2_fpga` 的 RTL、BD/XCI、约束、构建脚本、发布 BIT/HWH/XSA 与 PYNQ/PS 软件；保留工具的完整发布内容；不纳入 Vivado cache/gen/runs/sim 等可再生产物。
+
+
+---
+
+# 本机全线路复现计划（aaacharon 机器）
+
+## 当前判断
+
+队友已实现并板测通过 SD 卡启动的全自动链路：PYNQ Linux（ees331-camera.service 自启）→ OV5640 采集 → HDMI 实时显示 + UDP 视频流（板 192.168.240.10 → PC 192.168.240.2:5000，640×480 BGR，5fps）→ PC 端 EES331_Gesture_Viewer_v1.0 实时手势识别（内嵌本项目 gesture_v1 的 best.pt，SHA256 已核对本机一致）。本机仓库已完成同步（main=236678c），8_tools 交付工具均为真实文件（LFS 已拉取）。
+
+复现的唯一外部依赖：**SD 镜像文件**（`ees331_pynq_sd_20260911_222654.img`，7,858,807,808 字节，SHA256 `8d22bcde...fcca`）不入 Git，需从队友处获取。
+
+## 本机已完成的复现准备
+
+- 查看器内置 best.pt SHA256 与本机训练产物比对：**一致**（68db7cac...）
+- 证据目录适配：`E:\competition\4_metrics\logs` 目录联接 → 仓库 `4_metrics\logs`（查看器硬编码路径问题的解法）
+- 工具完整性：EES331_UDP_Viewer.exe（31MB）/ EES331SDBootBuilder_v0.2.2.exe（22MB）/ Gesture_Viewer 文件夹版均真实可用
+
+## 复现步骤（待执行）
+
+1. 向队友获取 IMG（网盘/局域网共享），收到后校验 SHA256
+2. Win32DiskImager（管理员）写入 micro SD（≥16GB，卡上数据会被清空）
+3. SW8=SD 启动；接 OV5640、HDMI、串口（115200，可选但强烈建议）、网线（直连 PC 或经交换机）
+4. PC 有线网卡静态 IP `192.168.240.2/24`
+5. 上电等待 60~90s（`ov5640_cfg_done` LED 亮 = 摄像头配置完成）
+6. L1 验证：`EES331_UDP_Viewer.exe` 监听 UDP 5000 → HDMI 与 PC 双路实时画面
+7. L2 验证：关闭 UDP_Viewer → 运行 `EES331_Gesture_Viewer_v1.0\EES331_Gesture_Viewer.exe` → 普通模式看检测框与中文预测
+8. L3 验证：测试模式 6 项逐项过（Stop/拇指上/拇指下/食指上/食指下/无手，每项 3 轮）
+9. 证据归档：镜像 SHA256、UART 启动日志、service 状态、双路画面照片/录屏、查看器自动日志（经联接落仓库 4_metrics/logs）
+
+## 风险与对策
+
+| 风险 | 对策 |
+|---|---|
+| IMG 传输 7.86GB | 网盘/局域网 SMB 共享；务必校验 SHA256 |
+| 笔记本无 RJ45 | USB 千兆网卡（AX88179/RTL8153 免驱） |
+| 查看器写日志路径 | 已用目录联接解决（E:\competition\4_metrics\logs → 仓库） |
+| 冷启动未验收（队友验证边界） | 复现时特意做一次物理断电冷启动，补上这块验收 |
+| Left/Right 已知弱 | 查看器已将左右仅作显示不作有效动作；不影响指挥语义 |
