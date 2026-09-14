@@ -1,5 +1,9 @@
 # 2026-09-14 日计划
 
+## 当前：补充数据集调研与HaGRID下载（2026-09-14）
+
+用户指令：删除v6压缩包（哈希留档`89b828c8…`），并从网上补充相关数据集用于后期检查与泛化验证，统一归置`3_host/model_datasets/`。调研结论：HaGRID 384p样本（HuggingFace cj-mills，509,323张/18类）覆盖Stop/Thumbs up/Thumbs Down三类（含最弱类Thumbs Down 0.335）且免登录直下13.4GB单ZIP；其余15类作OOD负样本与PTQ校准池。**HaGRID无方向类**，Left/Right/Down弱项缺口无免登录直下源，候选（Kaggle marusagar——swipe为动态语义、Roboflow Universe类名检索）需用户本人登录。huggingface.co直连超时，已改hf-mirror.com镜像下载中（约2小时）。调研详情与对照表：[supplementary_dataset_survey_2026-09-14.md](../../3_host/model_datasets/supplementary_dataset_survey_2026-09-14.md)。数据本体不入Git，仅调研文档与README入库。
+
 ## 当前：1_docs 分类整理与去重（2026-09-14）
 
 用户要求`1_docs`分类管理。本轮落地六分类：`doc/`正式交付文档、`赛题方向/`赛题原文与设计方案、`datasheets/`器件手册、`figures/`、`legacy/`早期占位文档、`第三方资料/`（约15G，仅本地不入Git）；根目录只留PYNQ教程、yolo7020部署计划r3与索引README。用户确认留新后删除旧副本：`doc/ADV7511KSTZ`（datasheets为逐文件验证的超集）、`doc/amd_dual_model`初版（赛题方向r2覆盖）、doc与根目录的roadmap/amd_topic2旧副本；并同步清理分支14个幽灵文件（磁盘早已删除未提交）。活跃文档引用全部改指新路径，历史日志按政策不回写。提交93eae1f已推送`codex/full/pipidandan-superman`。

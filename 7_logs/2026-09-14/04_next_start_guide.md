@@ -1,5 +1,9 @@
 # 2026-09-14 下次启动指南
 
+## 当前：补充数据集调研与HaGRID下载（2026-09-14）
+
+先查后台下载任务状态：`3_host/model_datasets/hagrid-sample-500k-384p.zip`（13.4GB，hf-mirror源）完成后①核验SHA-256=`461ad5746eb95c3605f4fa2ba7daa19e2fcd4d7d91d4d26c7c31dfe228feb68e`②安全解压③确认标注JSON是否在ZIP内④按user_id划分独立评估子集并建4_metrics run。方向类（Left/Right/Down）仍是缺口：Kaggle `marusagar/hand-gesture-detection-system`与Roboflow Universe类名检索需用户本人登录导出（swipe语义≠静态指向，禁止改名映射）。全景与操作路径见[supplementary_dataset_survey_2026-09-14.md](../../3_host/model_datasets/supplementary_dataset_survey_2026-09-14.md)。
+
 ## 当前：1_docs 分类整理与去重（2026-09-14）
 
 找文档先读[1_docs/README.md](../../1_docs/README.md)：分类索引+迁移对照表是旧路径的权威入口。正式交付文档在`doc/`（索引`doc/README.md`），赛题原文/评分页/设计方案/平台选型在`赛题方向/`，器件手册在`datasheets/`（ov5640与ADV7511 manuals仅本地不在Git），早期文档在`legacy/`。历史日志里的旧`1_docs`路径不回写，按对照表换算。已推送93eae1f。

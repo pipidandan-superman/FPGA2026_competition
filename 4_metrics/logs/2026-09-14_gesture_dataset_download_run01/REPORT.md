@@ -2,7 +2,9 @@
 
 ## 2026-09-14 数据集迁移（本报告更新）
 
-应用户要求，数据本体已从本run迁至`3_host/model_datasets/`（ZIP+解压dataset/，磁盘mv，内容未变）：原始ZIP现为`3_host/model_datasets/Hand_Gesture_v6_yolov8.zip`，解压目录为`3_host/model_datasets/dataset/`，说明见[3_host/model_datasets/README.md](../../../3_host/model_datasets/README.md)。本run保留全部校验证据（REPORT/validation.json/image_manifest.csv/verify_dataset.py/validation_console.log），"本run下"的旧表述按迁移后位置理解。数据本体不上传Git。
+应用户要求，数据本体已从本run迁至`3_host/model_datasets/`（ZIP+解压dataset/，磁盘mv，内容未变）：解压目录为`3_host/model_datasets/dataset/`，说明见[3_host/model_datasets/README.md](../../../3_host/model_datasets/README.md)。本run保留全部校验证据（REPORT/validation.json/image_manifest.csv/verify_dataset.py/validation_console.log），"本run下"的旧表述按迁移后位置理解。数据本体不上传Git。
+
+**后续更新（同日晚）**：`Hand_Gesture_v6_yolov8.zip`（29,538,322字节，SHA-256 `89b828c8bfad60243f790d58d896b5189a7ac6f3c498629fdd931b8179e378b5`）应用户要求删除以节省空间；删除前已核对`dataset/`本体1893图+1893标签与image_manifest.csv一致。哈希留档供再下载比对（Roboflow重导出不保证字节一致）。下方"当前结果"节中ZIP位置表述以本节为准。
 
 ## 当前结果
 

@@ -1,5 +1,9 @@
 # 2026-09-14 验证摘要
 
+## 当前：补充数据集调研与HaGRID下载（2026-09-14）
+
+已核实（页面直读，非二手转述）：HaGRID 384p样本为HF LFS单ZIP 13,418,776,353字节、LFS SHA-256 `461ad5746eb95c3605f4fa2ba7daa19e2fcd4d7d91d4d26c7c31dfe228feb68e`；18类含`stop`/`like`/`dislike`，标注为归一化bbox+labels+user_id；许可为CC BY-SA 4.0变体（以LICENSE文件为准，商用前需复核）。网络验证：huggingface.co直连15s超时（code=000），hf-mirror.com 1.3s返回302，下载已落盘且速率约1.6–2.2MB/s。**未完成项**：ZIP仍在传输（预计约2小时），SHA-256实核、安全解压、标注结构抽查、4_metrics run均未执行——下载中不等于校验通过。v6 ZIP删除后dataset/本体1893图+1893标签与归档清单一致（删除前核对）。
+
 ## 当前：1_docs 分类整理与去重（2026-09-14）
 
 六分类落地且活跃文档旧路径残留为0（grep终扫）；重复删除依据为逐文件证据：`doc/ADV7511KSTZ`全部文件与`datasheets/ADV7511_Hardware_Users_Guide/`一致且后者为超集（多寄存器表/MANIFEST/3个linux_driver文件），`赛题方向/amd_dual_model`r2（10:11）第5/6章覆盖初版（08:23）独有主题。分支同步93eae1f：73重命名+6新增+14删除+7修改=119个跟踪文件，排除项零入库，工作区与磁盘README哈希一致。边界：历史日志与`4_metrics`中的旧1_docs路径按政策不回写，以[迁移对照表](../../1_docs/README.md)为权威入口；`物联网综合课程设计资料.zip`系用户自行删除非异常；第三方资料/ov5640/ADV7511 manuals仅本地。
