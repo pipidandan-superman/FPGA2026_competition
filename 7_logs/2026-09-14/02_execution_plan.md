@@ -1,5 +1,9 @@
 # 2026-09-14 执行计划
 
+## 当前：1_docs 分类整理与去重（2026-09-14）
+
+顺序：全量清单对比（分支跟踪127 vs 磁盘127）→ 按六分类迁移 → 活跃文档引用逐个修复（历史日志不动）→ 重复项逐文件diff验证超集/覆盖关系后经用户确认删旧 → 集合代数同步分支（87旧路径git rm＝73重命名+14幽灵删除，79新路径显式清单git add，排除第三方资料/ov5640/ADV7511 manuals）→ 提交推送93eae1f。第三方资料与厂商PDF按github-upload-policy本地保留。
+
 ## 当前：r3文档与GitHub发布（2026-09-14）
 
 发布收据：内容提交f7c55a1已推送个人分支，已创建[PR #8](https://github.com/pipidandan-superman/FPGA2026_competition/pull/8)指向main。GitHub显示Awaiting approval / Merging is blocked，需另一位有写权限成员批准，尚未合并。xiaokaiyuan未出现在审核人搜索结果，未成功指派。下一动作是队友审核最终提交；本轮不绕过保护、不操作他人PR #7。r3文档66项检查与路径审计15项通过，量化/硬件阶段仍未执行。

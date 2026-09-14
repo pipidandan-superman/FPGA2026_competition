@@ -1,5 +1,9 @@
 # EES-331 项目交接
 
+## 2026-09-14 1_docs 目录分层整理
+
+`1_docs`按六分类重组：`doc/`（正式交付文档）、`赛题方向/`（赛题原文/评分页/设计方案/平台选型手册）、`datasheets/`（器件手册）、`figures/`、`legacy/`（早期占位文档）、`第三方资料/`（约15G，仅本地不入Git）；根目录仅留PYNQ教程、yolo7020部署计划r3与索引README。重复旧副本已删（`doc/ADV7511KSTZ`、`doc/amd_dual_model`初版、doc与根目录的roadmap/amd_topic2副本），分支14个幽灵文件同步清理。权威迁移对照表：[1_docs/README.md](1_docs/README.md)；历史日志旧路径不回写，按对照表换算。提交93eae1f于`codex/full/pipidandan-superman`。
+
 ## 2026-09-13 当前交接：PL重加载v1.4
 
 - 唯一支持的重加载包为`8_tools/EES331_PL_Reloader_v1.4/`；v1.0～v1.3已淘汰，不要从旧聊天附件或旧目录复现。

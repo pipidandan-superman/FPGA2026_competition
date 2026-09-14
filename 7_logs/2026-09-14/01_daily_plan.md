@@ -1,5 +1,11 @@
 # 2026-09-14 日计划
 
+## 当前：1_docs 分类整理与去重（2026-09-14）
+
+用户要求`1_docs`分类管理。本轮落地六分类：`doc/`正式交付文档、`赛题方向/`赛题原文与设计方案、`datasheets/`器件手册、`figures/`、`legacy/`早期占位文档、`第三方资料/`（约15G，仅本地不入Git）；根目录只留PYNQ教程、yolo7020部署计划r3与索引README。用户确认留新后删除旧副本：`doc/ADV7511KSTZ`（datasheets为逐文件验证的超集）、`doc/amd_dual_model`初版（赛题方向r2覆盖）、doc与根目录的roadmap/amd_topic2旧副本；并同步清理分支14个幽灵文件（磁盘早已删除未提交）。活跃文档引用全部改指新路径，历史日志按政策不回写。提交93eae1f已推送`codex/full/pipidandan-superman`。
+
+分类索引与迁移对照表：[1_docs/README.md](../../1_docs/README.md)。
+
 ## 当前：r3文档与GitHub发布（2026-09-14）
 
 发布收据：内容提交f7c55a1已推送个人分支，已创建[PR #8](https://github.com/pipidandan-superman/FPGA2026_competition/pull/8)指向main。GitHub显示Awaiting approval / Merging is blocked，需另一位有写权限成员批准，尚未合并。xiaokaiyuan未出现在审核人搜索结果，未成功指派。下一动作是队友审核最终提交；本轮不绕过保护、不操作他人PR #7。r3文档66项检查与路径审计15项通过，量化/硬件阶段仍未执行。

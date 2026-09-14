@@ -1,5 +1,9 @@
 # 2026-09-14 下次启动指南
 
+## 当前：1_docs 分类整理与去重（2026-09-14）
+
+找文档先读[1_docs/README.md](../../1_docs/README.md)：分类索引+迁移对照表是旧路径的权威入口。正式交付文档在`doc/`（索引`doc/README.md`），赛题原文/评分页/设计方案/平台选型在`赛题方向/`，器件手册在`datasheets/`（ov5640与ADV7511 manuals仅本地不在Git），早期文档在`legacy/`。历史日志里的旧`1_docs`路径不回写，按对照表换算。已推送93eae1f。
+
 ## 当前：r3文档与GitHub发布（2026-09-14）
 
 发布收据：内容提交f7c55a1已推送个人分支，已创建[PR #8](https://github.com/pipidandan-superman/FPGA2026_competition/pull/8)指向main。GitHub显示Awaiting approval / Merging is blocked，需另一位有写权限成员批准，尚未合并。xiaokaiyuan未出现在审核人搜索结果，未成功指派。下一动作是队友审核最终提交；本轮不绕过保护、不操作他人PR #7。r3文档66项检查与路径审计15项通过，量化/硬件阶段仍未执行。

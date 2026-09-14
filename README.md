@@ -164,7 +164,7 @@ hdmi_out_adv7511_v1_0
 ```text
 competition/
 ├─ README.md
-├─ 1_docs/      # 设计方案、架构、接口、硬件说明与赛题文档
+├─ 1_docs/      # 分类索引见 1_docs/README.md：doc/赛题方向/datasheets/figures/legacy/第三方资料(仅本地)
 ├─ 2_fpga/      # RTL/HLS、构建脚本、.bit/.xsa/.hwh、综合实现报告
 ├─ 3_host/      # 模型、上位机应用、部署脚本与清单
 ├─ 4_metrics/   # metrics.csv、原始日志、测试脚本、截图/波形证据

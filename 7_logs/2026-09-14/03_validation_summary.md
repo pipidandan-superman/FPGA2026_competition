@@ -1,5 +1,9 @@
 # 2026-09-14 验证摘要
 
+## 当前：1_docs 分类整理与去重（2026-09-14）
+
+六分类落地且活跃文档旧路径残留为0（grep终扫）；重复删除依据为逐文件证据：`doc/ADV7511KSTZ`全部文件与`datasheets/ADV7511_Hardware_Users_Guide/`一致且后者为超集（多寄存器表/MANIFEST/3个linux_driver文件），`赛题方向/amd_dual_model`r2（10:11）第5/6章覆盖初版（08:23）独有主题。分支同步93eae1f：73重命名+6新增+14删除+7修改=119个跟踪文件，排除项零入库，工作区与磁盘README哈希一致。边界：历史日志与`4_metrics`中的旧1_docs路径按政策不回写，以[迁移对照表](../../1_docs/README.md)为权威入口；`物联网综合课程设计资料.zip`系用户自行删除非异常；第三方资料/ov5640/ADV7511 manuals仅本地。
+
 ## 当前：zynq-pynq-overlay-workflow skill修复（2026-09-14）
 
 用户反馈按该skill执行在线加载失败而EES331_PL_Reloader_v1.4 EXE正常。根因：skill于2026-09-13仅做格式/镜像一致性校验，未包含v1.0–v1.3失败、v1.4验证通过的摄像头overlay热重载关键序列（v1.3实测：BIT下载PASS+fpga_manager operating仍FIRST_FRAME_TIMEOUT，被误读为"无法在线加载"）。本轮修复：
