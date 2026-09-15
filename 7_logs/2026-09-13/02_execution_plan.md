@@ -327,3 +327,46 @@ HWH 审计。M19 非专用时钟输入在实现后的 PLL 使用 `BUF_IN`，构�
 2. 显式复制经清单审计的图集、`2_fpga` 可复建源、`8_tools` 发布包、主机侧脚本、文档、当天日志及验证证据；不使用全目录镜像或批量暂存。
 3. 对每个复制文件核对 SHA-256，执行项目路径审计和 Git 暂存审计后提交并推送个人分支。
 4. 创建以 `main` 为目标的合并请求，确认三条既有个人提交与本次资产提交均包含后执行 GitHub 合并；合并后回读远端 `main` SHA 和合并请求状态。
+
+
+---
+
+# 本机部署包组装与执行记录（aaacharon 机器）
+
+## 结论
+
+本机材料 **100% 齐全，无需队友传输任何大文件**。"上次工程"SD 卡（基础 PYNQ v3.0.1）+ 部署包 = 完整复现摄像头 HDMI/UDP 全链路。
+
+## 材料核验
+
+| 材料 | 位置 | 验证 |
+|---|---|---|
+| 基础 PYNQ 镜像 v3.0.1（已在 SD 卡） | 板卡 J15 | 09-10 微信接收（SHA `203e9f79...`，见 4_metrics/logs/2026-09-10 MANIFEST） |
+| `overlay.bit` / `overlay.hwh` | `9_pynq/sd/03_boot_partition/sd_boot_package_20260911_222654.zip` | SHA256 `0518c46b...`/`96eeba65...` 与包内 manifest 一致；该包源自 09-11 板测 PASS 集成镜像（XSA d69fb256...） |
+| 摄像头应用 7 文件 | 仓库 `2_fpga/0_diaplay_test/pynq/` | git blob SHA256 与 09-11 板测 manifest **全部 MATCH**（工作区 CRLF 为 git 转换假象） |
+| 部署包（LF 原始字节） | `D:\gesture_pipeline\ees331_deploy\`（9 文件） | overlay 2 + 应用 7 |
+
+## 关键更正
+
+- `REPRO_STATUS.md`(09-10) 中"冻结基线 7cb11f7d"为 09-08 C1.2 基线；**09-11 板测 PASS 的构建（含 ENET0 与 PYNQ 集成）使用的是 0518c46b 构建流水**，以 09-11 manifest 为准。
+- 仓库工作区文件为 CRLF，直接拷贝到板上会使 shell 脚本报 `\r` 错；部署包已改用 git blob 的 LF 字节。
+
+## 部署步骤（板卡用现有基础镜像卡上电，SW8=SD）
+
+1. 串口 115200 登录：`root` / `xilinx`
+2. 串口执行：`sudo ip addr add 192.168.240.10/24 dev eth0`（基础镜像默认 IP 192.168.2.99，临时加 240 网段）
+3. PC（cmd）：
+   ```bat
+   cd /d D:\gesture_pipeline\ees331_deploy
+   ssh root@192.168.240.10 "mkdir -p /home/xilinx/ees331_camera"
+   scp camera.py run_camera.sh install.sh inspect_board.py ees331-camera.service ees331_camera.network uEnv.txt overlay.bit overlay.hwh root@192.168.240.10:/home/xilinx/ees331_camera/
+   ```
+   （首次连接 yes + 密码 `xilinx`；Windows 10+ 自带 scp/ssh）
+4. 串口执行：
+   ```bash
+   cd /home/xilinx/ees331_camera
+   sudo bash install.sh
+   sudo reboot
+   ```
+5. 重启等 60~90s：`ov5640_cfg_done` LED 亮 → HDMI 实时画面 → PC UDP 5000 收流
+6. 验收：`8_tools\EES331_Gesture_Viewer_v1.0\EES331_Gesture_Viewer.exe` 手势识别（本机已核对内嵌模型与本机训练产物一致）
