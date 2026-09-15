@@ -1,5 +1,14 @@
 # EES-331 项目交接
 
+## 2026-09-15 yolo7020 批次交接：G2/PS 板上闭环 + G3 M0–M11 全绿
+
+- **入口**：[progress.md](progress.md)（软件/硬件总览）· [G3 基线](1_docs/doc/yolo7020_gemm_pe_architecture_2026-09-15.md)（状态字为权威）· [当日验证摘要](7_logs/2026-09-15/03_validation_summary.md) · [下次启动指南](7_logs/2026-09-15/04_next_start_guide.md)。
+- **软件**：G2 真 RNE 合同 run04 为部署源（valid −0.0092；bias_eff/平局两缺陷已修）；rom_data 部署包哈希核对；PS 运行时离线 128/128 位级；真实 ARM PS 全量自检 head **128/128 位级一致**（56 帧 box 差异全为 ARM/x86 libm ulp 类、conf≤0.01 良性）；45.34s/帧纯 numpy 未优化。板端只新增 `/home/xilinx/yolo_selfcheck/`，SSH 密码走环境变量（凭据文件不入库）。
+- **硬件 G3**：架构基线冻结后单日 12 门全绿——M0 通用核（假绿教训：合成激励必须反退化 + 每门真实数据回归）、M1 DSP 双打包（偏置布局，2^24 穷举）、M2–M9 单元门、M10 阵列集成（438,447 格零差异 + 4 个集成缺陷修复与 §5 全链重跑）、**M11 全网**（1 帧 63 conv 3,553,900 格逐位 + head sha==run04 frame0 + 6 张量拆分逐字节；k1×1 首覆盖；门定义修正与理由见基线 §8）。RTL 零改动过 M11。
+- **工具链铁律**（10.1c 实测，沿用）：vsim 必须 `-c -novopt`；三目/拼接进有符号运算必须 `$signed()`；黄金服务用连续 assign；哨兵 0xA5 歧义用写双射计数兜底；**大数值 delay 表达式先升 64 位 time**（M11 WDT 32 位溢出假失败实证）。
+- **下一步**：M12 OOC（PROD-16×16，150MHz 必过；Y 真 AXI 写主 / X DDR 流式 / PS 微操作硬件化三项决策随批入场）→ M13 板卡整合。**两者均需用户单独授权。**
+- **Git**：本批 rtl/sim/证据/文档/progress.md 上传 `codex/full/pipidandan-superman`（main 保护不变，PR 待队友审核）；原始 transcript 与 head_dump.bin 以声明清单方式入库，仿真激励大数据（ddr.hex 等）与 npz 留本地不入库。
+
 ## 2026-09-14 1_docs 目录分层整理
 
 `1_docs`按六分类重组：`doc/`（正式交付文档）、`赛题方向/`（赛题原文/评分页/设计方案/平台选型手册）、`datasheets/`（器件手册）、`figures/`、`legacy/`（早期占位文档）、`第三方资料/`（约15G，仅本地不入Git）；根目录仅留PYNQ教程、yolo7020部署计划r3与索引README。重复旧副本已删（`doc/ADV7511KSTZ`、`doc/amd_dual_model`初版、doc与根目录的roadmap/amd_topic2副本），分支14个幽灵文件同步清理。权威迁移对照表：[1_docs/README.md](1_docs/README.md)；历史日志旧路径不回写，按对照表换算。提交93eae1f于`codex/full/pipidandan-superman`。

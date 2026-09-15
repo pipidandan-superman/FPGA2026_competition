@@ -18,6 +18,7 @@
 - 总体设计方案：`赛题方向/设计方案_具身智能视觉分拣.md`
 - PYNQ 从零复现：`PYNQ零基础开发与EES331摄像头工程实战.md`
 - YOLO 手势 7020 硬件部署计划（当前活跃，r3）：`yolo7020_hardware_deployment_plan_20260914.md`
+- YOLO GEMM PE 阵列架构基线（2026-09-15）：`doc/yolo7020_gemm_pe_architecture_2026-09-15.md`
 - 当前控制开发：`doc/ees331_ble_axi_bram_development_plan_2026-09-12.md`
 
 ## 边界

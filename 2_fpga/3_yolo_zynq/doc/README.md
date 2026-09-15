@@ -13,12 +13,12 @@
 
 | 目录 | 用途 | 现状 |
 | --- | --- | --- |
-| `doc/` | 本 README、设计笔记、从 0_diaplay_test 借鉴的参数清单、节点记录 | 本文件 |
-| `proj/` | Vivado 工程 + 构建/集成 TCL（新建工程，不复制 0_diaplay_test 工程本体） | 空，待 G3 前 |
-| `pynq/` | PS 侧 PYNQ 运行时：Overlay 加载、描述符提交、DFL/NMS（C/C++）、测试脚本 | 空，待 G2/G3 |
-| `rom_data/` | 软件侧导出的模型数值包：weights.bin/bias.bin/lut.bin/schedule.bin/quant.json + manifest | 空，待 G2 |
-| `rtl/` | YOLO 加速 RTL：GEMM 阵列、窗口生成、重定标/SiLU、搬运与调度 | 空，待 G3 |
-| `sim/` | 仿真 testbench、golden 回放、首错定位脚本 | 空，待 G3 |
+| `doc/` | 本 README、设计笔记、从 0_diaplay_test 借鉴的参数清单、节点记录 | 本文件 + 板上自检规程 + hw_contract（地址映射） |
+| `proj/` | Vivado 工程 + 构建/集成 TCL（新建工程，不复制 0_diaplay_test 工程本体） | 空，M12 OOC 起 |
+| `pynq/` | PS 侧 PYNQ 运行时：Overlay 加载、描述符提交、DFL/NMS（C/C++）、测试脚本 | 运行时 5 件（gen_schedule/intarith/yolo_decode/yolo_pkg/yolo_runtime）+ 板上自检 3 件（board_selfcheck* / board_pack_selfcheck）+ board_pack 清单；离线与板上均 128/128 位级 |
+| `rom_data/` | 软件侧导出的模型数值包：weights.bin/bias.bin/lut.bin/schedule.bin/quant.json + manifest | G2 run04 部署包已落位（哈希核对，见 rom_data/README.md） |
+| `rtl/` | YOLO 加速 RTL：GEMM 阵列、窗口生成、重定标/SiLU、搬运与调度 | **M0–M11 全绿**：12 文件（conv0 标量核 + 10 单元 + yolo_gemm_array 顶层），conv_core V1.2 / ctrl V1.1 |
+| `sim/` | 仿真 testbench、golden 回放、首错定位脚本 | 13 个 TB + 15 个生成器/检查器；激励大数据（stim/、msim/）不入 Git |
 
 ## 从 0_diaplay_test 借鉴的参数与模式（只读来源）
 
@@ -39,3 +39,8 @@
 | 日期 | 节点 | 证据 |
 | --- | --- | --- |
 | 2026-09-14 | 工程骨架设立，README 边界与借鉴清单建立 | 本文件；7_logs/2026-09-14 |
+| 2026-09-15 | G2 run04 部署包落位 rom_data；PS 运行时离线 128/128 | 4_metrics/logs/2026-09-15_yolo7020_g2_quant_rne_run04、..._ps_runtime_run01 |
+| 2026-09-15 | PS 板上全量自检 head 128/128 位级一致 | 4_metrics/logs/2026-09-15_yolo7020_ps_onboard_run01；doc/board_selfcheck_procedure.md |
+| 2026-09-15 | G3 架构基线冻结（GEMM PE 阵列，M0–M13 门） | 1_docs/doc/yolo7020_gemm_pe_architecture_2026-09-15.md |
+| 2026-09-15 | conv0 标量核 + M0–M9 单元门 + M10 阵列集成全绿 | 4_metrics/logs/2026-09-15_yolo7020_m0..m10_*_run01 |
+| 2026-09-15 | M11 全网端到端：1 帧 63 conv 逐位 + head sha==run04 | 4_metrics/logs/2026-09-15_yolo7020_m11_fullnet_run01 |
