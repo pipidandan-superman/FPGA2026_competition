@@ -1,0 +1,13 @@
+# console extract: M0 conv_core V1.2 regression (run02), 11/11 identical PASS
+# source: sim_<case>.log (unedited in place), one PASS line per case
+sim_case0.log:# TB_CONVGEN_PASS case=case0 compared=409600/409600
+sim_case0b.log:# TB_CONVGEN_PASS case=case0b compared=409600/409600
+sim_genAext.log:# TB_CONVGEN_PASS case=genAext compared=36864/36864
+sim_genArand.log:# TB_CONVGEN_PASS case=genArand compared=36864/36864
+sim_genB.log:# TB_CONVGEN_PASS case=genB compared=12800/12800
+sim_genCrand.log:# TB_CONVGEN_PASS case=genCrand compared=700/700
+sim_genCzero.log:# TB_CONVGEN_PASS case=genCzero compared=700/700
+sim_genD.log:# TB_CONVGEN_PASS case=genD compared=576/576
+sim_genE.log:# TB_CONVGEN_PASS case=genE compared=245/245
+sim_genF.log:# TB_CONVGEN_PASS case=genF compared=147/147
+sim_genG.log:# TB_CONVGEN_PASS case=genG compared=128/128

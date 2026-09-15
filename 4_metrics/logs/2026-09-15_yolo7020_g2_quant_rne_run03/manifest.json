@@ -1,0 +1,47 @@
+{
+  "schema": "yolo7020_g2_quant_v1",
+  "weights": {
+    "best.pt": "68db7cacbdd6d9c9a583e1c50a9f5934a3a6b78675b215ec86717827be8bfc79"
+  },
+  "calibration": {
+    "list": "G1/calibration_list.txt",
+    "images": 420,
+    "seed": 20260914,
+    "method": "p99.99 percentile clip per-tensor symmetric + layerwise LSQ stored-scale refit (S'=<v,fp>/<v,v> on the int-pipeline outputs vs FP module outputs, 2 fixed-point sweeps over a 420-img subsample; raw-MSE clip rejected: collapses to ~absmax/1000 on near-zero-dominated post-SiLU tensors)",
+    "clipped_nodes": 191,
+    "total_nodes": 191,
+    "median_shrink": 0.57958984375,
+    "refit_sites": 73,
+    "refit_trace": [
+      {
+        "iter": 0,
+        "median": 0.9974983355075152,
+        "min": 0.9659268560935813,
+        "max": 1.046661675972384
+      },
+      {
+        "iter": 1,
+        "median": 0.9947417906166315,
+        "min": 0.9750373649886994,
+        "max": 1.0317782077211588
+      }
+    ]
+  },
+  "input_contract": {
+    "size": 320,
+    "preprocess": "letterbox 114 BGR->RGB uint8, stored u-128"
+  },
+  "files": {
+    "weights.bin": "3548b8fab6f2d4c92bb1cfa5111e5eba49e3a049257d377d419b19e0036118a4",
+    "bias.bin": "faa5b5bd7d0006467ea9bdc17538c34f0e707af360396594b89c87c5c1c8d254",
+    "lut.bin": "b0c54c6b8c5df9eec2c7836ca8fc262d0bf5c47175eb81641301566e88f0cbd4",
+    "quant.json": "06aaddbe32de991da4dabed93c9edac98a5488eb982bfaf87610cced63db6bc8"
+  },
+  "env": {
+    "python": "E:\\competition\\4_metrics\\logs\\2026-09-12_model_env_run01\\venv\\Scripts\\python.exe",
+    "torch": "2.10.0+cpu",
+    "ultralytics": "8.4.142",
+    "numpy": "2.2.6"
+  },
+  "status": "EXPERIMENTAL"
+}

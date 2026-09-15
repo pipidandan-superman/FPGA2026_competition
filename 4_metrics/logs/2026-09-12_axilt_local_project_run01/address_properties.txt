@@ -1,0 +1,13 @@
+Property  Type    Read-only  Value
+ACCESS    string  false      read-write
+CLASS     string  true       bd_addr_seg
+EXEIMG    string  false      
+LOCKTYPE  string  false      none
+MEMTYPE   string  false      both
+NAME      string  false      SEG_axi_lite_test_0_reg0
+OFFSET    string  false      0x43C00000
+PATH      string  true       /ps7/Data/SEG_axi_lite_test_0_reg0
+RANGE     string  false      0x00001000
+REMAPPED  string  true       0
+SECURE    bool    false      0
+USAGE     string  false      register

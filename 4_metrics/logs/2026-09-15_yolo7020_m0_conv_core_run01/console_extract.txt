@@ -1,0 +1,23 @@
+# M0 门 TB_CONVGEN 全部 PASS 行（run2 = RTL V1.1 + 激励 v2，2026-09-15 11:08–11:09）
+# 来源：本目录 sim_*.log（原始 transcript，未编辑）；逐字 grep 自各 log
+
+sim_genE.log:     TB_CONVGEN_PASS case=genE     compared=245/245
+sim_genF.log:     TB_CONVGEN_PASS case=genF     compared=147/147
+sim_genG.log:     TB_CONVGEN_PASS case=genG     compared=128/128
+sim_genCrand.log: TB_CONVGEN_PASS case=genCrand compared=700/700
+sim_genCzero.log: TB_CONVGEN_PASS case=genCzero compared=700/700
+sim_genArand.log: TB_CONVGEN_PASS case=genArand compared=36864/36864
+sim_genAext.log:  TB_CONVGEN_PASS case=genAext  compared=36864/36864
+sim_genD.log:     TB_CONVGEN_PASS case=genD     compared=576/576
+sim_genB.log:     TB_CONVGEN_PASS case=genB     compared=12800/12800
+sim_case0.log:    TB_CONVGEN_PASS case=case0    compared=409600/409600
+sim_case0b.log:   TB_CONVGEN_PASS case=case0b   compared=409600/409600
+
+# 合计 11/11 全绿。case0/case0b = conv0 真实 golden00/golden02 全量回归
+# （409600 像素零差异——run1 中暴露 RTL bug 的正是此回归）。
+
+# ---------------- run1 失效记录（bug 证据，保留于 invalid_run1_degenerate_params/）----------------
+# run1（RTL V1.0 + 激励 v1 退化参数）：9 合成例"PASS" + case0 FAIL：
+#   TB_CONVGEN_FAIL case=case0 compared=409600/409600 errors=221550 first_lin=0 got=109 exp=87
+# 同一 RTL 下 genE 重跑门"PASS"而 debug tap 明显错位 —— 证明合成例无检出力（参数退化），
+# run1 的 9 个"PASS"全部无效；判定以 case0 FAIL 为准。

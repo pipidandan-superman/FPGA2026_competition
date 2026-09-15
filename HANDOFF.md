@@ -1,5 +1,18 @@
 # EES-331 项目交接
 
+## 2026-09-15 yolo7020 批次交接：G2/PS 板上闭环 + G3 M0–M11 全绿
+
+- **入口**：[progress.md](progress.md)（软件/硬件总览）· [G3 基线](1_docs/doc/yolo7020_gemm_pe_architecture_2026-09-15.md)（状态字为权威）· [当日验证摘要](7_logs/2026-09-15/03_validation_summary.md) · [下次启动指南](7_logs/2026-09-15/04_next_start_guide.md)。
+- **软件**：G2 真 RNE 合同 run04 为部署源（valid −0.0092；bias_eff/平局两缺陷已修）；rom_data 部署包哈希核对；PS 运行时离线 128/128 位级；真实 ARM PS 全量自检 head **128/128 位级一致**（56 帧 box 差异全为 ARM/x86 libm ulp 类、conf≤0.01 良性）；45.34s/帧纯 numpy 未优化。板端只新增 `/home/xilinx/yolo_selfcheck/`，SSH 密码走环境变量（凭据文件不入库）。
+- **硬件 G3**：架构基线冻结后单日 12 门全绿——M0 通用核（假绿教训：合成激励必须反退化 + 每门真实数据回归）、M1 DSP 双打包（偏置布局，2^24 穷举）、M2–M9 单元门、M10 阵列集成（438,447 格零差异 + 4 个集成缺陷修复与 §5 全链重跑）、**M11 全网**（1 帧 63 conv 3,553,900 格逐位 + head sha==run04 frame0 + 6 张量拆分逐字节；k1×1 首覆盖；门定义修正与理由见基线 §8）。RTL 零改动过 M11。
+- **工具链铁律**（10.1c 实测，沿用）：vsim 必须 `-c -novopt`；三目/拼接进有符号运算必须 `$signed()`；黄金服务用连续 assign；哨兵 0xA5 歧义用写双射计数兜底；**大数值 delay 表达式先升 64 位 time**（M11 WDT 32 位溢出假失败实证）。
+- **下一步**：M12 OOC（PROD-16×16，150MHz 必过；Y 真 AXI 写主 / X DDR 流式 / PS 微操作硬件化三项决策随批入场）→ M13 板卡整合。**两者均需用户单独授权。**
+- **Git**：本批 rtl/sim/证据/文档/progress.md 上传 `codex/full/pipidandan-superman`（main 保护不变，PR 待队友审核）；原始 transcript 与 head_dump.bin 以声明清单方式入库，仿真激励大数据（ddr.hex 等）与 npz 留本地不入库。
+
+## 2026-09-14 1_docs 目录分层整理
+
+`1_docs`按六分类重组：`doc/`（正式交付文档）、`赛题方向/`（赛题原文/评分页/设计方案/平台选型手册）、`datasheets/`（器件手册）、`figures/`、`legacy/`（早期占位文档）、`第三方资料/`（约15G，仅本地不入Git）；根目录仅留PYNQ教程、yolo7020部署计划r3与索引README。重复旧副本已删（`doc/ADV7511KSTZ`、`doc/amd_dual_model`初版、doc与根目录的roadmap/amd_topic2副本），分支14个幽灵文件同步清理。权威迁移对照表：[1_docs/README.md](1_docs/README.md)；历史日志旧路径不回写，按对照表换算。提交93eae1f于`codex/full/pipidandan-superman`。
+
 ## 2026-09-13 当前交接：PL重加载v1.4
 
 - 唯一支持的重加载包为`8_tools/EES331_PL_Reloader_v1.4/`；v1.0～v1.3已淘汰，不要从旧聊天附件或旧目录复现。
@@ -8,6 +21,36 @@
 - 动作识别必须从v1.4内部按钮打开，或显式`--action-control`。直接双击EXE默认显示模式，日志`protocol=null`，会识别但不会输出LED。
 - 操作入口：[v1.4上板复现指南](1_docs/doc/ees331_pl_reloader_v14_board_guide_2026-09-13.md)；证据：[run01](4_metrics/logs/2026-09-13_pl_reloader_v14_board_acceptance_run01/REPORT.md)、[断电后run02](4_metrics/logs/2026-09-13_pl_reloader_v14_board_acceptance_run02/REPORT.md)、[模型重开诊断](4_metrics/logs/2026-09-13_action_viewer_reopen_diagnosis_run01/REPORT.md)。
 - 验收边界：当前只有2/2样本，第二轮断电由用户确认而非boot ID自动证明；不能称为长期稳定、机械臂安全闭环或模型泛化精度PASS。原SD/BOOT和冻结`2_fpga`不变。
+
+## 2026-09-13 AXI复位修复与后续授权
+
+独立AXI-Lite已修复BD辅助复位低有效却接0的错误；官方IP仿真通过，原4份RTL未改，重新构建100MHz时序/DRC通过。修复版1000轮命令、3次重载实机通过，原视频服务恢复后UDP60帧零CRC/丢帧/坏头；HDMI最终人工确认仍待用户答复。新发布包在独立proj/release，旧版保留且禁止加载。
+
+[实机和故障证据](4_metrics/logs/2026-09-13_axilt_reg_board_run02/REPORT.md)；[通用skill](6_skill/zynq-pynq-overlay-workflow/SKILL.md)，已同步安装并校验。
+
+用户新增授权：独立验收后创建skill、集成主FPGA工程、综合/实现/实机视频+蓝牙+控制共存、更新并推送codex/full/pipidandan-superman，全部成功保存且无其他未保存工作后正常可取消延时关机，不强制退出。主工程已确认是2_fpga/0_diaplay_test/proj/display_test_zynq7020_school/display_test_zynq7020_school.xpr；尚未开始修改。BRAM未实现，不混入。此授权不是Git main合并许可。当前未推送、未关机。
+
+## 2026-09-12 AXI_LITE_test 实体工程交付
+
+用户最新要求已完成：实体工程在2_fpga/2_axi_lite_test/proj/AXI_LITE_test.xpr，
+BD精确命名AXI_LITE_test。4份.v源码与通过仿真版本一致，
+综合/布局布线/bit生成通过，100MHz，WNS/WHS=2.925/0.013ns，DRC错误和黑盒0。
+本地proj/release含AXI_LITE_test.bit/.hwh/.xsa及成套哈希；
+51项交付审计、28个链接通过。该工程保存位置为用户本轮明确指定。
+入口：[BD说明](2_fpga/2_axi_lite_test/doc/bd_design.md)、
+[本轮报告](4_metrics/logs/2026-09-12_axilt_local_project_run01/REPORT.md)。
+未进行板卡下载/主工程合并；寄存器板测及后续BRAM阶段仍待接续。
+
+## 2026-09-12 PS–PL AXI-Lite 独立工程
+
+用户已授权在2_fpga/2_axi_lite_test独立开发。当前4份自研RTL、寄存器ABI、
+PYNQ驱动/ARM MMIO辅助层源码、板测脚本和Vivado重建入口已交付。
+26282项RTL检查、1001命令、3随机种子及延迟后端通过；100MHz构建通过，
+WNS/WHS=2.925/0.013ns、LUT719/FF1116、DRC错误和黑盒0，BIT/HWH/XSA成套归档。
+8项软件离线测试通过；板卡192.168.240.10:22超时，实机尚未验收、ARM helper未板端编译。
+按用户计划，寄存器实机验收与视频恢复通过后才进入BRAM阶段。未合并/推送。
+入口：[独立工程](2_fpga/2_axi_lite_test/README.md)、
+[完整报告](4_metrics/logs/2026-09-12_axilt_handoff_run01/REPORT.md)。
 
 ## 2026-09-12 BLE Console v1.1 与手动复现
 
@@ -108,7 +151,7 @@ PC与板载MLT-BT05已通过短时双向通信：未配对GATT保持61.703秒，
 - Symptom: UDP camera frames showed red/blue-swapped colors (yellow object -> pale blue, blue-violet -> orange, lavender -> pink); HDMI was always correct. Root cause: VDMA S2MM packs the 24-bit {R,G,B} AXIS word little-endian, so DDR/UDP type=0x01 payload bytes are [B,G,R] per pixel, while the host decoded them as [R,G,B]. OV5640 registers (`0x4300=0x61`, RGB565 sequence 1) are NOT at fault — do NOT change them to "fix" colors (that would swap HDMI).
 - **Current receiver: `3_host/udp_video/dist/EES331_UDP_Viewer.exe` — 31,187,867 B, SHA-256 `a4b75ed3423aeb2ca292623b00310ac166be6c09171527ad8397435ca193dd1d` (built from `udp_video_gui.py` V1.2, type-aware decode: type=0x01 -> BGR, type=0x02 -> RGB). Discard older copies (V1.0 31,187,636 B / V1.1 31,188,255 B) — they render camera frames with red/blue swapped.** `udp_video_rx.py` V1.1 carries the same type-aware fix; camera payload is already cv2-native BGR, so model-side frame grabbing needs no channel flip.
 - Board side unchanged: the C1.2 frozen pairing below stays valid (BIT `7CB11F7D...` + ELF `3E295D51...` + XSA `30644B31...`); no rebuild or re-programming is needed to get correct colors on the PC.
-- Verified: localhost end-to-end injection `ALL_COLOR_SWAP_FIX_TESTS_PASS`; user visual pass on the live board stream (recorded video: natural skin tones, 6.25 fps, ~1% loss/CRC consistent with C1.2). Byte-order erratum in the design contract: `1_docs/OV5640_UDP视频传输数据格式与上位机设计_2026-09-08.md` §10.
+- Verified: localhost end-to-end injection `ALL_COLOR_SWAP_FIX_TESTS_PASS`; user visual pass on the live board stream (recorded video: natural skin tones, 6.25 fps, ~1% loss/CRC consistent with C1.2). Byte-order erratum in the design contract: `1_docs/doc/OV5640_UDP视频传输数据格式与上位机设计_2026-09-08.md` §10.
 - Evidence: `4_metrics/logs/2026-09-08_udp_color_swap_fix_run01/` (RUN_REPORT, verification scripts + raw console log, user screenshots + final board-stream video, per-file SHA-256). Tag: `udp-color-fix-pass-20260908`.
 
 ## 2026-09-08 FREEZE udp-camera-c12-pass-20260908 (C1.2 quality PASS, 4.77 fps zero-defect)
@@ -135,7 +178,7 @@ PC与板载MLT-BT05已通过短时双向通信：未配对GATT保持61.703秒，
 - Result: `UDP_TX_B1_PASS`. `app_component` V3.1.2 streams 640x480 RGB888 synthetic frames (921,600 B = 640 packets x 1,440 B + 32 B header, whole-frame CRC32, SOF/EOF flags) from the board to the PC peer at 1 fps; serial shows `UDP_TX frame=N packets=640 errors=0` (58+ frames, zero TX errors) and the GUI receiver shows the moving color-bar pattern with `完整帧` increasing at ~1 fps, `丢帧=0`, `CRC 错=0`.
 - New sources: `2_fpga/0_diaplay_test/vitis/app_component/src/udp_video_tx.c/h` (sender; `UDP_TX_USE_CAMERA=0` gates stage C1), `main.c` rework — lwIP timers now scheduled on the ARM Global Timer (`xiltimer.h`/`XTime_GetTime`, 250/500 ms) because the ScuTimer interrupt path proved dead in this SDT build; `udp_video_tx_yield()` keeps ARP/RX alive mid-burst without recursion.
 - PC tools (`3_host/udp_video/`): `mock_sender.py` (protocol-conformant pattern sender), `udp_video_rx.py` (CLI receiver, localhost self-test PASS 178 frames/0 loss/0 CRC), `udp_video_gui.py` → packaged `dist/EES331_UDP_Viewer.exe` (V1.0 31,187,636 B / V1.1 31,188,255 B at this milestone; **superseded 2026-09-08 by the V1.2 BGR-fix build 31,187,867 B, SHA-256 `a4b75ed3...` — see FREEZE udp-color-fix-pass-20260908 at the top**).
-- Design contract: `1_docs/OV5640_UDP视频传输数据格式与上位机设计_2026-09-08.md` (32 B header table, 640-packet framing, skip-on-loss policy, staged plan; supersedes the old plan's 192.168.1.x addressing with 192.168.240.x).
+- Design contract: `1_docs/doc/OV5640_UDP视频传输数据格式与上位机设计_2026-09-08.md` (32 B header table, 640-packet framing, skip-on-loss policy, staged plan; supersedes the old plan's 192.168.1.x addressing with 192.168.240.x).
 - Evidence: `4_metrics/logs/2026-09-08_mainproj_eth_loopback_integrate_run01/` (B1 screenshots, full serial log, per-file hashes), `..._udp_host_tools_v1_run01/`, `..._udp_gui_exe_build_run01/`, `..._udp_video_protocol_design_run01/`.
 - Known open items: camera S2MM stream error (`SR=0x15810`, SOF-early class) blocks stage C1 — check camera cabling/power first; PS config change verified clock-clean (BD diff: only ENET0/MDIO/GPIO-EMIO entries, FCLK/PLL untouched). GUI fps field reads 0/1.9 on a 1 fps stream (sampling display quirk). `UDP_TX_INIT_OK` prints "ticks" but means ms.
 - Next: stage C1 — replace the pattern source with a VDMA completed-slot snapshot (PARKPTR-selected), camera S2MM must pass first; then C2 rate scale 5/15 FPS.
@@ -152,7 +195,7 @@ PC与板载MLT-BT05已通过短时双向通信：未配对GATT保持61.703秒，
   - Binaries live under `2_fpga/0_diaplay_test/vitis/hw_20260908_eth/`.
 - Evidence: `4_metrics/logs/2026-09-08_mainproj_eth_loopback_integrate_run01/` (integration report, before/after hashes, PASS screenshot SHA-256 `4AA8933B02B449F314D2E336908B41252FC9DE3DB91BF4E6B2742635AFF7CE0E`).
 - Still owed: full UART serial capture (ETH heartbeat + HDMI heartbeat lines) for the raw serial record.
-- Next: board-to-PC UDP frame sender (synthetic pattern + incrementing frame/packet IDs), then one VDMA frame snapshot; camera transport gates stay per `1_docs/OV5640_PS以太网传输实施计划_2026-09-08.md`.
+- Next: board-to-PC UDP frame sender (synthetic pattern + incrementing frame/packet IDs), then one VDMA frame snapshot; camera transport gates stay per `1_docs/doc/OV5640_PS以太网传输实施计划_2026-09-08.md`.
 
 ## 2026-09-07 OV5640 + PS VDMA + HDMI frozen visual PASS
 
@@ -373,8 +416,8 @@ Vitis Run 日志缺少完整下载/运行流程，调试器反汇编出现无效
 - 开发机迁移：项目根目录现为 `E:\Work\Projects\AMD_proj\FPGA_competition_2026`（本仓库完整克隆），Vivado 2025.2 ML Standard 已装（仅 Zynq-7000 家族）。旧开始菜单快捷方式指向失效路径，桌面快捷方式已修复。
 - 2_fpga 更新：以队友交付的验证版 zip 整体合入——`0_diaplay_test`（hdmi_new V1.8：`adv7511_init_table.sv` 含 CSC 与读回校验，新增 rtl/HDMI TMDS 直出、data_pre、fr_display、ov5640_data_cap；proj display_test 工程；sim 新增 4 个测试台）、`1_zynqtest_2025`（本地恢复，含 ILA，按约定不入库）。合入前旧版已备份至本地 0_assets（不入库）。
 - ADV7511 颜色根因分析（文档级，未板测）：4:2:2 输入映射受 R0x48[4:3] 对齐与 R0x16[3:2] Style 双控制，且寄存器 Style 值与手册编号不对应（Linux 驱动注释佐证）；EES-331 仅接 D[15:0]，Style 2/3 使芯片读 D[23:16] 悬空脚。队友 CSC 直出 RGB 方案已板测通过，维持不动；分析留作 422 直通备援路线资料。证据：`7_logs/2026-09-07/`（HWUG Table 7、EES-331 手册页截图）。
-- AI 侧（3_host）：手势模型 v1 训练完成（YOLOv8n + Roboflow hand-gesture v6，7 类，test mAP50 0.730；Stop/Thumbs up/Up/Down 优秀，Left/Right/Thumbs Down 为弱项）；PC 全链路（摄像头→JPEG→UDP→ONNX CPU→JSON 回传）实测通过，P50 62ms；UDP 协议 v1 定稿于 `1_docs/interface.md`（分片/心跳/异常处理）。
-- 待办：①2025.2 环境基线 bit 复现（Reset Runs→板测彩条）②PS 显示验证 ③lwIP 发帧端（协议见 1_docs/interface.md）④AI 侧自采 Left/Right/Thumbs Down 数据重训 v2 ⑤舵机臂下单 ⑥中期报告 10-09。
+- AI 侧（3_host）：手势模型 v1 训练完成（YOLOv8n + Roboflow hand-gesture v6，7 类，test mAP50 0.730；Stop/Thumbs up/Up/Down 优秀，Left/Right/Thumbs Down 为弱项）；PC 全链路（摄像头→JPEG→UDP→ONNX CPU→JSON 回传）实测通过，P50 62ms；UDP 协议 v1 定稿于 `1_docs/legacy/interface.md`（分片/心跳/异常处理）。
+- 待办：①2025.2 环境基线 bit 复现（Reset Runs→板测彩条）②PS 显示验证 ③lwIP 发帧端（协议见 1_docs/legacy/interface.md）④AI 侧自采 Left/Right/Thumbs Down 数据重训 v2 ⑤舵机臂下单 ⑥中期报告 10-09。
 - 详细记录：`7_logs/2026-09-07/` 四件套。
 
 ## 2026-09-11 SD/PYNQ 摄像头双路输出
@@ -413,3 +456,27 @@ Vitis Run 日志缺少完整下载/运行流程，调试器反汇编出现无效
 - 板测结果：SD 启动正常，OV5640 配置完成 LED 点亮，HDMI 和 PC UDP 上位机都显示随动作变化的实时画面。最初 PC 零帧是网线未连接，插好网线后恢复正常。
 - EES-331 最小系统基线、当前集成镜像和配套启动分区分别归档于 `9_pynq/sd/01_base_ees331`、`02_integrated_camera_hdmi_udp`、`03_boot_partition`；通用 PYNQ-Z2 镜像已退出项目基线，清单见 `9_pynq/sd/manifests/images.json`。
 - 后续写卡、复现和排障从 `9_pynq/sd/README.md` 开始；不要把 224206 镜像描述为已板测版本。
+
+## 2026-09-12 PL 板载蓝牙 UART 诊断工程
+
+- 新入口：`2_fpga/1_ble_test/README.md`；Vivado 2025.2 工程位于
+  `2_fpga/1_ble_test/proj/ble_test_vivado_2025_2`。
+- UART TX、UART RX 和 AT 控制器均已改为严格三段式 FSM：时序状态寄存、组合
+  次态、时序输出/数据通路；三个复位状态均为 `STATE_IDLE`。
+- XSim 重跑已覆盖 `AT\r\n -> OK` PASS 和无响应 timeout FAIL，标记
+  `BLE_RTL_SIM_PASS`。
+- 强制重置综合后重新完成实现和 bitstream：WNS `+2.148 ns`、WHS `+0.083 ns`；
+  当前 bitstream SHA-256 为
+  `B00770EDC2EE381ED195DD2068CE058088F6A5CEF95CDDD6295AC40C897029F8`。
+- 初版 hash `E96E995D...` 因不符合 FSM 编写规范已作废，不得上板。
+- 上板同时使用 `impl_1/ble_test_top.bit` 与 `impl_1/ble_test_top.ltx`。ILA 已含
+  TX/RX、字节、握手、状态、电源和复位信号；LED0/1/2/3 分别为 PASS、timeout、
+  response seen、frame error。
+- 用户已完成上板门禁：LED0--LED7=`10100110` 解码为 PASS=1、timeout=0、
+  response_seen=1、frame_error=0、state=`0110`（`STATE_PASS`）；ILA 以
+  `rx_done==1` 触发并捕获 `rx_data=4F`。AT/UART 有序 `OK` 返回判定为
+  `BLE_PL_UART_AT_RESPONSE_BOARD_PASS`。
+- 当前证明范围是 PL UART 与板载 MLT-BT05 的 AT 响应链路；尚未证明 PC 或机械臂
+  BLE 无线连接、角色、UUID与双向透明传输。下一步保持现有 bitstream，先做 PC
+  扫描和连接验证。完整报告：
+  `4_metrics/logs/2026-09-12_ble_board_at_response_run01/REPORT.md`。

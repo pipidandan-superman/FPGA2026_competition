@@ -1,0 +1,12 @@
+{
+  "best.pt": {
+    "path": "E:\\competition\\3_host\\model\\best.pt",
+    "bytes": 6253226,
+    "sha256": "68db7cacbdd6d9c9a583e1c50a9f5934a3a6b78675b215ec86717827be8bfc79"
+  },
+  "best.onnx": {
+    "path": "E:\\competition\\3_host\\model\\best.onnx",
+    "bytes": 12270488,
+    "sha256": "ac45c457be282ea1d9db819180930b062436ecc834219c3418ff06e9e6bbbf0f"
+  }
+}

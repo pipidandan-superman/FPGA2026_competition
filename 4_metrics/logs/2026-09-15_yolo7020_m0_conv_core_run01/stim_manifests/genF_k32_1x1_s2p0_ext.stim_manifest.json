@@ -1,0 +1,65 @@
+{
+ "name": "genF_k32_1x1_s2p0_ext",
+ "seed": 108,
+ "fill": "extreme",
+ "shape": {
+  "ic": 32,
+  "oc": 3,
+  "kh": 1,
+  "kw": 1,
+  "ih": 13,
+  "iw": 13,
+  "sh": 2,
+  "sw": 2,
+  "ph": 0,
+  "pw": 0,
+  "pad_val": 0,
+  "has_act": 1,
+  "kp": 32,
+  "oh": 7,
+  "ow": 7,
+  "ny": 147
+ },
+ "k_layout": "K = ic*(KH*KW) + kh*KW + kw  (w stored [oc][ic][kh][kw])",
+ "shift_list": [
+  31,
+  31,
+  38
+ ],
+ "m_list": [
+  1073741824,
+  1073741824,
+  -813296165
+ ],
+ "bias_list": [
+  -32515,
+  509,
+  -18666
+ ],
+ "req_param_domain": "v2: tie ch delta +1/-1/+3/+5 (s=31, M=+2^30); sat ch M=+-(2^31-1) s=36; realistic M in [2^28,2^31), s=round(log2((typ+|bias|)*M/target)), first real ch target in [80,120]",
+ "channel_plan": [
+  "tie0",
+  "tie1",
+  "real"
+ ],
+ "specialized_channels": [
+  0,
+  1
+ ],
+ "coverage_stats": {
+  "tie": 56,
+  "sat": 105
+ },
+ "y_distinct": 27,
+ "sha256": {
+  "x_i8.bin": "095cb48db84b272d9bf64ccb6990905426369a5a2f2df3ae547b9da75985808e",
+  "w_i8.bin": "155404452054ac5fe91bec3a67bd3bed3b20cdefa926d7fba7a60c1f2083adfb",
+  "bias_eff_i32.bin": "83162ec37e570ea4b25ea507d5d79fcb78d152bfd415b36a1cdaa03682e98efc",
+  "m_i32.bin": "d51edad5fd6528b6fbef8fd58bc3e86dafbf04e3372e4c694eb516d38ec7f9cc",
+  "shift_u8.bin": "a157da8c9c3ea924bc00104a36d268e93c707a3e4d28c9a19d852e01e22b6676",
+  "lut_i8.bin": "74fd695f7f6bf9047e49c3ec296b2d4c411ef11b4976bfc369e575472017765e",
+  "y_exp_i8.bin": "d76e439ad8c833532b87e0eb6caef7ecc581b81564a1f352e0ddb4c927e3cbf0"
+ },
+ "selfcheck_vec_vs_naive": "PASS",
+ "ref": "intarith.rne_shift/sat_i8 (unique authority)"
+}

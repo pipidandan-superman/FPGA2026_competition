@@ -1,0 +1,20 @@
+﻿[
+    {
+        "path":  "E:\\competition\\4_metrics\\logs\\2026-09-13_axilt_reset_fix_build_run01\\before.bd",
+        "size":  46626,
+        "modified":  "2026-09-12T15:44:40.0841212Z",
+        "sha256":  "C079EF56BB093B89A8E712E793981C04A0B2FE6C76642CC3DAEE16CEBB37C3F5"
+    },
+    {
+        "path":  "E:\\competition\\4_metrics\\logs\\2026-09-13_axilt_reset_fix_build_run01\\build_before.tcl",
+        "size":  5384,
+        "modified":  "2026-09-12T15:43:23.8321217Z",
+        "sha256":  "507C5577D6FBB641C29B4182E2ABDD1EA9E113B44F3AA9DCFCB396A2930597EA"
+    },
+    {
+        "path":  "E:\\competition\\4_metrics\\logs\\2026-09-13_axilt_reset_fix_build_run01\\run.tcl",
+        "size":  225,
+        "modified":  "2026-09-12T17:05:37.9213466Z",
+        "sha256":  "7BE1230C6E7F46472233E7AFF423F6ECF6403ECC197790B2F37A3180D2B4ABC0"
+    }
+]

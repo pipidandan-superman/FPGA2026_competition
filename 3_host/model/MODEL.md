@@ -61,5 +61,15 @@
 
 ## 量化参数（目标机 NPU 部署用，待做）
 
-- 计划 INT8 量化（Ryzen AI VitisAI EP），校准集取 test/train 子集 100~200 张
+- 历史PC侧计划为INT8量化（Ryzen AI VitisAI EP）；校准只能选训练部分或独立代表性图片，禁止使用test集选择尺度、阈值或模型方案。100~200张仅为历史候选数量，不是充分性验收标准。
 - 量化前后 mAP 对比将补充至本文件与 `4_metrics/metrics.csv`
+
+## 2026-09-14：Zynq-7020部署与数据现状
+
+当前工作聚焦PS+PL独立YOLO检测，PC扩展任务暂不实施。采用复用INT8 GEMM、向量/非线性算子及描述符调度；首版分类处理、DFL和NMS放PS。正式路线和数值/资源/视频隔离合同见[硬件部署计划r3](../../1_docs/yolo7020_hardware_deployment_plan_20260914.md)。这不是已完成的硬件模型或NPU部署。
+
+已取得同项目v6 YOLOv8公共包：1893张416×416，train1765/valid59/test69，七类ID顺序匹配。ZIP大小29,538,322字节，SHA-256=`89b828c8bfad60243f790d58d896b5189a7ac6f3c498629fdd931b8179e378b5`。来源、CC BY 4.0元数据、逐类计数和检查边界见[下载与结构校验](../../4_metrics/logs/2026-09-14_gesture_dataset_download_run01/REPORT.md)。ZIP和图片只保存在本地，不上传本次PR。
+
+`PACKAGE_STRUCTURE_PASS`不等于标签语义、框质量、去重/泄漏或新精度通过。上方69张测试指标属于历史训练记录，本轮未重测。仍需独立路径配置、真实场景补充、训练部分校准名单、640/416/320同集FP32对照、硬件一致整数参考与golden。测试集不能参与校准或方案选择；valid/test少数类样本极少，不能凭总体mAP掩盖弱类问题。
+
+原PT/ONNX未修改；`INTEGER_REFERENCE_NOT_IMPLEMENTED / QUANTIZATION_NOT_RUN / RTL_NOT_IMPLEMENTED / BOARD_NOT_RUN`。

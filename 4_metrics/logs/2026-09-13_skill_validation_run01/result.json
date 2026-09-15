@@ -1,0 +1,29 @@
+{
+  "marker": "ZYNQ_PYNQ_SKILL_VALIDATION_PASS",
+  "checks": [
+    {
+      "path": "E:\\competition\\6_skill\\zynq-pynq-overlay-workflow",
+      "exit": 0
+    },
+    {
+      "path": "E:\\competition\\.codex\\skills\\zynq-pynq-overlay-workflow",
+      "exit": 0
+    },
+    {
+      "path": "C:\\Users\\Administrator\\.codex\\skills\\zynq-pynq-overlay-workflow",
+      "exit": 0
+    },
+    {
+      "file": "SKILL.md",
+      "sha256": "26ea969adabc1551e1c91fe15a98b51e98904fef85ad7df636fdd05f3d15527a",
+      "copies_equal": true
+    },
+    {
+      "file": "references/ees331.md",
+      "sha256": "33bcabf62842c6c2a91f2a495f4097ff9e7febd12306efb2af639443f9bae9d5",
+      "copies_equal": true
+    }
+  ],
+  "behavioral_boundary": "No independent hardware execution by validator; based on cited runs",
+  "dependency": "PyYAML==6.0.2 installed only in run-local deps"
+}

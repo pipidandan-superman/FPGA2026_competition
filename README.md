@@ -1,5 +1,15 @@
 # 小月文刀队｜AMD 具身智能赛道
 
+> 全项目进度总览（软件/硬件两部分）：[progress.md](progress.md)。本 README 只保留最近动态，历史细节见 [HANDOFF.md](HANDOFF.md) 与 `7_logs/`。
+
+## 2026-09-15 yolo7020：量化合同板上位级闭环 + G3 卷积引擎 M0–M11 全绿
+
+**软件线**：G2 真 RNE 合同 run04（valid drop −0.0092）为部署源，部署包落位 `2_fpga/3_yolo_zynq/rom_data/`（哈希核对）；PS numpy 运行时离线 128/128 帧位级一致；随后在真实 ARM PS 上全量自检 **128/128 帧 head 位级一致**（box 差异全部为良性 libm ulp 类），45.34s/帧未优化。证据：[run04](4_metrics/logs/2026-09-15_yolo7020_g2_quant_rne_run04/) · [PS 运行时](4_metrics/logs/2026-09-15_yolo7020_ps_runtime_run01/) · [板上自检](4_metrics/logs/2026-09-15_yolo7020_ps_onboard_run01/REPORT.md)。
+
+**硬件线（G3）**：架构基线冻结（[GEMM PE 阵列](1_docs/doc/yolo7020_gemm_pe_architecture_2026-09-15.md)，SIM-8×8/BASE-8×16/PROD-16×16 三实例 + M0–M13 逐模块门）后，单日完成 12 个门全部通过：conv0 标量核 409600/409600 → M0 参数化通用核 11/11（含"合成激励反退化+真实数据回归"假绿教训）→ M1 DSP48E1 双 int8 打包 2^24 穷举 0 败 → M2–M9 单元门全绿 → **M10 阵列集成**（6 层流 438,447 格零差异，揪出 4 个 RTL 缺陷并履行全链重跑义务）→ **M11 全网端到端**（1 帧全 63 卷积 **3,553,900 格逐位零误差** + head sha256 == run04 frame0；65 个 PS 微操作按 intarith 语义执行；k1×1 几何首次覆盖）。RTL 共 12 个 `.v`/`.sv` 文件 + 13 个测试台 + 15 个激励生成/检查脚本，全部 Verilog-2001，每个门独立 run 目录四件套留证（`4_metrics/logs/2026-09-15_yolo7020_m0..m11_*`）。
+
+**边界**：M12（OOC 综合/Vivado）与 M13（板卡整合）未启动，需单独授权；OOC 时序落地前不对外承诺帧率；`2_fpga/0_diaplay_test` 冻结基线未动。本批 RTL/仿真/证据/文档已上传个人分支 `codex/full/pipidandan-superman`（PR 待队友审核）。
+
 ## 2026-09-13 PL重加载v1.4与动作LED复现
 
 当前唯一PL重加载交付为`8_tools/EES331_PL_Reloader_v1.4/`；旧v1.0～v1.3不再发布。固定动作BIT/HWH经v1.4完成两轮A→C上板成功，第二轮发生在用户确认断电重启之后；Stop、Up、Down、Thumbs Up、Thumbs Down均已由用户确认对应LED4/7/1/6/5。当前结论是2/2成功样本，不是长期冷启动稳定性保证。
@@ -106,7 +116,7 @@ PC与板载MLT-BT05已通过短时双向通信：未配对GATT保持61.703秒，
 | FPGA vs. CPU 加速比 | ≥ 5× |
 | AI PC ↔ FPGA RTT | ≤ 5 ms |
 
-详细指标与测量方式见 `1_docs/设计方案_具身智能视觉分拣.md` 第 5 节。
+详细指标与测量方式见 `1_docs/赛题方向/设计方案_具身智能视觉分拣.md` 第 5 节。
 
 ## 现有工程基础
 
@@ -164,7 +174,7 @@ hdmi_out_adv7511_v1_0
 ```text
 competition/
 ├─ README.md
-├─ 1_docs/      # 设计方案、架构、接口、硬件说明与赛题文档
+├─ 1_docs/      # 分类索引见 1_docs/README.md：doc/赛题方向/datasheets/figures/legacy/第三方资料(仅本地)
 ├─ 2_fpga/      # RTL/HLS、构建脚本、.bit/.xsa/.hwh、综合实现报告
 ├─ 3_host/      # 模型、上位机应用、部署脚本与清单
 ├─ 4_metrics/   # metrics.csv、原始日志、测试脚本、截图/波形证据
@@ -178,7 +188,7 @@ competition/
 ## 当前状态
 
 - AMD 具身智能赛道已确定，应用场景已冻结为**视觉识别与自动分拣**；
-- 设计方案已固化至 `1_docs/设计方案_具身智能视觉分拣.md`；
+- 设计方案已固化至 `1_docs/赛题方向/设计方案_具身智能视觉分拣.md`；
 - HDMI ADV7511 RTL、实现、时序和板级显示已完成；
 - PS UART 板级通信已验证；
 - 2026-09-07 冻结 OV5640 → VDMA → DDR → VDMA → HDMI 可视化显示基线；

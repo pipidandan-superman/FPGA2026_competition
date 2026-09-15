@@ -1,0 +1,19 @@
+# vsim +STIM=../stim/acc +WDT_MS=200 -do {run -all; quit -f} -l E:/competition/4_metrics/logs/2026-09-15_yolo7020_m2_acc_run01/sim_acc.log -c -novopt work.tb_yolo_acc 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.tb_yolo_acc
+# Loading work.tb_yolo_acc
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.yolo_acc
+# Loading work.yolo_acc
+# run -all 
+# [tb] acc stim=../stim/acc cycles=7242 lanes=8
+# TB_ACC_PASS compared=57936/57936 (cycles x lanes)
+# ** Note: $finish    : ../tb_yolo_acc.v(121)
+#    Time: 72450 ns  Iteration: 1  Instance: /tb_yolo_acc

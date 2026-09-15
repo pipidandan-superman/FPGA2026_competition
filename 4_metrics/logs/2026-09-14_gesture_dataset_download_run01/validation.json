@@ -1,0 +1,80 @@
+{
+  "download_status": "DOWNLOAD_AND_ZIP_CRC_PASS",
+  "package_check": "PACKAGE_STRUCTURE_PASS",
+  "archive": "E:\\competition\\4_metrics\\logs\\2026-09-14_gesture_dataset_download_run01\\Hand_Gesture_v6_yolov8.zip",
+  "archive_bytes": 29538322,
+  "sha256": "89b828c8bfad60243f790d58d896b5189a7ac6f3c498629fdd931b8179e378b5",
+  "zip_entries": 3798,
+  "uncompressed_bytes": 28484154,
+  "dataset_directory": "E:\\competition\\4_metrics\\logs\\2026-09-14_gesture_dataset_download_run01\\dataset",
+  "data_yaml": {
+    "train": "../train/images",
+    "val": "../valid/images",
+    "test": "../test/images",
+    "nc": 7,
+    "names": [
+      "Down",
+      "Left",
+      "Right",
+      "Stop",
+      "Thumbs Down",
+      "Thumbs up",
+      "Up"
+    ],
+    "roboflow": {
+      "workspace": "yolo-zxvpk",
+      "project": "hand-gesture-r7qgb",
+      "version": 6,
+      "license": "CC BY 4.0",
+      "url": "https://universe.roboflow.com/yolo-zxvpk/hand-gesture-r7qgb/dataset/6"
+    }
+  },
+  "classes_match_model": true,
+  "splits": {
+    "train": {
+      "images": 1765,
+      "labels": 1765,
+      "boxes_per_class_id": {
+        "5": 512,
+        "6": 384,
+        "1": 363,
+        "3": 415,
+        "2": 363,
+        "0": 414,
+        "4": 427
+      }
+    },
+    "valid": {
+      "images": 59,
+      "labels": 59,
+      "boxes_per_class_id": {
+        "2": 10,
+        "1": 14,
+        "0": 18,
+        "6": 30,
+        "5": 4,
+        "4": 4,
+        "3": 1
+      }
+    },
+    "test": {
+      "images": 69,
+      "labels": 69,
+      "boxes_per_class_id": {
+        "0": 26,
+        "6": 25,
+        "2": 15,
+        "5": 8,
+        "4": 3,
+        "1": 14,
+        "3": 2
+      }
+    }
+  },
+  "image_sizes": {
+    "(416, 416)": 1893
+  },
+  "issue_count": 0,
+  "issues": [],
+  "scope": "ZIP CRC, safe paths, image decoding, image-label pairing and YOLO row syntax only. No semantic label audit, no calibration or inference."
+}

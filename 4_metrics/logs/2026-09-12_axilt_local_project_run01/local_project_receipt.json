@@ -1,0 +1,8 @@
+﻿{
+    "marker":  "AXI_LITE_TEST_LOCAL_PROJECT_PASS",
+    "project":  "E:\\competition\\2_fpga\\2_axi_lite_test\\proj\\AXI_LITE_test.xpr",
+    "bd":  "E:\\competition\\2_fpga\\2_axi_lite_test\\proj\\AXI_LITE_test.srcs\\sources_1\\bd\\AXI_LITE_test\\AXI_LITE_test.bd",
+    "evidence":  "E:\\competition\\4_metrics\\logs\\2026-09-12_axilt_local_project_run01",
+    "release":  "E:\\competition\\2_fpga\\2_axi_lite_test\\proj\\release",
+    "board_tested":  false
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "EES-331 ModelSim Backend Simulation"
+  short_description: "Run isolated RTL tests under E:\\competition evidence paths"
+  default_prompt: "Use $modelsim-local-sim to run this RTL test with ModelSim CLI and archive all artifacts under E:/competition/4_metrics/logs."

@@ -1,0 +1,22 @@
+{
+ "name": "dma",
+ "seed": 909,
+ "contract": "linear block fetch; bursts min(words,16,4KB-boundary); little-endian byte stream; backpressured sink",
+ "gold_ref": "AXI BFM data function F(word_addr) murmur-finalize (Verilog TB bit-identical); per-command count + additive checksum mod 2^64",
+ "f_word": "x=wa*K1; x^=x>>31; x*=K2; x^=x>>27 (mod 2^64); K1=9E3779B97F4A7C15 K2=BF58476D1CE4E5B9",
+ "coverage": {
+  "commands": 33,
+  "total_bytes": 210904,
+  "cross4k_commands": 8,
+  "max_bursts_one_cmd": 965,
+  "len_min": 8,
+  "len_max": 123456
+ },
+ "sha256": {
+  "n_cmds.hex": "a4aad4b23085bf018ba22d3e96b58ce68c3138ac592b2f4bf747988dc85d28ee",
+  "cmd_addr.hex": "bfc67a5190fec4de63115b50f47c2745483f635ff486be9e48410ea439c41970",
+  "cmd_len.hex": "7d3d5a254697135e9e9e39f7ea77df53cb007ef2a6eff9746199959b681c9809",
+  "g_count.hex": "7d3d5a254697135e9e9e39f7ea77df53cb007ef2a6eff9746199959b681c9809",
+  "g_sum64.hex": "69f2148ac7b2a202914ec26c8e78e58751039f6851bf5b43e642e9febd8c133e"
+ }
+}

@@ -1,0 +1,10 @@
+{
+  "FP32_640_vs_FP32_416": {
+    "valid_map50_drop": -0.0154,
+    "valid_map_drop": 0.016
+  },
+  "FP32_640_vs_FP32_320": {
+    "valid_map50_drop": -0.0278,
+    "valid_map_drop": 0.0026
+  }
+}

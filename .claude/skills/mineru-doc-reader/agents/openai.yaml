@@ -1,0 +1,4 @@
+interface:
+  display_name: "Competition MinerU Reader"
+  short_description: "Parse project documents with local MinerU evidence"
+  default_prompt: "Use $mineru-doc-reader to parse this project document with MinerU and store complete evidence under 4_metrics/logs."

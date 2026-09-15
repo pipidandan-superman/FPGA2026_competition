@@ -1,0 +1,27 @@
+# vsim +STIM=../stim/m11u +DUMPF=head_dump_unit.bin -do {run -all; quit -f} -l sim_m11_unit_psops.log -c -novopt work.tb_yolo_fullnet 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading work.tb_yolo_fullnet
+# Loading work.yolo_gemm_array
+# Loading work.yolo_ctrl
+# Loading work.yolo_dma
+# Loading work.yolo_addrgen
+# Loading work.yolo_wbuf
+# Loading work.yolo_xbuf
+# Loading work.yolo_acc
+# Loading work.yolo_requant
+# Loading work.yolo_silu_lut
+# Loading work.yolo_pe_pack
+# run -all 
+# [tb] m11 stim=../stim/m11u img_words=576 prog_words=40 maxconv=63
+# [tb] heads dumped 1152 bytes -> head_dump_unit.bin
+# TB_FULLNET_FAIL err=0 dbl=0 unwritten=0 dut_wr=0(exp 0) convs=0(exp 63) psops=5 head_bytes=1152 ldone=0 adone=0 first=(c0,i0)
+# ** Note: $finish    : ../tb_yolo_fullnet.v(670)
+#    Time: 240 ns  Iteration: 1  Instance: /tb_yolo_fullnet

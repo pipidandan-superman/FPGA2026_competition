@@ -1,0 +1,32 @@
+NEW_RUN_ALREADY_EXISTS=False
+
+Algorithm : SHA256
+Hash      : 68DB7CACBDD6D9C9A583E1C50A9F5934A3A6B78675B215EC86717827BE8BFC79
+Path      : E:\competition\3_host\model\best.pt
+
+Algorithm : SHA256
+Hash      : AC45C457BE282EA1D9DB819180930B062436ECC834219C3418FF06E9E6BBBF0F
+Path      : E:\competition\3_host\model\best.onnx
+
+ORT_STATIC_QUANT_API_FILE_EXISTS=True
+479:def quantize_static(
+DATASET_MANIFEST_OR_ARCHIVE_PATTERN_MATCH_COUNT=0
+MATCHING_HISTORICAL_RAW_BGR_COUNT=3
+
+FullName : E:\competition\4_metrics\logs\2026-09-11_pynq_camera_run01\hdmi01_first.bgr
+Length   : 921600
+
+FullName : E:\competition\4_metrics\logs\2026-09-11_pynq_camera_run01\pc_reboot\pc_latest.bgr
+Length   : 921600
+
+FullName : E:\competition\4_metrics\logs\2026-09-11_pynq_camera_run01\pc_live\pc_latest.bgr
+Length   : 921600
+
+{
+    "workspace":  "E:\\competition",
+    "skill_count":  15,
+    "pass":  true,
+    "failures":  [
+
+                 ]
+}

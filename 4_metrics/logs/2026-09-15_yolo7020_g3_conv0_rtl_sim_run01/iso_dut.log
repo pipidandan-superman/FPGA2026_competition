@@ -1,0 +1,3 @@
+# vsim -do {quit -f} -l iso_dut.log -c work.yolo_conv0_core 
+# ** Note: (vsim-3812) Design is being optimized...
+# 

@@ -8,7 +8,7 @@
 
 ## 2. 系统架构与硬件搭建
 
-引用 `1_docs/architecture.md`、`1_docs/interface.md` 和 `1_docs/hardware_setup.md`，给出系统框图、
+引用 `1_docs/legacy/architecture.md`、`1_docs/legacy/interface.md` 和 `1_docs/legacy/hardware_setup.md`，给出系统框图、
 数据流、接口协议、板卡连接和供电方案。
 
 ## 3. AI PC/主机侧

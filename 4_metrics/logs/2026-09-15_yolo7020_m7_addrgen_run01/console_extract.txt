@@ -1,0 +1,38 @@
+# M7 addrgen gate — console extract (raw transcript: sim_addrgen.log)
+# 1) stimulus generation (real goldens + 6 synthetic geometries)
+$ python addrgen_vecgen.py
+[stim] addrgen: 145 tiles / 67918 beats (pad=2846 nopad=65072 p-128=1822 p0=1024 real=30240), manifest written
+# (generator-internal asserts: pad>=1000, nopad>=10000, pad -128/0 each >=500,
+#  ic rollover / ox wrap / oy increment events >=1; real-tensor data closure
+#  x.flat[addr] == numpy window value for every real beat = PASS)
+
+# 2) compile
+$ vlog -work work ../../rtl/yolo_addrgen.v ../tb_yolo_addrgen.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module yolo_addrgen
+-- Compiling module tb_yolo_addrgen
+Top level modules:
+	tb_yolo_addrgen
+
+# 3) simulate — run 1: TB sampling skew caught before acceptance
+$ vsim ... work.tb_yolo_addrgen
+# [tb] first mismatch @tile=0 beat=0 addr=0(exp 0) pad=1(exp 1) pv=128(exp 128) k=1(exp 0) n=0(exp 0)
+# TB_ADDRGEN_FAIL errors=68063
+# (root cause: addrgen outputs are combinational on the counters; beat 0 lives
+#  in the cycle right after the descriptor-capture posedge, which the TB's
+#  @(posedge)-first loop skipped. RTL unchanged; TB sampling moved to the
+#  stable window negedge+#1.)
+
+# 4) simulate — run 2 (accepted; raw: sim_addrgen.log)
+$ vsim -c -novopt +STIM=../stim/addrgen +WDT_MS=400 \
+       -do "run -all; quit -f" -l .../sim_addrgen.log work.tb_yolo_addrgen
+# [tb] addrgen stim=../stim/addrgen tiles=145
+# TB_ADDRGEN_PASS compared=67918 beats across 145 tiles
+# ** Note: $finish    : ../tb_yolo_addrgen.v(204)
+#    Time: 683560 ns  Iteration: 1  Instance: /tb_yolo_addrgen
+
+GATE RESULT: TB_ADDRGEN_PASS — 67918/67918 beats (x_addr/pad/pad_val/k/n
+every beat) + done-pulse/vld-drop checks per tile, across 145 tiles.
+
+# 5) stimulus integrity
+$ sha256sum *.hex stim_manifest.json -> stim_sha256.txt (9 files)

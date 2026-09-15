@@ -1,0 +1,28 @@
+# vsim +STIM=../stim/conv0_golden00 +PARTIAL=500 -do {run 346 ns; examine -radix signed sim:/tb_yolo_conv0/dut/acc; examine -radix signed sim:/tb_yolo_conv0/dut/bias_rdata; examine -radix signed sim:/tb_yolo_conv0/dut/m_rdata; examine -radix signed sim:/tb_yolo_conv0/dut/shift_rdata; examine -radix signed sim:/tb_yolo_conv0/dut/sum_b; examine -radix signed sim:/tb_yolo_conv0/dut/prod; quit -f} -l dbg2.log -c -novopt work.tb_yolo_conv0 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading work.tb_yolo_conv0
+# Loading work.yolo_conv0_core
+# run 346 ns 
+# [tb] stim=../stim/conv0_golden00 partial=500
+#  examine -radix signed sim:/tb_yolo_conv0/dut/acc 
+# 0
+#  examine -radix signed sim:/tb_yolo_conv0/dut/bias_rdata 
+# 4209
+#  examine -radix signed sim:/tb_yolo_conv0/dut/m_rdata 
+# 1840478927
+#  examine -radix signed sim:/tb_yolo_conv0/dut/shift_rdata 
+# 41
+#  examine -radix signed sim:/tb_yolo_conv0/dut/sum_b 
+# 4294939393
+#  examine -radix signed sim:/tb_yolo_conv0/dut/prod 
+# 7904745445558671311
+#  quit -f 

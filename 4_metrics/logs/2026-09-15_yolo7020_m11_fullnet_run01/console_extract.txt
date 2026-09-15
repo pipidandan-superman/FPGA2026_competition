@@ -1,0 +1,32 @@
+M11 gate console extract (grep-able PASS tokens; raw logs in this dir)
+
+== bring-up smokes (tb_yolo_fullnet.v, same work lib as gate run) ==
+# TB_FULLNET_SMOKE convs=2 psops=0 compared=614400 dut_wr=614400 head_bytes=0 ldone=2 adone=1
+# TB_FULLNET_SMOKE convs=3 psops=2 compared=819200 dut_wr=819200 head_bytes=0 ldone=3 adone=1
+# TB_FULLNET_SMOKE convs=5 psops=6 compared=1024000 dut_wr=1024000 head_bytes=0 ldone=5 adone=1
+
+== PS-op unit check (maxpool5/upsample2/add/rscl vs intarith.py) ==
+# [tb] heads dumped 1152 bytes -> head_dump_unit.bin
+  (TB verdict line on this stim reads FAIL by design: 0 of 63 convs run on a
+   PS-op-only program; the unit criterion is the external byte compare)
+M11_PSOP_UNIT_PASS  (1152/1152 bytes bitwise vs intarith expected chain)
+
+== gate run (sim_m11_full_run02.log, 2026-09-15 21:0x) ==
+# [tb] m11 stim=../stim/m11 img_words=1665001 prog_words=2178 maxconv=63
+# [tb] conv 62/63 task=102 done @t=1356360260000 oc=7 n=100 k=64 acc_err=0
+# [tb] heads dumped 149100 bytes -> head_dump.bin
+# TB_FULLNET_PASS convs=63 psops=65 compared=3553900 dut_wr=3553900 head_bytes=149100 ldone=63 adone=1
+  (every one of the 63 per-conv lines reports acc_err=0)
+
+== head closure vs run04 (headcheck.out, m11_headcheck.py) ==
+[m11chk] dump=head_dump.bin bytes=149100 sha=9ce70525fc1732cd... ref=9ce70525fc1732cd... MATCH
+[m11chk] split 149100/149100 bytes vs npz -> model.22.cv2.0.2:102400, model.22.cv2.1.2:25600, model.22.cv2.2.2:6400, model.22.cv3.0.2:11200, model.22.cv3.1.2:2800, model.22.cv3.2.2:700
+M11_HEADCHK_PASS sha256=9ce70525fc1732cde640bfa654919dd28504422aa9791a2875225ae6ad6aa6ad bytes=149100
+
+== failure chain (kept per evidence rules) ==
+sim_m11_full_run01.log: # TB_FULLNET_FAIL (timeout) t=817405952000 conv=41 ywr=2807168 ps=60
+  -> TB watchdog bug, NOT a DUT fault: '#(wdt_ms * 1_000_000)' evaluated in
+     32-bit integer; 3.6e12 mod 2^32 = 817,405,952 = the exact timeout
+     instant. DUT was at conv 41 with acc_err=0 throughout when killed.
+     Fix: 64-bit time variable (tb_yolo_fullnet.v watchdog block). M10 never
+     tripped this because 900000*1e6 = 9e8 < 2^31.

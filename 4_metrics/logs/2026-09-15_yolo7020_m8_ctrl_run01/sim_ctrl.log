@@ -1,0 +1,17 @@
+# vsim +STIM=../stim/ctrl +WDT_MS=60000 -do {run -all; quit -f} -l E:/competition/4_metrics/logs/2026-09-15_yolo7020_m8_ctrl_run01/sim_ctrl.log -c -novopt work.tb_yolo_ctrl 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading work.tb_yolo_ctrl
+# Loading work.yolo_ctrl
+# run -all 
+# [tb] ctrl stim=../stim/ctrl cycles=695092
+# TB_CTRL_PASS compared=695092 cycles (15 outputs/cycle) ldone=23 alldone=1
+# ** Note: $finish    : ../tb_yolo_ctrl.v(209)
+#    Time: 6950950 ns  Iteration: 1  Instance: /tb_yolo_ctrl

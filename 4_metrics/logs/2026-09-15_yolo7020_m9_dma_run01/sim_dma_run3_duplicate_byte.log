@@ -1,0 +1,176 @@
+# vsim +STIM=../stim/dma +WDT_MS=60000 -do {run -all; quit -f} -l E:/competition/4_metrics/logs/2026-09-15_yolo7020_m9_dma_run01/sim_dma.log -c -novopt work.tb_yolo_dma 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.tb_yolo_dma
+# Loading work.tb_yolo_dma
+# Loading work.yolo_dma
+# run -all 
+# [tb] dma stim=../stim/dma cmds=33
+# [tb] ERR byte @cmd3 idx 10: got a0 exp f4
+# [tb] ERR byte @cmd3 idx 11: got f4 exp da
+# [tb] ERR byte @cmd3 idx 12: got da exp 88
+# [tb] ERR byte @cmd3 idx 13: got 88 exp 2e
+# [tb] ERR byte @cmd3 idx 14: got 2e exp 6b
+# [tb] ERR byte @cmd3 idx 15: got 6b exp 90
+# [tb] ERR byte @cmd3 idx 16: got 90 exp 34
+# [tb] ERR byte @cmd3 idx 17: got 34 exp 29
+# [tb] ERR byte @cmd3 idx 18: got 29 exp 52
+# [tb] ERR byte @cmd3 idx 19: got 52 exp 00
+# [tb] ERR byte @cmd3 idx 20: got 00 exp 40
+# [tb] ERR byte @cmd3 idx 21: got 40 exp 37
+# [tb] ERR byte @cmd3 idx 22: got 37 exp 8e
+# [tb] ERR byte @cmd3 idx 23: got 8e exp 9b
+# [tb] ERR byte @cmd3 idx 24: got 9b exp b7
+# [tb] ERR byte @cmd3 idx 25: got b7 exp d4
+# [tb] ERR byte @cmd3 idx 26: got d4 exp 1b
+# [tb] ERR byte @cmd3 idx 27: got 1b exp de
+# [tb] ERR byte @cmd3 idx 28: got de exp 00
+# [tb] ERR cmd 3 count 129 exp 128
+# [tb] ERR cmd 3 sum 0000000000003e70 exp 0000000000003dd0
+# [tb] ERR cmd 4 count 137 exp 136
+# [tb] ERR cmd 4 sum 0000000000004304 exp 0000000000004297
+# [tb] ERR cmd 5 count 266 exp 264
+# [tb] ERR cmd 5 sum 0000000000008ba4 exp 0000000000008a95
+# [tb] ERR AR overfetch: beats 16 left 256
+# [tb] ERR cmd 6 count 2063 exp 2048
+# [tb] ERR cmd 6 sum 000000000003fc47 exp 000000000003f3be
+# [tb] ERR AR overfetch: beats 1 left 512
+# [tb] ERR AR overfetch: beats 16 left 271
+# [tb] ERR cmd 7 count 4128 exp 4096
+# [tb] ERR cmd 7 sum 00000000000824f8 exp 00000000000812f3
+# [tb] ERR AR overfetch: beats 8 left 1536
+# [tb] ERR AR overfetch: beats 16 left 1288
+# [tb] ERR AR overfetch: beats 16 left 1032
+# [tb] ERR AR overfetch: beats 16 left 776
+# [tb] ERR AR overfetch: beats 16 left 520
+# [tb] ERR AR overfetch: beats 16 left 264
+# [tb] ERR cmd 8 count 12384 exp 12288
+# [tb] ERR cmd 8 sum 0000000000182ef7 exp 000000000018027a
+# [tb] ERR AR overfetch: beats 16 left 8192
+# [tb] ERR AR overfetch: beats 16 left 7936
+# [tb] ERR AR overfetch: beats 16 left 7680
+# [tb] ERR AR overfetch: beats 16 left 7424
+# [tb] ERR AR overfetch: beats 16 left 7168
+# [tb] ERR AR overfetch: beats 16 left 6912
+# [tb] ERR AR overfetch: beats 16 left 6656
+# [tb] ERR AR overfetch: beats 16 left 6400
+# [tb] ERR AR overfetch: beats 16 left 6144
+# [tb] ERR AR overfetch: beats 16 left 5888
+# [tb] ERR AR overfetch: beats 16 left 5632
+# [tb] ERR AR overfetch: beats 16 left 5376
+# [tb] ERR AR overfetch: beats 16 left 5120
+# [tb] ERR AR overfetch: beats 16 left 4864
+# [tb] ERR AR overfetch: beats 16 left 4608
+# [tb] ERR AR overfetch: beats 16 left 4352
+# [tb] ERR AR overfetch: beats 16 left 4096
+# [tb] ERR AR overfetch: beats 16 left 3840
+# [tb] ERR AR overfetch: beats 16 left 3584
+# [tb] ERR AR overfetch: beats 16 left 3328
+# [tb] ERR AR overfetch: beats 16 left 3072
+# [tb] ERR AR overfetch: beats 16 left 2816
+# [tb] ERR AR overfetch: beats 16 left 2560
+# [tb] ERR AR overfetch: beats 16 left 2304
+# [tb] ERR AR overfetch: beats 16 left 2048
+# [tb] ERR AR overfetch: beats 16 left 1792
+# [tb] ERR AR overfetch: beats 16 left 1536
+# [tb] ERR AR overfetch: beats 16 left 1280
+# [tb] ERR AR overfetch: beats 16 left 1024
+# [tb] ERR AR overfetch: beats 16 left 768
+# [tb] ERR AR overfetch: beats 16 left 512
+# [tb] ERR AR overfetch: beats 16 left 256
+# [tb] ERR cmd 9 count 66047 exp 65536
+# [tb] ERR cmd 9 sum 000000000080d931 exp 00000000007fd67e
+# [tb] ERR AR overfetch: beats 16 left 15368
+# [tb] ERR AR overfetch: beats 16 left 15112
+# [tb] ERR AR overfetch: beats 16 left 14856
+# [tb] ERR AR overfetch: beats 16 left 14600
+# [tb] ERR AR overfetch: beats 16 left 14344
+# [tb] ERR AR overfetch: beats 16 left 14088
+# [tb] ERR AR overfetch: beats 16 left 13832
+# [tb] ERR AR overfetch: beats 16 left 13576
+# [tb] ERR AR overfetch: beats 16 left 13320
+# [tb] ERR AR overfetch: beats 16 left 13064
+# [tb] ERR AR overfetch: beats 16 left 12808
+# [tb] ERR AR overfetch: beats 16 left 12552
+# [tb] ERR AR overfetch: beats 16 left 12296
+# [tb] ERR AR overfetch: beats 16 left 12040
+# [tb] ERR AR overfetch: beats 16 left 11784
+# [tb] ERR AR overfetch: beats 16 left 11528
+# [tb] ERR AR overfetch: beats 16 left 11272
+# [tb] ERR AR overfetch: beats 16 left 11016
+# [tb] ERR AR overfetch: beats 16 left 10760
+# [tb] ERR AR overfetch: beats 16 left 10504
+# [tb] ERR AR overfetch: beats 16 left 10248
+# [tb] ERR AR overfetch: beats 16 left 9992
+# [tb] ERR AR overfetch: beats 16 left 9736
+# [tb] ERR AR overfetch: beats 16 left 9480
+# [tb] ERR AR overfetch: beats 16 left 9224
+# [tb] ERR AR overfetch: beats 16 left 8968
+# [tb] ERR AR overfetch: beats 16 left 8712
+# [tb] ERR AR overfetch: beats 16 left 8456
+# [tb] ERR AR overfetch: beats 16 left 8200
+# [tb] ERR AR overfetch: beats 16 left 7944
+# [tb] ERR AR overfetch: beats 16 left 7688
+# [tb] ERR AR overfetch: beats 16 left 7432
+# [tb] ERR AR overfetch: beats 16 left 7176
+# [tb] ERR AR overfetch: beats 16 left 6920
+# [tb] ERR AR overfetch: beats 16 left 6664
+# [tb] ERR AR overfetch: beats 16 left 6408
+# [tb] ERR AR overfetch: beats 16 left 6152
+# [tb] ERR AR overfetch: beats 16 left 5896
+# [tb] ERR AR overfetch: beats 16 left 5640
+# [tb] ERR AR overfetch: beats 16 left 5384
+# [tb] ERR AR overfetch: beats 16 left 5128
+# [tb] ERR AR overfetch: beats 16 left 4872
+# [tb] ERR AR overfetch: beats 16 left 4616
+# [tb] ERR AR overfetch: beats 16 left 4360
+# [tb] ERR AR overfetch: beats 16 left 4104
+# [tb] ERR AR overfetch: beats 16 left 3848
+# [tb] ERR AR overfetch: beats 16 left 3592
+# [tb] ERR AR overfetch: beats 16 left 3336
+# [tb] ERR AR overfetch: beats 16 left 3080
+# [tb] ERR AR overfetch: beats 16 left 2824
+# [tb] ERR AR overfetch: beats 16 left 2568
+# [tb] ERR AR overfetch: beats 16 left 2312
+# [tb] ERR AR overfetch: beats 16 left 2056
+# [tb] ERR AR overfetch: beats 16 left 1800
+# [tb] ERR AR overfetch: beats 16 left 1544
+# [tb] ERR AR overfetch: beats 16 left 1288
+# [tb] ERR AR overfetch: beats 16 left 1032
+# [tb] ERR AR overfetch: beats 16 left 776
+# [tb] ERR AR overfetch: beats 16 left 520
+# [tb] ERR AR overfetch: beats 16 left 264
+# [tb] ERR cmd 10 count 124420 exp 123456
+# [tb] ERR cmd 10 sum 0000000000f28156 exp 0000000000f09511
+# [tb] ERR cmd 11 count 177 exp 176
+# [tb] ERR cmd 11 sum 000000000000575d exp 0000000000005695
+# [tb] ERR cmd 14 count 161 exp 160
+# [tb] ERR cmd 14 sum 0000000000004cea exp 0000000000004cb2
+# [tb] ERR cmd 16 count 233 exp 232
+# [tb] ERR cmd 16 sum 0000000000007a80 exp 0000000000007a62
+# [tb] ERR cmd 19 count 177 exp 176
+# [tb] ERR cmd 19 sum 0000000000005d2e exp 0000000000005c3a
+# [tb] ERR cmd 21 count 241 exp 240
+# [tb] ERR cmd 21 sum 0000000000007b29 exp 0000000000007a6f
+# [tb] ERR cmd 22 count 233 exp 232
+# [tb] ERR cmd 22 sum 0000000000006f65 exp 0000000000006ee5
+# [tb] ERR cmd 26 count 121 exp 120
+# [tb] ERR cmd 26 sum 0000000000004199 exp 00000000000040a5
+# [tb] ERR cmd 27 count 169 exp 168
+# [tb] ERR cmd 27 sum 0000000000005329 exp 000000000000522c
+# [tb] ERR cmd 28 count 249 exp 248
+# [tb] ERR cmd 28 sum 00000000000077f2 exp 0000000000007765
+# [tb] ERR cmd 29 count 225 exp 224
+# [tb] ERR cmd 29 sum 0000000000006f18 exp 0000000000006e69
+# [tb] ERR cmd 31 count 137 exp 136
+# [tb] ERR cmd 31 sum 0000000000004588 exp 00000000000044f4
+# TB_DMA_FAIL errors=209159 done=33/33
+# ** Note: $finish    : ../tb_yolo_dma.v(323)
+#    Time: 6068480 ns  Iteration: 1  Instance: /tb_yolo_dma

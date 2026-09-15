@@ -1,0 +1,22 @@
+# vsim +STIM=../stim/wbuf +WDT_MS=1000 -do {run -all; quit -f} -c -novopt work.tb_yolo_wbuf 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.tb_yolo_wbuf
+# Loading work.tb_yolo_wbuf
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.yolo_wbuf
+# Loading work.yolo_wbuf
+# run -all 
+# [tb] wbuf stim=../stim/wbuf ops=97205
+# ** Warning: (vsim-PLI-3406) Too many digits (36) in data on line 482 of file "../stim/wbuf/edout_i128.hex". (Max is 32.)    : ../tb_yolo_wbuf.v(129)
+#    Time: 0 ps  Iteration: 0  Instance: /tb_yolo_wbuf
+# [tb] first mismatch @op=481 op_type=5 dout=306797218187641522383018159971828767229(exp x) dv=1(exp 1) pd=0(exp 0) pv=0(exp 0)
+# TB_WBUF_FAIL errors=96724 first_op=481
+# ** Note: $finish    : ../tb_yolo_wbuf.v(193)
+#    Time: 972080 ns  Iteration: 1  Instance: /tb_yolo_wbuf
