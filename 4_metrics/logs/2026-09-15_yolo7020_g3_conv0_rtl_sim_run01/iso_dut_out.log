@@ -1,0 +1,7 @@
+Reading D:/work/modelsim/tcl/vsim/pref.tcl 
+
+# 10.1c
+
+# vsim -do {quit -f} -l iso_dut.log -c work.yolo_conv0_core 
+# ** Note: (vsim-3812) Design is being optimized...
+# 

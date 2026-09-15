@@ -55,3 +55,19 @@ golden 激励逐字节零差异 —— G3 单模块 RTL vs golden 位级一致�
 2. 并行/流水化架构（数值不变式：整数累加次序无关）
 3. OOC 综合（时序/资源）
 4. B1：单 conv 上板（需用户单独授权）
+
+## 原始 transcript（2026-09-15 晚补录，未改动）
+
+本目录建立时原始 console 输出留在 `2_fpga/3_yolo_zynq/sim/msim/` 未随目录
+归档，现按四件套规则补录（19 件，逐字节复制、不改名不裁剪，sha256 见
+`transcript_sha256.txt`）：
+
+- 编译/启动探针：`vlog_tb.log`、`vlog_all.log`、`vlog_fix1.log`、
+  `vsim_startup_test.log`（vsim 挂死排查）、`iso_dut.log`、`iso_dut_out.log`
+- 冒烟链：`smoke.log`（421/500 错）、`smoke2.log`（163/500 错）、
+  `smoke3.log`（500/500 PASS）、`smoke4.log` + 各 `*_stdout.log`
+- 逐 tap 定位：`dbg1.log`–`dbg4.log`（pad 常数符号性 bug 证据）
+- 门运行：`full00.log`、`full02.log`（各 409600/409600 PASS）
+
+激励为 golden 派生确定性数据（无随机种子），三方自检见
+`sim/golden_extract.py`；`console_extract.txt` 维持原状。

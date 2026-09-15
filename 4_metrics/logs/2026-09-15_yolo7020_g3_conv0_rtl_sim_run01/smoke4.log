@@ -1,0 +1,19 @@
+# vsim +STIM=../stim/conv0_golden00 +PARTIAL=500 -do {run -all; quit -f} -l smoke4.log -c -novopt work.tb_yolo_conv0 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.tb_yolo_conv0
+# Loading sv_std.std
+# Loading work.tb_yolo_conv0
+# Loading work.yolo_conv0_core
+# run -all 
+# [tb] stim=../stim/conv0_golden00 partial=500
+# TB_CONV0_PASS compared=500/409600 (stim=../stim/conv0_golden00)
+# ** Note: $finish    : E:/competition/2_fpga/3_yolo_zynq/sim/tb_yolo_conv0.sv(108)
+#    Time: 145075 ns  Iteration: 1  Instance: /tb_yolo_conv0
