@@ -1,0 +1,19 @@
+# vsim +STIM=../stim/requant +WDT_MS=400 -do {run -all; quit -f} -l E:/competition/4_metrics/logs/2026-09-15_yolo7020_m5_requant_run01/sim_requant.log -c -novopt work.tb_yolo_requant 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.tb_yolo_requant
+# Loading work.tb_yolo_requant
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.yolo_requant
+# Loading work.yolo_requant
+# run -all 
+# [tb] requant stim=../stim/requant vectors=22493
+# TB_REQUANT_PASS compared=22493 vectors (y_pre+vld)
+# ** Note: $finish    : ../tb_yolo_requant.v(118)
+#    Time: 224960 ns  Iteration: 1  Instance: /tb_yolo_requant

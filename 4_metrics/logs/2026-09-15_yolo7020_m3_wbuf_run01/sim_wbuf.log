@@ -1,0 +1,17 @@
+# vsim +STIM=../stim/wbuf +WDT_MS=1000 -do {run -all; quit -f} -l E:/competition/4_metrics/logs/2026-09-15_yolo7020_m3_wbuf_run01/sim_wbuf.log -c -novopt work.tb_yolo_wbuf 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading work.tb_yolo_wbuf
+# Loading work.yolo_wbuf
+# run -all 
+# [tb] wbuf stim=../stim/wbuf ops=98239
+# TB_WBUF_PASS compared=98239 ops (dout+vld+pdata+pvld)
+# ** Note: $finish    : ../tb_yolo_wbuf.v(193)
+#    Time: 982420 ns  Iteration: 1  Instance: /tb_yolo_wbuf

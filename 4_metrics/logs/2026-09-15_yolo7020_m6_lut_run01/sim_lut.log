@@ -1,0 +1,19 @@
+# vsim +STIM=../stim/lutmod +WDT_MS=200 -do {run -all; quit -f} -l E:/competition/4_metrics/logs/2026-09-15_yolo7020_m6_lut_run01/sim_lut.log -c -novopt work.tb_yolo_silu_lut 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.tb_yolo_silu_lut
+# Loading work.tb_yolo_silu_lut
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.yolo_silu_lut
+# Loading work.yolo_silu_lut
+# run -all 
+# [tb] lutmod stim=../stim/lutmod ops=2680
+# TB_LUT_PASS compared=1400 reads (y+vld)
+# ** Note: $finish    : ../tb_yolo_silu_lut.v(141)
+#    Time: 26830 ns  Iteration: 1  Instance: /tb_yolo_silu_lut

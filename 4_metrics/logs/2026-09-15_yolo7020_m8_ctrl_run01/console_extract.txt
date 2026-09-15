@@ -1,0 +1,41 @@
+# M8 ctrl gate — console extract (raw transcript: sim_ctrl.log)
+
+# 1) stimulus generation (seed 808; final version — post-edge golden)
+$ python ctrl_vecgen.py
+[stim] ctrl: 695092 cycles (layers=23 tiles=2271 k_beats=115672 rq_beats=577057 bank_toggles=2248), manifest written
+# (generator-internal asserts: 15 K tiers full set, 5 N tiers full set,
+#  n_tail events >=100, oc_tail events >=50, acc_clr == tile total 2271,
+#  layer_done == 23, all_done == 1, bank toggles == 2271-23 = 2248)
+
+# 2) compile (after reserved-word self-catch: tail_calc arg 'edge' -> 't_edge')
+$ vlog -work work ../../rtl/yolo_ctrl.v ../tb_yolo_ctrl.v
+Model Technology ModelSim SE-64 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module yolo_ctrl
+-- Compiling module tb_yolo_ctrl
+Top level modules:
+	tb_yolo_ctrl
+
+# 3) simulate — run 1: golden emission-point skew (RTL/TB untouched)
+$ vsim -c -novopt +STIM=../stim/ctrl +WDT_MS=60000 -do "run -all; quit -f" work.tb_yolo_ctrl
+# [tb] ctrl stim=../stim/ctrl cycles=695092
+# [tb] first mismatch @cyc=4 rdy=0(exp 1) busy=1(exp 0) clr=1(exp 0) ... banks=1/1(exp 0/0) tails=16/0(exp 16/0)
+# TB_CTRL_FAIL errors=695046 first_cyc=4
+# (root cause: golden emitted pre-edge state while the TB samples after the
+#  clock edge that consumes the cycle's inputs -- Moore golden must step
+#  BEFORE emitting (post-edge convention, same as the wbuf/xbuf 1-cycle
+#  read). Fixed by swapping append/step order in ctrl_vecgen.emit().)
+
+# 4) simulate — run 2 (accepted; raw: sim_ctrl.log)
+$ vsim -c -novopt +STIM=../stim/ctrl +WDT_MS=60000 -do "run -all; quit -f" \
+       -l .../sim_ctrl.log work.tb_yolo_ctrl
+# [tb] ctrl stim=../stim/ctrl cycles=695092
+# TB_CTRL_PASS compared=695092 cycles (15 outputs/cycle) ldone=23 alldone=1
+# ** Note: $finish    : ../tb_yolo_ctrl.v(209)
+#    Time: 6950950 ns  Iteration: 1  Instance: /tb_yolo_ctrl
+
+GATE RESULT: TB_CTRL_PASS — 695092/695092 cycles x 15 outputs, 23 layers /
+2271 tiles / all 15 K tiers / all 5 N tiers / tail clamps / back-to-back and
+gapped layer switches / single all_done.
+
+# 5) stimulus integrity
+$ sha256sum *.hex stim_manifest.json -> stim_sha256.txt (22 files)

@@ -1,0 +1,103 @@
+# vsim +STIM=../stim/m10 +WDT_MS=900000 -do {run -all; quit -f} -l E:/competition/2_fpga/3_yolo_zynq/sim/msim/sim_m10_run1.log -c -novopt work.tb_yolo_gemm_array 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading work.tb_yolo_gemm_array
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.yolo_gemm_array
+# Loading work.yolo_gemm_array
+# Loading work.yolo_ctrl
+# Loading work.yolo_dma
+# Loading work.yolo_addrgen
+# Loading work.yolo_wbuf
+# Loading work.yolo_xbuf
+# Loading work.yolo_acc
+# Loading work.yolo_requant
+# Loading work.yolo_silu_lut
+# Loading work.yolo_conv_core
+# Loading work.yolo_pe_pack
+# ** Warning: (vsim-3015) ../tb_yolo_gemm_array.v(368): [PCDPC] - Port size (13 or 13) does not match connection size (8) for port 'x_addr_o'. The port definition is at: ../../rtl/yolo_conv_core.v(64).
+# 
+#         Region: /tb_yolo_gemm_array/u_g2
+# ** Warning: (vsim-3015) ../tb_yolo_gemm_array.v(381): [PCDPC] - Port size (13 or 13) does not match connection size (8) for port 'x_addr_o'. The port definition is at: ../../rtl/yolo_conv_core.v(64).
+# 
+#         Region: /tb_yolo_gemm_array/u_g3
+# ** Warning: (vsim-3015) ../tb_yolo_gemm_array.v(381): [PCDPC] - Port size (10 or 10) does not match connection size (8) for port 'w_addr_o'. The port definition is at: ../../rtl/yolo_conv_core.v(66).
+# 
+#         Region: /tb_yolo_gemm_array/u_g3
+# ** Warning: (vsim-3015) ../tb_yolo_gemm_array.v(394): [PCDPC] - Port size (13 or 13) does not match connection size (8) for port 'x_addr_o'. The port definition is at: ../../rtl/yolo_conv_core.v(64).
+# 
+#         Region: /tb_yolo_gemm_array/u_g5
+# ** Warning: (vsim-3015) ../tb_yolo_gemm_array.v(394): [PCDPC] - Port size (15 or 15) does not match connection size (8) for port 'w_addr_o'. The port definition is at: ../../rtl/yolo_conv_core.v(66).
+# 
+#         Region: /tb_yolo_gemm_array/u_g5
+# run -all 
+# [tb] m10 stim=../stim/m10 layers=6 img_words=65621 total_out=438447
+# [tb] ERROR double DUT write L=0 addr=49
+# [tb] layer 0 done @t=28786000 (oc=7 n=49 k=27)
+# [tb] heartbeat t=10000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=20000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=30000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=40000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=50000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=60000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=70000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=80000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=90000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=100000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=110000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=120000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=130000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=140000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=150000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=160000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=170000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=180000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=190000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=200000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=210000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=220000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=230000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=240000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=250000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=260000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=270000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=280000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=290000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=300000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=310000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=320000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=330000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=340000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=350000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=360000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=370000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=380000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=390000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=400000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=410000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=420000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=430000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=440000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=450000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=460000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=470000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=480000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=490000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=500000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=510000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=520000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=530000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=540000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=550000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=560000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=570000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=580000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=590000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=600000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=610000000000 cur_layer=1 ywr=343

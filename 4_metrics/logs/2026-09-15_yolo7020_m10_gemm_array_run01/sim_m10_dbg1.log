@@ -1,0 +1,477 @@
+# vsim +STIM=../stim/m10 +WDT_MS=60000 -do {run -all; quit -f} -l E:/competition/2_fpga/3_yolo_zynq/sim/msim/sim_m10_dbg1.log -c -novopt work.tb_yolo_gemm_array 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.tb_yolo_gemm_array
+# Loading work.tb_yolo_gemm_array
+# Loading work.yolo_gemm_array
+# Loading work.yolo_ctrl
+# Loading work.yolo_dma
+# Loading work.yolo_addrgen
+# Loading work.yolo_wbuf
+# Loading work.yolo_xbuf
+# Loading work.yolo_acc
+# Loading work.yolo_requant
+# Loading work.yolo_silu_lut
+# Loading work.yolo_conv_core
+# Loading work.yolo_pe_pack
+# run -all 
+# [tb] m10 stim=../stim/m10 layers=6 img_words=65621 total_out=438447
+# [tb] ERROR double DUT write L=0 addr=49
+# [dbg-rq] t=28735000 idx=0 oct=0 nt=6 ntail=1 ocloc=0 nloc=0 yaddr=48
+# [dbg-rq] t=28745000 idx=1 oct=0 nt=6 ntail=1 ocloc=1 nloc=0 yaddr=97
+# [dbg-rq] t=28755000 idx=2 oct=0 nt=6 ntail=1 ocloc=1 nloc=1 yaddr=98
+# [dbg-rq] t=28765000 idx=3 oct=0 nt=6 ntail=1 ocloc=1 nloc=2 yaddr=99
+# [dbg-rq] t=28775000 idx=4 oct=0 nt=6 ntail=1 ocloc=1 nloc=3 yaddr=100
+# [dbg-rq] t=28785000 idx=5 oct=0 nt=6 ntail=1 ocloc=1 nloc=4 yaddr=101
+# [tb] layer 0 done @t=28786000 (oc=7 n=49 k=27)
+# [dbg-rq] t=28795000 idx=6 oct=0 nt=6 ntail=1 ocloc=1 nloc=5 yaddr=102
+# [tb] heartbeat t=10000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=20000000000 cur_layer=1 ywr=343
+# [dbg-l1] t=29163515000 ldr=1 loc=0 ln=6 cmdi=10 cmdw=0 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=0 nt=0 kcnt=0 rqcnt=0 arv=0 rstate=0 busy=1
+# [dbg-l1] t=29491195000 ldr=1 loc=0 ln=6 cmdi=10 cmdw=0 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=0 nt=0 kcnt=0 rqcnt=0 arv=0 rstate=0 busy=1
+# [dbg-l1] t=29818875000 ldr=1 loc=0 ln=6 cmdi=10 cmdw=0 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=0 nt=0 kcnt=0 rqcnt=0 arv=0 rstate=0 busy=1
+# [tb] heartbeat t=30000000000 cur_layer=1 ywr=343
+# [dbg-l1] t=30146555000 ldr=1 loc=0 ln=6 cmdi=10 cmdw=0 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=0 nt=0 kcnt=0 rqcnt=0 arv=0 rstate=0 busy=1
+# [dbg-l1] t=30474235000 ldr=1 loc=0 ln=6 cmdi=10 cmdw=0 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=0 nt=0 kcnt=0 rqcnt=0 arv=0 rstate=0 busy=1
+# [dbg-l1] t=30801915000 ldr=1 loc=0 ln=6 cmdi=10 cmdw=0 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=0 nt=0 kcnt=0 rqcnt=0 arv=0 rstate=0 busy=1
+# [dbg-l1] t=31129595000 ldr=1 loc=0 ln=6 cmdi=10 cmdw=0 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=0 nt=0 kcnt=0 rqcnt=0 arv=0 rstate=0 busy=1
+# [dbg-l1] t=31457275000 ldr=1 loc=0 ln=6 cmdi=10 cmdw=0 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=0 nt=0 kcnt=0 rqcnt=0 arv=0 rstate=0 busy=1
+# [dbg-l1] t=31784955000 ldr=1 loc=0 ln=6 cmdi=10 cmdw=0 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=0 nt=0 kcnt=0 rqcnt=0 arv=0 rstate=0 busy=1
+# [dbg-l1] t=32112635000 ldr=1 loc=0 ln=6 cmdi=10 cmdw=0 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=0 nt=0 kcnt=0 rqcnt=0 arv=0 rstate=0 busy=1
+# [dbg-l1] t=32440315000 ldr=1 loc=0 ln=6 cmdi=10 cmdw=0 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=0 nt=0 kcnt=0 rqcnt=0 arv=0 rstate=0 busy=1
+# [dbg-l1] t=32767995000 ldr=1 loc=0 ln=6 cmdi=10 cmdw=0 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=0 nt=0 kcnt=0 rqcnt=0 arv=0 rstate=0 busy=1
+# [dbg-l1] t=33095675000 ldr=1 loc=0 ln=6 cmdi=10 cmdw=0 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=0 nt=0 kcnt=0 rqcnt=0 arv=0 rstate=0 busy=1
+# [dbg-l1] t=33423355000 ldr=1 loc=0 ln=6 cmdi=10 cmdw=0 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=0 nt=0 kcnt=0 rqcnt=0 arv=0 rstate=0 busy=1
+# [dbg-l1] t=33751035000 ldr=1 loc=0 ln=6 cmdi=10 cmdw=0 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=0 nt=0 kcnt=0 rqcnt=0 arv=0 rstate=0 busy=1
+# [dbg-l1] t=34078715000 ldr=1 loc=0 ln=6 cmdi=10 cmdw=0 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=0 nt=0 kcnt=0 rqcnt=0 arv=0 rstate=0 busy=1
+# [dbg-l1] t=34406395000 ldr=1 loc=0 ln=6 cmdi=10 cmdw=0 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=0 nt=0 kcnt=0 rqcnt=0 arv=0 rstate=0 busy=1
+# [dbg-l1] t=34734075000 ldr=1 loc=0 ln=6 cmdi=10 cmdw=0 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=0 nt=0 kcnt=0 rqcnt=0 arv=0 rstate=0 busy=1
+# [dbg-l1] t=35061755000 ldr=1 loc=0 ln=6 cmdi=10 cmdw=0 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=0 nt=0 kcnt=0 rqcnt=0 arv=0 rstate=0 busy=1
+# [dbg-l1] t=35389435000 ldr=1 loc=0 ln=6 cmdi=10 cmdw=0 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=0 nt=0 kcnt=0 rqcnt=0 arv=0 rstate=0 busy=1
+# [dbg-l1] t=35717115000 ldr=1 loc=0 ln=6 cmdi=10 cmdw=0 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=0 nt=0 kcnt=0 rqcnt=0 arv=0 rstate=0 busy=1
+# [dbg-l1] t=36044795000 ldr=1 loc=0 ln=6 cmdi=10 cmdw=0 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=0 nt=0 kcnt=0 rqcnt=0 arv=0 rstate=0 busy=1
+# [dbg-l1] t=36372475000 ldr=1 loc=0 ln=6 cmdi=10 cmdw=0 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=0 nt=0 kcnt=0 rqcnt=0 arv=0 rstate=0 busy=1
+# [dbg-l1] t=36700155000 ldr=1 loc=0 ln=6 cmdi=10 cmdw=0 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=0 nt=0 kcnt=0 rqcnt=0 arv=0 rstate=0 busy=1
+# [tb] heartbeat t=40000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=50000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=60000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=70000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=80000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=90000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=100000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=110000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=120000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=130000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=140000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=150000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=160000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=170000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=180000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=190000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=200000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=210000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=220000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=230000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=240000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=250000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=260000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=270000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=280000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=290000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=300000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=310000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=320000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=330000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=340000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=350000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=360000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=370000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=380000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=390000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=400000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=410000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=420000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=430000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=440000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=450000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=460000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=470000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=480000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=490000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=500000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=510000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=520000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=530000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=540000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=550000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=560000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=570000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=580000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=590000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=600000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=610000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=620000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=630000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=640000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=650000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=660000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=670000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=680000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=690000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=700000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=710000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=720000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=730000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=740000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=750000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=760000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=770000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=780000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=790000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=800000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=810000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=820000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=830000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=840000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=850000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=860000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=870000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=880000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=890000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=900000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=910000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=920000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=930000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=940000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=950000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=960000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=970000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=980000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=990000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1000000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1010000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1020000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1030000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1040000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1050000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1060000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1070000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1080000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1090000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1100000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1110000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1120000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1130000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1140000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1150000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1160000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1170000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1180000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1190000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1200000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1210000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1220000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1230000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1240000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1250000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1260000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1270000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1280000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1290000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1300000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1310000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1320000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1330000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1340000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1350000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1360000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1370000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1380000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1390000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1400000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1410000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1420000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1430000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1440000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1450000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1460000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1470000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1480000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1490000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1500000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1510000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1520000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1530000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1540000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1550000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1560000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1570000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1580000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1590000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1600000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1610000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1620000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1630000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1640000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1650000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1660000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1670000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1680000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1690000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1700000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1710000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1720000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1730000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1740000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1750000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1760000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1770000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1780000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1790000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1800000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1810000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1820000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1830000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1840000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1850000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1860000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1870000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1880000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1890000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1900000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1910000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1920000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1930000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1940000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1950000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1960000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1970000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1980000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=1990000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2000000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2010000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2020000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2030000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2040000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2050000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2060000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2070000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2080000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2090000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2100000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2110000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2120000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2130000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2140000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2150000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2160000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2170000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2180000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2190000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2200000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2210000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2220000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2230000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2240000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2250000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2260000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2270000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2280000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2290000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2300000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2310000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2320000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2330000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2340000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2350000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2360000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2370000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2380000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2390000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2400000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2410000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2420000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2430000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2440000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2450000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2460000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2470000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2480000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2490000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2500000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2510000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2520000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2530000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2540000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2550000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2560000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2570000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2580000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2590000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2600000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2610000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2620000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2630000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2640000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2650000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2660000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2670000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2680000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2690000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2700000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2710000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2720000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2730000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2740000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2750000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2760000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2770000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2780000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2790000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2800000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2810000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2820000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2830000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2840000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2850000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2860000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2870000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2880000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2890000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2900000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2910000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2920000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2930000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2940000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2950000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2960000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2970000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2980000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=2990000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3000000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3010000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3020000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3030000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3040000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3050000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3060000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3070000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3080000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3090000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3100000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3110000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3120000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3130000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3140000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3150000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3160000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3170000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3180000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3190000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3200000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3210000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3220000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3230000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3240000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3250000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3260000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3270000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3280000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3290000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3300000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3310000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3320000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3330000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3340000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3350000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3360000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3370000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3380000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3390000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3400000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3410000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3420000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3430000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3440000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3450000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3460000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3470000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3480000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3490000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3500000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3510000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3520000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3530000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3540000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3550000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3560000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3570000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3580000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3590000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3600000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3610000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3620000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3630000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3640000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3650000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3660000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3670000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3680000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3690000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3700000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3710000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3720000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3730000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3740000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3750000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3760000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3770000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3780000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3790000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3800000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3810000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3820000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3830000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3840000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3850000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3860000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3870000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3880000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3890000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3900000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3910000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3920000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3930000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3940000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3950000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3960000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3970000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3980000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=3990000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=4000000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=4010000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=4020000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=4030000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=4040000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=4050000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=4060000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=4070000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=4080000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=4090000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=4100000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=4110000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=4120000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=4130000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=4140000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=4150000000000 cur_layer=1 ywr=343
+# [tb] heartbeat t=4160000000000 cur_layer=1 ywr=343
+# TB_GEMM_ARRAY_FAIL (timeout) t=4165425152000 cur_layer=1 ywr=343
+# ** Note: $finish    : ../tb_yolo_gemm_array.v(655)
+#    Time: 4165425152 ns  Iteration: 0  Instance: /tb_yolo_gemm_array

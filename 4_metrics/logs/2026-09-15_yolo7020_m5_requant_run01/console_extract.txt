@@ -1,0 +1,29 @@
+# M5 requant gate — console extract (raw transcript: sim_requant.log)
+# 1) stimulus generation (ties / sat rails / corners / real goldens / random)
+$ python requant_vecgen.py
+[stim] requant: 22493 vectors (en=21465 hold=1028), ties(q_odd/q_even)=161/168, sat=17901, yp_distinct=209, real=2048, manifest written
+# (generator-internal asserts: tie q-odd/even >=8 each, sat >=16, rails >=8 each,
+#  yp distinct >=64, hold >=200, |n| < 2^63, m != INT32_MIN, real-chain closure
+#  LUT[y_pre+128] == real y_exp for all 2048 points = PASS)
+
+# 2) compile
+$ vlog -work work ../../rtl/yolo_requant.v ../tb_yolo_requant.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module yolo_requant
+-- Compiling module tb_yolo_requant
+Top level modules:
+	tb_yolo_requant
+
+# 3) simulate (raw: sim_requant.log)
+$ vsim -c -novopt +STIM=../stim/requant +WDT_MS=400 \
+       -do "run -all; quit -f" -l .../sim_requant.log work.tb_yolo_requant
+# [tb] requant stim=../stim/requant vectors=22493
+# TB_REQUANT_PASS compared=22493 vectors (y_pre+vld)
+# ** Note: $finish    : ../tb_yolo_requant.v(118)
+#    Time: 224960 ns  Iteration: 1  Instance: /tb_yolo_requant
+
+GATE RESULT: TB_REQUANT_PASS — 22493/22493 (y_pre golden + vld==en check),
+zero mismatches, first-run green.
+
+# 4) stimulus integrity
+$ sha256sum *.hex stim_manifest.json -> stim_sha256.txt (8 files)

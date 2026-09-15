@@ -1,0 +1,130 @@
+[1] transfer: inputs.npz 653ca86641bc4f79... exp d2af97731e0025fa... match=True
+[2] rom_data package: 4/4 sha256 match (True)
+  [  0/128] images89_jpg.rf.0bfa9777072a head=True box=False   45.4s
+  [  1/128] images9-2-_jpg.rf.e517e4aee1 head=True box=False   44.7s
+  [  2/128] images9-3-_jpg.rf.43e040c027 head=True box=True   44.7s
+  [  3/128] images90-1-_jpg.rf.6b789faf0 head=True box=True   46.5s
+  [  4/128] images92-1-_jpg.rf.93da294ab head=True box=True   45.1s
+  [  5/128] images94-2-_jpg.rf.bbce42e5b head=True box=True   45.1s
+  [  6/128] images94_jpg.rf.6e086af4f642 head=True box=False   44.7s
+  [  7/128] images95-1-_jpg.rf.840c2eae3 head=True box=True   44.8s
+  [  8/128] images95-2-_jpg.rf.fec60bb4d head=True box=False   45.2s
+  [  9/128] images96-2-_jpg.rf.99d30a024 head=True box=True   45.0s
+  [ 10/128] images97-1-_jpg.rf.8103fba7a head=True box=False   45.7s
+  [ 11/128] images97_jpg.rf.195fab2d5565 head=True box=False   45.9s
+  [ 12/128] images99-2-_jpg.rf.9ed13d9d9 head=True box=True   45.3s
+  [ 13/128] images99_jpg.rf.6e36f22ed47a head=True box=True   45.9s
+  [ 14/128] irt-pointing-hands-up-pointi head=True box=True   45.2s
+  [ 15/128] left-hand-pointing-finger-st head=True box=True   45.1s
+  [ 16/128] man-pointing-to-his-left-whi head=True box=False   45.5s
+  [ 17/128] man-pointing-up-23191635_jpg head=True box=True   46.0s
+  [ 18/128] man-show-left-side-hand-260n head=True box=True   45.0s
+  [ 19/128] men-pointing-thumbs-up-image head=True box=False   45.0s
+  [ 20/128] men-pointing-up-115309643582 head=True box=True   45.0s
+  [ 21/128] n-showing-direction-pension- head=True box=False   45.2s
+  [ 22/128] ng-eyeglasses-denim-shirt-po head=True box=False   45.2s
+  [ 23/128] ng-pointing-down-with-two-fi head=True box=True   45.7s
+  [ 24/128] ok-businessperson-stock-phot head=True box=True   45.0s
+  [ 25/128] people-pointing-up-png-300x4 head=True box=False   45.2s
+  [ 26/128] person-pointing-left_png.rf. head=True box=False   44.6s
+  [ 27/128] person-pointing-on-right-sid head=True box=True   44.6s
+  [ 28/128] ph_007_anna2_031_pw1_jpg.rf. head=True box=False   44.7s
+  [ 29/128] png-clipart-person-s-pointin head=True box=False   45.0s
+  [ 30/128] pointing-2649311_960_720_jpg head=True box=True   45.8s
+  [ 31/128] pointing-up-woman-girl-perso head=True box=True   44.8s
+  [ 32/128] portrait-excited-bearded-man head=True box=False   45.3s
+  [ 33/128] portrait-of-beautiful-woman- head=True box=True   44.8s
+  [ 34/128] preview2_jpg.rf.de0f3b59b7c6 head=True box=True   44.6s
+  [ 35/128] purepng-com-men-pointing-lef head=True box=True   45.2s
+  [ 36/128] s-lui-les-regards-on-est-ray head=True box=True   45.0s
+  [ 37/128] smiling-black-woman-pointing head=True box=True   45.3s
+  [ 38/128] standing-pointing-his-finger head=True box=True   45.2s
+  [ 39/128] standing-professional-man-po head=True box=True   45.0s
+  [ 40/128] stock-photo-young-casual-man head=True box=True   45.0s
+  [ 41/128] thumb_man-pointing-up-meme-g head=True box=True   45.3s
+  [ 42/128] while-smiling-woman-smile-fe head=True box=False   45.4s
+  [ 43/128] WIN_20220411_14_05_06_Pro_jp head=True box=True   45.5s
+  [ 44/128] WIN_20220411_14_08_05_Pro_jp head=True box=False   45.1s
+  [ 45/128] WIN_20220411_14_09_22_Pro_jp head=True box=True   44.6s
+  [ 46/128] WIN_20220411_14_41_44_Pro_jp head=True box=True   45.6s
+  [ 47/128] WIN_20220411_14_43_42_Pro_jp head=True box=False   44.9s
+  [ 48/128] WIN_20220411_14_46_21_Pro_jp head=True box=False   45.0s
+  [ 49/128] WIN_20220411_15_53_40_Pro_jp head=True box=False   45.3s
+  [ 50/128] WIN_20220411_15_53_47_Pro_jp head=True box=False   45.8s
+  [ 51/128] WIN_20220411_15_57_24_Pro_jp head=True box=False   45.2s
+  [ 52/128] WIN_20220411_15_59_08_Pro_jp head=True box=False   45.2s
+  [ 53/128] WIN_20220411_15_59_41_Pro_jp head=True box=False   45.5s
+  [ 54/128] woman-people-isolated-young_ head=True box=False   44.8s
+  [ 55/128] woman-pointing-up-18070742_j head=True box=True   45.6s
+  [ 56/128] young-business-man-pointing- head=True box=True   45.2s
+  [ 57/128] young-cool-black-man-pointin head=True box=True   46.3s
+  [ 58/128] young-man-pointing-up-129372 head=True box=False   45.9s
+  [ 59/128] images4-3-_jpg.rf.da44a1fc64 head=True box=True   45.2s
+  [ 60/128] images40-1-_jpg.rf.12b45eff5 head=True box=True   45.6s
+  [ 61/128] images41_jpg.rf.477717aef050 head=True box=False   45.4s
+  [ 62/128] images42-2-_jpg.rf.f069ce00e head=True box=True   45.5s
+  [ 63/128] images43_jpg.rf.7af474d9653f head=True box=False   45.0s
+  [ 64/128] images44-1-_jpg.rf.5c8023e81 head=True box=True   46.1s
+  [ 65/128] images44-2-_jpg.rf.cf4580e43 head=True box=True   45.7s
+  [ 66/128] images45-1-_jpg.rf.33cee0b75 head=True box=True   45.7s
+  [ 67/128] images45-2-_jpg.rf.24730d445 head=True box=True   44.9s
+  [ 68/128] images45_jpg.rf.3b294075b1ad head=True box=False   45.4s
+  [ 69/128] images46-2-_jpg.rf.08041272b head=True box=False   45.6s
+  [ 70/128] images46_jpg.rf.eb165ff9a441 head=True box=True   45.7s
+  [ 71/128] images49-1-_jpg.rf.1368a0a99 head=True box=False   45.3s
+  [ 72/128] images49_jpg.rf.630be28fbc13 head=True box=False   44.7s
+  [ 73/128] images5-1-_jpg.rf.57fe3708c7 head=True box=True   46.0s
+  [ 74/128] images50-1-_jpg.rf.75b538610 head=True box=True   45.2s
+  [ 75/128] images51-1-_jpg.rf.fa43e38f9 head=True box=False   45.3s
+  [ 76/128] images51-2-_jpg.rf.ab116d8f4 head=True box=False   45.9s
+  [ 77/128] images53-1-_jpg.rf.79b2505ab head=True box=False   46.1s
+  [ 78/128] images53_jpg.rf.f44e005af9fc head=True box=True   45.4s
+  [ 79/128] images54-2-_jpg.rf.938521fe2 head=True box=False   45.6s
+  [ 80/128] images56-1-_jpg.rf.d79862b95 head=True box=True   45.1s
+  [ 81/128] images56_jpg.rf.f11d187ac58f head=True box=False   45.3s
+  [ 82/128] images57-1-_jpg.rf.6d2b1ac93 head=True box=False   44.9s
+  [ 83/128] images59_jpg.rf.0cad8333c940 head=True box=True   44.8s
+  [ 84/128] images6-2-_jpg.rf.1abd6f1d8e head=True box=False   45.7s
+  [ 85/128] images60-2-_jpg.rf.696299a46 head=True box=True   45.3s
+  [ 86/128] images60_jpg.rf.234a422c00ca head=True box=True   46.2s
+  [ 87/128] images61-1-_jpg.rf.fc1ced59c head=True box=True   45.1s
+  [ 88/128] images61-2-_jpg.rf.f41718450 head=True box=True   44.8s
+  [ 89/128] images62-2-_jpg.rf.15000b265 head=True box=False   44.8s
+  [ 90/128] images64-1-_jpg.rf.ad42fb5a1 head=True box=False   45.4s
+  [ 91/128] images64_jpg.rf.f4a7c947d6ae head=True box=True   45.6s
+  [ 92/128] images65-2-_jpg.rf.674b0511f head=True box=True   45.8s
+  [ 93/128] images67-2-_jpg.rf.67ba23aa1 head=True box=True   45.9s
+  [ 94/128] images68-2-_jpg.rf.e2f97a1f1 head=True box=False   45.0s
+  [ 95/128] images68_jpg.rf.f78e6dc2596b head=True box=True   45.2s
+  [ 96/128] images69-1-_jpg.rf.2fc34f738 head=True box=True   44.9s
+  [ 97/128] images69_jpg.rf.359cb07e5e0d head=True box=False   45.7s
+  [ 98/128] images7-2-_jpg.rf.3d0c372df9 head=True box=False   45.2s
+  [ 99/128] images70-2-_jpg.rf.6e655624d head=True box=True   46.7s
+  [100/128] images70_jpg.rf.41ca216c39c8 head=True box=True   45.3s
+  [101/128] images71-1-_jpg.rf.e58ad1af2 head=True box=True   45.4s
+  [102/128] images71_jpg.rf.13f546fc8c05 head=True box=True   44.9s
+  [103/128] images73-1-_jpg.rf.8e061866d head=True box=True   45.4s
+  [104/128] images74-1-_jpg.rf.f22a51dcb head=True box=True   46.1s
+  [105/128] images75-2-_jpg.rf.6336f9740 head=True box=True   45.3s
+  [106/128] images76-1-_jpg.rf.974050453 head=True box=False   46.2s
+  [107/128] images76_jpg.rf.958bea2e8a88 head=True box=True   45.9s
+  [108/128] images77-1-_jpg.rf.7416cb482 head=True box=True   44.8s
+  [109/128] images79-2-_jpg.rf.edafd972b head=True box=False   45.1s
+  [110/128] images82-1-_jpg.rf.29b116553 head=True box=False   45.9s
+  [111/128] images83-1-_jpg.rf.4093b8830 head=True box=False   45.0s
+  [112/128] images83-2-_jpg.rf.beabda635 head=True box=True   45.1s
+  [113/128] images84-2-_jpg.rf.a2852f1f8 head=True box=False   46.2s
+  [114/128] images85_jpg.rf.93e72d1521da head=True box=True   45.6s
+  [115/128] images86-2-_jpg.rf.48e772d4a head=True box=False   45.6s
+  [116/128] images87-1-_jpg.rf.e8373ebee head=True box=True   45.1s
+  [117/128] images87-2-_jpg.rf.2df1b5956 head=True box=False   46.2s
+  [118/128] images87_jpg.rf.e9f63b1b4c1e head=True box=True   45.4s
+  [119/128] images8_jpg.rf.a315b22dfa214 head=True box=True   46.0s
+  [120/128] WIN_20220411_14_07_00_Pro_jp head=True box=False   45.0s
+  [121/128] WIN_20220411_14_09_14_Pro_jp head=True box=False   45.3s
+  [122/128] WIN_20220411_14_09_32_Pro_jp head=True box=False   45.4s
+  [123/128] WIN_20220411_14_40_47_Pro_jp head=True box=True   45.5s
+  [124/128] WIN_20220411_14_43_21_Pro_jp head=True box=False   45.6s
+  [125/128] WIN_20220411_14_46_04_Pro_jp head=True box=True   44.8s
+  [126/128] WIN_20220411_15_53_55_Pro_jp head=True box=True   45.9s
+  [127/128] WIN_20220411_15_58_45_Pro_jp head=True box=False   45.3s

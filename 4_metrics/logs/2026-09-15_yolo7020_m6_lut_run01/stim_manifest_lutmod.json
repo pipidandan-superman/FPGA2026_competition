@@ -1,0 +1,40 @@
+{
+ "name": "lutmod",
+ "seed": 606,
+ "contract": "act1: y=LUT[(ypre+128)&0xFF]; act0: y=ypre bits; en=0 hold; sync write port",
+ "gold_ref": "real lut_i8.bin (golden00/02) + identity/random/extreme synthetic tables",
+ "coverage": {
+  "total_ops": 2680,
+  "n_write": 1280,
+  "n_read": 1400,
+  "n_hold": 84,
+  "n_act_bypass": 141,
+  "tables": [
+   "real00",
+   "real02",
+   "identity",
+   "random",
+   "extreme"
+  ],
+  "walk": "all 256 indices per table, y_pre=-128..127 ascending",
+  "real_tables": [
+   "real00",
+   "real02"
+  ]
+ },
+ "sha256": {
+  "n_cycles.hex": "2dc2f00be08959a5466bc801977ba9ba8c3a3f3da30f2db255c84ceb9e00b377",
+  "op.hex": "74f407e22c2c47c0c6e4efabe80331e1eed895b8dd53a2ac62ca9685da5ebfe5",
+  "waddr_u8.hex": "992c25c5d5723f26115fa5fb8b79f61367ba7ec1868a07a12b4eeb5e9a52e9da",
+  "wdata_i8.hex": "4a274f321524873b140731b23dec127f71bbadf1f712c7d5326ac456bfdc01e7",
+  "en.hex": "a34b3dce62d57f6e8e18d4da55ff5d8749cf0a22fe9ebc26643cdc53baeb2c51",
+  "act.hex": "c0bff2177f0c3ad709cffc3bc9fa024e7fa77c3d097a871b9f59ceb21a45fd2a",
+  "ypre_i8.hex": "94f0b4f39cee6ca7d0c9739ca50877cafc54e8e6cbb1e261751bdb9de22e35f6",
+  "y_exp_i8.hex": "6d61ccbea9e0f74ff372c6022ae493e3431de852f5e86d844806fd65264ae795",
+  "lut_real00_i8.hex": "28d72222fd7b3bd13b39cd9c28bc06dcfeb3f6e4401b63c85cc9fe064b54c6b2",
+  "lut_real02_i8.hex": "28d72222fd7b3bd13b39cd9c28bc06dcfeb3f6e4401b63c85cc9fe064b54c6b2",
+  "lut_identity_i8.hex": "ee2984b38e9c7a0350780e0b1233a850403356eb49fb6d5db271c496dd28c2bd",
+  "lut_random_i8.hex": "bf0b0d9f3b2143e4bc5131a96ced7ab7b3a19cbe8d2867db9799d92d98581abd",
+  "lut_extreme_i8.hex": "f6d1c2753592e7cadfc33457f30c8248547b720e59936f014ba73fc37a982742"
+ }
+}

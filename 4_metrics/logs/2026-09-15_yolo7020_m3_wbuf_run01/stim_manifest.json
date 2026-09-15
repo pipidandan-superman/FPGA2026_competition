@@ -1,0 +1,38 @@
+{
+ "name": "wbuf",
+ "seed": 303,
+ "contract": "dual-bank row store; 1-cycle sync read broadcast; params (bias/m/shift) loaded with tile; concurrent wr/rd on opposite banks; en=0 hold",
+ "gold_ref": "python BFM model (dict-based banks + output shadow)",
+ "coverage": {
+  "total_ops": 98239,
+  "n_read_data": 7752,
+  "n_read_par": {
+   "1": 128,
+   "2": 128,
+   "3": 128
+  },
+  "interleave_write_read_adjacent": 0,
+  "same_cycle_wr_rd": 3412,
+  "idle_hold": 23,
+  "depth2304_verified_bank": {
+   "0": true,
+   "1": true
+  },
+  "real_round": "golden00 w/bias/m/shift (16x27)"
+ },
+ "sha256": {
+  "n_ops.hex": "8b6359bfbc555fc7ecbac27081ddd0cd87d9c3d97e22c60fefd3fc4e679cba7d",
+  "op.hex": "0107f6dd7288a6fcdc77b1ea37e4eff1e4d1c74cbce2b0c63ff4ca7479c7dd98",
+  "bank.hex": "c5a989faece4a0f63d1afc3d15c1130250067f9d9e0713f75eaf4b9188e170bf",
+  "row_u8.hex": "c662951204fa2af4a453e8c5a7863a146a92d15da7d4c0e65a282f3573588d18",
+  "kaddr_u16.hex": "13447feff8d4f6610a3411908a6d6feb97a2c9fd8d58f9318606204bfd1095c2",
+  "sel.hex": "5c326b6060963ada693a68dd1f24734222850138fc5befd0c576a2c4ed05b12b",
+  "wdata_i32.hex": "8f7e9fe50650d8c46f17cc5700a2aab2d769fd88910f99f6e396c356418fe225",
+  "rbank.hex": "35a0e8cba9d6de1eb591f98bd238f611437489cb1cdc1cb95f77b768059aa265",
+  "rkaddr_u16.hex": "18af73f16a6cbd5b93717e8dfe767c8f8a9fb1fec6604fd8574c84fbe3f11151",
+  "edout_i128.hex": "5b13cd33d716fe28e991c7f50ba512335f140a1f4c1fcda4952b84de6da2c955",
+  "evld.hex": "f51e894f86f342d3dad93a8e9d0126155cb82a0ce955cb3b69bf153c8801a7fb",
+  "epdata_i32.hex": "fff9cedb1714134ddb14a263922edb0902d92bfaca95468a8c6a2289bc2e9c86",
+  "epvld.hex": "77afd568a85fc5b125859ca5e50317404f7e9f2ff6fb9bac8d814a3a8186d546"
+ }
+}

@@ -1,0 +1,84 @@
+{
+ "name": "genC_k256_1x1_noact_rand",
+ "seed": 104,
+ "fill": "random",
+ "shape": {
+  "ic": 256,
+  "oc": 7,
+  "kh": 1,
+  "kw": 1,
+  "ih": 10,
+  "iw": 10,
+  "sh": 1,
+  "sw": 1,
+  "ph": 0,
+  "pw": 0,
+  "pad_val": 0,
+  "has_act": 0,
+  "kp": 256,
+  "oh": 10,
+  "ow": 10,
+  "ny": 700
+ },
+ "k_layout": "K = ic*(KH*KW) + kh*KW + kw  (w stored [oc][ic][kh][kw])",
+ "shift_list": [
+  31,
+  31,
+  40,
+  31,
+  31,
+  41,
+  36
+ ],
+ "m_list": [
+  1073741824,
+  1073741824,
+  1114622480,
+  1073741824,
+  1073741824,
+  -1229281223,
+  2147483647
+ ],
+ "bias_list": [
+  18682,
+  -127481,
+  -50757,
+  -101774,
+  107630,
+  31420,
+  189235
+ ],
+ "req_param_domain": "v2: tie ch delta +1/-1/+3/+5 (s=31, M=+2^30); sat ch M=+-(2^31-1) s=36; realistic M in [2^28,2^31), s=round(log2((typ+|bias|)*M/target)), first real ch target in [80,120]",
+ "channel_plan": [
+  "tie0",
+  "tie1",
+  "real",
+  "tie2",
+  "tie3",
+  "real",
+  "sat"
+ ],
+ "specialized_channels": [
+  0,
+  1,
+  3,
+  4,
+  6
+ ],
+ "coverage_stats": {
+  "tie": 195,
+  "sat": 521
+ },
+ "y_distinct": 115,
+ "sha256": {
+  "x_i8.bin": "d51a8e6d1279727f58d86fa237d1bf0901721d4f41abae36974716ef96f0e903",
+  "w_i8.bin": "f0a1d95730b9912ca55f8dc50e7816b9bbec83fc466be408adefc9655d867111",
+  "bias_eff_i32.bin": "beb0c51c4e3991b3877d8799d99eb45961b73b2e564b1e2b2a0f74192bf57a99",
+  "m_i32.bin": "c87b3871db8de50a72c0680eda812e03ad257c55ab0b5a51a73fc418b1d474b5",
+  "shift_u8.bin": "d62724d37501e1c41863b90d663a7e28583bc2d4f43c23aa2c7ade17c6e8afc9",
+  "lut_i8.bin": "d319030b4b783dac2185d8502dd4f1566edba062861d13d1051518fc48bd5a90",
+  "y_exp_i8.bin": "84307b7905fcd7f8e015b5aa8f3579b6af809e04971d7cc65a9cbce85e692a71"
+ },
+ "selfcheck_vec_vs_naive": "PASS",
+ "ref": "intarith.rne_shift/sat_i8 (unique authority)"
+}

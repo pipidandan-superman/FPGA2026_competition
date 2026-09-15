@@ -1,0 +1,42 @@
+# vsim +STIM=../stim/m11 +MAXCONV=5 +WDT_MS=300000 -do {run -all; quit -f} -l sim_m11_smoke3.log -c -novopt work.tb_yolo_fullnet 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading work.tb_yolo_fullnet
+# Loading work.yolo_gemm_array
+# Loading work.yolo_ctrl
+# Loading work.yolo_dma
+# Loading work.yolo_addrgen
+# Loading work.yolo_wbuf
+# Loading work.yolo_xbuf
+# Loading work.yolo_acc
+# Loading work.yolo_requant
+# Loading work.yolo_silu_lut
+# Loading work.yolo_pe_pack
+# run -all 
+# [tb] m11 stim=../stim/m11 img_words=1665001 prog_words=2178 maxconv=5
+# [tb] heartbeat t=10000000000 conv=0 ywr=175936 ps=0 err=0
+# [tb] heartbeat t=20000000000 conv=0 ywr=352000 ps=0 err=0
+# [tb] conv 0/5 task=0 done @t=23271390000 oc=16 n=25600 k=27 acc_err=0
+# [tb] heartbeat t=30000000000 conv=1 ywr=442688 ps=0 err=0
+# [tb] heartbeat t=40000000000 conv=1 ywr=491904 ps=0 err=0
+# [tb] heartbeat t=50000000000 conv=1 ywr=541120 ps=0 err=0
+# [tb] heartbeat t=60000000000 conv=1 ywr=590400 ps=0 err=0
+# [tb] conv 1/5 task=1 done @t=64873530000 oc=32 n=6400 k=144 acc_err=0
+# [tb] heartbeat t=70000000000 conv=2 ywr=695616 ps=0 err=0
+# [tb] conv 2/5 task=2 done @t=77786210000 oc=32 n=6400 k=32 acc_err=0
+# [tb] heartbeat t=80000000000 conv=3 ywr=830031 ps=2 err=0
+# [tb] heartbeat t=90000000000 conv=3 ywr=879296 ps=2 err=0
+# [tb] conv 3/5 task=5 done @t=98588770000 oc=16 n=6400 k=144 acc_err=0
+# [tb] heartbeat t=100000000000 conv=4 ywr=928512 ps=2 err=0
+# [tb] heartbeat t=110000000000 conv=4 ywr=977728 ps=2 err=0
+# [tb] conv 4/5 task=6 done @t=119391140000 oc=16 n=6400 k=144 acc_err=0
+# TB_FULLNET_SMOKE convs=5 psops=6 compared=1024000 dut_wr=1024000 head_bytes=0 ldone=5 adone=1
+# ** Note: $finish    : ../tb_yolo_fullnet.v(670)
+#    Time: 119391340 ns  Iteration: 1  Instance: /tb_yolo_fullnet

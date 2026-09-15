@@ -1,0 +1,45 @@
+{
+ "name": "acc",
+ "seed": 302,
+ "n_lanes": 8,
+ "data_w": 32,
+ "contract": "clr > en(hold when 0) > int32 wrap add; q checked every cycle every lane",
+ "coverage": {
+  "wrap_events": 798,
+  "hold_cycles": 953,
+  "clr_and_en_events": 139,
+  "total_cycles": 7242,
+  "marks": [
+   "A_start",
+   "A_end",
+   "B_start",
+   "B_end",
+   "C_start",
+   "C_end",
+   "D_start",
+   "D_end"
+  ]
+ },
+ "gold_ref": "numpy-int32-equivalent python model (wrap32), same priority order as RTL",
+ "sha256": {
+  "clr.hex": "15057a9f6722d714edc8672a834076ead2f250403c151c641310d82800276646",
+  "en.hex": "12a7ef50fefc121666ec2b2bc23503abda86799bd33f422cd8b153bd426a5aa8",
+  "n_cycles.hex": "07b7ecd56e8c3cc317c680a9275beab966397273da2e57b7c7cba04c97827778",
+  "d0_i32.hex": "7d14397cf69317b86d03715425e737d6b9b7758c1f078a687e884ceab458d018",
+  "q0_exp_i32.hex": "c168b0397a1a0cc146cf81b0f52ff829fad214b3246ff4768d610202de7108e3",
+  "d1_i32.hex": "2f8426e2b3a27e4e795ac03dc089475eca376dcb55e52d83a038684c94581277",
+  "q1_exp_i32.hex": "b95771219175d4b1078f04f0a97fc81e07bbfc97a69b0eb366feb1df3fdb5379",
+  "d2_i32.hex": "45e1626174d51fee31d0daf4fb0bdf3d8d950a6aab6281a24ca59e08ebf26b6a",
+  "q2_exp_i32.hex": "5c778276717ceaa78e202375ff3567d0dffc1661cd24c410c2b31e173c1df12f",
+  "d3_i32.hex": "e15057e00369dea17573ce91fb6df1ae296f53a5883ea70baa1c045a14281e37",
+  "q3_exp_i32.hex": "efdce6fadab3559851556f8b916dde076eeb54208124c4da13e782d29d3eb740",
+  "d4_i32.hex": "6f3f432ea57deb34c5e8d38bb6ce1c1cc6d4c54fb8d5e2aae63289c36bac3c33",
+  "q4_exp_i32.hex": "ab92a501006168b32d4befb8ac662ea5ac6eac2540347f143ef8a0810ecb586f",
+  "d5_i32.hex": "4c14996177989630eacf8c163080fdba9da53d4d7c12ebb5cd781502521e9605",
+  "q5_exp_i32.hex": "0e92bf1b94fe0f0b736f89eb5d7b444edafe54446f565f943b6cafc918b976ae",
+  "d6_i32.hex": "02073c8038ac3b754ef74b36b001168bcdb2667278e3c8879db896edfccc86e0",
+  "q6_exp_i32.hex": "0c33c647c6694792a818bc17580ee46b2db22f033c77a3202c831c27d3a68fe6",
+  "d7_i32.hex": "530d83362c5f223001c19b0653e2de6f4d199af5d41a8ac4f52517fa44b01009",
+  "q7_exp_i32.hex": "b3e514c71eefd16d1057f43db2692d63c683d583f169b18a8a4381eaed10ca44"
+ }
+}

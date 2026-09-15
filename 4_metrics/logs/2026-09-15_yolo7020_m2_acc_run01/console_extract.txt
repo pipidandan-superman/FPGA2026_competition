@@ -1,0 +1,27 @@
+# M2 acc gate — console extract (raw transcript: sim_acc.log)
+# 1) stimulus generation
+$ python acc_vecgen.py
+[stim] acc: 7242 cycles x 8 lanes, wrap=798 hold=953 clr&en=139, manifest written
+
+# 2) compile
+$ vlog -work work ../../rtl/yolo_acc.v ../tb_yolo_acc.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module yolo_acc
+-- Compiling module tb_yolo_acc
+Top level modules:
+	tb_yolo_acc
+
+# 3) simulate (raw: sim_acc.log)
+$ vsim -c -novopt +STIM=../stim/acc +WDT_MS=200 \
+       -do "run -all; quit -f" -l .../sim_acc.log work.tb_yolo_acc
+# [tb] acc stim=../stim/acc cycles=7242 lanes=8
+# TB_ACC_PASS compared=57936/57936 (cycles x lanes)
+# ** Note: $finish    : ../tb_yolo_acc.v(121)
+#    Time: 72450 ns  Iteration: 1  Instance: /tb_yolo_acc
+
+GATE RESULT: TB_ACC_PASS — 57936/57936 (7242 cycles x 8 lanes, every lane
+checked every cycle), zero mismatches, first-run green.
+
+# 4) stimulus integrity
+$ sha256sum *.hex stim_manifest.json  -> stim_sha256.txt (20 files)
+   n_cycles.hex = 00001C4A = 7242 (== manifest total_cycles == TB printout)
