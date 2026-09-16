@@ -9,13 +9,23 @@
  *                   pe_pack stimulus set (directed corners + random),
  *                   compares both lanes against the Python bit-model
  *                   expectations, first mismatch decoded.
- *                   Usage (from sim/msim, -novopt mandatory on 10.1c):
- *                     vsim -c -novopt +STIM=../stim/pe_pack +WDT_MS=100 \
- *                          -do "run -all; quit -f" work.tb_yolo_pe_pack
+ *                   Usage (from sim/xsim, V1.1 primitive flow):
+ *                     xvlog ../../rtl/yolo_pe_pack.v ../tb_yolo_pe_pack.v \
+ *                           <vivado>/data/verilog/src/glbl.v
+ *                     xelab tb_yolo_pe_pack glbl -s snap_m1 \
+ *                           -L unisim -L unisims_ver -timescale 1ns/1ps
+ *                     xsim snap_m1 -R
+ *                   (V1.0 ModelSim flow: from sim/msim,
+ *                     vsim -c -novopt +STIM=../stim/pe_pack +WDT_MS=100
+ *                          -do "run -all; quit -f" work.tb_yolo_pe_pack)
  *                   Gate token: TB_PE_PACK_PASS / TB_PE_PACK_FAIL.
  * Dependencies    : rtl/yolo_pe_pack.v, sim/pe_pack_vecgen.py outputs
  * Revision History:
  *   - V1.0 (2026-09-15) by LSL : Initial release (M1)
+ *   - V1.1 (2026-09-16) by LSL : DUT V1.1 DSP48E1 primitive -- added
+ *     clk_i to the instance and a 2us warm-up before the first compare
+ *     (unisim model OPMODE mux gate during the first 100ns); xsim is
+ *     the primary simulator from this run on (official unisim lib).
  ************************************************************************/
 `timescale 1ns/1ps
 
@@ -37,10 +47,14 @@ module tb_yolo_pe_pack;
     reg  signed [7:0]  x0 = 8'sd0;
     reg  signed [7:0]  x1 = 8'sd0;
     reg  signed [7:0]  w  = 8'sd0;
+    reg                rst_n = 1'b0;
     wire signed [16:0] p0;
     wire signed [16:0] p1;
+    integer            j;
 
     yolo_pe_pack dut (
+        .clk_i(clk),
+        .rst_n_i(rst_n),
         .x0_i(x0),
         .x1_i(x1),
         .w_i(w),
@@ -66,17 +80,38 @@ module tb_yolo_pe_pack;
         $readmemh({stim, "/w_i8.hex"},       mem_w);
         $readmemh({stim, "/p0_exp_i17.hex"}, mem_p0);
         $readmemh({stim, "/p1_exp_i17.hex"}, mem_p1);
-        for (i = 0; i < NV; i = i + 1) begin
-            x0 = mem_x0[i];
-            x1 = mem_x1[i];
-            w  = mem_w[i];
-            #1;                                   // 组合路径稳定
-            if (p0 !== mem_p0[i] || p1 !== mem_p1[i]) begin
-                n_err = n_err + 1;
-                if (n_err == 1) begin
-                    first_idx = i;
-                    $display("[tb] first mismatch @vec=%0d x0=%0d x1=%0d w=%0d lane0 got=%0d exp=%0d lane1 got=%0d exp=%0d",
-                             i, x0, x1, w, p0, mem_p0[i], p1, mem_p1[i]);
+        // V1.1: unisim DSP48E1 model warm-up -- its OPMODE muxes are
+        // gated for the first 100ns of simulation; compare nothing
+        // before the warm-up so the primitive is settled (see pe_pack
+        // V1.1). V1.2: DUT is 3-cycle pipelined (A2/B2 -> M -> P):
+        // stream one vector per clock, vector i's output appears in
+        // iteration i+3 -- compare i-3 against the golden there. Reset
+        // (V1.2 rst_n_i) held low through warm-up cycle 0..3.
+        repeat (2) @(negedge clk);
+        rst_n = 1'b1;
+        repeat (200) @(negedge clk);          // 2us settle (>> 100ns gate)
+        for (i = 0; i < NV + 3; i = i + 1) begin
+            @(negedge clk);
+            if (i < NV) begin
+                x0 = mem_x0[i];
+                x1 = mem_x1[i];
+                w  = mem_w[i];
+            end else begin
+                x0 = 8'sd0;                   // drain cycles: inputs 0
+                x1 = 8'sd0;
+                w  = 8'sd0;
+            end
+            #1;                               // away from the edge
+            if (i >= 3) begin
+                j = i - 3;                    // output of vector j
+                if (p0 !== mem_p0[j] || p1 !== mem_p1[j]) begin
+                    n_err = n_err + 1;
+                    if (n_err == 1) begin
+                        first_idx = j;
+                        $display("[tb] first mismatch @vec=%0d x0=%0d x1=%0d w=%0d lane0 got=%0d exp=%0d lane1 got=%0d exp=%0d",
+                                 j, mem_x0[j], mem_x1[j], mem_w[j],
+                                 p0, mem_p0[j], p1, mem_p1[j]);
+                    end
                 end
             end
         end
