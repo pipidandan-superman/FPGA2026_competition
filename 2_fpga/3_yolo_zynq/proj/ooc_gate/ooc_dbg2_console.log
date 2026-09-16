@@ -1,0 +1,87 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Wed Sep 16 13:26:15 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source ooc_dbg2.tcl
+# set OUT E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate
+# open_checkpoint $OUT/ooc_dbg1_synth.dcp
+Command: open_checkpoint E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate/ooc_dbg1_synth.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.031 . Memory (MB): peak = 340.414 ; gain = 3.836
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.297 . Memory (MB): peak = 871.723 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 10287 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 3 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.121 . Memory (MB): peak = 1067.797 ; gain = 12.195
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.029 . Memory (MB): peak = 1804.918 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 3490 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 22 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 12 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 3456 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2025.2 (64-bit) build 6299465
+open_checkpoint: Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1804.918 ; gain = 1475.840
+# set dsps [get_cells -hier -filter {REF_NAME == DSP48E1}]
+# puts "TOTAL_DSP48E1 [llength $dsps]"
+TOTAL_DSP48E1 238
+# set n_pe 0
+# set n_other 0
+# foreach c $dsps {
+#     set nm [get_property NAME $c]
+#     if {[string match "*u_pe*" $nm]} {
+#         incr n_pe
+#     } else {
+#         incr n_other
+#         puts "NONPE_DSP $nm"
+#     }
+# }
+NONPE_DSP u_array/row_addr_d0_w
+NONPE_DSP u_array/u_addrgen/plane_sz
+NONPE_DSP u_array/u_addrgen/x_addr_w
+NONPE_DSP u_array/u_addrgen/x_addr_w1
+NONPE_DSP u_array/u_addrgen/x_addr_w1__0
+NONPE_DSP u_array/u_addrgen/x_addr_w1__1
+NONPE_DSP u_array/u_requant/prod
+NONPE_DSP u_array/u_requant/prod__0
+NONPE_DSP u_array/u_requant/prod__1
+NONPE_DSP u_array/u_requant/prod__2
+# puts "PE_DSP_COUNT $n_pe"
+PE_DSP_COUNT 228
+# puts "NONPE_DSP_COUNT $n_other"
+NONPE_DSP_COUNT 10
+WARNING: [Vivado 12-180] No cells matched 'get_cells -hier -filter {REF_NAME == DSP48E1 && NAME =~ "*g_pe_row\[0\].g_pe_pair\[0\]*"}'.
+# set sample [get_cells -hier -filter {REF_NAME == DSP48E1 && NAME =~ "*g_pe_row\[0\].g_pe_pair\[0\]*"}]
+# puts "SAMPLE_PE_DSP_COUNT [llength $sample]"
+SAMPLE_PE_DSP_COUNT 0
+# foreach c $sample {
+#     puts "SAMPLE_DSP [get_property NAME $c]"
+#     foreach pin {A B C P PCIN PCOUT} {
+#         set p [get_pins -of_objects $c -filter "REF_PIN_NAME == $pin"]
+#         if {[llength $p] == 0} { continue }
+#         set net [get_nets -of_objects $p -quiet]
+#         puts "  PIN_$pin -> [get_property NAME $p] NET {[llength $net]?}"
+#         if {[llength $net]} { puts "    NETNAME [get_property NAME $net]" }
+#     }
+# }
+WARNING: [Vivado 12-180] No cells matched 'get_cells -hier -filter {REF_NAME == DSP48E1 && NAME =~ "*g_pe_pair\[7\]*"}'.
+# set p7 [get_cells -hier -filter {REF_NAME == DSP48E1 && NAME =~ "*g_pe_pair\[7\]*"}]
+# puts "PAIR7_DSP_COUNT [llength $p7]"
+PAIR7_DSP_COUNT 0
+# close_design
+# puts "OOC_DBG2_DONE"
+OOC_DBG2_DONE
+INFO: [Common 17-206] Exiting Vivado at Wed Sep 16 13:26:39 2026...

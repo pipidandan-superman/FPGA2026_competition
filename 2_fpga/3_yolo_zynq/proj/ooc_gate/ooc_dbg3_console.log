@@ -1,0 +1,69 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Wed Sep 16 13:47:19 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source ooc_dbg3.tcl
+# set OUT E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate
+# open_checkpoint $OUT/ooc_dbg1_synth.dcp
+Command: open_checkpoint E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate/ooc_dbg1_synth.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 343.598 ; gain = 4.812
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.221 . Memory (MB): peak = 875.367 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 10287 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 2 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.089 . Memory (MB): peak = 1069.387 ; gain = 12.504
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.030 . Memory (MB): peak = 1807.523 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 3490 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 22 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 12 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 3456 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2025.2 (64-bit) build 6299465
+open_checkpoint: Time (s): cpu = 00:00:17 ; elapsed = 00:00:16 . Memory (MB): peak = 1807.523 ; gain = 1479.172
+# set pats [list "*g_pe_row\\[1\\]*" "*g_pe_row\\[2\\]*"]
+# foreach pat $pats {
+#     set c [get_cells -hier -filter "REF_NAME == DSP48E1 && NAME =~ $pat"]
+#     foreach one $c {
+#         puts "=== [get_property NAME $one]"
+#         foreach p {OPMODE ALUMODE INMODE USE_MULT USE_SIMD USE_PATTERN_DETECT \
+#                    ACASCREG_BCASCREG AREG BREG CREG DREG ADREG MREG PREG \
+#                    SEL_MASK SEL_PATTERN} {
+#             set v [get_property $p $one -quiet]
+#             if {[llength $v]} { puts "  $p = $v" }
+#         }
+#     }
+# }
+WARNING: [Vivado 12-180] No cells matched 'get_cells -hier -filter {REF_NAME == DSP48E1 && NAME =~ *g_pe_row\[1\\]*}'.
+WARNING: [Vivado 12-180] No cells matched 'get_cells -hier -filter {REF_NAME == DSP48E1 && NAME =~ *g_pe_row\[2\\]*}'.
+# set rq [lindex [get_cells -hier -filter {REF_NAME == DSP48E1 && NAME =~ "*u_requant*"}] 0]
+# if {[llength $rq]} {
+#     puts "=== REQUANT [get_property NAME $rq]"
+#     foreach p {OPMODE ALUMODE INMODE USE_MULT USE_SIMD MREG PREG} {
+#         set v [get_property $p $rq -quiet]
+#         if {[llength $v]} { puts "  $p = $v" }
+#     }
+# }
+=== REQUANT u_array/u_requant/prod
+  USE_MULT = MULTIPLY
+  USE_SIMD = ONE48
+  MREG = 0
+  PREG = 0
+# close_design
+# puts "OOC_DBG3_DONE"
+OOC_DBG3_DONE
+INFO: [Common 17-206] Exiting Vivado at Wed Sep 16 13:47:37 2026...
