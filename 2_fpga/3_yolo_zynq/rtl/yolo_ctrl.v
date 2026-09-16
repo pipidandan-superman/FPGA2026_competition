@@ -51,6 +51,42 @@
  *     配合 pe_pack V1.2 三级流水（UG479）——末 3 个 K 拍乘积在 PE
  *     墙内排空后 requant 才可采样 acc_q。所有输出在 DRAIN 拍为 0
  *     （busy 除外）。门重跑：M8 黄金再生成 + M4/M10/M11 链。
+ *   - V1.4 (2026-09-16) by LSL : B0 dbg7c ctrl −11.6ns（14 级）修复
+ *     ——rq_last_w 原为 oc_tail_r*n_tail_r 每拍动态乘+比较，改为
+ *     rq_limit_r（尾宽设定沿一次性登记）+ 纯 12 位比较；另导出
+ *     rq_last_o（S_RQ 拍的末拍指示，取代 gemm_array 侧的同型动态
+ *     乘）。周期行为与 V1.3 逐拍等价（limit 登记后最早 5 拍才可能
+ *     进 S_RQ）。门重跑：M8（黄金不变）+ M4/M10/M11 链。
+ *   - V1.5 (2026-09-16) by LSL : B0 dbg8d ctrl −5.6ns（11 级）修复
+ *     ——V1.4 的 rq_limit 登记式在 S_IDLE 接受拍/S_RQ 前进拍仍是
+ *     tail_calc×tail_calc−1 的 11 级乘法链（oc_tiles_r→rq_limit 乘
+ *     法器 LUT）。改为 S_TILE 拍从已寄存的 oc_tail_r*n_tail_r−1 计
+ *     算（寄存器×寄存器，2~3 级）：两条进入 S_TILE 的路径（S_IDLE
+ *     接受、S_RQ 前进）的前一拍都已装好 oc/n_tail_r；S_TILE 因参数
+ *     预取至少拉伸 ~26 拍，rq_limit 就绪比 S_RQ 首用早 ≥30 拍。输
+ *     出周期行为不变（M8 黄金不变）。
+ *   - V1.6 (2026-09-16) by LSL : B0 dbg8e ctrl −1.86ns（12 级）修复
+ *     ——S_RQ 前进拍的 tail_calc（比较+常乘+减法 12 级链）改为：
+ *     接受拍一次性预存末 tile 尾宽 oc/n_tail_last_r（= total−
+ *     (tiles−1)*edge），前进拍 = next_oc/n_last_w 比较 + 2:1 选择
+ *     （4~5 级）；tail_calc 函数删除。尾宽值与各拍装载值逐位等价
+ *     （M8 黄金不变）；oc/n_total_r 保留但不再被读（综合剪除）。
+ *     门重跑：M8（黄金不变）+ M10 + B0 v16。
+ *   - V1.7 (2026-09-17) by LSL : B0 dbg8f ctrl −1.116ns/12 级——V1.6 前进
+ *     拍仍是 last_oc→next_n→比较→选择 12 级链（oc_tiles_r→n_tail_r）。
+ *     改为前进拍纯寄存器装载 oc/n_tail_next_r（每拍在 case 外用
+ *     “下一 tile 是否末 tile”的直比式暂存：oc 侧 oc_tile==oc_tiles−2
+ *     或环绕且 tiles==1；n 侧分两态——oc 不环绕时 n 保持（保持到的
+ *     tile 若已是末 n 行仍要装 n_tail_last），环绕时 n+1（n_tile==
+ *     n_tiles−2））。首版漏了 n 保持态（M8 v17 FAIL errors=365，末
+ *     n 行中段 tile 全装了 N_EDGE），M8 v17b TB_CTRL_PASS
+ *     compared=706403 黄金不变。门重跑：M8 v17b + M10 v17 + B0 v17。
+ *   - V1.8 (2026-09-17) by LSL : xbuf BMG 输出寄存合同（V2.2，用户授权）
+ *     ——读延迟 1→2 拍使 X 操作数晚一拍到 PE 墙，gemm_array 侧 W 操作
+ *     数加一级对齐寄存、acc 使能 3→4 拍，故 S_DRAIN 3→4 拍（末 K 拍
+ *     tk → acc 落地 tk+5 → requant 采样 tk+6）。周期行为变化仅每 tile
+ *     +1 拍排空；M8 黄金再生成（drain_cycles 6813→9084，数值字节
+ *     不变——授权原文）。门重跑：M8 v18（黄金再生成）+ M10 v18 + B0 v18。
  ************************************************************************/
 
 module yolo_ctrl #(
@@ -79,10 +115,13 @@ module yolo_ctrl #(
     output wire [K_AW-1:0]    k_cnt_o,      // 0..K-1 during beat_en_o
     // requant tail interface (rq_idx = oc_local*n_tail + n_local);
     // rq_rdy_i (V1.2): per-output backpressure from the array's Y
-    // segmenter -- S_RQ holds (en/idx stable) until accepted
+    // segmenter -- S_RQ holds (en/idx stable) until accepted;
+    // rq_last_o (V1.4): registered-limit last-beat flag for the
+    // wrapper (replaces its own oc_tail*n_tail multiply)
     input  wire               rq_rdy_i,
     output wire               rq_en_o,
     output wire [TILE_AW-1:0] rq_idx_o,
+    output wire               rq_last_o,
     // tile bookkeeping / double-buffer steering
     output wire               wr_bank_o,    // = ~rd_bank_o (inactive bank)
     output wire               rd_bank_o,
@@ -114,29 +153,34 @@ module yolo_ctrl #(
     reg [TILE_AW-1:0] n_tile_r;
     reg [TILE_AW-1:0] oc_tail_r;
     reg [TILE_AW-1:0] n_tail_r;
+    // V1.6: last-tile tails precomputed once per layer (at accept);
+    // the S_RQ advance loads them via a compare+mux instead of the
+    // 12-level tail_calc chain (dbg8e ctrl -1.856ns owner)
+    reg [TILE_AW-1:0] oc_tail_last_r;
+    reg [TILE_AW-1:0] n_tail_last_r;
+    // V1.7: tail VALUES of the tile being advanced TO, staged every
+    // cycle the tile counters hold; the advance edge itself is a
+    // reg->reg load (dbg8f ctrl -1.116ns / 12L owner was
+    // oc_tiles_r -> last_oc -> next_n -> compare -> mux -> n_tail_r)
+    reg [TILE_AW-1:0] oc_tail_next_r;
+    reg [TILE_AW-1:0] n_tail_next_r;
     reg [K_AW-1:0]    k_cnt_r;
     reg [TILE_AW-1:0] rq_cnt_r;
+    reg [TILE_AW-1:0] rq_limit_r;           // V1.4: oc_tail*n_tail-1,
+                                            // loaded at tail updates
     reg [1:0]         drain_cnt_r;          // V1.3: S_DRAIN beat counter
     reg               rd_bank_r;
 
-    // last-tile tile width: full edge except the clamped last column/row
-    function [TILE_AW-1:0] tail_calc;
-        input [TILE_AW-1:0] total;
-        input [TILE_AW-1:0] tiles;
-        input [TILE_AW-1:0] idx;
-        input [TILE_AW-1:0] t_edge;
-        begin
-            if (idx == tiles - 1'b1) begin
-                tail_calc = total - (tiles - 1'b1) * t_edge;
-            end else begin
-                tail_calc = t_edge;
-            end
-        end
-    endfunction
+    localparam [TILE_AW-1:0] OC_EDGE_W = OC_EDGE;
+    localparam [TILE_AW-1:0] N_EDGE_W  = N_EDGE;
 
     // descriptor ceil divisions (constant divisors -> parameter OC/N_EDGE)
     wire [31:0] oc_tiles_w = (dsc_oc_i + OC_EDGE - 1) / OC_EDGE;
     wire [31:0] n_tiles_w  = (dsc_n_i + N_EDGE - 1) / N_EDGE;
+    // V1.6: last-tile tail VALUES (same arithmetic the tail_calc
+    // function evaluated per advance; computed once here)
+    wire [31:0] oc_tail_last_w = dsc_oc_i - (oc_tiles_w - 32'd1) * OC_EDGE;
+    wire [31:0] n_tail_last_w  = dsc_n_i  - (n_tiles_w  - 32'd1) * N_EDGE;
 
     // tile advance decode (n outer, oc inner -- section 3.1)
     wire               last_oc_tile_w = (oc_tile_r == oc_tiles_r - 1'b1);
@@ -146,7 +190,21 @@ module yolo_ctrl #(
                                         {TILE_AW{1'b0}} : (oc_tile_r + 1'b1);
     wire [TILE_AW-1:0] next_n_tile_w  = last_oc_tile_w ?
                                         (n_tile_r + 1'b1) : n_tile_r;
-    wire               rq_last_w      = (rq_cnt_r == oc_tail_r * n_tail_r - 1'b1);
+    // V1.7: is the tile being ADVANCED TO the last in its axis -- direct
+    // off the CURRENT tile counters, folding the next_oc/next_n +1/wrap
+    // chain. oc always changes: its next is last iff oc_tile ==
+    // oc_tiles-2 (no wrap) or oc wraps and tiles == 1 (tile 0 is the
+    // only/last tile). n either HOLDS (oc advances: the advanced-to
+    // tile keeps n_tile_r -- last iff it already IS the last n tile)
+    // or advances on oc wrap (next n = n+1 -- last iff n_tile ==
+    // n_tiles-2; n_tiles==1 never wraps, last_tile ends the layer).
+    wire               oc_next_is_last_w = (oc_tile_r == (oc_tiles_r - 2'd2))
+                                           || (last_oc_tile_w
+                                               && (oc_tiles_r == 32'd1));
+    wire               n_next_is_last_w  = last_oc_tile_w
+                                          ? (n_tile_r == (n_tiles_r - 2'd2))
+                                          : last_n_tile_w;
+    wire               rq_last_w      = (rq_cnt_r == rq_limit_r);
     wire               k_last_w       = (k_cnt_r == k_total_r - 1'b1);
 
     always @(posedge clk_i or negedge rst_n) begin
@@ -162,8 +220,13 @@ module yolo_ctrl #(
             n_tile_r   <= {TILE_AW{1'b0}};
             oc_tail_r  <= {TILE_AW{1'b0}};
             n_tail_r   <= {TILE_AW{1'b0}};
+            oc_tail_last_r <= {TILE_AW{1'b0}};
+            n_tail_last_r  <= {TILE_AW{1'b0}};
+            oc_tail_next_r <= {TILE_AW{1'b0}};
+            n_tail_next_r  <= {TILE_AW{1'b0}};
             k_cnt_r    <= {K_AW{1'b0}};
             rq_cnt_r   <= {TILE_AW{1'b0}};
+            rq_limit_r <= {TILE_AW{1'b0}};
             drain_cnt_r<= 2'd0;
             rd_bank_r  <= 1'b0;
         end else begin
@@ -178,16 +241,30 @@ module yolo_ctrl #(
                         n_tiles_r  <= n_tiles_w[TILE_AW-1:0];
                         oc_tile_r  <= {TILE_AW{1'b0}};
                         n_tile_r   <= {TILE_AW{1'b0}};
-                        oc_tail_r  <= tail_calc(dsc_oc_i, oc_tiles_w,
-                                                 {TILE_AW{1'b0}}, OC_EDGE);
-                        n_tail_r   <= tail_calc(dsc_n_i, n_tiles_w,
-                                                 {TILE_AW{1'b0}}, N_EDGE);
+                        // V1.6: first tile's tails via the same mux
+                        // shape as the advance below (first tile is
+                        // the last iff tiles == 1)
+                        oc_tail_last_r <= oc_tail_last_w[TILE_AW-1:0];
+                        n_tail_last_r  <= n_tail_last_w[TILE_AW-1:0];
+                        oc_tail_r  <= (oc_tiles_w == 32'd1)
+                                        ? oc_tail_last_w[TILE_AW-1:0]
+                                        : OC_EDGE_W;
+                        n_tail_r   <= (n_tiles_w == 32'd1)
+                                        ? n_tail_last_w[TILE_AW-1:0]
+                                        : N_EDGE_W;
+                        // V1.4/V1.5: rq_limit is computed in S_TILE
+                        // from the tails loaded here (registered
+                        // multiply, off the per-beat path)
                         k_cnt_r    <= {K_AW{1'b0}};
                         rq_cnt_r   <= {TILE_AW{1'b0}};
                         state_r    <= S_TILE;
                     end
                 end
                 S_TILE: begin
+                    // V1.5: rq_limit = oc_tail*n_tail-1 off REGISTERED
+                    // tails (loaded by whichever edge entered S_TILE);
+                    // recomputed harmlessly while tile_rdy stretches.
+                    rq_limit_r <= oc_tail_r * n_tail_r - 1'b1;
                     if (tile_rdy_i) begin
                         state_r <= S_K;     // acc_clr via comb decode (may stretch)
                     end
@@ -207,8 +284,13 @@ module yolo_ctrl #(
                     // only start once the final acc write has landed:
                     // last ren at tk -> acc edge tk+4 -> rq lane-mux
                     // sample tk+5, drain occupies tk+1..tk+3.
+                    // V1.8: xbuf BMG primitives output register (xbuf
+                    // V2.2 contract, 2026-09-17 用户授权) -- X operand
+                    // and the W staging reg both land D+2, products
+                    // D+5: last ren at tk -> acc edge tk+5 -> rq
+                    // sample tk+6, drain occupies tk+1..tk+4 (4 拍).
                     drain_cnt_r <= drain_cnt_r + 1'b1;
-                    if (drain_cnt_r == 2'd2) begin
+                    if (drain_cnt_r == 2'd3) begin
                         state_r <= S_RQ;
                     end
                 end
@@ -222,10 +304,12 @@ module yolo_ctrl #(
                             end else begin
                                 oc_tile_r <= next_oc_tile_w;
                                 n_tile_r  <= next_n_tile_w;
-                                oc_tail_r <= tail_calc(oc_total_r, oc_tiles_r,
-                                                       next_oc_tile_w, OC_EDGE);
-                                n_tail_r  <= tail_calc(n_total_r, n_tiles_r,
-                                                       next_n_tile_w, N_EDGE);
+                                // V1.7: advance consumes the STAGED tail
+                                // values (computed off the pre-advance
+                                // counters = the advanced-to tile; reg->reg
+                                // load, no decode in this edge)
+                                oc_tail_r <= oc_tail_next_r;
+                                n_tail_r  <= n_tail_next_r;
                                 rd_bank_r <= ~rd_bank_r;
                                 state_r   <= S_TILE;
                             end
@@ -241,6 +325,14 @@ module yolo_ctrl #(
                     state_r <= S_IDLE;
                 end
             endcase
+
+            // V1.7: stage the advance-time tail values every cycle (they
+            // track the CURRENT tile counters; after any state change the
+            // next edge re-stages off the new counters -- first advance is
+            // always >= S_TILE+S_K beats away, always fresh). Stale during
+            // S_IDLE pre-accept; never consumed there.
+            oc_tail_next_r <= oc_next_is_last_w ? oc_tail_last_r : OC_EDGE_W;
+            n_tail_next_r  <= n_next_is_last_w  ? n_tail_last_r  : N_EDGE_W;
         end
     end
 
@@ -252,6 +344,7 @@ module yolo_ctrl #(
     assign k_cnt_o      = k_cnt_r;
     assign rq_en_o      = (state_r == S_RQ);
     assign rq_idx_o     = rq_cnt_r;
+    assign rq_last_o    = (state_r == S_RQ) && rq_last_w;
     assign rd_bank_o    = rd_bank_r;
     assign wr_bank_o    = ~rd_bank_r;
     assign oc_tile_o    = oc_tile_r;

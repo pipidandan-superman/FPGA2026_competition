@@ -69,6 +69,9 @@ def build():
     # V1.3：K 末拍后经 DRAIN 态 3 拍（drain 0→1→2，第三拍末转 RQ）
     # 再进 RQ——镜像 RTL S_DRAIN（pe_pack V1.2 三级流水排空）。
     # DRAIN 拍所有输出为 0（busy=1，k_cnt 保持 K）。
+    # V1.8（2026-09-17 用户授权）：xbuf BMG 输出寄存合同（读延迟 1→2，
+    # xbuf V2.2/gemm_array V1.6）使末 K 拍 tk → acc 落地 tk+5 → requant
+    # 采样 tk+6，DRAIN 3→4 拍（drain 0→1→2→3，第四拍末转 RQ）。
     r = dict(state='IDLE', oc_tot=0, n_tot=0, k_tot=0, last=0,
              oc_tiles=0, n_tiles=0, oc_tile=0, n_tile=0,
              oc_tail=0, n_tail=0, k=0, rq=0, rdb=0, wait=0, rdy=1,
@@ -126,9 +129,9 @@ def build():
             if k_last:
                 r.update(state='DRAIN', rq=0, drain=0)
         elif s == 'DRAIN':
-            # V1.3：3 拍排空（RTL drain_cnt_r 0→1→2，=2 的拍末转 RQ）
+            # V1.8：4 拍排空（RTL drain_cnt_r 0→1→2→3，=3 的拍末转 RQ）
             drain_cyc[0] += 1
-            if r['drain'] >= 2:
+            if r['drain'] >= 3:
                 r.update(state='RQ', rq=0, drain=0)
             else:
                 r['drain'] += 1
@@ -192,8 +195,8 @@ def build():
     # V1.1 等待覆盖：总量充分、0 等待 tile 与长等待 tile 均存在
     assert wait_cyc[0] >= 1000, wait_cyc[0]
     assert any(w == 0 for w in waits) and any(w >= 3 for w in waits)
-    # V1.3：每 tile 恰 3 拍 DRAIN
-    assert drain_cyc[0] == 3 * tiles_ref, (drain_cyc[0], tiles_ref)
+    # V1.3/V1.8：每 tile 恰 4 拍 DRAIN（xbuf V2.2 合同，授权 2026-09-17）
+    assert drain_cyc[0] == 4 * tiles_ref, (drain_cyc[0], tiles_ref)
     cov = {'total_cycles': len(cyc), 'layers': len(layers),
            'tiles': tiles_ref, 'acc_clr_cycles': n_accclr,
            'tile_wait_cycles': wait_cyc[0], 'drain_cycles': drain_cyc[0],
@@ -243,9 +246,10 @@ def main():
                     'with tail clamp, per-tile bank toggle, layer_done/'
                     'all_done pulses, dsc_ready in IDLE; V1.1 S_TILE '
                     'waits tile_rdy_i (per-tile random 0..4 wait cycles, '
-                    'rdy replayed from drv_rdy.hex); V1.3 S_K -> 3-cycle '
-                    'S_DRAIN -> S_RQ (pe_pack V1.2 three-stage pipeline '
-                    'drain, UG479)',
+                    'rdy replayed from drv_rdy.hex); V1.8 S_K -> 4-cycle '
+                    'S_DRAIN -> S_RQ (xbuf V2.2 BMG output-reg contract: '
+                    'operands meet D+2, products D+5, last ren tk -> acc '
+                    'tk+5 -> rq sample tk+6; 2026-09-17 用户授权)',
         'gold_ref': 'instruction-level cycle-accurate register shadow '
                     '(python)',
         'layer_plan': ['real conv0 shape oc16/n25600/k27']

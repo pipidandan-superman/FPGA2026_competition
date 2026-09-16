@@ -10,7 +10,10 @@
  *                   cycle im2col address stream (x_addr / pad / pad_val
  *                   / k / n_local) against the golden stream beat by
  *                   beat; checks done_o pulses exactly at tile end and
- *                   vld_o drops afterwards.
+ *                   vld_o drops afterwards. V1.1: start -> beat0 now
+ *                   includes the DUT S_DIV/S_PREP phases (19 cycles),
+ *                   so the loop first waits for vld to rise; the beat
+ *                   golden stream itself is unchanged from V1.0.
  *                   Usage (from sim/msim, -novopt mandatory on 10.1c):
  *                     vsim -c -novopt +STIM=../stim/addrgen +WDT_MS=400 \
  *                          -do "run -all; quit -f" work.tb_yolo_addrgen
@@ -18,6 +21,8 @@
  * Dependencies    : rtl/yolo_addrgen.v, sim/addrgen_vecgen.py outputs
  * Revision History:
  *   - V1.0 (2026-09-15) by LSL : Initial release (M7)
+ *   - V1.1 (2026-09-16) by LSL : wait-for-vld entry for the V1.1
+ *     divide/prep phases (golden stream files unchanged).
  ************************************************************************/
 `timescale 1ns/1ps
 
@@ -151,9 +156,13 @@ module tb_yolo_addrgen;
             start = 1'b1;
             @(negedge clk);
             start = 1'b0;
-            // 捕获 posedge 已过，当前拍即 beat 0（组合输出随计数器）
+            // V1.1: start 捕获沿已过，DUT 先走 S_DIV/S_PREP（19 拍），
+            // 等 vld 拉高的那一拍即 beat 0（组合输出整拍稳定，沿后 #1 采）
+            @(posedge clk); #1;
+            while (vld !== 1'b1) begin
+                @(posedge clk); #1;
+            end
             for (b = 0; b < beat_cnt; b = b + 1) begin
-                #1;
                 if (vld !== 1'b1) begin
                     n_err = n_err + 1;
                     if (n_err == 1) begin
@@ -178,10 +187,9 @@ module tb_yolo_addrgen;
                                  n_loc, mem_nl[beat_base + b]);
                     end
                 end
-                @(negedge clk);
+                @(posedge clk); #1;
             end
-            // done 脉冲恰在末 beat 之后一拍，且 vld 回落
-            #1;
+            // 末 beat 结束沿之后：done 脉冲恰在其后一拍，且 vld 回落
             if (done !== 1'b1 || vld !== 1'b0) begin
                 n_err = n_err + 1;
                 if (n_err == 1) begin

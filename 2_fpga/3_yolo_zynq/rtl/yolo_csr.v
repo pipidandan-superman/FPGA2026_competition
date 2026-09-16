@@ -64,6 +64,12 @@
  *                   to match yolo_gemm_array ports)
  * Revision History:
  *   - V1.0 (2026-09-16) by LSL : Initial release (M12 A1).
+ *   - V1.1 (2026-09-17) by LSL : B0 v20 ooc——LUT 写口寄存化 +
+ *     max_fanout=32：原 bpend_r→wr_fire_w→lut_we_o 组合直出扇出到
+ *     全部 silu_lut RAM 单元 CE（u_csr/bpend_r→u_array/u_lut/
+ *     lut_reg[*][*]/CE，−0.773ns/0 级纯布线 owner）。写脉冲晚一拍
+ *     落表（仅配置期，表内容最终一致；AXI 握手时序不变）。门重跑：
+ *     M12 csr 门 + M10 + B0 v21。
  ************************************************************************/
 
 module yolo_csr #(
@@ -189,10 +195,30 @@ module yolo_csr #(
     wire        wlut_w    = (woff_w[15:10] == 6'd1);  // 0x400..0x7FF
     wire [9:0]  wreg_w    = woff_w[11:2];
 
-    // LUT window: one-cycle write pulse, entry = low byte, word strobe
-    assign lut_we_o    = wr_fire_w && wlut_w && s_axi_wstrb[0];
-    assign lut_waddr_o = woff_w[9:2];
-    assign lut_wdata_o = s_axi_wdata[7:0];
+    // LUT window: one-cycle write pulse, entry = low byte, word strobe.
+    // V1.1 (B0 v20 ooc): registered write port -- the combinational
+    // bpend_r -> wr_fire_w -> lut_we_o path fanned out to every
+    // silu_lut RAM cell CE across the die (-0.77ns/0L route owner,
+    // u_csr/bpend_r -> u_array/u_lut/lut_reg[*][*]/CE). Registered +
+    // max_fanout lets synthesis replicate the enable near the loads
+    // (yolo_xbuf V2.1 precedent). Write lands one cycle later --
+    // config-time only, LUT contents eventually identical.
+    (* max_fanout = 32 *) reg        lut_we_r;
+    reg [7:0] lut_waddr_r, lut_wdata_r;
+    always @(posedge clk_i or negedge rst_n) begin
+        if (!rst_n) begin
+            lut_we_r    <= 1'b0;
+            lut_waddr_r <= 8'd0;
+            lut_wdata_r <= 8'd0;
+        end else begin
+            lut_we_r    <= wr_fire_w && wlut_w && s_axi_wstrb[0];
+            lut_waddr_r <= woff_w[9:2];
+            lut_wdata_r <= s_axi_wdata[7:0];
+        end
+    end
+    assign lut_we_o    = lut_we_r;
+    assign lut_waddr_o = lut_waddr_r;
+    assign lut_wdata_o = lut_wdata_r;
 
     // ----------------------------------------------------------------
     // register file

@@ -2,8 +2,17 @@
 
 合同（rtl/yolo_xbuf.v）：N_COLS=16 列 × K 深字节存储器 × 双 bank（列组
 织，与 wbuf 行组织对称）；写口 1 拍 1 字节（wcol/waddr/wdata）；读口
-ren/raddr → 1 拍延迟广播 16 列字节（dout）；en=0 保持；无参数随载；
+ren/raddr → 2 拍延迟广播 16 列字节（dout）；en=0 保持；无参数随载；
 双缓冲：写 wr_bank 与读 rd_bank 可同时激活，互不干扰。
+V2.2（2026-09-17 用户授权）：BMG Register_PortB_Output_of_Memory_
+Primitives=true，读延迟 1→2。仿真模型语义（blk_mem_gen_v8_4.v 实证）：
+ENB 同时门级 stage1（memory_out_b，read_b 任务内 reb_i 门）与源语输
+出寄存 stage2（output_stage regce_i=EN，无 REGCEB 引脚时）——读结果
+在**下一个读使能沿**落到 DOUTB，两拍延迟仅在连续读时成立；保持拍两
+级均保持（读结果"滞留"stage1，待下一读使能沿提交）。两 bank 例化共
+享 ENB/addr：未选 bank 的流水同样推进（其内容被 rd_bank_q 多路器屏蔽，
+黄金仍逐位建模）。存储器上电全 0（init_memory 任务逐地址写 0），流
+水寄存上电 0——本模型 dict 缺省 0 语义逐位一致。
 
 轮次结构（r0 真实 + r1..r7 合成，bank = r%2）：
   r0：真实 golden00 im2col X tile（conv0 几何 3x3/S2/P1，n_start=0 即
@@ -53,21 +62,44 @@ def im2col_byte(x, n, k):
 
 
 class Model:
-    """参考模型：双 bank tile + 输出影子（保持语义）。"""
+    """参考模型：双 bank tile + 两级 ENB 门控读流水影子（V2.2）。
+
+    stage1/stage2 每 bank 各一套，仅在读使能沿（ren=1）同步推进：
+      stage2 <= stage1（旧值）；stage1 <= word[bank][addr]（读拍两 bank
+    均采样——未选 bank 的流水也走）。wrapper：rd_bank_q/rd_active_q 读
+    拍更新（active 一置常开，首读前门 0），dout_vld = ren 无门控两级
+    移位（与数据级数刻意解耦——比较点逐拍记录黄金真值）。
+    """
 
     def __init__(self):
         self.banks = [dict(), dict()]   # (col, k) -> 字节
-        self.dout = 0          # 128b 影子（16 字节）
+        self.s1 = [0, 0]                # BMG stage1 per bank（上电 0）
+        self.s2 = [0, 0]                # BMG stage2 per bank（上电 0）
+        self.dout = 0                   # 可见 dout（active 门控后）
+        self.bank_q = 0                 # rd_bank_q
+        self.active = False             # rd_active_q
+        self.prev_rd = False            # 上一 op 是否读（dout_vld 用）
 
     def wdata(self, bank, col, k, byte):
         self.banks[bank][(col, k)] = byte & 0xFF
 
-    def rd(self, bank, k):
+    def word(self, bank, k):
         v = 0
         for c in range(N_COLS):
             v |= self.banks[bank].get((c, k), 0) << (8 * c)
-        self.dout = v
         return v
+
+    def rd(self, bank, k):
+        # 读使能沿：先提交 stage2（收 stage1 旧值）再装 stage1；
+        # 两 bank 同拍采样（ENB/addr 共享）。本 bank 写-读同拍时
+        # stage1 收写前旧值（调用方在 emit 后才 wdata，与 READ_FIRST
+        # 一致；本激励写读恒异 bank，无碰撞）。
+        self.s2 = self.s1[:]
+        self.s1 = [self.word(0, k), self.word(1, k)]
+        self.bank_q = bank
+        self.active = True
+        self.dout = self.s2[bank]
+        return self.dout
 
 
 def build():
@@ -79,11 +111,19 @@ def build():
              chk_d=False, rbank=None, rk=None):
         rb = bank if rbank is None else rbank
         kk = k if rk is None else rk
+        # V2.2：比较点 = 本拍沿后。读 op 的可见 dout = 刚提交的
+        # stage2（= 上一读使能沿采的 stage1）；非读 op = 保持值。
+        # ev = dout_vld = ren 两级移位 = 上一 op 是否读。
+        if chk_d:
+            ed = m.rd(rb, kk)
+        else:
+            ed = m.dout
         ops.append({'op': op, 'bank': bank, 'col': col, 'k': k,
                     'wdata': wdata & 0xFF,
                     'rbank': rb, 'rk': kk,
-                    'ed': m.dout if not chk_d else m.rd(rb, kk),
-                    'ev': 1 if chk_d else 0})
+                    'ed': ed,
+                    'ev': 1 if m.prev_rd else 0})
+        m.prev_rd = chk_d
 
     # ---- r0：真实 golden00 im2col X tile（bank0，n_start=0 左缘）----
     base = HERE / 'stim' / 'conv0_golden00'
@@ -190,10 +230,13 @@ def main():
 
     manifest = {
         'name': 'xbuf', 'seed': SEED,
-        'contract': 'dual-bank column store; 1-cycle sync read broadcast; '
-                    'no params with tile; concurrent wr/rd on opposite '
-                    'banks; en=0 hold; stimulus never reads unwritten '
-                    'addresses',
+        'contract': 'dual-bank column store; 2-cycle sync read broadcast '
+                    '(V2.2 BMG primitives output reg, 2026-09-17 用户授权: '
+                    'ENB gates BOTH stages -- a read lands on DOUTB at the '
+                    'next read-enabled edge; both banks pipelines advance '
+                    'on shared ENB/addr); no params with tile; concurrent '
+                    'wr/rd on opposite banks; en=0 hold; stimulus never '
+                    'reads unwritten addresses',
         'gold_ref': 'python BFM model (dict-based banks + output shadow)',
         'coverage': cov,
         'sha256': {fn: hashlib.sha256(t.encode('ascii')).hexdigest()

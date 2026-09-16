@@ -69,6 +69,39 @@
  *                 从 head 起、首字 wstrb 掩 head lanes、覆盖字数 =
  *                 ceil((head+len)/8)。head=0 时与 V1.1 逐位等价（回归）。
  *                 门重跑：M9b run03。
+ *   - V1.3 (2026-09-17) by LSL : B0 v20 ooc（用户授权 dma 增量寻址批，
+ *                 dma V1.1 镜像）：4KB 边界拍数改增量维护寄存器 bnd_r——
+ *                 命令接受沿 512−cmd_addr[11:3] 装载（awaddr 本就下对齐
+ *                 8B，[11:3] 与 [2:0] 无关），AW 发火沿 −beats、吃掉边界
+ *                 则回装 512；删除每拍 (4096−addr_r[11:0])>>3 重算的
+ *                 bnd_beats_w（12 位减法+比较级联嵌在 addr_r 更新路径，
+ *                 v20 ooc dma_wr 同源 owner），addr_r 变纯累加器。突发
+ *                 序列/地址逐拍不变（同一计算的纯重定时），AXI 行为零变
+ *                 化；head=0 时与 V1.2 逐位等价的回归路径不变。门重跑：
+ *                 M9b + M10 + B0 v21。
+ *   - V1.4 (2026-09-17) by LSL : B0 v21 ooc（words_r→bnd_r −0.634 owner
+ *                 本体）——bnd 结算沿从 AW 发火挪到突发末拍：AW 发火装
+ *                 blen_r（本突发拍数 ≤16，5 位），末拍（w_fire &&
+ *                 burst_last）读 blen_r 与 bnd_r 作 10 位等值/减法结算，
+ *                 words_r 退出 bnd 更新链（原 V1.3 发火沿更新读
+ *                 words_r→beats_w 最小值级联）。转 S_DR 末拍的结算是哑
+ *                 写（下一命令接受沿重装）。突发序列/地址逐拍不变，AXI
+ *                 行为零变化。门重跑：M9b + M10 + B0 v22。
+ *   - V1.5 (2026-09-17) by LSL : B0 v22 ooc（top10 全体 words_r→addr_r
+ *                 −0.581 / words_r→words_r −0.496——发火沿串行本体：
+ *                 min(words_r,16) 24 位比较 → min(bnd_r,·) → 32 位减法
+ *                 回装，加法侧再串 32 位 addr 进位链）。突发参数预计算
+ *                 拆沿：want2_r=min(words_r,16) 与 addr_r 推进（+blen_r<<3）
+ *                 均改在上一突发末拍装载/结算（words_r 自上次 AW 发火起
+ *                 稳定 ≥1 拍，addr_r/blen_r 全突发稳定——末拍只剩单 24 位
+ *                 比较与单 32 位进位链）；AW 发火沿只剩 min(bnd_r,want2_r)
+ *                 10 位比较 + 一次 32 位减法，addr_r 发火沿纯寄存器搬运。
+ *                 awaddr_o 仅在 S_AW 被采样，提前推进不可见。突发序列/
+ *                 地址/周期行为逐拍不变（同一算术的纯重定时）。转 S_DR
+ *                 末拍的推进/装载为哑写（命令接受沿重装；命令接受沿的
+ *                 want2_r 由 cmd 总线直算——OOC 输入端口无输入延迟约束，
+ *                 B1 整合时按真实 input delay 复核）。门重跑：M9b + M10
+ *                 + B0 v23。
  ************************************************************************/
 
 module yolo_dma_wr #(
@@ -124,11 +157,46 @@ module yolo_dma_wr #(
                                           // (= head; 0 after/for no head)
     reg [LEN_W-1:0]   aw_cnt_r;            // AW handshakes this command
     reg [LEN_W-1:0]   b_cnt_r;             // B handshakes this command
+    reg [9:0]         bnd_r;               // V1.3: beats to the 4KB line
+                                          // end, maintained INCREMENTALLY
+                                          // (V1.2 recomputed it per cycle
+                                          // from addr_r[11:0]; the dma V1.1
+                                          // analysis applies identically --
+                                          // v20 ooc dma_wr tier owner)
+    reg [4:0]         blen_r;              // V1.4: current burst's beat
+                                          // count (<= MAX_BURST=16, 5b),
+                                          // loaded at AW fire -- the bnd
+                                          // settlement runs at the burst's
+                                          // LAST W BEAT off this register
+                                          // instead of the words_r->beats_w
+                                          // min cascade (v21 owner
+                                          // words_r->bnd_r -0.634)
+    reg [31:0]        want2_r;             // V1.5: min(words_r, MAX_BURST)
+                                          // for the NEXT burst, preloaded at
+                                          // the previous burst's LAST W BEAT
+                                          // (words_r stable since the last AW
+                                          // fire) or at command accept (off
+                                          // the cmd bus) -- the AW fire edge
+                                          // then only resolves
+                                          // min(bnd_r, want2_r) (10b) + one
+                                          // 32b subtract (v22 owner
+                                          // words_r->addr_r -0.581)
 
-    // AW sizing: min(words left, max burst, beats to the 4KB line end)
-    wire [31:0] bnd_beats_w = (32'd4096 - {19'd0, addr_r[11:0]}) >> 3;
-    wire [31:0] want_w      = (words_r > MAX_BURST) ? MAX_BURST : words_r;
-    wire [31:0] beats_w     = (bnd_beats_w < want_w) ? bnd_beats_w : want_w;
+    // AW sizing: min(words left, max burst, beats to the 4KB line end).
+    // V1.3: bnd is a REGISTER (dma V1.1 mirror) -- loaded at command
+    // accept (awaddr is down-aligned to 8B, so bnd = 512 - addr[11:3]);
+    // V1.4: the decrement/re-arm settles at each burst's LAST W BEAT off
+    // blen_r (the burst's registered beat count), so the bnd update chain
+    // reads registers only -- words_r exits it entirely. Burst sequence
+    // identical (pure retiming); addr_r plain accumulator.
+    // V1.5: min(words_r, MAX_BURST) is likewise a REGISTER (want2_r,
+    // loaded at burst end / accept) and the addr_r advance (+blen_r<<3)
+    // settles at burst end -- the fire edge reads registers through one
+    // 10b compare + one 32b subtract only.
+    wire [31:0] cmd_words_w  = ({8'd0, cmd_len_i} + {29'd0, cmd_addr_i[2:0]}
+                                + 32'd7) >> 3;
+    wire [31:0] beats_w     = ({22'd0, bnd_r} < want2_r) ? {22'd0, bnd_r}
+                                                        : want2_r;
     wire        aw_fire_w   = (state_r == S_AW) && awready_i;
     wire [31:0] words_next_w = words_r - beats_w;
 
@@ -160,6 +228,9 @@ module yolo_dma_wr #(
             lo_r          <= 4'd0;
             aw_cnt_r      <= {LEN_W{1'b0}};
             b_cnt_r       <= {LEN_W{1'b0}};
+            bnd_r         <= 10'd512;
+            blen_r        <= 5'd0;
+            want2_r       <= 32'd0;   // primed at command accept
         end else begin
             // ---- 字节装配器（所有状态）：源字节 k -> lane k（小端） ----
             if (src_fire_w) begin
@@ -180,6 +251,18 @@ module yolo_dma_wr #(
                     end else begin
                         state_r <= S_AW;
                     end
+                    // V1.4: 边界结算移至突发末拍——读 blen_r（5b 寄存）
+                    // 与 bnd_r 作 10 位等值/减法，words_r 完全退出 bnd
+                    // 更新链（转 S_DR 时的结算是哑写，下一命令接受沿
+                    // 重装，无影响）
+                    bnd_r  <= (bnd_r == {5'd0, blen_r}) ? 10'd512
+                             : (bnd_r - {5'd0, blen_r});
+                    // V1.5: 下一突发 AW 参数末拍预计算——words_r 自上次
+                    // AW 发火起稳定（≥1 拍），addr_r/blen_r 全突发稳定：
+                    // 单 24 位比较 + 单 32 位进位链。转 S_DR 时为哑写
+                    // （命令接受沿重装）。
+                    addr_r  <= addr_r + {24'd0, blen_r, 3'b000};
+                    want2_r <= (words_r > MAX_BURST) ? MAX_BURST : words_r;
                 end
             end
             // ---- done 单拍脉冲返回空闲 ----
@@ -192,21 +275,30 @@ module yolo_dma_wr #(
             // 覆盖字数 = ceil((head+len)/8)。head=0 时与 V1.1 逐位等价。
             if ((state_r == S_IDLE) && cmd_valid_i) begin
                 addr_r       <= {cmd_addr_i[ADDR_W-1:3], 3'b000};
-                words_r      <= ({8'd0, cmd_len_i}
-                                 + {29'd0, cmd_addr_i[2:0]} + 32'd7) >> 3;
+                words_r      <= cmd_words_w[LEN_W-1:0];
+                // V1.5: 首突发 want2 由 cmd 总线直算（OOC 输入端口无
+                // 输入延迟约束；B1 整合时按真实 input delay 复核）
+                want2_r      <= (cmd_words_w > MAX_BURST) ? MAX_BURST
+                                                          : cmd_words_w;
                 bytes_r      <= cmd_len_i;
                 bcnt_r       <= {1'b0, cmd_addr_i[2:0]};
                 lo_r         <= {1'b0, cmd_addr_i[2:0]};
                 aw_cnt_r     <= {LEN_W{1'b0}};
                 b_cnt_r      <= {LEN_W{1'b0}};
+                // V1.3: awaddr 下对齐 8B，[11:3] 即线内 beat 序号
+                bnd_r        <= 10'd512 - {1'b0, cmd_addr_i[11:3]};
                 state_r      <= S_AW;
             end
             // ---- AW 发起 ----
             if (aw_fire_w) begin
                 beats_r      <= beats_w[7:0];
-                addr_r       <= addr_r + {beats_w[ADDR_W-3:0], 3'b000};
+                blen_r       <= beats_w[4:0];   // V1.4: 供突发末拍结算
+                // V1.5: addr_r 推进移至突发末拍（+blen_r<<3，读两个全
+                // 突发稳定的寄存器）——发火沿不再串 min 级联+32 位加法
                 words_r      <= words_next_w[LEN_W-1:0];
                 aw_cnt_r     <= aw_cnt_r + 1'b1;
+                // V1.4: 边界结算移至本突发末拍（见 W 发送块）——AW 发火
+                // 沿不再读 words_r->beats_w 级联更新 bnd_r
                 state_r      <= S_W;
             end
             // ---- B 接受（状态无关独立计数：发一收一；多突发命令的
