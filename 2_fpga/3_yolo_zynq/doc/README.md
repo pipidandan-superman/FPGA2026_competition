@@ -46,4 +46,4 @@
 | 2026-09-15 | M11 全网端到端：1 帧 63 conv 逐位 + head sha==run04 | 4_metrics/logs/2026-09-15_yolo7020_m11_fullnet_run01 |
 | 2026-09-16 | M12 A1 五门全绿（Y 真 AXI 写主 + CSR/engine） | 4_metrics/logs/2026-09-16_yolo7020_m{8,9b,10,11,12}_*_run0* |
 | 2026-09-16 | B0 OOC：DSP 238→142 修复；UG479 合规批（pe_pack V1.2 三级流水）门链全绿（M11 双跑 ModelSim）；150MHz 未过，−31ns 真根因 = addrgen 除法 | 4_metrics/logs/2026-09-16_yolo7020_ug479_compliance、..._m11_fullnet_xsim_failchain、proj/ooc_gate/、7_logs/2026-09-16/03 |
-| 2026-09-17 | **B0 150MHz 收敛**：xbuf BMG 输出寄存合同 + 13 轮迭代（v13 −31.017 → v27 +0.005 PASS，fmax 150.11，dsp 140）；M10 run12/M12 csr run09 与 v26 逐拍同；M11 v27 ModelSim 过夜启动 | 4_metrics/logs/2026-09-17_yolo7020_ooc_gate_v25..v27（含 WNS 轨迹表）、..._m10_gemm_array_run10..12、..._m12_csr_engine_run07..09、7_logs/2026-09-17/01..03 |
+| 2026-09-17 | **B0 150MHz 收敛**：xbuf BMG 输出寄存合同 + 13 轮迭代（v13 −31.017 → v27 +0.005 PASS，fmax 150.11，dsp 140）；M10 run12/M12 csr run09 与 v26 逐拍同；M11 v27 run04 双绿（七项计数同 v13 + head sha==run04）——**B0 冻结批全链收口** | 4_metrics/logs/2026-09-17_yolo7020_ooc_gate_v25..v27（含 WNS 轨迹表）、..._m10_gemm_array_run10..12、..._m12_csr_engine_run07..09、..._m11_fullnet_run04、7_logs/2026-09-17/01..03 |

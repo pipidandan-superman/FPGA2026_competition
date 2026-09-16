@@ -8,8 +8,8 @@
 
 **B0 收敛：OOC v27 GEMM16_OOC_TIMING_PASS wns +0.005ns
 （fmax 150.11MHz，150MHz 目标达成）**；功能门 M10 run12 / M12 csr
-run09 与 v26 逐拍相同；M11 v27 全网 ModelSim 过夜进行中
-（heartbeat t=20e9 err=0）。
+run09 与 v26 逐拍相同；**M11 v27 run04 双绿**（TB_FULLNET_PASS 七项
+同 v13 + M11_HEADCHK_PASS sha==run04 frame0）。
 
 ## 各轮 WNS 轨迹（迭代 10–13，本会话窗口）
 
@@ -63,8 +63,13 @@ v27 OOC 新临界（全部正裕量）：addrgen vld_o→xbuf BRAM ENARDEN
   + headcheck sha256 ==
   9ce70525fc1732cde640bfa654919dd28504422aa9791a2875225ae6ad6aa6ad。
 - 对照：v13 run（B0 期唯一已执行全网 M11）同 token 同计数。
-- 当前进度：heartbeat t=20000000000 conv=0 ywr=351952 **err=0**。
-  完成后本文件补判决行（或见 v27_m11_run.log 尾部）。
+- **判决（run04，~1.5h 墙钟）：双绿——TB_FULLNET_PASS 七项计数与
+  v13 逐一相同 + M11_HEADCHK_PASS sha==run04 frame0**（归档副本
+  独立复跑 headcheck 亦 MATCH，6 张量拆分逐字节全对；63 conv 全
+  acc_err=0，末层 @t=1356486600000）。证据
+  4_metrics/logs/2026-09-17_yolo7020_m11_fullnet_run04/。
+
+**B0 冻结批全链收口：OOC v27 PASS + M11 v27 双绿。**
 
 ## 证据目录（本窗口新增）
 
@@ -76,6 +81,8 @@ v27 OOC 新临界（全部正裕量）：addrgen vld_o→xbuf BRAM ENARDEN
 - 4_metrics/logs/2026-09-17_yolo7020_m10_gemm_array_run12/（v27）
 - 4_metrics/logs/2026-09-17_yolo7020_m12_csr_engine_run09/（v27）
 - 4_metrics/logs/2026-09-17_yolo7020_ooc_gate_v27/（PASS + 轨迹表）
+- 4_metrics/logs/2026-09-17_yolo7020_m11_fullnet_run04/（M11 双绿
+  + 独立复跑 headcheck）
 
 ## 后续（待授权/已授权未启动）
 

@@ -85,11 +85,14 @@ csr=0）→ **OOC v27 PASS wns +0.005（fmax 150.11）——B0 150MHz
   ctrl V1.8 / xbuf V2.2（BMG 输出寄存）/ dma V1.3 / dma_wr V1.5。
 - M11 v27 过夜启动（sim/msim_v19/run_m11_v27.sh）：首跑 vlog-19
   （work_v27 库缺 vlib——v19/v25/v26 脚本从未执行，潜伏缺口本跑
-  才暴露；脚本已补 guarded vlib 并留注）。重跑编译干净，vsim
-  全网进行中。判据：TB_FULLNET_PASS convs=63 psops=65
-  compared=3553900 dut_wr=3553900 head_bytes=149100 ldone=63
-  adone=1 + headcheck sha256
-  9ce70525fc1732cde640bfa654919dd28504422aa9791a2875225ae6ad6aa6ad。
+  才暴露；脚本已补 guarded vlib 并留注）。
+- **判决 run04（~1.5h 墙钟）：双绿——TB_FULLNET_PASS convs=63
+  psops=65 compared=3553900 dut_wr=3553900 head_bytes=149100
+  ldone=63 adone=1（七项与 v13 逐一相同）+ M11_HEADCHK_PASS
+  sha256=9ce70525...==run04 frame0**（归档副本独立复跑 headcheck
+  亦 MATCH；63 conv 全 acc_err=0）。证据
+  4_metrics/logs/2026-09-17_yolo7020_m11_fullnet_run04/。
+  **B0 冻结批全链收口。**
 
 ## 证据
 
