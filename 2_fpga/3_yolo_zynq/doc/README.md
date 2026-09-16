@@ -14,11 +14,11 @@
 | 目录 | 用途 | 现状 |
 | --- | --- | --- |
 | `doc/` | 本 README、设计笔记、从 0_diaplay_test 借鉴的参数清单、节点记录 | 本文件 + 板上自检规程 + hw_contract（地址映射） |
-| `proj/` | Vivado 工程 + 构建/集成 TCL（新建工程，不复制 0_diaplay_test 工程本体） | 空，M12 OOC 起 |
+| `proj/` | Vivado 工程 + 构建/集成 TCL（新建工程，不复制 0_diaplay_test 工程本体） | ooc_gate/：B0 OOC run01–03 + dbg 系列（run03 = UG479 合规批，dsp=142 稳定、150MHz 时序未过，真根因 addrgen 除法）；yolo_zynq_test/ 待 M13 授权 |
 | `pynq/` | PS 侧 PYNQ 运行时：Overlay 加载、描述符提交、DFL/NMS（C/C++）、测试脚本 | 运行时 5 件（gen_schedule/intarith/yolo_decode/yolo_pkg/yolo_runtime）+ 板上自检 3 件（board_selfcheck* / board_pack_selfcheck）+ board_pack 清单；离线与板上均 128/128 位级 |
 | `rom_data/` | 软件侧导出的模型数值包：weights.bin/bias.bin/lut.bin/schedule.bin/quant.json + manifest | G2 run04 部署包已落位（哈希核对，见 rom_data/README.md） |
-| `rtl/` | YOLO 加速 RTL：GEMM 阵列、窗口生成、重定标/SiLU、搬运与调度 | **M0–M11 全绿**：12 文件（conv0 标量核 + 10 单元 + yolo_gemm_array 顶层），conv_core V1.2 / ctrl V1.1 |
-| `sim/` | 仿真 testbench、golden 回放、首错定位脚本 | 13 个 TB + 15 个生成器/检查器；激励大数据（stim/、msim/）不入 Git |
+| `rtl/` | YOLO 加速 RTL：GEMM 阵列、窗口生成、重定标/SiLU、搬运与调度 | **M0–M11 + M12A1 + UG479 合规批全绿**：12 文件；pe_pack V1.2（DSP48E1 三级流水，延迟 0→3 拍）/ gemm_array V1.3 / ctrl V1.3（S_DRAIN）/ dma_wr V1.2 / conv_core V1.2 |
+| `sim/` | 仿真 testbench、golden 回放、首错定位脚本 | 13 个 TB + 15 个生成器/检查器；激励大数据（stim/、msim/）不入 Git；M11 门以 ModelSim 为准（xsim 有 TB 级 X 问题，msim_v13/ 为合规批目录） |
 
 ## 从 0_diaplay_test 借鉴的参数与模式（只读来源）
 
@@ -44,3 +44,5 @@
 | 2026-09-15 | G3 架构基线冻结（GEMM PE 阵列，M0–M13 门） | 1_docs/doc/yolo7020_gemm_pe_architecture_2026-09-15.md |
 | 2026-09-15 | conv0 标量核 + M0–M9 单元门 + M10 阵列集成全绿 | 4_metrics/logs/2026-09-15_yolo7020_m0..m10_*_run01 |
 | 2026-09-15 | M11 全网端到端：1 帧 63 conv 逐位 + head sha==run04 | 4_metrics/logs/2026-09-15_yolo7020_m11_fullnet_run01 |
+| 2026-09-16 | M12 A1 五门全绿（Y 真 AXI 写主 + CSR/engine） | 4_metrics/logs/2026-09-16_yolo7020_m{8,9b,10,11,12}_*_run0* |
+| 2026-09-16 | B0 OOC：DSP 238→142 修复；UG479 合规批（pe_pack V1.2 三级流水）门链全绿（M11 双跑 ModelSim）；150MHz 未过，−31ns 真根因 = addrgen 除法 | 4_metrics/logs/2026-09-16_yolo7020_ug479_compliance、..._m11_fullnet_xsim_failchain、proj/ooc_gate/、7_logs/2026-09-16/03 |
