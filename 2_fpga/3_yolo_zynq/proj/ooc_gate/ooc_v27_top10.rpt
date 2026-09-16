@@ -1,0 +1,46 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Thu Sep 17 04:54:08 2026
+| Host         : HC-202510241838 running 64-bit major release  (build 9200)
+| Command      : report_timing -max_paths 10 -path_type summary -file E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate/ooc_v27_top10.rpt
+| Design       : yolo_engine_top
+| Device       : 7z020-clg484
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Startpoint                     Endpoint                       Slack(ns)     
+----------------------------------------------------------------------------
+u_array/u_addrgen/vld_o_reg/C  u_array/u_xbuf/u_bank0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/ENARDEN
+                                                              0.005         
+u_array/g_pe_row[3].g_pe_pair[0].u_pe/acc_r[35]_i_8__17_psdsp_17/C
+                               u_array/g_acc[6].u_acc_g/acc_r_reg[60]/D
+                                                              0.043         
+u_array/u_ctrl/rq_cnt_r_reg[4]/C
+                               u_array/pfc_cnt_r_reg[3]/D     0.047         
+u_array/u_ctrl/FSM_onehot_state_r_reg[3]/C
+                               u_array/g_acc[3].acc_clr_d1_g_r_reg_rep__6/D
+                                                              0.065         
+u_array/u_addrgen/vld_o_reg/C  u_array/u_xbuf/u_bank0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/ENARDEN
+                                                              0.068         
+u_array/u_requant/m_x_r_reg[12]/C
+                               u_array/u_requant/prod_c_w__2/PCIN[0]
+                                                              0.070         
+u_array/u_requant/m_x_r_reg[12]/C
+                               u_array/u_requant/prod_c_w__2/PCIN[10]
+                                                              0.070         
+u_array/u_requant/m_x_r_reg[12]/C
+                               u_array/u_requant/prod_c_w__2/PCIN[11]
+                                                              0.070         
+u_array/u_requant/m_x_r_reg[12]/C
+                               u_array/u_requant/prod_c_w__2/PCIN[12]
+                                                              0.070         
+u_array/u_requant/m_x_r_reg[12]/C
+                               u_array/u_requant/prod_c_w__2/PCIN[13]
+                                                              0.070         
+
+
+

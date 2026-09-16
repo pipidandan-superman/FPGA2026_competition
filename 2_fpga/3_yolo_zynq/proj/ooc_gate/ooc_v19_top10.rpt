@@ -1,0 +1,49 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Thu Sep 17 01:41:45 2026
+| Host         : HC-202510241838 running 64-bit major release  (build 9200)
+| Command      : report_timing -max_paths 10 -path_type summary -file E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate/ooc_v19_top10.rpt
+| Design       : yolo_engine_top
+| Device       : 7z020-clg484
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Startpoint                     Endpoint                       Slack(ns)     
+----------------------------------------------------------------------------
+u_array/u_requant/sum_r_reg[4]/C
+                               u_array/u_requant/q_lsb_r_reg/D
+                                                              -4.853        
+u_array/u_ctrl/FSM_onehot_state_r_reg[3]/C
+                               u_array/g_acc[6].acc_clr_d1_g_r_reg_rep__2/D
+                                                              -4.046        
+u_array/u_ctrl/FSM_onehot_state_r_reg[3]/C
+                               u_array/g_acc[4].acc_clr_d1_g_r_reg_rep/D
+                                                              -3.978        
+u_array/u_ctrl/FSM_onehot_state_r_reg[3]/C
+                               u_array/g_acc[31].acc_clr_d1_g_r_reg_rep__5/D
+                                                              -3.951        
+u_array/u_ctrl/FSM_onehot_state_r_reg[3]/C
+                               u_array/g_acc[27].acc_clr_d1_g_r_reg_rep__3/D
+                                                              -3.849        
+u_array/u_ctrl/FSM_onehot_state_r_reg[3]/C
+                               u_array/g_acc[26].acc_clr_d1_g_r_reg_rep__3/D
+                                                              -3.832        
+u_array/u_ctrl/FSM_onehot_state_r_reg[3]/C
+                               u_array/g_acc[27].acc_clr_d1_g_r_reg_rep__6/D
+                                                              -3.820        
+u_array/u_ctrl/FSM_onehot_state_r_reg[3]/C
+                               u_array/g_acc[26].acc_clr_d1_g_r_reg_rep__4/D
+                                                              -3.635        
+u_array/u_ctrl/FSM_onehot_state_r_reg[3]/C
+                               u_array/g_acc[27].acc_clr_d1_g_r_reg_rep/D
+                                                              -3.624        
+u_array/u_ctrl/FSM_onehot_state_r_reg[3]/C
+                               u_array/g_acc[26].acc_clr_d1_g_r_reg_rep__6/D
+                                                              -3.514        
+
+
+

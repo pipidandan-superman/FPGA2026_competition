@@ -1,0 +1,71 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Thu Sep 17 01:46:18 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source cmp_req.tcl
+# foreach dcp {ooc_v17_routed.dcp ooc_v19_routed.dcp} {
+#     open_checkpoint $dcp
+#     puts "==== $dcp ===="
+#     set p [get_timing_paths -from [get_cells u_array/u_requant/sum_r_reg*] \
+#               -to   [get_cells u_array/u_requant/prod_r_reg*] -max_paths 1]
+#     if {[llength $p]} {
+#         puts "sum->prod slack=[get_property SLACK $p] levels=[get_property LOGIC_LEVELS $p] dpd=[get_property DATAPATH_DELAY $p]"
+#     } else { puts "sum->prod: no path" }
+#     set q [get_timing_paths -from [get_cells u_array/u_requant/sum_r_reg*] \
+#               -to   [get_cells u_array/u_requant/q_lsb_r_reg*] -max_paths 1]
+#     if {[llength $q]} {
+#         puts "sum->q_lsb slack=[get_property SLACK $q] levels=[get_property LOGIC_LEVELS $q] dpd=[get_property DATAPATH_DELAY $q]"
+#     } else { puts "sum->q_lsb: no path" }
+#     close_design
+# }
+Command: open_checkpoint ooc_v17_routed.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 341.500 ; gain = 4.938
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.233 . Memory (MB): peak = 853.035 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 6000 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.048 . Memory (MB): peak = 992.414 ; gain = 10.363
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.029 . Memory (MB): peak = 1642.449 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1642.449 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1642.449 ; gain = 0.000
+Read placeStorage: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.565 . Memory (MB): peak = 1657.094 ; gain = 14.645
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1657.094 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.235 . Memory (MB): peak = 1683.270 ; gain = 26.176
+Read Physdb Files: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.853 . Memory (MB): peak = 1683.270 ; gain = 40.820
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.883 . Memory (MB): peak = 1683.270 ; gain = 40.820
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1724.156 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 130 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 22 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 12 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 96 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2025.2 (64-bit) build 6299465
+open_checkpoint: Time (s): cpu = 00:00:13 ; elapsed = 00:00:12 . Memory (MB): peak = 1732.234 ; gain = 1405.789
+==== ooc_v17_routed.dcp ====
+WARNING: [Timing 38-242] The property HD.CLK_SRC of clock port "clk_i" is not set. In out-of-context mode, this prevents timing estimation for clock delay/skew
+Resolution: Set the HD.CLK_SRC property of the out-of-context port to the location of the clock buffer instance in the top-level design
+sum->prod slack=0.379 levels=1 dpd=6.161
+WARNING: [Vivado 12-180] No cells matched 'u_array/u_requant/q_lsb_r_reg*'.
+ERROR: [Vivado 12-4739] get_timing_paths:No valid object(s) found for '-to [get_cells u_array/u_requant/q_lsb_r_reg*]'.
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+INFO: [Common 17-206] Exiting Vivado at Thu Sep 17 01:46:36 2026...
