@@ -1,0 +1,38 @@
+== console_extract: M4 gate rerun run02 (xsim, DUT V2.0 BMG IP) ==
+
+-- xvlog (compile) --
+模块：rtl/yolo_xbuf.v(V2.0) + ip/yolo_xbuf_bmg/sim/yolo_xbuf_bmg.v
+      + sim/tb_yolo_xbuf.v + glbl.v（0 error，见 m4_xvlog.log）
+
+-- xelab (elaborate) --
+tb_yolo_xbuf glbl -s snap_m4 -L blk_mem_gen_v8_4_12 -L unisim
+              -L unisims_ver -timescale 1ns/1ps
+Built simulation snapshot snap_m4（见 m4_xelab.log）
+
+-- xsim (run) --
+[tb] xbuf stim=../stim/xbuf ops=97464
+TB_XBUF_PASS compared=97464 ops (dout+vld)
+
+-- 激励角落审计（sim/xbuf_stim_audit.py，改写前只读检查）--
+A. WRRD 同bank同地址碰撞      : 0（同bank不同地址: 0）
+B. 首读前操作数               : 433（first_read op#=433），期望全 0
+C. 保持拍 rd_bank 变化        : 85859
+D. 读未写满16列 (bank,addr)   : 0
+E. ev 与 op 类型不一致        : 0；保持拍期望==上次读期望: 0 差异
+AUDIT_OK
+
+-- stim zero-drift vs run01 --
+2332f78f54c014ffb4bb1de1e63b3ad6298bba250feb1efc774e11ea5e871688 *bank.hex
+99979cf5b3c991361723c076a25a9aad9151da971cebf8a590cc51b1d5b2e0c6 *col_u8.hex
+fb862cd8b04dfe279f83f7b27056c5d8cacba06a790fbf87d3756e68a7bce290 *edout_i128.hex
+ae5690c225e60440dd4df3e31ca6c5e69b1ac9c6d1db15d8b38663315d8d666b *evld.hex
+898504f0bf0dfae608dfdfd1bba0bd14a26b39772743973cf9780ff342630c69 *kaddr_u16.hex
+e27e7f79d09c15dba9807ae6f2a14d14578a9669ccbbe98a95641e7636d51e1d *n_ops.hex
+3e401894783ac33537e1edd0fb9c47fb29ac18d110b338e5fbaf21deae3145aa *op.hex
+de4d7630f71b3ae7a11dcefec0ff365250b93ec9fddb927fe0e037df95ffa3be *rbank.hex
+fc6092281167e8847ea326a0ba9d15596e1447f65e0261f5475b4feacba3923f *rkaddr_u16.hex
+3540636dd09b1935cad9106ffba2fb66b63580442d46b3b943cd68aaa530fc9a *wdata_u8.hex
+（与 run01/stim_sha256.txt 逐一相符 = 零漂移）
+
+-- BMG IP 资源（单 bank，yolo_xbuf_bmg_util.rpt）--
+Slice LUTs: 140；Block RAM Tile: 10 RAMB36E1；DSP: 0

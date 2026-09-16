@@ -1,0 +1,25 @@
+== manifest: RTL + IP + 脚本（B0 run02 时刻）==
+f4107fa2a63e1699c53a73a8a2dbc55014d42b55e19bc4791d4043a876fe8f17 *../../rtl/yolo_acc.v
+0622562da27f4aa9abb7cb49dce5e6e2dd4572ef9f1214ceb9b0165cecb8ae42 *../../rtl/yolo_addrgen.v
+ad3c27fdbf4d3b7012e3dcfe259bd3988dad27597099a409ea0b285574b9c39d *../../rtl/yolo_conv_core.v
+5f0efc1a6d0147805082eb095be20bf153e800b3958ccb871c75eb71248aead4 *../../rtl/yolo_csr.v
+91df84f82548e5f81d44dd59594bdf242f396263dffc1bd11e5bf46d220457fb *../../rtl/yolo_ctrl.v
+913861e8829b4e3d6e9aab54eb40d93f9b7acc7d20f08ed0fe480d194482a130 *../../rtl/yolo_dma.v
+b487a92869e7b7e3621e11687516ebc28387b513ae60e2180d5fa8c051dd2e58 *../../rtl/yolo_dma_wr.v
+e6b6fccefba1c6050d6d1a82d772c1879acdd492d58cc57fec9d487cb2ca4455 *../../rtl/yolo_engine_top.v
+fba77609e386371c5d9353cf545b23d53538fdd89f48aa612edf6f9105404fab *../../rtl/yolo_gemm_array.v
+d5172adfb6e0329a4627e73ebf8359d7435ada3710240d41634820536d43beb0 *../../rtl/yolo_pe_pack.v
+1b95096ab797d349a5644d1a1beb63714e22f50a16217d93486097a6357de270 *../../rtl/yolo_requant.v
+30423c61a4909f41ab1a68d6aaf5434b38afb4638a70c8cfe7a36e5279570f87 *../../rtl/yolo_silu_lut.v
+25372348bff41166bbeced880725d8f41257d1b2cf547096eec5c807fe240c3d *../../rtl/yolo_wbuf.v
+33e48cc0d108b8d88caadc5ecea52772b3c5113b24ab70bbe486ba73069da4ae *../../rtl/yolo_xbuf.v
+ba75442cb4a675c563ad5b6cdabac327d35825ceaa993a100804d60a8052799a *../../ip/gen_xbuf_bmg.tcl
+0996fce2cb56f06ae2f4e8f60683e65a754543c0fe7c0146c40798f4cda4cff7 *../../ip/yolo_xbuf_bmg/yolo_xbuf_bmg.xci
+2e24bfd1ad16ee0ee5b4067b6fba69b5e586c3559605c54cea6e56d261c9ef0b *ooc_run01.tcl
+f9ded57f0b8ea5029c39603c9ec4afafb1c7b2782b485ba1165ead785ce15f41 *ooc_run02.tcl
+5279b17d0666a38b7a6dbb3b5e2ad7491bcd9f7ab67cd2e2423eecb884d84209 *ooc_dbg1.tcl
+6be10563c39f1dae30aed56d2b5571e5022c3d0de3931718666de86bd2593a1a *ooc_dbg2.tcl
+b0a3c4d6dc77bd1f1017caf1231d36b0fc4bfeed63aed689ec232bedc60aa957 *ooc_dbg3.tcl
+f0f900a8e8bbd91f3c0a70c468a91afb010847ecc412f3047af2f0a4a2e91d9c *ooc_dbg4.tcl
+3d64685aa1cec898ca14a8b314da0c73b98c95b1ed9ec008c91042bc77a99e04 *ooc_dbg5.tcl
+8bddfbad0cfb02d0f4018026ec351ab50f50c04439edf53172f8cffda46a2d7c *ooc_dbg6.tcl

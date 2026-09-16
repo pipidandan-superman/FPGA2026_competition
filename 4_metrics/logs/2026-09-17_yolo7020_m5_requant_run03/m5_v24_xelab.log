@@ -1,0 +1,15 @@
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe work_m5v24.tb_yolo_requant work_m5v24.glbl -s snap_m5_v24 -L unisim -L unisims_ver -timescale 1ns/1ps -log m5_v24_xelab.log 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work_m5v24.yolo_requant
+Compiling module work_m5v24.tb_yolo_requant
+Compiling module work_m5v24.glbl
+Built simulation snapshot snap_m5_v24

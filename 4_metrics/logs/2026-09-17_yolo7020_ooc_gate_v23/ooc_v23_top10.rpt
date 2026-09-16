@@ -1,0 +1,48 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Thu Sep 17 02:50:49 2026
+| Host         : HC-202510241838 running 64-bit major release  (build 9200)
+| Command      : report_timing -max_paths 10 -path_type summary -file E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate/ooc_v23_top10.rpt
+| Design       : yolo_engine_top
+| Device       : 7z020-clg484
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Startpoint                     Endpoint                       Slack(ns)     
+----------------------------------------------------------------------------
+u_array/u_requant/prod_c_w__2/CLK
+                               u_array/u_requant/q_r_reg[36]/D
+                                                              -0.457        
+u_array/u_requant/prod_c_w__2/CLK
+                               u_array/u_requant/q_r_reg[35]/D
+                                                              -0.408        
+u_array/u_requant/prod_c_w__2/CLK
+                               u_array/u_requant/q_r_reg[29]/D
+                                                              -0.387        
+u_array/u_requant/prod_c_w__2/CLK
+                               u_array/u_requant/q_r_reg[11]/D
+                                                              -0.364        
+u_array/u_requant/prod_c_w__2/CLK
+                               u_array/u_requant/q_r_reg[28]/D
+                                                              -0.355        
+u_array/u_requant/prod_c_w__2/CLK
+                               u_array/u_requant/q_r_reg[44]/D
+                                                              -0.354        
+u_array/u_requant/prod_c_w__2/CLK
+                               u_array/u_requant/q_r_reg[12]/D
+                                                              -0.352        
+u_array/u_requant/prod_c_w__2/CLK
+                               u_array/u_requant/q_r_reg[26]/D
+                                                              -0.352        
+u_array/u_requant/prod_c_w__2/CLK
+                               u_array/u_requant/q_r_reg[9]/D -0.341        
+u_array/u_requant/prod_c_w__2/CLK
+                               u_array/u_requant/q_r_reg[14]/D
+                                                              -0.340        
+
+
+

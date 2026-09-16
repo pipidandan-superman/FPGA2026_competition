@@ -1,0 +1,29 @@
+{
+ "name": "requant",
+ "seed": 505,
+ "contract": "y_pre = sat_i8(rne_shift((acc+bias)*m, shift)); shift in [0,62]; m != INT32_MIN; en=0 holds",
+ "gold_ref": "pynq/intarith.py rne_shift+sat_i8 (G2 bit-exact)",
+ "segments": "T ties / S sat rails / C corners / R real goldens / X random 20000 (5% hold)",
+ "coverage": {
+  "total": 22493,
+  "n_en": 21465,
+  "n_hold": 1028,
+  "tie_q_odd": 161,
+  "tie_q_even": 168,
+  "sat_events": 17901,
+  "yp_eq_127": 8978,
+  "yp_eq_m128": 8968,
+  "yp_distinct": 209,
+  "real_points": 2048,
+  "real_chain_closure": "PASS"
+ },
+ "sha256": {
+  "n_cycles.hex": "81c19857c582ec378e5d5b0027bc5f80ba0de92b9aaed7776af890ff5f1ebe81",
+  "en.hex": "e5577e41ea4aa274c990aae01855248f87543af06caee2a2c0b61452a0e60bc6",
+  "acc_i32.hex": "7e2acf36a9c593c47439ee0a9c11c17040871dbb7a336250d02840c086a15215",
+  "bias_i32.hex": "5e77ada0e065f31258cdc77a7fcbc558f621712fdc4861bd40f4884c78e0c608",
+  "m_i32.hex": "79f12a0e4a0bb8321e0a7843e645e9436cc990fc7393fe065a3d02ac3cd6e22f",
+  "shift_u8.hex": "673b5cac2e8145089dbd836ec1e7d9093befc08431fd63b961a43b32cb6141b9",
+  "ypre_exp_i8.hex": "e07093fb49dfa7af95f5c720998597525504244591e9f4f314fffb05ef794217"
+ }
+}

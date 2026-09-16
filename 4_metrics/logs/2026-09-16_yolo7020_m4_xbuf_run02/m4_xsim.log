@@ -1,0 +1,23 @@
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Wed Sep 16 14:23:50 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/snap_m4/xsim_script.tcl
+# xsim {snap_m4} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Block Memory Generator module tb_yolo_xbuf.dut.u_bank0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_xbuf.dut.u_bank1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+[tb] xbuf stim=../stim/xbuf ops=97464
+blk_mem_gen_v8_4_12 collision detected at time: 108255000, Instance: tb_yolo_xbuf.dut.u_bank1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst, A write address: 1b, B  read address: 1b
+blk_mem_gen_v8_4_12 collision detected at time: 913455000, Instance: tb_yolo_xbuf.dut.u_bank0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst, A write address: 73, B  read address: 73
+blk_mem_gen_v8_4_12 collision detected at time: 917405000, Instance: tb_yolo_xbuf.dut.u_bank0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst, A write address: e7, B  read address: e7
+TB_XBUF_PASS compared=97464 ops (dout+vld)
+$finish called at time : 974670 ns : File "E:/competition/2_fpga/3_yolo_zynq/sim/tb_yolo_xbuf.v" Line 151
+exit
+INFO: [Common 17-206] Exiting xsim at Wed Sep 16 14:23:51 2026...

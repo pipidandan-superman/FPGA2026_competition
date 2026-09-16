@@ -1,0 +1,45 @@
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe work.tb_yolo_engine_top work.glbl -s snap_eng_v27 -L blk_mem_gen_v8_4_12 -L unisim -L unisims_ver -timescale 1ns/1ps -log eng_v27_xelab.log 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 16 for port 'wea' [E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_xbuf.v:137]
+WARNING: [VRFC 10-3091] actual bit length 64 differs from formal bit length 128 for port 'dina' [E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_xbuf.v:139]
+WARNING: [VRFC 10-3091] actual bit length 64 differs from formal bit length 128 for port 'doutb' [E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_xbuf.v:143]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 16 for port 'wea' [E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_xbuf.v:148]
+WARNING: [VRFC 10-3091] actual bit length 64 differs from formal bit length 128 for port 'dina' [E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_xbuf.v:150]
+WARNING: [VRFC 10-3091] actual bit length 64 differs from formal bit length 128 for port 'doutb' [E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_xbuf.v:154]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.yolo_csr
+Compiling module work.yolo_ctrl(OC_EDGE=8,N_EDGE=8)
+Compiling module work.yolo_dma
+Compiling module work.yolo_addrgen
+Compiling module work.yolo_wbuf(N_ROWS=8,ROW_AW=3)
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_axi_regs_fwd_v8_4(C_DATA...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.yolo_xbuf_bmg
+Compiling module work.yolo_xbuf(N_COLS=8,COL_AW=3)
+Compiling module unisims_ver.DSP48E1(ADREG=0,ALUMODEREG=0,CAR...
+Compiling module work.yolo_pe_pack_default
+Compiling module work.yolo_acc
+Compiling module work.yolo_requant
+Compiling module work.yolo_silu_lut_default
+Compiling module work.yolo_dma_wr
+Compiling module work.yolo_gemm_array_default
+Compiling module work.yolo_engine_top(OC_EDGE=8,N_EDGE...
+Compiling module work.yolo_conv_core(OC=7,IH=7,IW=7,SH...
+Compiling module work.yolo_conv_core(IC=64,IH=10,IW=10...
+Compiling module work.yolo_conv_core(IC=16,OC=9,KH=2,K...
+Compiling module work.yolo_conv_core(IC=256,OC=8,IH=5,...
+Compiling module work.tb_yolo_engine_top
+Compiling module work.glbl
+Built simulation snapshot snap_eng_v27

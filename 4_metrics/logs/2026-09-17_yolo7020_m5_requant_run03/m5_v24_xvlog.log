@@ -1,0 +1,6 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_requant.v" into library work_m5v24
+INFO: [VRFC 10-311] analyzing module yolo_requant
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/sim/tb_yolo_requant.v" into library work_m5v24
+INFO: [VRFC 10-311] analyzing module tb_yolo_requant
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/vivado2025/2025.2/data/verilog/src/glbl.v" into library work_m5v24
+INFO: [VRFC 10-311] analyzing module glbl
