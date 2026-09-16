@@ -106,6 +106,14 @@
  *     修复：行首准入 = 段化器 IDLE 且 d1..d3 在途计数清零
  *     （seg_infl_r：准入 +1 / 落地 -1）；ywr_idle_w 同判据（堵
  *     ctrl_ldone 贴尾 3 拍早脉冲窗口）。
+ *   - V1.2b (2026-09-16) by LSL : pe_pack V1.1（DSP48E1 源语直例，
+ *     M12 B0 DSP 超限修复）新增 clk_i 端口，例化点透传 clk_i；
+ *     数值路径不变（M10/M11 门重跑承证）。
+ *   - V1.3 (2026-09-16) by LSL : pe_pack V1.2（UG479 v1.10 严格合规：
+ *     DSP 三级流水 AREG/BREG/MREG/PREG=1，PE 延迟 0→3 拍）适配——
+ *     例化点透传 rst_n；acc 使能改 wrow_vld 延 3 拍（acc_en_d3_r），
+ *     配合 yolo_ctrl V1.3 的 S_DRAIN 排空态。数值不变、时序合同
+ *     +3 拍（M1→M4→M8→M10→M11 门链重跑承证）。
  ************************************************************************/
 
 module yolo_gemm_array #(
@@ -764,6 +772,8 @@ module yolo_gemm_array #(
         for (gr = 0; gr < OC_EDGE; gr = gr + 1) begin : g_pe_row
             for (gc = 0; gc < N_PAIRS; gc = gc + 1) begin : g_pe_pair
                 yolo_pe_pack u_pe (
+                    .clk_i(clk_i),
+                    .rst_n_i(rst_n),          // V1.3: DSP pipeline resets
                     .x0_i (xcol_data_w[(gc*2)*8 +: 8]),
                     .x1_i (xcol_data_w[(gc*2+1)*8 +: 8]),
                     .w_i  (wrow_data_w[gr*8 +: 8]),
@@ -781,6 +791,25 @@ module yolo_gemm_array #(
         end
     endgenerate
 
+    // V1.3: the PE wall is 3-cycle pipelined (pe_pack V1.2, UG479
+    // three-stage multiply) -- w/x dout in cycle D yields products in
+    // D+3, so the acc enable rides a matching 3-deep valid delay. The
+    // ctrl S_DRAIN state (yolo_ctrl V1.3) holds S_RQ off for 3 cycles
+    // after the last K beat so the final products land before the
+    // requant lane mux samples acc_q.
+    reg acc_en_d1_r, acc_en_d2_r, acc_en_d3_r;
+    always @(posedge clk_i or negedge rst_n) begin
+        if (!rst_n) begin
+            acc_en_d1_r <= 1'b0;
+            acc_en_d2_r <= 1'b0;
+            acc_en_d3_r <= 1'b0;
+        end else begin
+            acc_en_d1_r <= wrow_vld_w;
+            acc_en_d2_r <= acc_en_d1_r;
+            acc_en_d3_r <= acc_en_d2_r;
+        end
+    end
+
     yolo_acc #(
         .N_LANES (N_LANES),
         .DATA_W  (32)
@@ -788,7 +817,7 @@ module yolo_gemm_array #(
         .clk_i (clk_i),
         .rst_n (rst_n),
         .clr_i (ctrl_acc_clr),
-        .en_i  (wrow_vld_w),          // data valid 1 beat after ren
+        .en_i  (acc_en_d3_r),        // V1.3: wrow_vld delayed 3 (PE wall)
         .d_i   (acc_d_w),
         .q_o   (acc_q_w)
     );

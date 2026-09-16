@@ -47,6 +47,10 @@
  *     K loop must not read a half-filled bank). Gate rerun: run02.
  *   - V1.2 (2026-09-16) by LSL : S_RQ wait on rq_rdy_i (M12 A1: Y 写
  *     背压；接高电平与 V1.1 周期等价). Gate rerun: run03.
+ *   - V1.3 (2026-09-16) by LSL : 新增 S_DRAIN 态（S_K→3 拍→S_RQ），
+ *     配合 pe_pack V1.2 三级流水（UG479）——末 3 个 K 拍乘积在 PE
+ *     墙内排空后 requant 才可采样 acc_q。所有输出在 DRAIN 拍为 0
+ *     （busy 除外）。门重跑：M8 黄金再生成 + M4/M10/M11 链。
  ************************************************************************/
 
 module yolo_ctrl #(
@@ -97,6 +101,7 @@ module yolo_ctrl #(
     localparam S_K     = 3'd2;              // K beats
     localparam S_RQ    = 3'd3;              // requant tail beats
     localparam S_LDONE = 3'd4;              // layer done pulse (1 cycle)
+    localparam S_DRAIN = 3'd5;              // V1.3: 3-cycle PE drain
 
     reg [2:0]        state_r;
     reg [OC_AW-1:0]  oc_total_r;
@@ -111,6 +116,7 @@ module yolo_ctrl #(
     reg [TILE_AW-1:0] n_tail_r;
     reg [K_AW-1:0]    k_cnt_r;
     reg [TILE_AW-1:0] rq_cnt_r;
+    reg [1:0]         drain_cnt_r;          // V1.3: S_DRAIN beat counter
     reg               rd_bank_r;
 
     // last-tile tile width: full edge except the clamped last column/row
@@ -158,6 +164,7 @@ module yolo_ctrl #(
             n_tail_r   <= {TILE_AW{1'b0}};
             k_cnt_r    <= {K_AW{1'b0}};
             rq_cnt_r   <= {TILE_AW{1'b0}};
+            drain_cnt_r<= 2'd0;
             rd_bank_r  <= 1'b0;
         end else begin
             case (state_r)
@@ -188,8 +195,21 @@ module yolo_ctrl #(
                 S_K: begin
                     k_cnt_r <= k_cnt_r + 1'b1;   // holds K after last beat
                     if (k_last_w) begin
-                        rq_cnt_r <= {TILE_AW{1'b0}};
-                        state_r  <= S_RQ;
+                        rq_cnt_r   <= {TILE_AW{1'b0}};
+                        drain_cnt_r<= 2'd0;
+                        state_r    <= S_DRAIN;   // V1.3: drain 3 first
+                    end
+                end
+                S_DRAIN: begin
+                    // V1.3: beat_en low; the last 3 K-beat products are
+                    // still in the PE wall (pe_pack V1.2 three-stage
+                    // pipeline + gemm_array V1.3 acc_en_d3). S_RQ may
+                    // only start once the final acc write has landed:
+                    // last ren at tk -> acc edge tk+4 -> rq lane-mux
+                    // sample tk+5, drain occupies tk+1..tk+3.
+                    drain_cnt_r <= drain_cnt_r + 1'b1;
+                    if (drain_cnt_r == 2'd2) begin
+                        state_r <= S_RQ;
                     end
                 end
                 S_RQ: begin
