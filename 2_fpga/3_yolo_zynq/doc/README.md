@@ -17,7 +17,7 @@
 | `proj/` | Vivado 工程 + 构建/集成 TCL（新建工程，不复制 0_diaplay_test 工程本体） | ooc_gate/：B0 OOC run01–03 + dbg 系列（run03 = UG479 合规批，dsp=142 稳定、150MHz 时序未过，真根因 addrgen 除法）；yolo_zynq_test/ 待 M13 授权 |
 | `pynq/` | PS 侧 PYNQ 运行时：Overlay 加载、描述符提交、DFL/NMS（C/C++）、测试脚本 | 运行时 5 件（gen_schedule/intarith/yolo_decode/yolo_pkg/yolo_runtime）+ 板上自检 3 件（board_selfcheck* / board_pack_selfcheck）+ board_pack 清单；离线与板上均 128/128 位级 |
 | `rom_data/` | 软件侧导出的模型数值包：weights.bin/bias.bin/lut.bin/schedule.bin/quant.json + manifest | G2 run04 部署包已落位（哈希核对，见 rom_data/README.md） |
-| `rtl/` | YOLO 加速 RTL：GEMM 阵列、窗口生成、重定标/SiLU、搬运与调度 | **M0–M11 + M12A1 + UG479 合规批全绿**：12 文件；pe_pack V1.2（DSP48E1 三级流水，延迟 0→3 拍）/ gemm_array V1.3 / ctrl V1.3（S_DRAIN）/ dma_wr V1.2 / conv_core V1.2 |
+| `rtl/` | YOLO 加速 RTL：GEMM 阵列、窗口生成、重定标/SiLU、搬运与调度 | **M0–M11 + M12A1 + UG479 合规批全绿 + B0 150MHz 收敛（v27 wns +0.005，fmax 150.11）**：12 文件冻结点 = pe_pack V1.2（DSP48E1 三级流水）/ gemm_array V1.10 / requant V1.2g（PIPE 7）/ addrgen V1.3 / ctrl V1.8（S_DRAIN 4）/ xbuf V2.2（BMG 输出寄存）/ dma V1.3 / dma_wr V1.5 / conv_core V1.2 |
 | `sim/` | 仿真 testbench、golden 回放、首错定位脚本 | 13 个 TB + 15 个生成器/检查器；激励大数据（stim/、msim/）不入 Git；M11 门以 ModelSim 为准（xsim 有 TB 级 X 问题，msim_v13/ 为合规批目录） |
 
 ## 从 0_diaplay_test 借鉴的参数与模式（只读来源）
@@ -46,3 +46,4 @@
 | 2026-09-15 | M11 全网端到端：1 帧 63 conv 逐位 + head sha==run04 | 4_metrics/logs/2026-09-15_yolo7020_m11_fullnet_run01 |
 | 2026-09-16 | M12 A1 五门全绿（Y 真 AXI 写主 + CSR/engine） | 4_metrics/logs/2026-09-16_yolo7020_m{8,9b,10,11,12}_*_run0* |
 | 2026-09-16 | B0 OOC：DSP 238→142 修复；UG479 合规批（pe_pack V1.2 三级流水）门链全绿（M11 双跑 ModelSim）；150MHz 未过，−31ns 真根因 = addrgen 除法 | 4_metrics/logs/2026-09-16_yolo7020_ug479_compliance、..._m11_fullnet_xsim_failchain、proj/ooc_gate/、7_logs/2026-09-16/03 |
+| 2026-09-17 | **B0 150MHz 收敛**：xbuf BMG 输出寄存合同 + 13 轮迭代（v13 −31.017 → v27 +0.005 PASS，fmax 150.11，dsp 140）；M10 run12/M12 csr run09 与 v26 逐拍同；M11 v27 ModelSim 过夜启动 | 4_metrics/logs/2026-09-17_yolo7020_ooc_gate_v25..v27（含 WNS 轨迹表）、..._m10_gemm_array_run10..12、..._m12_csr_engine_run07..09、7_logs/2026-09-17/01..03 |
