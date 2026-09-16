@@ -1,0 +1,16 @@
+# console_extract —— M8 ctrl V1.2 门重跑 run03（2026-09-16）
+
+源：m8_run03.log（原始 transcript，未编辑）
+
+```
+# vsim +STIM=../stim/ctrl +WDT_MS=10000 -do {run -all; quit -f} -l m8_run03.log -c -novopt work.tb_yolo_ctrl
+# Loading work.tb_yolo_ctrl
+# Loading work.yolo_ctrl
+# run -all
+# [tb] ctrl stim=../stim/ctrl cycles=699590
+# TB_CTRL_PASS compared=699590 cycles (15 outputs/cycle) ldone=23 alldone=1
+# ** Note: $finish    : ../tb_yolo_ctrl.v(219)
+#    Time: 6995930 ns  Iteration: 1  Instance: /tb_yolo_ctrl
+```
+
+PASS token: TB_CTRL_PASS

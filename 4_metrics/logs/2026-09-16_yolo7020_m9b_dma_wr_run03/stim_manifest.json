@@ -1,0 +1,33 @@
+{
+ "name": "dma_wr",
+ "seed": 912,
+ "contract": "linear block write, any byte alignment (V1.2 head offset): awaddr = addr&~7, assembler starts at lane head, first-word wstrb masks head lanes; bursts min(ceil((head+len)/8),16,4KB-boundary); little-endian assembly (source byte k -> lane head+k); one outstanding AW; one B per burst; done after B-count aligns",
+ "gold_ref": "DDR-side: every strobed byte at address a == F(word(a))>>8*(a%8); per-command count + additive checksum mod 2^64 + written-once bijection walk (command-relative bitmap, overlap-safe)",
+ "f_word": "x=wa*K1; x^=x>>31; x*=K2; x^=x>>27 (mod 2^64); K1=9E3779B97F4A7C15 K2=BF58476D1CE4E5B9",
+ "coverage": {
+  "commands": 45,
+  "total_bytes": 410255,
+  "cross4k_commands": 10,
+  "unaligned_commands": 28,
+  "head_values": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ],
+  "max_bursts_one_cmd": 965,
+  "len_min": 1,
+  "len_max": 123456
+ },
+ "sha256": {
+  "n_cmds.hex": "1f47685a1d34eb71c03d641234f8091a6ef62cff78a548f576612b1d4108d273",
+  "cmd_addr.hex": "baec185296fe884ba046d52f5855bef9e21d1a8862ffda1eff87dfcf6bb5cd4d",
+  "cmd_len.hex": "8d6db75dc9a5f08d252a4dd8178afd89d191e8ce8e8dfc0b9ebaa98369ee6188",
+  "g_count.hex": "8d6db75dc9a5f08d252a4dd8178afd89d191e8ce8e8dfc0b9ebaa98369ee6188",
+  "g_sum64.hex": "bdea7ab75ab3df957f484e60313661a301be68e4913fc5cb1b806b392fb6bb2f"
+ }
+}

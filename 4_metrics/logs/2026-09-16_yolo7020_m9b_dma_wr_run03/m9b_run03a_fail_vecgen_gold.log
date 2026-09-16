@@ -1,0 +1,69 @@
+# m9b_run03a 失败链重建（vecgen 黄金 sum 表达式 bug，非 RTL 缺陷）
+
+**注意**：本文件由会话记录忠实重建——首次 run03 的 transcript 被同文件名
+`-l m9b_run03.log` 的重跑覆盖（教训：失败跑与通过跑必须不同 log 名）。
+内容为 2026-09-16 首次 run03 的完整控制台输出（未裁剪、未改写）。
+
+```
+Reading D:/work/modelsim/tcl/vsim/pref.tcl
+
+# 10.1c
+
+# vsim +STIM=../stim/dma_wr +WDT_MS=120000 -do {run -all; quit -f} -l m9b_run03.log -c -novopt work.tb_yolo_dma_wr
+# //  ModelSim SE-64 10.1c Jul 28 2012
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION
+# //  ITS LICENSORS' PROPERTY AND SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.tb_yolo_dma_wr
+# Loading work.tb_yolo_dma_wr
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.yolo_dma_wr
+# Loading work.yolo_dma_wr
+# run -all
+# [tb] dma_wr stim=../stim/dma_wr cmds=45
+# [tb] ERR cmd 12 sum 0000000000000175 exp 00000000000000b0
+# [tb] ERR cmd 13 sum 0000000000000172 exp 00000000000001ae
+# [tb] ERR cmd 14 sum 000000000000021d exp 000000000000024c
+# [tb] ERR cmd 15 sum 00000000000002d2 exp 00000000000001c2
+# [tb] ERR cmd 16 sum 000000000000019b exp 00000000000002ce
+# [tb] ERR cmd 17 sum 00000000000004c5 exp 0000000000000323
+# [tb] ERR cmd 18 sum 0000000000000445 exp 00000000000003fa
+# [tb] ERR cmd 19 sum 0000000000f06b2b exp 0000000000ef804d
+# [tb] ERR cmd 20 sum 00000000007fc199 exp 00000000007f9fe3
+# [tb] ERR cmd 21 sum 000000000017fd9f exp 000000000018099a
+# [tb] ERR cmd 22 sum 00000000000043fe exp 00000000000045ef
+# [tb] ERR cmd 23 sum 0000000000001fdd exp 0000000000001fdb
+# [tb] ERR cmd 25 sum 0000000000000662 exp 000000000000057c
+# [tb] ERR cmd 26 sum 0000000000f49 exp 00000000000015bb
+# [tb] ERR cmd 27 sum 0000000000000066 exp 00000000000000b7
+# [tb] ERR cmd 28 sum 0000000000001fd5 exp 0000000000001d4f
+# [tb] ERR cmd 30 sum 0000000000001aa2 exp 0000000000001bca
+# [tb] ERR cmd 31 sum 0000000000000cc8 exp 0000000000000c51
+# [tb] ERR cmd 32 sum 000000000000076c exp 00000000000006d5
+# [tb] ERR cmd 34 sum 000000000000140e exp 00000000000016d4
+# [tb] ERR cmd 36 sum 00000000000011d1 exp 00000000000010ed
+# [tb] ERR cmd 37 sum 00000000000009e6 exp 00000000000006e6
+# [tb] ERR cmd 38 sum 00000000000009d1 exp 000000000000098c
+# [tb] ERR cmd 40 sum 0000000000001ce6 exp 000000000000190d
+# [tb] ERR cmd 41 sum 000000000000170e exp 0000000000001383
+# [tb] ERR cmd 42 sum 0000000000001652 exp 000000000000196b
+# [tb] ERR cmd 43 sum 0000000000000cec exp 0000000000000c5a
+# [tb] ERR cmd 44 sum 0000000000001c23 exp 0000000000001f05
+# TB_DMA_WR_FAIL errors=28 done=45/45 bytes=410255 fed=410255
+# ** Note: $finish    : ../tb_yolo_dma_wr.v(495)
+#    Time: 12244230 ns  Iteration: 1  Instance: /tb_yolo_dma_wr
+```
+
+失败特征（根因定位依据）：
+- 45 命令中恰好 cmd 12..44 的 28 条 sum 失配 —— cmd 12 是 B 组第一条
+  （首个非对齐地址）；cmd 0..11（A 组，全部 8 对齐）零失配；
+- **逐字节 F_byte 值检查 / 双写 / 缺写 / 计数 / AW 链 / WLAST 全部零错**
+  （28 条 ERR 全部且仅是 sum 一类）；
+- bytes=410255 == fed=410255。
+⇒ RTL（DUT V1.2）行为正确；错在 vecgen 黄金第二来源的 sum 表达式
+`wa = addr + 8*(i>>3)`（仅当 addr 8 对齐时等价 F_byte(addr+i)，非对齐时
+word 地址与 lane 双错）。修复：`a=addr+i; f_word(a & ~7) >> 8*(a & 7)`。

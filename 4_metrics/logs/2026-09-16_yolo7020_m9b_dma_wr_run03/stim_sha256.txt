@@ -1,0 +1,8 @@
+b487a92869e7b7e3621e11687516ebc28387b513ae60e2180d5fa8c051dd2e58 *E:\competition\2_fpga\3_yolo_zynq\rtl\yolo_dma_wr.v
+3366f397a8138c8935d83117f90bc5c0a3c8005f7e73298f2d2112df0ac6540c *E:\competition\2_fpga\3_yolo_zynq\sim\tb_yolo_dma_wr.v
+56a5a08aac025637415826767725998ff2be6220999bb1e0debdb2b826bb323b *E:\competition\2_fpga\3_yolo_zynq\sim\dma_wr_vecgen.py
+4cc53a4e3aa8f6329c857c29beaf2e4a26e870013b29ad9d508969c0f257e477 *E:\competition\2_fpga\3_yolo_zynq\sim\stim\dma_wr\cmd_addr.hex
+690a239d00e7719e15dcafd6a35575695d234e7e9c2e92c2f86e22dcc374f2d5 *E:\competition\2_fpga\3_yolo_zynq\sim\stim\dma_wr\cmd_len.hex
+690a239d00e7719e15dcafd6a35575695d234e7e9c2e92c2f86e22dcc374f2d5 *E:\competition\2_fpga\3_yolo_zynq\sim\stim\dma_wr\g_count.hex
+ba70b52437e7132915503fe2f4becca01d1d037fde67f3e4e3880d74198f4dc3 *E:\competition\2_fpga\3_yolo_zynq\sim\stim\dma_wr\g_sum64.hex
+909bf0ec806c781adec8e2bed61abedbd42b13b847f25e58b718ae6a57a8e826 *E:\competition\2_fpga\3_yolo_zynq\sim\stim\dma_wr\n_cmds.hex

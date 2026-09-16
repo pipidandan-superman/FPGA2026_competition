@@ -1,0 +1,44 @@
+# vsim +STIM=../stim/dma_wr +WDT_MS=60000 -do {run -all; quit -f} -l m9b_run01.log -c -novopt work.tb_yolo_dma_wr 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.tb_yolo_dma_wr
+# Loading work.tb_yolo_dma_wr
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.yolo_dma_wr
+# Loading work.yolo_dma_wr
+# run -all 
+# [tb] dma_wr stim=../stim/dma_wr cmds=33
+# [tb] ERR byte @10010008: got dc exp a3
+# [tb] ERR byte @10010009: got a3 exp b2
+# [tb] ERR byte @1001000a: got b2 exp a2
+# [tb] ERR byte @1001000b: got a2 exp 0f
+# [tb] ERR byte @1001000c: got 0f exp d8
+# [tb] ERR byte @1001000d: got d8 exp d3
+# [tb] ERR byte @1001000e: got d3 exp 5e
+# [tb] ERR byte @1001000f: got 5e exp 2b
+# [tb] ERR byte @10010010: got 5e exp 53
+# [tb] ERR byte @10010011: got 2b exp 05
+# [tb] ERR byte @10010012: got 53 exp 18
+# [tb] ERR byte @10010013: got 05 exp f6
+# [tb] ERR byte @10010015: got f6 exp 66
+# [tb] ERR byte @10010016: got 18 exp 98
+# [tb] ERR byte @10010017: got 66 exp 74
+# [tb] ERR cmd 1 sum 0000000000000b84 exp 0000000000000b56
+# [tb] ERR byte @10020048: got aa exp 4b
+# [tb] ERR byte @10020049: got 4b exp 77
+# [tb] ERR byte @1002004a: got 77 exp d5
+# [tb] ERR cmd 2 sum 0000000000001d2b exp 0000000000001de2
+# [tb] ERR wlast@beat 2 of 2
+# [tb] ERR wlast@beat 2 of 2
+# [tb] ERR wlast@beat 2 of 2
+# [tb] ERR wlast@beat 2 of 2
+# [tb] ERR wlast@beat 2 of 2
+# [tb] ERR wlast@beat 2 of 2
+# [tb] ERR wlast@beat 2 of 2
+# [tb] ERR wlast@beat 2 of 2
