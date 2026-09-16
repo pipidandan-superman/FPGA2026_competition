@@ -16,11 +16,18 @@
  *                   micro-op program (prog.hex, M10 28-token conv rows
  *                   + PS byte ops) drives:
  *                     CONV   -> descriptor on yolo_gemm_array; X served
- *                               combinationally from the mirror; Y
- *                               scattered back INTO the mirror at
- *                               y_base+y_addr (word RMW); per-layer
- *                               compare vs the golden region (0xA5
- *                               ambiguity rule + write-bijection counts)
+ *                               combinationally from the mirror; Y comes
+ *                               back over the DUT's true AXI4 write
+ *                               master (V1.2) -- a write slave BFM (random
+ *                               aw/w stalls, random B delay, protocol
+ *                               guards) scatters every strobed W byte
+ *                               INTO the mirror at its physical address
+ *                               (word RMW; dsc_ybase driven from the
+ *                               program word, so the landing address ==
+ *                               the y_base+y_addr of the V1.0 gate);
+ *                               per-layer compare vs the golden region
+ *                               (0xA5 ambiguity rule + write-bijection
+ *                               counts)
  *                     COPY/RSCL/ADD/MAXP5/UPS2 -> PS integer semantics
  *                               on mirror bytes, bit-exact to
  *                               pynq/intarith.py (rne_shift/sat_i8/
@@ -33,12 +40,22 @@
  *                   Gate token: TB_FULLNET_PASS (full 63 convs) /
  *                   TB_FULLNET_SMOKE (+MAXCONV<N bring-up) / _FAIL.
  *                   Usage (from sim/msim, -novopt mandatory on 10.1c):
+ *                     vlog -work work_arr ..\..\rtl\yolo_gemm_array.v (+M1-M9 rtl)
+ *                          ..\tb_yolo_fullnet.v
  *                     vsim -c -novopt +STIM=../stim/m11 +WDT_MS=3600000 \
- *                          -do "run -all; quit -f" work.tb_yolo_fullnet
- * Dependencies    : rtl/yolo_gemm_array.v (+ M1-M9 chain), sim/
+ *                          -do "run -all; quit -f" work_arr.tb_yolo_fullnet
+ * Dependencies    : rtl/yolo_gemm_array.v (V1.2a, + M1-M9 chain), sim/
  *                   m11_vecgen.py outputs (stim/m11/*)
  * Revision History:
  *   - V1.0 (2026-09-15) by LSL : Initial release (M11)
+ *   - V1.1 (2026-09-16) by LSL : DUT V1.2a 接口承接——y_we/y_addr/y_wdata
+ *                 观测口换 AXI4 写从 BFM（aw/w 随机停停 + B 随机延迟，
+ *                 协议哨兵：对齐/size/burst/wlast/超拍/单在途；散写按
+ *                 物理地址 RMW 进 img 镜像，wrmap 键 = 物理地址 −
+ *                 cur_ybase）；新增 dsc_ybase 驱动 = prog[pc+1+24]（与
+ *                 V1.0 的 cur_ybase 同源同值，落点逐位一致）。layer_done
+ *                 已被 DUT 排空门控（V1.2a 含在途清零），层尾等待语义
+ *                 不变。prog.hex/镜像布局零改动。
  ************************************************************************/
 `timescale 1ns/1ps
 
@@ -99,15 +116,29 @@ module tb_yolo_fullnet;
     reg                  rvalid;
     reg                  rlast;
 
-    // ---- X plane / LUT preload / Y ----
+    // ---- X plane / LUT preload ----
     wire [ADDR_W-1:0]    x_addr;
     reg  [7:0]           x_rdata;
     reg                  lut_we = 1'b0;
     reg  [7:0]           lut_waddr = 0, lut_wdata = 0;
-    wire                 y_we;
-    wire [ADDR_W-1:0]    y_addr;
-    wire [7:0]           y_wdata;
+    reg  [ADDR_W-1:0]    dsc_ybase = 0;
     wire                 layer_done, all_done, busy;
+
+    // ---- Y AXI4 write master (DUT V1.2a) ----
+    wire [ADDR_W-1:0]    awaddr;
+    wire [7:0]           awlen;
+    wire [2:0]           awsize;
+    wire [1:0]           awburst;
+    wire                 awvalid;
+    wire                 awready;
+    wire [63:0]          wdata;
+    wire [7:0]           wstrb;
+    wire                 wlast;
+    wire                 wvalid;
+    wire                 wready;
+    wire                 bvalid;
+    wire [1:0]           bresp;
+    wire                 bready;
 
     // ---- stimulus memories ----
     reg [63:0]           img  [0:IMG_WORDS-1];   // DDR mirror
@@ -120,7 +151,7 @@ module tb_yolo_fullnet;
     reg                  wrmap [0:WRMAX-1];
 
     // ---- stats ----
-    integer              n_ywr = 0, n_dbl = 0, n_ybad = 0;
+    integer              n_ywr = 0, n_dbl = 0, n_ybad = 0, n_yerr = 0;
     integer              n_ldone = 0, n_adone = 0;
     integer              n_cmp = 0, n_err = 0;
     integer              first_err_c = 0, first_err_i = 0;
@@ -165,6 +196,7 @@ module tb_yolo_fullnet;
         .dsc_act_i    (dsc_act),
         .dsc_wbase_i  (dsc_wbase),
         .dsc_xbase_i  (dsc_xbase),
+        .dsc_ybase_i  (dsc_ybase),
         .dsc_bbase_i  (dsc_bbase),
         .dsc_mbase_i  (dsc_mbase),
         .dsc_sbase_i  (dsc_sbase),
@@ -178,14 +210,26 @@ module tb_yolo_fullnet;
         .rlast_i      (rlast),
         .rvalid_i     (rvalid),
         .rready_o     (rready),
+        // ---- Y write master (DUT V1.2a) ----
+        .awaddr_o     (awaddr),
+        .awlen_o      (awlen),
+        .awsize_o     (awsize),
+        .awburst_o    (awburst),
+        .awvalid_o    (awvalid),
+        .awready_i    (awready),
+        .wdata_o      (wdata),
+        .wstrb_o      (wstrb),
+        .wlast_o      (wlast),
+        .wvalid_o     (wvalid),
+        .wready_i     (wready),
+        .bvalid_i     (bvalid),
+        .bresp_i      (bresp),
+        .bready_o     (bready),
         .x_addr_o     (x_addr),
         .x_rdata_i    (x_rdata),
         .lut_we_i     (lut_we),
         .lut_waddr_i  (lut_waddr),
         .lut_wdata_i  (lut_wdata),
-        .y_we_o       (y_we),
-        .y_addr_o     (y_addr),
-        .y_wdata_o    (y_wdata),
         .layer_done_o (layer_done),
         .all_done_o   (all_done),
         .busy_o       (busy)
@@ -263,29 +307,132 @@ module tb_yolo_fullnet;
     // rdata served combinationally from the mirror (word-aligned bursts)
     always @(*) rdata = img[raddr_q[31:3]];
 
-    // ---- DUT Y scatter INTO the mirror at cur_ybase + y_addr ----
+    // ---- DUT Y write slave BFM + scatter INTO the mirror ----
     // (M11: physical chaining -- the written bytes ARE the data plane the
-    // next op consumes. Byte RMW on the 64-bit word; Y beats are 1/cycle
-    // so no same-word same-edge collision. wrmap gives the single-write
-    // bijection check without poisoning the mirror with sentinels.)
+    // next op consumes. DUT V1.2a emits Y as per-row write commands; the
+    // BFM accepts bursts with random aw/w stalls and random B delay,
+    // guard the protocol (alignment, size/burst, wlast position, beat
+    // overrun, single outstanding) and RMWs every strobed beat into the
+    // mirror as ONE merged word (each beat = one aligned 8-byte word;
+    // per-lane writes to the same word would lose all but the last
+    // lane). wrmap key = physical - cur_ybase gives the single-write
+    // bijection check without poisoning the mirror with sentinels; a
+    // conv's Y writes all land before its drain-gated layer_done, so
+    // cur_ybase is live.)
     integer       cur_ybase = 0;
-    reg  [31:0]   gaddr = 0;
-    reg  [5:0]    gsh = 0;
+    wire          yaw_stall_w = (lfsr[7:4]  == 4'h0);
+    wire          yw_stall_w  = (lfsr[11:8] == 4'h0);
+    wire [1:0]    ybgap_w     = lfsr[13:12];
+
+    reg              yaw_busy = 1'b0;   // AW accepted, W incomplete
+    reg [ADDR_W-1:0] yaw_addr = 0;
+    reg [7:0]        yaw_len  = 8'd0;   // latched awlen
+    reg [7:0]        yaw_beat = 8'd0;   // beats fired in this burst
+    assign awready = ~yaw_busy && ~yaw_stall_w;
+    assign wready  = yaw_busy && ~yw_stall_w;
+
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            yaw_busy <= 1'b0;
+            yaw_len  <= 8'd0;
+            yaw_beat <= 8'd0;
+        end else if (awvalid && awready) begin
+            yaw_busy <= 1'b1;
+            yaw_addr <= awaddr;
+            yaw_len  <= awlen;
+            yaw_beat <= 8'd0;
+        end else if (wvalid && wready) begin
+            if (wlast) yaw_busy <= 1'b0;
+            yaw_beat  <= yaw_beat + 8'd1;
+        end
+    end
+
+    // B response engine: one per burst, random delay, in order
+    reg [3:0] yb_pend = 4'd0;
+    reg [1:0] yb_wait = 2'd0;
+    wire      ywlast_fire = yaw_busy && wvalid && wready && wlast;
+    assign bvalid = (yb_pend != 4'd0) && (yb_wait == 2'd0);
+    assign bresp  = 2'b00;                  // OKAY only
+
+    integer ytmp_p;
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            yb_pend <= 4'd0;
+            yb_wait <= 2'd0;
+        end else begin
+            ytmp_p = yb_pend;
+            if (yb_wait != 2'd0) yb_wait <= yb_wait - 2'd1;
+            if (ywlast_fire) begin
+                ytmp_p = ytmp_p + 1;
+                if (ytmp_p == 1) yb_wait <= ybgap_w;
+            end
+            if (bvalid && bready) begin
+                ytmp_p = ytmp_p - 1;
+                if (ytmp_p != 0) yb_wait <= ybgap_w;
+            end
+            yb_pend <= ytmp_p;
+        end
+    end
+
+    // W monitor + RMW scatter (protocol guards; strobed -> mirror)
+    integer  jw;
+    integer  yb_key;
+    reg [ADDR_W-1:0] yb_wa;
+    reg [63:0]       yb_word;
     always @(posedge clk) begin
-        if (y_we) begin
-            n_ywr = n_ywr + 1;
-            gaddr = cur_ybase + y_addr;
-            gsh   = {gaddr[2:0], 3'b000};
-            if (wrmap[y_addr] === 1'b0) begin
-                wrmap[y_addr] <= 1'b1;
-                img[gaddr[31:3]] <= (img[gaddr[31:3]]
-                                     & ~(64'hFF << gsh))
-                                    | ({56'd0, y_wdata} << gsh);
-            end else begin
-                n_dbl = n_dbl + 1;
-                if (n_dbl == 1)
-                    $display("[tb] ERROR double DUT write y_addr=%0d",
-                             y_addr);
+        if (rst_n) begin
+            if (awvalid && awready) begin
+                // yaw_busy reads its pre-edge value (NBA above) =
+                // single-outstanding check
+                if (awaddr[2:0] !== 3'b000) begin
+                    n_yerr = n_yerr + 1;
+                    $display("[tb] ERR Y AW not aligned: %h", awaddr);
+                end
+                if (awsize !== 3'd3 || awburst !== 2'd1) begin
+                    n_yerr = n_yerr + 1;
+                    $display("[tb] ERR Y AW size/burst %0d/%0d",
+                             awsize, awburst);
+                end
+                if (yaw_busy) begin
+                    n_yerr = n_yerr + 1;
+                    $display("[tb] ERR Y AW while burst in flight");
+                end
+            end
+            if (wvalid && wready) begin
+                if (wlast !== (yaw_beat == yaw_len)) begin
+                    n_yerr = n_yerr + 1;
+                    $display("[tb] ERR Y wlast@beat %0d of %0d",
+                             yaw_beat + 8'd1, yaw_len + 8'd1);
+                end
+                if (yaw_beat > yaw_len) begin
+                    n_yerr = n_yerr + 1;
+                    $display("[tb] ERR Y W overrun: beat %0d of %0d",
+                             yaw_beat + 8'd1, yaw_len + 8'd1);
+                end
+                // one W beat covers exactly ONE 8-byte aligned word
+                // (awaddr is aligned and beats step whole words): merge
+                // every strobed lane into a SINGLE word NBA -- per-lane
+                // NBAs to the same word keep only the last lane (run03
+                // smoke bug: 7/8 bytes lost per full word, acc_err
+                // 357407/409600 on conv 0)
+                yb_wa   = yaw_addr + {24'd0, yaw_beat, 3'b000};
+                yb_word = img[yb_wa[31:3]];
+                for (jw = 0; jw < 8; jw = jw + 1) begin
+                    if (wstrb[jw]) begin
+                        yb_word[8*jw +: 8] = wdata[8*jw +: 8];
+                        yb_key = yb_wa + jw - cur_ybase;
+                        n_ywr = n_ywr + 1;
+                        if (wrmap[yb_key] === 1'b0) begin
+                            wrmap[yb_key] <= 1'b1;
+                        end else begin
+                            n_dbl = n_dbl + 1;
+                            if (n_dbl == 1)
+                                $display("[tb] ERROR double DUT write addr=%0d",
+                                         yb_wa + jw);
+                        end
+                    end
+                end
+                img[yb_wa[31:3]] <= yb_word;
             end
         end
     end
@@ -543,6 +690,10 @@ module tb_yolo_fullnet;
                     dsc_mbase = prog[pc+1+20];
                     dsc_sbase = prog[pc+1+21];
                     cur_ybase = prog[pc+1+24];
+                    dsc_ybase = cur_ybase;  // DUT V1.2a: same program word
+                                            // as the TB-side base -- the
+                                            // landing addresses equal the
+                                            // V1.0 y_base + y_addr exactly
                     dsc_valid = 1'b1;
                     while (dsc_ready !== 1'b1) @(negedge clk);
                     @(posedge clk);            // accept edge
@@ -555,8 +706,10 @@ module tb_yolo_fullnet;
                         #1;
                         got_done = layer_done;
                     end
-                    // drain: last y write trails the last rq beat by 3
-                    // cycles; scatter target must stay stable through it
+                    // layer_done is drain-gated in DUT V1.2a (segmenter
+                    // idle + zero in-flight + last B collected), so every
+                    // Y byte has landed in the mirror at the pulse; keep
+                    // a short tail anyway before the per-conv compare
                     repeat (8) @(negedge clk);
                     // per-conv compare: mirror[y_base+i] vs golden region
                     yb = prog[pc+1+24];
@@ -649,7 +802,7 @@ module tb_yolo_fullnet;
         repeat (16) @(negedge clk);
 
         // ---- verdict ----
-        if (n_err == 0 && n_dbl == 0 && n_ybad == 0
+        if (n_err == 0 && n_dbl == 0 && n_ybad == 0 && n_yerr == 0
             && n_ywr == total_out
             && n_ldone == convs_run && n_adone == 1
             && convs_run == maxconv
@@ -663,9 +816,9 @@ module tb_yolo_fullnet;
                          convs_run, ps_ops, n_cmp, n_ywr, head_bytes,
                          n_ldone, n_adone);
         end else begin
-            $display("TB_FULLNET_FAIL err=%0d dbl=%0d unwritten=%0d dut_wr=%0d(exp %0d) convs=%0d(exp %0d) psops=%0d head_bytes=%0d ldone=%0d adone=%0d first=(c%0d,i%0d)",
-                     n_err, n_dbl, n_ybad, n_ywr, total_out, convs_run,
-                     maxconv, ps_ops, head_bytes, n_ldone, n_adone,
+            $display("TB_FULLNET_FAIL err=%0d dbl=%0d unwritten=%0d yaxi=%0d dut_wr=%0d(exp %0d) convs=%0d(exp %0d) psops=%0d head_bytes=%0d ldone=%0d adone=%0d first=(c%0d,i%0d)",
+                     n_err, n_dbl, n_ybad, n_yerr, n_ywr, total_out,
+                     convs_run, maxconv, ps_ops, head_bytes, n_ldone, n_adone,
                      first_err_c, first_err_i);
         end
         $finish;

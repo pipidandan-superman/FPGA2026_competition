@@ -1,62 +1,62 @@
 /************************************************************************
- * File Name       : tb_yolo_gemm_array.v
+ * File Name       : tb_yolo_engine_top.v
  * Developer       : LSL
- * Date            : 2026-09-15
+ * Date            : 2026-09-16
  * Project Name    : AMD embodied sorting / EES-331 XC7Z020
- * Module Name     : tb_yolo_gemm_array
- * Description     : M10 gate testbench for yolo_gemm_array (SIM 8x8).
- *                   6-layer plan S1/R1/S2/S3/R2/S4 replayed from
- *                   layers.hex (28 tokens/layer: geometry + DDR bases +
- *                   golden bases + expsel). One DDR byte image
- *                   (ddr.hex, 64-bit LE words) backs the AXI read BFM
- *                   (random ar/r stalls, LFSR), the X-plane comb port,
- *                   the per-layer LUT preload and the golden memories.
+ * Module Name     : tb_yolo_engine_top
+ * Description     : M12 A1 CSR/engine gate testbench (SIM 8x8 build of
+ *                   yolo_engine_top). Stimulus and the golden chain are
+ *                   the M10 gate set VERBATIM (stim/m10: 6-layer plan
+ *                   S1/R1/S2/S3/R2/S4, layers.hex 28 tokens/layer, one
+ *                   DDR byte image backing the AXI read BFM / X comb
+ *                   port / LUT preload / golden memories, 4 static
+ *                   yolo_conv_core goldens + run04 real-layer exports).
  *
- *                   Golden hierarchy (baseline section 5): synthetic
- *                   layers compare against 4 static yolo_conv_core
- *                   instances (S1/S2/S3/S4 params; dedicated mirror W +
- *                   param arrays gw/gb/gm/gs{L}.hex, X served from the
- *                   same image planes); real layers R1/R2 compare
- *                   against yexp1/yexp2.hex (rom_data = G2 run04
- *                   deployment export; python chain reproduced the
- *                   run04 npz bit-exact before stimulus freeze).
+ *                   What changes vs the M10 TB: the PS role moves onto
+ *                   the real control path -- an AXI4-Lite master BFM
+ *                   (task-driven, negedge drives / negedge polls on
+ *                   register-function readys) programs the CSR exactly
+ *                   the way v1 software will:
+ *                     - LUT preload via the 0x400 window (256 writes)
+ *                     - DESC0..DESC5 + 6 BASE regs, DESC0 readback
+ *                     - CTRL.START doorbell, STATUS.dsc_pend accept
+ *                       wait, STATUS.ldone_cnt drain-gated completion
+ *                       poll, final all_done sticky poll
+ *                     - ID/VER + 12-shadow pattern roundtrip at t0,
+ *                       IRQ_EN/IRQ_STAT raise + W1C at frame end
+ *                   ldone/adone are now COUNTED THROUGH THE CSR (final
+ *                   STATUS snapshot), not TB pulse counters -- the PS
+ *                   visible view is what the gate asserts.
  *
- *                   Y check (TB V1.1, DUT V1.2): Y comes back over a
- *                   true AXI4 write master -- an AXI write slave BFM
- *                   (random aw/w stalls, random B delay; protocol
- *                   guards: awaddr alignment, size/burst, wlast
- *                   position, beat overrun, single outstanding)
- *                   scatters every strobed W byte into the yd mirror
- *                   at its PHYSICAL address (ybase + row offset), with
- *                   dsc_ybase driven TB-side as L*YSPAN so the mirror
- *                   layout is bit-identical to the V1.0 gate
- *                   (layers.hex zero change); sentinel detects double
- *                   writes; compare after all_done + golden done.
- *                   Gate token: TB_GEMM_ARRAY_PASS / _FAIL.
+ *                   Y check identical to M10 TB V1.1: AXI write slave
+ *                   BFM scatters strobed bytes into yd at physical
+ *                   addresses; YBASE reg = L*YSPAN so the mirror
+ *                   layout is bit-identical to the M10/M11 gates.
+ *                   Gate token: TB_CSR_ENGINE_PASS / _FAIL.
  *                   Usage (from sim/msim, -novopt mandatory on 10.1c):
- *                     vlog -work work_arr ..\..\rtl\yolo_gemm_array.v (+M1-M9 rtl)
- *                          ..\tb_yolo_gemm_array.v
+ *                     vlog -work work_arr ..\..\rtl\yolo_engine_top.v
+ *                          ..\..\rtl\yolo_csr.v (+array V1.2a closure)
+ *                          ..\tb_yolo_engine_top.v
  *                     vsim -c -novopt +STIM=../stim/m10 +WDT_MS=900000 \
- *                          -do "run -all; quit -f" work_arr.tb_yolo_gemm_array
- * Dependencies    : rtl/yolo_gemm_array.v (V1.2, +M1-M9), rtl/yolo_conv_core.v,
- *                   sim/m10_vecgen.py outputs
+ *                          -do "run -all; quit -f" work_arr.tb_yolo_engine_top
+ * Dependencies    : rtl/yolo_engine_top.v, rtl/yolo_csr.v,
+ *                   rtl/yolo_gemm_array.v (V1.2a) + closure,
+ *                   rtl/yolo_conv_core.v, sim/m10_vecgen.py outputs
  * Revision History:
- *   - V1.0 (2026-09-15) by LSL : Initial release (M10)
- *   - V1.1 (2026-09-16) by LSL : DUT V1.2 接口承接——y_we/y_addr/y_wdata
- *                 观测口换 AXI4 写从 BFM（aw/w 随机停停 + B 随机延迟，
- *                 散写按物理地址 = ybase+offset 落 yd 镜像；深度停停/
- *                 4KB/链化覆盖属 M9b 门，本 BFM 只带协议哨兵）；新增
- *                 dsc_ybase 驱动 = L*YSPAN（镜像布局与 V1.0 逐位一致，
- *                 layers.hex 零改动）。layer_done 已被 DUT 排空门控，
- *                 层尾等待语义不变。
+ *   - V1.0 (2026-09-16) by LSL : Initial release (M12 A1 CSR/engine
+ *     gate). Derived from tb_yolo_gemm_array.v V1.1 (golden chain,
+ *     BFMs and compare logic copied unchanged; descriptor/LUT/status
+ *     drive rewritten onto the AXI-Lite master BFM).
  ************************************************************************/
 `timescale 1ns/1ps
 
-module tb_yolo_gemm_array;
+module tb_yolo_engine_top;
 
-    // ---- DUT geometry (matches yolo_gemm_array defaults) ----
+    // ---- DUT geometry (SIM 8x8, matches the M10 gate build) ----
     localparam OC_EDGE   = 8;
     localparam N_EDGE    = 8;
+    localparam ROW_AW    = 3;
+    localparam COL_AW    = 3;
     localparam OC_AW     = 11;
     localparam N_AW      = 16;
     localparam K_AW      = 12;
@@ -67,26 +67,54 @@ module tb_yolo_gemm_array;
     localparam YSPAN     = 410000;  // >= max oc*n (R1 409600)
     localparam SENT      = 8'hA5;
 
+    // ---- CSR register map mirror (contract: hw_contract/address_map.md;
+    //      RTL: rtl/yolo_csr.v -- three-way sync) ----
+    localparam [31:0] RB       = 32'h43C1_0000;   // C_BASEADDR
+    localparam [31:0] O_ID     = 32'h000;
+    localparam [31:0] O_VER    = 32'h004;
+    localparam [31:0] O_CTRL   = 32'h008;
+    localparam [31:0] O_STATUS = 32'h00C;
+    localparam [31:0] O_DESC0  = 32'h010;
+    localparam [31:0] O_DESC1  = 32'h014;
+    localparam [31:0] O_DESC2  = 32'h018;
+    localparam [31:0] O_DESC3  = 32'h01C;
+    localparam [31:0] O_DESC4  = 32'h020;
+    localparam [31:0] O_DESC5  = 32'h024;
+    localparam [31:0] O_WBASE  = 32'h028;
+    localparam [31:0] O_XBASE  = 32'h02C;
+    localparam [31:0] O_YBASE  = 32'h030;
+    localparam [31:0] O_BBASE  = 32'h034;
+    localparam [31:0] O_MBASE  = 32'h038;
+    localparam [31:0] O_SBASE  = 32'h03C;
+    localparam [31:0] O_IRQ_EN = 32'h040;
+    localparam [31:0] O_IRQ_ST = 32'h044;
+    localparam [31:0] O_LUT    = 32'h400;
+
     // ---- clock / reset ----
     reg clk = 1'b0;
     reg rst_n = 1'b0;
     always #5 clk = ~clk;
 
-    // ---- descriptor drive ----
-    reg                  dsc_valid = 1'b0;
-    wire                 dsc_ready;
-    reg [OC_AW-1:0]      dsc_oc = 0;
-    reg [N_AW-1:0]       dsc_n = 0;
-    reg [K_AW-1:0]       dsc_k = 0;
-    reg                  dsc_last = 1'b0;
-    reg [15:0]           dsc_ih = 0, dsc_iw = 0, dsc_ow = 0, dsc_ic = 0;
-    reg [7:0]            dsc_kh = 0, dsc_kw = 0, dsc_sh = 0, dsc_sw = 0;
-    reg [7:0]            dsc_ph = 0, dsc_pw = 0;
-    reg                  dsc_first = 1'b0, dsc_act = 1'b0;
-    reg [ADDR_W-1:0]     dsc_wbase = 0, dsc_xbase = 0, dsc_bbase = 0;
-    reg [ADDR_W-1:0]     dsc_mbase = 0, dsc_sbase = 0;
+    // ---- AXI4-Lite master (PS role) ----
+    reg  [31:0] m_axil_awaddr  = 0;
+    reg         m_axil_awvalid = 1'b0;
+    reg  [31:0] m_axil_wdata   = 0;
+    reg  [3:0]  m_axil_wstrb   = 4'hF;
+    reg         m_axil_wvalid  = 1'b0;
+    wire        m_axil_awready;
+    wire        m_axil_wready;
+    wire [1:0]  m_axil_bresp;
+    wire        m_axil_bvalid;
+    reg         m_axil_bready  = 1'b1;   // always ready for B
+    reg  [31:0] m_axil_araddr  = 0;
+    reg         m_axil_arvalid = 1'b0;
+    wire        m_axil_arready;
+    wire [31:0] m_axil_rdata;
+    wire [1:0]  m_axil_rresp;
+    wire        m_axil_rvalid;
+    reg         m_axil_rready  = 1'b1;   // always ready for R
 
-    // ---- AXI read BFM ----
+    // ---- AXI4 read master BFM wiring (W/params; M10 names kept) ----
     wire [ADDR_W-1:0]    araddr;
     wire [7:0]           arlen;
     wire [2:0]           arsize;
@@ -94,19 +122,11 @@ module tb_yolo_gemm_array;
     wire                 arvalid;
     wire                 rready;
     wire                 arready;
-    reg [63:0]           rdata;
+    reg  [63:0]          rdata;
     reg                  rvalid;
     reg                  rlast;
 
-    // ---- X plane / LUT preload ----
-    wire [ADDR_W-1:0]    x_addr;
-    reg  [7:0]           x_rdata;
-    reg                  lut_we = 1'b0;
-    reg  [7:0]           lut_waddr = 0, lut_wdata = 0;
-    reg  [ADDR_W-1:0]    dsc_ybase = 0;
-    wire                 layer_done, all_done, busy;
-
-    // ---- Y AXI4 write master (DUT V1.2) ----
+    // ---- AXI4 write master BFM wiring (Y; M10 names kept) ----
     wire [ADDR_W-1:0]    awaddr;
     wire [7:0]           awlen;
     wire [2:0]           awsize;
@@ -121,6 +141,11 @@ module tb_yolo_gemm_array;
     wire                 bvalid;
     wire [1:0]           bresp;
     wire                 bready;
+
+    // ---- X plane comb port + irq ----
+    wire [ADDR_W-1:0]    x_addr;
+    reg  [7:0]           x_rdata;
+    wire                 irq;
 
     // ---- stimulus memories ----
     reg [63:0]           img [0:IMG_WORDS-1];
@@ -171,73 +196,126 @@ module tb_yolo_gemm_array;
     endfunction
 
     // ---- DUT ----
-    yolo_gemm_array #(
-        .OC_EDGE (OC_EDGE),
-        .N_EDGE  (N_EDGE),
-        .OC_AW   (OC_AW),
-        .N_AW    (N_AW),
-        .K_AW    (K_AW)
+    yolo_engine_top #(
+        .C_BASEADDR (RB),
+        .OC_EDGE    (OC_EDGE),
+        .N_EDGE     (N_EDGE),
+        .ROW_AW     (ROW_AW),
+        .COL_AW     (COL_AW),
+        .OC_AW      (OC_AW),
+        .N_AW       (N_AW),
+        .K_AW       (K_AW)
     ) dut (
-        .clk_i        (clk),
-        .rst_n        (rst_n),
-        .dsc_valid_i  (dsc_valid),
-        .dsc_ready_o  (dsc_ready),
-        .dsc_oc_i     (dsc_oc),
-        .dsc_n_i      (dsc_n),
-        .dsc_k_i      (dsc_k),
-        .dsc_last_i   (dsc_last),
-        .dsc_ih_i     (dsc_ih),
-        .dsc_iw_i     (dsc_iw),
-        .dsc_ow_i     (dsc_ow),
-        .dsc_ic_i     (dsc_ic),
-        .dsc_kh_i     (dsc_kh),
-        .dsc_kw_i     (dsc_kw),
-        .dsc_sh_i     (dsc_sh),
-        .dsc_sw_i     (dsc_sw),
-        .dsc_ph_i     (dsc_ph),
-        .dsc_pw_i     (dsc_pw),
-        .dsc_first_i  (dsc_first),
-        .dsc_act_i    (dsc_act),
-        .dsc_wbase_i  (dsc_wbase),
-        .dsc_xbase_i  (dsc_xbase),
-        .dsc_ybase_i  (dsc_ybase),
-        .dsc_bbase_i  (dsc_bbase),
-        .dsc_mbase_i  (dsc_mbase),
-        .dsc_sbase_i  (dsc_sbase),
-        .araddr_o     (araddr),
-        .arlen_o      (arlen),
-        .arsize_o     (arsize),
-        .arburst_o    (arburst),
-        .arvalid_o    (arvalid),
-        .arready_i    (arready),
-        .rdata_i      (rdata),
-        .rlast_i      (rlast),
-        .rvalid_i     (rvalid),
-        .rready_o     (rready),
-        // ---- Y write master (V1.2) ----
-        .awaddr_o     (awaddr),
-        .awlen_o      (awlen),
-        .awsize_o     (awsize),
-        .awburst_o    (awburst),
-        .awvalid_o    (awvalid),
-        .awready_i    (awready),
-        .wdata_o      (wdata),
-        .wstrb_o      (wstrb),
-        .wlast_o      (wlast),
-        .wvalid_o     (wvalid),
-        .wready_i     (wready),
-        .bvalid_i     (bvalid),
-        .bresp_i      (bresp),
-        .bready_o     (bready),
-        .x_addr_o     (x_addr),
-        .x_rdata_i    (x_rdata),
-        .lut_we_i     (lut_we),
-        .lut_waddr_i  (lut_waddr),
-        .lut_wdata_i  (lut_wdata),
-        .layer_done_o (layer_done),
-        .all_done_o   (all_done),
-        .busy_o       (busy)
+        .clk_i            (clk),
+        .rst_n            (rst_n),
+        // AXI4-Lite slave
+        .s_axi_awaddr     (m_axil_awaddr),
+        .s_axi_awprot     (3'b000),
+        .s_axi_awvalid    (m_axil_awvalid),
+        .s_axi_awready    (m_axil_awready),
+        .s_axi_wdata      (m_axil_wdata),
+        .s_axi_wstrb      (m_axil_wstrb),
+        .s_axi_wvalid     (m_axil_wvalid),
+        .s_axi_wready     (m_axil_wready),
+        .s_axi_bresp      (m_axil_bresp),
+        .s_axi_bvalid     (m_axil_bvalid),
+        .s_axi_bready     (m_axil_bready),
+        .s_axi_araddr     (m_axil_araddr),
+        .s_axi_arprot     (3'b000),
+        .s_axi_arvalid    (m_axil_arvalid),
+        .s_axi_arready    (m_axil_arready),
+        .s_axi_rdata      (m_axil_rdata),
+        .s_axi_rresp      (m_axil_rresp),
+        .s_axi_rvalid     (m_axil_rvalid),
+        .s_axi_rready     (m_axil_rready),
+        // AXI4 read master (W/params)
+        .m_axi_araddr     (araddr),
+        .m_axi_arlen      (arlen),
+        .m_axi_arsize     (arsize),
+        .m_axi_arburst    (arburst),
+        .m_axi_arvalid    (arvalid),
+        .m_axi_arready    (arready),
+        .m_axi_rdata      (rdata),
+        .m_axi_rlast      (rlast),
+        .m_axi_rvalid     (rvalid),
+        .m_axi_rready     (rready),
+        // AXI4 write master (Y)
+        .m_axi_awaddr     (awaddr),
+        .m_axi_awlen      (awlen),
+        .m_axi_awsize     (awsize),
+        .m_axi_awburst    (awburst),
+        .m_axi_awvalid    (awvalid),
+        .m_axi_awready    (awready),
+        .m_axi_wdata      (wdata),
+        .m_axi_wstrb      (wstrb),
+        .m_axi_wlast      (wlast),
+        .m_axi_wvalid     (wvalid),
+        .m_axi_wready     (wready),
+        .m_axi_bvalid     (bvalid),
+        .m_axi_bresp      (bresp),
+        .m_axi_bready     (bready),
+        // X plane byte port
+        .x_addr_o         (x_addr),
+        .x_rdata_i        (x_rdata),
+        .irq_o            (irq)
     );
+
+    // =================================================================
+    // AXI4-Lite master tasks (PS role)
+    // =================================================================
+    integer n_csr = 0;      // AXI-Lite / readback / IRQ errors (declared
+                            // before the tasks that bump it -- 10.1c
+                            // sequential identifier resolution)
+
+    // Readys are pure register functions (bpend_r / rpend_r) -- stable
+    // within a cycle; negedge drives + negedge polls are race free.
+    task axil_wr;
+        input [31:0] a;
+        input [31:0] d;
+        begin
+            @(negedge clk);
+            m_axil_awaddr  = a;
+            m_axil_awvalid = 1'b1;
+            m_axil_wdata   = d;
+            m_axil_wstrb   = 4'hF;
+            m_axil_wvalid  = 1'b1;
+            while (!(m_axil_awready === 1'b1 && m_axil_wready === 1'b1))
+                @(negedge clk);
+            @(posedge clk);          // accept edge (AW + W together)
+            @(negedge clk);
+            m_axil_awvalid = 1'b0;
+            m_axil_wvalid  = 1'b0;
+            while (m_axil_bvalid !== 1'b1) @(negedge clk);
+            if (m_axil_bresp !== 2'b00) begin
+                n_csr = n_csr + 1;
+                $display("[tb] ERR AXI-Lite B resp=%0d @%h",
+                         m_axil_bresp, a);
+            end
+            @(negedge clk);          // B consumed (bready held high)
+        end
+    endtask
+
+    task axil_rd;
+        input  [31:0] a;
+        output [31:0] d;
+        begin
+            @(negedge clk);
+            m_axil_araddr  = a;
+            m_axil_arvalid = 1'b1;
+            while (m_axil_arready !== 1'b1) @(negedge clk);
+            @(posedge clk);          // AR accept edge (data latched)
+            @(negedge clk);
+            m_axil_arvalid = 1'b0;
+            while (m_axil_rvalid !== 1'b1) @(negedge clk);
+            d = m_axil_rdata;
+            if (m_axil_rresp !== 2'b00) begin
+                n_csr = n_csr + 1;
+                $display("[tb] ERR AXI-Lite R resp=%0d @%h",
+                         m_axil_rresp, a);
+            end
+            @(negedge clk);          // R consumed (rready held high)
+        end
+    endtask
 
     // X plane comb serve (byte lane from the image word)
     always @(*) x_rdata = imgbyte(x_addr);
@@ -310,13 +388,7 @@ module tb_yolo_gemm_array;
     // rdata served combinationally from the image (bursts word-aligned)
     always @(*) rdata = img[raddr_q[31:3]];
 
-    // ---- Y AXI4 write slave BFM (DUT V1.2) ----
-    // Light random stalls on aw/w + random B delay; the deep stall,
-    // 4KB-split and address-chain coverage belongs to the M9b gate
-    // (same u_dma_wr instance). Bytes scatter into the yd mirror at
-    // PHYSICAL addresses (dsc_ybase = L*YSPAN -> layout bit-identical
-    // to the V1.0 gate); sentinel catches double writes, n_ywr counts
-    // strobed bytes (PASS requires == total_out).
+    // ---- Y AXI4 write slave BFM (identical to M10 TB V1.1) ----
     wire       yaw_stall_w = (lfsr[7:4]  == 4'h0);
     wire       yw_stall_w  = (lfsr[11:8] == 4'h0);
     wire [1:0] ybgap_w     = lfsr[13:12];
@@ -377,8 +449,6 @@ module tb_yolo_gemm_array;
     always @(posedge clk) begin
         if (rst_n) begin
             if (awvalid && awready) begin
-                // yaw_busy reads its pre-edge value here (NBA in the
-                // block above) = single-outstanding check
                 if (awaddr[2:0] !== 3'b000) begin
                     n_yerr = n_yerr + 1;
                     $display("[tb] ERR Y AW not aligned: %h", awaddr);
@@ -428,9 +498,9 @@ module tb_yolo_gemm_array;
     reg  g0_start = 1'b0, g2_start = 1'b0, g3_start = 1'b0, g5_start = 1'b0;
     wire g0_busy, g0_done, g2_busy, g2_done, g3_busy, g3_done;
     wire g5_busy, g5_done;
-    wire [7:0]  g0_xa;                    // X_AW/W_AW per instance (PCDPC
-    wire [12:0] g2_xa, g3_xa, g5_xa;      // fix: widths must match ports,
-    wire [7:0]  g0_wa;                    // else addr MSBs are truncated)
+    wire [7:0]  g0_xa;
+    wire [12:0] g2_xa, g3_xa, g5_xa;
+    wire [7:0]  g0_wa;
     wire [9:0]  g3_wa;
     wire [13:0] g2_wa;
     wire [14:0] g5_wa;
@@ -445,17 +515,14 @@ module tb_yolo_gemm_array;
     wire [7:0]  g5_ya;
     wire signed [7:0] g0_yw, g2_yw, g3_yw, g5_yw;
     reg [31:0] xb0, xb2, xb3, xb5;                 // X plane bases
-    // serves are WIRES driven by continuous assigns (M0-proven pattern,
-    // tb_yolo_conv_core.v:103-108): always @(*) reg serves froze in
-    // 10.1c for rarely-changing array indices (dbg4: bd/md/sd stuck at
-    // the t=0 X evaluation while per-beat xa/wa serves stayed live)
+    // serves are WIRES driven by continuous assigns (M0-proven pattern)
     wire signed [7:0]  g0_xd, g0_wd, g2_wd, g3_wd, g5_wd;
     wire signed [7:0]  g2_xd, g3_xd, g5_xd;
     wire signed [31:0] g0_bd, g0_md, g2_bd, g2_md, g3_bd, g3_md;
     wire signed [31:0] g5_bd, g5_md;
     wire [7:0]  g0_sd, g2_sd, g3_sd, g5_sd;
-    wire signed [7:0] g0_ld, g2_ld, g3_ld, g5_ld;
-        integer g0_dn = 0, g2_dn = 0, g3_dn = 0, g5_dn = 0;
+    wire signed [7:0]  g0_ld, g2_ld, g3_ld, g5_ld;
+    integer g0_dn = 0, g2_dn = 0, g3_dn = 0, g5_dn = 0;
 
     assign g0_xd = imgbyte(xb0 + {24'd0, g0_xa});
     assign g0_wd = $signed(gw0[g0_wa]);
@@ -573,33 +640,30 @@ module tb_yolo_gemm_array;
     end
 
     // =================================================================
-    // main sequence
+    // main sequence (PS role: everything through the CSR)
     // =================================================================
     reg [1023:0] stim = "../stim/m10";
     integer      wdt_ms = 900000;
-    integer      n_ldone = 0;
-    integer      n_adone = 0;
+    integer      max_lay = 0;       // +MAXLAYER: smoke first-K-layers flow
+    integer      n_run;
     integer      total_out = 0;
+    integer      total_run = 0;
     integer      n_cmp = 0, n_err = 0, first_err_L = 0;
     integer      first_err_i = 0;
+    integer      pk;
     reg [7:0]    ev, gv;
-    reg          got_done;
-
-    // status pulse counters (sampled every cycle: all_done may pulse
-    // outside the layer_done sampling points of the main sequence)
-    always @(posedge clk) begin
-        if (layer_done) n_ldone = n_ldone + 1;
-        if (all_done)   n_adone = n_adone + 1;
-    end
+    reg [31:0]   dv, dpat, st_final;
+    reg [31:0]   rw_addr [0:11];
 
     initial begin
         if ($value$plusargs("STIM=%s", stim)) begin end
         if ($value$plusargs("WDT_MS=%d", wdt_ms)) begin end
+        if ($value$plusargs("MAXLAYER=%d", max_lay)) begin end
 
         $readmemh({stim, "/n_layers.hex"},  memtmp); n_layers = memtmp[0];
         $readmemh({stim, "/n_ddrwords.hex"},memtmp); n_words  = memtmp[0];
         if (n_words > IMG_WORDS) begin
-            $display("TB_GEMM_ARRAY_FAIL (image %0d > %0d)", n_words,
+            $display("TB_CSR_ENGINE_FAIL (image %0d > %0d)", n_words,
                      IMG_WORDS);
             $finish;
         end
@@ -641,58 +705,106 @@ module tb_yolo_gemm_array;
         end
         for (L = 0; L < n_layers; L = L + 1)
             total_out = total_out + lay[L*FLDS+1] * lay[L*FLDS+2];
-        $display("[tb] m10 stim=%0s layers=%0d img_words=%0d total_out=%0d",
+        n_run = (max_lay > 0 && max_lay < n_layers) ? max_lay : n_layers;
+        for (L = 0; L < n_run; L = L + 1)
+            total_run = total_run + lay[L*FLDS+1] * lay[L*FLDS+2];
+        // RW register address list (pattern roundtrip at t0)
+        rw_addr[0]  = RB + O_DESC0;  rw_addr[1]  = RB + O_DESC1;
+        rw_addr[2]  = RB + O_DESC2;  rw_addr[3]  = RB + O_DESC3;
+        rw_addr[4]  = RB + O_DESC4;  rw_addr[5]  = RB + O_DESC5;
+        rw_addr[6]  = RB + O_WBASE;  rw_addr[7]  = RB + O_XBASE;
+        rw_addr[8]  = RB + O_YBASE;  rw_addr[9]  = RB + O_BBASE;
+        rw_addr[10] = RB + O_MBASE;  rw_addr[11] = RB + O_SBASE;
+        $display("[tb] engine stim=%0s layers=%0d img_words=%0d total_out=%0d",
                  stim, n_layers, n_words, total_out);
 
         repeat (2) @(negedge clk);
         rst_n = 1'b1;
 
-        for (L = 0; L < n_layers; L = L + 1) begin
+        // ---- t0 self-check: ID / VER / 12-shadow pattern roundtrip ----
+        axil_rd(RB + O_ID, dv);
+        if (dv !== 32'h594F4C31) begin
+            n_csr = n_csr + 1;
+            $display("[tb] ERR ID read %h", dv);
+        end
+        axil_rd(RB + O_VER, dv);
+        if (dv !== 32'h0001_0000) begin
+            n_csr = n_csr + 1;
+            $display("[tb] ERR VER read %h", dv);
+        end
+        for (i = 0; i < 12; i = i + 1) begin
+            dpat = 32'h5A000000 + i * 32'h010101;
+            axil_wr(rw_addr[i], dpat);
+            axil_rd(rw_addr[i], dv);
+            if (dv !== dpat) begin
+                n_csr = n_csr + 1;
+                $display("[tb] ERR RW roundtrip @%h got=%h exp=%h",
+                         rw_addr[i], dv, dpat);
+            end
+        end
+        // frame setup: IRQ enables + stats clear + clear verify
+        axil_wr(RB + O_IRQ_EN, 32'h3);
+        axil_wr(RB + O_CTRL, 32'h2);          // CLR_STATS
+        axil_rd(RB + O_STATUS, dv);
+        if (dv[31:16] !== 16'd0 || dv[2] !== 1'b0) begin
+            n_csr = n_csr + 1;
+            $display("[tb] ERR CLR_STATS left status=%h", dv);
+        end
+
+        for (L = 0; L < n_run; L = L + 1) begin
             // inter-layer gap (idle cycles)
             for (i = 0; i < lay[L*FLDS+0]; i = i + 1) @(negedge clk);
-            // LUT preload from the image region of this layer
-            for (i = 0; i < 256; i = i + 1) begin
-                @(negedge clk);
-                lut_we    = 1'b1;
-                lut_waddr = i[7:0];
-                lut_wdata = imgbyte(lay[L*FLDS+22] + i);
+            // LUT preload through the CSR window
+            for (i = 0; i < 256; i = i + 1)
+                axil_wr(RB + O_LUT + 4*i,
+                        {24'b0, imgbyte(lay[L*FLDS+22] + i)});
+            // descriptor program (packing mirrors yolo_csr.v unpack)
+            axil_wr(RB + O_DESC0,
+                    {lay[L*FLDS+2][15:0], 5'b0, lay[L*FLDS+1][10:0]});
+            axil_wr(RB + O_DESC1,
+                    {13'b0, lay[L*FLDS+15][0], lay[L*FLDS+14][0],
+                     lay[L*FLDS+16][0], 4'b0, lay[L*FLDS+3][11:0]});
+            axil_wr(RB + O_DESC2, {lay[L*FLDS+5][15:0], lay[L*FLDS+4][15:0]});
+            axil_wr(RB + O_DESC3, {lay[L*FLDS+7][15:0], lay[L*FLDS+6][15:0]});
+            axil_wr(RB + O_DESC4,
+                    {lay[L*FLDS+11][7:0], lay[L*FLDS+10][7:0],
+                     lay[L*FLDS+9][7:0],  lay[L*FLDS+8][7:0]});
+            axil_wr(RB + O_DESC5, {16'b0, lay[L*FLDS+13][7:0],
+                                    lay[L*FLDS+12][7:0]});
+            axil_wr(RB + O_WBASE, lay[L*FLDS+17]);
+            axil_wr(RB + O_XBASE, lay[L*FLDS+18]);
+            axil_wr(RB + O_YBASE, L*YSPAN);  // mirror layout identical
+                                              // to the M10 gate
+            axil_wr(RB + O_BBASE, lay[L*FLDS+19]);
+            axil_wr(RB + O_MBASE, lay[L*FLDS+20]);
+            axil_wr(RB + O_SBASE, lay[L*FLDS+21]);
+            // DESC0 readback spot check (decode path exercised)
+            axil_rd(RB + O_DESC0, dv);
+            if (dv !== {lay[L*FLDS+2][15:0], 5'b0, lay[L*FLDS+1][10:0]}) begin
+                n_csr = n_csr + 1;
+                $display("[tb] ERR DESC0 readback L=%0d got=%h", L, dv);
             end
-            @(negedge clk);
-            lut_we = 1'b0;
-            // descriptor drive until accept
-            @(negedge clk);
-            dsc_oc    = lay[L*FLDS+1][OC_AW-1:0];
-            dsc_n     = lay[L*FLDS+2][N_AW-1:0];
-            dsc_k     = lay[L*FLDS+3][K_AW-1:0];
-            dsc_last  = lay[L*FLDS+16][0];
-            dsc_ih    = lay[L*FLDS+4][15:0];
-            dsc_iw    = lay[L*FLDS+5][15:0];
-            dsc_ow    = lay[L*FLDS+6][15:0];
-            dsc_ic    = lay[L*FLDS+7][15:0];
-            dsc_kh    = lay[L*FLDS+8][7:0];
-            dsc_kw    = lay[L*FLDS+9][7:0];
-            dsc_sh    = lay[L*FLDS+10][7:0];
-            dsc_sw    = lay[L*FLDS+11][7:0];
-            dsc_ph    = lay[L*FLDS+12][7:0];
-            dsc_pw    = lay[L*FLDS+13][7:0];
-            dsc_first = lay[L*FLDS+14][0];
-            dsc_act   = lay[L*FLDS+15][0];
-            dsc_wbase = lay[L*FLDS+17];
-            dsc_xbase = lay[L*FLDS+18];
-            dsc_ybase = L*YSPAN;   // physical Y span per layer -- mirror
-                                   // layout bit-identical to the V1.0 gate
-            dsc_bbase = lay[L*FLDS+19];
-            dsc_mbase = lay[L*FLDS+20];
-            dsc_sbase = lay[L*FLDS+21];
-            dsc_valid = 1'b1;
-            // ready sampled at negedges (stable within the cycle: it is a
-            // function of registers only, and all TB drives happen at
-            // negedges) -- the first posedge after loop exit is the one
-            // and only accept edge
-            while (dsc_ready !== 1'b1) @(negedge clk);
-            @(posedge clk);            // accept edge
-            @(negedge clk);
-            dsc_valid = 1'b0;
+            // DESC1 readback spot check (flag packing: last[16] first[17]
+            // act[18], k[11:0] -- the smoke run caught the first draft
+            // packing them at [14:12], losing act=1 on L0)
+            axil_rd(RB + O_DESC1, dv);
+            if (dv !== {13'b0, lay[L*FLDS+15][0], lay[L*FLDS+14][0],
+                        lay[L*FLDS+16][0], 4'b0, lay[L*FLDS+3][11:0]}) begin
+                n_csr = n_csr + 1;
+                $display("[tb] ERR DESC1 readback L=%0d got=%h", L, dv);
+            end
+            // doorbell + accept wait (dsc_pend clears at the handshake)
+            axil_wr(RB + O_CTRL, 32'h1);
+            pk = 0;
+            axil_rd(RB + O_STATUS, dv);
+            while (dv[3] === 1'b1) begin
+                pk = pk + 1;
+                if (pk > 64) begin
+                    $display("TB_CSR_ENGINE_FAIL (doorbell stuck) L=%0d", L);
+                    $finish;
+                end
+                axil_rd(RB + O_STATUS, dv);
+            end
             // golden start (synthetic layers only)
             case (L)
                 0: g0_start = 1'b1;
@@ -706,42 +818,80 @@ module tb_yolo_gemm_array;
             g2_start = 1'b0;
             g3_start = 1'b0;
             g5_start = 1'b0;
-            // wait layer_done pulse (sampled post-edge)
-            got_done = 1'b0;
-            while (!got_done) begin
-                @(posedge clk);
-                #1;
-                got_done = layer_done;
+            // poll ldone_cnt == L+1 (drain-gated: all Y bytes of the
+            // layer have landed when the count advances)
+            pk = 0;
+            axil_rd(RB + O_STATUS, dv);
+            while (dv[31:16] < (L + 1)) begin
+                pk = pk + 1;
+                if (pk > 5_000_000) begin
+                    $display("TB_CSR_ENGINE_FAIL (ldone poll timeout) L=%0d",
+                             L);
+                    $finish;
+                end
+                axil_rd(RB + O_STATUS, dv);
             end
             $display("[tb] layer %0d done @t=%0t (oc=%0d n=%0d k=%0d)",
                      L, $time, lay[L*FLDS+1], lay[L*FLDS+2], lay[L*FLDS+3]);
-            // layer_done is drain-gated in DUT V1.2 (fires only when the
-            // segmenter is back idle = last row's B collected), so every
-            // Y byte has already landed in the mirror at the pulse; keep
-            // a short tail anyway (heartbeat layer tag is display-only
-            // now -- scatter uses physical addresses)
             repeat (8) @(negedge clk);
             cur_layer = L + 1;
         end
 
-        // final wait: all golden cores finished + tail drain
-        while (g0_dn == 0 || g2_dn == 0 || g3_dn == 0 || g5_dn == 0)
-            @(posedge clk);
+        // ---- frame end: all_done sticky + IRQ raise/W1C (full gate
+        //      only -- smoke runs stop before the last=1 descriptor,
+        //      so all_done never fires there) ----
+        if (n_run == n_layers) begin
+            pk = 0;
+            axil_rd(RB + O_STATUS, dv);
+            while (dv[2] !== 1'b1) begin
+                pk = pk + 1;
+                if (pk > 64) begin
+                    $display("TB_CSR_ENGINE_FAIL (all_done poll timeout)");
+                    $finish;
+                end
+                axil_rd(RB + O_STATUS, dv);
+            end
+            st_final = dv;
+            if (irq !== 1'b1) begin
+                n_csr = n_csr + 1;
+                $display("[tb] ERR irq_o not asserted at frame end");
+            end
+            axil_wr(RB + O_IRQ_ST, 32'h3);        // W1C both
+            repeat (4) @(negedge clk);
+            if (irq !== 1'b0) begin
+                n_csr = n_csr + 1;
+                $display("[tb] ERR irq_o not cleared after W1C");
+            end
+            axil_rd(RB + O_IRQ_ST, dv);
+            if (dv[1:0] !== 2'b00) begin
+                n_csr = n_csr + 1;
+                $display("[tb] ERR IRQ_STAT not clear: %h", dv);
+            end
+        end else begin
+            axil_rd(RB + O_STATUS, st_final);     // smoke: ldone snapshot
+        end
+
+        // final wait: golden cores whose layer ran + tail drain
+        if (0 < n_run) while (g0_dn == 0) @(posedge clk);
+        if (2 < n_run) while (g2_dn == 0) @(posedge clk);
+        if (3 < n_run) while (g3_dn == 0) @(posedge clk);
+        if (5 < n_run) while (g5_dn == 0) @(posedge clk);
         repeat (16) @(negedge clk);
 
-        // ---- compare ----
-        for (L = 0; L < n_layers; L = L + 1) begin
+        // ---- compare (identical to the M10 gate) ----
+        for (L = 0; L < n_run; L = L + 1) begin
             for (i = 0; i < lay[L*FLDS+1]*lay[L*FLDS+2]; i = i + 1) begin
                 ev = yd[L*YSPAN + i];
                 n_cmp = n_cmp + 1;
                 if (ev === SENT) begin
-                    // 0xA5 is a legal output value: a DUT write of 0xA5 is
-                    // indistinguishable from "never written". Invariants
-                    // (checked in PASS): dut_wr==total_out && dbl==0 imply
-                    // every cell written exactly once, and gold_wr==oc*n &&
-                    // gdbl==0 imply the golden covered every cell -- so
-                    // gold-side 0xA5 means the DUT value matches. Flag only
-                    // when the reference value differs.
+                    // 0xA5 is a legal output value: a DUT write of 0xA5
+                    // is indistinguishable from "never written".
+                    // Invariants (checked in PASS): dut_wr==total_out &&
+                    // dbl==0 imply every cell written exactly once, and
+                    // gold_wr==oc*n && gdbl==0 imply the golden covered
+                    // every cell -- so gold-side 0xA5 means the DUT
+                    // value matches. Flag only when the reference
+                    // value differs.
                     if (lay[L*FLDS+23] == 0)
                         gv = yg[L*YSPAN + i];
                     else if (lay[L*FLDS+23] == 1)
@@ -785,19 +935,42 @@ module tb_yolo_gemm_array;
             end
         end
 
-        if (n_err == 0 && n_dbl == 0 && n_ybad == 0 && n_yerr == 0
-            && (g0_db + g2_db + g3_db + g5_db) == 0
-            && n_ywr == total_out
-            && (g0_wr + g2_wr + g3_wr + g5_wr) == 343 + 400 + 2304 + 200
-            && n_ldone == n_layers && n_adone == 1) begin
-            $display("TB_GEMM_ARRAY_PASS layers=%0d compared=%0d dut_wr=%0d gold_wr=%0d ldone=%0d adone=%0d",
-                     n_layers, n_cmp, n_ywr,
-                     g0_wr + g2_wr + g3_wr + g5_wr, n_ldone, n_adone);
+        if (n_run == n_layers) begin
+            if (n_err == 0 && n_dbl == 0 && n_ybad == 0 && n_yerr == 0
+                && (g0_db + g2_db + g3_db + g5_db) == 0
+                && n_ywr == total_out
+                && (g0_wr + g2_wr + g3_wr + g5_wr) == 343 + 400 + 2304 + 200
+                && st_final[31:16] == n_layers && st_final[2] == 1'b1
+                && n_csr == 0) begin
+                $display("TB_CSR_ENGINE_PASS layers=%0d compared=%0d dut_wr=%0d gold_wr=%0d ldone=%0d adone=%0d csr=%0d",
+                         n_layers, n_cmp, n_ywr,
+                         g0_wr + g2_wr + g3_wr + g5_wr, st_final[31:16],
+                         st_final[2], n_csr);
+            end else begin
+                $display("TB_CSR_ENGINE_FAIL err=%0d dbl=%0d gdbl=%0d unwritten=%0d yaxi=%0d csr=%0d dut_wr=%0d(exp %0d) gold_wr=%0d ldone=%0d(exp %0d) adone=%0d",
+                         n_err, n_dbl, g0_db + g2_db + g3_db + g5_db, n_ybad,
+                         n_yerr, n_csr, n_ywr, total_out,
+                         g0_wr + g2_wr + g3_wr + g5_wr, st_final[31:16],
+                         n_layers, st_final[2]);
+            end
         end else begin
-            $display("TB_GEMM_ARRAY_FAIL err=%0d dbl=%0d gdbl=%0d unwritten=%0d yaxi=%0d dut_wr=%0d(exp %0d) gold_wr=%0d ldone=%0d adone=%0d",
-                     n_err, n_dbl, g0_db + g2_db + g3_db + g5_db, n_ybad,
-                     n_yerr, n_ywr, total_out, g0_wr + g2_wr + g3_wr + g5_wr,
-                     n_ldone, n_adone);
+            // smoke: layers actually run; gold_wr = synthetic goldens
+            // that ran; adone/IRQ checks skipped (no last=1 descriptor)
+            if (n_err == 0 && n_dbl == 0 && n_ybad == 0 && n_yerr == 0
+                && (g0_db + g2_db + g3_db + g5_db) == 0
+                && n_ywr == total_run
+                && st_final[31:16] == n_run
+                && n_csr == 0) begin
+                $display("TB_CSR_ENGINE_SMOKE layers=%0d compared=%0d dut_wr=%0d gold_wr=%0d ldone=%0d csr=%0d",
+                         n_run, n_cmp, n_ywr,
+                         g0_wr + g2_wr + g3_wr + g5_wr, st_final[31:16],
+                         n_csr);
+            end else begin
+                $display("TB_CSR_ENGINE_FAIL err=%0d dbl=%0d gdbl=%0d unwritten=%0d yaxi=%0d csr=%0d dut_wr=%0d(exp %0d) ldone=%0d(exp %0d)",
+                         n_err, n_dbl, g0_db + g2_db + g3_db + g5_db, n_ybad,
+                         n_yerr, n_csr, n_ywr, total_run,
+                         st_final[31:16], n_run);
+            end
         end
         $finish;
     end
@@ -808,7 +981,7 @@ module tb_yolo_gemm_array;
                  cur_layer, n_ywr);
     initial begin
         #(wdt_ms * 1_000_000);
-        $display("TB_GEMM_ARRAY_FAIL (timeout) t=%0t cur_layer=%0d ywr=%0d",
+        $display("TB_CSR_ENGINE_FAIL (timeout) t=%0t cur_layer=%0d ywr=%0d",
                  $time, cur_layer, n_ywr);
         $finish;
     end

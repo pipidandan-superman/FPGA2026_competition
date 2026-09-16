@@ -109,6 +109,7 @@ module tb_yolo_ctrl;
         .dsc_k_i(dsc_k),
         .dsc_last_i(dsc_last),
         .tile_rdy_i(tile_rdy),
+        .rq_rdy_i(1'b1),            // V1.2: tied high == V1.1 cycle-exact (regression)
         .acc_clr_o(acc_clr),
         .beat_en_o(beat_en),
         .k_cnt_o(k_cnt),
