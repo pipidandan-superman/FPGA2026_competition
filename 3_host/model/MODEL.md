@@ -1,13 +1,39 @@
-# 模型说明 — 手势识别 YOLOv8n v1
+# 模型说明 — 手势识别
 
-## 模型名称与来源
+## 模型 v2（当前部署，2026-09-16）
+
+- **模型**：YOLOv8n（v1 best.pt 续训），Ultralytics 8.4.153 / torch 2.11.0+cu128
+- **训练数据**：gesture_v2_public_merged（train 4758 / valid 492 / test 228）
+  = 公开集（Wayceys 指向数据集 CC BY 4.0 + HaGRID 镜像 CC BY 4.0）
+  + 部署域自采 695 张（含 178 张负样本空标注）；**heldout 173 张独立为部署域验收集，未参与训练**
+- **类别表（顺序即类别 id，与 v1 一致）**：0 Down / 1 Left / 2 Right / 3 Stop / 4 Thumbs Down / 5 Thumbs up / 6 Up
+
+### 权重（当前部署）
+
+| 文件 | SHA-256 | 大小 |
+|---|---|---|
+| `best.pt` | 3c55d3114beb8461fa1caef9a2896d73306388aa2a16ae254fb93b3dc8355076 | 6,256,234 B |
+| `best.onnx` | 006ec4f9a404fbc5aa178a8125f3bbdac465ebffb8f463686cf96b8dbb27ead8 | 12,270,485 B |
+
+v1 权重备份：`4_metrics/logs/2026-09-16_v2_deploy_run01/v1_backup/`（best_v1.pt `68db7cac…`、best_v1.onnx `ac45c457…`）。
+
+### v2 离线结果
+
+- 合并 test（228 张，未参训）：mAP50 **0.972** / mAP50-95 0.818（v1: 0.730 / 0.438）
+  - Left 0.941、Right 0.935（v1: 0.511 / 0.418）
+- **部署域 deploy_test（173 张留出集）**：mAP50 **0.983**，P 0.988 / R 0.987
+  - Left 0.995 / Right 0.995 / Thumbs Down 0.995 / Thumbs up 0.995 / Up 0.935
+
+### v1 存档（2026-09-07 训练，已备份）
+
+<details><summary>v1 历史（点击展开）</summary>
 
 - **模型**：YOLOv8n 目标检测，Ultralytics COCO 预训练底座微调（官方预训练权重 `yolov8n.pt`，AGPL-3.0）
 - **微调数据**：Roboflow Universe `yolo-zxvpk/hand-gesture-r7qgb` v6，许可证 CC BY 4.0
   （train 1765 / valid 59 / test 69，7 类）
 - **版本**：gesture_v1（2026-09-07 训练），训练代码环境 Ultralytics 8.4.142
 
-## 类别表（顺序即类别 id）
+### 类别表（顺序即类别 id）
 
 | id | 类别 | 语义 |
 |---|---|---|
@@ -19,26 +45,26 @@
 | 5 | Thumbs up | 拇指朝上（确认） |
 | 6 | Up | 食指指向上方 |
 
-## 权重文件
+### 权重文件
 
 | 文件 | 格式 | 大小 | 用途 |
 |---|---|---|---|
 | `best.pt` | PyTorch | 6.3 MB | 训练/微调底座、PC 端推理 |
 | `best.onnx` | ONNX opset（simplify） | 12.3 MB | 部署推理（当前 CPU EP，目标机换 NPU EP） |
 
-## 输入输出张量（onnxruntime 实测）
+### 输入输出张量（onnxruntime 实测）
 
 - **输入**：`images`，形状 `[1, 3, 640, 640]`，float32，数值域 0~1
 - 预处理：640×480 输入帧 → letterbox 等比缩放（灰色填充 114）→ BGR→RGB → ÷255
 - **输出**：`output0`，形状 `[1, 11, 8400]`（4 框坐标 + 7 类得分，8400 候选）
 - 后处理：置信度阈值 0.45 + NMS（IoU 0.7 默认）
 
-## 训练参数
+### 训练参数
 
 `yolo detect train model=yolov8n.pt data=<data.yaml> epochs=60 imgsz=640 batch=16 device=0`
 （RTX 5070 Ti Laptop，约 25 分钟）
 
-## 已验证结果
+### 已验证结果
 
 **test 集（69 张，未参与训练）**：
 
@@ -54,12 +80,19 @@
 27.5s 会话 349 帧，6/7 类在对应时间窗连续命中；延迟 P50 62ms / P95 118ms（CPU）。
 证据：`7_logs/2026-09-07/03_validation_summary.md`（V-A1~V-A7）。
 
-## 已知弱项与计划
+### 已知弱项与计划
 
 - **Left / Right / Thumbs Down** 为弱项（成对易混 + 样本不足）。
 - 计划：自采三类别各 ≥100 张（真实使用场景摄像头）合并重训 v2；应用层加"连续 5 帧同类去抖"。
 
-## 量化参数（目标机 NPU 部署用，待做）
+### 量化参数（目标机 NPU 部署用，待做）
 
 - 计划 INT8 量化（Ryzen AI VitisAI EP），校准集取 test/train 子集 100~200 张
 - 量化前后 mAP 对比将补充至本文件与 `4_metrics/metrics.csv`
+
+</details>
+
+### v2 输入输出张量
+
+与 v1 完全一致：输入 `[1, 3, 640, 640]` float32；输出 `[1, 11, 8400]`；后处理 conf 0.45 + NMS IoU 0.7。
+类别 id 与下游动作映射（PL/LED）兼容，无需改板端。
