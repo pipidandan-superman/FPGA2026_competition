@@ -1,5 +1,13 @@
 # EES-331 项目交接
 
+## 2026-09-16 yolo7020 批次交接：G3 M12 A1 承接批五门全绿
+
+- **入口**：[progress.md](progress.md)（总览）· [G3 基线](1_docs/doc/yolo7020_gemm_pe_architecture_2026-09-15.md)（状态字 `M12A1_ALL_GREEN`）· [当日执行记录](7_logs/2026-09-16/02_execution_plan.md)。
+- **A1 五门全绿**（授权"先跑a"，A=纯 RTL+仿真，无 Vivado/板卡）：①M8 run03 ctrl V1.2（rq_rdy 等待态回归，接高≡V1.1）；②M9b run01–03 dma_wr（Y 线性块 AXI4 写主：WLAST/链化两缺陷修复 → V1.2 非对齐起始）；③M10 run03 阵列 V1.2/V1.2a（**Y 观测口→真 AXI4 写主**：行段化器 + dsc_ybase + 排空门控；run02 失败链揪行首准入在途竞态）；④M11 run03 全网回归（七项与 run02 同数 + head sha 复命中）；⑤**CSR/engine run01 首跑过**（`rtl/yolo_csr.v` AXI-Lite 从 @0x43C1_0000 + `rtl/yolo_engine_top.v` u_csr+u_array 组装，PROD 16×16 默认参/SIM 8×8 同 RTL；寄存器图入 `hw_contract/address_map.md` 三处同步）。
+- §5 全链重跑义务已履行（RTL 数值路径改动：array/ctrl/dma_wr）。三条新教训入档：验证侧镜像写合并粒度必须与被测写口原子性一致（单 NBA）；寄存器拼接/解包位域必须读回抽检；黄金捷径表达式扩展合同后必须重推导（M9b run03a vecgen sum bug）。
+- **下一步**：A2 loader V2 三件套（**已授权"按照1做"**：W 跨 n_tile 持久 oc 外/n 内、X 行段流式宽写 + xrowgen + 第二读 DMA、requant 重叠；预算 ~3.95M 拍 < 5M@150MHz）→ B 段 OOC（非工程批处理、150MHz 纯约束）**待用户确认** → M13 板卡（逐次授权）。
+- **Git**：本批 5 个 RTL（含 3 新）+ 6 TB/脚本 + 6 证据目录 + 文档/7_logs 上传 `codex/full/pipidandan-superman`；transcript/head_dump.bin 声明清单入库，激励大数据留本地。
+
 ## 2026-09-15 yolo7020 批次交接：G2/PS 板上闭环 + G3 M0–M11 全绿
 
 - **入口**：[progress.md](progress.md)（软件/硬件总览）· [G3 基线](1_docs/doc/yolo7020_gemm_pe_architecture_2026-09-15.md)（状态字为权威）· [当日验证摘要](7_logs/2026-09-15/03_validation_summary.md) · [下次启动指南](7_logs/2026-09-15/04_next_start_guide.md)。

@@ -2,6 +2,10 @@
 
 > 全项目进度总览（软件/硬件两部分）：[progress.md](progress.md)。本 README 只保留最近动态，历史细节见 [HANDOFF.md](HANDOFF.md) 与 `7_logs/`。
 
+## 2026-09-16 yolo7020：G3 M12 A1 承接批五门全绿（Y 真 AXI 写主 + CSR/engine）
+
+**硬件线（G3）**：M12 拆 A1/A2/B 三段后的 A1 批（纯 RTL+仿真，授权"先跑a"）单日五门全绿——M8 run03（ctrl V1.2 回归）· M9b run01–03（dma_wr Y 真 AXI4 写主 + V1.2 非对齐起始）· M10 run03（阵列 V1.2a 换 Y 真 AXI 写主，六项与 run01 同数）· M11 run03（全网 63 conv 回归，七项与 run02 同数 + head sha 复命中）· **CSR/engine run01 首跑过**（`yolo_csr.v` AXI-Lite 从 @0x43C1_0000 + `yolo_engine_top.v` 组装，PS 真控制路径成为门断言对象；寄存器图入 `hw_contract/address_map.md` 三处同步）。RTL 数值路径改动的 §5 全链重跑义务已履行；证据 6 个 run 目录四件套（`4_metrics/logs/2026-09-16_yolo7020_*`）。**下一步**：A2 loader V2 三件套（已授权）→ B 段 OOC（待用户确认）。
+
 ## 2026-09-15 yolo7020：量化合同板上位级闭环 + G3 卷积引擎 M0–M11 全绿
 
 **软件线**：G2 真 RNE 合同 run04（valid drop −0.0092）为部署源，部署包落位 `2_fpga/3_yolo_zynq/rom_data/`（哈希核对）；PS numpy 运行时离线 128/128 帧位级一致；随后在真实 ARM PS 上全量自检 **128/128 帧 head 位级一致**（box 差异全部为良性 libm ulp 类），45.34s/帧未优化。证据：[run04](4_metrics/logs/2026-09-15_yolo7020_g2_quant_rne_run04/) · [PS 运行时](4_metrics/logs/2026-09-15_yolo7020_ps_runtime_run01/) · [板上自检](4_metrics/logs/2026-09-15_yolo7020_ps_onboard_run01/REPORT.md)。
