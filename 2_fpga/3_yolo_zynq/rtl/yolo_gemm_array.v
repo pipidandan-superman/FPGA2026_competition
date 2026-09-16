@@ -44,27 +44,68 @@
  *                   (LUTRAM-style); the tile write pipeline retimes to
  *                   a synchronous source at M11 (DDR streaming).
  *
- *                   Layer-switch races handled by construction: tile
- *                   coords / rq_idx / n_tail are captured at rq_en into
- *                   the _d1 stage (ctrl resets them one cycle after the
- *                   last rq beat); the y address is computed at the
- *                   requant-en stage and delayed 2 stages, so the last
- *                   write of a layer lands 3 cycles after its last rq
- *                   beat -- cfg (n_total) captured at the back-to-back
- *                   descriptor accept cannot collide.
+ *                   Y write path (V1.2, M12 A1): the requant tail is
+ *                   segmented into per-oc-row DMA write commands -- a
+ *                   row (n_tail bytes at ybase + oc_g*n_total +
+ *                   n_tile*N_EDGE, arbitrary byte alignment) is captured
+ *                   into the segmenter's row buffer as the tail beats
+ *                   land, then pushed to u_dma_wr (yolo_dma_wr V1.2,
+ *                   unaligned starts) as one linear write command.
+ *                   Backpressure: a row-START beat is admitted (ctrl
+ *                   S_RQ advances) only when the segmenter is idle AND
+ *                   the d1..d3 pipe holds zero admitted beats
+ *                   (seg_infl_r == 0) -- the idle term alone is
+ *                   unsound: pre-edge state reads IDLE for 3 cycles
+ *                   after an admission, so len-1 row sequences pushed
+ *                   4 row-starts per idle window and 3 landed in
+ *                   SEG_CMD, dropped (run02, 23 bytes). With both
+ *                   terms zero, nothing in flight can take the
+ *                   segmenter out of idle before the admitted beat
+ *                   lands. Mid-row beats never stall (row depth =
+ *                   N_EDGE >= n_tail).
+ *                   The stall only bites at the d0 issue point: beats
+ *                   already in flight (d1..d3) drain into the buffer,
+ *                   so the requant/LUT valid pipelines stay pulsed and
+ *                   are never frozen mid-beat (no valid-hold needed in
+ *                   yolo_requant/yolo_silu_lut -- zero changes there).
+ *
+ *                   layer_done/all_done are drain-gated: they pulse one
+ *                   cycle when ctrl finishes AND the segmenter is back
+ *                   idle (last row's B collected) -- only then may the
+ *                   PS read Y.
+ *
+ *                   Layer-switch races handled by construction: the row
+ *                   command address and length are computed at the d0
+ *                   stage (ctrl busy -> dsc_ready low -> cfg shadow
+ *                   stable) and carried down the pipeline; the bytes
+ *                   land 3 cycles later, after a back-to-back next
+ *                   descriptor accept may have refreshed cfg -- the
+ *                   captured row parameters are immune.
  *
  *                   Constraint: OC_EDGE/N_EDGE powers of two (row/col
  *                   index decode uses low counter bits).
- * Dependencies    : rtl/yolo_ctrl.v (V1.1), rtl/yolo_dma.v,
- *                   rtl/yolo_wbuf.v, rtl/yolo_xbuf.v,
- *                   rtl/yolo_addrgen.v, rtl/yolo_pe_pack.v,
- *                   rtl/yolo_acc.v, rtl/yolo_requant.v,
- *                   rtl/yolo_silu_lut.v
+ * Dependencies    : rtl/yolo_ctrl.v (V1.2), rtl/yolo_dma.v,
+ *                   rtl/yolo_dma_wr.v (V1.2), rtl/yolo_wbuf.v,
+ *                   rtl/yolo_xbuf.v, rtl/yolo_addrgen.v,
+ *                   rtl/yolo_pe_pack.v, rtl/yolo_acc.v,
+ *                   rtl/yolo_requant.v, rtl/yolo_silu_lut.v
  * Revision History:
  *   - V1.0 (2026-09-15) by LSL : Initial release (M10). Sequential
  *     requant tail (1/beat) -- overlap pipelining deferred as a
  *     perf-only change; X plane via direct byte port; Y as an observed
  *     output stream (write master is M11+/M12 scope).
+ *   - V1.2 (2026-09-16) by LSL : M12 A1 Y 真 AXI 写主：新增 dsc_ybase
+ *     描述符字段；Y 行段化器 + u_dma_wr 实例（AXI 写通道端口取代
+ *     y_we/y_addr/y_wdata 观测口）；ctrl 升 V1.2（rq_rdy_i 接段化器
+ *     行首准入）；ldone/adone 排空门控（段化器回闲才脉冲）。数值
+ *     合同不变（装填值/求和次序/写地址逐字节唯一——Y 写序与镜像
+ *     布局无关）。门重跑：M10/M11（TB 换 AXI 写 BFM 散写镜像）。
+ *   - V1.2a (2026-09-16) by LSL : run02 揪出行首准入在途竞态——
+ *     准入读前沿前 seg_state_r，len-1 行序列每 IDLE 窗口放进 4 个
+ *     行首拍（1 吸收 + 3 落在 SEG_CMD 被丢，M10 计划恰丢 23 字节）。
+ *     修复：行首准入 = 段化器 IDLE 且 d1..d3 在途计数清零
+ *     （seg_infl_r：准入 +1 / 落地 -1）；ywr_idle_w 同判据（堵
+ *     ctrl_ldone 贴尾 3 拍早脉冲窗口）。
  ************************************************************************/
 
 module yolo_gemm_array #(
@@ -107,6 +148,7 @@ module yolo_gemm_array #(
     // DDR byte base addresses (per layer)
     input  wire [ADDR_W-1:0]     dsc_wbase_i,  // W[oc][K] rows
     input  wire [ADDR_W-1:0]     dsc_xbase_i,  // X plane (CHW bytes)
+    input  wire [ADDR_W-1:0]     dsc_ybase_i,  // Y plane [oc][n_total] rows
     input  wire [ADDR_W-1:0]     dsc_bbase_i,  // bias_eff words (LE,4B)
     input  wire [ADDR_W-1:0]     dsc_mbase_i,  // M words (LE,4B)
     input  wire [ADDR_W-1:0]     dsc_sbase_i,  // shift bytes
@@ -121,17 +163,28 @@ module yolo_gemm_array #(
     input  wire                  rlast_i,
     input  wire                  rvalid_i,
     output wire                  rready_o,
-    // ---- X plane byte read (comb contract, see header) ----
+    // ---- AXI4 write master for Y (yolo_dma_wr, V1.2) ----
+    output wire [ADDR_W-1:0]     awaddr_o,
+    output wire [7:0]            awlen_o,
+    output wire [2:0]            awsize_o,
+    output wire [1:0]            awburst_o,
+    output wire                  awvalid_o,
+    input  wire                  awready_i,
+    output wire [63:0]           wdata_o,
+    output wire [7:0]            wstrb_o,
+    output wire                  wlast_o,
+    output wire                  wvalid_o,
+    input  wire                  wready_i,
+    input  wire                  bvalid_i,
+    input  wire [1:0]            bresp_i,
+    output wire                  bready_o,
+    // ---- X plane byte read (comb contract, see header; streaming = A2) ----
     output wire [ADDR_W-1:0]     x_addr_o,
     input  wire [7:0]            x_rdata_i,
     // ---- SiLU LUT table write (preload per layer; TB/software) ----
     input  wire                  lut_we_i,
     input  wire [7:0]            lut_waddr_i,
     input  wire [7:0]            lut_wdata_i,
-    // ---- Y output stream (byte per output, index-addressed) ----
-    output wire                  y_we_o,
-    output wire [ADDR_W-1:0]     y_addr_o,
-    output wire [7:0]            y_wdata_o,
     // ---- status ----
     output wire                  layer_done_o,
     output wire                  all_done_o,
@@ -176,6 +229,16 @@ module yolo_gemm_array #(
     reg                   bank_rdy1_r;
     wire                  tile_rdy_w;
 
+    // Y row segmenter state (driven at the tail section; declared here
+    // because the ctrl admission signal rq_ack_w reads it)
+    localparam SEG_IDLE = 2'd0;   // empty; absorbs a row-start byte
+    localparam SEG_FILL = 2'd1;   // filling the row buffer
+    localparam SEG_CMD  = 2'd2;   // pushing the write command
+    localparam SEG_DR   = 2'd3;   // feeding source, waiting for done
+    reg [1:0]             seg_state_r;
+    reg [2:0]             seg_infl_r;  // admitted-at-d0, not-yet-landed
+    wire                  rq_ack_w;   // tail admission (assigned below)
+
     yolo_ctrl #(
         .OC_EDGE  (OC_EDGE),
         .N_EDGE   (N_EDGE),
@@ -193,6 +256,7 @@ module yolo_gemm_array #(
         .dsc_k_i       (dsc_k_i),
         .dsc_last_i    (dsc_last_i),
         .tile_rdy_i    (tile_rdy_w),
+        .rq_rdy_i      (rq_ack_w),      // V1.2: Y segmenter admission
         .acc_clr_o     (ctrl_acc_clr),
         .beat_en_o     (ctrl_beat_en),
         .k_cnt_o       (ctrl_k_cnt),
@@ -230,7 +294,8 @@ module yolo_gemm_array #(
     reg [7:0]         cfg_ph_r, cfg_pw_r;
     reg               cfg_first_r;
     reg               cfg_act_r;
-    reg [ADDR_W-1:0]  cfg_wbase_r, cfg_xbase_r, cfg_bbase_r;
+    reg [ADDR_W-1:0]  cfg_wbase_r, cfg_xbase_r, cfg_ybase_r;
+    reg [ADDR_W-1:0]  cfg_bbase_r;
     reg [ADDR_W-1:0]  cfg_mbase_r, cfg_sbase_r;
     reg [TILE_AW-1:0] cfg_oc_tiles_r, cfg_n_tiles_r;
 
@@ -263,6 +328,7 @@ module yolo_gemm_array #(
             cfg_act_r     <= 1'b0;
             cfg_wbase_r   <= {ADDR_W{1'b0}};
             cfg_xbase_r   <= {ADDR_W{1'b0}};
+            cfg_ybase_r   <= {ADDR_W{1'b0}};
             cfg_bbase_r   <= {ADDR_W{1'b0}};
             cfg_mbase_r   <= {ADDR_W{1'b0}};
             cfg_sbase_r   <= {ADDR_W{1'b0}};
@@ -281,6 +347,7 @@ module yolo_gemm_array #(
             cfg_act_r     <= dsc_act_i;
             cfg_wbase_r   <= dsc_wbase_i;
             cfg_xbase_r   <= dsc_xbase_i;
+            cfg_ybase_r   <= dsc_ybase_i;
             cfg_bbase_r   <= dsc_bbase_i;
             cfg_mbase_r   <= dsc_mbase_i;
             cfg_sbase_r   <= dsc_sbase_i;
@@ -727,49 +794,84 @@ module yolo_gemm_array #(
     );
 
     // =================================================================
-    // requant tail: decode, mux, 3-stage output pipeline
+    // requant tail: d0 decode + admission, pulsed valid pipeline, Y row
+    // segmenter + AXI write master (V1.2)
     // =================================================================
-    reg                  rq_en_d1_r, rq_en_d2_r;
-    reg [TILE_AW-1:0]    rq_idx_d1_r;
-    reg [TILE_AW-1:0]    oc_tile_d1_r, n_tile_d1_r, n_tail_d1_r;
-    reg [ADDR_W-1:0]     y_addr_d1_r, y_addr_d2_r;
+    // d0 decode from the LIVE ctrl state (stable while S_RQ holds):
+    // row-major idx = oc_loc*n_tail + n_loc. The row command address is
+    // computed HERE (cfg shadow stable -- ctrl busy keeps dsc_ready low,
+    // so a back-to-back next-layer accept cannot refresh cfg under a
+    // stalled row still in flight) and carried down the pipeline.
+    reg [ROW_AW-1:0] oc_loc_d0_r;
+    reg [COL_AW-1:0] n_loc_d0_r;
+    integer oi0;
+    always @(*) begin
+        // ascending loop: LAST assignment is the LARGEST oi with
+        // oi*n_tail <= idx (descending would collapse to oi = 1)
+        oc_loc_d0_r = {ROW_AW{1'b0}};
+        for (oi0 = 1; oi0 < OC_EDGE; oi0 = oi0 + 1) begin
+            if (ctrl_rq_idx >= oi0 * ctrl_n_tail) begin
+                oc_loc_d0_r = oi0[ROW_AW-1:0];
+            end
+        end
+        n_loc_d0_r = ctrl_rq_idx - oc_loc_d0_r * ctrl_n_tail;
+    end
 
-    // stage-1 capture at rq_en (ctrl resets idx/tails the cycle after)
+    wire         row_start_d0_w = (n_loc_d0_r == {COL_AW{1'b0}});
+    wire [31:0]  oc_g_d0_w      = ctrl_oc_tile * OC_EDGE + oc_loc_d0_r;
+    wire [31:0]  row_addr_d0_w  = cfg_ybase_r
+                                   + oc_g_d0_w * cfg_n_total_r
+                                   + ctrl_n_tile * N_EDGE;
+
+    // admission (ctrl V1.2 rq_rdy_i): mid-row beats always admitted
+    // (row depth = N_EDGE >= n_tail); a row-start beat only when the
+    // segmenter is idle AND the d1..d3 pipe holds no admitted beats
+    // (seg_infl_r, maintained next to the segmenter FSM below). The
+    // in-flight term is MANDATORY (run02 bug, 23 lost bytes): the
+    // pre-edge seg_state_r still reads IDLE for 3 cycles after the
+    // previous row-start was admitted, so len-1 row sequences let
+    // bursts of 4 row-starts through per idle window -- only the first
+    // lands in SEG_IDLE, the rest land in SEG_CMD and are dropped
+    // (5+12+6 = 23 in the M10 plan). Zero occupancy + idle means
+    // nothing in flight can still take the segmenter out of idle.
+    assign rq_ack_w = !row_start_d0_w
+                      || ((seg_state_r == SEG_IDLE) && (seg_infl_r == 3'd0));
+    wire rq_fire_w = ctrl_rq_en && rq_ack_w;
+
+    // d1 capture is FIRE-gated: a held S_RQ must not re-issue the beat
+    // (valid pipeline stays pulsed -- requant/lut need no hold support)
+    reg                  rq_en_d1_r, rq_en_d2_r;
+    reg [ROW_AW-1:0]     oc_loc_d1_r;
+    reg [COL_AW-1:0]     n_loc_d1_r;
+    reg                  row_start_d1_r;
+    reg [TILE_AW-1:0]    row_len_d1_r;
+    reg [ADDR_W-1:0]     row_addr_d1_r;
+
     always @(posedge clk_i or negedge rst_n) begin
         if (!rst_n) begin
             rq_en_d1_r    <= 1'b0;
-            rq_idx_d1_r   <= {TILE_AW{1'b0}};
-            oc_tile_d1_r  <= {TILE_AW{1'b0}};
-            n_tile_d1_r   <= {TILE_AW{1'b0}};
-            n_tail_d1_r   <= {TILE_AW{1'b0}};
+            oc_loc_d1_r   <= {ROW_AW{1'b0}};
+            n_loc_d1_r    <= {COL_AW{1'b0}};
+            row_start_d1_r<= 1'b0;
+            row_len_d1_r  <= {TILE_AW{1'b0}};
+            row_addr_d1_r <= {ADDR_W{1'b0}};
         end else begin
-            rq_en_d1_r <= ctrl_rq_en;
-            if (ctrl_rq_en) begin
-                rq_idx_d1_r  <= ctrl_rq_idx;
-                oc_tile_d1_r <= ctrl_oc_tile;
-                n_tile_d1_r  <= ctrl_n_tile;
-                n_tail_d1_r  <= ctrl_n_tail;
+            rq_en_d1_r <= rq_fire_w;
+            if (rq_fire_w) begin
+                oc_loc_d1_r    <= oc_loc_d0_r;
+                n_loc_d1_r     <= n_loc_d0_r;
+                row_start_d1_r <= row_start_d0_w;
+                row_len_d1_r   <= ctrl_n_tail;
+                row_addr_d1_r  <= row_addr_d0_w[ADDR_W-1:0];
             end
         end
     end
 
-    // (oc_local, n_local) decode at the requant-en stage
-    reg [ROW_AW-1:0] oc_loc_r;
-    reg [COL_AW-1:0] n_loc_r;
+    // accumulator lane mux at d1 (registered oc_loc; acc holds at S_RQ)
     reg [31:0]       acc_sel_r;
-    integer oi, li;
-    wire [31:0]      lane_idx_w = oc_loc_r * N_EDGE + n_loc_r;
+    integer li;
+    wire [31:0]      lane_idx_w = oc_loc_d1_r * N_EDGE + n_loc_d1_r;
     always @(*) begin
-        // row-major idx = oc_loc*n_tail + n_loc: ascending loop so the
-        // LAST assignment is the LARGEST oi with oi*n_tail <= idx (a
-        // descending overwrite loop would always collapse to oi = 1)
-        oc_loc_r = {ROW_AW{1'b0}};
-        for (oi = 1; oi < OC_EDGE; oi = oi + 1) begin
-            if (rq_idx_d1_r >= oi * n_tail_d1_r) begin
-                oc_loc_r = oi[ROW_AW-1:0];
-            end
-        end
-        n_loc_r = rq_idx_d1_r - oc_loc_r * n_tail_d1_r;
         acc_sel_r = 32'd0;
         for (li = N_LANES - 1; li >= 0; li = li - 1) begin
             if (lane_idx_w == li) begin
@@ -778,9 +880,9 @@ module yolo_gemm_array #(
         end
     end
 
-    wire signed [31:0] rq_bias_w = pb_flat_r[oc_loc_r*32 +: 32];
-    wire signed [31:0] rq_m_w    = pm_flat_r[oc_loc_r*32 +: 32];
-    wire [7:0]         rq_shift_w= ps_flat_r[oc_loc_r*8 +: 8];
+    wire signed [31:0] rq_bias_w = pb_flat_r[oc_loc_d1_r*32 +: 32];
+    wire signed [31:0] rq_m_w    = pm_flat_r[oc_loc_d1_r*32 +: 32];
+    wire [7:0]         rq_shift_w= ps_flat_r[oc_loc_d1_r*8 +: 8];
 
     wire signed [7:0]  y_pre_w;
     wire               y_pre_vld_w;
@@ -817,31 +919,182 @@ module yolo_gemm_array #(
         .vld_o    (y_lut_vld_w)
     );
 
-    // y address computed at the requant-en stage, delayed 2 stages
-    wire [31:0] y_addr_w = ((oc_tile_d1_r * OC_EDGE + oc_loc_r)
-                            * cfg_n_total_r)
-                           + n_tile_d1_r * N_EDGE + n_loc_r;
+    // d2/d3 sideband shift: row params ride alongside the byte; at d3
+    // they present on the same cycle as y_lut_vld_w (pulse-aligned)
+    reg                  row_start_d2_r, row_start_d3_r;
+    reg [TILE_AW-1:0]    row_len_d2_r, row_len_d3_r;
+    reg [ADDR_W-1:0]     row_addr_d2_r, row_addr_d3_r;
+
     always @(posedge clk_i or negedge rst_n) begin
         if (!rst_n) begin
-            rq_en_d2_r  <= 1'b0;
-            y_addr_d1_r <= {ADDR_W{1'b0}};
-            y_addr_d2_r <= {ADDR_W{1'b0}};
+            rq_en_d2_r   <= 1'b0;
+            row_start_d2_r <= 1'b0;
+            row_start_d3_r <= 1'b0;
+            row_len_d2_r <= {TILE_AW{1'b0}};
+            row_len_d3_r <= {TILE_AW{1'b0}};
+            row_addr_d2_r<= {ADDR_W{1'b0}};
+            row_addr_d3_r<= {ADDR_W{1'b0}};
         end else begin
-            rq_en_d2_r <= rq_en_d1_r;
-            if (rq_en_d1_r) begin
-                y_addr_d1_r <= y_addr_w[ADDR_W-1:0];
-            end
-            y_addr_d2_r <= y_addr_d1_r;
+            rq_en_d2_r     <= rq_en_d1_r;
+            row_start_d2_r <= row_start_d1_r;
+            row_start_d3_r <= row_start_d2_r;
+            row_len_d2_r   <= row_len_d1_r;
+            row_len_d3_r   <= row_len_d2_r;
+            row_addr_d2_r  <= row_addr_d1_r;
+            row_addr_d3_r  <= row_addr_d2_r;
         end
     end
 
-    assign y_we_o    = y_lut_vld_w;        // = rq_en delayed 3 stages
-    assign y_addr_o  = y_addr_d2_r;
-    assign y_wdata_o = y_lut_w;
+    // =================================================================
+    // Y row segmenter + AXI write master (yolo_dma_wr V1.2)
+    // (seg_state_r / SEG_* declared above near the ctrl instance)
+    // =================================================================
+    reg [N_EDGE*8-1:0]  seg_buf_r;        // row buffer (n_tail <= N_EDGE)
+    reg [4:0]           seg_fill_r;       // bytes landed this row
+    reg [4:0]           seg_sent_r;       // bytes handed to the writer
+    reg [ADDR_W-1:0]    seg_addr_r;       // row command address
+    reg [TILE_AW-1:0]   seg_len_r;        // row length
+    reg                 seg_cmd_go_q;     // command accepted (source phase)
+
+    wire                seg_in_fire_w = y_lut_vld_w;   // d3 byte pulse
+    wire [12:0]         seg_fill_nx_w = {8'd0, seg_fill_r} + 13'd1;
+    wire                row_done_w    = (seg_fill_nx_w
+                                         >= {1'b0, seg_len_r});
+
+    // d1..d3 pipe occupancy: +1 per d0 admission (rq_fire_w), -1 per
+    // d3 landing -- exact because every admitted beat pulses
+    // y_lut_vld_w exactly once 3 cycles later and nothing else enters
+    // the pipe. Feeds the row-start admission term above.
+    always @(posedge clk_i or negedge rst_n) begin
+        if (!rst_n) begin
+            seg_infl_r <= 3'd0;
+        end else begin
+            if (rq_fire_w && !seg_in_fire_w)
+                seg_infl_r <= seg_infl_r + 3'd1;
+            else if (seg_in_fire_w && !rq_fire_w)
+                seg_infl_r <= seg_infl_r - 3'd1;
+        end
+    end
+
+    wire                wr_cmd_rdy_w;
+    wire                wr_done_w;
+    wire                wr_src_rdy_w;
+    wire                seg_src_vld_w = seg_cmd_go_q
+                                        && (seg_sent_r < seg_fill_r);
+    wire [7:0]          seg_src_data_w = seg_buf_r[seg_sent_r*8 +: 8];
+
+    yolo_dma_wr #(
+        .ADDR_W    (ADDR_W),
+        .LEN_W     (LEN_W),
+        .MAX_BURST (MAX_BURST)
+    ) u_dma_wr (
+        .clk_i       (clk_i),
+        .rst_n       (rst_n),
+        .cmd_valid_i (seg_state_r == SEG_CMD),
+        .cmd_ready_o (wr_cmd_rdy_w),
+        .cmd_addr_i  (seg_addr_r),
+        .cmd_len_i   ({{(LEN_W-TILE_AW){1'b0}}, seg_len_r}),
+        .done_o      (wr_done_w),
+        .src_valid_i (seg_src_vld_w),
+        .src_data_i  (seg_src_data_w),
+        .src_ready_o (wr_src_rdy_w),
+        .awaddr_o    (awaddr_o),
+        .awlen_o     (awlen_o),
+        .awsize_o    (awsize_o),
+        .awburst_o   (awburst_o),
+        .awvalid_o   (awvalid_o),
+        .awready_i   (awready_i),
+        .wdata_o     (wdata_o),
+        .wstrb_o     (wstrb_o),
+        .wlast_o     (wlast_o),
+        .wvalid_o    (wvalid_o),
+        .wready_i    (wready_i),
+        .bvalid_i    (bvalid_i),
+        .bresp_i     (bresp_i),
+        .bready_o    (bready_o)
+    );
+
+    always @(posedge clk_i or negedge rst_n) begin
+        if (!rst_n) begin
+            seg_state_r <= SEG_IDLE;
+            seg_fill_r  <= 5'd0;
+            seg_sent_r  <= 5'd0;
+            seg_addr_r  <= {ADDR_W{1'b0}};
+            seg_len_r   <= {TILE_AW{1'b0}};
+            seg_cmd_go_q<= 1'b0;
+        end else begin
+            case (seg_state_r)
+                SEG_IDLE: begin
+                    // admission guarantees this byte is a row start
+                    if (seg_in_fire_w) begin
+                        seg_buf_r[0 +: 8] <= y_lut_w;
+                        seg_addr_r <= row_addr_d3_r;
+                        seg_len_r  <= row_len_d3_r;
+                        seg_fill_r <= 5'd1;
+                        seg_sent_r <= 5'd0;
+                        if (13'd1 >= {1'b0, row_len_d3_r}) begin
+                            seg_state_r <= SEG_CMD;   // single-byte row
+                        end else begin
+                            seg_state_r <= SEG_FILL;
+                        end
+                    end
+                end
+                SEG_FILL: begin
+                    if (seg_in_fire_w) begin
+                        seg_buf_r[seg_fill_r*8 +: 8] <= y_lut_w;
+                        seg_fill_r <= seg_fill_r + 5'd1;
+                        if (row_done_w) begin
+                            seg_state_r <= SEG_CMD;
+                        end
+                    end
+                end
+                SEG_CMD: begin
+                    if (wr_cmd_rdy_w) begin          // cmd_valid held 1
+                        seg_cmd_go_q <= 1'b1;
+                        seg_state_r  <= SEG_DR;
+                    end
+                end
+                SEG_DR: begin
+                    if (seg_src_vld_w && wr_src_rdy_w) begin
+                        seg_sent_r <= seg_sent_r + 5'd1;
+                    end
+                    if (wr_done_w) begin             // B drained
+                        seg_state_r <= SEG_IDLE;
+                        seg_fill_r  <= 5'd0;
+                        seg_cmd_go_q<= 1'b0;
+                    end
+                end
+                default: seg_state_r <= SEG_IDLE;
+            endcase
+        end
+    end
+
+    // drain-gated layer/all done: pulse only when the segmenter is
+    // quiescent -- idle AND no admitted beats still in the d1..d3 pipe
+    // (ctrl_ldone can land within 3 cycles of the last d0 issue, when
+    // the last row-start has not even reached the segmenter; the
+    // in-flight term closes that window). The last row's write command
+    // has its B collected at the pulse -- only then may the PS read Y.
+    reg ldone_pend_r, adone_pend_r;
+    wire ywr_idle_w = (seg_state_r == SEG_IDLE) && (seg_infl_r == 3'd0);
+
+    always @(posedge clk_i or negedge rst_n) begin
+        if (!rst_n) begin
+            ldone_pend_r <= 1'b0;
+            adone_pend_r <= 1'b0;
+        end else if (ctrl_ldone) begin
+            ldone_pend_r <= 1'b1;
+            adone_pend_r <= ctrl_adone;
+        end else if (ywr_idle_w && ldone_pend_r) begin
+            ldone_pend_r <= 1'b0;
+            adone_pend_r <= 1'b0;
+        end
+    end
 
     assign tile_rdy_w   = bank_rdy_rd_w & params_rdy_r;
-    assign layer_done_o = ctrl_ldone;
-    assign all_done_o   = ctrl_adone;
-    assign busy_o       = ctrl_busy || (ldr_state_r != S_LDESC);
+    assign layer_done_o = ldone_pend_r && ywr_idle_w;
+    assign all_done_o   = layer_done_o && adone_pend_r;
+    assign busy_o       = ctrl_busy || (ldr_state_r != S_LDESC)
+                          || !ywr_idle_w || ldone_pend_r;
 
 endmodule

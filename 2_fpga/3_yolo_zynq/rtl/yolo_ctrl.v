@@ -31,12 +31,22 @@
  *                   the module is cycle-identical to V1.0. Outputs are
  *                   combinational functions of registered state and
  *                   counters only (settle after the clock edge).
+ *
+ *                   V1.2 (M12 A1): S_RQ now waits for rq_rdy_i before
+ *                   advancing rq_cnt (Y write backpressure: the array's
+ *                   requant tail stalls when its AXI write master
+ *                   command channel is busy). During the stall rq_en_o
+ *                   (level) and rq_idx_o hold stable -- a proper
+ *                   req/ack offer. With rq_rdy_i tied high the module
+ *                   is cycle-identical to V1.1.
  * Dependencies    : None
  * Revision History:
  *   - V1.0 (2026-09-15) by LSL : Initial release (M8).
  *   - V1.1 (2026-09-15) by LSL : S_TILE wait state on tile_rdy_i (M10:
  *     buffer-load pacing -- per-tile DMA load far exceeds K beats, the
  *     K loop must not read a half-filled bank). Gate rerun: run02.
+ *   - V1.2 (2026-09-16) by LSL : S_RQ wait on rq_rdy_i (M12 A1: Y 写
+ *     背压；接高电平与 V1.1 周期等价). Gate rerun: run03.
  ************************************************************************/
 
 module yolo_ctrl #(
@@ -63,7 +73,10 @@ module yolo_ctrl #(
     output wire               acc_clr_o,    // 1-cycle pulse per tile
     output wire               beat_en_o,
     output wire [K_AW-1:0]    k_cnt_o,      // 0..K-1 during beat_en_o
-    // requant tail interface (rq_idx = oc_local*n_tail + n_local)
+    // requant tail interface (rq_idx = oc_local*n_tail + n_local);
+    // rq_rdy_i (V1.2): per-output backpressure from the array's Y
+    // segmenter -- S_RQ holds (en/idx stable) until accepted
+    input  wire               rq_rdy_i,
     output wire               rq_en_o,
     output wire [TILE_AW-1:0] rq_idx_o,
     // tile bookkeeping / double-buffer steering
@@ -180,23 +193,25 @@ module yolo_ctrl #(
                     end
                 end
                 S_RQ: begin
-                    if (rq_last_w) begin
-                        rq_cnt_r <= {TILE_AW{1'b0}};
-                        k_cnt_r  <= {K_AW{1'b0}};
-                        if (last_tile_w) begin
-                            state_r <= S_LDONE;
+                    if (rq_rdy_i) begin
+                        if (rq_last_w) begin
+                            rq_cnt_r <= {TILE_AW{1'b0}};
+                            k_cnt_r  <= {K_AW{1'b0}};
+                            if (last_tile_w) begin
+                                state_r <= S_LDONE;
+                            end else begin
+                                oc_tile_r <= next_oc_tile_w;
+                                n_tile_r  <= next_n_tile_w;
+                                oc_tail_r <= tail_calc(oc_total_r, oc_tiles_r,
+                                                       next_oc_tile_w, OC_EDGE);
+                                n_tail_r  <= tail_calc(n_total_r, n_tiles_r,
+                                                       next_n_tile_w, N_EDGE);
+                                rd_bank_r <= ~rd_bank_r;
+                                state_r   <= S_TILE;
+                            end
                         end else begin
-                            oc_tile_r <= next_oc_tile_w;
-                            n_tile_r  <= next_n_tile_w;
-                            oc_tail_r <= tail_calc(oc_total_r, oc_tiles_r,
-                                                   next_oc_tile_w, OC_EDGE);
-                            n_tail_r  <= tail_calc(n_total_r, n_tiles_r,
-                                                   next_n_tile_w, N_EDGE);
-                            rd_bank_r <= ~rd_bank_r;
-                            state_r   <= S_TILE;
+                            rq_cnt_r <= rq_cnt_r + 1'b1;
                         end
-                    end else begin
-                        rq_cnt_r <= rq_cnt_r + 1'b1;
                     end
                 end
                 S_LDONE: begin
