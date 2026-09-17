@@ -1,0 +1,40 @@
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# [tb] heartbeat t=850000000000 conv=60 ywr=3546384 ps=65 err=0
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# [tb] conv 60/63 task=100 done @t=850945860000 oc=64 n=100 k=2304 walk=1 acc_err=0
+# [tb] conv 61/63 task=101 done @t=854967950000 oc=64 n=100 k=576 walk=1 acc_err=0
+# [tb] conv 62/63 task=102 done @t=855129130000 oc=7 n=100 k=64 walk=1 acc_err=0
+# [tb] heads dumped 149100 bytes -> head_dump.bin
+# TB_FULLNET_PASS convs=63 psops=65 compared=3553900 dut_wr=3553900 head_bytes=149100 ldone=63 adone=1 bfmerr=0/0 wost=2 xost=2
+# ** Note: $finish    : ../tb_yolo_fullnet.v(1022)
+#    Time: 855129300 ns  Iteration: 1  Instance: /tb_yolo_fullnet
