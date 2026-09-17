@@ -2,6 +2,14 @@
 
 > 全项目进度总览（软件/硬件两部分）：[progress.md](progress.md)。本 README 只保留最近动态，历史细节见 [HANDOFF.md](HANDOFF.md) 与 `7_logs/`。
 
+## 2026-09-17/18 yolo7020：A2/B0 收口 → 板级位流 PASS → M13 两跑双冻结 → 转 JTAG 裸机
+
+**硬件线（G3）**：A2 loader V2 三件套收口（M10 门复绿同基线数；层边界 LUT 预载双洞竞态修复=tail_idle_w 全排空契约；冻结 gemm_array V2.0c 等）→ **M11 run05 全网双绿承证**（TB_FULLNET_PASS 七项 + head sha==run04 冻结）→ M12 OOC：v28@150MHz FAIL(−8.750) 守"板后优化"决策改 **v28b60@60MHz first-light PASS(+0.806)** → **板级 BD 构建 PASS（run8 wns+0.954，yolo_a2.bit/xsa 解出；八跑剥洋葱坑全记录）**。
+
+**M13 板测**：板端驱动 PC 自测双绿（pl_m11.py PL_M11_PASS 全七项）后两跑上板——run01(0x30000000)/run02(0x08000000 证据驱动全空窗口) **均 2–10 分钟内板硬失联**（ping/串口死、无 panic），DDR 段占用假设否定；根因排序①/dev/mem RAM 别名 mmap 13MB 直写机制（run01 冻点在纯 CPU 写阶段）②HP 互连挂死 ③FCLK0 未证。按"每失败路径一次重试即停"守规保留现场。**用户决策：转 JTAG 启动 + Vitis 裸机开发**（平台/应用工程已建于 `proj/board_sys/yolo_a2_board/vitis`，挂死现场可 xsct 读 PC——正是排冻结根因的对路工具）。
+
+**run9 BD 修正批（09-18）**：用户 GUI 检出并手工修三处（DDR/FIXED_IO make external→100 条 IOSTANDARD 警告根因、PS 勾选 IRQ_F2P、60MHz 疑问=有意 first-light 决策）；批处理侧 `write_bd_tcl` 收编用户权威 BD 为正典 `yolo_sys_bd.tcl`（**IRQ_F2P 引脚物化机制=ps7 全配置一次性 set_property -dict 灌入**，手工逐对 set 得 41-721 disabled），XDC 删 create_clock 消 18-1056，三连 re-apply FREQ_HZ=60M（GUI 保存会丢 module_ref 接口属性）。重跑 **run9c PASS（wns+0.623，CRITICAL WARNING 总数=0，三类警告全清零）**，yolo_a2.xsa/bit 已更新。证据：[run09](4_metrics/logs/2026-09-18_yolo7020_board_build_run09/README.md)。
+
 ## 2026-09-16 yolo7020：G3 M12 A1 承接批五门全绿（Y 真 AXI 写主 + CSR/engine）
 
 **硬件线（G3）**：M12 拆 A1/A2/B 三段后的 A1 批（纯 RTL+仿真，授权"先跑a"）单日五门全绿——M8 run03（ctrl V1.2 回归）· M9b run01–03（dma_wr Y 真 AXI4 写主 + V1.2 非对齐起始）· M10 run03（阵列 V1.2a 换 Y 真 AXI 写主，六项与 run01 同数）· M11 run03（全网 63 conv 回归，七项与 run02 同数 + head sha 复命中）· **CSR/engine run01 首跑过**（`yolo_csr.v` AXI-Lite 从 @0x43C1_0000 + `yolo_engine_top.v` 组装，PS 真控制路径成为门断言对象；寄存器图入 `hw_contract/address_map.md` 三处同步）。RTL 数值路径改动的 §5 全链重跑义务已履行；证据 6 个 run 目录四件套（`4_metrics/logs/2026-09-16_yolo7020_*`）。**下一步**：A2 loader V2 三件套（已授权）→ B 段 OOC（待用户确认）。

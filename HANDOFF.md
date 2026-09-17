@@ -1,5 +1,16 @@
 # EES-331 项目交接
 
+## 2026-09-17/18 yolo7020 批次交接：A2/B0/M11 run05 收口 → 板级位流 PASS → M13 双冻结 → JTAG 裸机 + run9 BD 修正
+
+- **入口**：[progress.md](progress.md)（总览，H12/H13 已更新）· [会话日志](7_logs/2026-09-17/11_m11_m12_m13_board_batch.md)（§1–§9 全批过程）· [run02 冻结取证](4_metrics/logs/2026-09-18_yolo7020_m13_board_run02/README.md) · [run09 BD 修正](4_metrics/logs/2026-09-18_yolo7020_board_build_run09/README.md)。
+- **A2 loader V2 收口**：M10 门复绿 `layers=6 compared=438447` 同基线数；四根因全修（xrowgen done 残留高电平/loader 无反压/acc 使能链 4 级 vs 乘积 wv+3/**层边界 LUT 预载双洞竞态**——S_TWAIT 首拍 NBA 采样 + sh_occ 末拍早清，修复=tail_idle_w 全排空契约）。冻结点 gemm_array **V2.0c**/xrowgen V1.3/dma V1.4/wbuf V3.0/xbuf V3.0。
+- **M11 run05 全网双绿承证**：`TB_FULLNET_PASS convs=63 psops=65 compared=3553900 dut_wr=3553900 head_bytes=149100 ldone=63 adone=1 bfmerr=0/0` + headcheck sha==9ce70525…==run04 冻结；逐层步进表 `conv_step_times_ms.txt`（全帧 sim 855.129ms）=板端对照基准。
+- **M12 OOC**：v28@150 FAIL（−8.750，损害全落 X 通路）→ 守"板结果优先"改 **v28b60@60MHz first-light PASS（+0.806）**；板后优化候选（A2b X2/oc-pair、xrowgen 流水化、提频）交用户决策。**板级 BD 构建 PASS（run8 wns+0.954）**：八跑剥洋葱坑（set_property -dict 对 MIO_TREE 二次求值/BANK 电压先设/HP 自动化方向同构 GP0/已分配段 OFFSET 只读/module_ref 接口默认 100M 无时钟关联/两段式 launch_runs）全记录在 board_build_run01 README。
+- **M13 板测两跑双冻结（Linux+/dev/mem 路线证死）**：run01(0x30000000)/run02(0x08000000，kpagecount 证据驱动全空窗口 0/3584) 均 2–10 分钟内硬失联（ping/串口死、无 panic）；下载+CSR 身份读两绿。**DDR 段占用假设否定**；修正根因排序：①/dev/mem RAM 别名 mmap 13MB 直写机制（run01 冻点=[stim] 后 [ddr] 前=纯 CPU 写、引擎未启动；A9 Device-memory 非对齐 store UNPREDICTED 可静默挂总线）②HP 互连挂死 ③FCLK0≠60MHz 未证。板环境铁律：fpga_manager 只认 dword 字节交换 .bin；/dev/mem 只有 mmap 路径可用（read/pread 全 EFAULT）。
+- **用户决策：JTAG 启动 + Vitis 裸机**。工作区 `proj/board_sys/yolo_a2_board/vitis`（平台 yolo_zynq + app_component empty_application，CMake 式，arm-none-eabi）；三相规划 P0 身份读冒烟/P1 conv0/P2 全网（MMU/caches 关=零一致性顾虑；prog+lut 编 ELF、ddr.bin 走 XSCT dow -data @0x08000000；JTAG 优势=挂死现场 xsct stop 读 PC）。**待用户指令推进**。
+- **run9 BD 修正批（09-18，用户 GUI 发现+手工修、授权批处理收口）**：①DDR/FIXED_IO make external（100 条 IOSTANDARD 警告根因）②PS 勾选 IRQ_F2P 直连 engine/irq_o（v1 驱动仍轮询，中断线留作后用）③60MHz=有意 first-light 决策非 bug。批处理侧：XDC 删 create_clock 消 [Constraints 18-1056]；`write_bd_tcl` 导出用户权威 BD 收编为正典 **`proj/board_sys/yolo_sys_bd.tcl`**（build_board.tcl v2 source 它）；**IRQ_F2P 引脚物化机制=ps7 全 533+ 配置一次性 `set_property -dict` 灌入**（事后单独 set PCW_IRQ_F2P_INTR 得 41-721 disabled ignored、引脚永不物化）；module_ref 接口 FREQ_HZ/CLK_DOMAIN 在 GUI 保存后会丢（s_axi 曾被重置回 100M→41-237），重导出前先三连 re-apply。**run9c 收口：BOARD_BITSTREAM_PASS wns+0.623，CRITICAL WARNING 总数=0**（IOSTANDARD 100→0、18-1056 1→0；**41-967 亦归零——"module_ref 不可根除"旧结论作废，其真正触发条件=FREQ_HZ 缺失的半配置接口**，FREQ_HZ×3+CLK_DOMAIN×3 配齐后 Vivado 自行推断时钟关联）。产物：yolo_a2.xsa adc0a7d1d39b1543 / yolo_sys_wrapper.bit d1f08549ef8a2f44。
+- **Git**：本批文档（progress/README/HANDOFF/7_logs）+ run09 证据 + yolo_sys_bd.tcl/build_board.tcl v2 上传 `codex/full/pipidandan-superman`。
+
 ## 2026-09-16 yolo7020 批次交接：G3 M12 A1 承接批五门全绿
 
 - **入口**：[progress.md](progress.md)（总览）· [G3 基线](1_docs/doc/yolo7020_gemm_pe_architecture_2026-09-15.md)（状态字 `M12A1_ALL_GREEN`）· [当日执行记录](7_logs/2026-09-16/02_execution_plan.md)。
