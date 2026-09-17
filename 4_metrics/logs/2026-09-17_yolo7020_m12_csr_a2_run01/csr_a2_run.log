@@ -1,0 +1,130 @@
+# vsim +STIM=../stim/m10 +WDT_MS=900000 -do {run -all; quit -f} -l csr_a2_run.log -c -novopt work_csr.tb_yolo_engine_top work_csr.glbl 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_a2/work_csr.tb_yolo_engine_top
+# Loading work_csr.tb_yolo_engine_top
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_a2/work_csr.yolo_engine_top
+# Loading work_csr.yolo_engine_top
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_a2/work_csr.yolo_csr
+# Loading work_csr.yolo_csr
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_a2/work_csr.yolo_gemm_array
+# Loading work_csr.yolo_gemm_array
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_a2/work_csr.yolo_ctrl
+# Loading work_csr.yolo_ctrl
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_a2/work_csr.yolo_dma
+# Loading work_csr.yolo_dma
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_a2/work_csr.yolo_wbuf
+# Loading work_csr.yolo_wbuf
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_a2/work_csr.yolo_wbuf_bmg
+# Loading work_csr.yolo_wbuf_bmg
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_a2/work_csr.blk_mem_gen_v8_4_12
+# Loading work_csr.blk_mem_gen_v8_4_12
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_a2/work_csr.yolo_xrowgen
+# Loading work_csr.yolo_xrowgen
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_a2/work_csr.yolo_xbuf
+# Loading work_csr.yolo_xbuf
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_a2/work_csr.yolo_xbuf_bmg
+# Loading work_csr.yolo_xbuf_bmg
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_a2/work_csr.yolo_requant
+# Loading work_csr.yolo_requant
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_a2/work_csr.yolo_silu_lut
+# Loading work_csr.yolo_silu_lut
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_a2/work_csr.yolo_dma_wr
+# Loading work_csr.yolo_dma_wr
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_a2/work_csr.yolo_conv_core
+# Loading work_csr.yolo_conv_core
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_a2/work_csr.glbl
+# Loading work_csr.glbl
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_a2/work_csr.blk_mem_gen_v8_4_12_mem_module
+# Loading work_csr.blk_mem_gen_v8_4_12_mem_module
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_a2/work_csr.blk_mem_gen_v8_4_12_output_stage
+# Loading work_csr.blk_mem_gen_v8_4_12_output_stage
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_a2/work_csr.blk_mem_gen_v8_4_12_softecc_output_reg_stage
+# Loading work_csr.blk_mem_gen_v8_4_12_softecc_output_reg_stage
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_a2/work_csr.blk_mem_axi_regs_fwd_v8_4
+# Loading work_csr.blk_mem_axi_regs_fwd_v8_4
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_a2/work_csr.yolo_pe_pack
+# Loading work_csr.yolo_pe_pack
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_a2/work_csr.DSP48E1
+# Loading work_csr.DSP48E1
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_a2/work_csr.yolo_acc
+# Loading work_csr.yolo_acc
+# ** Warning: (vsim-3015) ../../rtl/yolo_wbuf.v(161): [PCDPC] - Port size (128 or 128) does not match connection size (64) for port 'wea'. The port definition is at: ../../ip/yolo_wbuf_bmg/sim/yolo_wbuf_bmg.v(58).
+# 
+#         Region: /tb_yolo_engine_top/dut/u_array/u_wbuf/u_bank0
+# ** Warning: (vsim-3015) ../../rtl/yolo_wbuf.v(161): [PCDPC] - Port size (1024 or 1024) does not match connection size (512) for port 'dina'. The port definition is at: ../../ip/yolo_wbuf_bmg/sim/yolo_wbuf_bmg.v(60).
+# 
+#         Region: /tb_yolo_engine_top/dut/u_array/u_wbuf/u_bank0
+# ** Warning: (vsim-3015) ../../rtl/yolo_wbuf.v(161): [PCDPC] - Port size (1024 or 1024) does not match connection size (512) for port 'doutb'. The port definition is at: ../../ip/yolo_wbuf_bmg/sim/yolo_wbuf_bmg.v(64).
+# 
+#         Region: /tb_yolo_engine_top/dut/u_array/u_wbuf/u_bank0
+# ** Warning: (vsim-3015) ../../rtl/yolo_wbuf.v(172): [PCDPC] - Port size (128 or 128) does not match connection size (64) for port 'wea'. The port definition is at: ../../ip/yolo_wbuf_bmg/sim/yolo_wbuf_bmg.v(58).
+# 
+#         Region: /tb_yolo_engine_top/dut/u_array/u_wbuf/u_bank1
+# ** Warning: (vsim-3015) ../../rtl/yolo_wbuf.v(172): [PCDPC] - Port size (1024 or 1024) does not match connection size (512) for port 'dina'. The port definition is at: ../../ip/yolo_wbuf_bmg/sim/yolo_wbuf_bmg.v(60).
+# 
+#         Region: /tb_yolo_engine_top/dut/u_array/u_wbuf/u_bank1
+# ** Warning: (vsim-3015) ../../rtl/yolo_wbuf.v(172): [PCDPC] - Port size (1024 or 1024) does not match connection size (512) for port 'doutb'. The port definition is at: ../../ip/yolo_wbuf_bmg/sim/yolo_wbuf_bmg.v(64).
+# 
+#         Region: /tb_yolo_engine_top/dut/u_array/u_wbuf/u_bank1
+# ** Warning: (vsim-3015) ../../rtl/yolo_xbuf.v(144): [PCDPC] - Port size (16 or 16) does not match connection size (8) for port 'wea'. The port definition is at: ../../ip/yolo_xbuf_bmg/sim/yolo_xbuf_bmg.v(58).
+# 
+#         Region: /tb_yolo_engine_top/dut/u_array/u_xbuf/u_bank0
+# ** Warning: (vsim-3015) ../../rtl/yolo_xbuf.v(144): [PCDPC] - Port size (128 or 128) does not match connection size (64) for port 'dina'. The port definition is at: ../../ip/yolo_xbuf_bmg/sim/yolo_xbuf_bmg.v(60).
+# 
+#         Region: /tb_yolo_engine_top/dut/u_array/u_xbuf/u_bank0
+# ** Warning: (vsim-3015) ../../rtl/yolo_xbuf.v(144): [PCDPC] - Port size (128 or 128) does not match connection size (64) for port 'doutb'. The port definition is at: ../../ip/yolo_xbuf_bmg/sim/yolo_xbuf_bmg.v(64).
+# 
+#         Region: /tb_yolo_engine_top/dut/u_array/u_xbuf/u_bank0
+# ** Warning: (vsim-3015) ../../rtl/yolo_xbuf.v(155): [PCDPC] - Port size (16 or 16) does not match connection size (8) for port 'wea'. The port definition is at: ../../ip/yolo_xbuf_bmg/sim/yolo_xbuf_bmg.v(58).
+# 
+#         Region: /tb_yolo_engine_top/dut/u_array/u_xbuf/u_bank1
+# ** Warning: (vsim-3015) ../../rtl/yolo_xbuf.v(155): [PCDPC] - Port size (128 or 128) does not match connection size (64) for port 'dina'. The port definition is at: ../../ip/yolo_xbuf_bmg/sim/yolo_xbuf_bmg.v(60).
+# 
+#         Region: /tb_yolo_engine_top/dut/u_array/u_xbuf/u_bank1
+# ** Warning: (vsim-3015) ../../rtl/yolo_xbuf.v(155): [PCDPC] - Port size (128 or 128) does not match connection size (64) for port 'doutb'. The port definition is at: ../../ip/yolo_xbuf_bmg/sim/yolo_xbuf_bmg.v(64).
+# 
+#         Region: /tb_yolo_engine_top/dut/u_array/u_xbuf/u_bank1
+# run -all 
+# Block Memory Generator module tb_yolo_engine_top.dut.u_array.u_wbuf.u_bank0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+# Block Memory Generator module tb_yolo_engine_top.dut.u_array.u_wbuf.u_bank1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+# Block Memory Generator module tb_yolo_engine_top.dut.u_array.u_xbuf.u_bank0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+# Block Memory Generator module tb_yolo_engine_top.dut.u_array.u_xbuf.u_bank1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+# [tb] engine stim=../stim/m10 layers=6 img_words=65621 total_out=438447
+# [tb] layer 0 done @t=28540000 (oc=7 n=49 k=27)
+# blk_mem_gen_v8_4_12 collision detected at time: 38385000, Instance: tb_yolo_engine_top.dut.u_array.u_wbuf.u_bank1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst.async_coll, A write address: 1, B  read address: 1
+# blk_mem_gen_v8_4_12 collision detected at time: 38515000, Instance: tb_yolo_engine_top.dut.u_array.u_wbuf.u_bank1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst.async_coll, A write address: 3, B  read address: 3
+# [tb] heartbeat t=10000000000 cur_layer=1 ywr=252903
+# [tb] layer 1 done @t=16193530000 (oc=16 n=25600 k=27)
+# [tb] layer 2 done @t=16599490000 (oc=16 n=25 k=576)
+# blk_mem_gen_v8_4_12 collision detected at time: 16613445000, Instance: tb_yolo_engine_top.dut.u_array.u_xbuf.u_bank1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst.async_coll, A write address: 4, B  read address: 4
+# blk_mem_gen_v8_4_12 collision detected at time: 16613455000, Instance: tb_yolo_engine_top.dut.u_array.u_xbuf.u_bank1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst.async_coll, A write address: 5, B  read address: 5
+# blk_mem_gen_v8_4_12 collision detected at time: 16618175000, Instance: tb_yolo_engine_top.dut.u_array.u_xbuf.u_bank0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst.async_coll, A write address: 6, B  read address: 6
+# blk_mem_gen_v8_4_12 collision detected at time: 16618185000, Instance: tb_yolo_engine_top.dut.u_array.u_xbuf.u_bank0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst.async_coll, A write address: 7, B  read address: 7
+# blk_mem_gen_v8_4_12 collision detected at time: 16700165000, Instance: tb_yolo_engine_top.dut.u_array.u_xbuf.u_bank1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst.async_coll, A write address: 6, B  read address: 6
+# blk_mem_gen_v8_4_12 collision detected at time: 16700175000, Instance: tb_yolo_engine_top.dut.u_array.u_xbuf.u_bank1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst.async_coll, A write address: 7, B  read address: 7
+# blk_mem_gen_v8_4_12 collision detected at time: 16709925000, Instance: tb_yolo_engine_top.dut.u_array.u_xbuf.u_bank1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst.async_coll, A write address: 6, B  read address: 6
+# blk_mem_gen_v8_4_12 collision detected at time: 16709935000, Instance: tb_yolo_engine_top.dut.u_array.u_xbuf.u_bank1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst.async_coll, A write address: 7, B  read address: 7
+# [tb] layer 3 done @t=16765240000 (oc=9 n=256 k=64)
+# [tb] heartbeat t=20000000000 cur_layer=4 ywr=418311
+# [tb] heartbeat t=30000000000 cur_layer=4 ywr=436071
+# [tb] layer 4 done @t=31231000000 (oc=64 n=400 k=576)
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+# [tb] layer 5 done @t=31968120000 (oc=8 n=25 k=2304)
+# TB_CSR_ENGINE_PASS layers=6 compared=438447 dut_wr=438447 gold_wr=3247 ldone=6 adone=1 csr=0 xbfmerr=0 xost=2
+# ** Note: $finish    : ../tb_yolo_engine_top.v(1118)
+#    Time: 35851440 ns  Iteration: 1  Instance: /tb_yolo_engine_top

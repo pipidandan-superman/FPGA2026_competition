@@ -1,0 +1,61 @@
+#-----------------------------------------------------------
+# xsim v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Thu Sep 17 22:05:56 2026
+# Process ID         : 50324
+# Current directory  : E:/competition/2_fpga/3_yolo_zynq/sim/xsim
+# Command line       : xsim.exe -log m10_run13_xsim.log -mode tcl -source {xsim.dir/m10run13/xsim_script.tcl}
+# Log file           : E:/competition/2_fpga/3_yolo_zynq/sim/xsim/m10_run13_xsim.log
+# Journal file       : E:/competition/2_fpga/3_yolo_zynq/sim/xsim\xsim.jou
+# Running On         : HC-202510241838
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : AMD Ryzen 5 9600X 6-Core Processor             
+# CPU Frequency      : 3893 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 33410 MB
+# Swap memory        : 21474 MB
+# Total Virtual      : 54884 MB
+# Available Virtual  : 11016 MB
+#-----------------------------------------------------------
+source xsim.dir/m10run13/xsim_script.tcl
+# xsim {m10run13} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Block Memory Generator module tb_yolo_gemm_array.dut.u_wbuf.u_bank0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_gemm_array.dut.u_wbuf.u_bank1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_gemm_array.dut.u_xbuf.u_bank0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_gemm_array.dut.u_xbuf.u_bank1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+[tb] m10 stim=../stim/m10 layers=6 img_words=65621 total_out=438447 tiles=6883
+WARNING:  The value -1943132160.000000 ns of Delay Control Statement is negative. Considering twos complement. File:E:/competition/2_fpga/3_yolo_zynq/sim/tb_yolo_gemm_array.v :1308
+[tb] layer 0 done @t=21606000 (oc=7 n=49 k=27)
+[tb] heartbeat t=10000000000 cur_layer=1 ywr=253167
+[tb] layer 1 done @t=16183116000 (oc=16 n=25600 k=27)
+[tb] layer 2 done @t=16585206000 (oc=16 n=25 k=576)
+blk_mem_gen_v8_4_12 collision detected at time: 16592855000, Instance: tb_yolo_gemm_array.dut.u_wbuf.u_bank1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst, A write address: 2, B  read address: 2
+blk_mem_gen_v8_4_12 collision detected at time: 16592875000, Instance: tb_yolo_gemm_array.dut.u_wbuf.u_bank1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst, A write address: 3, B  read address: 3
+blk_mem_gen_v8_4_12 collision detected at time: 16674885000, Instance: tb_yolo_gemm_array.dut.u_xbuf.u_bank0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst, A write address: 4, B  read address: 4
+blk_mem_gen_v8_4_12 collision detected at time: 16674895000, Instance: tb_yolo_gemm_array.dut.u_xbuf.u_bank0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst, A write address: 5, B  read address: 5
+[tb] layer 3 done @t=16745106000 (oc=9 n=256 k=64)
+blk_mem_gen_v8_4_12 collision detected at time: 16777375000, Instance: tb_yolo_gemm_array.dut.u_wbuf.u_bank0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst, A write address: 3, B  read address: 3
+[tb] heartbeat t=20000000000 cur_layer=4 ywr=418343
+[tb] heartbeat t=30000000000 cur_layer=4 ywr=436135
+[tb] layer 4 done @t=31195516000 (oc=64 n=400 k=576)
+blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+[tb] layer 5 done @t=31928266000 (oc=8 n=25 k=2304)
+TB_GEMM_ARRAY_PASS layers=6 compared=438447 dut_wr=438447 gold_wr=3247 ldone=6 adone=1 snap=6883 occ2=1607157 ost_w=2 ost_x=2
+$finish called at time : 35810380 ns : File "E:/competition/2_fpga/3_yolo_zynq/sim/tb_yolo_gemm_array.v" Line 1164
+run: Time (s): cpu = 00:00:01 ; elapsed = 00:08:08 . Memory (MB): peak = 229.805 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 36808 KB (Peak: 36808 KB), Simulation CPU Usage: 475515 ms
+INFO: [Common 17-206] Exiting xsim at Thu Sep 17 22:14:06 2026...

@@ -1,0 +1,33 @@
+#-----------------------------------------------------------
+# xsim v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Thu Sep 17 13:33:40 2026
+# Process ID         : 53656
+# Current directory  : E:/competition/2_fpga/3_yolo_zynq/sim/xsim
+# Command line       : xsim.exe -log m8_run1.log -mode tcl -source {xsim.dir/m8v20/xsim_script.tcl}
+# Log file           : E:/competition/2_fpga/3_yolo_zynq/sim/xsim/m8_run1.log
+# Journal file       : E:/competition/2_fpga/3_yolo_zynq/sim/xsim\xsim.jou
+# Running On         : HC-202510241838
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : AMD Ryzen 5 9600X 6-Core Processor             
+# CPU Frequency      : 3893 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 33410 MB
+# Swap memory        : 21474 MB
+# Total Virtual      : 54884 MB
+# Available Virtual  : 9721 MB
+#-----------------------------------------------------------
+source xsim.dir/m8v20/xsim_script.tcl
+# xsim {m8v20} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+[tb] ctrl V2.0 stim=../stim/ctrl cycles=136014
+WARNING:  The value -129542144.000000 ns of Delay Control Statement is negative. Considering twos complement. File:E:/competition/2_fpga/3_yolo_zynq/sim/tb_yolo_ctrl.v :260
+TB_CTRL_PASS compared=136014 cycles (14 outputs/cycle) ldone=25 alldone=1 snaps=2286
+$finish called at time : 1360170 ns : File "E:/competition/2_fpga/3_yolo_zynq/sim/tb_yolo_ctrl.v" Line 256
+exit
+INFO: [Common 17-206] Exiting xsim at Thu Sep 17 13:33:43 2026...

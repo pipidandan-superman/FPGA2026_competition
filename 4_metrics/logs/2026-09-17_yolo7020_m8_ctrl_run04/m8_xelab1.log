@@ -1,0 +1,14 @@
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug typical tb_yolo_ctrl -s m8v20 -timescale 1ns/1ps -log m8_xelab1.log 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.yolo_ctrl_default
+Compiling module work.tb_yolo_ctrl
+Built simulation snapshot m8v20
