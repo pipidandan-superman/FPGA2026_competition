@@ -1,0 +1,11 @@
+PACKAGE_HASH_PASS run04 == rom_data
+GRAPH_QUANT_LUT_ACC_BOUND_PASS {"mac": 1011014400, "head_mac": 370809600, "max_K": 2304, "max_acc_bias_bound": 9804150, "conv_output_bytes": 3553900, "all_declared_buffer_bytes": 6715500}
+RNE_BIGINT_ORACLE_PASS 636174
+DSP_PACK_ALGEBRA_PASS 16777216 triples (not a new RTL simulation)
+CONFIRMED_DEFECTS {"nms_top1": {"got": [0], "expected": [1]}, "ap_missing_prediction_class": {"got_macro_ap": 1.0, "expected_macro_ap": 0.5, "per_class": {"0": {"ap50": 1.0, "npos": 1}, "1": {"ap50": null, "npos": 1}}}}
+DEEP_RUNTIME_PASS {'sample': 0, 'conv_nodes': 41, 'compared_conv_bytes': 2747500, 'head_sha256': '9ce70525fc1732cde640bfa654919dd28504422aa9791a2875225ae6ad6aa6ad'}
+DEEP_RUNTIME_PASS {'sample': 1, 'conv_nodes': 41, 'compared_conv_bytes': 2747500, 'head_sha256': '15ea325dd2e50d10cdbc97605538c50be75a0e4296f2630a89c2e58266df70d2'}
+DEEP_RUNTIME_PASS {'sample': 2, 'conv_nodes': 41, 'compared_conv_bytes': 2747500, 'head_sha256': '6bdc98e18c38a3d359fc1b5d51b7869f8131257cbc0cbfe755d008888b71febd'}
+DEEP_RUNTIME_PASS {'sample': 3, 'conv_nodes': 41, 'compared_conv_bytes': 2747500, 'head_sha256': 'c20c1080137a297e46ad591388f0e7e32364d1ae613759c50d42f6c69e38e258'}
+DEEP_RUNTIME_PASS {'sample': 4, 'conv_nodes': 41, 'compared_conv_bytes': 2747500, 'head_sha256': '9bdc352c91b562493865e9421b6570c98f445f704892b41e5b66fafc1e1bd3be'}
+AUDIT_CHECKS_PASS_WITH_CONFIRMED_PRODUCT_FINDINGS

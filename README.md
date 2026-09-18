@@ -2,11 +2,15 @@
 
 > 全项目进度总览（软件/硬件两部分）：[progress.md](progress.md)。本 README 只保留最近动态，历史细节见 [HANDOFF.md](HANDOFF.md) 与 `7_logs/`。
 
-## 2026-09-17/18 yolo7020：A2/B0 收口 → 板级位流 PASS → M13 两跑双冻结 → 转 JTAG 裸机
+## 2026-09-19 PE/GEMM 手册线：仿真门全链收官 + 综合评估 + 板测计划
+
+**硬件线（手册重设计）**：G0 oracle → ① PE（140909）→ ② 双累加器（169025）→ MAC（164044）→ ③a 共享尾（713）→ **③b/④ 广播外积阵列三档 4×4/8×16/16×16 全 PASS**（run06 V1.1：846/4250/6881 checks 0 err；K=1..2304 分块续累/掩码/stall/rst/背靠背/首层/随机全过；TAILW 死锁修复=y 拍计数判定，dbg 复现在案）。**run07 OOC 综合评估**给出 G2 立项证据：③ 档功能缓冲映射 294912×2 寄存器，物理不可容纳 → G2 W/X 真 bank 为上板唯一路径；板测计划成文（晨验=基线回归+证据评审+G2 决策，无板上操作）。补录 09-18 晚：**CSR 控制子系统板级 L1-L4 闭环**（ACK 竞争+幻影尾两 bug 板级收口，板上挂 186154c5 修复版基线）+ **v1.4 Overlay 热重载正典化**（连热重载全绿免断电+用户回环自验）。RTL：`2_fpga/3_yolo_zynq/rtl/GEMM/`；证据：`4_metrics/logs/2026-09-18_yolo_pe_gemm_dev_run01..06/` + `2026-09-19_..._run07_syntheval/`。
+
+## 2026-09-17/18 yolo7020：A2/B0 收口 → 板级位流 PASS → M13 三跑三冻结 → run04 v1.4 Overlay 路线待跑
 
 **硬件线（G3）**：A2 loader V2 三件套收口（M10 门复绿同基线数；层边界 LUT 预载双洞竞态修复=tail_idle_w 全排空契约；冻结 gemm_array V2.0c 等）→ **M11 run05 全网双绿承证**（TB_FULLNET_PASS 七项 + head sha==run04 冻结）→ M12 OOC：v28@150MHz FAIL(−8.750) 守"板后优化"决策改 **v28b60@60MHz first-light PASS(+0.806)** → **板级 BD 构建 PASS（run8 wns+0.954，yolo_a2.bit/xsa 解出；八跑剥洋葱坑全记录）**。
 
-**M13 板测**：板端驱动 PC 自测双绿（pl_m11.py PL_M11_PASS 全七项）后两跑上板——run01(0x30000000)/run02(0x08000000 证据驱动全空窗口) **均 2–10 分钟内板硬失联**（ping/串口死、无 panic），DDR 段占用假设否定；根因排序①/dev/mem RAM 别名 mmap 13MB 直写机制（run01 冻点在纯 CPU 写阶段）②HP 互连挂死 ③FCLK0 未证。按"每失败路径一次重试即停"守规保留现场。**用户决策：转 JTAG 启动 + Vitis 裸机开发**（平台/应用工程已建于 `proj/board_sys/yolo_a2_board/vitis`，挂死现场可 xsct 读 PC——正是排冻结根因的对路工具）。
+**M13 板测**：板端驱动 PC 自测双绿（pl_m11.py PL_M11_PASS 全七项）后三跑上板——run01(0x30000000)/run02(0x08000000 证据驱动全空窗口) **均 2–10 分钟内板硬失联**（ping/串口死、无 panic）；**run03（run9c 修正 BD + 原始驱动 + 全净窗口，用户指定重试）~1min 同签名硬冻 → "BD 错误设计"假设否定**；fclk0 实测 50MHz（嫌疑排除）；v1.4 佐证 PL 交叉开关只暴露低 512MB。根因排序①/dev/mem RAM 别名 mmap 13MB 直写机制（头号）②HP 互连挂死。**用户指令：后续加载一律走 v1.4 PL Reloader 机制** → **run04 三件套已备待上电**（`pl_m11_pynq.py` = Overlay/zocl 加载 + CMA allocate 写 + 无缓存别名读 + MMIO；bit+hwh 配对 `pynq/r9c_overlay/`）；JTAG/Vitis 裸机保持备选（工程已建，挂死现场可 xsct 读 PC）。
 
 **run9 BD 修正批（09-18）**：用户 GUI 检出并手工修三处（DDR/FIXED_IO make external→100 条 IOSTANDARD 警告根因、PS 勾选 IRQ_F2P、60MHz 疑问=有意 first-light 决策）；批处理侧 `write_bd_tcl` 收编用户权威 BD 为正典 `yolo_sys_bd.tcl`（**IRQ_F2P 引脚物化机制=ps7 全配置一次性 set_property -dict 灌入**，手工逐对 set 得 41-721 disabled），XDC 删 create_clock 消 18-1056，三连 re-apply FREQ_HZ=60M（GUI 保存会丢 module_ref 接口属性）。重跑 **run9c PASS（wns+0.623，CRITICAL WARNING 总数=0，三类警告全清零）**，yolo_a2.xsa/bit 已更新。证据：[run09](4_metrics/logs/2026-09-18_yolo7020_board_build_run09/README.md)。
 

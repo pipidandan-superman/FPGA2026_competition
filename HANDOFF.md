@@ -1,5 +1,25 @@
 # EES-331 项目交接
 
+## 2026-09-19（凌晨自主批）PE/GEMM 手册线仿真门全链收官 + run07 综合评估 + 板测计划
+
+- **背景**：用户睡前指令——完成 GEMM 上板准备、更新日志/handoff/readme/progress、关键成果上传个人分支（overlay skill、AXI 寄存器设计、GEMM）。overlay skill 与 CSR/AXI 寄存器设计经核实**已在分支上**（f542dc3/5007593/ae8da88/c7080d4，无差异），本批上传增量 = PE/GEMM 线。
+- **③b/④ 阵列门三档 PASS（run06 V1.1 复跑）**：4×4=846 / 8×16=4250 / 16×16=6881 checks 全 0 err；守恒 started−aborted==done 与 blk_done==12 三档吻合。**TAILW 死锁修复**：掩码 tile 末有效元素的 y_last 单拍脉冲早于 TAILW 进入（FSM 仍在 S_TAIL 跳无效槽），电平等待必错过 → 改 y 拍计数判定 `ycnt >= n_valid_cnt`（对拍序不敏感）。修复前 FAIL 控制台 + dbg/ 最小复现 FSM 追踪留 run06。教训：**跨模块单拍脉冲不得作 FSM 电平等待条件**。
+- **run07 OOC 综合评估（16×16）**：A 真配置(2304)@100MHz / B 核视图(K64)@100MHz / C 真配置@150MHz。**终态：A 中止于 RTL Optimization Phase 2（宿主内存临界，Vivado 峰值 15.2GB，后台任务被系统回收+孤儿进程已终止；不自行重跑）**——但 G2 证据已封闭：③ 档功能缓冲异步读 → `W_buf_reg/X_buf_reg with 294912 registers` 各一，590k FF > 106.4k 器件 FF，**物理不可上板，G2（W/X 真 bank）为唯一路径**；B/C 未跑，B 留晨间（用户在场数分钟）。详见 [run07 README](4_metrics/logs/2026-09-19_yolo_pe_gemm_dev_run07_syntheval/README.md)。
+- **板测计划成文**：[yolo_gemm_board_test_plan_20260919.md](1_docs/yolo_gemm_board_test_plan_20260919.md)——晨验清单=基线回归（186154c5，可选）+ run06/run07 证据评审 + G2 开工决策；G2/G4 缺口如实标注，**本批无任何板上操作、无新生成比特流**。
+- **RTL 落位**：`2_fpga/3_yolo_zynq/rtl/GEMM/`（yolo_pe_core / yolo_acc_dual / yolo_mac_cell / yolo_gemm_tail / yolo_gemm_array V1.1 + tb×5，tb_dbg_arr 已删）。
+- **Git**：PE/GEMM 线（RTL+TB、两手册+图集+量化审查、run01–07 证据小文件、7_logs/2026-09-19、板测计划、progress/README/HANDOFF）命名文件上传 `codex/full/pipidandan-superman`（commit 见分支历史；main 不动）。
+- **下一步**：G2 W/X 真 bank（TDP：A 口装载/B 口计算读 + 同步读地址提前一拍 + ping-pong；cell/tail/FSM 契约不动，run06 阶段矩阵复跑）→ G4 DMA/CSR 接入 → G7 上板。
+
+## 2026-09-18（续）M13 run03 第三冻 → BD 假设否定 → run04 v1.4 Overlay 路线备好待跑
+
+- **入口**：[run03 证据](4_metrics/logs/2026-09-18_yolo7020_m13_board_run03/README.md)（时间线/根因排序/坑清单）· [progress.md](progress.md) H13 已更新。
+- **run03**（用户指定：run9c 修正位流 + **原始 pl_m11.py /dev/mem 驱动**重试，检验"BD 错误设计引发冻结"假设）：fpgamgr bin 格式逆向（`swap32(.bit[164:])`，sync `66 55 99 aa` dword 对齐；write_cfgmem SMAPx32 与裸 .bit 均被内核拒）；**假加载事故**=`sudo sh -c '~/…'` 的 `~` 展开到 /root → cp 断链实际未加载，而 `state=operating` 是开机 camera overlay 残留、CSR Bus error 才是真信号（绝对路径重载后身份读 CSR_ID/VER 绿）；fclk0 实测 50MHz（boot 设定，时序安全，嫌疑③排除）；10:35:24 全净窗口 0x08000000（0/3584）启动 → **~1min 同签名硬冻**（ping 100% 丢、COM6 30s 纯静默 0 字节、ssh 3× 失败）→ **BD 错误假设被证据否定**。新背景证据（v1.4 camera.py:111-115 注释）：**本板 PL 交叉开关只暴露低 512MB**——run01 默认 0x30000000 出窗可独立解释，但 run02/03 窗口内亦冻。根因排序：①/dev/mem 13MB RAM 直写（头号）②HP 互连。
+- **用户指令：后续所有 overlay 加载一律走 v1.4 PL Reloader 机制**（用户全部成功加载所依赖的路径）。已从 `8_tools/EES331_PL_Reloader_v1.4/payload/action_v1_20260913/camera.py:55-118` 提取完整正典并移植为 **run04 三件套（待上电授权）**：
+  - `2_fpga/3_yolo_zynq/pynq/pl_m11_pynq.py`：`Overlay(bit, download=False).download()`（zocl/XRT，**需 XILINX_XRT=/usr**）→ `fpga0/state==operating` → CSR_ID/VER 身份门禁 → **CMA `allocate` 写通道**（cached 写 + 门铃前 `flush()`；窗口核 0x10000000..0x20000000）→ 读回走 `/dev/mem O_RDONLY|O_SYNC` 无缓存别名（device 读直穿 DRAM）→ CSR 用 `MMIO`。程序/协议/判据与 pl_m11.py 逐位一致（同 stim、同黄金 sha、同 PL_M11_PASS 行）。
+  - `board_run04.sh`（root、全绝对路径、`systemctl stop ees331-camera` 后 nohup 双进程）+ `watch_run04.sh`（PC 15s 轮询看门狗）。
+  - bit+hwh 配对 `pynq/r9c_overlay/yolo_sys_wrapper.{bit,hwh}`（bit d1f08549 / hwh 1e3bc3dd，hwh 取自 run9c `.gen/…/hw_handoff/yolo_sys.hwh` 改名——PYNQ 要求同名配对）。
+- 板冻待用户断电重启；run03 板端 `board_run03.log`/`status_poll03.log` 原位可取（/home 不受 drop_caches 影响）。JTAG/Vitis 裸机路线保持备选（工作区 `proj/board_sys/yolo_a2_board/vitis` 已建，P0/P1/P2 规划就绪）。
+
 ## 2026-09-17/18 yolo7020 批次交接：A2/B0/M11 run05 收口 → 板级位流 PASS → M13 双冻结 → JTAG 裸机 + run9 BD 修正
 
 - **入口**：[progress.md](progress.md)（总览，H12/H13 已更新）· [会话日志](7_logs/2026-09-17/11_m11_m12_m13_board_batch.md)（§1–§9 全批过程）· [run02 冻结取证](4_metrics/logs/2026-09-18_yolo7020_m13_board_run02/README.md) · [run09 BD 修正](4_metrics/logs/2026-09-18_yolo7020_board_build_run09/README.md)。

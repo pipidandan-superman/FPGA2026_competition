@@ -1,0 +1,346 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Fri Sep 18 23:58:14 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source sim_gemm_array.tcl -notrace
+EES_VIVADO_STAGE COMPILE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v" into library work
+INFO: [VRFC 10-311] analyzing module yolo_pe_pack
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe -sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_mac_cell.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_tail.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_array.sv
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_pe_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_acc_dual
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_mac_cell.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_mac_cell
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_tail.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_tail
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_array
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_array.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_yolo_gemm_array
+INFO: [VRFC 10-311] analyzing module tb_gemm_array_4x4
+INFO: [VRFC 10-311] analyzing module tb_gemm_array_8x16
+INFO: [VRFC 10-311] analyzing module tb_gemm_array_16x16
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe F:/vivado2025/2025.2/data/verilog/src/glbl.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/vivado2025/2025.2/data/verilog/src/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+EES_VIVADO_STAGE ELABORATE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -L unisims_ver -L unisim -s tb_arr4 tb_gemm_array_4x4 glbl
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -L unisims_ver -L unisim -s tb_arr4 tb_gemm_array_4x4 glbl 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.DSP48E1(ADREG=0,ALUMODEREG=0,CAR...
+Compiling module work.yolo_pe_pack_default
+Compiling module work.yolo_pe_core
+Compiling module work.yolo_acc_dual
+Compiling module work.yolo_mac_cell
+Compiling module work.yolo_gemm_tail_default
+Compiling module work.yolo_gemm_array_default
+Compiling module work.tb_yolo_gemm_array_default
+Compiling module work.tb_gemm_array_4x4
+Compiling module work.glbl
+Built simulation snapshot tb_arr4
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -L unisims_ver -L unisim -s tb_arr8 tb_gemm_array_8x16 glbl
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -L unisims_ver -L unisim -s tb_arr8 tb_gemm_array_8x16 glbl 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.DSP48E1(ADREG=0,ALUMODEREG=0,CAR...
+Compiling module work.yolo_pe_pack_default
+Compiling module work.yolo_pe_core
+Compiling module work.yolo_acc_dual
+Compiling module work.yolo_mac_cell
+Compiling module work.yolo_gemm_tail_default
+Compiling module work.yolo_gemm_array(P_TO=8,P_TN=16)
+Compiling module work.tb_yolo_gemm_array(P_TO=8,P_TN=1...
+Compiling module work.tb_gemm_array_8x16
+Compiling module work.glbl
+Built simulation snapshot tb_arr8
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -L unisims_ver -L unisim -s tb_arr16 tb_gemm_array_16x16 glbl
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -L unisims_ver -L unisim -s tb_arr16 tb_gemm_array_16x16 glbl 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.DSP48E1(ADREG=0,ALUMODEREG=0,CAR...
+Compiling module work.yolo_pe_pack_default
+Compiling module work.yolo_pe_core
+Compiling module work.yolo_acc_dual
+Compiling module work.yolo_mac_cell
+Compiling module work.yolo_gemm_tail_default
+Compiling module work.yolo_gemm_array(P_TO=16,P_TN=16)
+Compiling module work.tb_yolo_gemm_array(P_TO=16,P_TN=...
+Compiling module work.tb_gemm_array_16x16
+Compiling module work.glbl
+Built simulation snapshot tb_arr16
+EES_VIVADO_STAGE SIMULATE_4X4
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_arr4 -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Fri Sep 18 23:58:27 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_arr4/xsim_script.tcl
+# xsim {tb_arr4} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+EES_ARR_INFO G1_K_SWEEP done (4x4)
+EES_ARR_INFO G2_BLOCKING done
+EES_ARR_INFO G3_IRREG done
+EES_ARR_ERR [372190000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [415860000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [415880000] tile end with 12 unsent expectations
+EES_ARR_ERR [459780000] do_block timeout (len=32 last=1)
+EES_ARR_ERR [459800000] tile end with 4 unsent expectations
+EES_ARR_INFO G4_MASK_TAILS done
+EES_ARR_ERR [530900000] do_block timeout (len=576 last=1)
+EES_ARR_ERR [530920000] tile end with 16 unsent expectations
+EES_ARR_ERR [576100000] do_block timeout (len=32 last=0)
+EES_ARR_ERR [618680000] do_block timeout (len=32 last=1)
+EES_ARR_ERR [618700000] tile end with 16 unsent expectations
+EES_ARR_INFO G5_STALL done
+EES_ARR_INFO G6_RST_MID done
+EES_ARR_INFO G7_BACKTOBACK done
+EES_ARR_INFO G8_FIRSTLAYER done
+EES_ARR_ERR [782330000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [827850000] do_block timeout (len=64 last=1)
+EES_ARR_ERR [827870000] tile end with 16 unsent expectations
+EES_ARR_ERR [871520000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [871540000] tile end with 16 unsent expectations
+EES_ARR_ERR [942640000] do_block timeout (len=576 last=1)
+EES_ARR_ERR [942660000] tile end with 12 unsent expectations
+EES_ARR_ERR [986310000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [986330000] tile end with 9 unsent expectations
+EES_ARR_ERR [1057430000] do_block timeout (len=576 last=1)
+EES_ARR_ERR [1057450000] tile end with 16 unsent expectations
+EES_ARR_ERR [1101100000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [1101120000] tile end with 16 unsent expectations
+EES_ARR_ERR [1172220000] do_block timeout (len=576 last=1)
+EES_ARR_ERR [1172240000] tile end with 16 unsent expectations
+EES_ARR_ERR [1217740000] do_block timeout (len=64 last=1)
+EES_ARR_ERR [1217760000] tile end with 12 unsent expectations
+EES_ARR_ERR [1261410000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [1261430000] tile end with 12 unsent expectations
+EES_ARR_ERR [1305330000] do_block timeout (len=32 last=1)
+EES_ARR_ERR [1305350000] tile end with 12 unsent expectations
+EES_ARR_ERR [1349000000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [1349020000] tile end with 16 unsent expectations
+EES_ARR_ERR [1392920000] do_block timeout (len=32 last=1)
+EES_ARR_ERR [1392940000] tile end with 16 unsent expectations
+EES_ARR_ERR [1436590000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [1436610000] tile end with 12 unsent expectations
+EES_ARR_ERR [1480510000] do_block timeout (len=32 last=1)
+EES_ARR_ERR [1480530000] tile end with 16 unsent expectations
+EES_ARR_ERR [1524180000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [1524200000] tile end with 16 unsent expectations
+EES_ARR_ERR [1568100000] do_block timeout (len=32 last=1)
+EES_ARR_ERR [1568120000] tile end with 16 unsent expectations
+EES_ARR_ERR [1639220000] do_block timeout (len=576 last=1)
+EES_ARR_ERR [1639240000] tile end with 16 unsent expectations
+EES_ARR_ERR [1682890000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [1682910000] tile end with 12 unsent expectations
+EES_ARR_ERR [1726560000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [1726580000] tile end with 12 unsent expectations
+EES_ARR_ERR [1770480000] do_block timeout (len=32 last=1)
+EES_ARR_ERR [1770500000] tile end with 16 unsent expectations
+EES_ARR_ERR [1816000000] do_block timeout (len=64 last=1)
+EES_ARR_ERR [1816020000] tile end with 12 unsent expectations
+EES_ARR_ERR [1887120000] do_block timeout (len=576 last=1)
+EES_ARR_ERR [1887140000] tile end with 16 unsent expectations
+EES_ARR_ERR [1931040000] do_block timeout (len=32 last=1)
+EES_ARR_ERR [1931060000] tile end with 12 unsent expectations
+EES_ARR_ERR [1974710000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [1974730000] tile end with 9 unsent expectations
+EES_ARR_ERR [2018380000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [2018400000] tile end with 12 unsent expectations
+EES_ARR_ERR [2063900000] do_block timeout (len=64 last=1)
+EES_ARR_ERR [2063920000] tile end with 12 unsent expectations
+EES_ARR_ERR [2107570000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [2107590000] tile end with 12 unsent expectations
+EES_ARR_ERR [2151240000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [2151260000] tile end with 16 unsent expectations
+EES_ARR_ERR [2194910000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [2194930000] tile end with 16 unsent expectations
+EES_ARR_ERR [2266030000] do_block timeout (len=576 last=1)
+EES_ARR_ERR [2266050000] tile end with 12 unsent expectations
+EES_ARR_ERR [2309700000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [2309720000] tile end with 12 unsent expectations
+EES_ARR_ERR [2380820000] do_block timeout (len=576 last=1)
+EES_ARR_ERR [2380840000] tile end with 12 unsent expectations
+EES_ARR_ERR [2426340000] do_block timeout (len=64 last=1)
+EES_ARR_ERR [2426360000] tile end with 12 unsent expectations
+EES_ARR_ERR [2470260000] do_block timeout (len=32 last=1)
+EES_ARR_ERR [2470280000] tile end with 12 unsent expectations
+EES_ARR_ERR [2513930000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [2513950000] tile end with 12 unsent expectations
+EES_ARR_ERR [2557850000] do_block timeout (len=32 last=1)
+EES_ARR_ERR [2557870000] tile end with 16 unsent expectations
+EES_ARR_ERR [2601520000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [2601540000] tile end with 16 unsent expectations
+EES_ARR_ERR [2645190000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [2645210000] tile end with 16 unsent expectations
+EES_ARR_ERR [2689110000] do_block timeout (len=32 last=1)
+EES_ARR_ERR [2689130000] tile end with 12 unsent expectations
+EES_ARR_INFO G9_RANDOM done (40 tiles)
+EES_ARR_ERR conservation started=62 done=15 aborted=2
+EES_ARR_ERR blk_done seen=11 want=12
+EES_SUMMARY checks=264 errors=91
+EES_ARR_INFO config=4x4 tiles started=62 done=15 aborted=2 y=264
+EES_ARR_INFO blocks_fed=72 blk_done=11
+EES_VIVADO_RESULT FAIL
+$finish called at time : 2689210 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_array.sv" Line 469
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Sep 18 23:58:31 2026...
+EES_VIVADO_STAGE SIMULATE_8X16
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_arr8 -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Fri Sep 18 23:58:31 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_arr8/xsim_script.tcl
+# xsim {tb_arr8} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+EES_ARR_INFO G1_K_SWEEP done (8x16)
+EES_ARR_INFO G2_BLOCKING done
+EES_ARR_INFO G3_IRREG done
+EES_ARR_ERR [1168910000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [1224820000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [1224840000] tile end with 120 unsent expectations
+EES_ARR_ERR [1281580000] do_block timeout (len=32 last=1)
+EES_ARR_ERR [1281600000] tile end with 32 unsent expectations
+EES_ARR_INFO G4_MASK_TAILS done
+EES_ARR_ERR [1430820000] do_block timeout (len=576 last=1)
+EES_ARR_ERR [1430840000] tile end with 128 unsent expectations
+EES_ARR_ERR [1492700000] do_block timeout (len=32 last=0)
+EES_ARR_ERR [1544240000] do_block timeout (len=32 last=1)
+EES_ARR_ERR [1544260000] tile end with 128 unsent expectations
+EES_ARR_INFO G5_STALL done
+EES_ARR_INFO G6_RST_MID done
+EES_ARR_INFO G7_BACKTOBACK done
+EES_ARR_INFO G8_FIRSTLAYER done
+EES_ARR_ERR [2265340000] do_block timeout (len=576 last=1)
+EES_ARR_ERR [2321250000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [2321270000] tile end with 105 unsent expectations
+EES_ARR_ERR [2383450000] do_block timeout (len=64 last=1)
+EES_ARR_ERR [2383470000] tile end with 128 unsent expectations
+EES_ARR_ERR [2440210000] do_block timeout (len=32 last=1)
+EES_ARR_ERR [2440230000] tile end with 128 unsent expectations
+EES_ARR_ERR [2496970000] do_block timeout (len=32 last=1)
+EES_ARR_ERR [2496990000] tile end with 112 unsent expectations
+EES_ARR_ERR [2553730000] do_block timeout (len=32 last=1)
+EES_ARR_ERR [2553750000] tile end with 128 unsent expectations
+EES_ARR_ERR [2609640000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [2609660000] tile end with 128 unsent expectations
+EES_ARR_ERR [2671840000] do_block timeout (len=64 last=1)
+EES_ARR_ERR [2671860000] tile end with 120 unsent expectations
+EES_ARR_ERR [2727750000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [2727770000] tile end with 128 unsent expectations
+EES_ARR_ERR [2789950000] do_block timeout (len=64 last=1)
+EES_ARR_ERR [2789970000] tile end with 128 unsent expectations
+EES_ARR_ERR [2939190000] do_block timeout (len=576 last=1)
+EES_ARR_ERR [2939210000] tile end with 105 unsent expectations
+EES_ARR_ERR [3088430000] do_block timeout (len=576 last=1)
+EES_ARR_ERR [3088450000] tile end with 128 unsent expectations
+EES_ARR_INFO G9_RANDOM done (15 tiles)
+EES_ARR_ERR conservation started=37 done=18 aborted=2
+EES_ARR_ERR blk_done seen=11 want=12
+EES_SUMMARY checks=2504 errors=35
+EES_ARR_INFO config=8x16 tiles started=37 done=18 aborted=2 y=2504
+EES_ARR_INFO blocks_fed=47 blk_done=11
+EES_VIVADO_RESULT FAIL
+$finish called at time : 3088530 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_array.sv" Line 469
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:28 . Memory (MB): peak = 221.676 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 23176 KB (Peak: 23176 KB), Simulation CPU Usage: 28124 ms
+INFO: [Common 17-206] Exiting xsim at Fri Sep 18 23:59:01 2026...
+EES_VIVADO_STAGE SIMULATE_16X16
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_arr16 -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Fri Sep 18 23:59:01 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_arr16/xsim_script.tcl
+# xsim {tb_arr16} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+EES_ARR_INFO G1_K_SWEEP done (16x16)
+EES_ARR_INFO G2_BLOCKING done
+EES_ARR_INFO G3_IRREG done
+EES_ARR_ERR [1190110000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [1256340000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [1256360000] tile end with 240 unsent expectations
+EES_ARR_ERR [1323420000] do_block timeout (len=32 last=1)
+EES_ARR_ERR [1323440000] tile end with 64 unsent expectations
+EES_ARR_INFO G4_MASK_TAILS done
+EES_ARR_ERR [1482980000] do_block timeout (len=576 last=1)
+EES_ARR_ERR [1483000000] tile end with 256 unsent expectations
+EES_ARR_ERR [1555180000] do_block timeout (len=32 last=0)
+EES_ARR_ERR [1616960000] do_block timeout (len=32 last=1)
+EES_ARR_ERR [1616980000] tile end with 256 unsent expectations
+EES_ARR_INFO G5_STALL done
+EES_ARR_INFO G6_RST_MID done
+EES_ARR_INFO G7_BACKTOBACK done
+EES_ARR_INFO G8_FIRSTLAYER done
+EES_ARR_ERR [2178710000] do_block timeout (len=32 last=1)
+EES_ARR_ERR [2244940000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [2244960000] tile end with 256 unsent expectations
+EES_ARR_ERR [2311170000] do_block timeout (len=27 last=1)
+EES_ARR_ERR [2311190000] tile end with 256 unsent expectations
+EES_ARR_ERR [2383690000] do_block timeout (len=64 last=1)
+EES_ARR_ERR [2383710000] tile end with 256 unsent expectations
+EES_ARR_INFO G9_RANDOM done (8 tiles)
+EES_ARR_ERR conservation started=30 done=19 aborted=2
+EES_ARR_ERR blk_done seen=11 want=12
+EES_SUMMARY checks=5297 errors=19
+EES_ARR_INFO config=16x16 tiles started=30 done=19 aborted=2 y=5297
+EES_ARR_INFO blocks_fed=40 blk_done=11
+EES_VIVADO_RESULT FAIL
+$finish called at time : 2383790 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_array.sv" Line 469
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:53 . Memory (MB): peak = 224.281 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 34620 KB (Peak: 34620 KB), Simulation CPU Usage: 52827 ms
+INFO: [Common 17-206] Exiting xsim at Fri Sep 18 23:59:56 2026...
+INFO: [Common 17-206] Exiting Vivado at Fri Sep 18 23:59:56 2026...

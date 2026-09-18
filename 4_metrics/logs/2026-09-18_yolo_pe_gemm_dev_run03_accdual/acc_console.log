@@ -1,0 +1,66 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Fri Sep 18 23:20:05 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source sim_acc_dual.tcl -notrace
+EES_VIVADO_STAGE COMPILE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe -sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_acc_dual.sv
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_acc_dual
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_acc_dual.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_yolo_acc_dual
+EES_VIVADO_STAGE ELABORATE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -s tb_acc_dual tb_yolo_acc_dual
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -s tb_acc_dual tb_yolo_acc_dual 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.yolo_acc_dual
+Compiling module work.tb_yolo_acc_dual
+Built simulation snapshot tb_acc_dual
+EES_VIVADO_STAGE SIMULATE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_acc_dual -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Fri Sep 18 23:20:07 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_acc_dual/xsim_script.tcl
+# xsim {tb_acc_dual} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+EES_ACC_TALLY phase=init started=0 done=0 aborted=0
+EES_ACC_TALLY phase=A1_K_SWEEP started=5 done=5 aborted=0
+EES_ACC_TALLY phase=A2_RESUME_2304 started=6 done=6 aborted=0
+EES_ACC_TALLY phase=A2_RESUME_64_IRREG started=7 done=7 aborted=0
+EES_ACC_TALLY phase=A3_CLEAR_RESTART started=10 done=9 aborted=1
+EES_ACC_TALLY phase=A4_MASK started=17 done=16 aborted=1
+EES_ACC_TALLY phase=A5_STALL started=18 done=17 aborted=1
+EES_ACC_TALLY phase=A6_RESET_MID started=22 done=19 aborted=3
+EES_ACC_TALLY phase=A7_K1_CORNER started=27 done=24 aborted=3
+EES_ACC_INFO A8 manual s8 bound pinned: 37748736
+EES_ACC_TALLY phase=A8_EXTREME_SUM started=31 done=28 aborted=3
+EES_ACC_TALLY phase=A9_RANDOM_TILES started=231 done=228 aborted=3
+EES_ACC_INFO tiles started=231 done=228 aborted=3
+EES_SUMMARY checks=169025 errors=0
+EES_VIVADO_RESULT PASS
+$finish called at time : 1690380 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_acc_dual.sv" Line 623
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Sep 18 23:20:09 2026...
+INFO: [Common 17-206] Exiting Vivado at Fri Sep 18 23:20:09 2026...

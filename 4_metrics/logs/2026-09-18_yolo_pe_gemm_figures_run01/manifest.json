@@ -1,0 +1,66 @@
+{
+  "status": "DRAWINGS_GENERATED",
+  "scope": "Proposed architecture, not RTL validation",
+  "files": [
+    {
+      "path": "E:\\competition\\1_docs\\yolo_pe_design_manual_20260918.md",
+      "sha256": "299a0ecafea3b60847a3ce7c2b19e70bbbf94ce37909dda31da5fc952117fa56",
+      "bytes": 11181
+    },
+    {
+      "path": "E:\\competition\\1_docs\\yolo_gemm_design_manual_20260918.md",
+      "sha256": "cbb05b56363bcbf9ee673fb6ee66f044188f8ad6ed2a7052a9d694b808e5ddfb",
+      "bytes": 17967
+    },
+    {
+      "path": "E:\\competition\\4_metrics\\logs\\2026-09-18_yolo_pe_gemm_figures_run01\\draw_architecture.py",
+      "sha256": "c831548709fcc2e70594522a52dbc82f5f3d8dabc69c8db6d3e4381ef29cc740",
+      "bytes": 14485
+    },
+    {
+      "path": "E:\\competition\\1_docs\\figures\\yolo_pe_detailed_architecture_20260918.svg",
+      "sha256": "353163cdd80087bf62aae02c43081d29cb977517466c1b06950e0628a5e66b2a",
+      "bytes": 32396
+    },
+    {
+      "path": "E:\\competition\\1_docs\\figures\\yolo_pe_detailed_architecture_20260918.png",
+      "sha256": "01a9cf3ea3fccc05bcb0ba3d28bb3e07481e0625be3b0deff9bdda5c13dd1e33",
+      "bytes": 529334
+    },
+    {
+      "path": "E:\\competition\\1_docs\\figures\\yolo_pe_detailed_architecture_20260918.pdf",
+      "sha256": "3f158092196aed5075268535a8fcd5bb277c1bd281835a0a1d77f4cba799e05d",
+      "bytes": 137084
+    },
+    {
+      "path": "E:\\competition\\1_docs\\figures\\yolo_gemm_detailed_architecture_20260918.svg",
+      "sha256": "44d792e12d35f089912369e1e6af959a6e12c2505bab390068a28926a30f2bb9",
+      "bytes": 36616
+    },
+    {
+      "path": "E:\\competition\\1_docs\\figures\\yolo_gemm_detailed_architecture_20260918.png",
+      "sha256": "9fdd4c0f329a67f0aabb159cf3eeeeb1d497c1ae06080c046159414cc0079993",
+      "bytes": 672119
+    },
+    {
+      "path": "E:\\competition\\1_docs\\figures\\yolo_gemm_detailed_architecture_20260918.pdf",
+      "sha256": "e75aae567f8dae5884387c094dbb7a61d40e254978819db33de90f2d93d7a4aa",
+      "bytes": 155899
+    },
+    {
+      "path": "E:\\competition\\1_docs\\figures\\yolo_gemm_pe_array_20260918.svg",
+      "sha256": "2ff44b4d32824e4dfb53a5a0cdc3820e5d827481e3eb229e926623fd738ffcb1",
+      "bytes": 41499
+    },
+    {
+      "path": "E:\\competition\\1_docs\\figures\\yolo_gemm_pe_array_20260918.png",
+      "sha256": "e33d550f0f919b64510d58a30c06ad7ac9494d1c08df439998fdfad8d9fcb86b",
+      "bytes": 425919
+    },
+    {
+      "path": "E:\\competition\\1_docs\\figures\\yolo_gemm_pe_array_20260918.pdf",
+      "sha256": "da2cb7bf447f01f14d098c8c4faef473a1bc902faf5751463cf1f9a8fb6c9aaf",
+      "bytes": 99404
+    }
+  ]
+}

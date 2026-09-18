@@ -1,0 +1,160 @@
+{
+  "environment": {
+    "python": "D:\\work\\Python\\python.exe",
+    "version": "3.13.9",
+    "numpy": "2.4.4"
+  },
+  "hashes": {
+    "2_fpga\\3_yolo_zynq\\rom_data\\bias.bin": "c5a7825832c1f9f0beeb5c3600790f0a5d2b1f42884f9207ea5e4521fd513ac7",
+    "2_fpga\\3_yolo_zynq\\rom_data\\lut.bin": "91c3a1b87c914c2cbc2ace92e506297b285a4a485d51036aaec8d7c363f2609f",
+    "2_fpga\\3_yolo_zynq\\rom_data\\manifest.json": "8770e147884f782a92fb55471d4c370e9a7328c71e6ad3c48017e02e07e65696",
+    "2_fpga\\3_yolo_zynq\\rom_data\\quant.json": "6b2392d3402a40f6c692f8a49a459ef639fbefb6519a9bb4e2bb722a52b35433",
+    "2_fpga\\3_yolo_zynq\\rom_data\\README.md": "395f35687c7375134a9e217882a24c8033a26196ddd782cf8682949594137fa3",
+    "2_fpga\\3_yolo_zynq\\rom_data\\schedule.json": "1bc33538cef7ee9bd338f69a6e3c23ca5f9b72070f759ee1b124b0f06825d473",
+    "2_fpga\\3_yolo_zynq\\rom_data\\weights.bin": "3548b8fab6f2d4c92bb1cfa5111e5eba49e3a049257d377d419b19e0036118a4",
+    "2_fpga\\3_yolo_zynq\\pynq\\board_diag03.py": "d29e3919b15a332ec949966e73d88e4622fefa24b34ad1d26be770b0f87816c4",
+    "2_fpga\\3_yolo_zynq\\pynq\\board_pack_selfcheck.py": "5cf5c32b3bb88a16ee0e875f76c814539fd703eb12fcc74b074f342198a17e59",
+    "2_fpga\\3_yolo_zynq\\pynq\\board_selfcheck.py": "bf56b899344048871ffed6a727879a6536258bb3a2b7435add2ae2a3dc0c8f38",
+    "2_fpga\\3_yolo_zynq\\pynq\\board_selfcheck_diag.py": "e1bb33adba83d4fbe9ab55ae3c978d8ddcbb327f111d4c5a5f2cb0029a66195f",
+    "2_fpga\\3_yolo_zynq\\pynq\\gen_schedule.py": "99407fb0008f518586d42c97ee42cae969ef7eb85536329fbb4a289f2c75ad5b",
+    "2_fpga\\3_yolo_zynq\\pynq\\intarith.py": "9340d53c937164f2d1845cfe942b1571637f2405e6aef63949f1695a0cb75b07",
+    "2_fpga\\3_yolo_zynq\\pynq\\m13_stim_gen.py": "7f6eee88f312525f5a80efe1ec70abef328cbb701f3ee8acbd93d3a34f83d7af",
+    "2_fpga\\3_yolo_zynq\\pynq\\pl_m11.py": "f67f0c5efafdd8f56440ca7301260708ef959f66515bccf1c4e6f6695680f1ed",
+    "2_fpga\\3_yolo_zynq\\pynq\\pl_m11_pynq.py": "b68f3518370036d6c740adeb54382a6a13c96173487a801611f3b5bc8364a0f3",
+    "2_fpga\\3_yolo_zynq\\pynq\\pl_m11_run08.py": "60790d4f44b398298cc24898afe080a079c20fd958882b758ca162b1720bcfc5",
+    "2_fpga\\3_yolo_zynq\\pynq\\pl_m11_run09.py": "79ef6883c15dd6e01e93c01ebd38a41109c1d719a8df0de9e2a18d503e580520",
+    "2_fpga\\3_yolo_zynq\\pynq\\pl_m11_run10.py": "3eafe45955c64966241fe38c2c32cb5d93fc22495297f32ca34d222f6fbec86a",
+    "2_fpga\\3_yolo_zynq\\pynq\\pl_m11_selftest.py": "05eebb18064e5e91d7a4ae5082c7f7de576ee88fb24ba693b224db1e4bc1c767",
+    "2_fpga\\3_yolo_zynq\\pynq\\poll_status02.py": "8b3594a88c599517a3c9af21080683c4b60356799106805cd4891b48c647d990",
+    "2_fpga\\3_yolo_zynq\\pynq\\probe_import.py": "cbbbc1e2949f60801dacae3bd6c3775d976a7e3ebcba8ca6aab54f5b2c32968d",
+    "2_fpga\\3_yolo_zynq\\pynq\\probe_w11.py": "6515484130c8673ab22696d861ef8dee6c532cecc249b46a3971d5f1aded814a",
+    "2_fpga\\3_yolo_zynq\\pynq\\yolo_decode.py": "007d59ad9622176f31cb1993d811ccf72728fe40adeb5abb1f9ef425ceabfe12",
+    "2_fpga\\3_yolo_zynq\\pynq\\yolo_pkg.py": "e5ab95aa47bc143ab3ae3a912bb8bac2eb43c60d45e0031cda4c68df267ab4a6",
+    "2_fpga\\3_yolo_zynq\\pynq\\yolo_runtime.py": "b9b8fcc0b5187898a9df36968a483104348e0401210631ae46d6d92eddd2c5eb",
+    "4_metrics\\logs\\2026-09-15_yolo7020_g2_quant_rne_run04\\intref_yolov8.py": "2fc2ab6cc511fdb45754e7bf5cae1724c4d5318717ff0a233a4f3e9bb1abb761",
+    "4_metrics\\logs\\2026-09-15_yolo7020_g2_quant_rne_run04\\run_g2_quant.py": "a4d54f14060c370f6733ba8ba0b6beec3a19b23883c7d96f37c3fc1369872fcb",
+    "2_fpga\\3_yolo_zynq\\rtl\\yolo_acc.v": "f4107fa2a63e1699c53a73a8a2dbc55014d42b55e19bc4791d4043a876fe8f17",
+    "2_fpga\\3_yolo_zynq\\rtl\\yolo_addrgen.v": "eec90f6d3d0007da9d55f89a31bd701d54ccdda568f26b22dd483f8fbbc26615",
+    "2_fpga\\3_yolo_zynq\\rtl\\yolo_conv_core.v": "ad3c27fdbf4d3b7012e3dcfe259bd3988dad27597099a409ea0b285574b9c39d",
+    "2_fpga\\3_yolo_zynq\\rtl\\yolo_csr.v": "3db91794d48f0a114d6c1551b547a9392c72ac2feebc6f3a32a15ac3dee87bb9",
+    "2_fpga\\3_yolo_zynq\\rtl\\yolo_ctrl.v": "430f3c64d86cb817aa153d1dc66b28f4c5d5c6ec172c0905a95347abab2d7474",
+    "2_fpga\\3_yolo_zynq\\rtl\\yolo_dma.v": "5f99ffd89b0b5ec703bf97ca0c8859b1635edf63cc9a5376f2d826389ab69cef",
+    "2_fpga\\3_yolo_zynq\\rtl\\yolo_dma_wr.v": "79598e4c225b5cbbed33ebfc38559da332ef3f9b96fdca044c7977e8d506d4f5",
+    "2_fpga\\3_yolo_zynq\\rtl\\yolo_engine_top.v": "0b809501e6a1f0d5ff1fe99d8bc43b639fe274d325a0b3631526e8e890ffe573",
+    "2_fpga\\3_yolo_zynq\\rtl\\yolo_gemm_array.v": "24dc59f4cfd0cef9989ac77d9092f672b4b39c020f8e1e3c1b0390836a2cd236",
+    "2_fpga\\3_yolo_zynq\\rtl\\yolo_pe_pack.v": "7072bbae3f337a75338aa8d247ff327bd9450ba5d278ecfc3a365ea7ae2cd609",
+    "2_fpga\\3_yolo_zynq\\rtl\\yolo_requant.v": "1261433d7a07317ca6b457589dcb933b492a4008cc90fdc45f024d9f58a2aae0",
+    "2_fpga\\3_yolo_zynq\\rtl\\yolo_silu_lut.v": "30423c61a4909f41ab1a68d6aaf5434b38afb4638a70c8cfe7a36e5279570f87",
+    "2_fpga\\3_yolo_zynq\\rtl\\yolo_wbuf.v": "99b545b4e75438103ddf3feec91b9b4bd0e21d71e5287f588abffe8bb3929c67",
+    "2_fpga\\3_yolo_zynq\\rtl\\yolo_xbuf.v": "2a745db790f8351d400402b1ac834725ef53dea55540990acc25d8fa334027e5",
+    "2_fpga\\3_yolo_zynq\\rtl\\yolo_xrowgen.v": "0f14247fece6fb4d45657aabc5a7f7513ef4a83b91b3e7714faa7b18bcf19e76"
+  },
+  "package_hashes": {
+    "weights.bin": true,
+    "bias.bin": true,
+    "lut.bin": true,
+    "quant.json": true
+  },
+  "g2_equals_rom": {
+    "weights.bin": true,
+    "bias.bin": true,
+    "lut.bin": true,
+    "quant.json": true
+  },
+  "ops": {
+    "conv": 63,
+    "view": 16,
+    "add": 6,
+    "concat": 13,
+    "maxpool5": 3,
+    "upsample2": 2,
+    "heads": 1
+  },
+  "profile": {
+    "mac": 1011014400,
+    "head_mac": 370809600,
+    "max_K": 2304,
+    "max_acc_bias_bound": 9804150,
+    "conv_output_bytes": 3553900,
+    "all_declared_buffer_bytes": 6715500
+  },
+  "rne_checks": 636174,
+  "packing_combinations": 16777216,
+  "counterexamples": {
+    "nms_top1": {
+      "got": [
+        0
+      ],
+      "expected": [
+        1
+      ]
+    },
+    "ap_missing_prediction_class": {
+      "got_macro_ap": 1.0,
+      "expected_macro_ap": 0.5,
+      "per_class": {
+        "0": {
+          "ap50": 1.0,
+          "npos": 1
+        },
+        "1": {
+          "ap50": null,
+          "npos": 1
+        }
+      }
+    }
+  },
+  "deep": [
+    {
+      "sample": 0,
+      "conv_nodes": 41,
+      "compared_conv_bytes": 2747500,
+      "head_sha256": "9ce70525fc1732cde640bfa654919dd28504422aa9791a2875225ae6ad6aa6ad"
+    },
+    {
+      "sample": 1,
+      "conv_nodes": 41,
+      "compared_conv_bytes": 2747500,
+      "head_sha256": "15ea325dd2e50d10cdbc97605538c50be75a0e4296f2630a89c2e58266df70d2"
+    },
+    {
+      "sample": 2,
+      "conv_nodes": 41,
+      "compared_conv_bytes": 2747500,
+      "head_sha256": "6bdc98e18c38a3d359fc1b5d51b7869f8131257cbc0cbfe755d008888b71febd"
+    },
+    {
+      "sample": 3,
+      "conv_nodes": 41,
+      "compared_conv_bytes": 2747500,
+      "head_sha256": "c20c1080137a297e46ad591388f0e7e32364d1ae613759c50d42f6c69e38e258"
+    },
+    {
+      "sample": 4,
+      "conv_nodes": 41,
+      "compared_conv_bytes": 2747500,
+      "head_sha256": "9bdc352c91b562493865e9421b6570c98f445f704892b41e5b66fafc1e1bd3be"
+    }
+  ],
+  "budget": {
+    "E8_RU1": {
+      "idealized_beats": 16325856,
+      "fps_60MHz_upper_estimate": 3.675151857274743,
+      "fps_150MHz_upper_estimate": 9.187879643186857,
+      "n_outer_layers": 24
+    },
+    "E16_RU1": {
+      "idealized_beats": 6760872,
+      "fps_60MHz_upper_estimate": 8.874594874743968,
+      "fps_150MHz_upper_estimate": 22.18648718685992,
+      "n_outer_layers": 16
+    },
+    "E16_RU10": {
+      "idealized_beats": 5900456,
+      "fps_60MHz_upper_estimate": 10.168705605126112,
+      "fps_150MHz_upper_estimate": 25.42176401281528,
+      "n_outer_layers": 21
+    }
+  },
+  "result": "AUDIT_CHECKS_PASS_WITH_CONFIRMED_PRODUCT_FINDINGS"
+}

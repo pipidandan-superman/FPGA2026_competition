@@ -1,0 +1,8 @@
+C1 packing exhaustive (256^3, w and x1 full sweeps): 0 mismatches
+C2 bounds: p0/p1 in signed17 = True/True, |w*x| <= 16256 = True
+C3 RNE directed edges + ties-to-even sweep (s=1..62): True, s=0 bypass: True
+C4 saturation edges: True
+C5 SiLU index y+128 == y&0xFF: True
+C6 first layer: acc+bias_eff == w.(x) + b_q + 128*sum(w): True (acc=-1077 bias_eff=395)
+C7 K=2304 Kc=576 chunked resume == single pass: True
+VERDICT PE_ORACLE_PASS

@@ -1,0 +1,83 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Fri Sep 18 23:20:10 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source sim_mac_cell.tcl -notrace
+EES_VIVADO_STAGE COMPILE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v" into library work
+INFO: [VRFC 10-311] analyzing module yolo_pe_pack
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe -sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_mac_cell.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_mac_cell.sv
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_pe_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_acc_dual
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_mac_cell.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_mac_cell
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_mac_cell.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_yolo_mac_cell
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe F:/vivado2025/2025.2/data/verilog/src/glbl.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/vivado2025/2025.2/data/verilog/src/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+EES_VIVADO_STAGE ELABORATE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -L unisims_ver -L unisim -s tb_mac_cell tb_yolo_mac_cell glbl
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -L unisims_ver -L unisim -s tb_mac_cell tb_yolo_mac_cell glbl 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.DSP48E1(ADREG=0,ALUMODEREG=0,CAR...
+Compiling module work.yolo_pe_pack_default
+Compiling module work.yolo_pe_core
+Compiling module work.yolo_acc_dual
+Compiling module work.yolo_mac_cell
+Compiling module work.tb_yolo_mac_cell
+Compiling module work.glbl
+Built simulation snapshot tb_mac_cell
+EES_VIVADO_STAGE SIMULATE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_mac_cell -runall -testplusarg GOLDEN=E:/competition/4_metrics/logs/2026-09-18_yolo_pe_gemm_dev_run01/golden_pe.hex
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Fri Sep 18 23:20:13 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_mac_cell/xsim_script.tcl
+# xsim {tb_mac_cell} -testplusarg GOLDEN=E:/competition/4_metrics/logs/2026-09-18_yolo_pe_gemm_dev_run01/golden_pe.hex -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+EES_MAC_INFO golden loaded: 76 vectors
+EES_MAC_TALLY phase=init started=0 done=0 aborted=0
+EES_MAC_TALLY phase=M0_GOLDEN_CONT started=1 done=0 aborted=0
+EES_MAC_TALLY phase=M1_K_SWEEP started=6 done=5 aborted=0
+EES_MAC_TALLY phase=M2_BACKTOBACK started=12 done=11 aborted=0
+EES_MAC_TALLY phase=M3_RESUME_64_IRREG started=14 done=13 aborted=0
+EES_MAC_TALLY phase=M4_MASK started=20 done=19 aborted=0
+EES_MAC_TALLY phase=M5_STALL started=22 done=21 aborted=0
+EES_MAC_TALLY phase=M6_RESET_MID started=25 done=23 aborted=2
+EES_MAC_TALLY phase=M7_CLEAR_RESTART started=28 done=25 aborted=3
+EES_MAC_TALLY phase=M8_K1_CORNER started=37 done=34 aborted=3
+EES_MAC_INFO M9 manual s8 bound pinned (real DSP path): 37748736
+EES_MAC_TALLY phase=M9_EXTREME_SUM started=40 done=36 aborted=3
+EES_MAC_TALLY phase=M10_RANDOM_TILES started=240 done=237 aborted=3
+EES_MAC_INFO tiles started=240 done=237 aborted=3
+EES_SUMMARY checks=164044 errors=0 lat_err=0
+EES_VIVADO_RESULT PASS
+$finish called at time : 1640570 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_mac_cell.sv" Line 733
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Sep 18 23:20:18 2026...
+INFO: [Common 17-206] Exiting Vivado at Fri Sep 18 23:20:18 2026...

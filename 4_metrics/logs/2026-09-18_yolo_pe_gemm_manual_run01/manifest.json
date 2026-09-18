@@ -1,0 +1,42 @@
+[
+  {
+    "path": "E:\\competition\\1_docs\\yolo_pe_design_manual_20260918.md",
+    "sha256": "299A0ECAFEA3B60847A3CE7C2B19E70BBBF94CE37909DDA31DA5FC952117FA56",
+    "bytes": 11181
+  },
+  {
+    "path": "E:\\competition\\1_docs\\yolo_gemm_design_manual_20260918.md",
+    "sha256": "CBB05B56363BCBF9EE673FB6EE66F044188F8AD6ED2A7052A9D694B808E5DDFB",
+    "bytes": 17967
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\3_yolo_zynq\\rtl\\yolo_pe_pack.v",
+    "sha256": "7072BBAE3F337A75338AA8D247FF327BD9450BA5D278ECFC3A365EA7AE2CD609",
+    "bytes": 11366
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\3_yolo_zynq\\rtl\\yolo_acc.v",
+    "sha256": "F4107FA2A63E1699C53A73A8A2DBC55014D42B55E19BC4791D4043A876FE8F17",
+    "bytes": 2667
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\3_yolo_zynq\\rtl\\yolo_requant.v",
+    "sha256": "1261433D7A07317CA6B457589DCB933B492A4008CC90FDC45F024D9F58A2AAE0",
+    "bytes": 22614
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\3_yolo_zynq\\rom_data\\schedule.json",
+    "sha256": "1BC33538CEF7EE9BD338F69A6E3C23CA5F9B72070F759EE1B124B0F06825D473",
+    "bytes": 267166
+  },
+  {
+    "path": "E:\\competition\\2_fpga\\3_yolo_zynq\\rom_data\\quant.json",
+    "sha256": "6B2392D3402A40F6C692F8A49A459EF639FBEFB6519A9BB4E2BB722A52B35433",
+    "bytes": 411237
+  },
+  {
+    "path": "E:\\competition\\1_docs\\doc\\yolo7020_gemm_pe_architecture_2026-09-15.md",
+    "sha256": "3E705D2C2B3BBD50468CE3399F1049DFCDC4A3175097CFB247FA846D1B217088",
+    "bytes": 38491
+  }
+]

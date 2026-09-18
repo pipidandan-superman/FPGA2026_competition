@@ -1,0 +1,257 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Sat Sep 19 00:15:13 2026
+# Process ID         : 39944
+# Current directory  : E:/competition/4_metrics/logs/2026-09-19_yolo_pe_gemm_dev_run07_syntheval
+# Command line       : vivado.exe -mode batch -source syn_gemm_ooc.tcl -notrace -nojournal
+# Log file           : E:/competition/4_metrics/logs/2026-09-19_yolo_pe_gemm_dev_run07_syntheval/vivado.log
+# Journal file       : 
+# Running On         : HC-202510241838
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : AMD Ryzen 5 9600X 6-Core Processor             
+# CPU Frequency      : 3893 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 33410 MB
+# Swap memory        : 21474 MB
+# Total Virtual      : 54884 MB
+# Available Virtual  : 20478 MB
+#-----------------------------------------------------------
+source syn_gemm_ooc.tcl -notrace
+EES_SYNTH_STAGE READ_SOURCES
+EES_SYNTH_STAGE BEGIN_A (KMAX=2304, period=10.000ns)
+Command: synth_design -top yolo_gemm_array -part xc7z020clg484-1 -mode out_of_context -generic {P_TO=16 P_TN=16 P_KMAX=2304}
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 28720
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1090.488 ; gain = 538.730
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'yolo_gemm_array' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv:53]
+	Parameter P_TO bound to: 16 - type: integer 
+	Parameter P_TN bound to: 16 - type: integer 
+	Parameter P_KMAX bound to: 2304 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'yolo_mac_cell' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_mac_cell.sv:47]
+INFO: [Synth 8-6157] synthesizing module 'yolo_pe_core' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv:45]
+INFO: [Synth 8-6157] synthesizing module 'yolo_pe_pack' [E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v:96]
+INFO: [Synth 8-6157] synthesizing module 'DSP48E1' [F:/vivado2025/2025.2/Vivado/scripts/rt/data/unisim_comp.v:48135]
+	Parameter ACASCREG bound to: 1 - type: integer 
+	Parameter ADREG bound to: 0 - type: integer 
+	Parameter ALUMODEREG bound to: 0 - type: integer 
+	Parameter AREG bound to: 1 - type: integer 
+	Parameter A_INPUT bound to: DIRECT - type: string 
+	Parameter BCASCREG bound to: 1 - type: integer 
+	Parameter BREG bound to: 1 - type: integer 
+	Parameter B_INPUT bound to: DIRECT - type: string 
+	Parameter CARRYINREG bound to: 0 - type: integer 
+	Parameter CARRYINSELREG bound to: 0 - type: integer 
+	Parameter CREG bound to: 1 - type: integer 
+	Parameter DREG bound to: 1 - type: integer 
+	Parameter INMODEREG bound to: 0 - type: integer 
+	Parameter MREG bound to: 1 - type: integer 
+	Parameter OPMODEREG bound to: 0 - type: integer 
+	Parameter PREG bound to: 1 - type: integer 
+	Parameter USE_DPORT bound to: FALSE - type: string 
+	Parameter USE_MULT bound to: MULTIPLY - type: string 
+	Parameter USE_PATTERN_DETECT bound to: NO_PATDET - type: string 
+	Parameter USE_SIMD bound to: ONE48 - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'DSP48E1' (0#1) [F:/vivado2025/2025.2/Vivado/scripts/rt/data/unisim_comp.v:48135]
+INFO: [Synth 8-6155] done synthesizing module 'yolo_pe_pack' (0#1) [E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v:96]
+INFO: [Synth 8-6155] done synthesizing module 'yolo_pe_core' (0#1) [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv:45]
+INFO: [Synth 8-6157] synthesizing module 'yolo_acc_dual' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv:47]
+INFO: [Synth 8-6155] done synthesizing module 'yolo_acc_dual' (0#1) [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv:47]
+INFO: [Synth 8-6155] done synthesizing module 'yolo_mac_cell' (0#1) [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_mac_cell.sv:47]
+INFO: [Synth 8-6157] synthesizing module 'yolo_gemm_tail' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_tail.sv:47]
+	Parameter R bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'yolo_gemm_tail' (0#1) [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_tail.sv:47]
+INFO: [Synth 8-6155] done synthesizing module 'yolo_gemm_array' (0#1) [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv:53]
+WARNING: [Synth 8-11357] Potential Runtime issue for 3D-RAM or RAM from Record/Structs for RAM  W_buf_reg with 294912 registers
+WARNING: [Synth 8-11357] Potential Runtime issue for 3D-RAM or RAM from Record/Structs for RAM  X_buf_reg with 294912 registers
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:04:35 ; elapsed = 00:04:43 . Memory (MB): peak = 15155.148 ; gain = 14603.391
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:05:03 ; elapsed = 00:05:13 . Memory (MB): peak = 15155.148 ; gain = 14603.391
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:05:03 ; elapsed = 00:05:13 . Memory (MB): peak = 15155.148 ; gain = 14603.391
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'yolo_gemm_array'
+WARNING: [Synth 8-6014] Unused sequential element ti_reg was removed.  [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv:213]
+WARNING: [Synth 8-6014] Unused sequential element ti_reg was removed.  [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv:213]
+WARNING: [Synth 8-6014] Unused sequential element ti_reg was removed.  [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv:213]
+WARNING: [Synth 8-6014] Unused sequential element ti_reg_rep was removed.  [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv:213]
+WARNING: [Synth 8-6014] Unused sequential element ti_reg_rep was removed.  [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv:213]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  S_IDLE |                              000 |                              000
+                 S_ISSUE |                              101 |                              010
+                 S_DRAIN |                              011 |                              011
+                  S_TAIL |                              010 |                              100
+                 S_TAILW |                              001 |                              101
+                  S_WAIT |                              100 |                              001
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'yolo_gemm_array'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:07:58 ; elapsed = 00:07:57 . Memory (MB): peak = 15155.148 ; gain = 14603.391
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   64 Bit       Adders := 2     
+	   2 Input   33 Bit       Adders := 1     
+	   3 Input   17 Bit       Adders := 128   
+	   2 Input   17 Bit       Adders := 128   
+	   2 Input   13 Bit       Adders := 3     
+	   2 Input   12 Bit       Adders := 2     
+	 241 Input    9 Bit       Adders := 1     
+	   2 Input    9 Bit       Adders := 4     
+	   2 Input    8 Bit       Adders := 1     
+	   2 Input    6 Bit       Adders := 1     
+	  16 Input    5 Bit       Adders := 1     
++---Registers : 
+	               64 Bit    Registers := 1     
+	               33 Bit    Registers := 1     
+	               32 Bit    Registers := 1     
+	               16 Bit    Registers := 2     
+	               13 Bit    Registers := 3     
+	               12 Bit    Registers := 1     
+	                9 Bit    Registers := 4     
+	                8 Bit    Registers := 74115 
+	                6 Bit    Registers := 2     
+	                4 Bit    Registers := 9     
+	                2 Bit    Registers := 384   
+	                1 Bit    Registers := 1293  
++---Multipliers : 
+	              32x33  Multipliers := 1     
++---RAMs : 
+	               2K Bit	(256 X 8 bit)          RAMs := 1     
+	              512 Bit	(16 X 32 bit)          RAMs := 2     
+	               96 Bit	(16 X 6 bit)          RAMs := 1     
++---Muxes : 
+	   5 Input   13 Bit        Muxes := 2     
+	   2 Input   12 Bit        Muxes := 1     
+	   2 Input    9 Bit        Muxes := 1     
+	   5 Input    9 Bit        Muxes := 2     
+	   2 Input    8 Bit        Muxes := 3     
+	   2 Input    3 Bit        Muxes := 15    
+	   3 Input    3 Bit        Muxes := 2     
+	   6 Input    3 Bit        Muxes := 4     
+	   2 Input    1 Bit        Muxes := 74228 
+	   5 Input    1 Bit        Muxes := 8     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+DSP Report: Generating DSP p_0_out, operation Mode is: A2*B2.
+DSP Report: register sum_r_reg[0] is absorbed into DSP p_0_out.
+DSP Report: register p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: Generating DSP prod_r_reg[0], operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register sum_r_reg[0] is absorbed into DSP prod_r_reg[0].
+DSP Report: register prod_r_reg[0] is absorbed into DSP prod_r_reg[0].
+DSP Report: operator p_0_out is absorbed into DSP prod_r_reg[0].
+DSP Report: operator p_0_out is absorbed into DSP prod_r_reg[0].
+DSP Report: Generating DSP p_0_out, operation Mode is: A2*B2.
+DSP Report: register p_0_out is absorbed into DSP p_0_out.
+DSP Report: register p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: Generating DSP prod_r_reg[0], operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register prod_r_reg[0] is absorbed into DSP prod_r_reg[0].
+DSP Report: register prod_r_reg[0] is absorbed into DSP prod_r_reg[0].
+DSP Report: operator p_0_out is absorbed into DSP prod_r_reg[0].
+DSP Report: operator p_0_out is absorbed into DSP prod_r_reg[0].
+WARNING: [Synth 8-6014] Unused sequential element ti_reg_rep was removed.  [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv:213]
+WARNING: [Synth 8-6014] Unused sequential element ti_reg_rep was removed.  [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv:213]
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][47]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][46]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][45]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][44]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][43]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][42]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][41]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][40]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][39]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][38]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][37]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][36]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][35]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][34]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][33]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][32]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][31]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][30]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][29]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][28]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][27]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][26]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][25]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][24]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][23]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][22]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][21]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][20]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][19]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][18]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][17]) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][47]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][46]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][45]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][44]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][43]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][42]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][41]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][40]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][39]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][38]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][37]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][36]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][35]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][34]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][33]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][32]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][31]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][30]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][29]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][28]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][27]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][26]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][25]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][24]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][23]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][22]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][21]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][20]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][19]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][18]__0) is unused and will be removed from module yolo_gemm_tail.
+WARNING: [Synth 8-3332] Sequential element (prod_r_reg[0][17]__0) is unused and will be removed from module yolo_gemm_tail.
