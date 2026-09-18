@@ -1,0 +1,44 @@
+[r1 board load+verify console output — captured verbatim from ssh session 2026-09-18 10:29]
+[run: ssh xilinx@192.168.240.10 'echo *** | sudo -S sh /home/xilinx/csr_board_run01/run_verify.sh']
+[script: board_load_verify.py sha256 ce49eff5c8aab8a76c27638c4f784cedb7040830c65f8da69271b4993e886c54 (dual-side verified)]
+[bit: display_test_wrapper.bit sha256 8be0a23409e12616...  hwh: d50c5df4e5c4db8e... (dual-side verified)]
+
+[sudo] password for xilinx: [r1 CK1a start bit_sha=8be0a23409e12616 10:29:31]
+[r1 CK1b ip_dict=['processing_system7_0', 'u_yolo_csr'] 10:29:42]
+[r1 CK1c u_yolo_csr phys=0x43c10000 range=65536 expect=0x43c10000 -> PASS 10:29:42]
+[r1 CK2a pre_locks=1 download_begin 10:29:42]
+[r1 CK2b download_returned 10:29:42]
+[r1 CK3 state=operating 10:29:43]
+[r1 CK4 lock_delta=1 -> PASS 10:29:43]
+[r1 CK5a ID=0x594F4C32 VERSION=0x00000300 10:29:43]
+[r1 CK5b CAP0=0x07100404 CAP1=0x00801007 STATUS=0x00000011 10:29:43]
+[r1 CK5c ERR_STATUS=0x00000000 SCHED_STATUS=0x00000000 10:29:43]
+[r1 CK5d identity -> PASS 10:29:43]
+[r1 CK6a MODEL_ID_write_begin 10:29:43]
+[r1 CK6b MODEL_ID_write_done readback_begin 10:29:43]
+[r1 CK6c MODEL_ID_readback=0xA5A51234 expect=0xA5A51234 -> PASS 10:29:43]
+[r1 CK6d MODEL_ID_restored 10:29:43]
+[r1 CK6e BUFWIN_write_begin 10:29:43]
+[r1 CK6f BUFWIN_write_done readback_begin 10:29:43]
+[r1 CK6g BUFWIN_readback=0x11223344 expect=0x11223344 -> PASS 10:29:43]
+[r1 CK7 BOARD_CSR_PASS 10:29:43]
+
+[post-run board evidence (separate ssh probe)]
+[  46.635436] [drm] bitstream f2dfadb4-9699-9399-54b7-a456e272f0bd locked, ref=1   <- boot camera overlay (pre-existing)
+[  768.921223] [drm] bitstream 6574abd2-5b80-aa60-97b2-bd619a63261b locked, ref=1   <- THIS download (r1)
+fpga0/state = operating
+bit  sha256 8be0a23409e126164da50e67a157e33757e60aa8224fcc6798d5cd5096181321
+hwh  sha256 d50c5df4e5c4db8ef0c994e403b51fff9dd075769df1759e67288833619ee689
+
+[interpretation]
+- CK1  HWH contract: u_yolo_csr module-ref parsed, phys_addr=0x43C10000 / addr_range=65536 (PYNQ 3.0.1 key phys_addr)
+- CK2-4 real download: download() returned, fpga0 operating, zocl lock count 1->2 (fresh UUID 6574abd2...)
+- CK5  L1 identity: ID=0x594F4C32 ("YOLO2"), VERSION=0x0300 exactly per yolo_csr_pkg contract
+       STATUS=0x11 = bit0 IDLE + bit4 DESC_EMPTY (yolo_reg_file.sv:309-318) -> healthy idle
+       ERROR_STATUS=0, SCHED_STATUS=0 -> no error latches, scheduler quiescent
+- CK6  L2 first writes SURVIVED (old M13 fabric hard-froze on ANY GP0 write):
+       MODEL_ID(0x20) w 0xA5A51234 / r back / restore-0 OK
+       BUF window(0x3000, BMG port A path) w 0x11223344 / r back OK
+- CK7  BOARD_CSR_PASS: all gates green.
+=> PS->PL AXI-Lite CSR subsystem verified end-to-end on board, first write class proven safe.
+   M13 discrimination: this design is NOT the M13 kill class.
