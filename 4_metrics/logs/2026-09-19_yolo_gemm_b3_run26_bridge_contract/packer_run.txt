@@ -1,0 +1,5 @@
+﻿B3_CONV0_PACKER PASS
+  mirror   be4d56f067b91d0227312d164edb6ee802ebc212ad7b27d83d58aa540e63832f (2486272 B)
+  golden_y eeb15bf9b53950816cde51d063336aa79fb5ad41e9bf1f3b01b6357f442f6bbe (409600 B, vs G0: OK)
+  pad bytes 5754 (expect 5754)
+  block sha[0]=775d1d12e223d70c7c67ecf89a04d4abca9ced9a0b4f7a198b70d184b8193669

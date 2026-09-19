@@ -1,0 +1,62 @@
+{
+ "frame": 0,
+ "image": "images89_jpg.rf.0bfa9777072aa98975eea6599bd81f0f.jpg",
+ "mirror_len": 2486272,
+ "block_sha256": {
+  "0": "775d1d12e223d70c7c67ecf89a04d4abca9ced9a0b4f7a198b70d184b8193669",
+  "1": "33297841d89f8c7d7a2d645b30765e042907f73598b0ebcba63c648329affb64",
+  "3198": "5da7960864b9eef5ed1d1daf16659e55924ae08f185831b93032581cec1f2ac0",
+  "3199": "16b7c052a84e7f8612f3525cf3b57dda15fff247132fab0dfc81362b5ccd1662"
+ },
+ "block_len_all_648": true,
+ "sar_delta_648_all": true,
+ "sar_8b_aligned_all": true,
+ "y_dst_8b_aligned_all": true,
+ "w_x_beat_counts": {
+  "w": 27,
+  "x_lo": 27,
+  "x_hi": 27
+ },
+ "pad_bytes_total": 5754,
+ "pad_expect_total": 5754,
+ "y_arena_0xa5": true,
+ "guard_0xa5": true,
+ "boundary_tiles": {
+  "tile0_g0": {
+   "sha256": "775d1d12e223d70c7c67ecf89a04d4abca9ced9a0b4f7a198b70d184b8193669",
+   "hex16": "e210f826310ce8da8080808080808080"
+  },
+  "tile0_g1": {
+   "sha256": "33297841d89f8c7d7a2d645b30765e042907f73598b0ebcba63c648329affb64",
+   "hex16": "d22f2617d11cd2f38080808080808080"
+  },
+  "tile9_g0": {
+   "sha256": "2e2ea00ab99761cd5a61b91c063643bfbe14ba4ccf17ead304ea522e0f4d98ad",
+   "hex16": "e210f826310ce8da8080808080808080"
+  },
+  "tile9_g1": {
+   "sha256": "5fe184fda8de799768aed6e5054d91206795282c6b9679f35492894d508ace19",
+   "hex16": "d22f2617d11cd2f38080808080808080"
+  },
+  "tile1590_g0": {
+   "sha256": "b064d453dd39f1b5707d2b8ce646f7625d8318e5978b85ad07ce3f3f0fee1ac9",
+   "hex16": "e210f826310ce8da8070717272737474"
+  },
+  "tile1590_g1": {
+   "sha256": "375638c16e3f3f5a6c5b4719c24488ca2c9b660e359dbb05ed1616f6cc7189ef",
+   "hex16": "d22f2617d11cd2f38070717272737474"
+  },
+  "tile1599_g0": {
+   "sha256": "5da7960864b9eef5ed1d1daf16659e55924ae08f185831b93032581cec1f2ac0",
+   "hex16": "e210f826310ce8da7b71707071727272"
+  },
+  "tile1599_g1": {
+   "sha256": "16b7c052a84e7f8612f3525cf3b57dda15fff247132fab0dfc81362b5ccd1662",
+   "hex16": "d22f2617d11cd2f37b71707071727272"
+  }
+ },
+ "block0_hex_prefix64": "e210f826310ce8da80808080808080808080808080808080fd19d867df24bad0808080808080808080808080808080801c07f04be60e4a118080808080808080",
+ "mirror_sha256": "be4d56f067b91d0227312d164edb6ee802ebc212ad7b27d83d58aa540e63832f",
+ "golden_y_sha256": "eeb15bf9b53950816cde51d063336aa79fb5ad41e9bf1f3b01b6357f442f6bbe",
+ "golden_y_vs_g0": "OK"
+}

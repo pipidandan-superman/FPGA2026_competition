@@ -66,7 +66,11 @@
  *                       strobe: present one load-port beat; the beat
  *                       is held pending until wr_ready (group safe);
  *                       a WCTL while the slot is occupied is DROPPED
- *                       and flags STATUS.ld_pend_err
+ *                       and flags STATUS.ld_pend_err; a WCTL while
+ *                       the stream path is busy is likewise DROPPED
+ *                       and flags ld_pend_err + BRGSTAT.src_conflict
+ *                       (D4 dual-source exclusion, B3 contract
+ *                       1_docs/yolo_b3_dma_gemm_contract_20260919.md)
  *     0x3C LDSTAT  RO  {1:0 w_ld_ok, 3:2 x_ld_ok, 5:4 w_loaded,
  *                       7:6 x_loaded, 8 ld_done, 9 bank_err}
  *     0x40 LDLEN   RO  {12:0 ld_w_len, 25:13 ld_x_len}
@@ -77,6 +81,40 @@
  *     0x4C YADDR   W   {6:0 addr} strobe: set capture read address
  *     0x50 YDATA   RO  {7:0} capture readback (1-cycle RAM latency;
  *                       PS read spacing covers it, TB waits 2 cycles)
+ *     0x54 BRGSTAT RO  {0:ld_busy, 1:ld_done_st, 2:tlast_err,
+ *                       3:src_conflict, 4:y_ovf} -- bridge sticky
+ *                       errors, cleared by CTRL.err_clr / CTRL.soft_rst
+ *     0x58 STALLCNT RO {31:0} load backpressure cycle count
+ *                       (s_axis_ld_tvalid && !tready); read clears
+ *
+ *   DMA load bridge (B3 contract section 3, frozen 2026-09-19):
+ *     s_axis_ld_* is fed by axi_dma MM2S (64b, direct register mode,
+ *     one transfer == one load block).  The bridge derives the frozen
+ *     three-beat rhythm from its beat phase counter:
+ *       phase 0 -> W beat (is_x=0, first=(phase==0 && window closed))
+ *       phase 1 -> X lo  (is_x=1, x_hi=0)
+ *       phase 2 -> X hi  (is_x=1, x_hi=1, TLAST lands here)
+ *     be is hardwired 0xFF (full-lane beats only on the stream path;
+ *     partial-lane beats stay on the WCTL slot path).  wr_last is the
+ *     TLAST passthrough; a TLAST on a non-Xhi beat sets tlast_err
+ *     (the beat is still forwarded so the core closes the block --
+ *     recover via CTRL.soft_rst).  tready = core wr_ready && !slot
+ *     occupied: a stream beat arriving while the slot holds the port
+ *     simply WAITS (zero data loss) and flags src_conflict.
+ *
+ *   Y recovery stream (B3 contract section 3.5):
+ *     8 y beats pack into one 64b word, first y byte in [7:0] (low
+ *     lane first -> DDR byte order == emission order).  Words go
+ *     through a 1-cycle hold (so a tile_done pulse landing on the
+ *     completion cycle OR one cycle late both merge into the word's
+ *     tlast) into a 32-word FIFO; tlast marks the last word of each
+ *     tile (128B == 16 words for full tiles).  FULL VALID TILES ONLY
+ *     on this path (row_valid=0xFF, n_mask=0xFFFF, contract D2) --
+ *     masked-tile readback belongs to the ycap CSR path.  FIFO
+ *     overflow (S2MM not armed) drops the word and sets y_ovf; note
+ *     the FIFO WILL fill and y_ovf WILL set on CSR-path-only runs
+ *     (B1 regression) -- harmless by design, the ycap path is
+ *     independent.
  *
  *   Capture RAM addressing: addr = y_row*16 + y_col (0..127); every
  *   emitted y writes its own coordinate slot exactly once per tile
@@ -99,6 +137,32 @@
  * Dependencies    : yolo_gemm_core.sv, blk_mem_gen IP gemm_bm_ycap
  * Revision History:
  *   - V1.0 (2026-09-19) by LSL : B1 initial release, gate run21.
+ *   - V1.1 (2026-09-19) by LSL : B3 DMA bridge -- AXI4-Stream load
+ *                   slave (three-beat rhythm from phase counter) +
+ *                   y recovery stream master (8y->64b pack, 1-cycle
+ *                 hold, 32-word FIFO, per-tile tlast) + BRGSTAT/
+ *                 STALLCNT registers; WCTL slot path kept (D4
+ *                 dual-source exclusion).  Contract
+ *                 1_docs/yolo_b3_dma_gemm_contract_20260919.md.
+ *   - V1.2 (2026-09-20) by LSL : contract v1.1 audit fixes (run26,
+ *                 4_metrics/logs/2026-09-20_yolo_b3_partial_p1_audit_
+ *                 run01 items): (R1) ycap read window gated -- enb
+ *                 only for the 2-cycle readback window, killing the
+ *                 B-port collision with the core's last y write;
+ *                 (R2) src_conflict flags BOTH conditions of
+ *                 contract 8.2 (stream beat while WCTL pending ALSO
+ *                 sets ld_pend_err, not only WCTL-during-stream);
+ *                 (R3) accepted-beat block-length check -- beat
+ *                 counter, missing TLAST at beat 3072 flags
+ *                 tlast_err (not phase-only); (R4) external reset
+ *                 now clears ALL config registers (contract 9
+ *                 implementation clause); (R5) y-stream tlast fix --
+ *                 measured core tile_done lands >=2 cycles AFTER the
+ *                 last y beat (both V1.1 merge windows structurally
+ *                 missed it; no tlast was ever emitted), three-way
+ *                 merge now: same-beat capture (kept) + presentation-
+ *                 cycle comb merge when cnt==1 + late position-capture
+ *                 retrofit for words still queued.
  ************************************************************************/
 `timescale 1ns / 1ps
 
@@ -124,7 +188,17 @@ module yolo_gemm_top (
     output wire [31:0] s_axi_rdata   ,
     output wire [1:0]  s_axi_rresp   ,
     output wire        s_axi_rvalid  ,
-    input  wire        s_axi_rready
+    input  wire        s_axi_rready  ,
+    // AXI4-Stream slave: DMA load port (MM2S -> bridge, B3 C3)
+    input  wire [63:0] s_axis_ld_tdata ,
+    input  wire        s_axis_ld_tvalid,
+    output wire        s_axis_ld_tready,
+    input  wire        s_axis_ld_tlast ,
+    // AXI4-Stream master: y recovery port (bridge -> S2MM, B3 D2)
+    output wire [63:0] m_axis_y_tdata ,
+    output wire        m_axis_y_tvalid,
+    input  wire        m_axis_y_tready,
+    output wire        m_axis_y_tlast
 );
 
     // ------------------------------------------------------------ --
@@ -231,12 +305,99 @@ module yolo_gemm_top (
     wire       core_rst = rst | (soft_cnt != 3'd0);
 
     // ------------------------------------------------------------ --
+    // B3 DMA 装载桥（合同 2026-09-19 冻结版 §3）
+    // ------------------------------------------------------------ --
+    // 三拍节律相位：0=W 整字拍 / 1=X lo / 2=X hi（TLAST 落点）
+    reg  [1:0]  ld_ph_r;
+    reg         ld_strm_act;               //流传输窗（首拍收账..tlast 收账）
+    wire        strm_beat_vld = s_axis_ld_tvalid & ~wr_pend;  //槽空才呈现
+    wire        strm_acc      = strm_beat_vld & wr_ready_i;
+    wire        strm_busy_any = ld_strm_act | s_axis_ld_tvalid;
+    assign      s_axis_ld_tready = wr_ready_i & ~wr_pend;     //组安全反压直通
+
+    // 双源复用（D4）：槽拍优先；流拍仅在槽空时占用装载口
+    wire [63:0] ld_port_data  = wr_pend ? {wdata_hi_r, wdata_lo_r}
+                                        : s_axis_ld_tdata;
+    wire        ld_port_is_x  = wr_pend ? wrp_is_x : (ld_ph_r != 2'd0);
+    wire        ld_port_x_hi  = wr_pend ? wrp_x_hi  : (ld_ph_r == 2'd2);
+    wire [7:0]  ld_port_be    = wr_pend ? wrp_be_r  : 8'hFF;
+    wire        ld_port_first = wr_pend ? wrp_first
+                            : ((ld_ph_r == 2'd0) & ~ld_strm_act);
+    wire        ld_port_last  = wr_pend ? wrp_last : s_axis_ld_tlast;
+
+    // 装载反压周期计数（0x58，读清）——读提交拍地址译码
+    wire        stall_rd_clr = ar_hs && (s_axi_araddr[7:0] == 8'h58);
+    wire        ld_stall     = s_axis_ld_tvalid & ~s_axis_ld_tready;
+    reg  [31:0] ld_stall_cnt;
+
+    // 传输窗内 accepted beat 计数（§8.2：块长合法性除 phase 外还须计数——
+    // 第 3072 拍（K=1024 上限，bank 物理深度）仍无 tlast = 块超长置 tlast_err）
+    reg  [11:0] strm_beat_cnt;
+
+    // 桥粘滞错误（BRGSTAT）
+    reg         err_tlast, err_src_conf, err_y_ovf;
+
+    // ---- y 回收打包：8 拍 -> 1 字（首 y 字节落 [7:0]，低位先行）----
+    // 完成字经 1 拍 hold 再入 FIFO：tile_done 同拍/晚一拍两种落点都
+    // 能并入该字 tlast（V1.0 注释界定的两种脉冲时序全覆盖）。
+    reg  [63:0] ypk_w_r;                    //装配中字
+    reg  [2:0]  ypk_cnt_r;                  //已装字节数
+    reg  [63:0] ypk_word_r;                 //完成字 hold
+    reg         ypk_wv_r, ypk_wtl_r;        //hold 有效 / 完成拍收到的 tlast
+    wire [63:0] ypk_next = {core_y, ypk_w_r[63:8]};   //前插：末态 y0..y7
+    wire        ypk_wv_d = core_y_valid && (ypk_cnt_r == 3'd7);
+
+    // ---- y FIFO 32 字 ----
+    reg  [63:0] yfifo_mem [0:31];
+    reg  [31:0] yfifo_tl;
+    reg  [4:0]  yfifo_wp, yfifo_rp;
+    reg  [5:0]  yfifo_cnt;
+    wire        yfifo_full  = (yfifo_cnt == 6'd32);
+    wire        yfifo_empty = (yfifo_cnt == 6'd0);
+    wire        yfifo_pop   = m_axis_y_tvalid & m_axis_y_tready;
+    //满仓同拍有弹出：先弹后推同槽（读组合先于 NBA 写，语义正确）；
+    //满仓且无弹出才丢字置 y_ovf
+    wire        yfifo_push  = ypk_wv_r & (~yfifo_full | yfifo_pop);
+    // 合并 tlast：完成拍已收（ypk_wtl_r）或 hold 推出拍恰逢 tile_done
+    wire        yfifo_pushtl = ypk_wtl_r | (ypk_wv_r & core_tile_done_w);
+    wire        y_ovf_evt   = ypk_wv_r & yfifo_full & ~yfifo_pop;
+    // ---- 迟到 tile_done 的回补 tlast（R5，run26 实测）----
+    // 实测 core 的 tile_done 落在末 y 拍后 >=2 拍（S1-S7 诊断：脉冲拍
+    // wv_r/wtl_r 均已清零、ypk_cnt 已回卷）——末字已入 FIFO 甚至已在
+    // 呈现拍，上方两个并入窗（同拍/晚一拍）结构性漏标。补两路：
+    //   (2) 呈现拍恰逢脉冲：cnt==1 组合并入（pop 与脉冲同拍无 NBA 竞态）
+    //   (3) 脉冲时末字仍在队内：位置捕获 tl_late_pos，呈现至该位置并入
+    reg        tl_late_v;
+    reg  [4:0] tl_late_pos;
+    wire [4:0] yfifo_newest  = yfifo_wp - 5'd1;          //5b 自然回卷
+    wire       tl_late_here  = tl_late_v && (yfifo_rp == tl_late_pos);
+    wire       yfifo_tl_a    = core_tile_done_w && (yfifo_cnt == 6'd1);
+    wire       yfifo_pop_a   = yfifo_pop && yfifo_tl_a;  //(2) 路本拍弹掉
+    assign     m_axis_y_tvalid = ~yfifo_empty;
+    assign     m_axis_y_tdata  = yfifo_mem[yfifo_rp];
+    assign     m_axis_y_tlast  = yfifo_tl[yfifo_rp] | tl_late_here | yfifo_tl_a;
+
+    // ------------------------------------------------------------ --
     // AXI 写通道时序
     // ------------------------------------------------------------ --
     always @(posedge clk) begin
         if (rst) begin
             aw_busy <= 1'b0; w_busy <= 1'b0; b_valid_r <= 1'b0;
             awaddr_r <= 32'd0; wdata_r <= 32'd0; bresp_r <= 2'd0;
+            // 配置寄存器外部复位全清（合同 §9 实现要求：rst 清全部配置/
+            // sticky/计数器/FIFO；soft_rst 只清运行态，配置保留）
+            geom_job_len_r <= 13'd0;  rowval_r <= 8'd0;   nmask_r <= 16'd0;
+            jobcfg_act_r   <= 1'b0;   jobcfg_first_r <= 1'b0;
+            jobcfg_last_r  <= 1'b0;   jobcfg_wgrp_r  <= 1'b0;
+            jobcfg_xgrp_r  <= 1'b0;
+            ldgrp_w_r      <= 1'b0;   ldgrp_x_r      <= 1'b0;
+            pbias_r        <= 32'sd0; pm_r           <= 32'sd0;
+            psh_r          <= 6'd0;
+            wdata_lo_r     <= 32'd0;  wdata_hi_r     <= 32'd0;
+            wrp_is_x       <= 1'b0;   wrp_x_hi  <= 1'b0;
+            wrp_first      <= 1'b0;   wrp_last  <= 1'b0;  wrp_be_r <= 8'd0;
+            pctl_row_r     <= 3'd0;   lut_wa_r  <= 8'd0;  lut_wd_r <= 8'd0;
+            yaddr_r        <= 7'd0;
         end else begin
             // 默认：动作选通只在该提交拍为 1
             ctrl_start <= 1'b0; ctrl_soft  <= 1'b0; ctrl_errclr <= 1'b0;
@@ -335,6 +496,9 @@ module yolo_gemm_top (
                 8'h40: rdata_r <= {6'd0, ld_x_len_r, ld_w_len_r};
                 8'h48: rdata_r <= {14'd0, st_tile_done, core_busy, y_last_r};
                 8'h50: rdata_r <= {24'd0, cap_dout};
+                8'h54: rdata_r <= {27'd0, err_y_ovf, err_src_conf,
+                                   err_tlast, st_ld_done, strm_busy_any};
+                8'h58: rdata_r <= ld_stall_cnt;
                 default: begin rdata_r <= 32'd0; rresp_r <= 2'b10; end
                 endcase
             end
@@ -349,7 +513,10 @@ module yolo_gemm_top (
             wr_pend <= 1'b0;
         end else begin
             if (wctl_we) begin
-                if (!(wr_pend && !wr_acc))
+                if (strm_busy_any) begin
+                    //流路径占用（窗口内或流拍等待中）→ WCTL 丢弃；
+                    //置错在粘滞块（err_ld_pend + src_conflict，D4）
+                end else if (!(wr_pend && !wr_acc))
                     wr_pend <= 1'b1;    //空槽或本拍正好收账→接续；占用→丢弃
             end else if (wr_acc) begin
                 wr_pend <= 1'b0;
@@ -368,6 +535,7 @@ module yolo_gemm_top (
             y_last_r  <= 16'd0;
             soft_cnt <= 3'd0;
             err_ld_pend <= 1'b0;
+            err_tlast <= 1'b0; err_src_conf <= 1'b0; err_y_ovf <= 1'b0;
         end else begin
             // ---- 软复位脉冲与粘滞清除 ----
             if (ctrl_soft) soft_cnt <= 3'd4;
@@ -377,13 +545,34 @@ module yolo_gemm_top (
                 y_count_r <= 16'd0;
                 y_last_r  <= 16'd0;
                 err_ld_pend <= 1'b0; err_start <= 1'b0;
+                err_tlast <= 1'b0; err_src_conf <= 1'b0; err_y_ovf <= 1'b0;
             end
             if (ctrl_errclr) begin
                 err_ld_pend <= 1'b0; err_start <= 1'b0;
+                err_tlast <= 1'b0; err_src_conf <= 1'b0; err_y_ovf <= 1'b0;
             end
             // ---- WCTL 占用丢弃置错（beat 槽块只管 wr_pend）----
             if (wctl_we && wr_pend && !wr_acc)
                 err_ld_pend <= 1'b1;
+            // ---- B3 桥错误（合同 §8.2：src_conflict 两条件均落
+            //      BRGSTAT[3]+STATUS[8]，软件判据只查位族）----
+            if (s_axis_ld_tvalid && wr_pend) begin
+                //槽悬挂时流拍到达：等待零丢失 + 双错位置位
+                err_src_conf <= 1'b1;
+                err_ld_pend  <= 1'b1;
+            end
+            if (wctl_we && strm_busy_any) begin    //流窗内 WCTL：丢弃+双错
+                err_src_conf <= 1'b1;
+                err_ld_pend  <= 1'b1;
+            end
+            if (strm_acc && s_axis_ld_tlast && (ld_ph_r != 2'd2))
+                err_tlast <= 1'b1;                 //tlast 非 Xhi 拍
+            if (strm_acc && !s_axis_ld_tlast && (strm_beat_cnt == 12'd3071))
+                err_tlast <= 1'b1;                 //第 3072 拍无 tlast=块超长
+                                                   //（缺失 tlast 本身由 BFM
+                                                   // watchdog/BTT 判，§8.2）
+            if (y_ovf_evt)
+                err_y_ovf <= 1'b1;                 //y FIFO 溢出（S2MM 未武装）
             // ---- start：仅当递交槽被占用时拒绝（多块 tile 允许在
             //      busy 中排队——feeder 握手串行化，run15 流程正典）----
             if (ctrl_start) begin
@@ -448,6 +637,95 @@ module yolo_gemm_top (
     end
 
     // ------------------------------------------------------------ --
+    // B3 桥：流节律相位/传输窗/beat 计数（软复位与外复位同清；驱动纪律=
+    // 仅空闲时 soft_rst，DMA 传输中复位会挂起 tlast——合同 §8.1/§11）
+    // ------------------------------------------------------------ --
+    always @(posedge clk) begin
+        if (rst || ctrl_soft) begin
+            ld_ph_r       <= 2'd0;
+            ld_strm_act   <= 1'b0;
+            strm_beat_cnt <= 12'd0;
+        end else if (strm_acc) begin
+            // tlast 拍（含错位 tlast）闭窗且相位归零——下一传输干净起步
+            ld_ph_r       <= (s_axis_ld_tlast || (ld_ph_r == 2'd2)) ? 2'd0
+                                                                  : ld_ph_r + 2'd1;
+            ld_strm_act   <= ~s_axis_ld_tlast;
+            strm_beat_cnt <= s_axis_ld_tlast ? 12'd0 : strm_beat_cnt + 12'd1;
+        end
+    end
+
+    // ------------------------------------------------------------ --
+    // B3 桥：y 打包（前插装配→完成字 1 拍 hold）
+    // ------------------------------------------------------------ --
+    always @(posedge clk) begin
+        if (rst || ctrl_soft) begin
+            ypk_w_r    <= 64'd0;
+            ypk_cnt_r  <= 3'd0;
+            ypk_word_r <= 64'd0;
+            ypk_wv_r   <= 1'b0;
+            ypk_wtl_r  <= 1'b0;
+        end else begin
+            if (core_y_valid) begin
+                ypk_w_r   <= (ypk_cnt_r == 3'd7) ? 64'd0 : ypk_next;
+                ypk_cnt_r <= ypk_cnt_r + 3'd1;          //7→0 自然回卷
+            end
+            ypk_wv_r   <= ypk_wv_d;
+            ypk_word_r <= ypk_next;
+            ypk_wtl_r  <= ypk_wv_d & core_tile_done_w;  //同拍 tile_done 并入
+        end
+    end
+
+    // ------------------------------------------------------------ --
+    // B3 桥：y FIFO（32 字；满且无弹出 → 丢字置 y_ovf，core y 无反压）
+    // ------------------------------------------------------------ --
+    always @(posedge clk) begin
+        if (rst || ctrl_soft) begin
+            yfifo_wp  <= 5'd0; yfifo_rp <= 5'd0; yfifo_cnt <= 6'd0;
+            yfifo_tl  <= 32'd0;
+            tl_late_v <= 1'b0; tl_late_pos <= 5'd0;
+        end else begin
+            if (yfifo_push) begin
+                yfifo_mem[yfifo_wp] <= ypk_word_r;
+                yfifo_tl[yfifo_wp]  <= yfifo_pushtl;
+                yfifo_wp            <= yfifo_wp + 5'd1;
+            end
+            if (yfifo_pop)
+                yfifo_rp <= yfifo_rp + 5'd1;
+            case ({yfifo_push, yfifo_pop})
+                2'b10:   yfifo_cnt <= yfifo_cnt + 6'd1;
+                2'b01:   yfifo_cnt <= yfifo_cnt - 6'd1;
+                default: ;
+            endcase
+            // (3) 迟到脉冲回补捕获：末字在队、未带 tl、未被标过、且 (2)
+            // 路没在本拍把它弹掉（否则成悬空标记，指针回绕后假 tlast）
+            if (core_tile_done_w && !yfifo_empty && !yfifo_tl[yfifo_newest]
+                && !(tl_late_v && (tl_late_pos == yfifo_newest))
+                && !yfifo_pop_a) begin
+                // 旧标记字必仍在队内（v 未清=未弹出）→ 覆盖前回写 tl
+                // 向量，连续多 tile 迟到标记全部落位（单寄存器不再丢标）
+                if (tl_late_v && (tl_late_pos != yfifo_newest))
+                    yfifo_tl[tl_late_pos] <= 1'b1;
+                tl_late_pos <= yfifo_newest;
+                tl_late_v   <= 1'b1;
+            end
+            // 标记字带 tlast 离队 → 标记使命完成（捕获条件经 tl_late_v
+            // 排他不与上项冲突；本清除置后生效）
+            if (yfifo_pop && tl_late_here)
+                tl_late_v <= 1'b0;
+        end
+    end
+
+    // ------------------------------------------------------------ --
+    // B3 桥：装载反压周期计数（0x58 读清/软复位清；P1.4 度量）
+    // ------------------------------------------------------------ --
+    always @(posedge clk) begin
+        if (rst || ctrl_soft || stall_rd_clr)
+            ld_stall_cnt <= 32'd0;
+        else if (ld_stall)
+            ld_stall_cnt <= ld_stall_cnt + 32'd1;
+    end
+
+    // ------------------------------------------------------------ --
     // 参数 / LUT 单拍选通（写提交拍之后恰一拍电平）
     // ------------------------------------------------------------ --
     wire        p_we_pl  = pctl_we;   //pctl_we 本身即提交次拍起 1 拍有效
@@ -460,15 +738,15 @@ module yolo_gemm_top (
     yolo_gemm_core u_core (
         .clk_i         (clk),
         .rst_i         (core_rst),
-        // 64b 流式装载口
-        .wr_valid_i    (wr_pend),
+        // 64b 流式装载口（B3 V1.1：WCTL 拍槽 / DMA 流双源复用，D4）
+        .wr_valid_i    (wr_pend | strm_beat_vld),
         .wr_ready_o    (wr_ready_i),
-        .wr_data_i     ({wdata_hi_r, wdata_lo_r}),
-        .wr_is_x_i     (wrp_is_x),
-        .wr_x_hi_i     (wrp_x_hi),
-        .wr_be_i       (wrp_be_r),
-        .wr_first_i    (wrp_first),
-        .wr_last_i     (wrp_last),
+        .wr_data_i     (ld_port_data),
+        .wr_is_x_i     (ld_port_is_x),
+        .wr_x_hi_i     (ld_port_x_hi),
+        .wr_be_i       (ld_port_be),
+        .wr_first_i    (ld_port_first),
+        .wr_last_i     (ld_port_last),
         .ld_w_grp_i    (ldgrp_w_r),
         .ld_x_grp_i    (ldgrp_x_r),
         // 装载状态
@@ -515,10 +793,20 @@ module yolo_gemm_top (
     // Y 捕获 RAM：blk_mem_gen IP gemm_bm_ycap（SDP 8 x 128，读延迟 1）
     // 例化逐端口对 rtl/GEMM/ip/gemm_bm_ycap/gemm_bm_ycap.veo 核对：
     //   clka/ena/wea[0:0]/addra[6:0]/dina[7:0]/clkb/enb/addrb[6:0]/doutb[7:0]
-    // 写口 = y 流（ena=y_valid 坐标唯一，无同址重写）；读口 = PS 回读窗
-    //（enb 常开自由读，addrb 由 YADDR 保持，无同拍同址读写窗——SDP 且
-    //  写只在 tile 计算期、读只在 tile_done 后，结构性无冲突）
+    // 写口 = y 流（ena=y_valid 坐标唯一，无同址重写）；读口 = PS 回读窗。
+    // V1.2（合同 §8.2/审计 3）：enb 不再常开——YADDR 写后开 2 拍读窗，
+    // 其间 doutb 稳定供 YDATA 回读（读延迟 1 + 保持），窗外 B 口无读操
+    // 作，与 core 写结构性无同拍同址（V1.1 常开读曾致每 tile 末拍 (7,15)
+    // 撞保持地址的 BMG collision warning）
     // ------------------------------------------------------------ --
+    reg  [1:0]  ycap_re_cnt;
+    wire        ycap_enb = (ycap_re_cnt != 2'd0);
+    always @(posedge clk) begin
+        if (rst)                              ycap_re_cnt <= 2'd0;
+        else if (yaddr_we)                    ycap_re_cnt <= 2'd2;
+        else if (ycap_re_cnt != 2'd0)         ycap_re_cnt <= ycap_re_cnt - 2'd1;
+    end
+
     gemm_bm_ycap u_ycap (
         .clka  (clk),
         .ena   (core_y_valid),
@@ -526,7 +814,7 @@ module yolo_gemm_top (
         .addra (cap_wa),
         .dina  (core_y),
         .clkb  (clk),
-        .enb   (1'b1),
+        .enb   (ycap_enb),
         .addrb (yaddr_r),
         .doutb (cap_dout)
     );

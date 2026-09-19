@@ -1,0 +1,241 @@
+﻿
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sun Sep 20 00:32:06 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source sim_gemm_b3_bridge.tcl
+# set xil     {F:/vivado2025/2025.2/Vivado}
+# set xsimbin [file join $xil bin unwrapped win64.o]
+# set ipdir   {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip}
+# set ref    {E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v}
+# set pecore {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv}
+# set acc    {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv}
+# set mac    {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_mac_cell.sv}
+# set tail   {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_tail.sv}
+# set arr    {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv}
+# set bank   {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv}
+# set fed    {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_feeder.sv}
+# set core   {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_core.sv}
+# set top    {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_top.v}
+# set tb     {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_b3_bridge.sv}
+# proc run_tool {args} {
+#     puts "% [join $args { }]"
+#     set rc [catch {exec {*}$args} out]
+#     puts $out
+#     if {$rc != 0} { error "TOOL_FAILED: [join $args { }]" }
+# }
+# puts "EES_VIVADO_STAGE COMPILE"
+EES_VIVADO_STAGE COMPILE
+# run_tool [file join $xsimbin xvlog.exe] $ref
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v" into library work
+INFO: [VRFC 10-311] analyzing module yolo_pe_pack
+# run_tool [file join $xsimbin xvlog.exe] \
+#     [file join $ipdir gemm_bm_w_g0 sim gemm_bm_w_g0.v] \
+#     [file join $ipdir gemm_bm_w_g1 sim gemm_bm_w_g1.v] \
+#     [file join $ipdir gemm_bm_x_g0 sim gemm_bm_x_g0.v] \
+#     [file join $ipdir gemm_bm_x_g1 sim gemm_bm_x_g1.v] \
+#     [file join $ipdir gemm_bm_lut   sim gemm_bm_lut.v] \
+#     [file join $ipdir gemm_bm_ycap  sim gemm_bm_ycap.v]
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_w_g0/sim/gemm_bm_w_g0.v E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_w_g1/sim/gemm_bm_w_g1.v E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_x_g0/sim/gemm_bm_x_g0.v E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_x_g1/sim/gemm_bm_x_g1.v E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_lut/sim/gemm_bm_lut.v E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_ycap/sim/gemm_bm_ycap.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_w_g0/sim/gemm_bm_w_g0.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_w_g0
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_w_g1/sim/gemm_bm_w_g1.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_w_g1
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_x_g0/sim/gemm_bm_x_g0.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_x_g0
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_x_g1/sim/gemm_bm_x_g1.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_x_g1
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_lut/sim/gemm_bm_lut.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_lut
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_ycap/sim/gemm_bm_ycap.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_ycap
+# run_tool [file join $xsimbin xvlog.exe] -sv \
+#     $pecore $acc $mac $tail $arr $bank $fed $core $tb
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe -sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_mac_cell.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_tail.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_feeder.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_core.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_b3_bridge.sv
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_pe_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_acc_dual
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_mac_cell.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_mac_cell
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_tail.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_tail
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_array
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_bank
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_feeder.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_feeder
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_core.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_b3_bridge.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_yolo_gemm_b3_bridge
+# run_tool [file join $xsimbin xvlog.exe] $top
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_top.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_top.v" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_top
+# run_tool [file join $xsimbin xvlog.exe] \
+#     {F:/vivado2025/2025.2/data/verilog/src/glbl.v}
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe F:/vivado2025/2025.2/data/verilog/src/glbl.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/vivado2025/2025.2/data/verilog/src/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+# puts "EES_VIVADO_STAGE ELABORATE"
+EES_VIVADO_STAGE ELABORATE
+# run_tool [file join $xsimbin xelab.exe] -debug off -timescale {1ns/1ps} \
+#     -L blk_mem_gen_v8_4_12 -L unisims_ver -L unisim \
+#     -s tb_b3_bridge tb_yolo_gemm_b3_bridge glbl
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -L blk_mem_gen_v8_4_12 -L unisims_ver -L unisim -s tb_b3_bridge tb_yolo_gemm_b3_bridge glbl
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -L blk_mem_gen_v8_4_12 -L unisims_ver -L unisim -s tb_b3_bridge tb_yolo_gemm_b3_bridge glbl 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_w_g0
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_w_g1
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_x_g0
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_x_g1
+Compiling module work.yolo_gemm_bank
+Compiling module work.yolo_gemm_feeder
+Compiling module unisims_ver.DSP48E1(ADREG=0,ALUMODEREG=0,CAR...
+Compiling module work.yolo_pe_pack_default
+Compiling module work.yolo_pe_core
+Compiling module work.yolo_acc_dual
+Compiling module work.yolo_mac_cell
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_lut
+Compiling module work.yolo_gemm_tail_default
+Compiling module work.yolo_gemm_array(P_TO=8,P_TN=16)
+Compiling module work.yolo_gemm_core
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_ycap
+Compiling module work.yolo_gemm_top
+Compiling module work.tb_yolo_gemm_b3_bridge
+Compiling module work.glbl
+Built simulation snapshot tb_b3_bridge
+# puts "EES_VIVADO_STAGE SIMULATE"
+EES_VIVADO_STAGE SIMULATE
+# run_tool [file join $xsimbin xsim.exe] tb_b3_bridge -runall
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_b3_bridge -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sun Sep 20 00:32:13 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_b3_bridge/xsim_script.tcl
+# xsim {tb_b3_bridge} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Block Memory Generator module tb_yolo_gemm_b3_bridge.u_dut.u_core.u_bank.u_w_g0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_gemm_b3_bridge.u_dut.u_core.u_bank.u_w_g1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_gemm_b3_bridge.u_dut.u_core.u_bank.u_x_g0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_gemm_b3_bridge.u_dut.u_core.u_bank.u_x_g1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_gemm_b3_bridge.u_dut.u_core.u_array.u_tail.lane[0].u_lut_bmg.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_gemm_b3_bridge.u_dut.u_ycap.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+EES_B3_STAGE S1 slot-path regression K=64 act=1
+EES_HB wop=128 cyc=531 t=5310000
+EES_HB wop=256 cyc=1043 t=10430000
+EES_HB wop=384 cyc=1555 t=15550000
+EES_HB wop=512 cyc=2067 t=20670000
+EES_HB wop=640 cyc=2579 t=25790000
+EES_HB wop=768 cyc=3091 t=30910000
+EES_TL tile_done t=37155000 wv_d=0 wv_r=0 wtl_r=0 ypk_cnt=0 fifo_cnt=1
+EES_TL pop_tlast t=37155000 scbt=0
+EES_HB wop=896 cyc=3958 t=39580000
+EES_B3_STAGE S1 done checks=128 rb=128 sc=128 errs=0
+EES_B3_STAGE S2 stream single block K=64
+EES_HB wop=1024 cyc=4991 t=49910000
+EES_TL tile_done t=54375000 wv_d=0 wv_r=0 wtl_r=0 ypk_cnt=0 fifo_cnt=1
+EES_TL pop_tlast t=54375000 scbt=0
+EES_HB wop=1152 cyc=6508 t=65080000
+EES_B3_STAGE S2 done checks=256 rb=256 sc=256 errs=0
+EES_B3_STAGE S3 ping-pong overlap K=96 (48+48)
+EES_TL tile_done t=72895000 wv_d=0 wv_r=0 wtl_r=0 ypk_cnt=0 fifo_cnt=1
+EES_TL pop_tlast t=72895000 scbt=0
+EES_HB wop=1280 cyc=7998 t=79980000
+EES_B3_STAGE S3 done checks=384 rb=384 sc=384 errs=0
+EES_B3_STAGE S4 same-group reload backpressure K=64
+EES_TL tile_done t=90095000 wv_d=0 wv_r=0 wtl_r=0 ypk_cnt=0 fifo_cnt=1
+EES_TL pop_tlast t=90095000 scbt=0
+EES_TL tile_done t=92435000 wv_d=0 wv_r=0 wtl_r=0 ypk_cnt=0 fifo_cnt=1
+EES_TL pop_tlast t=92435000 scbt=0
+EES_HB wop=1408 cyc=9592 t=95920000
+EES_B3_INFO S4 STALLCNT=62 (backpressure proven)
+EES_B3_STAGE S4 done checks=640 rb=512 sc=640 errs=0
+EES_B3_STAGE S5 dual-source conflicts
+EES_HB wop=1536 cyc=10733 t=107330000
+EES_TL tile_done t=109325000 wv_d=0 wv_r=0 wtl_r=0 ypk_cnt=0 fifo_cnt=1
+EES_TL pop_tlast t=109325000 scbt=0
+EES_HB wop=1664 cyc=12073 t=120730000
+EES_HB wop=1792 cyc=12606 t=126060000
+EES_HB wop=1920 cyc=13118 t=131180000
+EES_HB wop=2048 cyc=13630 t=136300000
+EES_HB wop=2176 cyc=14142 t=141420000
+EES_TL tile_done t=147675000 wv_d=0 wv_r=0 wtl_r=0 ypk_cnt=0 fifo_cnt=1
+EES_TL pop_tlast t=147675000 scbt=0
+EES_TL tile_done t=150185000 wv_d=0 wv_r=0 wtl_r=0 ypk_cnt=0 fifo_cnt=1
+EES_TL pop_tlast t=150185000 scbt=0
+EES_HB wop=2304 cyc=15178 t=151780000
+EES_B3_STAGE S5 done checks=1024 rb=768 sc=1024 errs=0
+EES_B3_STAGE S6 tlast misplacement + recovery
+EES_HB wop=2432 cyc=16275 t=162750000
+EES_TL tile_done t=167005000 wv_d=0 wv_r=0 wtl_r=0 ypk_cnt=0 fifo_cnt=1
+EES_TL pop_tlast t=167005000 scbt=0
+EES_HB wop=2560 cyc=17679 t=176790000
+EES_B3_INFO S6c missing tlast judged by watchdog BRGSTAT=001
+EES_B3_STAGE S6 done checks=1152 rb=896 sc=1152 errs=0
+EES_B3_STAGE S7 y FIFO overflow + recovery
+EES_TL tile_done t=218645000 wv_d=0 wv_r=0 wtl_r=0 ypk_cnt=0 fifo_cnt=16
+EES_DBG S7 t1 done eq_wp=1536 eq_rp=1280 y=1280
+EES_TL tile_done t=220975000 wv_d=0 wv_r=0 wtl_r=0 ypk_cnt=0 fifo_cnt=32
+EES_DBG S7 t2 done eq_wp=1536 eq_rp=1408 y=1408
+EES_TL tile_done t=223305000 wv_d=0 wv_r=0 wtl_r=0 ypk_cnt=0 fifo_cnt=32
+EES_DBG S7 t3 done eq_wp=1536 eq_rp=1536 y=1536
+EES_HB wop=2688 cyc=22906 t=229060000
+EES_TL pop_tlast t=235175000 scbt=0
+EES_TL pop_tlast t=235335000 scbt=0
+EES_TL tile_done t=240005000 wv_d=0 wv_r=0 wtl_r=0 ypk_cnt=0 fifo_cnt=1
+EES_TL pop_tlast t=240005000 scbt=0
+EES_HB wop=2816 cyc=24522 t=245220000
+EES_B3_STAGE S7 done checks=1664 rb=1152 sc=1280 errs=0
+EES_B3_INFO tiles=11/11 y=1664 sc_words=192
+EES_SUMMARY checks=1664 rb_checks=1152 sc_checks=1280 errors=0 PASS
+EES_VIVADO_RESULT PASS
+$finish called at time : 252330 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_b3_bridge.sv" Line 1095
+exit
+INFO: [Common 17-206] Exiting xsim at Sun Sep 20 00:32:17 2026...
+# puts "EES_VIVADO_RESULT DONE"
+EES_VIVADO_RESULT DONE
+INFO: [Common 17-206] Exiting Vivado at Sun Sep 20 00:32:17 2026...
