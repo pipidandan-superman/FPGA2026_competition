@@ -12,17 +12,35 @@
 - **③④ 阵列门三档 PASS（run06 V1.1）**：4×4/8×16/16×16 共 11977 checks
   0 errors。TAILW 死锁修复细节见 run06 README（y 拍计数判定）。
 - **GEMM 上板准备（run07）**：16×16 OOC 综合评估（A 中止但 G2 证据已封闭，
-  B/C 留晨间）证据在 `4_metrics/logs/2026-09-19_yolo_pe_gemm_dev_run07_syntheval/`。
+  B/C 已随 P0 取消）证据在 `4_metrics/logs/2026-09-19_yolo_pe_gemm_dev_run07_syntheval/`。
+- **P1.1 run08 阵列宽字口 V2.0 PASS ×3（2026-09-19 白班）**：与 run06 逐数
+  对齐（846/4250/6881，proto_err=0），宽字纯消费者契约冻结。证据
+  `4_metrics/logs/2026-09-19_yolo_pe_gemm_dev_run08_array_v2/`（含两轮 TB
+  侧 FAIL 档案：k0 块基址移交、G6 循环纪律）。
+- **P1.2 run09 bank+feeder 一体门 PASS ×3（2026-09-19 白班）**：
+  4×4 KC8 / 8×16 KC64 / 8×16 KC576 = 150/271/1295 checks，errors=0，
+  守恒精确，off-by-one 零错。bank V1.1（w_wa 首拍写址旁路）+ feeder V1.0
+  （唯一 k 计数、rd_busy 硬门控、无 k0——块基址活在装载顺序）。证据
+  `4_metrics/logs/2026-09-19_yolo_pe_gemm_dev_run09_bank_feeder/`。
+- **P1.3 run10a 三体合并门 PASS ×2（2026-09-19 白班，一跑零迭代）**：
+  4×4=846 / 8×16=4250 checks，errors=0，proto_err=0，与 run06/run08
+  **逐数严格对齐**（tiles 62/60/2 与 37/35/2；blocks 72/12 与 47/12；
+  ld_done 守恒 74/49）。随机流逐字承袭 ⇒ 同数据跨供数实现对照零差异。
+  RTL 零改动；16×16 无 64b 写口通路不跑（覆盖冻结 run08）。证据
+  `4_metrics/logs/2026-09-19_yolo_pe_gemm_dev_run10a_merge/`。
 
 ## 下一步最应优先执行的动作（按手册门控顺序）
 
-0. （晨间，用户在场，可选）补跑 run07 配置 B 取核视图底线：
-   `cd 4_metrics/logs/2026-09-19_yolo_pe_gemm_dev_run07_syntheval && vivado.bat -mode batch -source syn_gemm_ooc.tcl`（A/C 两行临时注释；A 结论已封闭勿重跑）；
-   ——注意：昨夜 A 因宿主内存耗尽被终止，勿无人值守重跑 A/C。
-1. **G2：W/X 真 bank（ping-pong）机构**——用 run07 配置 A 的证据立项
-（294912×2 寄存器 / 590k FF > 106.4k 器件 / 15GB 内存不可完成）；替换 rtl/GEMM/yolo_gemm_array.sv 中的 ③ 档功能缓冲（W_buf/X_buf），
-cell/tail/FSM 契约不动；TB 复用 tb_yolo_gemm_array（加载时序改 bank 装载）。
-之后 G4（DMA/CSR 接入）→ G7（系统综合+上板）。
+0. ~~run07 配置 B 补跑~~（2026-09-19 用户定：**P0 全部取消**，不执行；
+   G2 综合按时序绝对值判 WNS≥0）。
+1. **P1.4（run10b）OOC 综合 8×16**：Kc=576 与 Kc=1024 两配置各一跑，
+   判据 BRAM36≈12、无 FF 爆炸、100MHz WNS≥0 绝对值、无新关键告警
+   → **Kc 定档（计划决策点）**。随后 P1.5 收口（日志+README+memory+
+   git：G2 结果与 09-19 文档至用户分支 codex/full/pipidandan-superman，
+   命名文件，绝不推 main）→ P2（P2.1 DMA 选型决策文档需用户评审）。
+   完整计划 `1_docs/yolo_gemm_g2g4g7_execution_plan_20260919.md`
+   ——**已批准（2026-09-19，P0 取消），按 P1→P3 依次执行**（仿真/综合
+   自主连续，板上动作用户在场）。
 
 ## 刚开始时不要做的事情
 
@@ -33,10 +51,43 @@ cell/tail/FSM 契约不动；TB 复用 tb_yolo_gemm_array（加载时序改 bank
 
 ## 成功标准（下一会话）
 
-- G2 bank RTL + TB 门仿真 PASS（复用 run06 阶段矩阵）；
-- 综合对比：bank 版 LUTRAM 显著下降、时序不劣化；
+- P1.3 已达成（846/4250 双档 PASS 且逐数对齐，2026-09-19 白班收口）；
+- P1.4 OOC 综合双配置（Kc=576/1024）出资源+时序报告，BRAM≈12、
+  100MHz WNS≥0，Kc 定档有据；
 - 证据齐套（run 目录四件：tcl/console/README + 报告）。
 
 ## 阻塞
 
 无。（若晨间板验发现综合证据问题，先修证据链再开 G2。）
+
+---
+
+# 第二班次增量（IP 重做链 run11–run16 收官后）
+
+## 下次开始时优先阅读
+
+1. `4_metrics/logs/2026-09-19_yolo_gemm_ip_run16_ooc_syn_bmg/README.md`
+   （时序决策点 A/B/C 及依据——**唯一挂起决策**）
+2. `4_metrics/logs/2026-09-19_yolo_gemm_ip_run15_core_bmg/README.md`
+   （core V1.1 单体门 = 上板例化单元的功能证据）
+
+## 第一步要执行的操作
+
+等用户对 run16 WNS=−4.728 的决策（A 加深+收窄 / B 算术收窄 /
+C 降频）。决策前尾 RTL 冻结；B1 上板准备（yolo_gemm_top.v 纯
+Verilog 顶层 + 块级 CSR 仿真门）不受阻塞，可按用户节奏先行。
+
+## 刚开始时不要做的事
+
+- 不要擅自改尾流水/算术（决策点未决）
+- 不要动 run11-15 已冻结 TB/README（历史证据）
+- 板上动作需用户在场
+
+## 成功标准（下一班次）
+
+- 决策落定并闭环（若改 RTL：run13/14/15 相关门重跑全绿 + run16 重综
+  WNS≥0 或降频方案获认）；或 B1 顶层件 + 块级门先行绿。
+
+## 阻塞
+
+仅决策点挂起（用户）；无技术阻塞。

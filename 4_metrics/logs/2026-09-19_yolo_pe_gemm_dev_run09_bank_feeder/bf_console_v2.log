@@ -1,0 +1,319 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 12:09:49 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source sim_gemm_bankfeeder.tcl
+# set xil     {F:/vivado2025/2025.2/Vivado}
+# set xsimbin [file join $xil bin unwrapped win64.o]
+# set bank    {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv}
+# set feeder  {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_feeder.sv}
+# set tb      {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv}
+# set tiers   {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_gemm_bank_tiers.sv}
+# proc run_tool {args} {
+#     puts "% [join $args { }]"
+#     set rc [catch {exec {*}$args} out]
+#     puts $out
+#     if {$rc != 0} { error "TOOL_FAILED: [join $args { }]" }
+# }
+# puts "EES_VIVADO_STAGE COMPILE"
+EES_VIVADO_STAGE COMPILE
+# run_tool [file join $xsimbin xvlog.exe] -sv $bank $feeder $tb $tiers
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe -sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_feeder.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_gemm_bank_tiers.sv
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_bank
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_feeder.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_feeder
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_yolo_gemm_bankfeeder
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_gemm_bank_tiers.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_gemm_bank_4x4_kc8
+INFO: [VRFC 10-311] analyzing module tb_gemm_bank_8x16_kc64
+INFO: [VRFC 10-311] analyzing module tb_gemm_bank_8x16_kc576
+# puts "EES_VIVADO_STAGE ELABORATE"
+EES_VIVADO_STAGE ELABORATE
+# run_tool [file join $xsimbin xelab.exe] -debug off -timescale {1ns/1ps} \
+#     -s tb_bk1 tb_gemm_bank_4x4_kc8
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -s tb_bk1 tb_gemm_bank_4x4_kc8
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -s tb_bk1 tb_gemm_bank_4x4_kc8 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.yolo_gemm_bank(P_TO=4,P_TN=4,P_K...
+Compiling module work.yolo_gemm_feeder(P_TO=4,P_TN=4)
+Compiling module work.tb_yolo_gemm_bankfeeder(P_TO=4,P...
+Compiling module work.tb_gemm_bank_4x4_kc8
+Built simulation snapshot tb_bk1
+# run_tool [file join $xsimbin xelab.exe] -debug off -timescale {1ns/1ps} \
+#     -s tb_bk2 tb_gemm_bank_8x16_kc64
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -s tb_bk2 tb_gemm_bank_8x16_kc64
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -s tb_bk2 tb_gemm_bank_8x16_kc64 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.yolo_gemm_bank_default
+Compiling module work.yolo_gemm_feeder
+Compiling module work.tb_yolo_gemm_bankfeeder_default
+Compiling module work.tb_gemm_bank_8x16_kc64
+Built simulation snapshot tb_bk2
+# run_tool [file join $xsimbin xelab.exe] -debug off -timescale {1ns/1ps} \
+#     -s tb_bk3 tb_gemm_bank_8x16_kc576
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -s tb_bk3 tb_gemm_bank_8x16_kc576
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -s tb_bk3 tb_gemm_bank_8x16_kc576 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.yolo_gemm_bank(P_KC=576)
+Compiling module work.yolo_gemm_feeder
+Compiling module work.tb_yolo_gemm_bankfeeder(P_KC=576...
+Compiling module work.tb_gemm_bank_8x16_kc576
+Built simulation snapshot tb_bk3
+# puts "EES_VIVADO_STAGE SIMULATE_4X4_KC8"
+EES_VIVADO_STAGE SIMULATE_4X4_KC8
+# run_tool [file join $xsimbin xsim.exe] tb_bk1 -runall
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_bk1 -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 12:09:54 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_bk1/xsim_script.tcl
+# xsim {tb_bk1} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+EES_STAGE R1_BASIC config=4x4 KC=8
+EES_ERR [435000] w_word[0] got=deecdf00 exp=afa73b2a
+EES_ERR [725000] w_word[0] got=deecdf00 exp=d455a18c
+EES_ERR [1335000] w_word[0] got=deecdf00 exp=ebe58db0
+EES_STAGE_R1 checks=14 errors=3
+EES_STAGE R2_PINGPONG config=4x4 KC=8
+EES_ERR [2255000] ld_done missing after block len=6
+EES_ERR [2695000] w_word[0] got=xxxxxxxx exp=fbcec15f
+EES_ERR [3195000] w_word[0] got=ca0a4e4e exp=c03c5721
+EES_STAGE_R2 checks=31 errors=6
+EES_STAGE R3_TIMING config=4x4 KC=8
+EES_ERR [3985000] w_word[0] got=ca0a4e4e exp=1b9724dd
+EES_ERR [4545000] w_word[0] got=xxxxxxxx exp=2780d04f
+EES_ERR [4680000] gating: blk_valid high before load
+EES_ERR [5195000] w_word[0] got=ca0a4e4e exp=d67d00e7
+EES_STAGE_R3 checks=52 errors=10
+EES_STAGE R4_JITTER config=4x4 KC=8
+EES_ERR [5895000] w_word[0] got=0229817e exp=50117051
+EES_ERR [5895000] x_word[0] got=b35e68dd exp=2b55c89f
+EES_ERR [5975000] w_word[8] got=0229817e exp=xxxxxxxx
+EES_ERR [5975000] x_word[8] got=b35e68dd exp=xxxxxxxx
+EES_ERR [6595000] w_word[0] got=05bf177c exp=900c7611
+EES_ERR [6595000] x_word[0] got=9aad5d81 exp=982729a3
+EES_ERR [6705000] w_word[8] got=05bf177c exp=xxxxxxxx
+EES_ERR [6705000] x_word[8] got=9aad5d81 exp=xxxxxxxx
+EES_ERR [7325000] w_word[0] got=513a135c exp=2a1e6209
+EES_ERR [7325000] x_word[0] got=3a6a1417 exp=68d87151
+EES_ERR [7455000] w_word[8] got=513a135c exp=xxxxxxxx
+EES_ERR [7455000] x_word[8] got=3a6a1417 exp=xxxxxxxx
+EES_ERR [8315000] w_word[0] got=efde3c98 exp=2f97ccde
+EES_ERR [8315000] x_word[0] got=125709e0 exp=bbd9fd66
+EES_ERR [8325000] w_word[1] got=0f34af9d exp=16b4212e
+EES_ERR [8325000] x_word[1] got=7b76c901 exp=968a5b9d
+EES_ERR [8335000] w_word[2] got=9e5b0f1e exp=0c618f39
+EES_ERR [8335000] x_word[2] got=ef884728 exp=97035f40
+EES_ERR [8375000] w_word[3] got=90d1c775 exp=0c52c2d1
+EES_ERR [8375000] x_word[3] got=13a6e3d8 exp=d4ac7cf5
+EES_ERR [8415000] w_word[4] got=3b29192e exp=68cd80fb
+EES_ERR [8415000] x_word[4] got=f161468f exp=5a00380a
+EES_ERR [8455000] w_word[8] got=efde3c98 exp=xxxxxxxx
+EES_ERR [8455000] x_word[8] got=125709e0 exp=xxxxxxxx
+EES_ERR [8465000] w_word[9] got=0f34af9d exp=xxxxxxxx
+EES_ERR [8465000] x_word[9] got=7b76c901 exp=xxxxxxxx
+EES_ERR [8475000] w_word[10] got=9e5b0f1e exp=xxxxxxxx
+EES_ERR [8475000] x_word[10] got=ef884728 exp=xxxxxxxx
+EES_ERR [8515000] w_word[11] got=90d1c775 exp=xxxxxxxx
+EES_ERR [8515000] x_word[11] got=13a6e3d8 exp=xxxxxxxx
+EES_ERR [8525000] w_word[12] got=3b29192e exp=xxxxxxxx
+EES_ERR [8525000] x_word[12] got=f161468f exp=xxxxxxxx
+EES_STAGE_R4 checks=92 errors=42
+EES_STAGE R5_INDEPGP config=4x4 KC=8
+EES_ERR [9415000] w_word[0] got=513a135c exp=a4030bb5
+EES_ERR [9565000] w_word[0] got=513a135c exp=a4030bb5
+EES_ERR [10045000] w_word[0] got=513a135c exp=a4030bb5
+EES_STAGE_R5 checks=116 errors=45
+EES_STAGE R6_LANEWE config=4x4 KC=8
+EES_ERR [10935000] w_word[0] got=ff985214 exp=2c120b1c
+EES_STAGE_R6 checks=122 errors=46
+EES_STAGE R7_OFFBY1 config=4x4 KC=8
+EES_ERR [11135000] w_word[0] got=ff985214 exp=daf94b02
+EES_ERR [11335000] w_word[0] got=efde3c98 exp=f8b82d30
+EES_ERR [11845000] w_word[0] got=ff985214 exp=3d2093c7
+EES_ERR [12475000] w_word[0] got=efde3c98 exp=958e1761
+EES_ERR [13345000] w_word[0] got=efde3c98 exp=4fe788c9
+EES_STAGE_R7 checks=150 errors=51
+EES_STAGE R8_DISCIPLINE config=4x4 KC=8
+EES_ERR [14005000] w_word[0] got=0e98260a exp=c33a141c
+EES_ERR [14005000] x_word[0] got=aaacb9b6 exp=2b6783ab
+EES_ERR [14395000] w_word[8] got=0e98260a exp=xxxxxxxx
+EES_ERR [14395000] x_word[8] got=aaacb9b6 exp=xxxxxxxx
+EES_STAGE_R8 checks=159 errors=55
+EES_ERR conservation words checked=159 exp=160
+EES_SUMMARY checks=159 errors=56 config=4x4 KC=8 jobs=25 words=159 ld_done=27
+EES_VIVADO_RESULT FAIL
+$finish called at time : 14400 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv" Line 552
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep 19 12:09:55 2026...
+# puts "EES_VIVADO_STAGE SIMULATE_8X16_KC64"
+EES_VIVADO_STAGE SIMULATE_8X16_KC64
+# run_tool [file join $xsimbin xsim.exe] tb_bk2 -runall
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_bk2 -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 12:09:55 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_bk2/xsim_script.tcl
+# xsim {tb_bk2} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+EES_STAGE R1_BASIC config=8x16 KC=64
+EES_ERR [435000] w_word[0] got=afa73b2adeecdf00 exp=d455a18c044d1fd3
+EES_ERR [725000] w_word[0] got=afa73b2adeecdf00 exp=faba54bfebe58db0
+EES_ERR [1335000] w_word[0] got=afa73b2adeecdf00 exp=6e9f2320bd4b5f9a
+EES_STAGE_R1 checks=14 errors=3
+EES_STAGE R2_PINGPONG config=8x16 KC=64
+EES_ERR [1845000] w_word[0] got=afa73b2adeecdf00 exp=a4012132b8341e4a
+EES_ERR [2255000] ld_done missing after block len=6
+EES_ERR [2695000] w_word[0] got=xxxxxxxxxxxxxxxx exp=f72915fb3153f5b3
+EES_ERR [3195000] w_word[0] got=afa73b2adeecdf00 exp=f091508b789fc0d4
+EES_STAGE_R2 checks=31 errors=7
+EES_STAGE R3_TIMING config=8x16 KC=64
+EES_ERR [3985000] w_word[0] got=afa73b2adeecdf00 exp=05bf177ca2eb5473
+EES_ERR [4545000] w_word[0] got=xxxxxxxxxxxxxxxx exp=68cd80fb0c52c2d1
+EES_ERR [4680000] gating: blk_valid high before load
+EES_ERR [5195000] w_word[0] got=afa73b2adeecdf00 exp=0d7bd8f3ac83ab0f
+EES_STAGE_R3 checks=52 errors=11
+EES_STAGE R4_JITTER config=8x16 KC=64
+EES_ERR [5895000] w_word[0] got=afa73b2adeecdf00 exp=a74e25e2f935aabc
+EES_ERR [6595000] w_word[0] got=xxxxxxxxxxxxxxxx exp=a6d7c9a4a29d2743
+EES_ERR [7325000] w_word[0] got=afa73b2adeecdf00 exp=38b9b1440c4b6970
+EES_ERR [8315000] w_word[0] got=xxxxxxxxxxxxxxxx exp=63c9551fc4a43b4b
+EES_STAGE_R4 checks=92 errors=15
+EES_STAGE R5_INDEPGP config=8x16 KC=64
+EES_ERR [9415000] w_word[0] got=afa73b2adeecdf00 exp=3c379b0619445dfc
+EES_ERR [9565000] w_word[0] got=afa73b2adeecdf00 exp=3c379b0619445dfc
+EES_ERR [10045000] w_word[0] got=afa73b2adeecdf00 exp=3c379b0619445dfc
+EES_STAGE_R5 checks=116 errors=18
+EES_STAGE R6_LANEWE config=8x16 KC=64
+EES_ERR [10935000] w_word[0] got=850431cf9cf9fdc3 exp=850431cfac607b75
+EES_STAGE_R6 checks=122 errors=19
+EES_STAGE R7_OFFBY1 config=8x16 KC=64
+EES_ERR [11135000] w_word[0] got=850431cf9cf9fdc3 exp=01f5d9665e1cc180
+EES_ERR [11335000] w_word[0] got=xxxxxxxxxxxxxxxx exp=2c36e57c4c1493a3
+EES_ERR [15205000] w_word[0] got=850431cf9cf9fdc3 exp=00ff23ec4d36f396
+EES_ERR [19755000] w_word[0] got=xxxxxxxxxxxxxxxx exp=a006525e348c9eff
+EES_ERR [21185000] w_word[0] got=xxxxxxxxxxxxxxxx exp=803c5fa02506ad7b
+EES_STAGE_R7 checks=262 errors=24
+EES_STAGE R8_DISCIPLINE config=8x16 KC=64
+EES_ERR [21845000] w_word[0] got=7b8fcb848123deae exp=c1b14f7dc3aeef48
+EES_STAGE_R8 checks=271 errors=25
+EES_ERR conservation words checked=271 exp=272
+EES_SUMMARY checks=271 errors=26 config=8x16 KC=64 jobs=25 words=271 ld_done=27
+EES_VIVADO_RESULT FAIL
+$finish called at time : 22240 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv" Line 552
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep 19 12:09:57 2026...
+# puts "EES_VIVADO_STAGE SIMULATE_8X16_KC576"
+EES_VIVADO_STAGE SIMULATE_8X16_KC576
+# run_tool [file join $xsimbin xsim.exe] tb_bk3 -runall
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_bk3 -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 12:09:57 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_bk3/xsim_script.tcl
+# xsim {tb_bk3} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+EES_STAGE R1_BASIC config=8x16 KC=576
+EES_ERR [435000] w_word[0] got=afa73b2adeecdf00 exp=d455a18c044d1fd3
+EES_ERR [725000] w_word[0] got=afa73b2adeecdf00 exp=faba54bfebe58db0
+EES_ERR [1335000] w_word[0] got=afa73b2adeecdf00 exp=6e9f2320bd4b5f9a
+EES_STAGE_R1 checks=14 errors=3
+EES_STAGE R2_PINGPONG config=8x16 KC=576
+EES_ERR [1845000] w_word[0] got=afa73b2adeecdf00 exp=a4012132b8341e4a
+EES_ERR [2255000] ld_done missing after block len=6
+EES_ERR [2695000] w_word[0] got=xxxxxxxxxxxxxxxx exp=f72915fb3153f5b3
+EES_ERR [3195000] w_word[0] got=afa73b2adeecdf00 exp=f091508b789fc0d4
+EES_STAGE_R2 checks=31 errors=7
+EES_STAGE R3_TIMING config=8x16 KC=576
+EES_ERR [3985000] w_word[0] got=afa73b2adeecdf00 exp=05bf177ca2eb5473
+EES_ERR [4545000] w_word[0] got=xxxxxxxxxxxxxxxx exp=68cd80fb0c52c2d1
+EES_ERR [4680000] gating: blk_valid high before load
+EES_ERR [5195000] w_word[0] got=afa73b2adeecdf00 exp=0d7bd8f3ac83ab0f
+EES_STAGE_R3 checks=52 errors=11
+EES_STAGE R4_JITTER config=8x16 KC=576
+EES_ERR [5895000] w_word[0] got=afa73b2adeecdf00 exp=a74e25e2f935aabc
+EES_ERR [6595000] w_word[0] got=xxxxxxxxxxxxxxxx exp=a6d7c9a4a29d2743
+EES_ERR [7325000] w_word[0] got=afa73b2adeecdf00 exp=38b9b1440c4b6970
+EES_ERR [8315000] w_word[0] got=xxxxxxxxxxxxxxxx exp=63c9551fc4a43b4b
+EES_STAGE_R4 checks=92 errors=15
+EES_STAGE R5_INDEPGP config=8x16 KC=576
+EES_ERR [9415000] w_word[0] got=afa73b2adeecdf00 exp=3c379b0619445dfc
+EES_ERR [9565000] w_word[0] got=afa73b2adeecdf00 exp=3c379b0619445dfc
+EES_ERR [10045000] w_word[0] got=afa73b2adeecdf00 exp=3c379b0619445dfc
+EES_STAGE_R5 checks=116 errors=18
+EES_STAGE R6_LANEWE config=8x16 KC=576
+EES_ERR [10935000] w_word[0] got=850431cf9cf9fdc3 exp=850431cfac607b75
+EES_STAGE_R6 checks=122 errors=19
+EES_STAGE R7_OFFBY1 config=8x16 KC=576
+EES_ERR [11135000] w_word[0] got=850431cf9cf9fdc3 exp=01f5d9665e1cc180
+EES_ERR [11335000] w_word[0] got=xxxxxxxxxxxxxxxx exp=2c36e57c4c1493a3
+EES_ERR [45925000] w_word[0] got=850431cf9cf9fdc3 exp=00ff23ec4d36f396
+EES_ERR [86315000] w_word[0] got=xxxxxxxxxxxxxxxx exp=acc70dbae23be25c
+EES_ERR [92445000] w_word[0] got=850431cf9cf9fdc3 exp=91071042fa19540f
+EES_ERR [92865000] w_word[0] got=xxxxxxxxxxxxxxxx exp=849fa56901ad854a
+EES_STAGE_R7 checks=1286 errors=25
+EES_STAGE R8_DISCIPLINE config=8x16 KC=576
+EES_ERR [93525000] w_word[0] got=850431cf9cf9fdc3 exp=6da7d8a18bbebb64
+EES_STAGE_R8 checks=1295 errors=26
+EES_ERR conservation words checked=1295 exp=1296
+EES_SUMMARY checks=1295 errors=27 config=8x16 KC=576 jobs=25 words=1295 ld_done=27
+EES_VIVADO_RESULT FAIL
+$finish called at time : 93920 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv" Line 552
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep 19 12:09:59 2026...
+INFO: [Common 17-206] Exiting Vivado at Sat Sep 19 12:09:59 2026...

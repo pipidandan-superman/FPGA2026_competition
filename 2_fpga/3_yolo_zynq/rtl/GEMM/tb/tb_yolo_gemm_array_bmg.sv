@@ -1,10 +1,12 @@
 /************************************************************************
- * File Name     : tb_yolo_gemm_array.sv
+ * File Name     : tb_yolo_gemm_array_bmg.sv
  * Developer     : LSL
- * Date          : 2026-09-18
- * Module Name   : tb_yolo_gemm_array
- * Description   : 阵列门仿真。参数化 P_TO×P_TN，经薄包装分别跑
- *                 4×4 / 8×16 / 16×16 三档（同一 TB）。
+ * Date          : 2026-09-19
+ * Module Name   : tb_yolo_gemm_array_bmg
+ * Description   : run14 阵列门仿真（BMG IP 重做第四门）。参数化
+ *                 P_TO×P_TN，经薄包装分别跑 4×4 / 8×16 / 16×16 三档
+ *                 （同一 TB；阵列本体无宽度 IP，参数化例化合法，
+ *                 档位保持 run06/run08 原样以供逐数对齐）。
  *                 V2.0（run08）：DUT 为宽字纯消费者——TB 直驱字流
  *                 （每拍一个 k 切片打包成 w_word/x_word + first/last
  *                 旁带），valid/ready 握手 + 生产者侧 valid 抖动（G5），
@@ -29,11 +31,14 @@
  *   - V1.0 (2026-09-18) by LSL : Initial release (run06，缓冲写口装载)。
  *   - V2.0 (2026-09-19) by LSL : 宽字流直驱改造（run08，P1.1/V1）：
  *     删缓冲写口/stall 激励，块头 1 拍 + 字流握手 + 抖动；golden 不变。
+ *   - V2.1 (2026-09-19) by LSL : run14 BMG 重跑件——DUT 共享尾 V2.0
+ *     为真 IP（gemm_bm_lut，D+4）；本 TB 刺激/golden/判据零改动
+ *     （全部延迟无关），DUT 坐标镜像已随尾加深 3→4（V2.1）。
  ************************************************************************/
 
 `timescale 1ns/1ps
 
-module tb_yolo_gemm_array #(
+module tb_yolo_gemm_array_bmg #(
     parameter integer P_TO = 4,
     parameter integer P_TN = 4
 );
@@ -549,14 +554,14 @@ module tb_yolo_gemm_array #(
 endmodule
 
 // ---- 薄包装：三档规模（④）----
-module tb_gemm_array_4x4;
-    tb_yolo_gemm_array #(.P_TO(4), .P_TN(4)) u ();
+module tb_gemm_array_4x4_bmg;
+    tb_yolo_gemm_array_bmg #(.P_TO(4), .P_TN(4)) u ();
 endmodule
 
-module tb_gemm_array_8x16;
-    tb_yolo_gemm_array #(.P_TO(8), .P_TN(16)) u ();
+module tb_gemm_array_8x16_bmg;
+    tb_yolo_gemm_array_bmg #(.P_TO(8), .P_TN(16)) u ();
 endmodule
 
-module tb_gemm_array_16x16;
-    tb_yolo_gemm_array #(.P_TO(16), .P_TN(16)) u ();
+module tb_gemm_array_16x16_bmg;
+    tb_yolo_gemm_array_bmg #(.P_TO(16), .P_TN(16)) u ();
 endmodule

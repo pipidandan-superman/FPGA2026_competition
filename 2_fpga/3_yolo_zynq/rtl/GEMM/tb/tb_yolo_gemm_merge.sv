@@ -1,79 +1,143 @@
 /************************************************************************
- * File Name     : tb_yolo_gemm_array.sv
+ * File Name     : tb_yolo_gemm_merge.sv
  * Developer     : LSL
- * Date          : 2026-09-18
- * Module Name   : tb_yolo_gemm_array
- * Description   : 阵列门仿真。参数化 P_TO×P_TN，经薄包装分别跑
- *                 4×4 / 8×16 / 16×16 三档（同一 TB）。
- *                 V2.0（run08）：DUT 为宽字纯消费者——TB 直驱字流
- *                 （每拍一个 k 切片打包成 w_word/x_word + first/last
- *                 旁带），valid/ready 握手 + 生产者侧 valid 抖动（G5），
- *                 proto_err 对账（旁带/字数 vs blk_len）计入 errors。
+ * Date          : 2026-09-19
+ * Module Name   : tb_yolo_gemm_merge
+ * Description   : run10a / P1.3【V4】三体合并门：yolo_gemm_bank +
+ *                 yolo_gemm_feeder + yolo_gemm_array 一体，复跑 run06
+ *                 全矩阵（G1-G9 tile 清单逐字保留，随机流与 run08 一致
+ *                 ——数据逐字相同，y 对拍即跨实现对照）。
  *
- *   DUT: rtl/GEMM/yolo_gemm_array.sv（MAC 网格 + §5 分块 FSM + 共享尾）。
+ *   供数机制变化（相对 run08 直驱）：TB 只做块粒度调度——按块把 Wm/Xm
+ *   镜像切片经 64b 流式写口装入 bank 双组（组交替 g=b%2），递交 feeder
+ *   作业；feeder↔阵列的块头/宽字流/word_ready 全部真线直连，TB 不再
+ *   接触字流。阵列 tile 常量/参数/LUT 口仍由 TB 驱动。
  *
- *   期望值来源（GEMM 手册 §14：更宽独立 oracle，永不取自被测公式）：
- *   - INT64 逐元素累加 Σ w[r][k]·x[n][k]（TB 独立乘加，8 位激励域）；
- *   - requant：截断除 + floor 修正 + RNE（与 DUT 移位/掩码法不同构）
- *     + SiLU LUT 图样 A(i^A5) 镜像；
- *   - 输出按 oc 主序/n 次序逐拍对拍（值+坐标+顺序）。
+ *   档位：4×4（单元）与 8×16（G2 基线）。16×16 不跑——W 字 128b 无
+ *   64b 写口通路（G2 收敛架构 §2 定 8×16 基线），其阵列级等价覆盖已由
+ *   run08 冻结（6881 checks）。P_KC=1152 = 矩阵最深层块（[1152,576,576]）
+ *   ——功能门参数，生产 Kc 定档是 P1.4 综合问题。
  *
- *   覆盖（§14 阵列档 + V2 字流契约）：K=1/27/32/576/2304、
- *   [576×4]/[1152,576,576]/[1,1,27,1,34] 分块续累、行/列掩码尾
- *   （TO−1 行、奇偶 lane）、生产者 valid 抖动、rst 在飞击杀（流中）、
- *   背靠背 tile、首层大 bias、随机 tile。
+ *   相对 run08 的激励差异（如实声明）：G5 生产者抖动退役——合并系统的
+ *   生产者是 feeder（无 valid 抖动；消费侧停拍已由 run09 R4 覆盖），
+ *   G5 两 tile 保留以维持检查数对齐；G6 击杀改为 job 递交后定时杀
+ *   （字流由 feeder 驱动，TB 无法逐字截断）。
  *
- *   继承纪律：每 negedge 驱动、$random 无符号模、X 绷线、
- *   done 事件即消费、守恒 started = done + aborted。
+ *   继承纪律：每 negedge 驱动、$random 无符号模且上限预计算、
+ *   内层循环禁用外层变量、done 事件即消费、守恒 started=done+aborted、
+ *   TB 不制造 TDP 冲突访问（装载只在读侧排空后进行——顺序调度）。
  * Revision History:
- *   - V1.0 (2026-09-18) by LSL : Initial release (run06，缓冲写口装载)。
- *   - V2.0 (2026-09-19) by LSL : 宽字流直驱改造（run08，P1.1/V1）：
- *     删缓冲写口/stall 激励，块头 1 拍 + 字流握手 + 抖动；golden 不变。
+ *   - V1.0 (2026-09-19) by LSL : run10a 三体合并门初版。
  ************************************************************************/
 
 `timescale 1ns/1ps
 
-module tb_yolo_gemm_array #(
+module tb_yolo_gemm_merge #(
     parameter integer P_TO = 4,
-    parameter integer P_TN = 4
+    parameter integer P_TN = 4,
+    parameter integer P_KC = 1152    //矩阵最深层块 1152；生产定档见 P1.4
 );
 
     localparam integer KMAX = 2304;
-    //随机 tile 数按规模缩放（先声明后使用）
     localparam integer NRAND = (P_TO * P_TN >= 256) ? 8 :
                                ((P_TO * P_TN >= 128) ? 15 : 40);
 
-    // ---- DUT 信号 ----
-    reg  clk, rst;
-    reg  blk_valid;
-    reg  [12:0] blk_len;
-    reg  blk_first, blk_last;
+    // ---- 时钟/复位（三 DUT 共享）----
+    reg clk, rst;
+    initial clk = 1'b0;
+    always #5 clk = ~clk;
+    reg rst_d;
+    always @(posedge clk) rst_d <= rst;
+
+    // ---- bank 装载写口（TB 驱动）----
+    reg         wr_valid, wr_is_x, wr_x_hi, wr_first, wr_last;
+    reg  [63:0] wr_data;
+    reg  [7:0]  wr_be;
+    reg         ld_w_grp, ld_x_grp;
+    wire        wr_ready;
+    wire [1:0]  w_ld_ok, x_ld_ok, w_loaded, x_loaded;
+    wire [12:0] ld_w_len, ld_x_len;
+    wire        ld_done;
+
+    // ---- feeder 作业口（TB 驱动）----
+    reg         job_valid, job_first, job_last, job_w_grp, job_x_grp;
+    reg  [12:0] job_len;
+    wire        job_ready;
+
+    // ---- feeder↔bank 真线 ----
+    wire        w_rgrp, w_ren, x_rgrp, x_ren;
+    wire [12:0] w_raddr, x_raddr;
+    wire [8*P_TO-1:0] w_dg0, w_dg1;
+    wire [8*P_TN-1:0] x_dg0, x_dg1;
+    wire        rd_busy;
+
+    // ---- feeder→阵列字流（真线，TB 不接触）----
+    wire        blk_valid_w;
+    wire [12:0] blk_len_w;
+    wire        blk_first_w, blk_last_w;
+    wire [8*P_TO-1:0] w_word_w;
+    wire [8*P_TN-1:0] x_word_w;
+    wire        word_valid_w, word_first_w, word_last_w, word_ready_w;
+
+    // ---- 阵列 tile 常量/参数/LUT（TB 驱动）----
     reg  [P_TO-1:0] row_valid;
     reg  [P_TN-1:0] n_mask;
     reg  act_en;
-    reg  [8*P_TO-1:0] w_word;
-    reg  [8*P_TN-1:0] x_word;
-    reg  word_valid, word_first, word_last;
-    wire word_ready, proto_err;
     reg  p_we;
     reg  [$clog2(P_TO)-1:0] p_row;
     reg  signed [31:0] p_bias, p_m;
     reg  [5:0] p_sh;
     reg  lut_we;
     reg  [7:0] lut_wa, lut_wd;
-    wire blk_done, tile_done, busy, y_valid;
+    wire blk_done, tile_done, busy, proto_err, y_valid;
     wire signed [7:0] y;
     wire [$clog2(P_TO)-1:0] y_row;
     wire [$clog2(P_TN)-1:0] y_col;
+    wire bank_err;   //前置声明（10-3380 教训：勿在声明前引用）
+
+    // ---- 三体例化 ----
+    yolo_gemm_bank #(.P_TO(P_TO), .P_TN(P_TN), .P_KC(P_KC)) u_bank (
+        .clk_i(clk), .rst_i(rst),
+        .wr_valid_i(wr_valid), .wr_ready_o(wr_ready), .wr_data_i(wr_data),
+        .wr_is_x_i(wr_is_x), .wr_x_hi_i(wr_x_hi), .wr_be_i(wr_be),
+        .wr_first_i(wr_first), .wr_last_i(wr_last),
+        .ld_w_grp_i(ld_w_grp), .ld_x_grp_i(ld_x_grp), .rd_busy_i(rd_busy),
+        .w_ld_ok_o(w_ld_ok), .x_ld_ok_o(x_ld_ok),
+        .w_loaded_o(w_loaded), .x_loaded_o(x_loaded),
+        .ld_w_len_o(ld_w_len), .ld_x_len_o(ld_x_len), .ld_done_o(ld_done),
+        .w_rgrp_i(w_rgrp), .w_raddr_i(w_raddr), .w_ren_i(w_ren),
+        .w_dout_g0_o(w_dg0), .w_dout_g1_o(w_dg1),
+        .x_rgrp_i(x_rgrp), .x_raddr_i(x_raddr), .x_ren_i(x_ren),
+        .x_dout_g0_o(x_dg0), .x_dout_g1_o(x_dg1),
+        .bank_err_o(bank_err)
+    );
+
+    yolo_gemm_feeder #(.P_TO(P_TO), .P_TN(P_TN)) u_feeder (
+        .clk_i(clk), .rst_i(rst),
+        .job_valid_i(job_valid), .job_ready_o(job_ready),
+        .job_len_i(job_len), .job_first_i(job_first), .job_last_i(job_last),
+        .job_w_grp_i(job_w_grp), .job_x_grp_i(job_x_grp),
+        .w_rgrp_o(w_rgrp), .w_raddr_o(w_raddr), .w_ren_o(w_ren),
+        .w_dout_g0_i(w_dg0), .w_dout_g1_i(w_dg1),
+        .x_rgrp_o(x_rgrp), .x_raddr_o(x_raddr), .x_ren_o(x_ren),
+        .x_dout_g0_i(x_dg0), .x_dout_g1_i(x_dg1),
+        .w_grp_ld_i(w_loaded), .x_grp_ld_i(x_loaded),
+        .rd_busy_o(rd_busy),
+        .blk_valid_o(blk_valid_w), .blk_len_o(blk_len_w),
+        .blk_first_o(blk_first_w), .blk_last_o(blk_last_w),
+        .w_word_o(w_word_w), .x_word_o(x_word_w),
+        .word_valid_o(word_valid_w), .word_first_o(word_first_w),
+        .word_last_o(word_last_w), .word_ready_i(word_ready_w)
+    );
 
     yolo_gemm_array #(.P_TO(P_TO), .P_TN(P_TN)) dut (
         .clk_i(clk), .rst_i(rst),
-        .blk_valid_i(blk_valid), .blk_len_i(blk_len),
-        .blk_first_i(blk_first), .blk_last_i(blk_last),
+        .blk_valid_i(blk_valid_w), .blk_len_i(blk_len_w),
+        .blk_first_i(blk_first_w), .blk_last_i(blk_last_w),
         .row_valid_i(row_valid), .n_mask_i(n_mask), .act_en_i(act_en),
-        .w_word_i(w_word), .x_word_i(x_word),
-        .word_valid_i(word_valid), .word_first_i(word_first),
-        .word_last_i(word_last), .word_ready_o(word_ready),
+        .w_word_i(w_word_w), .x_word_i(x_word_w),
+        .word_valid_i(word_valid_w), .word_first_i(word_first_w),
+        .word_last_i(word_last_w), .word_ready_o(word_ready_w),
         .p_we_i(p_we), .p_row_i(p_row),
         .p_bias_i(p_bias), .p_m_i(p_m), .p_sh_i(p_sh),
         .lut_we_i(lut_we), .lut_wa_i(lut_wa), .lut_wd_i(lut_wd),
@@ -83,20 +147,14 @@ module tb_yolo_gemm_array #(
         .y_row_o(y_row), .y_col_o(y_col)
     );
 
-    initial clk = 1'b0;
-    always #5 clk = ~clk;
-
-    reg rst_d;
-    always @(posedge clk) rst_d <= rst;
-
-    // ---- 记账 ----
+    // ---- 记账（与 run08 同名同义，便于逐数对齐）----
     integer checks, errors;
     integer tiles_started, tiles_done, tiles_aborted;
     integer exp_blk_done, blk_done_seen;
     integer y_cnt;
-    integer jitter_en;
     integer proto_cnt;
-    reg    proto_prev;
+    reg    proto_prev, bank_err_prev;
+    integer ld_done_seen;
     integer eq_wp, eq_rp;
     reg signed [7:0]          eq_y [0:65535];
     reg [$clog2(P_TO)-1:0]    eq_r [0:65535];
@@ -105,8 +163,18 @@ module tb_yolo_gemm_array #(
     integer cyc;
     integer blocks_fed;
     integer i, t, q;
-    reg act_exp;            //当前 tile 的 act 镜像（期望 LUT/旁路）
+    reg act_exp;
+    reg [63:0] rbeat;
     always @(negedge clk) cyc = cyc + 1;
+
+    // ---- bank_err 上升沿计错（合并层新增仪器）----
+    always @(posedge clk) begin
+        if (bank_err && !bank_err_prev && !rst) begin
+            errors = errors + 1;
+            $display("EES_ARR_ERR [%0t] bank_err raised", $time);
+        end
+        bank_err_prev <= bank_err;
+    end
 
     // ---- TB 侧镜像（oracle 数据源，永不读 DUT）----
     reg signed [7:0]  Wm [0:P_TO-1][0:KMAX-1];
@@ -144,7 +212,7 @@ module tb_yolo_gemm_array #(
         sat_addr = {~q7[7], q7[6:0]};
     endfunction
 
-    // ---- 检查器：每 negedge 全覆盖 ----
+    // ---- 检查器：每 negedge 全覆盖（run08 逐字）----
     reg signed [7:0] eqt;
     reg [7:0] eadt;
     reg signed [7:0] eexp;
@@ -155,7 +223,6 @@ module tb_yolo_gemm_array #(
                 $display("EES_ARR_ERR [%0t] done/y during rst", $time);
             end
         end else begin
-            // proto_err 上升沿计数（DUT 粘滞，rst 清）
             if (proto_err && !proto_prev) begin
                 proto_cnt = proto_cnt + 1;
                 errors = errors + 1;
@@ -201,7 +268,7 @@ module tb_yolo_gemm_array #(
         proto_prev = proto_err;
     end
 
-    // ---- 驱动任务 ----
+    // ---- 基础任务 ----
     task gapn(input integer n);
         integer k;
         begin
@@ -210,12 +277,12 @@ module tb_yolo_gemm_array #(
     endtask
 
     task lut_load_a;        //图样 A：i ^ A5
-        integer i;
+        integer li;
         begin
-            for (i = 0; i < 256; i = i + 1) begin
-                lut_we = 1'b1; lut_wa = i[7:0];
-                lut_wd = i[7:0] ^ 8'hA5;
-                lut_exp[i] = i[7:0] ^ 8'hA5;
+            for (li = 0; li < 256; li = li + 1) begin
+                lut_we = 1'b1; lut_wa = li[7:0];
+                lut_wd = li[7:0] ^ 8'hA5;
+                lut_exp[li] = li[7:0] ^ 8'hA5;
                 @(negedge clk);
             end
             lut_we = 1'b0;
@@ -223,7 +290,7 @@ module tb_yolo_gemm_array #(
     endtask
 
     reg signed [7:0] cb [0:5];      //角点池
-    task fill_wx(input integer K);  //V2：只填 TB 镜像（DUT 无缓冲写口）
+    task fill_wx(input integer K);  //镜像填充（随机流与 run08 完全一致）
         integer kk, ii;
         reg signed [7:0] wv, xv;
         begin
@@ -241,14 +308,6 @@ module tb_yolo_gemm_array #(
                     end
                 end
             end
-        end
-    endtask
-
-    task pack_word(input integer k);   //第 k 切片打包成宽字
-        integer j;
-        begin
-            for (j = 0; j < P_TO; j = j + 1) w_word[8*j +: 8] = Wm[j][k];
-            for (j = 0; j < P_TN; j = j + 1) x_word[8*j +: 8] = Xm[j][k];
         end
     endtask
 
@@ -300,54 +359,115 @@ module tb_yolo_gemm_array #(
         end
     endtask
 
-    // 发一块：块头 1 拍 + 字流握手（含生产者抖动），等对应 done
-    // k0 = 本块首切片在 tile 内的绝对位置（V2 供数方负责块基址，
-    //      V1 时代是阵列内部 k_base 做的——run08 首跑教训）
-    task do_block(input integer len, input first, input last,
-                  input integer k0);
-        integer k, wt, g;
+    // ---- bank 装载拍（negedge 驱动 / posedge 判收 / 未收保持）----
+    task wr_beat(input integer isx, input integer xhi,
+                 input integer firstb, input integer lastb);
+        integer guard;
+        begin
+            @(negedge clk);
+            wr_valid = 1'b1; wr_is_x = isx[0]; wr_x_hi = xhi[0];
+            wr_first = firstb[0]; wr_last = lastb[0];
+            wr_be = 8'hFF; wr_data = rbeat;
+            guard = 0;
+            @(posedge clk);
+            while (!wr_ready && guard < 256) begin
+                guard = guard + 1;
+                @(posedge clk);
+            end
+            if (!wr_ready) begin
+                errors = errors + 1;
+                $display("EES_ARR_ERR [%0t] bank wr beat stuck not-ready", $time);
+            end
+            @(negedge clk);
+            wr_valid = 1'b0; wr_first = 1'b0; wr_last = 1'b0;
+        end
+    endtask
+
+    // ---- 装一块入 bank：k0=块首在 tile 内的绝对位置，grp=目标组 ----
+    // （V2 无 k0 契约：bank 每块从组地址 0 起——块基址活在装载顺序）
+    task bank_load(input integer len, input integer k0, input integer grp);
+        integer kk, j;
+        begin
+            ld_w_grp = grp[0]; ld_x_grp = grp[0];
+            for (kk = 0; kk < len; kk = kk + 1) begin
+                // W 整字拍（lane r = Wm[r][k0+kk]）
+                rbeat = 64'd0;
+                for (j = 0; j < P_TO; j = j + 1)
+                    rbeat[8*j +: 8] = Wm[j][k0+kk];
+                wr_beat(0, 0, (kk == 0), 1'b0);
+                // X lo 半字（lane 0..7）
+                rbeat = 64'd0;
+                for (j = 0; j < 8; j = j + 1)
+                    if (j < P_TN) rbeat[8*j +: 8] = Xm[j][k0+kk];
+                wr_beat(1, 0, 1'b0, 1'b0);
+                // X hi 半字（lane 8..15；P_TN<9 时数据空拍但仍是整字完成拍）
+                rbeat = 64'd0;
+                for (j = 0; j < 8; j = j + 1)
+                    if (j + 8 < P_TN) rbeat[8*j +: 8] = Xm[j+8][k0+kk];
+                wr_beat(1, 1, 1'b0, (kk == len-1));
+            end
+            //采样纪律：ld_done_r 在 wr_last 接收拍(P0) NBA 置 1、P1 NBA 清零。
+            //末拍 wr_beat 返回点=N0(P0/P1 间)=脉冲窗正中——本处同拍直读，
+            //无沿竞态（@posedge 读旧值虽也可行但依赖活动区时序，不取）。
+            if (!ld_done) begin
+                errors = errors + 1;
+                $display("EES_ARR_ERR [%0t] ld_done missing after bank load len=%0d",
+                         $time, len);
+            end
+            if (ld_w_len != len[12:0]) begin
+                errors = errors + 1;
+                $display("EES_ARR_ERR [%0t] ld_w_len=%0d exp=%0d",
+                         $time, ld_w_len, len);
+            end
+            if (ld_x_len != len[12:0]) begin
+                errors = errors + 1;
+                $display("EES_ARR_ERR [%0t] ld_x_len=%0d exp=%0d",
+                         $time, ld_x_len, len);
+            end
+            ld_done_seen = ld_done_seen + 1;
+            gapn(1);
+        end
+    endtask
+
+    // ---- 递交 feeder 作业（块头经 feeder 呈现，阵列 IDLE/WAIT 接受）----
+    task job_feed(input integer len, input integer first, input integer last,
+                  input integer grp);
+        integer guard;
         begin
             blocks_fed = blocks_fed + 1;
-            blk_len   = len[12:0];
-            blk_first = first;
-            blk_last  = last;
-            blk_valid = 1'b1;
+            if (!last[0]) exp_blk_done = exp_blk_done + 1;
             @(negedge clk);
-            blk_valid = 1'b0; blk_len = 13'd0;
-            if (!last) exp_blk_done = exp_blk_done + 1;
-            for (k = 0; k < len; k = k + 1) begin
-                pack_word(k0 + k);
-                wt = 0;
-                while (!word_ready) begin
-                    @(negedge clk);
-                    wt = wt + 1;
-                    if (wt > 64) begin
-                        errors = errors + 1;
-                        $display("EES_ARR_ERR [%0t] word_ready timeout (k=%0d)",
-                                 $time, k);
-                        break;
-                    end
-                end
-                word_valid = 1'b1;
-                word_first = (k == 0);
-                word_last  = (k == len - 1);
-                @(negedge clk);               //中间 posedge 完成一次接收
-                word_valid = 1'b0; word_first = 1'b0; word_last = 1'b0;
-                // 生产者侧 valid 抖动（G5 使能）：随机空 1-2 拍
-                if (jitter_en && ({$random(rs5)} % 3 == 0)) begin
-                    g = 1 + ({$random(rs5)} % 2);
-                    repeat (g) @(negedge clk);
-                end
+            job_len = len[12:0]; job_first = first[0]; job_last = last[0];
+            job_w_grp = grp[0]; job_x_grp = grp[0];
+            job_valid = 1'b1;
+            guard = 0;
+            @(posedge clk);
+            while (!job_ready && guard < 256) begin
+                guard = guard + 1;
+                @(posedge clk);
             end
+            if (!job_ready) begin
+                errors = errors + 1;
+                $display("EES_ARR_ERR [%0t] job handshake timeout", $time);
+            end
+            @(negedge clk);
+            job_valid = 1'b0;
+        end
+    endtask
+
+    // ---- 等本块收口：非末块等 blk_done，末块等 tile_done ----
+    task wait_done(input integer last, input integer len);
+        integer wt;
+        begin
             wt = 0;
             while (!rst) begin
-                if (last ? tile_done : blk_done)
+                if (last[0] ? tile_done : blk_done)
                     break;
                 @(negedge clk);
                 wt = wt + 1;
                 if (wt > len + 8 * P_TO * P_TN + 4096) begin
                     errors = errors + 1;
-                    $display("EES_ARR_ERR [%0t] do_block timeout (len=%0d last=%b)",
+                    $display("EES_ARR_ERR [%0t] wait_done timeout (len=%0d last=%0d)",
                              $time, len, last);
                     break;
                 end
@@ -355,7 +475,17 @@ module tb_yolo_gemm_array #(
         end
     endtask
 
-    // 完整跑一个 tile（填数/参数/期望 + 全部分块）
+    // ---- 发一块（合并路径：装载→递交→等收口）----
+    task do_block_m(input integer len, input integer first, input integer last,
+                    input integer k0, input integer grp);
+        begin
+            bank_load(len, k0, grp);
+            job_feed(len, first, last, grp);
+            wait_done(last, len);
+        end
+    endtask
+
+    // ---- 完整跑一个 tile（G 清单与随机流与 run08 逐字一致）----
     task run_tile(input integer K,
                   input [P_TO-1:0] rvm, input [P_TN-1:0] nmm,
                   input act, input integer big_bias,
@@ -373,11 +503,11 @@ module tb_yolo_gemm_array #(
             kbase = 0;
             for (b = 0; b < nb; b = b + 1) begin
                 case (b)
-                    0: do_block(b0, (b == 0), (b == nb-1), kbase);
-                    1: do_block(b1, (b == 0), (b == nb-1), kbase);
-                    2: do_block(b2, (b == 0), (b == nb-1), kbase);
-                    3: do_block(b3, (b == 0), (b == nb-1), kbase);
-                    4: do_block(b4, (b == 0), (b == nb-1), kbase);
+                    0: do_block_m(b0, (b == 0), (b == nb-1), kbase, b & 1);
+                    1: do_block_m(b1, (b == 0), (b == nb-1), kbase, b & 1);
+                    2: do_block_m(b2, (b == 0), (b == nb-1), kbase, b & 1);
+                    3: do_block_m(b3, (b == 0), (b == nb-1), kbase, b & 1);
+                    4: do_block_m(b4, (b == 0), (b == nb-1), kbase, b & 1);
                 endcase
                 case (b)
                     0: kbase = kbase + b0;
@@ -399,17 +529,19 @@ module tb_yolo_gemm_array #(
     initial begin        checks = 0; errors = 0;
         tiles_started = 0; tiles_done = 0; tiles_aborted = 0;
         exp_blk_done = 0; blk_done_seen = 0; y_cnt = 0;
-        blocks_fed = 0; jitter_en = 0;
+        blocks_fed = 0;
         proto_cnt = 0; proto_prev = 0;
+        bank_err_prev = 0; ld_done_seen = 0;
         eq_wp = 0; eq_rp = 0;
         rs1 = 11; rs2 = 12; rs3 = 13; rs4 = 14; rs5 = 15;
         cyc = 0; act_exp = 1'b0;
         cb[0] = -8'sd128; cb[1] = -8'sd127; cb[2] = 8'sd127;
         cb[3] = 8'sd0;    cb[4] = 8'sd1;    cb[5] = -8'sd1;
-        blk_valid = 0; blk_len = 0; blk_first = 0; blk_last = 0;
+        wr_valid = 0; wr_is_x = 0; wr_x_hi = 0; wr_first = 0; wr_last = 0;
+        wr_data = 64'd0; wr_be = 8'hFF; ld_w_grp = 0; ld_x_grp = 0;
+        job_valid = 0; job_len = 0; job_first = 0; job_last = 0;
+        job_w_grp = 0; job_x_grp = 0;
         row_valid = {P_TO{1'b1}}; n_mask = {P_TN{1'b1}}; act_en = 0;
-        w_word = 0; x_word = 0;
-        word_valid = 0; word_first = 0; word_last = 0;
         p_we = 0; p_row = 0; p_bias = 0; p_m = 0; p_sh = 0;
         lut_we = 0; lut_wa = 0; lut_wd = 0;
         rst = 1'b1;
@@ -442,14 +574,13 @@ module tb_yolo_gemm_array #(
         run_tile(32, {(P_TO)/2{2'b01}}, {(P_TN)/2{2'b01}}, 1'b0, 0, 1, 32,0,0,0,0);  //奇行奇列
         $display("EES_ARR_INFO G4_MASK_TAILS done");
 
-        // ===== G5 JITTER：生产者 valid 随机抖动（V2 回压模型） =====
-        jitter_en = 1;
+        // ===== G5：生产者抖动已随直驱退役（feeder 为生产者，无抖动源；
+        //           消费侧停拍覆盖在 run09 R4）——tile 保留维持矩阵对齐 =====
         run_tile(576, {P_TO{1'b1}}, {P_TN{1'b1}}, 1'b1, 0, 1, 576,0,0,0,0);
         run_tile(64,  {P_TO{1'b1}}, {P_TN{1'b1}}, 1'b0, 0, 2, 32,32,0,0,0);
-        jitter_en = 0;
-        $display("EES_ARR_INFO G5_JITTER done");
+        $display("EES_ARR_INFO G5 done");
 
-        // ===== G6 RST_MID：流中击杀 ×2（手动块+字流，不走 do_block 等待） =====
+        // ===== G6 RST_MID：流中击杀 ×2（job 递交后定时杀，字流在 feeder）=====
         for (t = 0; t < 2; t = t + 1) begin
             fill_wx(1000);
             load_params(0);
@@ -457,34 +588,23 @@ module tb_yolo_gemm_array #(
             row_valid = {P_TO{1'b1}}; n_mask = {P_TN{1'b1}};
             eq_wp = 0; eq_rp = 0;
             tiles_started = tiles_started + 1;
-            // 块头
-            blk_len = 13'd1000; blk_first = 1'b1; blk_last = 1'b0;
-            blk_valid = 1'b1;
+            bank_load(1000, 0, 0);            //整块入 g0（手动路，不计 blocks_fed）
             @(negedge clk);
-            blk_valid = 1'b0; blk_len = 13'd0;
-            // 字流发一部分（<1000，必无 word_last）
-            // 注意 1：循环上限预计算一次——写进循环条件会每次迭代抽 rs1，
-            //   使后续 G9 随机流漂移（run08 首跑教训）
-            // 注意 2：内层用 q，不得复用外层循环变量 t（会冲掉外层计数，
-            //   G6 击杀次数 2→1——run08 二跑教训）
+            job_len = 13'd1000; job_first = 1'b1; job_last = 1'b0;
+            job_w_grp = 1'b0; job_x_grp = 1'b0;
+            job_valid = 1'b1;
+            @(negedge clk);
+            job_valid = 1'b0;
+            //随机流对齐（run08 G6 逐字）：此处抽 rs1 一次/中止 tile，
+            //固定拍数会少抽 2 次使 G7 起数据漂移、破坏跨实现对照声明
             i = 20 + {$random(rs1)} % 40;
-            for (q = 0; q < i; q = q + 1) begin
-                pack_word(q);
-                while (!word_ready) @(negedge clk);
-                word_valid = 1'b1;
-                word_first = (q == 0);
-                word_last  = 1'b0;
-                @(negedge clk);
-                word_valid = 1'b0; word_first = 1'b0; word_last = 1'b0;
-            end
-            repeat (3) @(negedge clk);   //ISSUE 中途
+            repeat (i) @(negedge clk);  //ISSUE 中段（~i-1 字已入阵列，<1000 无 word_last）
             rst = 1'b1;
             repeat (2) @(negedge clk);
             rst = 1'b0;
-            word_valid = 1'b0; word_first = 1'b0; word_last = 1'b0;
-            eq_rp = eq_wp;              //在飞期望作废
+            eq_rp = eq_wp;                    //在飞期望作废
             tiles_aborted = tiles_aborted + 1;
-            gapn(6);                     //残影观察窗
+            gapn(6);                          //残影观察窗
             run_tile(27, {P_TO{1'b1}}, {P_TN{1'b1}}, 1'b1, 0, 1, 27,0,0,0,0);
         end
         $display("EES_ARR_INFO G6_RST_MID done");
@@ -526,11 +646,17 @@ module tb_yolo_gemm_array #(
             $display("EES_ARR_ERR blk_done seen=%0d want=%0d",
                      blk_done_seen, exp_blk_done);
         end
+        if (ld_done_seen != blocks_fed + 2) begin
+            errors = errors + 1;
+            $display("EES_ARR_ERR ld_done seen=%0d want=%0d (blocks+2 manual)",
+                     ld_done_seen, blocks_fed + 2);
+        end
         $display("EES_SUMMARY checks=%0d errors=%0d proto_err=%0d",
                  checks, errors, proto_cnt);
         $display("EES_ARR_INFO config=%0dx%0d tiles started=%0d done=%0d aborted=%0d y=%0d",
                  P_TO, P_TN, tiles_started, tiles_done, tiles_aborted, y_cnt);
-        $display("EES_ARR_INFO blocks_fed=%0d blk_done=%0d", blocks_fed, blk_done_seen);
+        $display("EES_ARR_INFO blocks_fed=%0d blk_done=%0d ld_done=%0d KC=%0d",
+                 blocks_fed, blk_done_seen, ld_done_seen, P_KC);
         if (errors == 0)
             $display("EES_VIVADO_RESULT PASS");
         else
@@ -548,15 +674,11 @@ module tb_yolo_gemm_array #(
 
 endmodule
 
-// ---- 薄包装：三档规模（④）----
-module tb_gemm_array_4x4;
-    tb_yolo_gemm_array #(.P_TO(4), .P_TN(4)) u ();
+// ---- 薄包装：合并门两档（16×16 无 64b 写口通路，见文件头说明）----
+module tb_gemm_merge_4x4;
+    tb_yolo_gemm_merge #(.P_TO(4), .P_TN(4),  .P_KC(1152)) u ();
 endmodule
 
-module tb_gemm_array_8x16;
-    tb_yolo_gemm_array #(.P_TO(8), .P_TN(16)) u ();
-endmodule
-
-module tb_gemm_array_16x16;
-    tb_yolo_gemm_array #(.P_TO(16), .P_TN(16)) u ();
+module tb_gemm_merge_8x16;
+    tb_yolo_gemm_merge #(.P_TO(8), .P_TN(16), .P_KC(1152)) u ();
 endmodule

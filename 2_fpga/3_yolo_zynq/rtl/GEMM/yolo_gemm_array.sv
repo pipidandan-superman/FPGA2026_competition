@@ -16,6 +16,23 @@
  *       parameterized 16x16 (128 DSP) -- same RTL, elaboration only;
  *     - shared K/OC/N counters (section 11): NO per-PE counters.
  *
+ *   V2.0 WIDE-WORD PURE-CONSUMER CONTRACT (G2 gate, manual section 6):
+ *     - operand input is ONE k-slice per beat: w_word_i carries all
+ *       P_TO row weights (8*P_TO bits, lane r = w_word[8*r +: 8]),
+ *       x_word_i carries all P_TN column activations (8*P_TN bits,
+ *       lane n = x_word[8*n +: 8]) -- 24 B/beat at 8x16;
+ *     - the array is a PURE CONSUMER: k sequencing lives in the
+ *       upstream feeder (yolo_gemm_feeder, V2). ISSUE leaves on the
+ *       ACCEPTED word_last beat (sideband-driven, no local k counter
+ *       in the datapath). The ③-tier functional W/X register arrays
+ *       and their loader write ports are GONE;
+ *     - block header handshake unchanged (blk_valid accepted in
+ *       IDLE/WAIT); words are valid/ready handshaked, word_first/
+ *       word_last mark the block ends. A shadow word counter (wcnt)
+ *       cross-checks the stream against blk_len and raises sticky
+ *       proto_err_o -- verification instrumentation, it never gates
+ *       the datapath.
+ *
  *   Tile FSM (section 5): IDLE -> [WAIT] -> ISSUE -> DRAIN_PE ->
  *     TAIL -> DONE. K > Kc arrives as consecutive blocks on the blk
  *     port: first block carries first_k (accumulator init), last
@@ -36,45 +53,48 @@
  *     reaches the tile's valid-output total: a masked tile's last y
  *     beat can land BEFORE TAILW is entered, so a level wait on
  *     y_last would miss the pulse (run06 dbg).
- *
- *   W/X buffers: FUNCTIONAL ③-tier register arrays with loader write
- *     ports (absolute k index, full P_KMAX depth so multi-block
- *     resume needs no reload). The real bank/ping-pong organization
- *     is gate G2 and replaces these arrays -- the cell/tail/FSM
- *     contract above is what ③④ freeze.
  * Dependencies    : yolo_mac_cell.sv (level-2), yolo_gemm_tail.sv (③a)
  * Revision History:
  *   - V1.0 (2026-09-18) by LSL : Initial release (manual steps 3b/4).
  *   - V1.1 (2026-09-19) by LSL : TAILW deadlock fix -- exit on y-beat
  *     count (ycnt >= n_valid_cnt) instead of level wait on y_last,
  *     which a masked tile's early tail beat can outrun.
+ *   - V2.0 (2026-09-19) by LSL : G2/V1 (run08) wide-word refactor --
+ *     functional W/X buffers + loader ports + P_KMAX + stall_i removed;
+ *     k sequencing handed to the feeder (pure consumer, ISSUE exits on
+ *     accepted word_last); w_word/x_word + word_valid/first/last +
+ *     word_ready stream port added; sticky proto_err_o cross-checks
+ *     stream flags/count against blk_len. Cell/tail/FSM datapath
+ *     semantics untouched (contract freeze).
+ *   - V2.1 (2026-09-19) by LSL : tail V2.0 (BMG IP LUT) deepened the
+ *     shared tail D+3 -> D+4; the y coordinate mirror was still 3 deep,
+ *     presenting y_row/y_col one beat EARLY against y_valid/y_o.
+ *     Mirror deepened to 4 stages (yr4/yn4) -- the only change; gate
+ *     evidence run14.
  ************************************************************************/
 
 module yolo_gemm_array #(
     parameter integer P_TO    = 4,     //OC 行数（tile 内）
-    parameter integer P_TN    = 4,     //N 列数（偶数，lane 对 = P_TN/2）
-    parameter integer P_KMAX  = 2304   //③ 功能缓冲深度（G2 换真 bank 机构）
+    parameter integer P_TN    = 4      //N 列数（偶数，lane 对 = P_TN/2）
 ) (
     input  wire               clk_i,
     input  wire               rst_i,        //同步复位：FSM 回 IDLE，击杀在飞
-    // ---- block/tile job（§5：K>Kc 由连续 block 组成）----
-    input  wire               blk_valid_i,  //IDLE/WAIT 态接受
-    input  wire        [12:0] blk_len_i,    //本块 k 数（>=1，和 <= P_KMAX）
+    // ---- block/tile job 头（§5：K>Kc 由连续 block 组成；IDLE/WAIT 态接受）----
+    input  wire               blk_valid_i,
+    input  wire        [12:0] blk_len_i,    //本块 k 数（>=1；wcnt 对账用）
     input  wire               blk_first_i,  //tile 首块（first_k 域）
     input  wire               blk_last_i,   //tile 末块（last_k/done/tail 域）
+    // ---- 宽字操作数流（每拍一个 k 切片，纯消费者契约）----
+    input  wire [8*P_TO-1:0]  w_word_i,     //lane r = w_word[8*r +: 8]（行广播）
+    input  wire [8*P_TN-1:0]  x_word_i,     //lane n = x_word[8*n +: 8]（列广播）
+    input  wire               word_valid_i,
+    input  wire               word_first_i, //本块首字
+    input  wire               word_last_i,  //本块末字（ISSUE 离开判据）
+    output wire               word_ready_o, //ISSUE 态每拍可收
     // ---- tile 常量（首块锁存）----
     input  wire [P_TO-1:0]    row_valid_i,  //OC 行有效掩码（至少 1 行）
     input  wire [P_TN-1:0]    n_mask_i,     //N lane 掩码（至少 1 lane）
     input  wire               act_en_i,     //1=LUT，0=线性旁路
-    // ---- W/X 功能缓冲写口（加载器/TPG 空闲时装载，绝对 k 索引）----
-    input  wire               w_we_i,
-    input  wire  [$clog2(P_TO)-1:0]   w_row_i,
-    input  wire  [11:0]              w_k_i,
-    input  wire signed [7:0]         w_wd_i,
-    input  wire               x_we_i,
-    input  wire  [$clog2(P_TN)-1:0]  x_col_i,
-    input  wire  [11:0]              x_k_i,
-    input  wire signed [7:0]         x_wd_i,
     // ---- per-OC 参数（tile 锁定：TB 在 tile 间隙写）----
     input  wire               p_we_i,
     input  wire  [$clog2(P_TO)-1:0]  p_row_i,
@@ -85,12 +105,11 @@ module yolo_gemm_array #(
     input  wire               lut_we_i,
     input  wire        [7:0]  lut_wa_i,
     input  wire        [7:0]  lut_wd_i,
-    // ---- issue 控制 ----
-    input  wire               stall_i,      //ISSUE 态插空拍（XBUF 抖动模型）
     // ---- 输出 ----
     output wire               blk_done_o,   //脉冲：非末块排空完成（acc 保留）
     output wire               tile_done_o,  //脉冲：末块+尾全部完成
     output wire               busy_o,
+    output wire               proto_err_o,  //粘滞：字流旁带/字数与 blk_len 对账失败
     output wire               y_valid_o,
     output wire signed [7:0]  y_o,
     output wire  [$clog2(P_TO)-1:0] y_row_o,
@@ -110,8 +129,7 @@ module yolo_gemm_array #(
     reg [2:0]  state, state_nx;
     reg [12:0] blk_len_lat;
     reg        blk_first_lat, blk_last_lat;
-    reg [11:0] k_base;
-    reg [12:0] k_cnt;
+    reg [12:0] wcnt;                        //影子字计数（仅协议对账，不进数据通路）
     reg [12:0] dcnt;                        //中间块 4 拍排空计数
     reg [8:0]  ti;                          //尾读出元素指针 (r,n) 展平
     reg [8:0]  fc;                          //已喂尾的有效元素计数
@@ -121,20 +139,11 @@ module yolo_gemm_array #(
     reg [P_TN-1:0] n_mask_lat;
     reg        act_lat;
 
-    reg        blk_done_r, tile_done_r;
+    reg        blk_done_r, tile_done_r, proto_err_r;
     wire       cells_done;                 //DRAIN_PE 离开条件（末块，后接赋值）
     wire       tail_y_last;                //尾末元素标记（后接端口连接）
     wire       tail_feed_v;                //尾喂使能（后接赋值）
     wire       tail_y_valid;               //尾 y 拍有效（后接端口连接）
-
-    // ---- W/X 功能缓冲（③档；G2 换真 bank）----
-    reg signed [7:0] W_buf [0:P_TO-1][0:P_KMAX-1];
-    reg signed [7:0] X_buf [0:P_TN-1][0:P_KMAX-1];
-
-    always @(posedge clk_i) begin
-        if (w_we_i) W_buf[w_row_i][w_k_i] <= w_wd_i;
-        if (x_we_i) X_buf[x_col_i][x_k_i] <= x_wd_i;
-    end
 
     // ---- per-OC 参数 ----
     reg signed [31:0] pb [0:P_TO-1];
@@ -162,9 +171,15 @@ module yolo_gemm_array #(
         end
     endfunction
 
-    // ---- 发射门控 ----
-    wire issue_v = (state == S_ISSUE) && !stall_i;
-    wire [11:0] k_abs = k_base + k_cnt[11:0];
+    // ---- 字流接收（纯消费者契约）----
+    assign word_ready_o = (state == S_ISSUE);
+    wire word_accept = word_valid_i && word_ready_o;
+
+    // 协议对账：首字标志/末字标志与影子字数、blk_len 一致性（只报警不门控）
+    wire wfirst_bad = word_accept && (word_first_i != (wcnt == 13'd0));
+    wire wlast_bad  = word_accept &&
+                      (word_last_i  != (wcnt + 13'd1 == blk_len_lat));
+    wire proto_bad  = wfirst_bad || wlast_bad;
 
     wire acc_accept = blk_valid_i &&
                       ((state == S_IDLE) || (state == S_WAIT));
@@ -175,7 +190,7 @@ module yolo_gemm_array #(
         case (state)
             S_IDLE:   if (acc_accept)          state_nx = S_ISSUE;
             S_WAIT:   if (acc_accept)          state_nx = S_ISSUE;
-            S_ISSUE:  if (issue_v && (k_cnt == blk_len_lat - 13'd1))
+            S_ISSUE:  if (word_accept && word_last_i)
                                           state_nx = S_DRAIN;
             S_DRAIN:  if (blk_last_lat ? cells_done : (dcnt == 13'd3))
                                           state_nx = blk_last_lat ? S_TAIL : S_WAIT;
@@ -190,35 +205,33 @@ module yolo_gemm_array #(
             state <= S_IDLE;
             blk_done_r  <= 1'b0;
             tile_done_r <= 1'b0;
+            proto_err_r <= 1'b0;
         end else begin
             state <= state_nx;
             // 输出脉冲（done 事件即消费，非粘滞）
             blk_done_r  <= (state == S_DRAIN) && (state_nx == S_WAIT);
             tile_done_r <= (state == S_TAILW) && (state_nx == S_IDLE);
+            if (proto_bad) proto_err_r <= 1'b1;   //粘滞，仅 rst 清
             case (state)
                 S_IDLE, S_WAIT: if (acc_accept) begin
                     blk_len_lat   <= blk_len_i;
                     blk_first_lat <= blk_first_i;
                     blk_last_lat  <= blk_last_i;
-                    k_cnt         <= 13'd0;
+                    wcnt          <= 13'd0;
                     dcnt          <= 13'd0;
                     if (state == S_IDLE) begin
                         //首块：锁存 tile 常量
                         row_valid_lat <= row_valid_i;
                         n_mask_lat    <= n_mask_i;
                         act_lat       <= act_en_i;
-                        k_base        <= 12'd0;
                         n_valid_cnt   <= popcnt_masks(row_valid_i, n_mask_i);
                         fc            <= 9'd0;
                         ti            <= 9'd0;
                         ycnt          <= 9'd0;
-                    end else begin
-                        //续块：k 基址前移本块长度
-                        k_base        <= k_base + blk_len_lat[11:0];
                     end
                 end
-                S_ISSUE: if (issue_v)
-                    k_cnt <= k_cnt + 13'd1;
+                S_ISSUE: if (word_accept)
+                    wcnt <= wcnt + 13'd1;
                 S_DRAIN:
                     dcnt <= dcnt + 13'd1;
                 S_TAIL: begin
@@ -235,7 +248,7 @@ module yolo_gemm_array #(
         end
     end
 
-    // ---- MAC 网格：行广播 w，列对广播 x ----
+    // ---- MAC 网格：行广播 w 字切片，列对广播 x 字切片 ----
     wire signed [P_TO*P_TN-1:0][31:0] acc_flat;  //展平 (r,n) 累加器读出（打包向量）
     wire [P_TO-1:0]    row_done_w;
 
@@ -248,15 +261,15 @@ module yolo_gemm_array #(
                     .clk_i       (clk_i),
                     .rst_i       (rst_i),
                     .clr_i       (1'b0),          //阵列生命周期用 fk 重置 + rst 击杀
-                    .in_valid_i  (issue_v & row_valid_lat[r]),
-                    .w_i         (W_buf[r][k_abs]),
-                    .x0_i        (X_buf[2*c  ][k_abs]),
-                    .x1_i        (X_buf[2*c+1][k_abs]),
+                    .in_valid_i  (word_accept & row_valid_lat[r]),
+                    .w_i         ($signed(w_word_i[8*r +: 8])),
+                    .x0_i        ($signed(x_word_i[16*c   +: 8])),
+                    .x1_i        ($signed(x_word_i[16*c+8 +: 8])),
                     .lane_mask_i (n_mask_lat[2*c +: 2]),
-                    .first_k_i   (issue_v & row_valid_lat[r] &&
-                                  (k_cnt == 13'd0) && blk_first_lat),
-                    .last_k_i    (issue_v & row_valid_lat[r] &&
-                                  (k_cnt == blk_len_lat - 13'd1) && blk_last_lat),
+                    .first_k_i   (word_accept & row_valid_lat[r] &&
+                                  word_first_i && blk_first_lat),
+                    .last_k_i    (word_accept & row_valid_lat[r] &&
+                                  word_last_i  && blk_last_lat),
                     .acc0_o      (acc_flat[r*P_TN + 2*c    ]),
                     .acc1_o      (acc_flat[r*P_TN + 2*c + 1]),
                     .acc_done_o  (cdone[c])
@@ -277,14 +290,15 @@ module yolo_gemm_array #(
     assign tail_feed_v = (state == S_TAIL) && el_valid;
     wire       tail_in_last = tail_feed_v && (fc == n_valid_cnt - 9'd1);
 
-    // 坐标三拍对齐（捕获于喂拍，与尾 valid 同相呈现）
-    reg [$clog2(P_TO)-1:0] yr1, yr2, yr3;
-    reg [$clog2(P_TN)-1:0] yn1, yn2, yn3;
+    // 坐标四拍对齐（捕获于喂拍，与尾 valid 同相呈现——尾 V2.0 D+4）
+    reg [$clog2(P_TO)-1:0] yr1, yr2, yr3, yr4;
+    reg [$clog2(P_TN)-1:0] yn1, yn2, yn3, yn4;
     always @(posedge clk_i) begin
         yr1 <= ti_r[$clog2(P_TO)-1:0];
         yn1 <= ti_n[$clog2(P_TN)-1:0];
         yr2 <= yr1; yn2 <= yn1;
         yr3 <= yr2; yn3 <= yn2;
+        yr4 <= yr3; yn4 <= yn3;
     end
 
     // ---- 共享尾（每阵列一个，§8 全链）----
@@ -315,10 +329,11 @@ module yolo_gemm_array #(
 
     assign y_valid_o = tail_y_valid;
     assign y_o       = tail_y;
-    assign y_row_o   = yr3;
-    assign y_col_o   = yn3;
+    assign y_row_o   = yr4;
+    assign y_col_o   = yn4;
     assign blk_done_o  = blk_done_r;
     assign tile_done_o = tile_done_r;
     assign busy_o      = (state != S_IDLE);
+    assign proto_err_o = proto_err_r;
 
 endmodule

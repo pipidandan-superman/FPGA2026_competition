@@ -1,0 +1,210 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 12:27:53 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source sim_gemm_bankfeeder.tcl
+# set xil     {F:/vivado2025/2025.2/Vivado}
+# set xsimbin [file join $xil bin unwrapped win64.o]
+# set bank    {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv}
+# set feeder  {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_feeder.sv}
+# set tb      {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv}
+# set tiers   {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_gemm_bank_tiers.sv}
+# proc run_tool {args} {
+#     puts "% [join $args { }]"
+#     set rc [catch {exec {*}$args} out]
+#     puts $out
+#     if {$rc != 0} { error "TOOL_FAILED: [join $args { }]" }
+# }
+# puts "EES_VIVADO_STAGE COMPILE"
+EES_VIVADO_STAGE COMPILE
+# run_tool [file join $xsimbin xvlog.exe] -sv $bank $feeder $tb $tiers
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe -sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_feeder.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_gemm_bank_tiers.sv
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_bank
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_feeder.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_feeder
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_yolo_gemm_bankfeeder
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_gemm_bank_tiers.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_gemm_bank_4x4_kc8
+INFO: [VRFC 10-311] analyzing module tb_gemm_bank_8x16_kc64
+INFO: [VRFC 10-311] analyzing module tb_gemm_bank_8x16_kc576
+# puts "EES_VIVADO_STAGE ELABORATE"
+EES_VIVADO_STAGE ELABORATE
+# run_tool [file join $xsimbin xelab.exe] -debug off -timescale {1ns/1ps} \
+#     -s tb_bk1 tb_gemm_bank_4x4_kc8
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -s tb_bk1 tb_gemm_bank_4x4_kc8
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -s tb_bk1 tb_gemm_bank_4x4_kc8 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.yolo_gemm_bank(P_TO=4,P_TN=4,P_K...
+Compiling module work.yolo_gemm_feeder(P_TO=4,P_TN=4)
+Compiling module work.tb_yolo_gemm_bankfeeder(P_TO=4,P...
+Compiling module work.tb_gemm_bank_4x4_kc8
+Built simulation snapshot tb_bk1
+# run_tool [file join $xsimbin xelab.exe] -debug off -timescale {1ns/1ps} \
+#     -s tb_bk2 tb_gemm_bank_8x16_kc64
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -s tb_bk2 tb_gemm_bank_8x16_kc64
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -s tb_bk2 tb_gemm_bank_8x16_kc64 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.yolo_gemm_bank_default
+Compiling module work.yolo_gemm_feeder
+Compiling module work.tb_yolo_gemm_bankfeeder_default
+Compiling module work.tb_gemm_bank_8x16_kc64
+Built simulation snapshot tb_bk2
+# run_tool [file join $xsimbin xelab.exe] -debug off -timescale {1ns/1ps} \
+#     -s tb_bk3 tb_gemm_bank_8x16_kc576
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -s tb_bk3 tb_gemm_bank_8x16_kc576
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -s tb_bk3 tb_gemm_bank_8x16_kc576 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.yolo_gemm_bank(P_KC=576)
+Compiling module work.yolo_gemm_feeder
+Compiling module work.tb_yolo_gemm_bankfeeder(P_KC=576...
+Compiling module work.tb_gemm_bank_8x16_kc576
+Built simulation snapshot tb_bk3
+# puts "EES_VIVADO_STAGE SIMULATE_4X4_KC8"
+EES_VIVADO_STAGE SIMULATE_4X4_KC8
+# run_tool [file join $xsimbin xsim.exe] tb_bk1 -runall
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_bk1 -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 12:27:57 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_bk1/xsim_script.tcl
+# xsim {tb_bk1} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+EES_STAGE R1_BASIC config=4x4 KC=8
+EES_STAGE_R1 checks=14 errors=0
+EES_STAGE R2_PINGPONG config=4x4 KC=8
+EES_STAGE_R2 checks=31 errors=0
+EES_STAGE R3_TIMING config=4x4 KC=8
+EES_STAGE_R3 checks=52 errors=0
+EES_STAGE R4_JITTER config=4x4 KC=8
+EES_STAGE_R4 checks=84 errors=0
+EES_STAGE R5_INDEPGP config=4x4 KC=8
+EES_STAGE_R5 checks=108 errors=0
+EES_STAGE R6_LANEWE config=4x4 KC=8
+EES_STAGE_R6 checks=114 errors=0
+EES_STAGE R7_OFFBY1 config=4x4 KC=8
+EES_STAGE_R7 checks=142 errors=0
+EES_STAGE R8_DISCIPLINE config=4x4 KC=8
+EES_STAGE_R8 checks=150 errors=0
+EES_SUMMARY checks=150 errors=0 config=4x4 KC=8 jobs=25 words=150 ld_done=27
+EES_VIVADO_RESULT PASS
+$finish called at time : 13650 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv" Line 570
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep 19 12:27:59 2026...
+# puts "EES_VIVADO_STAGE SIMULATE_8X16_KC64"
+EES_VIVADO_STAGE SIMULATE_8X16_KC64
+# run_tool [file join $xsimbin xsim.exe] tb_bk2 -runall
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_bk2 -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 12:27:59 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_bk2/xsim_script.tcl
+# xsim {tb_bk2} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+EES_STAGE R1_BASIC config=8x16 KC=64
+EES_STAGE_R1 checks=14 errors=0
+EES_STAGE R2_PINGPONG config=8x16 KC=64
+EES_STAGE_R2 checks=31 errors=0
+EES_STAGE R3_TIMING config=8x16 KC=64
+EES_STAGE_R3 checks=52 errors=0
+EES_STAGE R4_JITTER config=8x16 KC=64
+EES_STAGE_R4 checks=92 errors=0
+EES_STAGE R5_INDEPGP config=8x16 KC=64
+EES_STAGE_R5 checks=116 errors=0
+EES_STAGE R6_LANEWE config=8x16 KC=64
+EES_STAGE_R6 checks=122 errors=0
+EES_STAGE R7_OFFBY1 config=8x16 KC=64
+EES_STAGE_R7 checks=262 errors=0
+EES_STAGE R8_DISCIPLINE config=8x16 KC=64
+EES_STAGE_R8 checks=271 errors=0
+EES_SUMMARY checks=271 errors=0 config=8x16 KC=64 jobs=25 words=271 ld_done=27
+EES_VIVADO_RESULT PASS
+$finish called at time : 22200 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv" Line 570
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep 19 12:28:01 2026...
+# puts "EES_VIVADO_STAGE SIMULATE_8X16_KC576"
+EES_VIVADO_STAGE SIMULATE_8X16_KC576
+# run_tool [file join $xsimbin xsim.exe] tb_bk3 -runall
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_bk3 -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 12:28:01 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_bk3/xsim_script.tcl
+# xsim {tb_bk3} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+EES_STAGE R1_BASIC config=8x16 KC=576
+EES_STAGE_R1 checks=14 errors=0
+EES_STAGE R2_PINGPONG config=8x16 KC=576
+EES_STAGE_R2 checks=31 errors=0
+EES_STAGE R3_TIMING config=8x16 KC=576
+EES_STAGE_R3 checks=52 errors=0
+EES_STAGE R4_JITTER config=8x16 KC=576
+EES_STAGE_R4 checks=92 errors=0
+EES_STAGE R5_INDEPGP config=8x16 KC=576
+EES_STAGE_R5 checks=116 errors=0
+EES_STAGE R6_LANEWE config=8x16 KC=576
+EES_STAGE_R6 checks=122 errors=0
+EES_STAGE R7_OFFBY1 config=8x16 KC=576
+EES_STAGE_R7 checks=1286 errors=0
+EES_STAGE R8_DISCIPLINE config=8x16 KC=576
+EES_STAGE_R8 checks=1295 errors=0
+EES_SUMMARY checks=1295 errors=0 config=8x16 KC=576 jobs=25 words=1295 ld_done=27
+EES_VIVADO_RESULT PASS
+$finish called at time : 93880 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv" Line 570
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep 19 12:28:03 2026...
+INFO: [Common 17-206] Exiting Vivado at Sat Sep 19 12:28:03 2026...

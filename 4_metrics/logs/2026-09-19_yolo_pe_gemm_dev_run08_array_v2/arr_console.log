@@ -1,0 +1,337 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 11:26:10 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source sim_gemm_array_v2.tcl
+# set xil   {F:/vivado2025/2025.2/Vivado}
+# set xsimbin [file join $xil bin unwrapped win64.o]
+# set ref  {E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v}
+# set core {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv}
+# set acc  {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv}
+# set mac  {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_mac_cell.sv}
+# set tail {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_tail.sv}
+# set arr  {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv}
+# set tb   {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_array.sv}
+# proc run_tool {args} {
+#     puts "% [join $args { }]"
+#     set rc [catch {exec {*}$args} out]
+#     puts $out
+#     if {$rc != 0} { error "TOOL_FAILED: [join $args { }]" }
+# }
+# puts "EES_VIVADO_STAGE COMPILE"
+EES_VIVADO_STAGE COMPILE
+# run_tool [file join $xsimbin xvlog.exe] $ref
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v" into library work
+INFO: [VRFC 10-311] analyzing module yolo_pe_pack
+# run_tool [file join $xsimbin xvlog.exe] -sv $core $acc $mac $tail $arr $tb
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe -sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_mac_cell.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_tail.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_array.sv
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_pe_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_acc_dual
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_mac_cell.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_mac_cell
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_tail.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_tail
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_array
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_array.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_yolo_gemm_array
+INFO: [VRFC 10-311] analyzing module tb_gemm_array_4x4
+INFO: [VRFC 10-311] analyzing module tb_gemm_array_8x16
+INFO: [VRFC 10-311] analyzing module tb_gemm_array_16x16
+# run_tool [file join $xsimbin xvlog.exe] \
+#     {F:/vivado2025/2025.2/data/verilog/src/glbl.v}
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe F:/vivado2025/2025.2/data/verilog/src/glbl.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/vivado2025/2025.2/data/verilog/src/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+# puts "EES_VIVADO_STAGE ELABORATE"
+EES_VIVADO_STAGE ELABORATE
+# run_tool [file join $xsimbin xelab.exe] -debug off -timescale {1ns/1ps} \
+#     -L unisims_ver -L unisim -s tb_arr4 tb_gemm_array_4x4 glbl
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -L unisims_ver -L unisim -s tb_arr4 tb_gemm_array_4x4 glbl
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -L unisims_ver -L unisim -s tb_arr4 tb_gemm_array_4x4 glbl 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.DSP48E1(ADREG=0,ALUMODEREG=0,CAR...
+Compiling module work.yolo_pe_pack_default
+Compiling module work.yolo_pe_core
+Compiling module work.yolo_acc_dual
+Compiling module work.yolo_mac_cell
+Compiling module work.yolo_gemm_tail_default
+Compiling module work.yolo_gemm_array_default
+Compiling module work.tb_yolo_gemm_array_default
+Compiling module work.tb_gemm_array_4x4
+Compiling module work.glbl
+Built simulation snapshot tb_arr4
+# run_tool [file join $xsimbin xelab.exe] -debug off -timescale {1ns/1ps} \
+#     -L unisims_ver -L unisim -s tb_arr8 tb_gemm_array_8x16 glbl
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -L unisims_ver -L unisim -s tb_arr8 tb_gemm_array_8x16 glbl
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -L unisims_ver -L unisim -s tb_arr8 tb_gemm_array_8x16 glbl 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.DSP48E1(ADREG=0,ALUMODEREG=0,CAR...
+Compiling module work.yolo_pe_pack_default
+Compiling module work.yolo_pe_core
+Compiling module work.yolo_acc_dual
+Compiling module work.yolo_mac_cell
+Compiling module work.yolo_gemm_tail_default
+Compiling module work.yolo_gemm_array(P_TO=8,P_TN=16)
+Compiling module work.tb_yolo_gemm_array(P_TO=8,P_TN=1...
+Compiling module work.tb_gemm_array_8x16
+Compiling module work.glbl
+Built simulation snapshot tb_arr8
+# run_tool [file join $xsimbin xelab.exe] -debug off -timescale {1ns/1ps} \
+#     -L unisims_ver -L unisim -s tb_arr16 tb_gemm_array_16x16 glbl
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -L unisims_ver -L unisim -s tb_arr16 tb_gemm_array_16x16 glbl
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -L unisims_ver -L unisim -s tb_arr16 tb_gemm_array_16x16 glbl 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.DSP48E1(ADREG=0,ALUMODEREG=0,CAR...
+Compiling module work.yolo_pe_pack_default
+Compiling module work.yolo_pe_core
+Compiling module work.yolo_acc_dual
+Compiling module work.yolo_mac_cell
+Compiling module work.yolo_gemm_tail_default
+Compiling module work.yolo_gemm_array(P_TO=16,P_TN=16)
+Compiling module work.tb_yolo_gemm_array(P_TO=16,P_TN=...
+Compiling module work.tb_gemm_array_16x16
+Compiling module work.glbl
+Built simulation snapshot tb_arr16
+# puts "EES_VIVADO_STAGE SIMULATE_4X4"
+EES_VIVADO_STAGE SIMULATE_4X4
+# run_tool [file join $xsimbin xsim.exe] tb_arr4 -runall
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_arr4 -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 11:26:28 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_arr4/xsim_script.tcl
+# xsim {tb_arr4} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+EES_ARR_INFO G1_K_SWEEP done (4x4)
+EES_ARR_ERR [57000000] y=117 want=118 @(r=0 n=0)
+EES_ARR_ERR [57010000] y=106 want=112 @(r=0 n=1)
+EES_ARR_ERR [57030000] y=118 want=115 @(r=0 n=3)
+EES_ARR_INFO G2_BLOCKING done
+EES_ARR_INFO G3_IRREG done
+EES_ARR_INFO G4_MASK_TAILS done
+EES_ARR_INFO G5_JITTER done
+EES_ARR_INFO G6_RST_MID done
+EES_ARR_INFO G7_BACKTOBACK done
+EES_ARR_ERR [92400000] y=-123 want=-124 @(r=1 n=0)
+EES_ARR_ERR [92500000] y=-123 want=-124 @(r=3 n=2)
+EES_ARR_INFO G8_FIRSTLAYER done
+EES_ARR_INFO G9_RANDOM done (40 tiles)
+EES_SUMMARY checks=843 errors=5 proto_err=0
+EES_ARR_INFO config=4x4 tiles started=62 done=60 aborted=2 y=848
+EES_ARR_INFO blocks_fed=72 blk_done=12
+EES_VIVADO_RESULT FAIL
+$finish called at time : 199010 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_array.sv" Line 522
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep 19 11:26:33 2026...
+# puts "EES_VIVADO_STAGE SIMULATE_8X16"
+EES_VIVADO_STAGE SIMULATE_8X16
+# run_tool [file join $xsimbin xsim.exe] tb_arr8 -runall
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_arr8 -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 11:26:33 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_arr8/xsim_script.tcl
+# xsim {tb_arr8} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+EES_ARR_INFO G1_K_SWEEP done (8x16)
+EES_ARR_ERR [38950000] y=53 want=52 @(r=4 n=8)
+EES_ARR_ERR [38960000] y=51 want=52 @(r=4 n=9)
+EES_ARR_ERR [38970000] y=53 want=52 @(r=4 n=10)
+EES_ARR_ERR [38980000] y=51 want=52 @(r=4 n=11)
+EES_ARR_ERR [39010000] y=51 want=52 @(r=4 n=14)
+EES_ARR_ERR [39350000] y=26 want=25 @(r=7 n=0)
+EES_ARR_ERR [39390000] y=26 want=25 @(r=7 n=4)
+EES_ARR_ERR [75890000] y=-114 want=-115 @(r=0 n=1)
+EES_ARR_ERR [75900000] y=-116 want=-115 @(r=0 n=2)
+EES_ARR_ERR [75930000] y=-114 want=-115 @(r=0 n=5)
+EES_ARR_ERR [76000000] y=-116 want=-115 @(r=0 n=12)
+EES_ARR_ERR [76010000] y=-116 want=-115 @(r=0 n=13)
+EES_ARR_INFO G2_BLOCKING done
+EES_ARR_INFO G3_IRREG done
+EES_ARR_INFO G4_MASK_TAILS done
+EES_ARR_INFO G5_JITTER done
+EES_ARR_INFO G6_RST_MID done
+EES_ARR_INFO G7_BACKTOBACK done
+EES_ARR_ERR [114500000] y=122 want=69 @(r=0 n=1)
+EES_ARR_ERR [114540000] y=69 want=122 @(r=0 n=5)
+EES_ARR_ERR [114630000] y=69 want=122 @(r=0 n=14)
+EES_ARR_ERR [114660000] y=-123 want=-124 @(r=1 n=1)
+EES_ARR_ERR [114740000] y=-123 want=-124 @(r=1 n=9)
+EES_ARR_ERR [114790000] y=-123 want=-124 @(r=1 n=14)
+EES_ARR_ERR [114800000] y=-123 want=-124 @(r=1 n=15)
+EES_ARR_ERR [114830000] y=69 want=122 @(r=2 n=2)
+EES_ARR_ERR [114890000] y=69 want=122 @(r=2 n=8)
+EES_ARR_ERR [114900000] y=122 want=69 @(r=2 n=9)
+EES_ARR_ERR [114920000] y=69 want=122 @(r=2 n=11)
+EES_ARR_ERR [114940000] y=69 want=122 @(r=2 n=13)
+EES_ARR_ERR [114950000] y=69 want=122 @(r=2 n=14)
+EES_ARR_ERR [114960000] y=122 want=69 @(r=2 n=15)
+EES_ARR_ERR [115000000] y=69 want=122 @(r=3 n=3)
+EES_ARR_ERR [115110000] y=122 want=69 @(r=3 n=14)
+EES_ARR_ERR [115120000] y=69 want=122 @(r=3 n=15)
+EES_ARR_ERR [115270000] y=69 want=122 @(r=4 n=14)
+EES_ARR_ERR [115290000] y=69 want=122 @(r=5 n=0)
+EES_ARR_ERR [115370000] y=122 want=69 @(r=5 n=8)
+EES_ARR_ERR [115560000] y=-123 want=-124 @(r=6 n=11)
+EES_ARR_ERR [115580000] y=-123 want=-124 @(r=6 n=13)
+EES_ARR_ERR [115600000] y=-123 want=-124 @(r=6 n=15)
+EES_ARR_ERR [115690000] y=-124 want=-123 @(r=7 n=8)
+EES_ARR_INFO G8_FIRSTLAYER done
+EES_ARR_INFO G9_RANDOM done (15 tiles)
+EES_SUMMARY checks=4190 errors=36 proto_err=0
+EES_ARR_INFO config=8x16 tiles started=37 done=35 aborted=2 y=4226
+EES_ARR_INFO blocks_fed=47 blk_done=12
+EES_VIVADO_RESULT FAIL
+$finish called at time : 170800 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_array.sv" Line 522
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:19 . Memory (MB): peak = 221.410 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 23088 KB (Peak: 23088 KB), Simulation CPU Usage: 18436 ms
+INFO: [Common 17-206] Exiting xsim at Sat Sep 19 11:26:54 2026...
+# puts "EES_VIVADO_STAGE SIMULATE_16X16"
+EES_VIVADO_STAGE SIMULATE_16X16
+# run_tool [file join $xsimbin xsim.exe] tb_arr16 -runall
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_arr16 -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 11:26:54 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_arr16/xsim_script.tcl
+# xsim {tb_arr16} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+EES_ARR_INFO G1_K_SWEEP done (16x16)
+EES_ARR_ERR [43970000] y=-9 want=-8 @(r=1 n=6)
+EES_ARR_ERR [44000000] y=-9 want=-8 @(r=1 n=9)
+EES_ARR_ERR [44030000] y=-8 want=-9 @(r=1 n=12)
+EES_ARR_ERR [44040000] y=-9 want=-8 @(r=1 n=13)
+EES_ARR_ERR [44060000] y=-8 want=-9 @(r=1 n=15)
+EES_ARR_ERR [45030000] y=-4 want=-5 @(r=8 n=0)
+EES_ARR_ERR [45050000] y=-5 want=-4 @(r=8 n=2)
+EES_ARR_ERR [45130000] y=-4 want=-5 @(r=8 n=10)
+EES_ARR_ERR [45150000] y=-5 want=-4 @(r=8 n=12)
+EES_ARR_ERR [45160000] y=-6 want=-5 @(r=8 n=13)
+EES_ARR_ERR [45760000] y=-4 want=-3 @(r=12 n=9)
+EES_ARR_ERR [45790000] y=-4 want=-3 @(r=12 n=12)
+EES_ARR_ERR [45800000] y=-4 want=-3 @(r=12 n=13)
+EES_ARR_INFO G2_BLOCKING done
+EES_ARR_INFO G3_IRREG done
+EES_ARR_INFO G4_MASK_TAILS done
+EES_ARR_ERR [113540000] y=5 want=4 @(r=7 n=1)
+EES_ARR_ERR [113550000] y=7 want=6 @(r=7 n=2)
+EES_ARR_ERR [113570000] y=3 want=5 @(r=7 n=4)
+EES_ARR_ERR [113610000] y=4 want=5 @(r=7 n=8)
+EES_ARR_ERR [113640000] y=4 want=5 @(r=7 n=11)
+EES_ARR_ERR [113650000] y=3 want=4 @(r=7 n=12)
+EES_ARR_INFO G5_JITTER done
+EES_ARR_INFO G6_RST_MID done
+EES_ARR_INFO G7_BACKTOBACK done
+EES_ARR_ERR [140590000] y=122 want=69 @(r=0 n=5)
+EES_ARR_ERR [140700000] y=122 want=69 @(r=1 n=0)
+EES_ARR_ERR [140790000] y=122 want=69 @(r=1 n=9)
+EES_ARR_ERR [140900000] y=-123 want=-124 @(r=2 n=4)
+EES_ARR_ERR [140930000] y=-123 want=-124 @(r=2 n=7)
+EES_ARR_ERR [141030000] y=69 want=122 @(r=3 n=1)
+EES_ARR_ERR [141170000] y=69 want=122 @(r=3 n=15)
+EES_ARR_ERR [141190000] y=69 want=122 @(r=4 n=1)
+EES_ARR_ERR [141210000] y=69 want=122 @(r=4 n=3)
+EES_ARR_ERR [141220000] y=122 want=69 @(r=4 n=4)
+EES_ARR_ERR [141280000] y=69 want=122 @(r=4 n=10)
+EES_ARR_ERR [141380000] y=69 want=122 @(r=5 n=4)
+EES_ARR_ERR [141400000] y=69 want=122 @(r=5 n=6)
+EES_ARR_ERR [141430000] y=69 want=122 @(r=5 n=9)
+EES_ARR_ERR [141500000] y=69 want=122 @(r=6 n=0)
+EES_ARR_ERR [141590000] y=69 want=122 @(r=6 n=9)
+EES_ARR_ERR [141620000] y=122 want=69 @(r=6 n=12)
+EES_ARR_ERR [141660000] y=69 want=122 @(r=7 n=0)
+EES_ARR_ERR [141740000] y=69 want=122 @(r=7 n=8)
+EES_ARR_ERR [141850000] y=-123 want=-124 @(r=8 n=3)
+EES_ARR_ERR [141860000] y=-123 want=-124 @(r=8 n=4)
+EES_ARR_ERR [141880000] y=-124 want=-123 @(r=8 n=6)
+EES_ARR_ERR [141920000] y=-123 want=-124 @(r=8 n=10)
+EES_ARR_ERR [141940000] y=-123 want=-124 @(r=8 n=12)
+EES_ARR_ERR [141960000] y=-123 want=-124 @(r=8 n=14)
+EES_ARR_ERR [142020000] y=-123 want=-124 @(r=9 n=4)
+EES_ARR_ERR [142070000] y=-123 want=-124 @(r=9 n=9)
+EES_ARR_ERR [142130000] y=-123 want=-124 @(r=9 n=15)
+EES_ARR_ERR [142360000] y=122 want=69 @(r=11 n=6)
+EES_ARR_ERR [142410000] y=69 want=122 @(r=11 n=11)
+EES_ARR_ERR [142420000] y=122 want=69 @(r=11 n=12)
+EES_ARR_ERR [142450000] y=122 want=69 @(r=11 n=15)
+EES_ARR_ERR [142480000] y=-123 want=-124 @(r=12 n=2)
+EES_ARR_ERR [142500000] y=-124 want=-123 @(r=12 n=4)
+EES_ARR_ERR [142530000] y=-124 want=-123 @(r=12 n=7)
+EES_ARR_ERR [142550000] y=-123 want=-124 @(r=12 n=9)
+EES_ARR_ERR [142640000] y=-124 want=-123 @(r=13 n=2)
+EES_ARR_ERR [142690000] y=-123 want=-124 @(r=13 n=7)
+EES_ARR_ERR [142760000] y=-123 want=-124 @(r=13 n=14)
+EES_ARR_ERR [142910000] y=-123 want=-124 @(r=14 n=13)
+EES_ARR_ERR [142940000] y=-123 want=-124 @(r=15 n=0)
+EES_ARR_ERR [143010000] y=-123 want=-124 @(r=15 n=7)
+EES_ARR_ERR [143030000] y=-124 want=-123 @(r=15 n=9)
+EES_ARR_INFO G8_FIRSTLAYER done
+EES_ARR_INFO G9_RANDOM done (8 tiles)
+EES_SUMMARY checks=6834 errors=62 proto_err=0
+EES_ARR_INFO config=16x16 tiles started=30 done=28 aborted=2 y=6896
+EES_ARR_INFO blocks_fed=40 blk_done=12
+EES_VIVADO_RESULT FAIL
+$finish called at time : 184850 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_array.sv" Line 522
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:37 . Memory (MB): peak = 224.355 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 34484 KB (Peak: 34484 KB), Simulation CPU Usage: 36468 ms
+INFO: [Common 17-206] Exiting xsim at Sat Sep 19 11:27:33 2026...
+INFO: [Common 17-206] Exiting Vivado at Sat Sep 19 11:27:33 2026...

@@ -46,3 +46,18 @@
   "G2 前综合不可行"同样有效。
 - git push 若 SSH 失败：本地 commit 保留，晨报说明，用户在场时重推。
 - -generic 选项若不被 2025.2 接受：改薄包装顶层文件再跑。
+
+## 白班追加：P1 G2 执行（已批准，自 P1 起依次）
+
+依据 `1_docs/yolo_gemm_g2g4g7_execution_plan_20260919.md`（修订版：P0 取消）：
+
+- P1.1【V1】run08：`yolo_gemm_array.sv` V2.0——删③档功能缓冲，数据口改
+  宽字（w_word 8×P_TO / x_word 8×P_TN + word_valid/first/last + word_ready），
+  阵列纯消费者（ISSUE 离开判据=吃到 last 字）；TB 直驱字流含回压抖动，
+  复跑 run06 阶段矩阵三档；
+- P1.2【V2】run09：bank+feeder 单验；P1.3【V4】run10a 合并复跑全矩阵；
+  P1.4 run10b 综合门（Kc=576/1024，WNS≥0 绝对值判+关键路径位置记录）；
+  P1.5 收官（日志/README/记忆/git 含今日架构收敛文档）。
+
+风险回退：宽字口若破坏 run06 语义 → 保留 V1.1 副本逐档比对，
+golden=G0 不变，差异二分定位（新增级才可引入差异）。
