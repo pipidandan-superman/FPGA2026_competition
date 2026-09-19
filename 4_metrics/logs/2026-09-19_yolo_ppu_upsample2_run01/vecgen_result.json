@@ -1,0 +1,108 @@
+{
+ "verdict": "PPU_UPSAMPLE2_VECGEN_PASS",
+ "cases": [
+  {
+   "C": 256,
+   "H": 10,
+   "W": 10,
+   "in_bytes": 25600,
+   "out_bytes": 102400,
+   "perm_ok": true,
+   "data_ok": true
+  },
+  {
+   "C": 128,
+   "H": 20,
+   "W": 20,
+   "in_bytes": 51200,
+   "out_bytes": 204800,
+   "perm_ok": true,
+   "data_ok": true
+  },
+  {
+   "C": 16,
+   "H": 10,
+   "W": 10,
+   "in_bytes": 1600,
+   "out_bytes": 6400,
+   "perm_ok": true,
+   "data_ok": true
+  },
+  {
+   "C": 1,
+   "H": 1,
+   "W": 1,
+   "in_bytes": 1,
+   "out_bytes": 4,
+   "perm_ok": true,
+   "data_ok": true
+  },
+  {
+   "C": 1,
+   "H": 1,
+   "W": 7,
+   "in_bytes": 7,
+   "out_bytes": 28,
+   "perm_ok": true,
+   "data_ok": true
+  },
+  {
+   "C": 1,
+   "H": 2,
+   "W": 3,
+   "in_bytes": 6,
+   "out_bytes": 24,
+   "perm_ok": true,
+   "data_ok": true
+  },
+  {
+   "C": 3,
+   "H": 5,
+   "W": 4,
+   "in_bytes": 60,
+   "out_bytes": 240,
+   "perm_ok": true,
+   "data_ok": true
+  },
+  {
+   "C": 5,
+   "H": 3,
+   "W": 7,
+   "in_bytes": 105,
+   "out_bytes": 420,
+   "perm_ok": true,
+   "data_ok": true
+  },
+  {
+   "C": 2,
+   "H": 7,
+   "W": 1,
+   "in_bytes": 14,
+   "out_bytes": 56,
+   "perm_ok": true,
+   "data_ok": true
+  },
+  {
+   "C": 17,
+   "H": 4,
+   "W": 9,
+   "in_bytes": 612,
+   "out_bytes": 2448,
+   "perm_ok": true,
+   "data_ok": true
+  },
+  {
+   "C": 1,
+   "H": 16,
+   "W": 16,
+   "in_bytes": 256,
+   "out_bytes": 1024,
+   "perm_ok": true,
+   "data_ok": true
+  }
+ ],
+ "cases_total": 11,
+ "in_bytes_total": 79461,
+ "out_bytes_total": 317844,
+ "hex_sha256": "d887bdee8170d8e5957a6bde16ab11f9d9f4090ef96a4ebe2100092f35020291"
+}

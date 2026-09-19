@@ -1,0 +1,52 @@
+{
+  "verdict": "PPU_ORACLE_PASS",
+  "frames": [
+    {
+      "frame": "images89_jpg.rf.0bfa9777072aa98975eea6599bd81f0f.jpg",
+      "fidx": 0,
+      "nodes_compared": 53,
+      "nodes_bad": 0,
+      "ps_cmp": 12,
+      "ps_bad": 0,
+      "maxpool_equiv": true
+    },
+    {
+      "frame": "images9-2-_jpg.rf.e517e4aee1cb3c38391c9abbd6c12c4e.jpg",
+      "fidx": 1,
+      "nodes_compared": 53,
+      "nodes_bad": 0,
+      "ps_cmp": 12,
+      "ps_bad": 0,
+      "maxpool_equiv": true
+    },
+    {
+      "frame": "images9-3-_jpg.rf.43e040c027f3bdfdb0ab39b8333f9fb2.jpg",
+      "fidx": 2,
+      "nodes_compared": 53,
+      "nodes_bad": 0,
+      "ps_cmp": 12,
+      "ps_bad": 0,
+      "maxpool_equiv": true
+    },
+    {
+      "frame": "images90-1-_jpg.rf.6b789faf06306a74d0882bfb4316f004.jpg",
+      "fidx": 3,
+      "nodes_compared": 53,
+      "nodes_bad": 0,
+      "ps_cmp": 12,
+      "ps_bad": 0,
+      "maxpool_equiv": true
+    },
+    {
+      "frame": "images92-1-_jpg.rf.93da294ab268178fdb33304fdaf5ae32.jpg",
+      "fidx": 4,
+      "nodes_compared": 53,
+      "nodes_bad": 0,
+      "ps_cmp": 12,
+      "ps_bad": 0,
+      "maxpool_equiv": true
+    }
+  ],
+  "total_compared": 265,
+  "total_bad": 0
+}
