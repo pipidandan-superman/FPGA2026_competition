@@ -7,7 +7,8 @@
 - **CK_F 三次尝试 + 自我修正（全留档）**：attempt-1 假 FAIL（我凭记忆的寄存器布局解码错 + 信 pynq 150 报告——时钟本来就是真 100）；probe_clk2.py（raw /dev/mem）钉死板卡常数：晶振 **33.3333 MHz**、IO PLL FBDIV=30→1000 MHz；此间误判 pynq 布局为 bug → attempt-2"修复"写被**硬件拒写 bits[3:0]**（wrote=0x205 readback=0x200）→ 裁定反转：**pynq ZYNQ_CLK_FIELDS=硬件真值**（DIV0[13:8]/DIV1[25:20]/SRCSEL[5:4]，bits[3:0] 保留写忽略）；restore_clk.py 恢复 0x00200500；驱动 v3 全绿。**pynq 3.0.1 唯一真缺陷 = 参考时钟模型（50 vs 33.333 ⇒ 所有 MHz 报告 1.5× 高：报 150=真 100、报 75=真 50）**，门控一律 raw SLCR + PLL FBDIV 推真值。
 - **勘误入档**：run23/24 下载后寄存器值曾在我方分析文本中误写 0x00140500（重构算术错误，非观测）；正确值 = **0x00400500 = IO÷5÷4 = 真 50.00 MHz**（干净 RMW 模型 + attempt-1 实测类比证实）——**B1/B2 回溯完整性成立，依据修正**。
 - **归位**：33.333 晶振 / 1.5× 报告偏置 / 0xF8000170 布局与 bits[3:0] 写忽略 = 板卡固有事实，入 ees331 板卡画像（不进 skill，四层归位原则）。
-- **Git**：本批推送 run25 证据（add -f 申报 bit/hwh/log + sha）+ 7_logs/12 + 根文档三件 + ees331 画像。main 不动。
+- **Git**：两笔已推——`c7e74cd`（run25 证据 + 7_logs/12 + 根文档三件 + ees331 画像；add -f 申报 bit/hwh/log + sha）+ `cd81d41`（**100MHz 工程态入库**：display_test.bd/bda/ui、12 个重生成 XCI（PS7 XCI 铁证 `FREQ_HZ=100000000`）、run24 遗留 axi_dma + axi_mem_intercon 族 5 个新 XCI、axi_gemm_test.xpr、impl 三报告 add -f 申报 timing WNS+0.405/utilization DSP68/clock_util；impl bit 与 run25 证据同 sha `0e0ae185…` 不重复入库）。main 不动。
+- **回退/复现锚（全在用户分支，自包含）**：100MHz 复现 = 库内 `display_test_wrapper.bit`（sha `0e0ae185…`）+ 同名 HWH + `pl_freq100_run25.py` + 工程态（.xpr/BD/XCI/RTL 均在库，RTL 为 `$PPRDIR` 相对引用）→ 上板按七步正典应复现 `BOARD_FREQ100_PASS` 全 gate 值；50MHz 回退锚 = run24 证据目录 bit（sha `6d91f2b5…`）+ `pl_b2_loopback.py`。板上现挂 100MHz 三从机基线。
 - **下一步**：B3 DMA+GEMM 大 KC（桥接设计立项 + 4 授权决策点待用户）→ B4 全联；板上动作用户在场。
 
 ## 2026-09-19（晚）PE/GEMM 上板线 B1+B2 板级双收官 + overlay skill 通用性修正与同步

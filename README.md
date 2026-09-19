@@ -4,7 +4,7 @@
 
 ## 2026-09-19（深夜）run25 频率门收官：FCLK0 50→100 MHz 全绿（BOARD_FREQ100_PASS）
 
-**硬件线（上板·频率门）**：用户 GUI 改 PS7 FCLK0=100 MHz 重生成比特流上板，同种子重验——CK_F 实测真 **100.000 MHz**（raw 0xF8000170=0x00200500=IO_PLL 1000÷5÷2），S1/S2/S3+DB1-DB7 全部 gate 值与 run23/24 **逐位相同**（双零错、总账 wop=3462/rb_ok=416/db_ok=9）→ **无频率耦合缺陷**；板上现挂 **100 MHz 三从机基线**。过程三次尝试留档：attempt-1 我方布局记忆错+信 pynq 报告 → 假 FAIL；attempt-2"修复"写被硬件拒写 bits[3:0] → 裁定 **pynq ZYNQ_CLK_FIELDS=硬件真值**（DIV0[13:8]/DIV1[25:20]/SRCSEL[5:4]），restore_clk.py 复位后 v3 判据全绿。板卡事实入 ees331 画像：晶振 **33.3333 MHz** ⇒ pynq 3.0.1 所有 MHz 报告 **1.5× 高**（报 150=真 100、报 75=真 50），门控一律 raw SLCR+PLL FBDIV。勘误：run23/24 下载后寄存器正确值=0x00400500=真 50.00 MHz（此前分析文本 0x00140500 为算术误写，非观测），**B1/B2 回溯完整性成立**。下一步 **B3 DMA+GEMM 大 KC（桥接立项+授权待用户）**。证据：`4_metrics/logs/2026-09-19_yolo_gemm_freq_run25_fclk100/`、`7_logs/2026-09-19/12`。
+**硬件线（上板·频率门）**：用户 GUI 改 PS7 FCLK0=100 MHz 重生成比特流上板，同种子重验——CK_F 实测真 **100.000 MHz**（raw 0xF8000170=0x00200500=IO_PLL 1000÷5÷2），S1/S2/S3+DB1-DB7 全部 gate 值与 run23/24 **逐位相同**（双零错、总账 wop=3462/rb_ok=416/db_ok=9）→ **无频率耦合缺陷**；板上现挂 **100 MHz 三从机基线**。过程三次尝试留档：attempt-1 我方布局记忆错+信 pynq 报告 → 假 FAIL；attempt-2"修复"写被硬件拒写 bits[3:0] → 裁定 **pynq ZYNQ_CLK_FIELDS=硬件真值**（DIV0[13:8]/DIV1[25:20]/SRCSEL[5:4]），restore_clk.py 复位后 v3 判据全绿。板卡事实入 ees331 画像：晶振 **33.3333 MHz** ⇒ pynq 3.0.1 所有 MHz 报告 **1.5× 高**（报 150=真 100、报 75=真 50），门控一律 raw SLCR+PLL FBDIV。勘误：run23/24 下载后寄存器正确值=0x00400500=真 50.00 MHz（此前分析文本 0x00140500 为算术误写，非观测），**B1/B2 回溯完整性成立**。下一步 **B3 DMA+GEMM 大 KC（桥接立项+授权待用户）**。工程关键文件已随 `cd81d41` 入库（.xpr/BD/17 XCI/impl 报告；bit 与证据同 sha 不重复），**100MHz 复现与 50MHz 回退锚全自包含于用户分支**。证据：`4_metrics/logs/2026-09-19_yolo_gemm_freq_run25_fclk100/`、`7_logs/2026-09-19/12`。
 
 ## 2026-09-19（晚）PE/GEMM 上板线：B1+B2 板级双收官（BOARD_B1_PASS / BOARD_B2_PASS）
 
