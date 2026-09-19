@@ -5,9 +5,10 @@
 1. 读 [HANDOFF.md](../../../HANDOFF.md) 顶部节（P0 收官 + 深夜 run25）；
 2. 读 `4_metrics/logs/2026-09-19_yolov8_p0_board_validation_run02/README.md`
    （P0-B 全门叙事）与 `1_docs/yolo_v8_mainline_baseline_20260919.md`（P0-A 合同）；
-3. 核对 git：用户分支 `codex/full/pipidandan-superman` 应含 `5de8ec7`（run25 文档批
-   ——曾未达远端，已随 P0-B 批补推）与 P0-B 收官批（run02 证据 + 三件套 +
-   `7_logs/2026-09-19/13`）。
+3. 核对 git：用户分支 `codex/full/pipidandan-superman` 应至 `d0a51a8`（P0-B 收官批）。
+   注：`5de8ec7` 此前经 443 一次性 URL 推送**已达远端**，只是 raw-URL 推送不更新
+   本地 origin 引用，一度显示 ahead-1——属陈旧引用假象，非丢推（本批 22 端口
+   正常推送已刷新引用）。
 
 ## 主线状态（勿重做）
 
@@ -62,9 +63,10 @@
 ## 本次全面审计补充
 
 - `2026-09-19_project_status_audit_run01` 已完成，路径审计当前为 PASS。
-- 用户分支 ahead-1 推送问题已随 P0-B 收官批解决（`5de8ec7` 与本批一并推送）；
-  不要触碰主树 635 条既有未提交记录，也不要删除那 4 个未跟踪历史审计文本，
-  除非用户明确授权。
+- 用户分支 ahead-1 已查明为本地陈旧 remote-tracking 引用（443 一次性 URL 推送
+  不更新本地 origin 引用；`5de8ec7` 实际早已达远端，`d0a51a8` 经 22 端口正常
+  推送并刷新引用）；不要触碰主树 635 条既有未提交记录，也不要删除那 4 个未跟踪
+  历史审计文本，除非用户明确授权。
 
 ## YOLOv8 主线启动顺序
 
