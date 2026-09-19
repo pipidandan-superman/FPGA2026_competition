@@ -7,7 +7,7 @@
 - **迁移落位**：RTL 每算子一夹 `2_fpga/3_yolo_zynq/rtl/PPU/{requant,upsample2,maxpool5,add,xfer}/` + TB 集中 `rtl/PPU/tb/`；vecgen+ppu_oracle 平铺 `sim/`（oracle 导入已改本目录）；手册 `1_docs/yolo_ppu_design_manual_20260918.md`（ABI 冻结 V1.0，§7 已注记 P2 执行状态）；证据七 run 目录并入 `4_metrics/logs/`；日志并入 `7_logs/2026-09-19/06_ppu_parallel_line_closeout.md`（01–05 属 GEMM 线未动）。迁移验证：SHA 对账 12/12 全同 + vecgen 新位再生成一致 + 10 文件 vlog 烟测过。`parallel_task/` 保留归档不再更新。
 - **注意**：`rtl/yolo_requant.v`（M 线 conv 尾 requant）与 `rtl/PPU/requant/yolo_ppu_requant.sv` 同义不同物，勿混用。
 - **Git**：commit `fa26666`「非线性算子」上传 `codex/full/pipidandan-superman`（52f2ab5 快进；main 不动）。
-- **下一步**：P3 描述符驱动集成 TB（walker 派发 + DMA BFM + 41 图算子任务全量对 P1 oracle 逐字节）→ P4/G5 与 GEMM 线汇合（双线协调，不单方启动）。
+- **下一步**：**P3 已撤销独立门（2026-09-19 用户决策）**——schedule.json 邻接反查：41 任务 = 16 view（零拷贝无 RTL）+ 25 引擎任务，其中 16 个输入全直连 conv 输出（64%），仅 9 个有引擎→引擎输入且全为 DDR 缓冲级耦合（add→concat ×4 / add→add ×2 / maxpool5×3→concat / upsample2→concat ×2）；PPU-only 集成 = 自写 walker + 自写 DMA BFM 复放 P2 已钉死的数值，conv↔图算子的真合同在单验中不存在（手册 §7 撤销注记为权威）。walker/描述符译码并入 GEMM 线 G4 共定合同（§10 D2 同步），41 任务回放降级为 P4/G5 bring-up 二分调试工具。PPU 线仿真阶段就此收官，P4/G5 与 GEMM 线汇合（双线协调，不单方启动）。
 
 ## 2026-09-19（凌晨自主批）PE/GEMM 手册线仿真门全链收官 + run07 综合评估 + 板测计划
 

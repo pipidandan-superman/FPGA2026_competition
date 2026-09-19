@@ -4,7 +4,7 @@
 
 ## 2026-09-19 PPU 非线性算子并行线：七门全绿收官 + 迁移入库
 
-**硬件线（隔夜并行批）**：与 PE/GEMM 线并行的图算子线（用户隔夜授权防撞暂存，晨间有序迁移主树并入主日志根）——P0 手册+ABI 事实核验 **28/28** → P1 oracle 全图回放对软件 golden **5×53=265 位级 0 失配** → **P2a–e 五算子核 RTL 门全 PASS**：requant 11043 / upsample2 643001 / maxpool5 13962（含 pad 物化≡有效位掩码双模型交叉）/ add 12679（int64 不逐路饱和→int32 合同截断）/ xfer 2842（恒等捷径≡全量 requant 等价钉死）；期望三源独立 + posedge 镜像延迟记分板 + rst 在飞击杀复检 + 反退化配额断言（平局/饱和/死通道/s 全 63 档）。RTL 每算子一夹 `2_fpga/3_yolo_zynq/rtl/PPU/` + TB `rtl/PPU/tb/`，vecgen+oracle 平铺 `sim/`，手册 `1_docs/yolo_ppu_design_manual_20260918.md`；证据 7 run 目录入 `4_metrics/logs/`，日志并入 `7_logs/2026-09-19/06`。已推 `codex/full/pipidandan-superman`（fa26666）。下一步：P3 描述符集成 TB → P4/G5 与 GEMM 线汇合。
+**硬件线（隔夜并行批）**：与 PE/GEMM 线并行的图算子线（用户隔夜授权防撞暂存，晨间有序迁移主树并入主日志根）——P0 手册+ABI 事实核验 **28/28** → P1 oracle 全图回放对软件 golden **5×53=265 位级 0 失配** → **P2a–e 五算子核 RTL 门全 PASS**：requant 11043 / upsample2 643001 / maxpool5 13962（含 pad 物化≡有效位掩码双模型交叉）/ add 12679（int64 不逐路饱和→int32 合同截断）/ xfer 2842（恒等捷径≡全量 requant 等价钉死）；期望三源独立 + posedge 镜像延迟记分板 + rst 在飞击杀复检 + 反退化配额断言（平局/饱和/死通道/s 全 63 档）。RTL 每算子一夹 `2_fpga/3_yolo_zynq/rtl/PPU/` + TB `rtl/PPU/tb/`，vecgen+oracle 平铺 `sim/`，手册 `1_docs/yolo_ppu_design_manual_20260918.md`；证据 7 run 目录入 `4_metrics/logs/`，日志并入 `7_logs/2026-09-19/06`。已推 `codex/full/pipidandan-superman`（fa26666）。下一步：P3 经用户决策撤销独立门（schedule.json 邻接反查=25 引擎任务 64% 输入直连 conv、引擎间仅 9 处缓冲级邻接，手册 §7 撤销注记），walker/描述符译码并入 GEMM 线 G4 共定合同，41 任务回放留作 P4/G5 bring-up 二分调试工具；PPU 线仿真阶段收官，P4/G5 双线汇合待协调。
 
 ## 2026-09-19 PE/GEMM 手册线：仿真门全链收官 + 综合评估 + 板测计划
 

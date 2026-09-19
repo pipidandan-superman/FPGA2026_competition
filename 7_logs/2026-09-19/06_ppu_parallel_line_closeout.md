@@ -52,11 +52,18 @@ rom_data 绝对路径原就指向主树，无需改。
 
 ## 四、下一步（04 对应内容，PPU 线部分）
 
-1. **P3 描述符集成 TB**：walker 派发 + DMA BFM + 41 图算子任务全量，
-   对 P1 oracle 逐字节（手册 §7）
-2. **P4/G5 双线汇合**：convs=63 + 图算子 41 + heads 全网，与 GEMM 线
-   协调启动，不单方
-3. 综合/时序/资源与板测：P3/P4 之后
+1. **P3 已撤销独立门（2026-09-19 用户决策）**：schedule.json 邻接反查
+   ——41 任务 = 16 view（零拷贝无 RTL）+ 25 引擎任务，其中 16 个输入
+   全直连 conv 输出（64%），仅 9 个存在引擎→引擎输入且全为 DDR 缓冲级
+   耦合（add→concat ×4 / add→add ×2 / maxpool5×3→concat（SPPF）/
+   upsample2→concat ×2）；PPU-only 集成 = 自写 walker + 自写 BFM 复放
+   P2 已钉死数值，conv↔图算子真合同（缓冲布局/生命周期/requant 分工）
+   不存在于单验。手册 §7 已加撤销注记（权威），§10 D2 对表时机同步改
+2. **P4/G5 双线汇合**（= PPU 线下一门）：convs=63 + 图算子 41 + heads
+   全网对软件 golden，与 GEMM 线协调启动，不单方；walker/描述符译码
+   并入 GEMM 线 G4 共定合同后实现；41 任务回放留作 bring-up 二分
+   调试工具（oracle 层，无 RTL 集成 TB）
+3. 综合/时序/资源与板测：P4/G5 之后
 4. 注意：`rtl\yolo_requant.v`（GEMM 线 conv 尾 requant）与
    `rtl\PPU\requant\yolo_ppu_requant.sv` 同义不同物，勿混用
 

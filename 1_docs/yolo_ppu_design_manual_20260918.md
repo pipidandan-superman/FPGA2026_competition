@@ -233,7 +233,7 @@ PPU 每帧流量（已脚本核验）：读 2,427,500 B + 写 2,389,100 B ≈ **
 | **P0** | 手册+ABI 冻结+事实核验脚本 | 本文档 + `4_metrics/logs/2026-09-18_yolo_ppu_abi_factcheck_run01/`（req_pair 恒等性、比率域、形状断言、流量账、CSR RTL 几何核对原始输出） |
 | **P1** | PPU oracle + 全图回放对软件 golden | 5 帧全可比节点（conv+图算子，≥53/帧）位级 0 失配 + 12 个含 golden 的图算子节点单列 0 失配 → `PPU_ORACLE_PASS`；C2f 内 cat/pool 无直接 golden 张量，由下游 golden 传递覆盖（附传递链说明）。证据 `…_yolo_ppu_oracle_run01/` |
 | **P2a–d** | 单算子 RTL 门：UPS2 / MAXP5 / ADD / XFER | 每门：向量生成器（反退化纪律：现实域 + 平局 + 饱和 + 死通道 + 同尺度捷径专门向量；生成期 distinct/tie/sat 断言）→ TB 独立 oracle（期望永不取自被测公式）+ 延迟记分板 + 复位/背压/空拍用例 → `EES_MODELSIM_RESULT PASS`（vsim `-c -novopt`，独立 run 目录）。MAXP5 门含 pad 物化 vs 有效位掩码双模型交叉对拍（§2.2 等价性实证） |
-| **P3** | 描述符驱动集成 TB（walker 派发 + DMA BFM + 41 图算子全任务） | 全任务输出对 P1 oracle 逐字节 0 失配 + 完成次序/字节计数核对 |
+| ~~P3~~ | ~~描述符驱动集成 TB（walker 派发 + DMA BFM + 41 图算子全任务）~~ | **已撤销独立门（2026-09-19 用户决策）**，依据与去处见下"P3 撤销注记" |
 | **P4** | 与 GEMM 线汇合（对应其 G5/G6） | 双引擎全网：convs=63 + 图算子 41 + heads，逐字节对软件 golden；时机由两线进度协调，**不单方启动** |
 
 **P2 执行状态（2026-09-19 夜，并行线 rtl_ppu）**：五门全绿 `EES_MODELSIM_RESULT PASS` ——
@@ -242,6 +242,18 @@ maxpool5（`2026-09-19_yolo_ppu_maxpool5_run01`，含 pad 物化 vs 有效位掩
 add（`2026-09-19_yolo_ppu_add_run01`）、xfer（`2026-09-19_yolo_ppu_xfer_run01`，恒等捷径
 ≡全量 requant 等价钉死——金文件对恒等段也算全 requant）。执行编号 P2a–e 与上表 P2a–d
 字母错位一行（requant 单列 P2a，上表四算子顺延 P2b–e），每门 README 含首跑教训。
+
+**P3 撤销注记（2026-09-19，用户决策，docs-first 落档）**：对 schedule.json
+41 图算子任务做缓冲索引→生产者反查：16 个 view 为零拷贝描述符（无 RTL）；
+余 25 个引擎任务中 16 个（64%）输入全部直连 conv 输出/外部缓冲，仅 9 个
+存在引擎→引擎输入（add→concat ×4、add→add ×2、maxpool5×3→concat ×1、
+upsample2→concat ×2），且全部是"先后任务共享 DDR 缓冲"级耦合——五引擎
+皆 DMA 喂的流核，引擎间无流式直连。故 PPU-only 集成 TB 的实质 = 自写
+walker + 自写 DMA BFM 复放 P2 已逐字节钉死的数值，conv↔图算子缓冲布局/
+生命周期/requant 分工等真合同在单验中不存在。处置：①P3 不作为独立门；
+②walker/描述符译码并入 G4 与 GEMM 线共定合同后实现（§10 D2 同步）；
+③41 任务回放保留为 P4/G5 bring-up 的二分调试工具（oracle 层，无 RTL
+集成 TB）；④引擎邻接场景由 P4 全网首跑在同一调度序列内天然覆盖。
 
 每门证据四件套（README/console/raw 输出/结果 JSON）+ 输入输出哈希；TB 新增
 不得拷贝 DUT 算法生成期望；数值、地址、总写字节、完成次序同时检查。
@@ -276,7 +288,7 @@ HEAD_BASE 起连续 149100 B 做 DFL/sigmoid/NMS（PS 域，非本线范围）�
 | # | 事项 | 默认（本版按此实施） | 对表方/时机 |
 |---|---|---|---|
 | D1 | opcode 数值分配（0x01 conv 归 GEMM 线，0x10–0x15 图算子） | 本手册 §4.1 | GEMM 线 G3 起步前互认；冲突即改表重发版 |
-| D2 | 描述符 word3–13 图算子域位域终版 | 本手册 §4 | 两线 G4/P3 前联合冻结（conv 域字段以 GEMM 线为准） |
+| D2 | 描述符 word3–13 图算子域位域终版 | 本手册 §4 | 两线 G4/P4 前联合冻结（conv 域字段以 GEMM 线为准；P3 已撤销，见 §7 注记） |
 | D3 | PPU 独立 HP 口 vs 经 interconnect 共享 | 共享（BD 现状） | 板级带宽实测后（对应 GEMM 线板后候选决策） |
 | D4 | buffer 复用/所有权回收启用时机 | 第一版全帧常驻 CMA | 系统级 DDR 预算定型时 |
 | D5 | overlap（PPU 与 GEMM 并行执行） | 关闭（顺序派发） | G5 汇合后按关键路径实测决定 |
