@@ -1,5 +1,14 @@
 # EES-331 项目交接
 
+## 2026-09-19（隔夜并行批）PPU 非线性算子线七门全绿 + 迁移入库
+
+- **背景**：用户隔夜授权并行线（防撞暂存区 `2_fpga/parallel_task`，全产物隔离、迁移待各线收口后用户主导），与 PE/GEMM 线并行开发 YOLOv8n 图算子（requant/upsample2/maxpool5/add/xfer；view 零拷贝无 RTL）；09-19 晨用户指令有序迁移主树、日志并入主根、推送个人分支。
+- **七门全绿**：P0 手册+ABI 事实核验 **28/28**；P1 oracle 全图回放对软件 golden **5×53=265 位级 0 失配**；P2a–e 五算子核 RTL 门 **EES_MODELSIM_RESULT PASS**——requant(11043)/upsample2(643001)/maxpool5(13962，pad 物化≡有效位掩码双模型交叉)/add(12679，双路 int64 不逐路饱和→int32 合同截断字面实现)/xfer(2842，恒等段字节旁路捷径≡全量 requant 门级钉死——金文件对恒等段也算全 requant)。期望三源独立（oracle 金‖TB 截断除模型装载交叉‖运行期逐拍）+ posedge 三级镜像延迟记分板 + rst 在飞击杀重启复检；反退化配额生成期断言全过（构造平局/饱和轨/死通道/s 全 63 档）。
+- **迁移落位**：RTL 每算子一夹 `2_fpga/3_yolo_zynq/rtl/PPU/{requant,upsample2,maxpool5,add,xfer}/` + TB 集中 `rtl/PPU/tb/`；vecgen+ppu_oracle 平铺 `sim/`（oracle 导入已改本目录）；手册 `1_docs/yolo_ppu_design_manual_20260918.md`（ABI 冻结 V1.0，§7 已注记 P2 执行状态）；证据七 run 目录并入 `4_metrics/logs/`；日志并入 `7_logs/2026-09-19/06_ppu_parallel_line_closeout.md`（01–05 属 GEMM 线未动）。迁移验证：SHA 对账 12/12 全同 + vecgen 新位再生成一致 + 10 文件 vlog 烟测过。`parallel_task/` 保留归档不再更新。
+- **注意**：`rtl/yolo_requant.v`（M 线 conv 尾 requant）与 `rtl/PPU/requant/yolo_ppu_requant.sv` 同义不同物，勿混用。
+- **Git**：commit `fa26666`「非线性算子」上传 `codex/full/pipidandan-superman`（52f2ab5 快进；main 不动）。
+- **下一步**：P3 描述符驱动集成 TB（walker 派发 + DMA BFM + 41 图算子任务全量对 P1 oracle 逐字节）→ P4/G5 与 GEMM 线汇合（双线协调，不单方启动）。
+
 ## 2026-09-19（凌晨自主批）PE/GEMM 手册线仿真门全链收官 + run07 综合评估 + 板测计划
 
 - **背景**：用户睡前指令——完成 GEMM 上板准备、更新日志/handoff/readme/progress、关键成果上传个人分支（overlay skill、AXI 寄存器设计、GEMM）。overlay skill 与 CSR/AXI 寄存器设计经核实**已在分支上**（f542dc3/5007593/ae8da88/c7080d4，无差异），本批上传增量 = PE/GEMM 线。

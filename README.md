@@ -2,6 +2,10 @@
 
 > 全项目进度总览（软件/硬件两部分）：[progress.md](progress.md)。本 README 只保留最近动态，历史细节见 [HANDOFF.md](HANDOFF.md) 与 `7_logs/`。
 
+## 2026-09-19 PPU 非线性算子并行线：七门全绿收官 + 迁移入库
+
+**硬件线（隔夜并行批）**：与 PE/GEMM 线并行的图算子线（用户隔夜授权防撞暂存，晨间有序迁移主树并入主日志根）——P0 手册+ABI 事实核验 **28/28** → P1 oracle 全图回放对软件 golden **5×53=265 位级 0 失配** → **P2a–e 五算子核 RTL 门全 PASS**：requant 11043 / upsample2 643001 / maxpool5 13962（含 pad 物化≡有效位掩码双模型交叉）/ add 12679（int64 不逐路饱和→int32 合同截断）/ xfer 2842（恒等捷径≡全量 requant 等价钉死）；期望三源独立 + posedge 镜像延迟记分板 + rst 在飞击杀复检 + 反退化配额断言（平局/饱和/死通道/s 全 63 档）。RTL 每算子一夹 `2_fpga/3_yolo_zynq/rtl/PPU/` + TB `rtl/PPU/tb/`，vecgen+oracle 平铺 `sim/`，手册 `1_docs/yolo_ppu_design_manual_20260918.md`；证据 7 run 目录入 `4_metrics/logs/`，日志并入 `7_logs/2026-09-19/06`。已推 `codex/full/pipidandan-superman`（fa26666）。下一步：P3 描述符集成 TB → P4/G5 与 GEMM 线汇合。
+
 ## 2026-09-19 PE/GEMM 手册线：仿真门全链收官 + 综合评估 + 板测计划
 
 **硬件线（手册重设计）**：G0 oracle → ① PE（140909）→ ② 双累加器（169025）→ MAC（164044）→ ③a 共享尾（713）→ **③b/④ 广播外积阵列三档 4×4/8×16/16×16 全 PASS**（run06 V1.1：846/4250/6881 checks 0 err；K=1..2304 分块续累/掩码/stall/rst/背靠背/首层/随机全过；TAILW 死锁修复=y 拍计数判定，dbg 复现在案）。**run07 OOC 综合评估**给出 G2 立项证据：③ 档功能缓冲映射 294912×2 寄存器，物理不可容纳 → G2 W/X 真 bank 为上板唯一路径；板测计划成文（晨验=基线回归+证据评审+G2 决策，无板上操作）。补录 09-18 晚：**CSR 控制子系统板级 L1-L4 闭环**（ACK 竞争+幻影尾两 bug 板级收口，板上挂 186154c5 修复版基线）+ **v1.4 Overlay 热重载正典化**（连热重载全绿免断电+用户回环自验）。RTL：`2_fpga/3_yolo_zynq/rtl/GEMM/`；证据：`4_metrics/logs/2026-09-18_yolo_pe_gemm_dev_run01..06/` + `2026-09-19_..._run07_syntheval/`。
