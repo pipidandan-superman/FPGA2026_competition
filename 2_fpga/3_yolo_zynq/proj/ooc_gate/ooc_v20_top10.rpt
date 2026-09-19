@@ -1,0 +1,39 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Thu Sep 17 01:56:54 2026
+| Host         : HC-202510241838 running 64-bit major release  (build 9200)
+| Command      : report_timing -max_paths 10 -path_type summary -file E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate/ooc_v20_top10.rpt
+| Design       : yolo_engine_top
+| Device       : 7z020-clg484
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Startpoint                     Endpoint                       Slack(ns)     
+----------------------------------------------------------------------------
+u_array/u_requant/prod_r_reg[0]/C
+                               u_array/u_requant/sticky_r_reg/D
+                                                              -1.187        
+u_array/u_dma/addr_r_reg[0]/C  u_array/u_dma/last_burst_r_reg/D
+                                                              -0.862        
+u_array/u_dma/addr_r_reg[0]/C  u_array/u_dma/addr_r_reg[31]/D -0.783        
+u_csr/bpend_r_reg/C            u_array/u_lut/lut_reg[160][5]/CE
+                                                              -0.773        
+u_csr/bpend_r_reg/C            u_array/u_lut/lut_reg[160][6]/CE
+                                                              -0.773        
+u_csr/bpend_r_reg/C            u_array/u_lut/lut_reg[160][7]/CE
+                                                              -0.773        
+u_csr/bpend_r_reg/C            u_array/u_lut/lut_reg[216][1]/CE
+                                                              -0.712        
+u_csr/bpend_r_reg/C            u_array/u_lut/lut_reg[216][2]/CE
+                                                              -0.712        
+u_csr/bpend_r_reg/C            u_array/u_lut/lut_reg[216][3]/CE
+                                                              -0.712        
+u_csr/bpend_r_reg/C            u_array/u_lut/lut_reg[216][4]/CE
+                                                              -0.712        
+
+
+

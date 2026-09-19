@@ -1,0 +1,29 @@
+== console_extract: M10 gate rerun run04 (xsim, 源语 DSP + BMG IP) ==
+
+-- 编译集 --
+xvlog: rtl 11 文件（gemm_array+子模块）+ rtl/yolo_conv_core.v（TB 黄金）
+       + ip/yolo_xbuf_bmg/sim/yolo_xbuf_bmg.v + tb_yolo_gemm_array.v + glbl.v
+xelab: tb_yolo_gemm_array glbl -s snap_m10 -L blk_mem_gen_v8_4_12
+       -L unisim -L unisims_ver -timescale 1ns/1ps → Built snap_m10
+
+-- 运行（xsim -R，6 层重放）--
+[tb] layer 0 done / layer 1 done @t=23301846000 (oc=16 n=25600 k=27)
+    ... 6 层全部 done, adone=1（完整心跳链见 m10_xsim.log）
+TB_GEMM_ARRAY_PASS layers=6 compared=438447 dut_wr=438447 gold_wr=3247
+                     ldone=6 adone=1
+
+-- 激励零漂移 vs run03 --
+22 个 stim hex + stim_manifest.json 哈希逐一相符；
+sim/tb_yolo_gemm_array.v 哈希相符（TB 未改）；
+rtl/yolo_gemm_array.v 哈希按预期变动（V1.2b：u_pe 实例补 .clk_i(clk_i)
+端口连线，pe_pack V1.1 源语化的承接改动；数值路径不变）。
+
+-- 本跑 DUT 变更（相对 run03）--
+1. yolo_pe_pack V1.0→V1.1: DSP48E1 源语直例（1 DSP/PE 锁定）
+2. yolo_xbuf  V1.0→V2.0: 2× blk_mem_gen IP（10 RAMB36/bank）
+3. yolo_gemm_array V1.2→V1.2b: u_pe .clk_i 连线
+
+-- 门职责 --
+M10 = 数值门：6 层（S1/R1/S2/R3/R2/S4）438447 输出字节 vs
+黄金（conv_core 静态镜像 ×4 + G2 run04 部署导出 yexp1/yexp2）
++ AXI 读/写 BFM 协议哨兵 + 单写哨兵。

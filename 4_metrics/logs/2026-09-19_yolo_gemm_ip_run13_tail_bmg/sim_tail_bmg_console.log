@@ -1,0 +1,72 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 13:50:20 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source sim_tail_bmg.tcl -notrace
+EES_VIVADO_STAGE COMPILE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_lut/sim/gemm_bm_lut.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_lut/sim/gemm_bm_lut.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_lut
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe -sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_tail.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_tail_bmg.sv
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_tail.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_tail
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_tail_bmg.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_yolo_gemm_tail_bmg
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe F:/vivado2025/2025.2/data/verilog/src/glbl.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/vivado2025/2025.2/data/verilog/src/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+EES_VIVADO_STAGE ELABORATE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -L blk_mem_gen_v8_4_12 -L unisims_ver -L unisim -s tb_tail_bmg tb_yolo_gemm_tail_bmg
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -L blk_mem_gen_v8_4_12 -L unisims_ver -L unisim -s tb_tail_bmg tb_yolo_gemm_tail_bmg 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_lut
+Compiling module work.yolo_gemm_tail_default
+Compiling module work.tb_yolo_gemm_tail_bmg
+Built simulation snapshot tb_tail_bmg
+EES_VIVADO_STAGE SIMULATE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_tail_bmg -runall -testplusarg GOLDEN=E:/competition/4_metrics/logs/2026-09-18_yolo_pe_gemm_dev_run01/golden_tail.hex
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 13:50:23 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_tail_bmg/xsim_script.tcl
+# xsim {tb_tail_bmg} -testplusarg GOLDEN=E:/competition/4_metrics/logs/2026-09-18_yolo_pe_gemm_dev_run01/golden_tail.hex -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Block Memory Generator module tb_yolo_gemm_tail_bmg.dut.lane[0].u_lut_bmg.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+EES_TAIL_INFO T0_GOLDEN vecs=10 (model<->golden + DUT<->model)
+EES_TAIL_INFO T1_TIE_EVEN done
+EES_TAIL_INFO T2_SAT_EXTREME_SHIFT done
+EES_TAIL_INFO T3_LUT_ADDR done
+EES_TAIL_INFO T4_STREAM done (last beat tagged)
+EES_TAIL_INFO T5_GAPS_RSTKILL done (flushed=2)
+EES_SUMMARY checks=712 errors=0 lat_err=0
+EES_TAIL_INFO driven=704 y=702 flushed=2 last_seen=1
+EES_VIVADO_RESULT PASS
+$finish called at time : 16510 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_tail_bmg.sv" Line 365
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep 19 13:50:25 2026...
+INFO: [Common 17-206] Exiting Vivado at Sat Sep 19 13:50:25 2026...

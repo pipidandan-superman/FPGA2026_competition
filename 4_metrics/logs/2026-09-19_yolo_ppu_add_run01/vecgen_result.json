@@ -1,0 +1,13 @@
+{
+ "verdict": "PPU_ADD_VECGEN_PASS",
+ "vectors": 6296,
+ "tasks": 375,
+ "ties_a": 152,
+ "ties_b": 515,
+ "sat_i8_hits": 4691,
+ "i32_clip_hits": 1765,
+ "identity_lane": 1842,
+ "dead_channel": 15,
+ "s_coverage": "0..62",
+ "hex_sha256": "b88f0bfbfb6fa24847acec166adf228ec749a08e0aed4d4b6c500d1732a8a455"
+}

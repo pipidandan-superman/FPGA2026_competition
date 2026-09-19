@@ -1,0 +1,25 @@
+# console_extract —— M12 A1 CSR/engine 门 run01（2026-09-16）
+
+源：eng_run01_full.log / eng_run01_smoke2.log / eng_run01_smoke.log
+（原始 transcript，未编辑）
+
+```
+# 门（eng_run01_full.log 末段）：
+# [tb] engine stim=../stim/m10 layers=6 img_words=65621 total_out=438447
+# [tb] layer 0 done @t=35890000 (oc=7 n=49 k=27)
+# [tb] layer 1 done @t=23315890000 (oc=16 n=25600 k=27)
+# [tb] layer 2 done @t=23711470000 (oc=16 n=25 k=576)
+# [tb] layer 3 done @t=24142720000 (oc=9 n=256 k=64)
+# [tb] layer 4 done @t=43181830000 (oc=64 n=400 k=576)
+# [tb] layer 5 done @t=43957590000 (oc=8 n=25 k=2304)
+# TB_CSR_ENGINE_PASS layers=6 compared=438447 dut_wr=438447 gold_wr=3247 ldone=6 adone=1 csr=0
+
+# 烟测通过（eng_run01_smoke2.log 末行）：
+# TB_CSR_ENGINE_SMOKE layers=1 compared=343 dut_wr=343 gold_wr=343 ldone=1 csr=0
+
+# 失败链（eng_run01_smoke.log 末行，TB DESC1 打包错位致 act 丢失）：
+# [tb] first diff L=0 i=2 dut=128 gold=0
+# TB_CSR_ENGINE_FAIL err=220 dbl=0 gdbl=0 unwritten=0 yaxi=0 csr=0 dut_wr=343(exp 343) ldone=1(exp 1)
+```
+
+PASS token: TB_CSR_ENGINE_PASS

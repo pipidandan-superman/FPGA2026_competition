@@ -1,0 +1,39 @@
+# 2026-09-14 日计划
+
+## 最新：量化启动条件检查
+
+当前可以开始整数参考和导出框架开发，无需等待 RTL/上板；正式静态量化需要代表性图片，精度验收另需独立标签。目标是区分可开工内容与验收前置条件，本轮未启动量化或功能变更。
+
+[本轮检查与后续条件](../../4_metrics/logs/2026-09-14_yolo_quantization_readiness_run01/REPORT.md)｜[原始检查输出](../../4_metrics/logs/2026-09-14_yolo_quantization_readiness_run01/console.log)。
+
+## 最新：YOLO手势7020硬件部署详细计划完成
+
+# 2026-09-14 执行计划
+
+## 最新：量化启动条件检查
+
+本轮只读检查权重、静态量化接口、数据集命名清单和历史原始帧。后续按算术合同/整数参考/导出器 -> 数据定位与同尺寸浮点基线 -> PTQ 校准 -> 硬件规则推理与独立精度对照 -> 版本化 golden 执行；数据准备和参考开发可以并行推进，无需等待完整硬件设计。
+
+[本轮检查与后续条件](../../4_metrics/logs/2026-09-14_yolo_quantization_readiness_run01/REPORT.md)｜[原始检查输出](../../4_metrics/logs/2026-09-14_yolo_quantization_readiness_run01/console.log)。
+
+## 最新：YOLO手势7020硬件部署详细计划完成
+
+# 2026-09-14 验证摘要
+
+## 最新：量化启动条件检查
+
+权重哈希不变，静态量化接口源码存在；定向数据清单/归档检索未命中，历史原始 BGR 帧命中 3 个，仅确认大小。结果 READY_FOR_REFERENCE_DEVELOPMENT / CALIBRATION_DATA_NOT_LOCATED / INTEGER_REFERENCE_NOT_IMPLEMENTED / QUANTIZATION_NOT_RUN。路径审计 15 项通过。接口存在、少量帧和静态分析均不代表量化精度或位精确参考已验收。
+
+[本轮检查与后续条件](../../4_metrics/logs/2026-09-14_yolo_quantization_readiness_run01/REPORT.md)｜[原始检查输出](../../4_metrics/logs/2026-09-14_yolo_quantization_readiness_run01/console.log)。
+
+## 最新：YOLO手势7020硬件部署详细计划完成
+
+False
+{
+    "workspace":  "E:\\competition",
+    "skill_count":  15,
+    "pass":  true,
+    "failures":  [
+
+                 ]
+}

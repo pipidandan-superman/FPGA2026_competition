@@ -1,0 +1,46 @@
+[l3r1 board L3 doorbell console — verbatim from ssh 2026-09-18 10:20 (after r2 load, same boot)]
+[script: board_l3_doorbell.py (fixed: XILINX_XRT env + Overlay ctx) sha256 6ddd460365bf8d8323b7cfc515423b894ca04b12a5587e037581bdf0defbd11e]
+[board: cold boot 76b115ac-7923-48d7-9c50-4c0e9c6bca33, run02 dir, artifacts hash-verified dual-side]
+
+[sudo] password for xilinx: [l3r1 L3a start (no download here; overlay loaded by r2) 10:20:43]
+[l3r1 L3b device_ctx ok phys=0x43c10000 10:20:53]
+[l3r1   rd 0x014 = 0x00000011 10:20:53]
+[l3r1   rd 0x018 = 0x00000000 10:20:53]
+[l3r1 D0 pre-state idle+noerr -> PASS 10:20:53]
+[l3r1 D1a desc_prep_begin 10:20:53]
+[l3r1   wr 0x104 <- 0x00000000 begin/done 10:20:53]
+[l3r1   wr 0x1000 <- 0x00000301 begin/done 10:20:53]
+[l3r1   wr 0x1038 <- 0x000246FC begin/done 10:20:53]
+[l3r1   rd 0x1000 = 0x00000301 / rd 0x1038 = 0x000246FC 10:20:53]
+[l3r1 D1b desc_readback -> PASS 10:20:53]
+[l3r1 D2 arm: DESC_CFG=0x80, DESC_TAIL=1, DOORBELL=1 all written 10:20:53]
+[l3r1 D3 CTRL=0x5 written 10:20:53]
+[l3r1 D4 poll FRAME_DONE got=True STATUS=0x000101D5 after 0.1 ms 10:20:53]
+[l3r1 D5 seq=1 head_bytes=0x246FC ring_head=1 result_status=0x11 -> PASS 10:20:53]
+[l3r1 D6 ring w1_seq=1 w4_bytes=0x246FC w10_flags=0x11 -> PASS 10:20:53]
+[l3r1 D7 ring_tail=1 status=0x0001011D desc_head=1 done=1 err=0x200 -> FAIL 10:20:53]
+[l3r1 L9 BOARD_L3_FAIL 10:20:53]
+
+[r2 regression earlier same boot 10:19: CK7 BOARD_CSR_PASS — identical to r1]
+
+[ANALYSIS — root cause of D7 FAIL, confirmed by RTL reading]
+Symptom: ERROR_STATUS=0x200 (bit9 E_BIT_PROTOCOL) latched after a fully
+legitimate RESULT_ACK; everything else exact (tail advanced, ownership
+cleared, all T4 golden values hit). STATUS bit3 ERROR set accordingly.
+Cause: same-edge race in yolo_reg_file.sv A_RESULT_ACK path —
+  * ack_consume_pulse asserts at edge E1 (registered pulse)
+  * ring_tail_ptr_o ALSO increments at E1 (same always block, lines ~275-278)
+  * yolo_result_ring.sv:173 samples not_empty_o during the pulse cycle C1;
+    not_empty_o = (head != tail) with tail ALREADY advanced -> head==tail
+    when ACK drains the last entry -> false "ack on empty ring" latched.
+Fires on every legitimate ACK that empties the ring (the common
+single-frame case). With IRQ armed, every frame would raise a false
+error interrupt; real protocol errors become indistinguishable.
+Why 81/81 sim missed it: TB never asserts full ERROR_STATUS==0 after ACK
+(T5 checks are masked single-bit, tb lines 429-443). Coverage hole.
+Datapath impact: none observed (tail/ownership/ring window all correct).
+Proposed fix (3-line, one file): move the tail increment out of the
+A_RESULT_ACK write decode into a `if (ack_consume_pulse || ack_drop_pulse)
+ring_tail_ptr_o <= ring_tail_ptr_o + 1;` one cycle later, so the ring
+samples the pulse against the pre-increment tail. Add TB full-value
+assertion ERROR_STATUS==0 after T4's ACK.

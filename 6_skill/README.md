@@ -7,6 +7,14 @@
 
 ## 当前状态
 
+2026-09-13新增：`zynq-pynq-overlay-workflow/`，通用Zynq/PYNQ Overlay开发、PS兼容、BD复位接线、分步板测与恢复流程，EES-331配置单独放在references/ees331.md。活动层和用户全局skills目录同步安装；检查记录位于4_metrics/logs/2026-09-13_skill_validation_run01。当前独立寄存器自动板测通过，HDMI最终确认及主工程集成另行验收。
+
+2026-09-08 全量同步：`6_skill/` 现持有本项目全部 9 个 skill 的完整副本，
+与活动层 `.codex/skills/` 内容一致（`daily-engineering-log` 已更新为强制版，
+新增 `project-workspace-policy`），供任意 agent 直接引用。活动层独有/本层独有
+的差异已消除；`engineering-organization`、`modelsim-*`、`rtl-coding-standards`、
+`vita-vivado-batch-sim` 目前仅在本层提供。
+
 2026-09-06 新增仿真 Skill 参考副本，并已完成 `E:\competition` 项目适配：
 
 - `modelsim-local-sim/`：ModelSim 后台/命令行仿真流程；

@@ -1,0 +1,289 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Wed Sep 16 22:56:57 2026
+# Process ID         : 38240
+# Current directory  : E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate
+# Command line       : vivado.exe -mode batch -source probe_v15.tcl -nojournal -log probe_v15_vivado.log
+# Log file           : E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate/probe_v15_vivado.log
+# Journal file       : 
+# Running On         : HC-202510241838
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : AMD Ryzen 5 9600X 6-Core Processor             
+# CPU Frequency      : 3893 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 33410 MB
+# Swap memory        : 21474 MB
+# Total Virtual      : 54884 MB
+# Available Virtual  : 19664 MB
+#-----------------------------------------------------------
+source probe_v15.tcl
+# open_checkpoint E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate/ooc_v15_routed.dcp
+Command: open_checkpoint E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate/ooc_v15_routed.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 342.145 ; gain = 5.000
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.245 . Memory (MB): peak = 855.656 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 5963 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.050 . Memory (MB): peak = 993.246 ; gain = 10.133
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.030 . Memory (MB): peak = 1644.594 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1644.594 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1644.594 ; gain = 0.000
+Read placeStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.579 . Memory (MB): peak = 1659.246 ; gain = 14.652
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1659.246 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.247 . Memory (MB): peak = 1684.328 ; gain = 25.082
+Read Physdb Files: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.881 . Memory (MB): peak = 1684.328 ; gain = 39.734
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.914 . Memory (MB): peak = 1684.328 ; gain = 39.734
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1725.215 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 130 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 22 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 12 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 96 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2025.2 (64-bit) build 6299465
+open_checkpoint: Time (s): cpu = 00:00:14 ; elapsed = 00:00:13 . Memory (MB): peak = 1733.277 ; gain = 1407.156
+# puts "---- row_addr cells ----"
+---- row_addr cells ----
+# foreach c [get_cells -hier -filter {NAME =~ *row_addr*}] { puts "CELL $c" }
+CELL row_addr_d5_r_reg[31]_srl3_u_array_row_len_d4_r_reg_c_i_2
+CELL u_array/row_addr_d2_r0
+CELL u_array/row_addr_d2_r2
+CELL u_array/row_addr_d5_r_reg[0]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[0]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[10]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[10]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[11]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[11]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[12]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[12]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[13]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[13]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[14]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[14]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[15]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[15]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[16]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[16]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[17]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[17]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[18]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[18]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[19]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[19]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[1]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[1]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[20]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[20]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[21]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[21]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[22]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[22]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[23]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[23]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[24]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[24]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[25]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[25]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[26]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[26]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[27]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[27]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[28]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[28]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[29]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[29]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[2]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[2]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[30]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[30]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[31]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[31]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[3]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[3]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[4]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[4]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[5]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[5]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[6]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[6]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[7]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[7]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[8]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[8]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d5_r_reg[9]_srl3_u_array_row_len_d4_r_reg_c
+CELL u_array/row_addr_d5_r_reg[9]_srl3_u_array_row_len_d4_r_reg_c_i_1
+CELL u_array/row_addr_d6_r_reg[0]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[10]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[11]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[12]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[13]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[14]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[15]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[16]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[17]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[18]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[19]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[1]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[20]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[21]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[22]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[23]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[24]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[25]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[26]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[27]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[28]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[29]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[2]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[30]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[31]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[3]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[4]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[5]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[6]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[7]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[8]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg[9]_u_array_row_len_d5_r_reg_c
+CELL u_array/row_addr_d6_r_reg_gate
+CELL u_array/row_addr_d6_r_reg_gate__0
+CELL u_array/row_addr_d6_r_reg_gate__1
+CELL u_array/row_addr_d6_r_reg_gate__10
+CELL u_array/row_addr_d6_r_reg_gate__11
+CELL u_array/row_addr_d6_r_reg_gate__12
+CELL u_array/row_addr_d6_r_reg_gate__13
+CELL u_array/row_addr_d6_r_reg_gate__14
+CELL u_array/row_addr_d6_r_reg_gate__15
+CELL u_array/row_addr_d6_r_reg_gate__16
+CELL u_array/row_addr_d6_r_reg_gate__17
+CELL u_array/row_addr_d6_r_reg_gate__18
+CELL u_array/row_addr_d6_r_reg_gate__19
+CELL u_array/row_addr_d6_r_reg_gate__2
+CELL u_array/row_addr_d6_r_reg_gate__20
+CELL u_array/row_addr_d6_r_reg_gate__21
+CELL u_array/row_addr_d6_r_reg_gate__22
+CELL u_array/row_addr_d6_r_reg_gate__23
+CELL u_array/row_addr_d6_r_reg_gate__24
+CELL u_array/row_addr_d6_r_reg_gate__25
+CELL u_array/row_addr_d6_r_reg_gate__26
+CELL u_array/row_addr_d6_r_reg_gate__27
+CELL u_array/row_addr_d6_r_reg_gate__28
+CELL u_array/row_addr_d6_r_reg_gate__29
+CELL u_array/row_addr_d6_r_reg_gate__3
+CELL u_array/row_addr_d6_r_reg_gate__30
+CELL u_array/row_addr_d6_r_reg_gate__4
+CELL u_array/row_addr_d6_r_reg_gate__5
+CELL u_array/row_addr_d6_r_reg_gate__6
+CELL u_array/row_addr_d6_r_reg_gate__7
+CELL u_array/row_addr_d6_r_reg_gate__8
+CELL u_array/row_addr_d6_r_reg_gate__9
+CELL u_array/row_addr_d7_r_reg[0]
+CELL u_array/row_addr_d7_r_reg[10]
+CELL u_array/row_addr_d7_r_reg[11]
+CELL u_array/row_addr_d7_r_reg[12]
+CELL u_array/row_addr_d7_r_reg[13]
+CELL u_array/row_addr_d7_r_reg[14]
+CELL u_array/row_addr_d7_r_reg[15]
+CELL u_array/row_addr_d7_r_reg[16]
+CELL u_array/row_addr_d7_r_reg[17]
+CELL u_array/row_addr_d7_r_reg[18]
+CELL u_array/row_addr_d7_r_reg[19]
+CELL u_array/row_addr_d7_r_reg[1]
+CELL u_array/row_addr_d7_r_reg[20]
+CELL u_array/row_addr_d7_r_reg[21]
+CELL u_array/row_addr_d7_r_reg[22]
+CELL u_array/row_addr_d7_r_reg[23]
+CELL u_array/row_addr_d7_r_reg[24]
+CELL u_array/row_addr_d7_r_reg[25]
+CELL u_array/row_addr_d7_r_reg[26]
+CELL u_array/row_addr_d7_r_reg[27]
+CELL u_array/row_addr_d7_r_reg[28]
+CELL u_array/row_addr_d7_r_reg[29]
+CELL u_array/row_addr_d7_r_reg[2]
+CELL u_array/row_addr_d7_r_reg[30]
+CELL u_array/row_addr_d7_r_reg[31]
+CELL u_array/row_addr_d7_r_reg[3]
+CELL u_array/row_addr_d7_r_reg[4]
+CELL u_array/row_addr_d7_r_reg[5]
+CELL u_array/row_addr_d7_r_reg[6]
+CELL u_array/row_addr_d7_r_reg[7]
+CELL u_array/row_addr_d7_r_reg[8]
+CELL u_array/row_addr_d7_r_reg[9]
+# puts "---- oc_g/n_base cells ----"
+---- oc_g/n_base cells ----
+# foreach c [get_cells -hier -filter {NAME =~ *oc_g_d1*}] { puts "CELL $c" }
+CELL u_array/oc_g_d1_r_reg[10]
+CELL u_array/oc_g_d1_r_reg[11]
+CELL u_array/oc_g_d1_r_reg[12]
+CELL u_array/oc_g_d1_r_reg[13]
+CELL u_array/oc_g_d1_r_reg[14]
+CELL u_array/oc_g_d1_r_reg[15]
+CELL u_array/oc_g_d1_r_reg[4]
+CELL u_array/oc_g_d1_r_reg[5]
+CELL u_array/oc_g_d1_r_reg[6]
+CELL u_array/oc_g_d1_r_reg[7]
+CELL u_array/oc_g_d1_r_reg[8]
+CELL u_array/oc_g_d1_r_reg[9]
+# foreach c [get_cells -hier -filter {NAME =~ *n_base_d1*}] { puts "CELL $c" }
+CELL u_array/n_base_d1_r_reg[10]
+CELL u_array/n_base_d1_r_reg[11]
+CELL u_array/n_base_d1_r_reg[12]
+CELL u_array/n_base_d1_r_reg[13]
+CELL u_array/n_base_d1_r_reg[14]
+CELL u_array/n_base_d1_r_reg[15]
+CELL u_array/n_base_d1_r_reg[4]
+CELL u_array/n_base_d1_r_reg[5]
+CELL u_array/n_base_d1_r_reg[6]
+CELL u_array/n_base_d1_r_reg[7]
+CELL u_array/n_base_d1_r_reg[8]
+CELL u_array/n_base_d1_r_reg[9]
+# puts "---- oc_loc_q cells ----"
+---- oc_loc_q cells ----
+# foreach c [get_cells -hier -filter {NAME =~ *oc_loc*}] { puts "CELL $c" }
+CELL u_array/oc_loc_d1_r_reg[0]
+CELL u_array/oc_loc_d1_r_reg[0]_rep
+CELL u_array/oc_loc_d1_r_reg[0]_rep__0
+CELL u_array/oc_loc_d1_r_reg[0]_rep__1
+CELL u_array/oc_loc_d1_r_reg[0]_rep__2
+CELL u_array/oc_loc_d1_r_reg[0]_rep__3
+CELL u_array/oc_loc_d1_r_reg[1]
+CELL u_array/oc_loc_d1_r_reg[1]_rep
+CELL u_array/oc_loc_d1_r_reg[1]_rep__0
+CELL u_array/oc_loc_d1_r_reg[1]_rep__1
+CELL u_array/oc_loc_d1_r_reg[1]_rep__2
+CELL u_array/oc_loc_d1_r_reg[1]_rep__3
+CELL u_array/oc_loc_d1_r_reg[2]
+CELL u_array/oc_loc_d1_r_reg[2]_rep
+CELL u_array/oc_loc_d1_r_reg[2]_rep__0
+CELL u_array/oc_loc_d1_r_reg[3]
+CELL u_array/oc_loc_q_reg[0]
+CELL u_array/oc_loc_q_reg[1]
+CELL u_array/oc_loc_q_reg[2]
+CELL u_array/oc_loc_q_reg[3]
+CELL u_array/u_ctrl/oc_loc_q[0]_i_1
+CELL u_array/u_ctrl/oc_loc_q[1]_i_1
+CELL u_array/u_ctrl/oc_loc_q[2]_i_1
+CELL u_array/u_ctrl/oc_loc_q[3]_i_1
+CELL u_array/u_ctrl/oc_loc_q[3]_i_2
+# close_design
+# puts "PROBE_DONE"
+PROBE_DONE
+INFO: [Common 17-206] Exiting Vivado at Wed Sep 16 22:57:12 2026...

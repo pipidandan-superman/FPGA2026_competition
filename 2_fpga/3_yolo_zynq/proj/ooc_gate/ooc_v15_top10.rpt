@@ -1,0 +1,49 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Wed Sep 16 22:56:10 2026
+| Host         : HC-202510241838 running 64-bit major release  (build 9200)
+| Command      : report_timing -max_paths 10 -path_type summary -file E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate/ooc_v15_top10.rpt
+| Design       : yolo_engine_top
+| Device       : 7z020-clg484
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Startpoint                     Endpoint                       Slack(ns)     
+----------------------------------------------------------------------------
+u_array/u_addrgen/ph_c_reg[0]/C
+                               u_array/u_xbuf/u_bank1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/DIADI[3]
+                                                              -1.982        
+u_array/u_addrgen/ph_c_reg[0]/C
+                               u_array/u_xbuf/u_bank1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/DIADI[13]
+                                                              -1.964        
+u_array/u_addrgen/ph_c_reg[0]/C
+                               u_array/u_xbuf/u_bank0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/DIADI[11]
+                                                              -1.948        
+u_array/u_addrgen/ph_c_reg[0]/C
+                               u_array/u_xbuf/u_bank1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/DIADI[11]
+                                                              -1.925        
+u_array/u_addrgen/ph_c_reg[0]/C
+                               u_array/u_xbuf/u_bank0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram/DIADI[15]
+                                                              -1.915        
+u_array/u_addrgen/ph_c_reg[0]/C
+                               u_array/u_xbuf/u_bank0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram/DIBDI[15]
+                                                              -1.915        
+u_array/u_addrgen/ph_c_reg[0]/C
+                               u_array/u_xbuf/u_bank1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/DIADI[7]
+                                                              -1.912        
+u_array/u_addrgen/ph_c_reg[0]/C
+                               u_array/u_xbuf/u_bank1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/DIADI[3]
+                                                              -1.889        
+u_array/u_addrgen/ph_c_reg[0]/C
+                               u_array/u_xbuf/u_bank1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/DIADI[15]
+                                                              -1.886        
+u_array/u_addrgen/ph_c_reg[0]/C
+                               u_array/u_xbuf/u_bank1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram/DIADI[11]
+                                                              -1.880        
+
+
+

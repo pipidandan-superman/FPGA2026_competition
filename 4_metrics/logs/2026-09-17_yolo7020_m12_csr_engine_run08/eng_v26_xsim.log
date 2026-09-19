@@ -1,0 +1,55 @@
+#-----------------------------------------------------------
+# xsim v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Thu Sep 17 04:11:15 2026
+# Process ID         : 43764
+# Current directory  : E:/competition/2_fpga/3_yolo_zynq/sim/xsim_eng
+# Command line       : xsim.exe -log eng_v26_xsim.log -mode tcl -source {xsim.dir/snap_eng_v26/xsim_script.tcl}
+# Log file           : E:/competition/2_fpga/3_yolo_zynq/sim/xsim_eng/eng_v26_xsim.log
+# Journal file       : E:/competition/2_fpga/3_yolo_zynq/sim/xsim_eng\xsim.jou
+# Running On         : HC-202510241838
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : AMD Ryzen 5 9600X 6-Core Processor             
+# CPU Frequency      : 3893 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 33410 MB
+# Swap memory        : 21474 MB
+# Total Virtual      : 54884 MB
+# Available Virtual  : 27460 MB
+#-----------------------------------------------------------
+source xsim.dir/snap_eng_v26/xsim_script.tcl
+# xsim {snap_eng_v26} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Block Memory Generator module tb_yolo_engine_top.dut.u_array.u_xbuf.u_bank0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_engine_top.dut.u_array.u_xbuf.u_bank1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+[tb] engine stim=../stim/m10 layers=6 img_words=65621 total_out=438447
+WARNING:  The value -1943132160.000000 ns of Delay Control Statement is negative. Considering twos complement. File:E:/competition/2_fpga/3_yolo_zynq/sim/tb_yolo_engine_top.v :983
+[tb] layer 0 done @t=36370000 (oc=7 n=49 k=27)
+[tb] heartbeat t=10000000000 cur_layer=1 ywr=175527
+[tb] heartbeat t=20000000000 cur_layer=1 ywr=351559
+[tb] layer 1 done @t=23316310000 (oc=16 n=25600 k=27)
+[tb] layer 2 done @t=23712460000 (oc=16 n=25 k=576)
+[tb] layer 3 done @t=24143890000 (oc=9 n=256 k=64)
+[tb] heartbeat t=30000000000 cur_layer=4 ywr=420455
+[tb] heartbeat t=40000000000 cur_layer=4 ywr=433959
+[tb] layer 4 done @t=43182280000 (oc=64 n=400 k=576)
+blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+[tb] layer 5 done @t=43958550000 (oc=8 n=25 k=2304)
+TB_CSR_ENGINE_PASS layers=6 compared=438447 dut_wr=438447 gold_wr=3247 ldone=6 adone=1 csr=0
+$finish called at time : 47802720 ns : File "E:/competition/2_fpga/3_yolo_zynq/sim/tb_yolo_engine_top.v" Line 975
+run: Time (s): cpu = 00:00:01 ; elapsed = 00:06:26 . Memory (MB): peak = 220.020 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 33064 KB (Peak: 33064 KB), Simulation CPU Usage: 385312 ms
+INFO: [Common 17-206] Exiting xsim at Thu Sep 17 04:17:43 2026...

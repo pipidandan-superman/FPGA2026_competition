@@ -1,0 +1,3 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/sim/tb_yolo_fullnet.v" into library work
+WARNING: [VRFC 10-8658] /* is inside a comment [E:/competition/2_fpga/3_yolo_zynq/sim/tb_yolo_fullnet.v:48]
+INFO: [VRFC 10-311] analyzing module tb_yolo_fullnet

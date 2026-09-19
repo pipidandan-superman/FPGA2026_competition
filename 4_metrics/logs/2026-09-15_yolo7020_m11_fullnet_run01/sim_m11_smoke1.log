@@ -1,0 +1,35 @@
+# vsim +STIM=../stim/m11 +MAXCONV=2 +WDT_MS=300000 -do {run -all; quit -f} -l sim_m11_smoke1.log -c -novopt work.tb_yolo_fullnet 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.tb_yolo_fullnet
+# Loading work.tb_yolo_fullnet
+# Loading work.yolo_gemm_array
+# Loading work.yolo_ctrl
+# Loading work.yolo_dma
+# Loading work.yolo_addrgen
+# Loading work.yolo_wbuf
+# Loading work.yolo_xbuf
+# Loading work.yolo_acc
+# Loading work.yolo_requant
+# Loading work.yolo_silu_lut
+# Loading work.yolo_pe_pack
+# run -all 
+# [tb] m11 stim=../stim/m11 img_words=1665001 prog_words=2178 maxconv=2
+# [tb] heartbeat t=10000000000 conv=0 ywr=175936 ps=0 err=0
+# [tb] heartbeat t=20000000000 conv=0 ywr=352000 ps=0 err=0
+# [tb] conv 0/2 task=0 done @t=23271390000 oc=16 n=25600 k=27 acc_err=0
+# [tb] heartbeat t=30000000000 conv=1 ywr=442688 ps=0 err=0
+# [tb] heartbeat t=40000000000 conv=1 ywr=491904 ps=0 err=0
+# [tb] heartbeat t=50000000000 conv=1 ywr=541120 ps=0 err=0
+# [tb] heartbeat t=60000000000 conv=1 ywr=590400 ps=0 err=0
+# [tb] conv 1/2 task=1 done @t=64873530000 oc=32 n=6400 k=144 acc_err=0
+# TB_FULLNET_SMOKE convs=2 psops=0 compared=614400 dut_wr=614400 head_bytes=0 ldone=2 adone=1
+# ** Note: $finish    : ../tb_yolo_fullnet.v(670)
+#    Time: 64873690 ns  Iteration: 1  Instance: /tb_yolo_fullnet

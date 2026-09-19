@@ -1,0 +1,13 @@
+{
+ "verdict": "PPU_XFER_VECGEN_PASS",
+ "tasks": 101,
+ "segments": 180,
+ "bytes_total": 1382,
+ "tie_bytes": 158,
+ "sat_i8_hits": 476,
+ "ident_segs": 18,
+ "dead_segs": 7,
+ "len1_segs": 10,
+ "s_coverage": "0..62",
+ "hex_sha256": "5ec17df2d9b3f9c63d7dd2d1f8d124631fcc6cf0034af38ab49d58838eac3192"
+}

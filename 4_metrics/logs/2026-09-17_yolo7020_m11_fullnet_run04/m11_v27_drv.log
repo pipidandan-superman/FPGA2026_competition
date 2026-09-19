@@ -1,0 +1,8 @@
+[v27] compile -> work_v27
+[v27] compile clean
+[v27] vsim fullnet (overnight)
+# TB_FULLNET_PASS convs=63 psops=65 compared=3553900 dut_wr=3553900 head_bytes=149100 ldone=63 adone=1
+[v27] headcheck vs run04 frame0 golden
+[m11chk] dump=head_dump.bin bytes=149100 sha=9ce70525fc1732cd... ref=9ce70525fc1732cd... MATCH
+[m11chk] split 149100/149100 bytes vs npz -> model.22.cv2.0.2:102400, model.22.cv2.1.2:25600, model.22.cv2.2.2:6400, model.22.cv3.0.2:11200, model.22.cv3.1.2:2800, model.22.cv3.2.2:700
+M11_HEADCHK_PASS sha256=9ce70525fc1732cde640bfa654919dd28504422aa9791a2875225ae6ad6aa6ad bytes=149100

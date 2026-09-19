@@ -1,0 +1,49 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Thu Sep 17 23:53:38 2026
+| Host         : HC-202510241838 running 64-bit major release  (build 9200)
+| Command      : report_timing -max_paths 10 -path_type summary -file E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate/ooc_v28b60_top10.rpt
+| Design       : yolo_engine_top
+| Device       : 7z020-clg484
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Startpoint                     Endpoint                       Slack(ns)     
+----------------------------------------------------------------------------
+u_array/u_xrowgen/dma_hi0_w2/CLK
+                               u_array/u_xrowgen/cg_khiw_r_reg[4]/R
+                                                              0.806         
+u_array/u_xrowgen/dma_hi0_w2/CLK
+                               u_array/u_xrowgen/cg_khiw_r_reg[5]/R
+                                                              0.806         
+u_array/u_xrowgen/dma_hi0_w2/CLK
+                               u_array/u_xrowgen/cg_khiw_r_reg[6]/R
+                                                              0.806         
+u_array/u_xrowgen/dma_hi0_w2/CLK
+                               u_array/u_xrowgen/cg_khiw_r_reg[7]/R
+                                                              0.806         
+u_array/u_xrowgen/dma_hi0_w2/CLK
+                               u_array/u_xrowgen/cg_khiw_r_reg[10]/R
+                                                              0.809         
+u_array/u_xrowgen/dma_hi0_w2/CLK
+                               u_array/u_xrowgen/cg_khiw_r_reg[11]/R
+                                                              0.809         
+u_array/u_xrowgen/dma_hi0_w2/CLK
+                               u_array/u_xrowgen/cg_khiw_r_reg[8]/R
+                                                              0.809         
+u_array/u_xrowgen/dma_hi0_w2/CLK
+                               u_array/u_xrowgen/cg_khiw_r_reg[9]/R
+                                                              0.809         
+u_array/u_xrowgen/dma_hi0_w2/CLK
+                               u_array/u_xrowgen/cg_khiw_r_reg[0]/R
+                                                              0.916         
+u_array/u_xrowgen/dma_hi0_w2/CLK
+                               u_array/u_xrowgen/cg_khiw_r_reg[1]/R
+                                                              0.916         
+
+
+

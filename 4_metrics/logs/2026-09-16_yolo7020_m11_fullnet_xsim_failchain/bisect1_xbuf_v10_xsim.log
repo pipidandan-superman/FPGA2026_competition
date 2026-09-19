@@ -1,0 +1,47 @@
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Wed Sep 16 16:02:47 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/snap_m11_xb10/xsim_script.tcl
+# xsim {snap_m11_xb10} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+[tb] m11 stim=../stim/m11 img_words=1665001 prog_words=2178 maxconv=63
+[tb] heartbeat t=10000000000 conv=0 ywr=175936 ps=0 err=0
+[tb] heartbeat t=20000000000 conv=0 ywr=351960 ps=0 err=0
+[tb] conv 0/63 task=0 done @t=23272790000 oc=16 n=25600 k=27 acc_err=0
+[tb] heartbeat t=30000000000 conv=1 ywr=442688 ps=0 err=0
+[tb] heartbeat t=40000000000 conv=1 ywr=491904 ps=0 err=0
+[tb] heartbeat t=50000000000 conv=1 ywr=541120 ps=0 err=0
+[tb] heartbeat t=60000000000 conv=1 ywr=590392 ps=0 err=0
+[tb] conv 1/63 task=1 done @t=64874890000 oc=32 n=6400 k=144 acc_err=0
+[tb] heartbeat t=70000000000 conv=2 ywr=695616 ps=0 err=0
+[tb] conv 2/63 task=2 done @t=77787630000 oc=32 n=6400 k=32 acc_err=0
+[tb] heartbeat t=80000000000 conv=3 ywr=830016 ps=2 err=0
+[tb] heartbeat t=90000000000 conv=3 ywr=879296 ps=2 err=0
+[tb] conv 3/63 task=5 done @t=98592350000 oc=16 n=6400 k=144 acc_err=0
+[tb] heartbeat t=100000000000 conv=4 ywr=928448 ps=2 err=0
+[tb] heartbeat t=110000000000 conv=4 ywr=977728 ps=2 err=0
+[tb] conv 4/63 task=6 done @t=119396030000 oc=16 n=6400 k=144 acc_err=0
+[tb] heartbeat t=120000000000 conv=5 ywr=1031168 ps=6 err=0
+[tb] heartbeat t=130000000000 conv=5 ywr=1151616 ps=6 err=0
+[tb] first diff conv=5 i=0 dut=x gold=1
+[tb] conv 5/63 task=9 done @t=136409070000 oc=32 n=6400 k=48 acc_err=204800
+[tb] heartbeat t=140000000000 conv=6 ywr=1238144 ps=6 err=204800
+[tb] heartbeat t=150000000000 conv=6 ywr=1264248 ps=6 err=204800
+[tb] heartbeat t=160000000000 conv=6 ywr=1290304 ps=6 err=204800
+[tb] heartbeat t=170000000000 conv=6 ywr=1316416 ps=6 err=204800
+[tb] conv 6/63 task=10 done @t=175646440000 oc=64 n=1600 k=288 acc_err=307200
+[tb] heartbeat t=180000000000 conv=7 ywr=1373376 ps=6 err=307200
+[tb] conv 7/63 task=11 done @t=186201250000 oc=64 n=1600 k=64 acc_err=409600
+[tb] heartbeat t=190000000000 conv=8 ywr=1443456 ps=8 err=409600
+[tb] heartbeat t=200000000000 conv=8 ywr=1469568 ps=8 err=409600
+[tb] conv 8/63 task=14 done @t=205824080000 oc=32 n=1600 k=288 acc_err=460800
+[tb] heartbeat t=210000000000 conv=9 ywr=1495664 ps=8 err=460800
+[tb] heartbeat t=220000000000 conv=9 ywr=1521728 ps=8 err=460800
+[tb] conv 9/63 task=15 done @t=225446720000 oc=32 n=1600 k=288 acc_err=512000

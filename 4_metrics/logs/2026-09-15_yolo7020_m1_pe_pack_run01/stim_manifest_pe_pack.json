@@ -1,0 +1,59 @@
+{
+ "name": "pe_pack",
+ "seed": 202,
+ "vectors": {
+  "directed": 216,
+  "directed_pool": [
+   -128,
+   -127,
+   -1,
+   0,
+   1,
+   127
+  ],
+  "random": 10000,
+  "total": 10216
+ },
+ "layout_adopted": "bias: A={x1,9b0,x0+128}, B=sext(w), lane0=$signed(P[16:0])-(w<<7), lane1=$signed(P[33:17])+P[16]",
+ "exhaustive_proof_2p24": {
+  "doc_literal": {
+   "fails": 12517376,
+   "total": 16777216,
+   "first_fail": [
+    -128,
+    -128,
+    -128,
+    -16384,
+    16384,
+    16383,
+    16384
+   ]
+  },
+  "sext_gap": {
+   "fails": 8355840,
+   "total": 16777216,
+   "first_fail": [
+    -128,
+    -128,
+    -128,
+    16384,
+    16384,
+    16256,
+    16384
+   ]
+  },
+  "bias": {
+   "fails": 0,
+   "total": 16777216,
+   "first_fail": null
+  }
+ },
+ "gold_ref": "lanes_np independent bit model == direct w*x, exhaustively equated over 2^24",
+ "sha256": {
+  "x0_i8.hex": "7c690ed4df7fbe411c39c2033b1b5f1955ab33cb8fdc249a0e4b7df5c3b2b6ae",
+  "x1_i8.hex": "64bee9ebea44baa1282834f730c8d56ed4764f2b3636e556ed982eecf1d0f239",
+  "w_i8.hex": "3ff6e5d3055bd36e0fbeaaf869eb9b312116b334d1ca886357abac20373cdc5e",
+  "p0_exp_i17.hex": "6916555769e10041437a49c7e47a6df59fe43e46af5e224f6b26ca8f9f96b3d8",
+  "p1_exp_i17.hex": "5ad10beb487d5b60e8ba536a412296b947025ad9b930346998dd5bdb7d080d38"
+ }
+}

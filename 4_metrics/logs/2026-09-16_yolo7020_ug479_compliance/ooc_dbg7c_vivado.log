@@ -1,0 +1,117 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Wed Sep 16 18:15:40 2026
+# Process ID         : 47720
+# Current directory  : E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate
+# Command line       : vivado.exe -mode batch -source ooc_dbg7c.tcl -nojournal -log ooc_dbg7c_vivado.log
+# Log file           : E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate/ooc_dbg7c_vivado.log
+# Journal file       : 
+# Running On         : HC-202510241838
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : AMD Ryzen 5 9600X 6-Core Processor             
+# CPU Frequency      : 3893 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 33410 MB
+# Swap memory        : 21474 MB
+# Total Virtual      : 54884 MB
+# Available Virtual  : 13913 MB
+#-----------------------------------------------------------
+source ooc_dbg7c.tcl
+# open_checkpoint E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate/ooc_v13_routed.dcp
+Command: open_checkpoint E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate/ooc_v13_routed.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.039 . Memory (MB): peak = 341.746 ; gain = 4.805
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.301 . Memory (MB): peak = 851.770 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 5871 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.069 . Memory (MB): peak = 980.508 ; gain = 8.496
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.052 . Memory (MB): peak = 1628.418 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1628.418 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1628.418 ; gain = 0.000
+Read placeStorage: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.893 . Memory (MB): peak = 1645.621 ; gain = 17.203
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1645.621 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.400 . Memory (MB): peak = 1667.816 ; gain = 22.195
+Read Physdb Files: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1667.816 ; gain = 39.398
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1667.816 ; gain = 39.398
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1701.164 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 34 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 22 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 12 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2025.2 (64-bit) build 6299465
+open_checkpoint: Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1708.227 ; gain = 1383.391
+# foreach {tag filt} [list \
+#     addrgen {NAME =~ */u_addrgen/*} \
+#     PE      {NAME =~ *u_pe*} \
+#     acc     {NAME =~ */u_acc/*} \
+#     requant {NAME =~ */u_requant/*} \
+#     xbuf    {NAME =~ */u_xbuf/*} \
+#     wbuf    {NAME =~ */u_wbuf/*} \
+#     dma_rd  {NAME =~ */u_dma/*} \
+#     dma_wr  {NAME =~ */u_dma_wr/*} \
+#     ctrl    {NAME =~ */u_ctrl/*} \
+# ] {
+#     set p [lindex [get_timing_paths -max_paths 1 -to [get_cells -hier -filter $filt]] 0]
+#     if {$p ne ""} {
+#         puts [format "==== %s worst_slack=%s levels=%s" $tag \
+#             [get_property SLACK $p] [get_property LOGIC_LEVELS $p]]
+#         puts "        from [get_property STARTPOINT_PIN $p]"
+#         puts "        to   [get_property ENDPOINT_PIN $p]"
+#     } else {
+#         puts "==== $tag (no paths)"
+#     }
+# }
+WARNING: [Timing 38-242] The property HD.CLK_SRC of clock port "clk_i" is not set. In out-of-context mode, this prevents timing estimation for clock delay/skew
+Resolution: Set the HD.CLK_SRC property of the out-of-context port to the location of the clock buffer instance in the top-level design
+get_timing_paths: Time (s): cpu = 00:00:11 ; elapsed = 00:00:07 . Memory (MB): peak = 1749.633 ; gain = 41.406
+==== addrgen worst_slack=-31.017 levels=95
+        from u_array/cfg_ow_r_reg[0]/C
+        to   u_array/u_addrgen/ox_r_reg[15]/D
+==== PE worst_slack=-8.113 levels=1
+        from u_array/u_xbuf/rd_bank_q_reg/C
+        to   u_array/g_pe_row[12].g_pe_pair[7].u_pe/u_dsp48/A[3]
+==== acc worst_slack=-15.201 levels=1
+        from u_array/u_ctrl/FSM_onehot_state_r_reg[3]_replica/C
+        to   u_array/u_acc/acc_r_reg[524]/CE
+==== requant worst_slack=-24.628 levels=47
+        from u_array/n_loc_d1_r_reg[1]_rep__5/C
+        to   u_array/u_requant/y_pre_o_reg[2]_rep/D
+==== xbuf worst_slack=-10.764 levels=10
+        from u_array/u_addrgen/ox_r_reg[8]/C
+        to   u_array/u_xbuf/u_bank1/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM36_NO_ECC.ram/DIADI[4]
+==== wbuf worst_slack=-2.120 levels=3
+        from u_array/FSM_sequential_ldr_state_r_reg[0]/C
+        to   u_array/u_wbuf/par_b1_reg_0_15_18_23/RAMA/WE
+==== dma_rd worst_slack=-3.312 levels=11
+        from u_array/u_dma/addr_r_reg[0]/C
+        to   u_array/u_dma/last_burst_r_reg/D
+==== dma_wr worst_slack=-4.366 levels=15
+        from u_array/u_dma_wr/addr_r_reg[3]/C
+        to   u_array/u_dma_wr/addr_r_reg[31]/D
+==== ctrl worst_slack=-11.638 levels=14
+        from u_array/u_ctrl/n_tail_r_reg[7]/C
+        to   u_array/u_ctrl/FSM_onehot_state_r_reg[3]_replica_12/CE
+# close_design
+# puts "OOC_DBG7C_DONE"
+OOC_DBG7C_DONE
+INFO: [Common 17-206] Exiting Vivado at Wed Sep 16 18:16:13 2026...

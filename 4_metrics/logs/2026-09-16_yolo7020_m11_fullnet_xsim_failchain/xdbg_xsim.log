@@ -1,0 +1,46 @@
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Wed Sep 16 16:17:39 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/snap_xdbg/xsim_script.tcl
+# xsim {snap_xdbg} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Block Memory Generator module tb_yolo_fullnet_xdbg.dut.u_xbuf.u_bank0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_fullnet_xdbg.dut.u_xbuf.u_bank1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+[tb] m11 stim=../stim/m11 img_words=1665001 prog_words=2178 maxconv=63
+[tb] heartbeat t=10000000000 conv=0 ywr=175936 ps=0 err=0
+[tb] heartbeat t=20000000000 conv=0 ywr=351960 ps=0 err=0
+[tb] conv 0/63 task=0 done @t=23272790000 oc=16 n=25600 k=27 acc_err=0
+[tb] heartbeat t=30000000000 conv=1 ywr=442688 ps=0 err=0
+[tb] heartbeat t=40000000000 conv=1 ywr=491904 ps=0 err=0
+[tb] heartbeat t=50000000000 conv=1 ywr=541120 ps=0 err=0
+[tb] heartbeat t=60000000000 conv=1 ywr=590392 ps=0 err=0
+[tb] conv 1/63 task=1 done @t=64874890000 oc=32 n=6400 k=144 acc_err=0
+[tb] heartbeat t=70000000000 conv=2 ywr=695616 ps=0 err=0
+[tb] conv 2/63 task=2 done @t=77787630000 oc=32 n=6400 k=32 acc_err=0
+[tb] heartbeat t=80000000000 conv=3 ywr=830016 ps=2 err=0
+[tb] heartbeat t=90000000000 conv=3 ywr=879296 ps=2 err=0
+[tb] conv 3/63 task=5 done @t=98592350000 oc=16 n=6400 k=144 acc_err=0
+[tb] heartbeat t=100000000000 conv=4 ywr=928448 ps=2 err=0
+[tb] heartbeat t=110000000000 conv=4 ywr=977728 ps=2 err=0
+[tb] conv 4/63 task=6 done @t=119396030000 oc=16 n=6400 k=144 acc_err=0
+[XDBG] FIRST X @t=119399015000 conv=5
+[XDBG] x_rdata=xx x_addr=001c2000
+[XDBG] rdata=0df102da02f0f0f2 raddr_q=00764680
+[XDBG] araddr=00764690 arvalid=0 rvalid=1
+[XDBG] xb.we=1 wr_bank=1 wcol=0 waddr=020 wdata=xx
+[XDBG] xb.dout=0000000000000000 vld=0 rd_bank=1 ren=0 raddr=000
+[XDBG] wb.dout=e207de1c12ed0c06 wb.we=1
+[XDBG] wdata=1e15191c1c1d1919 wstrb=00 wvalid=0 awaddr=00177000
+[XDBG] dump end
+$finish called at time : 119400015 ns : File "E:/competition/2_fpga/3_yolo_zynq/sim/xsim_xdbg/tb_yolo_fullnet_xdbg.v" Line 886
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:25:12 . Memory (MB): peak = 219.684 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 110040 KB (Peak: 110040 KB), Simulation CPU Usage: 1502639 ms
+INFO: [Common 17-206] Exiting xsim at Wed Sep 16 16:42:53 2026...

@@ -1,0 +1,20 @@
+# M1 门 TB_PE_PACK_PASS（2026-09-15）
+
+# 仿真门（ModelSim SE-64 10.1c, -novopt；原始 transcript sim_pe_pack.log）：
+sim_pe_pack.log:  TB_PE_PACK_PASS compared=10216/10216
+                  # [tb] pe_pack stim=../stim/pe_pack vectors=10216
+
+# 216 定向角点（x0/x1/w ∈ {−128,−127,−1,0,1,127} 全交叉）+ 10000 随机（seed=202）
+# 全部两通道位级一致。
+
+# ---------------- 全域穷举证明（pe_pack_vecgen.py，2^24 = 16777216 组，
+# 结果持久化于 stim_manifest_pe_pack.json['exhaustive_proof_2p24']）----------------
+# doc_literal（基线 §3.2 字面布局）: fails=12517376/16777216
+#   first: x0=-128 x1=-128 w=-128 lane0=-16384(exp 16384) lane1=16383(exp 16384)
+# sext_gap（符号扩展间隔直觉修正）: fails=8355840/16777216
+#   first: x0=-128 x1=-128 w=-128 lane0=16384(exp 16384) lane1=16256(exp 16384)
+# bias（采纳）: fails=0/16777216
+#
+# 结论：基线字面方案全域 74.6% 失败（负 x0 低通道误差 256·w；w<0 时高通道
+# 借位误差）；符号扩展间隔全域 49.8% 失败（低通道精确但负 x0 的 +2^17 正权
+# 污染高通道 w·[x0<0]）；偏置布局全域精确。

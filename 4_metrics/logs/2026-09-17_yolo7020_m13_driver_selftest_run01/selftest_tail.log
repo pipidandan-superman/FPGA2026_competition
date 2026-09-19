@@ -1,0 +1,8 @@
+[conv 57/63] task=97 oc= 64 n=  100 walk=1 t=   15.00ms acc_err=0
+[conv 58/63] task=98 oc= 64 n=  100 walk=1 t=    0.00ms acc_err=0
+[conv 59/63] task=99 oc= 64 n=  100 walk=0 t=    0.00ms acc_err=0
+[conv 60/63] task=100 oc= 64 n=  100 walk=1 t=    0.00ms acc_err=0
+[conv 61/63] task=101 oc= 64 n=  100 walk=1 t=   16.00ms acc_err=0
+[conv 62/63] task=102 oc=  7 n=  100 walk=1 t=    0.00ms acc_err=0
+[heads] 149100B -> head_dump_selftest.bin
+PL_M11_PASS convs=63 psops=65 compared=3553900 nerr=0 head_bytes=149100 head_sha256=9ce70525fc1732cd... conv_ms=656.0 ps_ms=16.0 fps_est=1.49

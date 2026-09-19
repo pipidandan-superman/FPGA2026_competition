@@ -1,0 +1,19 @@
+# vsim +STIM=../stim/dma +WDT_MS=60000 -do {run -all; quit -f} -l m9_v21.log -c -novopt work.tb_yolo_dma 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_it7/work.tb_yolo_dma
+# Loading work.tb_yolo_dma
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_it7/work.yolo_dma
+# Loading work.yolo_dma
+# run -all 
+# [tb] dma stim=../stim/dma cmds=33
+# TB_DMA_PASS bytes=210904 cmds=33 ars=1666 (stall-tolerant, 4KB-split, checksummed)
+# ** Note: $finish    : ../tb_yolo_dma.v(323)
+#    Time: 6022380 ns  Iteration: 1  Instance: /tb_yolo_dma

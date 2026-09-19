@@ -1,0 +1,93 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Wed Sep 16 18:13:43 2026
+# Process ID         : 45208
+# Current directory  : E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate
+# Command line       : vivado.exe -mode batch -source ooc_dbg7.tcl -nojournal -log ooc_dbg7_vivado.log
+# Log file           : E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate/ooc_dbg7_vivado.log
+# Journal file       : 
+# Running On         : HC-202510241838
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : AMD Ryzen 5 9600X 6-Core Processor             
+# CPU Frequency      : 3893 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 33410 MB
+# Swap memory        : 21474 MB
+# Total Virtual      : 54884 MB
+# Available Virtual  : 13880 MB
+#-----------------------------------------------------------
+source ooc_dbg7.tcl
+# open_checkpoint E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate/ooc_v13_routed.dcp
+Command: open_checkpoint E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate/ooc_v13_routed.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 341.562 ; gain = 5.078
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.308 . Memory (MB): peak = 853.430 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 5871 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.072 . Memory (MB): peak = 980.402 ; gain = 8.453
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.053 . Memory (MB): peak = 1627.363 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1627.363 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1627.363 ; gain = 0.000
+Read placeStorage: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.903 . Memory (MB): peak = 1644.598 ; gain = 17.234
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1644.598 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.399 . Memory (MB): peak = 1667.188 ; gain = 22.590
+Read Physdb Files: Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1667.188 ; gain = 39.824
+Restored from archive | CPU: 2.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1667.188 ; gain = 39.836
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 1700.578 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 34 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 22 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 12 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2025.2 (64-bit) build 6299465
+open_checkpoint: Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1707.625 ; gain = 1381.430
+# foreach {tag filt} [list \
+#     addrgen {NAME =~ */u_addrgen/*} \
+#     PE      {NAME =~ */u_pe/*} \
+#     acc     {NAME =~ */u_acc/*} \
+#     requant {NAME =~ */u_requant/*} \
+#     xbuf    {NAME =~ */u_xbuf/*} \
+#     wbuf    {NAME =~ */u_wbuf/*} \
+#     dma     {NAME =~ */u_dma*/*} \
+#     ctrl    {NAME =~ */u_ctrl/*} \
+# ] {
+#     set eps [get_pins -of_objects [get_cells -hier -filter $filt] \
+#              -filter {DIRECTION == IN && IS_ENABLE != 1} -quiet]
+#     set n 0
+#     set p [lindex [get_timing_paths -max_paths 1 -to $eps] 0]
+#     if {$p ne ""} {
+#         set s [get_property SLACK $p]
+#         puts [format "==== %s worst_slack=%s from=%s to=%s levels=%s" $tag $s \
+#             [get_property STARTPOINT_PIN $p] [get_property ENDPOINT_PIN $p] \
+#             [get_property LOGIC_LEVELS $p]]
+#     } else {
+#         puts "==== $tag (no paths)"
+#     }
+# }
+WARNING: [Timing 38-242] The property HD.CLK_SRC of clock port "clk_i" is not set. In out-of-context mode, this prevents timing estimation for clock delay/skew
+Resolution: Set the HD.CLK_SRC property of the out-of-context port to the location of the clock buffer instance in the top-level design
+get_timing_paths: Time (s): cpu = 00:00:11 ; elapsed = 00:00:07 . Memory (MB): peak = 1749.793 ; gain = 42.168
+==== addrgen worst_slack=-31.017 from=u_array/cfg_ow_r_reg[0]/C to=u_array/u_addrgen/ox_r_reg[15]/D levels=95
+WARNING: [Vivado 12-180] No cells matched 'get_cells -hier -filter {NAME =~ */u_pe/*}'.
+ERROR: [Vivado 12-4739] get_timing_paths:No valid object(s) found for '-to [get_pins -of_objects [get_cells -hier -filter {NAME =~ */u_pe/*}] -filter {DIRECTION == IN && IS_ENABLE != 1} -quiet]'.
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+INFO: [Common 17-206] Exiting Vivado at Wed Sep 16 18:14:13 2026...

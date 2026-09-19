@@ -1,0 +1,49 @@
+== console_extract: M12 B0 OOC gate run02（源语/IP 修复后首跑）==
+
+-- 机器判定行（ooc_run02_vivado.log）--
+OOC_RUN02_RES dsp48e1=142 ramb36=20 ramb18=0
+GEMM16_OOC_TIMING_FAIL wns_ns=-31.140 whs_ns=0.132 fmax_mhz=26.45 target_mhz=150.0
+（GEMM16_OOC_TIMING_* 门令牌按 tcl 定义含 150MHz 时序；资源/布线侧见下）
+
+-- B0 主问题（用户原话"能不能放得下"）：放得下 --
+| 指标 | run01(失败链) | run02 | 器件预算 | 占比 |
+|---|---|---|---|---|
+| DSP48E1 | 238 (超限) | **142** | 220 | 64.5% |
+| Slice LUT | 37214 | **20686** | 53200 | 38.9% |
+| Slice FF | - | 13474 | 106400 | 12.7% |
+| BRAM (RAMB36) | 0 | **20** | 140 | 14.3% |
+| LUTRAM | 13824(xbuf) | 0(xbuf 出清) | - | - |
+布线：37915/37915 全布通，0 routing errors（ooc_run02_route_status.rpt）
+DRC：0 violations（仅 AVAL-4 advisory：DSP 未用 D 口的功耗建议）
+
+-- DSP 142 构成（ooc_dbg4_vivado.log, routed DCP 分类）--
+PE 阵列 g_pe_row[i].g_pe_pair[j].u_pe = **128（每 PE 恰 1 DSP，源语锁定
+  达成；run01 推断式被拆解为 228）**
+u_addrgen = 7；u_requant = 4；row_addr_d0_w = 1；ctrl_rq_last_w1 = 1
+
+-- 时序 @150MHz（run02_timing.rpt + ooc_dbg5/6_vivado.log）--
+WNS -31.140ns / TNS -197901ns / 违反端点 17610/26562 → 等效 fmax 26.45MHz
+子系统 WNS 分布：
+  addrgen -31.1（最差路径 cfg_ow_r→ox_r：98 级逻辑、78 CARRY4，
+    描述符除法/乘法织物锥）
+  requant -24.2（44 级组合锥 n_loc_d1_r→y_pre_o）
+  PE_acc  -22.9（wbuf dout_vld→acc CE：仅 1 级逻辑、~23ns 纯布线，
+    高扇出控制网 8192 FF；乘法链本身另有次级路径）
+  xbuf -12.1 / ctrl -12.9 / dma -3.9 / dma_wr -3.1 / wbuf -2.3
+→ 时序收敛 = 下一批"优化"（用户既定顺序：先放得下，优化放后面）。
+  候选项（架构既定设计）：PE DSP MREG/PREG 流水（单元合同外、集成侧
+  承接，见 pe_pack V1.0 头注）、addrgen 每层预计算、requant 锥切级、
+  高扇出 valid 复制。
+
+-- 修复链（本批改动 → 门证据）--
+1. pe_pack V1.1 DSP48E1 源语直例  → M1 run02 TB_PE_PACK_PASS 10216/10216
+2. xbuf V2.0 2×BMG IP(2304×128,16BWE,SDP,READ_FIRST,lat1)
+                                   → M4 run02 TB_XBUF_PASS 97464/97464
+3. 阵列全链                        → M10 run04 TB_GEMM_ARRAY_PASS
+                                     layers=6 compared=438447
+4. 全网/CSR-engine 重跑            → M11/CSR（同批在跑，证据另附）
+5. OOC run02                       → 本目录
+
+-- 上游失败链（保留不改写）--
+ooc_run01_vivado.log（DSP 238/220，synth 阶段失败）+ ooc_dbg1/2/3
+（层次化资源 / DCP DSP 分类 / requant DSP 映射），proj/ooc_gate/ 原位。

@@ -1,0 +1,53 @@
+{
+ "source_npz": "golden_00_images89_jpg.npz",
+ "node": "model.0",
+ "shapes": {
+  "x": [
+   3,
+   320,
+   320
+  ],
+  "w": [
+   16,
+   3,
+   3,
+   3
+  ],
+  "y": [
+   16,
+   160,
+   160
+  ],
+  "lut": [
+   256
+  ],
+  "bias_eff": [
+   16
+  ],
+  "m": [
+   16
+  ],
+  "shift": [
+   16
+  ]
+ },
+ "k_layout": "K = ic*9 + kh*3 + kw  (w stored [oc][ic][kh][kw])",
+ "pad": -128,
+ "stride": 2,
+ "has_act": true,
+ "shift_range": [
+  39,
+  43
+ ],
+ "m_abs_max": 2082029069,
+ "sha256": {
+  "x_i8.bin": "732caf4239ba197054632d62b744be16f063a4cdd0ec1c37d4f089ed39bc7a9e",
+  "w_i8.bin": "65a8d7f2bda52caf458012d987b4b00acda0610ebd61601052cb14f10bb7cef2",
+  "bias_eff_i32.bin": "edcf9489d05322729c73a437e0121e56ceef9e9e2813131cfa98325c152ea36a",
+  "m_i32.bin": "dee5f58c0295104b237bde9a8ccba153fa2ce3a69d379a29765a0e48dc178936",
+  "shift_u8.bin": "57f09f6a921d02605e6e48709d59d3bc23385c1dcfdfc94f11ce2f04ed2bfdfc",
+  "lut_i8.bin": "a28c34992a5592ec03505af1efdc409dcaf440338e62669910ac17b7bc899e4b",
+  "y_exp_i8.bin": "eeb15bf9b53950816cde51d063336aa79fb5ad41e9bf1f3b01b6357f442f6bbe"
+ },
+ "selfcheck_runtime_vs_golden": "PASS"
+}

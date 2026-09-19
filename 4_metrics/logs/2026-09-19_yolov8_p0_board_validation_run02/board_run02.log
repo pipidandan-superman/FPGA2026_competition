@@ -1,0 +1,71 @@
+== driver run (root, XILINX_XRT=/usr, tag p0b) ==
+[sudo] password for xilinx: [p0b CK0a start bit_sha=0e0ae18571394cf0 10:21:32]
+[p0b CK1a ip_dict=['axi_dma_0', 'processing_system7_0', 'u_yolo_csr', 'u_yolo_gemm'] 10:21:42]
+[p0b CK1b gemm=0x43c00000 csr=0x43c10000 dma=0x40400000 -> PASS 10:21:42]
+[p0b CK_Fa fclk0_pre=75.0 MHz (boot state, before download) 10:21:42]
+[p0b CK2a pre_locks=1 download_begin 10:21:42]
+[p0b CK2b download_returned 10:21:43]
+[p0b CK3 state=operating 10:21:43]
+[p0b CK4 lock_delta=1 -> PASS 10:21:43]
+[p0b CK_F0 raw FPGA0_CLK_CTRL=00200500 (exp 0x00200500; download programs it, no repair write this attempt) 10:21:43]
+[p0b CK_Fb io_pll FBDIV=30 -> 1000.00 MHz src=0 div0=5 div1=2 true=100.000 MHz pynq_report=150.0 -> PASS 10:21:43]
+[p0b CK5a sacrificial_first_reads_begin (GEMM + DMA) 10:21:43]
+[p0b CK5b first_reads=OK 20260919 00000001 10:21:43]
+[p0b CK5c GEMM_ID=0x20260919 CSR_ID=0x594F4C32 CSR_VER=0x00000300 10:21:43]
+[p0b CK5d identity -> PASS 10:21:43]
+[p0b PA_A begin GEMM regression (BD changed: ic0 M02 + PS7 HP0 added) 10:21:43]
+[p0b CK6a S1_begin (seed 0x5119) 10:21:43]
+[p0b CK6e S1 rb=128 bad=0 y_count=128 STATUS=00000028 PASS 10:21:43]
+[p0b CK7a S2_begin (seed 0x2240) 10:21:43]
+[p0b CK7c S2 rb+=32 bad+=0 stale@0 got=25 y_count=32 PASS 10:21:43]
+[p0b CK8a S3_begin (seed 0x3396) 10:21:43]
+[p0b CK8b S3 blk0 queued, grp1 concurrent load begin 10:21:43]
+[p0b CK8d S3 rb+=128 bad+=0 y_count=128 STATUS=00000038 PASS 10:21:43]
+[p0b CK9 soft_rst STATUS=00000000 y_count=0 ID=20260919 -> PASS 10:21:43]
+[p0b PA_B begin DMA loopback 10:21:43]
+[p0b DB1 reset_state MM2S_DMASR=00000001 S2MM_DMASR=00000001 (SGIncld=0, Halted=1 both) -> PASS 10:21:43]
+[p0b DB2 run_bringup MM2S_DMASR=00000000 S2MM_DMASR=00000000 -> PASS 10:21:43]
+[p0b DB3a cma src_phys=0x10048000 dst_phys=0x1004C000 size=16384 10:21:43]
+[p0b DB3 basic4096 n=4096 MM2S_DMASR=00001002 S2MM_DMASR=00001002 cmp=OK 10:21:43]
+[p0b DB4 sweep n=137 MM2S_DMASR=00001002 S2MM_DMASR=00001002 cmp=OK 10:21:43]
+[p0b DB4 sweep n=1 MM2S_DMASR=00001002 S2MM_DMASR=00001002 cmp=OK 10:21:43]
+[p0b DB4 sweep n=1000 MM2S_DMASR=00001002 S2MM_DMASR=00001002 cmp=OK 10:21:43]
+[p0b DB4 sweep n=8192 MM2S_DMASR=00001002 S2MM_DMASR=00001002 cmp=OK 10:21:43]
+[p0b DB4 size_sweep 137/1/1000/8192 -> PASS 10:21:43]
+[p0b DB5 b2b0 n=4096 MM2S_DMASR=00001002 S2MM_DMASR=00001002 cmp=OK 10:21:43]
+[p0b DB5 b2b1 n=4096 MM2S_DMASR=00001002 S2MM_DMASR=00001002 cmp=OK 10:21:43]
+[p0b DB5 b2b2 n=4096 MM2S_DMASR=00001002 S2MM_DMASR=00001002 cmp=OK 10:21:43]
+[p0b DB5 back_to_back x3 -> PASS 10:21:43]
+[p0b DB6 stop_reset halted=1 post_rst DMACR=00010002/00010002 DMASR=00000001/00000001 -> PASS 10:21:43]
+[p0b DB7 dma_recovery256 n=256 MM2S_DMASR=00001002 S2MM_DMASR=00001002 cmp=OK 10:21:43]
+[p0b DB7a dma_recovery -> PASS 10:21:43]
+[p0b DB7b S1_rerun rb=416 bad=0 y_count=128 STATUS=00000028 PASS 10:21:43]
+[p0b CKz totals wop=3462 rop=863 rb_ok=416 rb_bad=0 db_ok=9 db_bad=0 10:21:43]
+[p0b CKz BOARD_FREQ100_PASS 10:21:43]
+DRIVER_EXIT=0
+== post driver: restoration/final-state gate ==
+[sudo] password for xilinx: [p0b.post 10:22:29] begin
+[p0b.post] GEMM_ID=0x20260919 (exp 0x20260919)
+[p0b.post] CSR_ID =0x594F4C32 (exp 0x594F4C32)
+[p0b.post] FPGA0_CLK_CTRL=0x00200500 (exp 0x00200500)
+[p0b.post] P0B_POSTCHECK_PASS
+POST_EXIT=0
+
+fpga0=operating
+cam=failed
+getty=active
+
+== dmesg zocl tail ==
+[  288.511678] [drm] zocl_xclbin_read_axlf 9eead4e7-b5ab-0edf-ddac-fb87c09c1774 ret: 0
+[  288.546370] [drm] bitstream 9eead4e7-b5ab-0edf-ddac-fb87c09c1774 locked, ref=1
+[  288.546430] zocl-drm zyxclmm_drm:  ffffffffc10d6c10 kds_add_context: Client pid(1357) add context Domain(0) CU(0xffffffff) shared(true)
+[  288.546514] zocl-drm zyxclmm_drm:  ffffffffc10d6c10 kds_del_context: Client pid(1357) del context Domain(0) CU(0xffffffff)
+[  288.546539] [drm] bitstream 9eead4e7-b5ab-0edf-ddac-fb87c09c1774 unlocked, ref=0
+[  290.491018] zocl-drm zyxclmm_drm: zocl_destroy_client: client exits pid(1357)
+[sudo] password for xilinx: zocl_lock_count_now=2
+ssh_exit=0
+
+== board still reachable ==
+    数据包: 已发送 = 2，已接收 = 2，丢失 = 0 (0% 丢失)，
+往返行程的估计时间(以毫秒为单位):
+    最短 = 0ms，最长 = 0ms，平均 = 0ms

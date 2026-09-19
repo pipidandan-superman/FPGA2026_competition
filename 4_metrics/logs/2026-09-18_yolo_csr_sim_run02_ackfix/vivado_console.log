@@ -1,0 +1,256 @@
+﻿
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Fri Sep 18 19:34:26 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source {E:\competition\4_metrics\logs\2026-09-18_yolo_csr_sim_run02_ackfix\sim_yolo_csr.tcl}
+# set rtl_dir {E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl}
+# set xsimbin [file join $env(XILINX_VIVADO) bin unwrapped win64.o]
+# proc run_tool {args} {
+#     puts "% [join $args { }]"
+#     set rc [catch {exec {*}$args} out]
+#     puts $out
+#     if {$rc != 0} { error "TOOL_FAILED: [join $args { }]" }
+# }
+# puts "EES_VIVADO_STAGE IP_GENERATE"
+EES_VIVADO_STAGE IP_GENERATE
+# create_project -in_memory -part xc7z020clg484-1
+# foreach ip {yolo_desc_bram yolo_buf_bram yolo_quant_bram
+#             yolo_lut_bram yolo_ring_bram} {
+#     read_ip [file join $rtl_dir ip $ip $ip.xci]
+# }
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'F:/vivado2025/2025.2/Vivado/data/ip'.
+WARNING: [Vivado 12-13650] The IP file 'E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/ip/yolo_desc_bram/yolo_desc_bram.xci' has been moved from its original location, as a result the outputs for this IP will now be generated in 'e:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/ip/yolo_desc_bram'. Alternatively a copy of the IP can be imported into the project using one of the 'import_ip' or 'import_files' commands.
+WARNING: [Vivado 12-13650] The IP file 'E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/ip/yolo_buf_bram/yolo_buf_bram.xci' has been moved from its original location, as a result the outputs for this IP will now be generated in 'e:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/ip/yolo_buf_bram'. Alternatively a copy of the IP can be imported into the project using one of the 'import_ip' or 'import_files' commands.
+WARNING: [Vivado 12-13650] The IP file 'E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/ip/yolo_quant_bram/yolo_quant_bram.xci' has been moved from its original location, as a result the outputs for this IP will now be generated in 'e:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/ip/yolo_quant_bram'. Alternatively a copy of the IP can be imported into the project using one of the 'import_ip' or 'import_files' commands.
+WARNING: [Vivado 12-13650] The IP file 'E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/ip/yolo_lut_bram/yolo_lut_bram.xci' has been moved from its original location, as a result the outputs for this IP will now be generated in 'e:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/ip/yolo_lut_bram'. Alternatively a copy of the IP can be imported into the project using one of the 'import_ip' or 'import_files' commands.
+WARNING: [Vivado 12-13650] The IP file 'E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/ip/yolo_ring_bram/yolo_ring_bram.xci' has been moved from its original location, as a result the outputs for this IP will now be generated in 'e:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/ip/yolo_ring_bram'. Alternatively a copy of the IP can be imported into the project using one of the 'import_ip' or 'import_files' commands.
+# generate_target all -force [get_ips]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'yolo_buf_bram'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'yolo_buf_bram'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'yolo_buf_bram'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'yolo_buf_bram'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'yolo_buf_bram'...
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'yolo_desc_bram'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'yolo_desc_bram'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'yolo_desc_bram'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'yolo_desc_bram'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'yolo_desc_bram'...
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'yolo_lut_bram'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'yolo_lut_bram'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'yolo_lut_bram'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'yolo_lut_bram'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'yolo_lut_bram'...
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'yolo_quant_bram'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'yolo_quant_bram'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'yolo_quant_bram'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'yolo_quant_bram'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'yolo_quant_bram'...
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'yolo_ring_bram'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'yolo_ring_bram'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'yolo_ring_bram'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'yolo_ring_bram'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'yolo_ring_bram'...
+# close_project
+# puts "EES_VIVADO_STAGE COMPILE"
+EES_VIVADO_STAGE COMPILE
+# run_tool [file join $xsimbin xvlog.exe] -sv \
+#     [file join $rtl_dir yolo_csr_pkg.sv] \
+#     [file join $rtl_dir yolo_axi_lite_slave.sv] \
+#     [file join $rtl_dir yolo_reg_file.sv] \
+#     [file join $rtl_dir yolo_desc_walker.sv] \
+#     [file join $rtl_dir yolo_result_ring.sv] \
+#     [file join $rtl_dir yolo_desc_table.sv] \
+#     [file join $rtl_dir yolo_buf_table.sv] \
+#     [file join $rtl_dir yolo_quant_table.sv] \
+#     [file join $rtl_dir yolo_lut_table.sv] \
+#     [file join $rtl_dir yolo_ring_table.sv]
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe -sv E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/yolo_csr_pkg.sv E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/yolo_axi_lite_slave.sv E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/yolo_reg_file.sv E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/yolo_desc_walker.sv E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/yolo_result_ring.sv E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/yolo_desc_table.sv E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/yolo_buf_table.sv E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/yolo_quant_table.sv E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/yolo_lut_table.sv E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/yolo_ring_table.sv
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/yolo_csr_pkg.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/yolo_axi_lite_slave.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_axi_lite_slave
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/yolo_reg_file.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_reg_file
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/yolo_desc_walker.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_desc_walker
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/yolo_result_ring.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_result_ring
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/yolo_desc_table.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_desc_table
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/yolo_buf_table.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_buf_table
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/yolo_quant_table.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_quant_table
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/yolo_lut_table.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_lut_table
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/yolo_ring_table.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_ring_table
+# run_tool [file join $xsimbin xvlog.exe] \
+#     [file join $rtl_dir yolo_control_subsystem.v]
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/yolo_control_subsystem.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/yolo_control_subsystem.v" into library work
+INFO: [VRFC 10-311] analyzing module yolo_control_subsystem
+# run_tool [file join $xsimbin xvlog.exe] \
+#     {*}[glob -directory [file join $rtl_dir ip] */sim/*.v]
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/ip/yolo_buf_bram/sim/yolo_buf_bram.v E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/ip/yolo_desc_bram/sim/yolo_desc_bram.v E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/ip/yolo_lut_bram/sim/yolo_lut_bram.v E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/ip/yolo_quant_bram/sim/yolo_quant_bram.v E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/ip/yolo_ring_bram/sim/yolo_ring_bram.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/ip/yolo_buf_bram/sim/yolo_buf_bram.v" into library work
+INFO: [VRFC 10-311] analyzing module yolo_buf_bram
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/ip/yolo_desc_bram/sim/yolo_desc_bram.v" into library work
+INFO: [VRFC 10-311] analyzing module yolo_desc_bram
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/ip/yolo_lut_bram/sim/yolo_lut_bram.v" into library work
+INFO: [VRFC 10-311] analyzing module yolo_lut_bram
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/ip/yolo_quant_bram/sim/yolo_quant_bram.v" into library work
+INFO: [VRFC 10-311] analyzing module yolo_quant_bram
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/ip/yolo_ring_bram/sim/yolo_ring_bram.v" into library work
+INFO: [VRFC 10-311] analyzing module yolo_ring_bram
+# run_tool [file join $xsimbin xvlog.exe] -sv \
+#     [file join $rtl_dir tb tb_yolo_control_subsystem.sv]
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe -sv E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/tb/tb_yolo_control_subsystem.sv
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/tb/tb_yolo_control_subsystem.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_yolo_control_subsystem
+# puts "EES_VIVADO_STAGE ELABORATE"
+EES_VIVADO_STAGE ELABORATE
+# run_tool [file join $xsimbin xelab.exe] -debug off \
+#     -L blk_mem_gen_v8_4_12 -s tb_yolo_csr tb_yolo_control_subsystem
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -L blk_mem_gen_v8_4_12 -s tb_yolo_csr tb_yolo_control_subsystem
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -L blk_mem_gen_v8_4_12 -s tb_yolo_csr tb_yolo_control_subsystem 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package work.yolo_csr_pkg
+Compiling module work.yolo_axi_lite_slave
+Compiling module work.yolo_reg_file
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.yolo_desc_bram
+Compiling module work.yolo_desc_table
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.yolo_buf_bram
+Compiling module work.yolo_buf_table
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.yolo_quant_bram
+Compiling module work.yolo_quant_table
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.yolo_lut_bram
+Compiling module work.yolo_lut_table
+Compiling module work.yolo_desc_walker
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.yolo_ring_bram
+Compiling module work.yolo_ring_table
+Compiling module work.yolo_result_ring
+Compiling module work.yolo_control_subsystem
+Compiling module work.tb_yolo_control_subsystem
+Built simulation snapshot tb_yolo_csr
+# puts "EES_VIVADO_STAGE SIMULATE"
+EES_VIVADO_STAGE SIMULATE
+# run_tool [file join $xsimbin xsim.exe] tb_yolo_csr -runall
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_yolo_csr -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Fri Sep 18 19:34:34 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_yolo_csr/xsim_script.tcl
+# xsim {tb_yolo_csr} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Block Memory Generator module tb_yolo_control_subsystem.dut.u_desc_tbl.u_bram.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_control_subsystem.dut.u_buf_tbl.u_bram.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_control_subsystem.dut.u_quant_tbl.u_bram.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_control_subsystem.dut.u_lut_tbl.u_bram.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_control_subsystem.dut.u_ring.u_ring_tbl.u_bram.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+EES_VIVADO_STAGE TB_RUN
+EES_TEST T1_identity
+EES_CHECK PASS ID = 594f4c32
+EES_CHECK PASS ID_resp : OKAY as expected
+EES_CHECK PASS VERSION = 00000300
+EES_CHECK PASS CAP0 = 07100404
+EES_CHECK PASS CAP1 = 00801007
+EES_TEST T2_rw_write_orders
+EES_CHECK PASS MODEL_ID_wr : OKAY as expected
+EES_CHECK PASS MODEL_ID = deadbeef
+EES_CHECK PASS AW_first_wr : OKAY as expected
+EES_CHECK PASS GRAPH_CRC_aw_first = 12345678
+EES_CHECK PASS W_first_wr : OKAY as expected
+EES_CHECK PASS FRAME_ID_w_first = 11223344
+EES_TEST T3_table_windows
+blk_mem_gen_v8_4_12 collision detected at time: 1195000, Instance: tb_yolo_control_subsystem.dut.u_desc_tbl.u_bram.inst.native_mem_module.blk_mem_gen_v8_4_12_inst, A write address: 0, B  read address: 0
+EES_CHECK PASS DESC_win_w0 = 00000301
+EES_CHECK PASS DESC_win_w14 = 000246fc
+EES_CHECK PASS BUF_win = 5555aaaa
+EES_CHECK PASS QUANT_win = 0f0f0f0f
+EES_CHECK PASS LUT_win = cafebabe
+EES_CHECK PASS DESC_win_moved = aaaa0000
+EES_CHECK PASS DESC_win_restored = 00000301
+EES_TEST T4_doorbell_flow
+blk_mem_gen_v8_4_12 collision detected at time: 2295000, Instance: tb_yolo_control_subsystem.dut.u_ring.u_ring_tbl.u_bram.inst.native_mem_module.blk_mem_gen_v8_4_12_inst, A read address: 5, B write address: 5
+EES_CHECK PASS RESULT_SEQ = 00000001
+EES_CHECK PASS HEAD_BYTES = 000246fc
+EES_CHECK PASS RING_HEAD = 00000001
+EES_CHECK PASS RESULT_STATUS = 00000011
+EES_CHECK PASS RING_w1_seq = 00000001
+EES_CHECK PASS RING_w4_bytes = 000246fc
+EES_CHECK PASS RING_w10_flags = 00000011
+EES_CHECK PASS RING_TAIL_after_ack = 00000001
+EES_CHECK PASS STATUS_ack_wait_cleared = 00000000
+EES_CHECK PASS ERRSTAT_after_ack_full = 00000000
+EES_TEST T5_running_write_guard
+blk_mem_gen_v8_4_12 collision detected at time: 3035000, Instance: tb_yolo_control_subsystem.dut.u_desc_tbl.u_bram.inst.native_mem_module.blk_mem_gen_v8_4_12_inst, A write address: e, B  read address: e
+EES_CHECK PASS LUT_run_wr : SLVERR as expected
+EES_CHECK PASS ERRSTAT_lut_bit = 00000040
+EES_CHECK PASS ERRINFO_lut_code = 00000012
+EES_CHECK PASS HEAD_BYTES_fend = 00000064
+EES_CHECK PASS ERRSTAT_w1c = 00000000
+EES_TEST T6_ring_overflow
+blk_mem_gen_v8_4_12 collision detected at time: 3745000, Instance: tb_yolo_control_subsystem.dut.u_desc_tbl.u_bram.inst.native_mem_module.blk_mem_gen_v8_4_12_inst, A write address: e, B  read address: e
+EES_CHECK PASS RING_HEAD_ovf = 00000020
+EES_CHECK PASS RESULT_SEQ_ovf = 00000023
+EES_CHECK PASS RESULT_STATUS_ovf = 00000002
+EES_CHECK PASS ERRSTAT_ovf_bit = 00000100
+EES_TEST T7_ack_on_empty
+EES_CHECK PASS STATUS_ring_empty = 00000000
+EES_CHECK PASS ERRSTAT_ack_empty = 00000200
+EES_CHECK PASS ERRINFO_ack_code = 00000015
+EES_TEST T8_slverr_paths
+EES_CHECK PASS misaligned_wr : SLVERR as expected
+EES_CHECK PASS unmapped_rd : SLVERR as expected
+EES_CHECK PASS ring_ro_wr : SLVERR as expected
+EES_CHECK PASS debug_rd_resp : OKAY as expected
+EES_CHECK PASS debug_rd_data = 00000000
+EES_CHECK PASS ERRSTAT_axi_bit = 00000001
+EES_VIVADO_STAGE TB_DONE
+EES_SUMMARY checks=82 errors=0
+EES_VIVADO_RESULT PASS
+$finish called at time : 14105 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl/tb/tb_yolo_control_subsystem.sv" Line 524
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Sep 18 19:34:36 2026...
+INFO: [Common 17-206] Exiting Vivado at Fri Sep 18 19:34:36 2026...
+
+

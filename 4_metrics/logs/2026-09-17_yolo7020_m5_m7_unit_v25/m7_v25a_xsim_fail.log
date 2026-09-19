@@ -1,0 +1,33 @@
+#-----------------------------------------------------------
+# xsim v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Thu Sep 17 03:20:10 2026
+# Process ID         : 34760
+# Current directory  : E:/competition/2_fpga/3_yolo_zynq/sim/xsim
+# Command line       : xsim.exe -log m7_v25_xsim.log -mode tcl -source {xsim.dir/snap_m7_v25/xsim_script.tcl}
+# Log file           : E:/competition/2_fpga/3_yolo_zynq/sim/xsim/m7_v25_xsim.log
+# Journal file       : E:/competition/2_fpga/3_yolo_zynq/sim/xsim\xsim.jou
+# Running On         : HC-202510241838
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : AMD Ryzen 5 9600X 6-Core Processor             
+# CPU Frequency      : 3893 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 33410 MB
+# Swap memory        : 21474 MB
+# Total Virtual      : 54884 MB
+# Available Virtual  : 28686 MB
+#-----------------------------------------------------------
+source xsim.dir/snap_m7_v25/xsim_script.tcl
+# xsim {snap_m7_v25} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+[tb] addrgen stim=../stim/addrgen tiles=145
+[tb] first mismatch @tile=0 beat=4 addr=0(exp 0) pad=1(exp 0) pv=128(exp 128) k=4(exp 4) n=0(exp 0)
+TB_ADDRGEN_FAIL errors=66637 first_tile=0 first_beat=4
+$finish called at time : 711110 ns : File "E:/competition/2_fpga/3_yolo_zynq/sim/tb_yolo_addrgen.v" Line 212
+exit
+INFO: [Common 17-206] Exiting xsim at Thu Sep 17 03:20:12 2026...

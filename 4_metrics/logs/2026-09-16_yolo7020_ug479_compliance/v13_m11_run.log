@@ -1,0 +1,254 @@
+# vsim +STIM=../stim/m11 +WDT_MS=3600000 -do {run -all; quit -f} -l v13_m11_run.log -c -novopt work_v13.tb_yolo_fullnet work_v13.glbl 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading work_v13.tb_yolo_fullnet
+# Loading work_v13.yolo_gemm_array
+# Loading work_v13.yolo_ctrl
+# Loading work_v13.yolo_dma
+# Loading work_v13.yolo_addrgen
+# Loading work_v13.yolo_wbuf
+# Loading work_v13.yolo_xbuf
+# Loading work_v13.yolo_xbuf_bmg
+# Loading work_v13.blk_mem_gen_v8_4_12
+# Loading work_v13.yolo_acc
+# Loading work_v13.yolo_requant
+# Loading work_v13.yolo_silu_lut
+# Loading work_v13.yolo_dma_wr
+# Loading work_v13.glbl
+# Loading work_v13.blk_mem_gen_v8_4_12_mem_module
+# Loading work_v13.blk_mem_gen_v8_4_12_output_stage
+# Loading work_v13.blk_mem_gen_v8_4_12_softecc_output_reg_stage
+# Loading work_v13.yolo_pe_pack
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_v13/work_v13.DSP48E1
+# Loading work_v13.DSP48E1
+# ** Warning: (vsim-3015) ../../rtl/yolo_xbuf.v(116): [PCDPC] - Port size (16 or 16) does not match connection size (8) for port 'wea'. The port definition is at: ../../ip/yolo_xbuf_bmg/sim/yolo_xbuf_bmg.v(58).
+# 
+#         Region: /tb_yolo_fullnet/dut/u_xbuf/u_bank0
+# ** Warning: (vsim-3015) ../../rtl/yolo_xbuf.v(116): [PCDPC] - Port size (128 or 128) does not match connection size (64) for port 'dina'. The port definition is at: ../../ip/yolo_xbuf_bmg/sim/yolo_xbuf_bmg.v(60).
+# 
+#         Region: /tb_yolo_fullnet/dut/u_xbuf/u_bank0
+# ** Warning: (vsim-3015) ../../rtl/yolo_xbuf.v(116): [PCDPC] - Port size (128 or 128) does not match connection size (64) for port 'doutb'. The port definition is at: ../../ip/yolo_xbuf_bmg/sim/yolo_xbuf_bmg.v(64).
+# 
+#         Region: /tb_yolo_fullnet/dut/u_xbuf/u_bank0
+# ** Warning: (vsim-3015) ../../rtl/yolo_xbuf.v(127): [PCDPC] - Port size (16 or 16) does not match connection size (8) for port 'wea'. The port definition is at: ../../ip/yolo_xbuf_bmg/sim/yolo_xbuf_bmg.v(58).
+# 
+#         Region: /tb_yolo_fullnet/dut/u_xbuf/u_bank1
+# ** Warning: (vsim-3015) ../../rtl/yolo_xbuf.v(127): [PCDPC] - Port size (128 or 128) does not match connection size (64) for port 'dina'. The port definition is at: ../../ip/yolo_xbuf_bmg/sim/yolo_xbuf_bmg.v(60).
+# 
+#         Region: /tb_yolo_fullnet/dut/u_xbuf/u_bank1
+# ** Warning: (vsim-3015) ../../rtl/yolo_xbuf.v(127): [PCDPC] - Port size (128 or 128) does not match connection size (64) for port 'doutb'. The port definition is at: ../../ip/yolo_xbuf_bmg/sim/yolo_xbuf_bmg.v(64).
+# 
+#         Region: /tb_yolo_fullnet/dut/u_xbuf/u_bank1
+# run -all 
+# Block Memory Generator module tb_yolo_fullnet.dut.u_xbuf.u_bank0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+# Block Memory Generator module tb_yolo_fullnet.dut.u_xbuf.u_bank1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+# [tb] m11 stim=../stim/m11 img_words=1665001 prog_words=2178 maxconv=63
+# [tb] heartbeat t=10000000000 conv=0 ywr=175936 ps=0 err=0
+# [tb] heartbeat t=20000000000 conv=0 ywr=351960 ps=0 err=0
+# [tb] conv 0/63 task=0 done @t=23272810000 oc=16 n=25600 k=27 acc_err=0
+# [tb] heartbeat t=30000000000 conv=1 ywr=442688 ps=0 err=0
+# [tb] heartbeat t=40000000000 conv=1 ywr=491904 ps=0 err=0
+# [tb] heartbeat t=50000000000 conv=1 ywr=541120 ps=0 err=0
+# [tb] heartbeat t=60000000000 conv=1 ywr=590384 ps=0 err=0
+# [tb] conv 1/63 task=1 done @t=64874890000 oc=32 n=6400 k=144 acc_err=0
+# [tb] heartbeat t=70000000000 conv=2 ywr=695616 ps=0 err=0
+# [tb] conv 2/63 task=2 done @t=77787680000 oc=32 n=6400 k=32 acc_err=0
+# [tb] heartbeat t=80000000000 conv=3 ywr=830016 ps=2 err=0
+# [tb] heartbeat t=90000000000 conv=3 ywr=879296 ps=2 err=0
+# [tb] conv 3/63 task=5 done @t=98592350000 oc=16 n=6400 k=144 acc_err=0
+# [tb] heartbeat t=100000000000 conv=4 ywr=928448 ps=2 err=0
+# [tb] heartbeat t=110000000000 conv=4 ywr=977728 ps=2 err=0
+# [tb] conv 4/63 task=6 done @t=119396130000 oc=16 n=6400 k=144 acc_err=0
+# [tb] heartbeat t=120000000000 conv=5 ywr=1031168 ps=6 err=0
+# [tb] heartbeat t=130000000000 conv=5 ywr=1151616 ps=6 err=0
+# [tb] conv 5/63 task=9 done @t=136409150000 oc=32 n=6400 k=48 acc_err=0
+# [tb] heartbeat t=140000000000 conv=6 ywr=1238144 ps=6 err=0
+# [tb] heartbeat t=150000000000 conv=6 ywr=1264248 ps=6 err=0
+# [tb] heartbeat t=160000000000 conv=6 ywr=1290304 ps=6 err=0
+# [tb] heartbeat t=170000000000 conv=6 ywr=1316416 ps=6 err=0
+# [tb] conv 6/63 task=10 done @t=175646510000 oc=64 n=1600 k=288 acc_err=0
+# [tb] heartbeat t=180000000000 conv=7 ywr=1373376 ps=6 err=0
+# [tb] conv 7/63 task=11 done @t=186201290000 oc=64 n=1600 k=64 acc_err=0
+# [tb] heartbeat t=190000000000 conv=8 ywr=1443456 ps=8 err=0
+# [tb] heartbeat t=200000000000 conv=8 ywr=1469568 ps=8 err=0
+# [tb] conv 8/63 task=14 done @t=205824160000 oc=32 n=1600 k=288 acc_err=0
+# [tb] heartbeat t=210000000000 conv=9 ywr=1495664 ps=8 err=0
+# [tb] heartbeat t=220000000000 conv=9 ywr=1521728 ps=8 err=0
+# [tb] conv 9/63 task=15 done @t=225446800000 oc=32 n=1600 k=288 acc_err=0
+# [tb] heartbeat t=230000000000 conv=10 ywr=1547840 ps=9 err=0
+# [tb] heartbeat t=240000000000 conv=10 ywr=1573952 ps=9 err=0
+# [tb] conv 10/63 task=17 done @t=245069060000 oc=32 n=1600 k=288 acc_err=0
+# [tb] heartbeat t=250000000000 conv=11 ywr=1600000 ps=9 err=0
+# [tb] heartbeat t=260000000000 conv=11 ywr=1626112 ps=9 err=0
+# [tb] conv 11/63 task=18 done @t=264690800000 oc=32 n=1600 k=288 acc_err=0
+# [tb] heartbeat t=270000000000 conv=12 ywr=1667328 ps=14 err=0
+# [tb] heartbeat t=280000000000 conv=12 ywr=1721984 ps=14 err=0
+# [tb] conv 12/63 task=21 done @t=283442990000 oc=64 n=1600 k=128 acc_err=0
+# [tb] heartbeat t=290000000000 conv=13 ywr=1749568 ps=14 err=0
+# [tb] heartbeat t=300000000000 conv=13 ywr=1763008 ps=14 err=0
+# [tb] heartbeat t=310000000000 conv=13 ywr=1776512 ps=14 err=0
+# [tb] heartbeat t=320000000000 conv=13 ywr=1789952 ps=14 err=0
+# [tb] conv 13/63 task=22 done @t=321498430000 oc=128 n=400 k=576 acc_err=0
+# [tb] heartbeat t=330000000000 conv=14 ywr=1838400 ps=14 err=0
+# [tb] conv 14/63 task=23 done @t=330877910000 oc=128 n=400 k=128 acc_err=0
+# [tb] heartbeat t=340000000000 conv=15 ywr=1855424 ps=16 err=0
+# [tb] conv 15/63 task=26 done @t=349911680000 oc=64 n=400 k=576 acc_err=0
+# [tb] heartbeat t=350000000000 conv=16 ywr=1868864 ps=16 err=0
+# [tb] heartbeat t=360000000000 conv=16 ywr=1882304 ps=16 err=0
+# [tb] conv 16/63 task=27 done @t=368945650000 oc=64 n=400 k=576 acc_err=0
+# [tb] heartbeat t=370000000000 conv=17 ywr=1895744 ps=17 err=0
+# [tb] heartbeat t=380000000000 conv=17 ywr=1909248 ps=17 err=0
+# [tb] conv 17/63 task=29 done @t=387978640000 oc=64 n=400 k=576 acc_err=0
+# [tb] heartbeat t=390000000000 conv=18 ywr=1922688 ps=17 err=0
+# [tb] heartbeat t=400000000000 conv=18 ywr=1936128 ps=17 err=0
+# [tb] conv 18/63 task=30 done @t=407012690000 oc=64 n=400 k=576 acc_err=0
+# [tb] heartbeat t=410000000000 conv=19 ywr=1954240 ps=22 err=0
+# [tb] heartbeat t=420000000000 conv=19 ywr=1983424 ps=22 err=0
+# [tb] conv 19/63 task=33 done @t=424585880000 oc=128 n=400 k=256 acc_err=0
+# [tb] heartbeat t=430000000000 conv=20 ywr=2000448 ps=22 err=0
+# [tb] heartbeat t=440000000000 conv=20 ywr=2007296 ps=22 err=0
+# [tb] heartbeat t=450000000000 conv=20 ywr=2014144 ps=22 err=0
+# [tb] heartbeat t=460000000000 conv=20 ywr=2020992 ps=22 err=0
+# [tb] conv 20/63 task=34 done @t=463550120000 oc=256 n=100 k=1152 acc_err=0
+# [tb] heartbeat t=470000000000 conv=21 ywr=2041152 ps=22 err=0
+# [tb] conv 21/63 task=35 done @t=472692560000 oc=256 n=100 k=256 acc_err=0
+# [tb] heartbeat t=480000000000 conv=22 ywr=2052928 ps=24 err=0
+# [tb] heartbeat t=490000000000 conv=22 ywr=2059776 ps=24 err=0
+# [tb] conv 22/63 task=38 done @t=492182530000 oc=128 n=100 k=1152 acc_err=0
+# [tb] heartbeat t=500000000000 conv=23 ywr=2066112 ps=24 err=0
+# [tb] heartbeat t=510000000000 conv=23 ywr=2072960 ps=24 err=0
+# [tb] conv 23/63 task=39 done @t=511671870000 oc=128 n=100 k=1152 acc_err=0
+# [tb] heartbeat t=520000000000 conv=24 ywr=2090112 ps=28 err=0
+# [tb] conv 24/63 task=42 done @t=525073770000 oc=256 n=100 k=384 acc_err=0
+# [tb] conv 25/63 task=43 done @t=529647810000 oc=128 n=100 k=256 acc_err=0
+# [tb] heartbeat t=530000000000 conv=26 ywr=2112512 ps=35 err=0
+# [tb] heartbeat t=540000000000 conv=26 ywr=2127552 ps=35 err=0
+# [tb] conv 26/63 task=48 done @t=547312920000 oc=256 n=100 k=512 acc_err=0
+# [tb] heartbeat t=550000000000 conv=27 ywr=2142912 ps=38 err=0
+# [tb] heartbeat t=560000000000 conv=27 ywr=2162752 ps=38 err=0
+# [tb] heartbeat t=570000000000 conv=27 ywr=2182656 ps=38 err=0
+# [tb] conv 27/63 task=51 done @t=573078630000 oc=128 n=400 k=384 acc_err=0
+# [tb] heartbeat t=580000000000 conv=28 ywr=2198080 ps=40 err=0
+# [tb] heartbeat t=590000000000 conv=28 ywr=2211520 ps=40 err=0
+# [tb] conv 28/63 task=54 done @t=592112410000 oc=64 n=400 k=576 acc_err=0
+# [tb] heartbeat t=600000000000 conv=29 ywr=2224960 ps=40 err=0
+# [tb] heartbeat t=610000000000 conv=29 ywr=2238400 ps=40 err=0
+# [tb] conv 29/63 task=55 done @t=611146420000 oc=64 n=400 k=576 acc_err=0
+# [tb] heartbeat t=620000000000 conv=30 ywr=2273600 ps=43 err=0
+# [tb] conv 30/63 task=57 done @t=624620020000 oc=128 n=400 k=192 acc_err=0
+# [tb] heartbeat t=630000000000 conv=31 ywr=2311616 ps=46 err=0
+# [tb] heartbeat t=640000000000 conv=31 ywr=2349632 ps=46 err=0
+# [tb] heartbeat t=650000000000 conv=31 ywr=2387648 ps=46 err=0
+# [tb] conv 31/63 task=60 done @t=651563700000 oc=64 n=1600 k=192 acc_err=0
+# [tb] heartbeat t=660000000000 conv=32 ywr=2415552 ps=48 err=0
+# [tb] heartbeat t=670000000000 conv=32 ywr=2441664 ps=48 err=0
+# [tb] conv 32/63 task=63 done @t=671186210000 oc=32 n=1600 k=288 acc_err=0
+# [tb] heartbeat t=680000000000 conv=33 ywr=2467776 ps=48 err=0
+# [tb] heartbeat t=690000000000 conv=33 ywr=2493888 ps=48 err=0
+# [tb] conv 33/63 task=64 done @t=690808650000 oc=32 n=1600 k=288 acc_err=0
+# [tb] heartbeat t=700000000000 conv=34 ywr=2560192 ps=51 err=0
+# [tb] conv 34/63 task=66 done @t=705462720000 oc=64 n=1600 k=96 acc_err=0
+# [tb] heartbeat t=710000000000 conv=35 ywr=2604480 ps=51 err=0
+# [tb] heartbeat t=720000000000 conv=35 ywr=2617920 ps=51 err=0
+# [tb] conv 35/63 task=67 done @t=724495070000 oc=64 n=400 k=576 acc_err=0
+# [tb] heartbeat t=730000000000 conv=36 ywr=2644864 ps=53 err=0
+# [tb] conv 36/63 task=69 done @t=737969540000 oc=128 n=400 k=192 acc_err=0
+# [tb] heartbeat t=740000000000 conv=37 ywr=2677888 ps=55 err=0
+# [tb] heartbeat t=750000000000 conv=37 ywr=2691328 ps=55 err=0
+# [tb] conv 37/63 task=72 done @t=757003210000 oc=64 n=400 k=576 acc_err=0
+# [tb] heartbeat t=760000000000 conv=38 ywr=2704768 ps=55 err=0
+# [tb] heartbeat t=770000000000 conv=38 ywr=2718272 ps=55 err=0
+# [tb] conv 38/63 task=73 done @t=776037200000 oc=64 n=400 k=576 acc_err=0
+# [tb] heartbeat t=780000000000 conv=39 ywr=2741424 ps=58 err=0
+# [tb] conv 39/63 task=75 done @t=789512810000 oc=128 n=400 k=192 acc_err=0
+# [tb] heartbeat t=790000000000 conv=40 ywr=2777920 ps=58 err=0
+# [tb] heartbeat t=800000000000 conv=40 ywr=2784704 ps=58 err=0
+# [tb] conv 40/63 task=76 done @t=809002020000 oc=128 n=100 k=1152 acc_err=0
+# [tb] heartbeat t=810000000000 conv=41 ywr=2792320 ps=60 err=0
+# [tb] heartbeat t=820000000000 conv=41 ywr=2812224 ps=60 err=0
+# [tb] conv 41/63 task=78 done @t=822403780000 oc=256 n=100 k=384 acc_err=0
+# [tb] heartbeat t=830000000000 conv=42 ywr=2821120 ps=62 err=0
+# [tb] heartbeat t=840000000000 conv=42 ywr=2827968 ps=62 err=0
+# [tb] conv 42/63 task=81 done @t=841893940000 oc=128 n=100 k=1152 acc_err=0
+# [tb] heartbeat t=850000000000 conv=43 ywr=2834304 ps=62 err=0
+# [tb] heartbeat t=860000000000 conv=43 ywr=2841120 ps=62 err=0
+# [tb] conv 43/63 task=82 done @t=861384820000 oc=128 n=100 k=1152 acc_err=0
+# [tb] heartbeat t=870000000000 conv=44 ywr=2858688 ps=65 err=0
+# [tb] conv 44/63 task=84 done @t=874786880000 oc=256 n=100 k=384 acc_err=0
+# [tb] heartbeat t=880000000000 conv=45 ywr=2874176 ps=65 err=0
+# [tb] heartbeat t=890000000000 conv=45 ywr=2887616 ps=65 err=0
+# [tb] heartbeat t=900000000000 conv=45 ywr=2901056 ps=65 err=0
+# [tb] heartbeat t=910000000000 conv=45 ywr=2914560 ps=65 err=0
+# [tb] heartbeat t=920000000000 conv=45 ywr=2928000 ps=65 err=0
+# [tb] heartbeat t=930000000000 conv=45 ywr=2941440 ps=65 err=0
+# [tb] heartbeat t=940000000000 conv=45 ywr=2954944 ps=65 err=0
+# [tb] heartbeat t=950000000000 conv=45 ywr=2968384 ps=65 err=0
+# [tb] conv 45/63 task=85 done @t=950888220000 oc=64 n=1600 k=576 acc_err=0
+# [tb] heartbeat t=960000000000 conv=46 ywr=2981824 ps=65 err=0
+# [tb] heartbeat t=970000000000 conv=46 ywr=2995264 ps=65 err=0
+# [tb] heartbeat t=980000000000 conv=46 ywr=3008704 ps=65 err=0
+# [tb] heartbeat t=990000000000 conv=46 ywr=3022208 ps=65 err=0
+# [tb] heartbeat t=1000000000000 conv=46 ywr=3035648 ps=65 err=0
+# [tb] heartbeat t=1010000000000 conv=46 ywr=3049088 ps=65 err=0
+# [tb] heartbeat t=1020000000000 conv=46 ywr=3062592 ps=65 err=0
+# [tb] conv 46/63 task=86 done @t=1026988610000 oc=64 n=1600 k=576 acc_err=0
+# [tb] heartbeat t=1030000000000 conv=47 ywr=3101144 ps=65 err=0
+# [tb] conv 47/63 task=87 done @t=1037544270000 oc=64 n=1600 k=64 acc_err=0
+# [tb] heartbeat t=1040000000000 conv=48 ywr=3177664 ps=65 err=0
+# [tb] heartbeat t=1050000000000 conv=48 ywr=3191104 ps=65 err=0
+# [tb] heartbeat t=1060000000000 conv=48 ywr=3204552 ps=65 err=0
+# [tb] heartbeat t=1070000000000 conv=48 ywr=3218048 ps=65 err=0
+# [tb] heartbeat t=1080000000000 conv=48 ywr=3231488 ps=65 err=0
+# [tb] heartbeat t=1090000000000 conv=48 ywr=3244928 ps=65 err=0
+# [tb] heartbeat t=1100000000000 conv=48 ywr=3258432 ps=65 err=0
+# [tb] heartbeat t=1110000000000 conv=48 ywr=3271872 ps=65 err=0
+# [tb] conv 48/63 task=88 done @t=1113645760000 oc=64 n=1600 k=576 acc_err=0
+# [tb] heartbeat t=1120000000000 conv=49 ywr=3285312 ps=65 err=0
+# [tb] heartbeat t=1130000000000 conv=49 ywr=3298752 ps=65 err=0
+# [tb] heartbeat t=1140000000000 conv=49 ywr=3312192 ps=65 err=0
+# [tb] heartbeat t=1150000000000 conv=49 ywr=3325696 ps=65 err=0
+# [tb] heartbeat t=1160000000000 conv=49 ywr=3339136 ps=65 err=0
+# [tb] heartbeat t=1170000000000 conv=49 ywr=3352576 ps=65 err=0
+# [tb] heartbeat t=1180000000000 conv=49 ywr=3366080 ps=65 err=0
+# [tb] conv 49/63 task=89 done @t=1189748660000 oc=64 n=1600 k=576 acc_err=0
+# [tb] heartbeat t=1190000000000 conv=50 ywr=3381272 ps=65 err=0
+# [tb] conv 50/63 task=90 done @t=1191073570000 oc=7 n=1600 k=64 acc_err=0
+# [tb] heartbeat t=1200000000000 conv=51 ywr=3396480 ps=65 err=0
+# [tb] heartbeat t=1210000000000 conv=51 ywr=3403264 ps=65 err=0
+# [tb] heartbeat t=1220000000000 conv=51 ywr=3410112 ps=65 err=0
+# [tb] conv 51/63 task=91 done @t=1228541610000 oc=64 n=400 k=1152 acc_err=0
+# [tb] heartbeat t=1230000000000 conv=52 ywr=3417920 ps=65 err=0
+# [tb] heartbeat t=1240000000000 conv=52 ywr=3431360 ps=65 err=0
+# [tb] conv 52/63 task=92 done @t=1247575170000 oc=64 n=400 k=576 acc_err=0
+# [tb] heartbeat t=1250000000000 conv=53 ywr=3465072 ps=65 err=0
+# [tb] conv 53/63 task=93 done @t=1250218110000 oc=64 n=400 k=64 acc_err=0
+# [tb] heartbeat t=1260000000000 conv=54 ywr=3473856 ps=65 err=0
+# [tb] heartbeat t=1270000000000 conv=54 ywr=3480704 ps=65 err=0
+# [tb] heartbeat t=1280000000000 conv=54 ywr=3487488 ps=65 err=0
+# [tb] conv 54/63 task=94 done @t=1287684670000 oc=64 n=400 k=1152 acc_err=0
+# [tb] heartbeat t=1290000000000 conv=55 ywr=3495872 ps=65 err=0
+# [tb] heartbeat t=1300000000000 conv=55 ywr=3509312 ps=65 err=0
+# [tb] conv 55/63 task=95 done @t=1306718810000 oc=64 n=400 k=576 acc_err=0
+# [tb] conv 56/63 task=96 done @t=1307054100000 oc=7 n=400 k=64 acc_err=0
+# [tb] heartbeat t=1310000000000 conv=57 ywr=3522160 ps=65 err=0
+# [tb] heartbeat t=1320000000000 conv=57 ywr=3525616 ps=65 err=0
+# [tb] conv 57/63 task=97 done @t=1326405410000 oc=64 n=100 k=2304 acc_err=0
+# [tb] heartbeat t=1330000000000 conv=58 ywr=3532400 ps=65 err=0
+# [tb] conv 58/63 task=98 done @t=1331361140000 oc=64 n=100 k=576 acc_err=0
+# [tb] conv 59/63 task=99 done @t=1332052570000 oc=64 n=100 k=64 acc_err=0
+# [tb] heartbeat t=1340000000000 conv=60 ywr=3543088 ps=65 err=0
+# [tb] heartbeat t=1350000000000 conv=60 ywr=3546544 ps=65 err=0
+# [tb] conv 60/63 task=100 done @t=1351403950000 oc=64 n=100 k=2304 acc_err=0
+# [tb] conv 61/63 task=101 done @t=1356359840000 oc=64 n=100 k=576 acc_err=0
+# [tb] conv 62/63 task=102 done @t=1356450330000 oc=7 n=100 k=64 acc_err=0
+# [tb] heads dumped 149100 bytes -> head_dump.bin
+# TB_FULLNET_PASS convs=63 psops=65 compared=3553900 dut_wr=3553900 head_bytes=149100 ldone=63 adone=1
+# ** Note: $finish    : ../tb_yolo_fullnet.v(824)
+#    Time: 1356450500 ns  Iteration: 1  Instance: /tb_yolo_fullnet

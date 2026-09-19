@@ -1,0 +1,89 @@
+{
+ "verdict": "PS_SELFCHECK_ONBOARD_HEAD_ONLY",
+ "frames_planned": 8,
+ "frames_head_ok": 8,
+ "frames_box_ok": 5,
+ "head_only_pass": true,
+ "first_frame_sec": 45.37,
+ "mean_frame_sec": 44.95,
+ "rom_files_sha256": {
+  "weights.bin": true,
+  "bias.bin": true,
+  "lut.bin": true,
+  "quant.json": true
+ },
+ "pack_sha256": {
+  "inputs.npz": "653ca86641bc4f797370dcd45f8e1b48dc5ef410db36bcd603e1cc9358e74235",
+  "expected.json": "d2af97731e0025faf0e0cc2a016156e1cfe268da24d2a7f57314ad3c57d0a950"
+ },
+ "env": {
+  "python": "3.10.4",
+  "numpy": "1.21.5",
+  "platform": "Linux-5.15.19-xilinx-v2022.1-armv7l-with-glibc2.35",
+  "machine": "armv7l",
+  "hostname": "pynq",
+  "uname": "Linux version 5.15.19-xilinx-v2022.1 (oe-user@oe-host) (arm-xilinx-linux-gnueabi-gcc (GCC) 11.2.0, GNU ld (GNU Binutils) 2.37.20210721) #1 SMP PREEMPT Mon Apr 11 17:52:14 UTC 2022",
+  "cpuinfo_model": "ARMv7 Processor rev 0 (v7l)",
+  "meminfo": "MemTotal:        1024728 kB",
+  "boot_id": "a4ed9fe3-df7a-466f-9177-93e038b57b63"
+ },
+ "rows": [
+  {
+   "i": 0,
+   "image": "images89_jpg.rf.0bfa9777072aa98975eea6599bd81f0f.jpg",
+   "head": true,
+   "box": false,
+   "sec": 45.37
+  },
+  {
+   "i": 1,
+   "image": "images9-2-_jpg.rf.e517e4aee1cb3c38391c9abbd6c12c4e.jpg",
+   "head": true,
+   "box": false,
+   "sec": 45.07
+  },
+  {
+   "i": 2,
+   "image": "images9-3-_jpg.rf.43e040c027f3bdfdb0ab39b8333f9fb2.jpg",
+   "head": true,
+   "box": true,
+   "sec": 44.9
+  },
+  {
+   "i": 3,
+   "image": "images90-1-_jpg.rf.6b789faf06306a74d0882bfb4316f004.jpg",
+   "head": true,
+   "box": true,
+   "sec": 44.9
+  },
+  {
+   "i": 4,
+   "image": "images92-1-_jpg.rf.93da294ab268178fdb33304fdaf5ae32.jpg",
+   "head": true,
+   "box": true,
+   "sec": 44.72
+  },
+  {
+   "i": 5,
+   "image": "images94-2-_jpg.rf.bbce42e5bb47caef6aea055b6f9462b9.jpg",
+   "head": true,
+   "box": true,
+   "sec": 44.56
+  },
+  {
+   "i": 6,
+   "image": "images94_jpg.rf.6e086af4f642abc6aaec3e0232ead0bb.jpg",
+   "head": true,
+   "box": false,
+   "sec": 45.18
+  },
+  {
+   "i": 7,
+   "image": "images95-1-_jpg.rf.840c2eae3c224a0bfa81ab06750a7055.jpg",
+   "head": true,
+   "box": true,
+   "sec": 44.91
+  }
+ ],
+ "wall_sec": 362.8
+}

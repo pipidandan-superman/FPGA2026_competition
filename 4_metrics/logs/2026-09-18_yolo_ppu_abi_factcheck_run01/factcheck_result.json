@@ -1,0 +1,152 @@
+{
+  "verdict": "PPU_ABI_FACTCHECK_PASS",
+  "checks_total": 28,
+  "checks_bad": 0,
+  "bad": [],
+  "checks": [
+    {
+      "check": "rom sha256 weights.bin",
+      "ok": true,
+      "detail": "3548b8fab6f2d4c9"
+    },
+    {
+      "check": "rom sha256 bias.bin",
+      "ok": true,
+      "detail": "c5a7825832c1f9f0"
+    },
+    {
+      "check": "rom sha256 lut.bin",
+      "ok": true,
+      "detail": "91c3a1b87c914c2c"
+    },
+    {
+      "check": "rom sha256 quant.json",
+      "ok": true,
+      "detail": "6b2392d3402a40f6"
+    },
+    {
+      "check": "task total = 104",
+      "ok": true,
+      "detail": "{'conv': 63, 'view': 16, 'add': 6, 'concat': 13, 'maxpool5': 3, 'upsample2': 2, 'heads': 1}"
+    },
+    {
+      "check": "graph-op census",
+      "ok": true,
+      "detail": "Counter({'conv': 63, 'view': 16, 'concat': 13, 'add': 6, 'maxpool5': 3, 'upsample2': 2, 'heads': 1})"
+    },
+    {
+      "check": "req_pair(1.0) == (2^30, 30)",
+      "ok": true,
+      "detail": "(1073741824, 30)"
+    },
+    {
+      "check": "same-scale requant is exact identity",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "ratio domain [0.3956, 1.8597]",
+      "ok": true,
+      "detail": "min 0.3956 max 1.8597"
+    },
+    {
+      "check": "50 ratio samples / 0 dead channels",
+      "ok": true,
+      "detail": "n=50 dead=0"
+    },
+    {
+      "check": "31 unique (M,shift) pairs",
+      "ok": true,
+      "detail": "31"
+    },
+    {
+      "check": "add a/b/out shapes equal (6 instances)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "concat channel-sum == out C, same H/W (13)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "concat max inputs = 4",
+      "ok": true,
+      "detail": "4"
+    },
+    {
+      "check": "concat max out bytes = 307200",
+      "ok": true,
+      "detail": "307200"
+    },
+    {
+      "check": "view ch ranges = half-splits",
+      "ok": true,
+      "detail": "[(0, 16), (0, 32), (0, 64), (0, 128), (16, 32), (32, 64), (64, 128), (128, 256)]"
+    },
+    {
+      "check": "maxpool5 all (128,10,10)->(128,10,10)",
+      "ok": true,
+      "detail": "([128, 10, 10], [128, 10, 10])"
+    },
+    {
+      "check": "upsample2 shapes (256,10,10)->20x20 / (128,20,20)->40x40",
+      "ok": true,
+      "detail": "[([256, 10, 10], [256, 20, 20]), ([128, 20, 20], [128, 40, 40])]"
+    },
+    {
+      "check": "heads total 149100 = 0x2466C",
+      "ok": true,
+      "detail": "0x2466c"
+    },
+    {
+      "check": "heads segment offsets",
+      "ok": true,
+      "detail": "True"
+    },
+    {
+      "check": "104 buffers / footprint 6715500 B / max 409600",
+      "ok": true,
+      "detail": "n=104 sum=6715500 max=409600"
+    },
+    {
+      "check": "PPU traffic read 2427500 + write 2389100",
+      "ok": true,
+      "detail": "rd=2427500 wr=2389100"
+    },
+    {
+      "check": "graph-op nodes with golden = 12 (6 add + 2 upsample + 4 top concat)",
+      "ok": true,
+      "detail": "['model.10', 'model.11', 'model.13', 'model.14', 'model.17', 'model.2.m.0', 'model.20', 'model.4.m.0', 'model.4.m.1', 'model.6.m.0', 'model.6.m.1', 'model.8.m.0']"
+    },
+    {
+      "check": "per-frame comparable nodes = 53 (G0 consistency)",
+      "ok": true,
+      "detail": "53"
+    },
+    {
+      "check": "CSR DESC geometry 128x32=16KB",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "CSR desc window 0x1000 paged into 16KB",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "CSR walker word14 = expected bytes contract",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "CSR opcode space unassigned for graph ops (0x10-0x15 free)",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "inputs": {
+    "schedule": "1bc33538cef7ee9bd338f69a6e3c23ca5f9b72070f759ee1b124b0f06825d473",
+    "csr_pkg": "1fabf48864b64846d7be840c10fe5b230d3b1f2b732e4ead0f1a4696c9c50fa8"
+  }
+}

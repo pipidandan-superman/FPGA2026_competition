@@ -1,0 +1,19 @@
+# vsim +STIM=../stim/xbuf +WDT_MS=1000 -do {run -all; quit -f} -l E:/competition/4_metrics/logs/2026-09-15_yolo7020_m4_xbuf_run01/sim_xbuf.log -c -novopt work.tb_yolo_xbuf 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.tb_yolo_xbuf
+# Loading work.tb_yolo_xbuf
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.yolo_xbuf
+# Loading work.yolo_xbuf
+# run -all 
+# [tb] xbuf stim=../stim/xbuf ops=97464
+# TB_XBUF_PASS compared=97464 ops (dout+vld)
+# ** Note: $finish    : ../tb_yolo_xbuf.v(151)
+#    Time: 974670 ns  Iteration: 1  Instance: /tb_yolo_xbuf

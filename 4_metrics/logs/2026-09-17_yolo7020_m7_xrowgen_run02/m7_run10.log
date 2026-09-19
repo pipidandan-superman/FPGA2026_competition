@@ -1,0 +1,169 @@
+#-----------------------------------------------------------
+# xsim v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Thu Sep 17 21:58:44 2026
+# Process ID         : 47412
+# Current directory  : E:/competition/2_fpga/3_yolo_zynq/sim/xsim
+# Command line       : xsim.exe -log m7_run10.log -mode tcl -source {xsim.dir/m7x20/xsim_script.tcl}
+# Log file           : E:/competition/2_fpga/3_yolo_zynq/sim/xsim/m7_run10.log
+# Journal file       : E:/competition/2_fpga/3_yolo_zynq/sim/xsim\xsim.jou
+# Running On         : HC-202510241838
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : AMD Ryzen 5 9600X 6-Core Processor             
+# CPU Frequency      : 3893 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 33410 MB
+# Swap memory        : 21474 MB
+# Total Virtual      : 54884 MB
+# Available Virtual  : 11030 MB
+#-----------------------------------------------------------
+source xsim.dir/m7x20/xsim_script.tcl
+# xsim {m7x20} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Block Memory Generator module tb_yolo_xrowgen.u_xb.u_bank0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_xrowgen.u_xb.u_bank1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+[tb] xrowgen stim=../stim/xrowgen tiles=66 xram=566720 B
+[tb] t=0 enter @60000 klen=27 nstart=0 nlen=16
+[cmd] t0 addr=00000038 len=40 | xb=00000040 pl=00019000 khiw=0140 cg_plane=00000000 cg_cnt=1 p=0 pt0=fffffebf pt1=00000000 lo=00000003f
+[beat] t0 k=0 b0=80 b1=80 b2=80 | first=1 gr=01 pad00=1 pad10=0 skew00=7 phase=4
+[beat] t0 k=1 b0=80 b1=80 b2=80 | first=1 gr=01 pad00=1 pad10=0 skew00=7 phase=4
+[beat] t0 k=2 b0=80 b1=80 b2=80 | first=1 gr=00 pad00=1 pad10=0 skew00=7 phase=4
+[cmd] t0 addr=00000178 len=40 | xb=00000040 pl=00019000 khiw=0280 cg_plane=00000000 cg_cnt=2 p=0 pt0=fffffebf pt1=00000000 lo=00000017f
+[beat] t0 k=3 b0=80 b1=62 b2=63 | first=1 gr=10 pad00=0 pad10=0 skew00=7 phase=4
+[beat] t0 k=4 b0=62 b1=63 b2=64 | first=1 gr=10 pad00=0 pad10=0 skew00=7 phase=4
+[beat] t0 k=5 b0=62 b1=63 b2=64 | first=1 gr=00 pad00=0 pad10=0 skew00=7 phase=4
+[beat] t0 k=6 b0=80 b1=62 b2=63 | first=1 gr=11 pad00=0 pad10=1 skew00=7 phase=4
+[beat] t0 k=7 b0=62 b1=63 b2=64 | first=1 gr=11 pad00=0 pad10=1 skew00=7 phase=4
+[beat] t0 k=8 b0=62 b1=63 b2=64 | first=1 gr=10 pad00=0 pad10=1 skew00=7 phase=4
+[cmd] t0 addr=00019038 len=40 | xb=00000040 pl=00019000 khiw=0140 cg_plane=00019000 cg_cnt=0 p=0 pt0=fffffebf pt1=00000000 lo=00001903f
+[beat] t0 k=9 b0=80 b1=80 b2=80 | first=1 gr=10 pad00=0 pad10=1 skew00=7 phase=4
+[beat] t0 k=10 b0=80 b1=80 b2=80 | first=1 gr=10 pad00=0 pad10=1 skew00=7 phase=4
+[beat] t0 k=11 b0=80 b1=80 b2=80 | first=1 gr=00 pad00=0 pad10=1 skew00=7 phase=4
+[cmd] t0 addr=00019178 len=40 | xb=00000040 pl=00019000 khiw=0280 cg_plane=00019000 cg_cnt=1 p=0 pt0=fffffebf pt1=00000000 lo=00001917f
+[beat] t0 k=12 b0=80 b1=2d b2=2e | first=1 gr=01 pad00=0 pad10=0 skew00=7 phase=4
+[beat] t0 k=13 b0=2d b1=2e b2=2f | first=1 gr=01 pad00=0 pad10=0 skew00=7 phase=4
+[beat] t0 k=14 b0=2d b1=2e b2=2f | first=1 gr=00 pad00=0 pad10=0 skew00=7 phase=4
+[beat] t0 k=15 b0=80 b1=2d b2=2e | first=1 gr=11 pad00=1 pad10=0 skew00=7 phase=4
+[beat] t0 k=16 b0=2d b1=2e b2=2f | first=1 gr=11 pad00=1 pad10=0 skew00=7 phase=4
+[beat] t0 k=17 b0=2d b1=2e b2=2f | first=1 gr=01 pad00=1 pad10=0 skew00=7 phase=4
+[cmd] t0 addr=00032038 len=40 | xb=00000040 pl=00019000 khiw=0140 cg_plane=00032000 cg_cnt=3 p=0 pt0=fffffebf pt1=00000000 lo=00003203f
+[beat] t0 k=18 b0=80 b1=80 b2=80 | first=1 gr=01 pad00=1 pad10=0 skew00=7 phase=4
+[beat] t0 k=19 b0=80 b1=80 b2=80 | first=1 gr=01 pad00=1 pad10=0 skew00=7 phase=4
+[beat] t0 k=20 b0=80 b1=80 b2=80 | first=1 gr=00 pad00=1 pad10=0 skew00=7 phase=4
+[cmd] t0 addr=00032178 len=40 | xb=00000040 pl=00019000 khiw=0280 cg_plane=00032000 cg_cnt=0 p=0 pt0=fffffebf pt1=00000000 lo=00003217f
+[beat] t0 k=21 b0=80 b1=33 b2=34 | first=1 gr=10 pad00=0 pad10=0 skew00=7 phase=4
+[beat] t0 k=22 b0=33 b1=34 b2=35 | first=1 gr=10 pad00=0 pad10=0 skew00=7 phase=4
+[beat] t0 k=23 b0=33 b1=34 b2=35 | first=1 gr=00 pad00=0 pad10=0 skew00=7 phase=4
+[beat] t0 k=24 b0=80 b1=33 b2=34 | first=1 gr=01 pad00=0 pad10=0 skew00=7 phase=4
+[beat] t0 k=25 b0=33 b1=34 b2=35 | first=1 gr=01 pad00=0 pad10=0 skew00=7 phase=4
+[beat] t0 k=26 b0=33 b1=34 b2=35 | first=1 gr=00 pad00=0 pad10=0 skew00=7 phase=4
+[tb] tile 0/66 ok-so-far errs=0
+[tb] t=1 enter @3230000 klen=27 nstart=858 nlen=8
+[cmd] t1 addr=00000bf0 len=24 | xb=00000040 pl=00019000 khiw=0000 cg_plane=00000000 cg_cnt=0 p=0 pt0=00000bb3 pt1=00000000 lo=000000bf3
+[cmd] t1 addr=00000d30 len=24 | xb=00000040 pl=00019000 khiw=0140 cg_plane=00000000 cg_cnt=1 p=0 pt0=00000bb3 pt1=00000000 lo=000000d33
+[beat] t1 k=0 b0=7a b1=79 b2=79 | first=1 gr=01 pad00=0 pad10=0 skew00=3 phase=4
+[beat] t1 k=1 b0=7a b1=79 b2=79 | first=1 gr=01 pad00=0 pad10=0 skew00=3 phase=4
+[beat] t1 k=2 b0=79 b1=79 b2=79 | first=1 gr=00 pad00=0 pad10=0 skew00=3 phase=4
+[cmd] t1 addr=00000e70 len=24 | xb=00000040 pl=00019000 khiw=0280 cg_plane=00000000 cg_cnt=2 p=0 pt0=00000bb3 pt1=00000000 lo=000000e73
+[beat] t1 k=3 b0=7a b1=7a b2=7a | first=1 gr=10 pad00=0 pad10=0 skew00=3 phase=4
+[beat] t1 k=4 b0=7b b1=7a b2=7a | first=1 gr=10 pad00=0 pad10=0 skew00=3 phase=4
+[beat] t1 k=5 b0=7a b1=7a b2=7a | first=1 gr=00 pad00=0 pad10=0 skew00=3 phase=4
+[cmd] t1 addr=00019bf0 len=24 | xb=00000040 pl=00019000 khiw=0000 cg_plane=00019000 cg_cnt=3 p=0 pt0=00000bb3 pt1=00000000 lo=000019bf3
+[beat] t1 k=6 b0=7b b1=7a b2=7a | first=1 gr=01 pad00=0 pad10=0 skew00=3 phase=4
+[beat] t1 k=7 b0=7b b1=7a b2=7a | first=1 gr=01 pad00=0 pad10=0 skew00=3 phase=4
+[beat] t1 k=8 b0=7a b1=7a b2=7a | first=1 gr=00 pad00=0 pad10=0 skew00=3 phase=4
+[cmd] t1 addr=00019d30 len=24 | xb=00000040 pl=00019000 khiw=0140 cg_plane=00019000 cg_cnt=0 p=0 pt0=00000bb3 pt1=00000000 lo=000019d33
+[beat] t1 k=9 b0=3e b1=3d b2=3d | first=1 gr=10 pad00=0 pad10=0 skew00=3 phase=4
+[beat] t1 k=10 b0=3e b1=3d b2=3d | first=1 gr=10 pad00=0 pad10=0 skew00=3 phase=4
+[beat] t1 k=11 b0=3d b1=3d b2=3d | first=1 gr=00 pad00=0 pad10=0 skew00=3 phase=4
+[cmd] t1 addr=00019e70 len=24 | xb=00000040 pl=00019000 khiw=0280 cg_plane=00019000 cg_cnt=1 p=0 pt0=00000bb3 pt1=00000000 lo=000019e73
+[beat] t1 k=12 b0=3e b1=3e b2=3e | first=1 gr=01 pad00=0 pad10=0 skew00=3 phase=4
+[cmd] t1 addr=00032bf0 len=24 | xb=00000040 pl=00019000 khiw=0000 cg_plane=00032000 cg_cnt=2 p=0 pt0=00000bb3 pt1=00000000 lo=000032bf3
+[cmd] t1 addr=00032d30 len=24 | xb=00000040 pl=00019000 khiw=0140 cg_plane=00032000 cg_cnt=3 p=0 pt0=00000bb3 pt1=00000000 lo=000032d33
+[cmd] t1 addr=00032e70 len=24 | xb=00000040 pl=00019000 khiw=0280 cg_plane=00032000 cg_cnt=0 p=0 pt0=00000bb3 pt1=00000000 lo=000032e73
+[tb] t=2 enter @6710000 klen=27 nstart=14272 nlen=8
+[cmd] t2 addr=0000ddb8 len=24 | xb=00000040 pl=00019000 khiw=0000 cg_plane=00000000 cg_cnt=0 p=0 pt0=0000dd7f pt1=00000000 lo=00000ddbf
+[cmd] t2 addr=0000def8 len=24 | xb=00000040 pl=00019000 khiw=0140 cg_plane=00000000 cg_cnt=1 p=0 pt0=0000dd7f pt1=00000000 lo=00000deff
+[cmd] t2 addr=0000e038 len=24 | xb=00000040 pl=00019000 khiw=0280 cg_plane=00000000 cg_cnt=2 p=0 pt0=0000dd7f pt1=00000000 lo=00000e03f
+[cmd] t2 addr=00026db8 len=24 | xb=00000040 pl=00019000 khiw=0000 cg_plane=00019000 cg_cnt=3 p=0 pt0=0000dd7f pt1=00000000 lo=000026dbf
+[cmd] t2 addr=00026ef8 len=24 | xb=00000040 pl=00019000 khiw=0140 cg_plane=00019000 cg_cnt=0 p=0 pt0=0000dd7f pt1=00000000 lo=000026eff
+[cmd] t2 addr=00027038 len=24 | xb=00000040 pl=00019000 khiw=0280 cg_plane=00019000 cg_cnt=1 p=0 pt0=0000dd7f pt1=00000000 lo=00002703f
+[cmd] t2 addr=0003fdb8 len=24 | xb=00000040 pl=00019000 khiw=0000 cg_plane=00032000 cg_cnt=2 p=0 pt0=0000dd7f pt1=00000000 lo=00003fdbf
+[cmd] t2 addr=0003fef8 len=24 | xb=00000040 pl=00019000 khiw=0140 cg_plane=00032000 cg_cnt=3 p=0 pt0=0000dd7f pt1=00000000 lo=00003feff
+[cmd] t2 addr=00040038 len=24 | xb=00000040 pl=00019000 khiw=0280 cg_plane=00032000 cg_cnt=0 p=0 pt0=0000dd7f pt1=00000000 lo=00004003f
+[tb] t=3 enter @9900000 klen=27 nstart=8879 nlen=8
+[tb] t=4 enter @13120000 klen=27 nstart=11474 nlen=8
+[tb] t=5 enter @16470000 klen=27 nstart=13798 nlen=8
+[tb] t=6 enter @19520000 klen=27 nstart=4245 nlen=8
+[tb] t=7 enter @22630000 klen=27 nstart=5562 nlen=8
+[tb] t=8 enter @26000000 klen=27 nstart=18472 nlen=8
+[tb] t=9 enter @29140000 klen=27 nstart=15043 nlen=8
+[tb] t=10 enter @32510000 klen=27 nstart=14768 nlen=8
+[tb] t=11 enter @35800000 klen=27 nstart=9815 nlen=8
+[tb] t=12 enter @38970000 klen=27 nstart=19863 nlen=8
+[tb] t=13 enter @42060000 klen=27 nstart=681 nlen=8
+[tb] t=14 enter @45120000 klen=27 nstart=2354 nlen=8
+[tb] t=15 enter @48140000 klen=27 nstart=19147 nlen=8
+[tb] t=16 enter @51500000 klen=27 nstart=15537 nlen=8
+[tb] tile 16/66 ok-so-far errs=0
+[tb] t=17 enter @54580000 klen=27 nstart=5447 nlen=8
+[tb] t=18 enter @57840000 klen=27 nstart=24389 nlen=8
+[tb] t=19 enter @60950000 klen=27 nstart=25447 nlen=8
+[tb] t=20 enter @63940000 klen=27 nstart=11726 nlen=8
+[tb] t=21 enter @67070000 klen=27 nstart=9772 nlen=8
+[tb] t=22 enter @70190000 klen=27 nstart=3891 nlen=8
+[tb] t=23 enter @73330000 klen=27 nstart=9899 nlen=8
+[tb] t=24 enter @76540000 klen=27 nstart=12477 nlen=8
+[tb] t=25 enter @80660000 klen=27 nstart=16718 nlen=8
+[tb] t=26 enter @83870000 klen=27 nstart=10138 nlen=8
+[tb] t=27 enter @86940000 klen=27 nstart=19876 nlen=8
+[tb] t=28 enter @90090000 klen=27 nstart=16633 nlen=8
+[tb] t=29 enter @94350000 klen=27 nstart=13369 nlen=8
+[tb] t=30 enter @97410000 klen=27 nstart=18557 nlen=8
+[tb] t=31 enter @101380000 klen=27 nstart=25182 nlen=8
+[tb] t=32 enter @104390000 klen=27 nstart=20929 nlen=8
+[tb] tile 32/66 ok-so-far errs=0
+[tb] t=33 enter @107330000 klen=27 nstart=24220 nlen=8
+[tb] t=34 enter @110550000 klen=27 nstart=22432 nlen=8
+[tb] t=35 enter @113700000 klen=27 nstart=25102 nlen=8
+[tb] t=36 enter @117080000 klen=27 nstart=16176 nlen=8
+[tb] t=37 enter @119890000 klen=27 nstart=2019 nlen=8
+[tb] t=38 enter @123160000 klen=27 nstart=7427 nlen=8
+[tb] t=39 enter @126440000 klen=27 nstart=3282 nlen=8
+[tb] t=40 enter @129460000 klen=27 nstart=18040 nlen=8
+[tb] t=41 enter @132610000 klen=27 nstart=23349 nlen=8
+[tb] t=42 enter @135880000 klen=27 nstart=2346 nlen=8
+[tb] t=43 enter @138870000 klen=27 nstart=15423 nlen=8
+[tb] t=44 enter @141940000 klen=27 nstart=921 nlen=8
+[tb] t=45 enter @144920000 klen=27 nstart=5930 nlen=8
+[tb] t=46 enter @148240000 klen=27 nstart=24920 nlen=8
+[tb] t=47 enter @151470000 klen=27 nstart=21472 nlen=8
+[tb] t=48 enter @154700000 klen=27 nstart=4680 nlen=8
+[tb] tile 48/66 ok-so-far errs=0
+[tb] t=49 enter @157910000 klen=27 nstart=158 nlen=16
+[tb] t=50 enter @162610000 klen=27 nstart=320 nlen=8
+[tb] t=51 enter @165780000 klen=27 nstart=25440 nlen=8
+[tb] t=52 enter @169100000 klen=27 nstart=25592 nlen=8
+[tb] t=53 enter @172360000 klen=2304 nstart=100 nlen=4
+[tb] t=54 enter @388880000 klen=64 nstart=0 nlen=16
+[tb] t=55 enter @400750000 klen=64 nstart=373 nlen=7
+[tb] t=56 enter @412860000 klen=288 nstart=0 nlen=16
+[tb] t=57 enter @471740000 klen=72 nstart=6 nlen=16
+[tb] t=58 enter @484870000 klen=72 nstart=96 nlen=4
+[tb] t=59 enter @491670000 klen=27 nstart=0 nlen=1
+[tb] t=60 enter @494020000 klen=27 nstart=0 nlen=9
+[tb] t=61 enter @498440000 klen=18 nstart=0 nlen=4
+[tb] t=62 enter @501070000 klen=18 nstart=1 nlen=4
+[tb] t=63 enter @504070000 klen=18 nstart=0 nlen=8
+[tb] t=64 enter @507120000 klen=6 nstart=0 nlen=16
+[tb] tile 64/66 ok-so-far errs=0
+[tb] t=65 enter @508310000 klen=6 nstart=20 nlen=12
+TB_XROWGEN_PASS tiles=66 bytes=29342 cmds=1887 ars=1889 peak_ost=2 (real xbuf, xram BFM, set-equal readback)
+$finish called at time : 511060 ns : File "E:/competition/2_fpga/3_yolo_zynq/sim/tb_yolo_xrowgen.v" Line 576
+exit
+INFO: [Common 17-206] Exiting xsim at Thu Sep 17 21:58:46 2026...

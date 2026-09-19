@@ -1,0 +1,6 @@
+[watch] ssh FAIL #1 at 02:06:06
+[watch] ssh FAIL #2 at 02:06:34
+[watch] ssh FAIL #3 at 02:07:02
+[watch] BOARD_UNREACHABLE_3X freeze suspected
+
+[exited with code 2]

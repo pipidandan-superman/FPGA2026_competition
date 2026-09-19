@@ -1,0 +1,96 @@
+{
+ "verdict": "PPU_MAXPOOL5_VECGEN_PASS",
+ "cases": [
+  {
+   "C": 128,
+   "H": 10,
+   "W": 10,
+   "kind": "random",
+   "bytes": 12800,
+   "pad_eq_masked": true
+  },
+  {
+   "C": 1,
+   "H": 10,
+   "W": 10,
+   "kind": "all_min",
+   "bytes": 100,
+   "pad_eq_masked": true
+  },
+  {
+   "C": 1,
+   "H": 5,
+   "W": 5,
+   "kind": "all_max",
+   "bytes": 25,
+   "pad_eq_masked": true
+  },
+  {
+   "C": 1,
+   "H": 3,
+   "W": 3,
+   "kind": "border_min",
+   "bytes": 9,
+   "pad_eq_masked": true
+  },
+  {
+   "C": 1,
+   "H": 1,
+   "W": 1,
+   "kind": "border_max",
+   "bytes": 1,
+   "pad_eq_masked": true
+  },
+  {
+   "C": 1,
+   "H": 1,
+   "W": 7,
+   "kind": "ramp",
+   "bytes": 7,
+   "pad_eq_masked": true
+  },
+  {
+   "C": 1,
+   "H": 2,
+   "W": 9,
+   "kind": "row_stripe",
+   "bytes": 18,
+   "pad_eq_masked": true
+  },
+  {
+   "C": 2,
+   "H": 4,
+   "W": 7,
+   "kind": "col_stripe",
+   "bytes": 56,
+   "pad_eq_masked": true
+  },
+  {
+   "C": 3,
+   "H": 6,
+   "W": 3,
+   "kind": "checker",
+   "bytes": 54,
+   "pad_eq_masked": true
+  },
+  {
+   "C": 1,
+   "H": 16,
+   "W": 16,
+   "kind": "rails",
+   "bytes": 256,
+   "pad_eq_masked": true
+  },
+  {
+   "C": 1,
+   "H": 9,
+   "W": 1,
+   "kind": "random",
+   "bytes": 9,
+   "pad_eq_masked": true
+  }
+ ],
+ "cases_total": 11,
+ "bytes_total": 13335,
+ "hex_sha256": "baff20d50f153cc97603a582106804fa39699d9bb62430f5eef47fadd51bb670"
+}

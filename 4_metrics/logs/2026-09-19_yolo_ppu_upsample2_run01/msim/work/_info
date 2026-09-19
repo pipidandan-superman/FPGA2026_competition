@@ -1,0 +1,47 @@
+m255
+K3
+13
+cModel Technology
+Z0 dE:\competition\2_fpga\parallel_task\4_metrics\logs\2026-09-19_yolo_ppu_upsample2_run01\msim
+vtb_yolo_ppu_upsample2
+Z1 DXx6 sv_std 3 std 0 22 F[19LRNL:5;XmIFh[XOPn1
+!i10b 1
+!s100 azTDbkJa@[`3?DDBU?NaY3
+I0iF34^If^<TXf?E7jTm3i0
+V=2M_cOROYllRNz@L?>:751
+!s105 tb_yolo_ppu_upsample2_sv_unit
+S1
+Z2 dE:\competition\2_fpga\parallel_task\4_metrics\logs\2026-09-19_yolo_ppu_upsample2_run01\msim
+w1789747915
+8E:/competition/2_fpga/parallel_task/sim_ppu/tb_yolo_ppu_upsample2.sv
+FE:/competition/2_fpga/parallel_task/sim_ppu/tb_yolo_ppu_upsample2.sv
+L0 31
+Z3 OL;L;10.1c;51
+r1
+!s85 0
+31
+Z4 !s108 1789747927.946000
+Z5 !s107 E:/competition/2_fpga/parallel_task/sim_ppu/tb_yolo_ppu_upsample2.sv|E:/competition/2_fpga/parallel_task/rtl_ppu/yolo_ppu_upsample2.sv|
+Z6 !s90 -novopt|-work|work|E:/competition/2_fpga/parallel_task/rtl_ppu/yolo_ppu_upsample2.sv|E:/competition/2_fpga/parallel_task/sim_ppu/tb_yolo_ppu_upsample2.sv|
+Z7 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+vyolo_ppu_upsample2
+R1
+!i10b 1
+!s100 g:D=<5;Zm2CJI8Bh?6dR_3
+II]IRIP?SAfg`]dZzBaDZT1
+VF=@7Adg4jYW]T?H0FEChM0
+!s105 yolo_ppu_upsample2_sv_unit
+S1
+R2
+w1789747623
+8E:/competition/2_fpga/parallel_task/rtl_ppu/yolo_ppu_upsample2.sv
+FE:/competition/2_fpga/parallel_task/rtl_ppu/yolo_ppu_upsample2.sv
+L0 38
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+R7

@@ -1,0 +1,5 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/sim/tb_yolo_gemm_array.v" into library work
+INFO: [VRFC 10-311] analyzing module tb_yolo_gemm_array
+INFO: [VRFC 10-311] analyzing module tb_axi_rd_bfm
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_gemm_array.v" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_array

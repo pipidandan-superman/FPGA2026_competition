@@ -1,0 +1,32 @@
+# M4 xbuf gate — console extract (raw transcript: sim_xbuf.log)
+
+# 1) stimulus generation (seed 404; M3 lessons pre-baked: <2^128 golden
+#    assert + interleave read depth clamped to previous round klen)
+$ python xbuf_vecgen.py
+[stim] xbuf: 97464 ops (rd=7752 ilv=0 same-cyc=3412 hold=16), manifest written
+# (generator-internal asserts: reads>=5000, same-cycle wr/rd>=200,
+#  both banks depth-2304 verified, all golden ed < 2^128, real-round
+#  dual-path closure: address-arithmetic im2col == np.pad+window slice
+#  for all 16x27 bytes = PASS)
+
+# 2) compile
+$ vlog -work work ../../rtl/yolo_xbuf.v ../tb_yolo_xbuf.v
+Model Technology ModelSim SE-64 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module yolo_xbuf
+-- Compiling module tb_yolo_xbuf
+Top level modules:
+	tb_yolo_xbuf
+
+# 3) simulate — run 1 (accepted; raw: sim_xbuf.log)
+$ vsim -c -novopt +STIM=../stim/xbuf +WDT_MS=1000 -do "run -all; quit -f" \
+       -l .../sim_xbuf.log work.tb_yolo_xbuf
+# [tb] xbuf stim=../stim/xbuf ops=97464
+# TB_XBUF_PASS compared=97464 ops (dout+vld)
+# ** Note: $finish    : ../tb_yolo_xbuf.v(151)
+#    Time: 974670 ns  Iteration: 1  Instance: /tb_yolo_xbuf
+
+GATE RESULT: TB_XBUF_PASS — 97464/97464 ops, (dout_o, dout_vld_o) compare
+every cycle, first-run green; RTL/TB V1.0 as released.
+
+# 4) stimulus integrity
+$ sha256sum *.hex stim_manifest.json -> stim_sha256.txt (11 files)

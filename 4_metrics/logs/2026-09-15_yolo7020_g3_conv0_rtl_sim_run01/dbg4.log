@@ -1,0 +1,52 @@
+# vsim +STIM=../stim/conv0_golden00 +PARTIAL=500 -do {run 420 ns; quit -f} -l dbg4.log -c -novopt work.tb_yolo_conv0 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.tb_yolo_conv0
+# Loading sv_std.std
+# Loading work.tb_yolo_conv0
+# Loading work.yolo_conv0_core
+# run 420 ns 
+# [tb] stim=../stim/conv0_golden00 partial=500
+# [tap] t=55000 st=0 k=0 ih=-1 iw=-1 xin=0 xr=x wr=-30 acc=0
+# [tap] t=65000 st=1 k=0 ih=-1 iw=-1 xin=0 xr=x wr=-30 acc=0
+# [tap] t=75000 st=1 k=1 ih=-1 iw=0 xin=0 xr=x wr=-3 acc=-3840
+# [tap] t=85000 st=1 k=2 ih=-1 iw=1 xin=0 xr=x wr=28 acc=-4224
+# [tap] t=95000 st=1 k=3 ih=0 iw=-1 xin=0 xr=x wr=-96 acc=-640
+# [tap] t=105000 st=1 k=4 ih=0 iw=0 xin=1 xr=98 wr=8 acc=-12928
+# [tap] t=115000 st=1 k=5 ih=0 iw=1 xin=1 xr=98 wr=101 acc=-12144
+# [tap] t=125000 st=1 k=6 ih=1 iw=-1 xin=0 xr=113 wr=-88 acc=-2246
+# [tap] t=135000 st=1 k=7 ih=1 iw=0 xin=1 xr=98 wr=-4 acc=-13510
+# [tap] t=145000 st=1 k=8 ih=1 iw=1 xin=1 xr=98 wr=81 acc=-13902
+# [tap] t=155000 st=1 k=9 ih=-1 iw=-1 xin=0 xr=115 wr=-37 acc=-5964
+# [tap] t=165000 st=1 k=10 ih=-1 iw=0 xin=0 xr=111 wr=2 acc=-10700
+# [tap] t=175000 st=1 k=11 ih=-1 iw=1 xin=0 xr=111 wr=40 acc=-10444
+# [tap] t=185000 st=1 k=12 ih=0 iw=-1 xin=0 xr=115 wr=-127 acc=-5324
+# [tap] t=195000 st=1 k=13 ih=0 iw=0 xin=1 xr=45 wr=7 acc=-21580
+# [tap] t=205000 st=1 k=14 ih=0 iw=1 xin=1 xr=45 wr=120 acc=-21265
+# [tap] t=215000 st=1 k=15 ih=1 iw=-1 xin=0 xr=53 wr=-97 acc=-15865
+# [tap] t=225000 st=1 k=16 ih=1 iw=0 xin=1 xr=45 wr=-1 acc=-28281
+# [tap] t=235000 st=1 k=17 ih=1 iw=1 xin=1 xr=45 wr=91 acc=-28326
+# [tap] t=245000 st=1 k=18 ih=-1 iw=-1 xin=0 xr=58 wr=-13 acc=-24231
+# [tap] t=255000 st=1 k=19 ih=-1 iw=0 xin=0 xr=53 wr=-4 acc=-25895
+# [tap] t=265000 st=1 k=20 ih=-1 iw=1 xin=0 xr=53 wr=7 acc=-26407
+# [tap] t=275000 st=1 k=21 ih=0 iw=-1 xin=0 xr=58 wr=-55 acc=-25511
+# [tap] t=285000 st=1 k=22 ih=0 iw=0 xin=1 xr=51 wr=9 acc=-32551
+# [tap] t=295000 st=1 k=23 ih=0 iw=1 xin=1 xr=51 wr=51 acc=-32092
+# [tap] t=305000 st=1 k=24 ih=1 iw=-1 xin=0 xr=61 wr=-40 acc=-29491
+# [tap] t=315000 st=1 k=25 ih=1 iw=0 xin=1 xr=51 wr=8 acc=-34611
+# [tap] t=325000 st=1 k=26 ih=1 iw=1 xin=1 xr=51 wr=41 acc=-34203
+# [tap] t=335000 st=2 k=26 ih=1 iw=1 xin=1 xr=51 wr=41 acc=-32112
+# [tap] t=345000 st=3 k=26 ih=1 iw=1 xin=1 xr=51 wr=41 acc=-32112
+# [tap] t=355000 st=1 k=0 ih=-1 iw=1 xin=0 xr=x wr=-30 acc=0
+# [tap] t=365000 st=1 k=1 ih=-1 iw=2 xin=0 xr=x wr=-3 acc=-3840
+# [tap] t=375000 st=1 k=2 ih=-1 iw=3 xin=0 xr=x wr=28 acc=-4224
+# [tap] t=385000 st=1 k=3 ih=0 iw=1 xin=1 xr=98 wr=-96 acc=-640
+# [tap] t=395000 st=1 k=4 ih=0 iw=2 xin=1 xr=99 wr=8 acc=-10048
+#  quit -f 

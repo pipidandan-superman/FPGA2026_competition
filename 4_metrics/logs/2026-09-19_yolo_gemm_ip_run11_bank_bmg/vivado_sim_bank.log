@@ -1,0 +1,173 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Sat Sep 19 13:27:10 2026
+# Process ID         : 56344
+# Current directory  : E:/competition/4_metrics/logs/2026-09-19_yolo_gemm_ip_run11_bank_bmg
+# Command line       : vivado.exe -mode batch -source sim_bank_bmg.tcl -notrace -nojournal -log vivado_sim_bank.log -journal vivado_sim_bank.jou
+# Log file           : E:/competition/4_metrics/logs/2026-09-19_yolo_gemm_ip_run11_bank_bmg/vivado_sim_bank.log
+# Journal file       : 
+# Running On         : HC-202510241838
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : AMD Ryzen 5 9600X 6-Core Processor             
+# CPU Frequency      : 3893 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 33410 MB
+# Swap memory        : 21474 MB
+# Total Virtual      : 54884 MB
+# Available Virtual  : 13926 MB
+#-----------------------------------------------------------
+source sim_bank_bmg.tcl -notrace
+EES_VIVADO_STAGE COMPILE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_w_g0/sim/gemm_bm_w_g0.v E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_w_g1/sim/gemm_bm_w_g1.v E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_x_g0/sim/gemm_bm_x_g0.v E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_x_g1/sim/gemm_bm_x_g1.v E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_lut/sim/gemm_bm_lut.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_w_g0/sim/gemm_bm_w_g0.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_w_g0
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_w_g1/sim/gemm_bm_w_g1.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_w_g1
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_x_g0/sim/gemm_bm_x_g0.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_x_g0
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_x_g1/sim/gemm_bm_x_g1.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_x_g1
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_lut/sim/gemm_bm_lut.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_lut
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe -sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bank_bmg.sv
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_bank
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bank_bmg.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_yolo_gemm_bank_bmg
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe F:/vivado2025/2025.2/data/verilog/src/glbl.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/vivado2025/2025.2/data/verilog/src/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+EES_VIVADO_STAGE ELABORATE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -L blk_mem_gen_v8_4_12 -L unisims_ver -L unisim -s tb_bank_bmg tb_yolo_gemm_bank_bmg glbl
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -L blk_mem_gen_v8_4_12 -L unisims_ver -L unisim -s tb_bank_bmg tb_yolo_gemm_bank_bmg glbl 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_w_g0
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_w_g1
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_x_g0
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_x_g1
+Compiling module work.yolo_gemm_bank
+Compiling module work.tb_yolo_gemm_bank_bmg
+Compiling module work.glbl
+Built simulation snapshot tb_bank_bmg
+EES_VIVADO_STAGE SIMULATE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_bank_bmg -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 13:27:16 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_bank_bmg/xsim_script.tcl
+# xsim {tb_bank_bmg} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Block Memory Generator module tb_yolo_gemm_bank_bmg.dut.u_w_g0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_gemm_bank_bmg.dut.u_w_g1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_gemm_bank_bmg.dut.u_x_g0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_gemm_bank_bmg.dut.u_x_g1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+TB_PHASE A directed
+[205000] ERR ld_x_len=0 期望=1
+[215000] ERR ld_done 无期望（q空）
+[355000] ERR ld_x_len=0 期望=1
+[395000] ERR ld_done 无期望（q空）
+[46875000] ERR ld_x_len=1023 期望=1024
+[46885000] ERR ld_done 无期望（q空）
+[103115000] ERR ld_x_len=1022 期望=1023
+[103125000] ERR ld_done 无期望（q空）
+[113695000] ERR ld_x_len=3 期望=4
+[113705000] ERR ld_done 无期望（q空）
+[114510000] ERR w_loaded=01 期望=11
+[114530000] ERR X[0] grp=1 dout=f979d6f2a656644c080c1310ef2878de 期望=2c1d0b5837c57d6f4fb48f9f07b1290f
+[114540000] ERR X[1] grp=1 dout=cc8fee99b7ade26f3c0c0178e66596cc 期望=fc5780f82523754a48179b9006947b0d
+[114550000] ERR X[2] grp=1 dout=62ef0bc59eed163deaa4fad5d917deb2 期望=034d0906b1dd586359b385b318812d31
+[114560000] ERR X[3] grp=1 dout=0aee7715884df0101ac36935a449ce48 期望=65c229cb34d545697e1ff1fc9097fe21
+[114570000] ERR X[4] grp=1 dout=b3085e6676f31dedb79e9a6f06cce10d 期望=ad20245a5a7ce1b48610460c62c19fc5
+[114580000] ERR X �?址 dout=b3085e6676f31dedb79e9a6f06cce10d 期望=ad20245a5a7ce1b48610460c62c19fc5
+TB_PHASE B random
+[114825000] ERR ld_x_len=2 期望=5
+[115145000] ERR ld_w_len=0 期望=6
+[115145000] ERR ld_x_len=4 期望=2
+[119075000] ERR ld_x_len=18 期望=19
+[119085000] ERR ld_done 无期望（q空）
+[119845000] ERR ld_x_len=12 期望=13
+[119855000] ERR ld_done 无期望（q空）
+[120565000] ERR ld_x_len=9 期望=10
+[120575000] ERR ld_done 无期望（q空）
+[121865000] ERR ld_x_len=6 期望=7
+[121875000] ERR ld_done 无期望（q空）
+[124145000] ERR ld_x_len=19 期望=20
+[124155000] ERR ld_done 无期望（q空）
+[126555000] ERR ld_x_len=19 期望=20
+[126585000] ERR ld_done 无期望（q空）
+[129155000] ERR ld_x_len=18 期望=19
+[129165000] ERR ld_done 无期望（q空）
+[130295000] ERR ld_x_len=20 期望=21
+[130305000] ERR ld_done 无期望（q空）
+[132315000] ERR ld_x_len=20 期望=21
+[132345000] ERR ld_done 无期望（q空）
+[134215000] ERR ld_x_len=15 期望=16
+[134225000] ERR ld_done 无期望（q空）
+[135365000] ERR ld_x_len=21 期望=22
+[135385000] ERR ld_done 无期望（q空）
+[136405000] ERR ld_x_len=16 期望=17
+[136415000] ERR ld_done 无期望（q空）
+[136705000] ERR ld_x_len=17 期望=0
+[137275000] ERR ld_x_len=11 期望=12
+[137315000] ERR ld_done 无期望（q空）
+[138665000] ERR ld_x_len=6 期望=7
+[138675000] ERR ld_done 无期望（q空）
+[139705000] ERR ld_x_len=23 期望=24
+[139715000] ERR ld_done 无期望（q空）
+[140845000] ERR ld_x_len=19 期望=20
+[140855000] ERR ld_done 无期望（q空）
+[141885000] ERR ld_x_len=13 期望=14
+[141895000] ERR ld_done 无期望（q空）
+[143725000] ERR ld_x_len=16 期望=17
+[143735000] ERR ld_done 无期望（q空）
+[144845000] ERR ld_x_len=22 期望=23
+[144855000] ERR ld_done 无期望（q空）
+[145945000] ERR ld_x_len=20 期望=21
+[145955000] ERR ld_done 无期望（q空）
+[147125000] ERR ld_x_len=9 期望=0
+[148045000] ERR ld_x_len=22 期望=23
+[148055000] ERR ld_done 无期望（q空）
+[149615000] ERR ld_x_len=23 期望=24
+[149625000] ERR ld_done 无期望（q空）
+[150725000] ERR ld_x_len=14 期望=15
+[150735000] ERR ld_done 无期望（q空）
+ERR 守恒 ld_done=77 blocks=49
+ERR bank_err 计数=3651
+TB_BANK_BMG FAIL checks=5669 errors=70
+$finish called at time : 151040 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bank_bmg.sv" Line 550
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep 19 13:27:18 2026...
+INFO: [Common 17-206] Exiting Vivado at Sat Sep 19 13:27:18 2026...

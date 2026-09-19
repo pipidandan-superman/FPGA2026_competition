@@ -1,0 +1,36 @@
+[r3 + l3r2 board console — verbatim from ssh 2026-09-18, cold boot c42f9854, fixed bitstream]
+[bit: display_test_wrapper.bit sha256 f0dbaf7a235c42e93765ea3b807c4b30e99bb3353c8addb062a97cd0c7068845 (ACK race fix baked in)]
+[hwh: sha256 d50c5df4e5c4db8e... (identical to r1/r2 verified copy — BD unchanged, fix is module-internal)]
+[build: bd_run02_ackfix PASS, WNS=+10.061 WHS=+0.047, bit 4,045,696 B @19:43:38]
+
+=== r3 (L1/L2 regression, seven-step reload) ===
+[sudo] password for xilinx: [r3 CK1a start bit_sha=f0dbaf7a235c42e9 10:18:42]
+[r3 CK1b ip_dict=['processing_system7_0', 'u_yolo_csr'] 10:18:52]
+[r3 CK1c u_yolo_csr phys=0x43c10000 range=65536 expect=0x43c10000 -> PASS]
+[r3 CK2a pre_locks=1 download_begin / CK2b download_returned]
+[r3 CK3 state=operating / CK4 lock_delta=1 -> PASS]
+[r3 CK5a ID=0x594F4C32 VERSION=0x00000300]
+[r3 CK5b CAP0=0x07100404 CAP1=0x00801007 STATUS=0x00000011]
+[r3 CK5c ERR_STATUS=0x00000000 SCHED_STATUS=0x00000000 / CK5d identity PASS]
+[r3 CK6 MODEL_ID w/r/restore PASS; BUFWIN(0x3000) w/r PASS]
+[r3 CK7 BOARD_CSR_PASS 10:18:53]
+
+=== l3r2 (L3 doorbell, T4 golden, fixed RTL) ===
+[l3r2 D0 pre-state idle+noerr -> PASS]
+[l3r2 D1 desc write/readback w0=0x0301 w14=0x246FC -> PASS]
+[l3r2 D2 arm CFG=0x80 TAIL=1 DOORBELL=1 / D3 CTRL=0x5]
+[l3r2 D4 FRAME_DONE got=True STATUS=0x000101D5 after 0.1 ms]
+[l3r2 D5 seq=1 head_bytes=0x246FC ring_head=1 result_status=0x11 -> PASS]
+[l3r2 D6 ring w1_seq=1 w4_bytes=0x246FC w10_flags=0x11 -> PASS]
+[l3r2 D7 ring_tail=1 status=0x00010115 desc_head=1 done=1 err=0x0 -> PASS]
+[l3r2 L9 BOARD_L3_PASS 10:19:17]
+
+[VERDICT]
+- ACK race fix CONFIRMED on silicon: l3r1 (old bit) D7 err=0x200;
+  l3r2 (fixed bit) identical stimulus, D7 err=0x0, ERROR_STATUS clean.
+- STATUS after ACK = 0x00010115: IDLE + FRAME_DONE + DESC_EMPTY, no ERROR,
+  no PS_ACK_WAIT — exactly the healthy post-consume state.
+- Full board chain now green: L1 identity / L2 first-write / L3 doorbell
+  frame flow end-to-end. Board-load counter across campaign: r1(old bit),
+  r2 cold(old bit), r3 cold(fixed bit) — all loads gated + clean.
+- YOLO CSR subsystem board acceptance at control-plane level: COMPLETE.

@@ -1,0 +1,70 @@
+{
+ "name": "genD_k2304_s1p1_rand",
+ "seed": 106,
+ "fill": "random",
+ "shape": {
+  "ic": 256,
+  "oc": 4,
+  "kh": 3,
+  "kw": 3,
+  "ih": 12,
+  "iw": 12,
+  "sh": 1,
+  "sw": 1,
+  "ph": 1,
+  "pw": 1,
+  "pad_val": 0,
+  "has_act": 1,
+  "kp": 2304,
+  "oh": 12,
+  "ow": 12,
+  "ny": 576
+ },
+ "k_layout": "K = ic*(KH*KW) + kh*KW + kw  (w stored [oc][ic][kh][kw])",
+ "shift_list": [
+  31,
+  31,
+  42,
+  31
+ ],
+ "m_list": [
+  1073741824,
+  1073741824,
+  -2026998721,
+  1073741824
+ ],
+ "bias_list": [
+  503,
+  177430,
+  -15006,
+  154225
+ ],
+ "req_param_domain": "v2: tie ch delta +1/-1/+3/+5 (s=31, M=+2^30); sat ch M=+-(2^31-1) s=36; realistic M in [2^28,2^31), s=round(log2((typ+|bias|)*M/target)), first real ch target in [80,120]",
+ "channel_plan": [
+  "tie0",
+  "tie1",
+  "real",
+  "tie2"
+ ],
+ "specialized_channels": [
+  0,
+  1,
+  3
+ ],
+ "coverage_stats": {
+  "tie": 205,
+  "sat": 473
+ },
+ "y_distinct": 75,
+ "sha256": {
+  "x_i8.bin": "c56dc4fef75482ce7477b61ec9693c7c0523740c44f1be3760525dd62a71b34b",
+  "w_i8.bin": "f795a1600f979be34754197f302b64633f69be3bf1694da8adebfe96377de8d8",
+  "bias_eff_i32.bin": "92591e811ed60b6206c7f86073bd77088f2c3f2c0d562d5371df6e9aa91dfbde",
+  "m_i32.bin": "c4e5d0bc8d1e4ca582c13b0ab3c7a4d3e787d21c2ade5e2389233cff31fa9514",
+  "shift_u8.bin": "5a54848a3fe67a715aed5d462e338bc04b30b4d1f4896bd0f0117bea97410195",
+  "lut_i8.bin": "e956c47bbef499d10abfb67b1fb1ce03e724e8b3e9414ab51e352f673eae2cfb",
+  "y_exp_i8.bin": "9b222a6e598ea74c9d2a12c2f116087de8cff179e5f5bc555964eb856f101932"
+ },
+ "selfcheck_vec_vs_naive": "PASS",
+ "ref": "intarith.rne_shift/sat_i8 (unique authority)"
+}

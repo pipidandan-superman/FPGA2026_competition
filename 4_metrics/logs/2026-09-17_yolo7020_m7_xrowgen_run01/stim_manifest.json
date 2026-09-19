@@ -1,0 +1,38 @@
+{
+ "name": "xrowgen",
+ "seed": 717,
+ "contract": "value(k,n) set == addrgen V1.3; one DMA cmd per (ic,kh,oy-part) span; skew<=7 head absorbed, tail rounded up; 1 k-row/beat wide writes to xbuf V3.0",
+ "gold_ref": "formula reference (golden_extract.py contract) + real-tensor closure (conv0_golden00)",
+ "cfg_layout": "['ih', 'iw', 'ow', 'ic', 'kh', 'kw', 'sh', 'sw', 'ph', 'pw', 'k_len'] + n_start + n_len + first (= 14 words per tile) + xbase_u32/plane_u32 per tile",
+ "coverage": {
+  "n_cases": 10,
+  "n_tiles": 66,
+  "n_bytes": 29342,
+  "pad": 2174,
+  "nopad": 27168,
+  "pad_neg128": 1654,
+  "pad_zero": 520,
+  "cmds": 1887,
+  "zdma_groups": 116,
+  "parts_hist": {
+   "1": 54,
+   "2": 5,
+   "3": 5,
+   "4": 2
+  },
+  "max_span": 33,
+  "max_cmd_len": 40,
+  "real_tiles": 53,
+  "image_bytes": 566720
+ },
+ "sha256": {
+  "n_tiles.hex": "e94e53c168a0130a646a8b5b9424bac76bf5836b3e156a5207600a33a52399cf",
+  "cfg_u16.hex": "5452f9456d52ed4691da44fcf25f3cd43771ae1e9a8b15a41f18a6473082b118",
+  "xbase_u32.hex": "5f7ddee3d1c428ef9bcd6abdd19a82605819d68e74e48bc09e7494dd72728c82",
+  "plane_u32.hex": "f46631b88838fdf6ec10c44b8902b1bae5506cb6a1051a2cf69e1727bdbf3804",
+  "cnt_u32.hex": "da958761fab138a44585e9e5915857a868751de7ce1cca1324b1d2fb86b19c81",
+  "val_i8.hex": "807d4c4c620a3c08154376effdb18501c0901a56c5d05dd93346c89782bb9039",
+  "xram_i8.hex": "0f39e1c5587ff6a77a5d6b805351b25a06c802f2aa41722c95c2f845334d20fb",
+  "xram_len_u32.hex": "ba01a599fe2080a89c8f9fff93ce188bd71f5b7796888bfd1e4688be4312d003"
+ }
+}

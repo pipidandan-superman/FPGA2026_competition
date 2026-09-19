@@ -1,0 +1,22 @@
+{
+  "C1_exhaustive_256cubed_mismatches": 0,
+  "C2_p0_in_s17": true,
+  "C2_p1_in_s17": true,
+  "C2_payload_in_s16": true,
+  "C3_rne_directed": true,
+  "C3_s0_bypass": true,
+  "C4_sat_edges": true,
+  "C4_domain_note": "|acc| <= 37748736 < 2^31; with |bias_eff| <= 9804150 the 33-bit sum holds; |prod| < 2^63 given the exporter-verified M bound",
+  "C5_silu_index": true,
+  "C6_first_layer_algebra": true,
+  "C7_kchunk_resume": true,
+  "golden_pe.hex": {
+    "sha256": "c0c36c12ffb04f527266f78a434e8bec8d9b66fcfb4ea22ed7af8fbaad1370f6",
+    "bytes": 1731
+  },
+  "golden_tail.hex": {
+    "sha256": "baa44cf4b61cd1fba5d78e0a09ef3f8c98e1f91a846aad4af44fcfe4fca13cdf",
+    "bytes": 392
+  },
+  "verdict": "PE_ORACLE_PASS"
+}

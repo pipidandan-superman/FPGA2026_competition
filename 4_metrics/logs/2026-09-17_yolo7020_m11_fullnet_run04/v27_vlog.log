@@ -1,0 +1,36 @@
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module yolo_gemm_array
+-- Compiling module yolo_ctrl
+-- Compiling module yolo_dma
+-- Compiling module yolo_addrgen
+-- Compiling module yolo_wbuf
+-- Compiling module yolo_xbuf
+-- Compiling module yolo_pe_pack
+-- Compiling module yolo_acc
+-- Compiling module yolo_requant
+-- Compiling module yolo_silu_lut
+-- Compiling module yolo_dma_wr
+-- Compiling module yolo_conv_core
+-- Compiling module yolo_xbuf_bmg
+-- Compiling module STATE_LOGIC_v8_4
+-- Compiling module beh_vlog_muxf7_v8_4
+-- Compiling module beh_vlog_ff_clr_v8_4
+-- Compiling module beh_vlog_ff_pre_v8_4
+-- Compiling module beh_vlog_ff_ce_clr_v8_4
+-- Compiling module write_netlist_v8_4
+-- Compiling module read_netlist_v8_4
+-- Compiling module blk_mem_axi_write_wrapper_beh_v8_4
+-- Compiling module blk_mem_axi_read_wrapper_beh_v8_4
+-- Compiling module blk_mem_axi_regs_fwd_v8_4
+-- Compiling module blk_mem_gen_v8_4_12_output_stage
+-- Compiling module blk_mem_gen_v8_4_12_softecc_output_reg_stage
+-- Compiling module blk_mem_gen_v8_4_12_mem_module
+-- Compiling module blk_mem_gen_v8_4_12
+-- Compiling module tb_yolo_fullnet
+-- Compiling module DSP48E1
+-- Compiling module glbl
+
+Top level modules:
+	yolo_conv_core
+	tb_yolo_fullnet
+	glbl

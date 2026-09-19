@@ -1,0 +1,14 @@
+﻿[
+    {
+        "path":  "E:\\competition\\2_fpga\\0_diaplay_test\\proj\\display_test_zynq7020_school\\display_test_zynq7020_school.srcs\\sources_1\\bd\\display_test\\display_test.bd",
+        "sha256":  "48837DEB9CA6BC63AB680200438F153AB18FD5D080C916775AF7DEF1389639B1"
+    },
+    {
+        "path":  "E:\\competition\\2_fpga\\0_diaplay_test\\pynq\\overlay.bit",
+        "sha256":  "0518C46B4DCA4DCA83B1E94AE5C1E8CBC8BB68FBF4537E5A90C025A10B76DB87"
+    },
+    {
+        "path":  "E:\\competition\\2_fpga\\0_diaplay_test\\pynq\\overlay.hwh",
+        "sha256":  "96EEBA65209E66AC3E05A65907F48CC374DAB490B9D88E2E72E22689E939A4DD"
+    }
+]

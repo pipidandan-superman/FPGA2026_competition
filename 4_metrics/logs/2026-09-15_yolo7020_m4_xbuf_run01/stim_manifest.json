@@ -1,0 +1,30 @@
+{
+ "name": "xbuf",
+ "seed": 404,
+ "contract": "dual-bank column store; 1-cycle sync read broadcast; no params with tile; concurrent wr/rd on opposite banks; en=0 hold; stimulus never reads unwritten addresses",
+ "gold_ref": "python BFM model (dict-based banks + output shadow)",
+ "coverage": {
+  "total_ops": 97464,
+  "n_read_data": 7752,
+  "interleave_write_read_adjacent": 0,
+  "same_cycle_wr_rd": 3412,
+  "idle_hold": 16,
+  "depth2304_verified_bank": {
+   "0": true,
+   "1": true
+  },
+  "real_round": "golden00 im2col X tile 16x27 @n_start=0"
+ },
+ "sha256": {
+  "n_ops.hex": "5a5dd83fec081fbf8cbb0c593eb14574755cb4fbead05933e575a0045e9344d6",
+  "op.hex": "d8c81b4cb909ec61afb4e434227b0c2ea40b85da12cf31244b6c9fff91be1fd3",
+  "bank.hex": "7b4bc20093a00d34f08fffd6bd4b23ef241f0ba59f19b45ea7c026877396fb0a",
+  "col_u8.hex": "09c6925da9fe89f438bf7492433740728127f9a63d8c5686fa71b719cfe01ea4",
+  "kaddr_u16.hex": "d8505df52d81b8be1dac15d63fc1dd806483df61447b88a595603505db8f34b7",
+  "wdata_u8.hex": "14e848102cc8b25b8473a9b0ae0c8191b9b8d3e67c1cbdb183010052bca8c2ac",
+  "rbank.hex": "88d66b47afd6e5181598e2030a32860157a838276d4f75b3ec55cf18a369dceb",
+  "rkaddr_u16.hex": "dec06ef27499e069b82353404a01591444e9bf395ba5765d7fbf71dc75fc44be",
+  "edout_i128.hex": "6ad1ec1b0e9f92fd4ec3e757b72a37310e41436d013258eacc7c6ffe325923fc",
+  "evld.hex": "2549fed00ac55a1fa1956eb4812926b759619c73131ce4f6a4608ef3b3f28490"
+ }
+}

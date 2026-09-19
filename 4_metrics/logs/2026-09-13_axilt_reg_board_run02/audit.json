@@ -1,0 +1,27 @@
+{
+  "marker": "AXILT_REG_BOARD_EVIDENCE_AUDIT_PASS",
+  "commands": 1000,
+  "reloads": 3,
+  "unit_tests": 15,
+  "rtl_unchanged": [
+    {
+      "name": "axi_lite_reg_bank.v",
+      "sha256": "065602ad619ee8a1373233fed2af8472d844603aa2e27b4742c42539f8f24d34"
+    },
+    {
+      "name": "axi_lite_slave.v",
+      "sha256": "4e2c204a010625b7250c3b2fb4e878c121476033137c0fe34b4923831d369fca"
+    },
+    {
+      "name": "axi_lite_test_top.v",
+      "sha256": "9f919f64a052d147fdd122d9f36464372ab1acb3abe2d575263377b8e664f103"
+    },
+    {
+      "name": "reg_test_executor.v",
+      "sha256": "611076b3240ff59516165fd2ed7d1c099d083bb3a8c556cda5a629bff8e983f5"
+    }
+  ],
+  "old_hwh_rejected": "Unsafe reset wiring: aux_reset_in",
+  "hdmi": "AWAIT_USER_CONFIRMATION",
+  "bram": "NOT_STARTED"
+}

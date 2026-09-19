@@ -1,0 +1,6 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_dma.v" into library work
+INFO: [VRFC 10-311] analyzing module yolo_dma
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/sim/tb_yolo_dma.v" into library work
+INFO: [VRFC 10-311] analyzing module tb_dma_core
+INFO: [VRFC 10-311] analyzing module tb_yolo_dma
+INFO: [VRFC 10-311] analyzing module tb_yolo_dma_w

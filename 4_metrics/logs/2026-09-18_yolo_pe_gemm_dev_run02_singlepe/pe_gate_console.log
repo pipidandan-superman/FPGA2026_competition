@@ -1,0 +1,65 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Fri Sep 18 23:19:55 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source sim_pe_core.tcl -notrace
+EES_VIVADO_STAGE COMPILE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v" into library work
+INFO: [VRFC 10-311] analyzing module yolo_pe_pack
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe -sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_pe_core.sv
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_pe_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_pe_core.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_yolo_pe_core
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe F:/vivado2025/2025.2/data/verilog/src/glbl.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/vivado2025/2025.2/data/verilog/src/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+EES_VIVADO_STAGE ELABORATE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -L unisims_ver -L unisim -s tb_pe_gate tb_yolo_pe_core glbl
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -L unisims_ver -L unisim -s tb_pe_gate tb_yolo_pe_core glbl 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.DSP48E1(ADREG=0,ALUMODEREG=0,CAR...
+Compiling module work.yolo_pe_pack_default
+Compiling module work.yolo_pe_core
+Compiling module work.tb_yolo_pe_core
+Compiling module work.glbl
+Built simulation snapshot tb_pe_gate
+EES_VIVADO_STAGE SIMULATE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_pe_gate -runall -testplusarg GOLDEN=E:/competition/4_metrics/logs/2026-09-18_yolo_pe_gemm_dev_run01/golden_pe.hex
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Fri Sep 18 23:19:59 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_pe_gate/xsim_script.tcl
+# xsim {tb_pe_gate} -testplusarg GOLDEN=E:/competition/4_metrics/logs/2026-09-18_yolo_pe_gemm_dev_run01/golden_pe.hex -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+EES_PE_INFO golden loaded: 76 vectors from E:/competition/4_metrics/logs/2026-09-18_yolo_pe_gemm_dev_run01/golden_pe.hex
+EES_PE_INFO mode=GATE
+EES_PE_INFO mode=GATE issued=140912 published=140909 checks=140909 lat_err=0
+EES_SUMMARY checks=140909 errors=0
+EES_VIVADO_RESULT PASS
+$finish called at time : 2014440 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_pe_core.sv" Line 468
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Sep 18 23:20:04 2026...
+INFO: [Common 17-206] Exiting Vivado at Fri Sep 18 23:20:04 2026...

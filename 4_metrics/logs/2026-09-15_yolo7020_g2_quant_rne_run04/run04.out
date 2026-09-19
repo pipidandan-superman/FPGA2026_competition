@@ -1,0 +1,14 @@
+Creating new Ultralytics Settings v0.0.8 file  
+View Ultralytics Settings with 'yolo settings' or at 'E:\competition\4_metrics\logs\2026-09-15_yolo7020_g2_quant_rne_run04\ultralytics_config\Ultralytics\settings.json'
+Update Settings with 'yolo settings key=value', i.e. 'yolo settings runs_dir=path/to/dir'. For help see https://docs.ultralytics.com/quickstart#ultralytics-settings.
+[1] unit tests PASS (RNE 14 hand cases + dyadic oracle exact)
+[2] calibrated 420 images -> 191 tensor scales (p99.99 clip: 191/191 nodes, median shrink 0.580)
+[3] built 63 QConv nodes
+[3b] refit iter 0/3: scale/old median 0.9975 range [0.9659, 1.0467] (274s)
+[3b] refit iter 1/3: scale/old median 0.9947 range [0.9750, 1.0318] (276s)
+[3b] refit iter 2/3: scale/old median 0.9947 range [0.9705, 1.0230] (278s)
+[4] layer cosine: worst=0.9300 @ model.22.cv3.2.0 over 165 checks
+[5] exported: 63 nodes
+[6] valid: FP mAP50=0.8939 INT8 mAP50=0.9031 drop=-0.0092
+[6] test: FP mAP50=0.7255 INT8 mAP50=0.6921 drop=+0.0334
+# FINAL: {"result": "G2_QUANT_INTREF_PASS", "status": {"rne_unit": "PASS", "int64_oracle_conv": "PASS", "calibration": "PASS (420 imgs, 191 tensors, p99.99 clip on 191/191, median shrink 0.580, 25s)", "graph_build": "PASS (63 QConv nodes)", "scale_refit": "PASS (3 iters x 420 calib imgs, 73 sites, final median ratio 0.9947)", "int_vs_fp_layers": "PASS (worst cosine 0.9300 @ model.22.cv3.2.0, 165 checks)", "package_export": "PASS (63 nodes, w3001584B b21652B l14592B)", "eval": "PASS (valid drop -0.0092; plan gate <=0.02)", "golden": "PASS (5 deep + 128 regression frames, 86s)"}, "valid_drop_map50": -0.0091590361134124}

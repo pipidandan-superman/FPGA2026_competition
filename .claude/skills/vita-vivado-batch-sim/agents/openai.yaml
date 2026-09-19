@@ -1,0 +1,4 @@
+interface:
+  display_name: "EES-331 Vivado Batch Simulation"
+  short_description: "Run isolated Vivado/XSim batches for E:\\competition"
+  default_prompt: "Use $vita-vivado-batch-sim to run an EES-331 Vivado/XSim batch with artifacts under E:/competition/4_metrics/logs."

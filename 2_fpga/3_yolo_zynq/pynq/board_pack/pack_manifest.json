@@ -1,0 +1,13 @@
+{
+ "frames": 128,
+ "input_size": 320,
+ "rom_source": "rom_data (g2_quant_rne run04)",
+ "rom_files_sha256": {
+  "weights.bin": true,
+  "bias.bin": true,
+  "lut.bin": true,
+  "quant.json": true
+ },
+ "inputs_sha256": "653ca86641bc4f797370dcd45f8e1b48dc5ef410db36bcd603e1cc9358e74235",
+ "expected_sha256": "d2af97731e0025faf0e0cc2a016156e1cfe268da24d2a7f57314ad3c57d0a950"
+}

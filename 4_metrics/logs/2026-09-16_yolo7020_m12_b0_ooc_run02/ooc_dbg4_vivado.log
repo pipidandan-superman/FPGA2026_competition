@@ -1,0 +1,324 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Wed Sep 16 14:54:58 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source ooc_dbg4.tcl -notrace
+Command: open_checkpoint E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate/ooc_run02_routed.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.038 . Memory (MB): peak = 342.043 ; gain = 5.520
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.245 . Memory (MB): peak = 851.457 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 5870 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.064 . Memory (MB): peak = 979.273 ; gain = 8.637
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.046 . Memory (MB): peak = 1640.715 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1640.715 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1640.715 ; gain = 0.000
+Read placeStorage: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.834 . Memory (MB): peak = 1657.457 ; gain = 16.742
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1657.457 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.325 . Memory (MB): peak = 1680.504 ; gain = 23.047
+Read Physdb Files: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1680.504 ; gain = 39.789
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1680.504 ; gain = 39.789
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1713.355 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 34 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 22 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 12 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2025.2 (64-bit) build 6299465
+open_checkpoint: Time (s): cpu = 00:00:19 ; elapsed = 00:00:17 . Memory (MB): peak = 1720.410 ; gain = 1394.664
+DSP_CLS OTHER:u_array/ctrl_rq_last_w1 = 1
+DSP_CLS row_addr_d0_w = 1
+DSP_CLS OTHER:u_array/g_pe_row[0].g_pe_pair[0].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[0].g_pe_pair[1].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[0].g_pe_pair[2].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[0].g_pe_pair[3].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[0].g_pe_pair[4].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[0].g_pe_pair[5].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[0].g_pe_pair[6].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[0].g_pe_pair[7].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[10].g_pe_pair[0].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[10].g_pe_pair[1].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[10].g_pe_pair[2].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[10].g_pe_pair[3].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[10].g_pe_pair[4].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[10].g_pe_pair[5].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[10].g_pe_pair[6].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[10].g_pe_pair[7].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[11].g_pe_pair[0].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[11].g_pe_pair[1].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[11].g_pe_pair[2].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[11].g_pe_pair[3].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[11].g_pe_pair[4].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[11].g_pe_pair[5].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[11].g_pe_pair[6].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[11].g_pe_pair[7].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[12].g_pe_pair[0].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[12].g_pe_pair[1].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[12].g_pe_pair[2].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[12].g_pe_pair[3].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[12].g_pe_pair[4].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[12].g_pe_pair[5].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[12].g_pe_pair[6].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[12].g_pe_pair[7].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[13].g_pe_pair[0].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[13].g_pe_pair[1].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[13].g_pe_pair[2].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[13].g_pe_pair[3].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[13].g_pe_pair[4].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[13].g_pe_pair[5].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[13].g_pe_pair[6].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[13].g_pe_pair[7].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[14].g_pe_pair[0].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[14].g_pe_pair[1].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[14].g_pe_pair[2].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[14].g_pe_pair[3].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[14].g_pe_pair[4].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[14].g_pe_pair[5].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[14].g_pe_pair[6].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[14].g_pe_pair[7].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[15].g_pe_pair[0].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[15].g_pe_pair[1].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[15].g_pe_pair[2].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[15].g_pe_pair[3].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[15].g_pe_pair[4].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[15].g_pe_pair[5].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[15].g_pe_pair[6].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[15].g_pe_pair[7].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[1].g_pe_pair[0].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[1].g_pe_pair[1].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[1].g_pe_pair[2].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[1].g_pe_pair[3].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[1].g_pe_pair[4].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[1].g_pe_pair[5].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[1].g_pe_pair[6].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[1].g_pe_pair[7].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[2].g_pe_pair[0].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[2].g_pe_pair[1].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[2].g_pe_pair[2].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[2].g_pe_pair[3].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[2].g_pe_pair[4].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[2].g_pe_pair[5].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[2].g_pe_pair[6].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[2].g_pe_pair[7].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[3].g_pe_pair[0].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[3].g_pe_pair[1].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[3].g_pe_pair[2].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[3].g_pe_pair[3].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[3].g_pe_pair[4].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[3].g_pe_pair[5].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[3].g_pe_pair[6].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[3].g_pe_pair[7].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[4].g_pe_pair[0].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[4].g_pe_pair[1].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[4].g_pe_pair[2].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[4].g_pe_pair[3].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[4].g_pe_pair[4].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[4].g_pe_pair[5].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[4].g_pe_pair[6].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[4].g_pe_pair[7].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[5].g_pe_pair[0].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[5].g_pe_pair[1].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[5].g_pe_pair[2].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[5].g_pe_pair[3].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[5].g_pe_pair[4].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[5].g_pe_pair[5].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[5].g_pe_pair[6].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[5].g_pe_pair[7].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[6].g_pe_pair[0].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[6].g_pe_pair[1].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[6].g_pe_pair[2].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[6].g_pe_pair[3].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[6].g_pe_pair[4].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[6].g_pe_pair[5].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[6].g_pe_pair[6].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[6].g_pe_pair[7].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[7].g_pe_pair[0].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[7].g_pe_pair[1].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[7].g_pe_pair[2].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[7].g_pe_pair[3].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[7].g_pe_pair[4].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[7].g_pe_pair[5].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[7].g_pe_pair[6].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[7].g_pe_pair[7].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[8].g_pe_pair[0].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[8].g_pe_pair[1].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[8].g_pe_pair[2].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[8].g_pe_pair[3].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[8].g_pe_pair[4].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[8].g_pe_pair[5].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[8].g_pe_pair[6].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[8].g_pe_pair[7].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[9].g_pe_pair[0].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[9].g_pe_pair[1].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[9].g_pe_pair[2].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[9].g_pe_pair[3].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[9].g_pe_pair[4].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[9].g_pe_pair[5].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[9].g_pe_pair[6].u_pe/u_dsp48 = 1
+DSP_CLS OTHER:u_array/g_pe_row[9].g_pe_pair[7].u_pe/u_dsp48 = 1
+DSP_CLS addrgen = 7
+DSP_CLS OTHER:u_array/u_ctrl/rq_last_w0 = 1
+DSP_CLS requant = 4
+DSP_NAME u_array/ctrl_rq_last_w1
+DSP_NAME u_array/row_addr_d0_w
+DSP_NAME u_array/g_pe_row[0].g_pe_pair[0].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[0].g_pe_pair[1].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[0].g_pe_pair[2].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[0].g_pe_pair[3].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[0].g_pe_pair[4].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[0].g_pe_pair[5].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[0].g_pe_pair[6].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[0].g_pe_pair[7].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[10].g_pe_pair[0].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[10].g_pe_pair[1].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[10].g_pe_pair[2].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[10].g_pe_pair[3].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[10].g_pe_pair[4].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[10].g_pe_pair[5].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[10].g_pe_pair[6].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[10].g_pe_pair[7].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[11].g_pe_pair[0].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[11].g_pe_pair[1].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[11].g_pe_pair[2].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[11].g_pe_pair[3].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[11].g_pe_pair[4].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[11].g_pe_pair[5].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[11].g_pe_pair[6].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[11].g_pe_pair[7].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[12].g_pe_pair[0].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[12].g_pe_pair[1].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[12].g_pe_pair[2].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[12].g_pe_pair[3].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[12].g_pe_pair[4].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[12].g_pe_pair[5].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[12].g_pe_pair[6].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[12].g_pe_pair[7].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[13].g_pe_pair[0].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[13].g_pe_pair[1].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[13].g_pe_pair[2].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[13].g_pe_pair[3].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[13].g_pe_pair[4].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[13].g_pe_pair[5].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[13].g_pe_pair[6].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[13].g_pe_pair[7].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[14].g_pe_pair[0].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[14].g_pe_pair[1].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[14].g_pe_pair[2].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[14].g_pe_pair[3].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[14].g_pe_pair[4].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[14].g_pe_pair[5].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[14].g_pe_pair[6].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[14].g_pe_pair[7].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[15].g_pe_pair[0].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[15].g_pe_pair[1].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[15].g_pe_pair[2].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[15].g_pe_pair[3].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[15].g_pe_pair[4].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[15].g_pe_pair[5].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[15].g_pe_pair[6].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[15].g_pe_pair[7].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[1].g_pe_pair[0].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[1].g_pe_pair[1].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[1].g_pe_pair[2].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[1].g_pe_pair[3].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[1].g_pe_pair[4].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[1].g_pe_pair[5].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[1].g_pe_pair[6].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[1].g_pe_pair[7].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[2].g_pe_pair[0].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[2].g_pe_pair[1].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[2].g_pe_pair[2].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[2].g_pe_pair[3].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[2].g_pe_pair[4].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[2].g_pe_pair[5].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[2].g_pe_pair[6].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[2].g_pe_pair[7].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[3].g_pe_pair[0].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[3].g_pe_pair[1].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[3].g_pe_pair[2].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[3].g_pe_pair[3].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[3].g_pe_pair[4].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[3].g_pe_pair[5].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[3].g_pe_pair[6].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[3].g_pe_pair[7].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[4].g_pe_pair[0].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[4].g_pe_pair[1].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[4].g_pe_pair[2].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[4].g_pe_pair[3].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[4].g_pe_pair[4].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[4].g_pe_pair[5].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[4].g_pe_pair[6].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[4].g_pe_pair[7].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[5].g_pe_pair[0].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[5].g_pe_pair[1].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[5].g_pe_pair[2].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[5].g_pe_pair[3].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[5].g_pe_pair[4].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[5].g_pe_pair[5].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[5].g_pe_pair[6].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[5].g_pe_pair[7].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[6].g_pe_pair[0].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[6].g_pe_pair[1].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[6].g_pe_pair[2].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[6].g_pe_pair[3].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[6].g_pe_pair[4].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[6].g_pe_pair[5].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[6].g_pe_pair[6].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[6].g_pe_pair[7].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[7].g_pe_pair[0].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[7].g_pe_pair[1].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[7].g_pe_pair[2].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[7].g_pe_pair[3].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[7].g_pe_pair[4].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[7].g_pe_pair[5].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[7].g_pe_pair[6].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[7].g_pe_pair[7].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[8].g_pe_pair[0].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[8].g_pe_pair[1].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[8].g_pe_pair[2].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[8].g_pe_pair[3].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[8].g_pe_pair[4].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[8].g_pe_pair[5].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[8].g_pe_pair[6].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[8].g_pe_pair[7].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[9].g_pe_pair[0].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[9].g_pe_pair[1].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[9].g_pe_pair[2].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[9].g_pe_pair[3].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[9].g_pe_pair[4].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[9].g_pe_pair[5].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[9].g_pe_pair[6].u_pe/u_dsp48
+DSP_NAME u_array/g_pe_row[9].g_pe_pair[7].u_pe/u_dsp48
+DSP_NAME u_array/u_addrgen/in_b2
+DSP_NAME u_array/u_addrgen/in_b3
+DSP_NAME u_array/u_addrgen/plane_sz
+DSP_NAME u_array/u_addrgen/x_addr_w
+DSP_NAME u_array/u_addrgen/x_addr_w1
+DSP_NAME u_array/u_addrgen/x_addr_w1__0
+DSP_NAME u_array/u_addrgen/x_addr_w1__1
+DSP_NAME u_array/u_ctrl/rq_last_w0
+DSP_NAME u_array/u_requant/prod
+DSP_NAME u_array/u_requant/prod__0
+DSP_NAME u_array/u_requant/prod__1
+DSP_NAME u_array/u_requant/prod__2
+OOC_DBG4_DONE
+INFO: [Common 17-206] Exiting Vivado at Wed Sep 16 14:55:18 2026...

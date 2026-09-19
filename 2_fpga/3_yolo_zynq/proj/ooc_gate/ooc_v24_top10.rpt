@@ -1,0 +1,46 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Thu Sep 17 03:06:54 2026
+| Host         : HC-202510241838 running 64-bit major release  (build 9200)
+| Command      : report_timing -max_paths 10 -path_type summary -file E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate/ooc_v24_top10.rpt
+| Design       : yolo_engine_top
+| Device       : 7z020-clg484
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Startpoint                     Endpoint                       Slack(ns)     
+----------------------------------------------------------------------------
+u_array/u_requant/prod_c_w__2/CLK
+                               u_array/u_requant/q8_r_reg[5]/D
+                                                              -0.224        
+u_array/u_requant/prod_c_w__2/CLK
+                               u_array/u_requant/q8_r_reg[3]/D
+                                                              -0.192        
+u_array/u_addrgen/kh_r_reg[1]/C
+                               u_array/u_addrgen/pad_o_reg/D  -0.158        
+u_array/u_addrgen/k_len_c_reg[2]/C
+                               u_array/u_addrgen/row_off_r_reg[23]/D
+                                                              -0.157        
+u_array/u_addrgen/kh_r_reg[1]/C
+                               u_array/u_addrgen/x_addr_o_reg[0]/D
+                                                              -0.138        
+u_array/u_addrgen/k_len_c_reg[2]/C
+                               u_array/u_addrgen/row_off_r_reg[31]/D
+                                                              -0.121        
+u_array/u_requant/prod_c_w__2/CLK
+                               u_array/u_requant/ir_r_reg/D   -0.114        
+u_array/u_requant/prod_c_w__2/CLK
+                               u_array/u_requant/q8_r_reg[6]/D
+                                                              -0.097        
+u_array/u_requant/prod_c_w__2/CLK
+                               u_array/u_requant/q8_r_reg[7]/D
+                                                              -0.081        
+u_array/u_requant/prod_c_w__2/CLK
+                               u_array/u_requant/half_r_reg/D -0.076        
+
+
+

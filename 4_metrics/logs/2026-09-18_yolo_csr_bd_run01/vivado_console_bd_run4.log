@@ -1,0 +1,244 @@
+﻿
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Fri Sep 18 18:35:17 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source {E:\competition\4_metrics\logs\2026-09-18_yolo_csr_bd_run01\bd_integrate.tcl}
+# set projdir {E:/competition/2_fpga/3_yolo_zynq/proj/axi_test}
+# set rtl     {E:/competition/2_fpga/3_yolo_zynq/rtl/ps_axi_pl}
+# proc net_on {pin} {
+#     return [get_bd_nets -quiet -of [get_bd_pins $pin]]
+# }
+# proc inet_on {pin} {
+#     return [get_bd_intf_nets -quiet -of [get_bd_intf_pins $pin]]
+# }
+# puts "EES_VIVADO_STAGE BD_OPEN"
+EES_VIVADO_STAGE BD_OPEN
+# open_project $projdir/axi_test.xpr
+Scanning sources...
+Finished scanning sources
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:emb-plus-vpr-4616:part0:1.0 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\emb-plus-vpr-4616\1.0\board.xml as part xcve2302-sfva784-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:emb-plus-vpr-4616:part0:1.1 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\emb-plus-vpr-4616\1.1\board.xml as part xcve2302-sfva784-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu105:part0:1.6 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kcu105\1.6\board.xml as part xcku040-ffva1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu105:part0:1.7 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kcu105\1.7\board.xml as part xcku040-ffva1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu116:part0:1.4 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kcu116\1.4\board.xml as part xcku5p-ffvb676-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu116:part0:1.5 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kcu116\1.5\board.xml as part xcku5p-ffvb676-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu1500:part0:1.2 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\kcu1500\1.2\board.xml as part xcku115-flvb2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:scu35:part0:1.0 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\scu35\1.0\board.xml as part xcsu35p-sbvb625-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:v80:part0:1.0 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\v80\1.0\board.xml as part xcv80-lsva4737-2mhp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:2.2 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190\production\2.2\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.0 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190\production\3.0\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.1 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190\production\3.1\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.2 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190\production\3.2\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.3 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190\production\3.3\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.4 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190\production\3.4\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_newl:part0:1.0 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190_newl\production\1.0\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_newl:part0:1.1 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190_newl\production\1.1\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_newl:part0:1.2 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190_newl\production\1.2\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_newl:part0:1.3 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vck190_newl\production\1.3\board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu108:part0:1.6 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu108\1.6\board.xml as part xcvu095-ffva2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu108:part0:1.7 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu108\1.7\board.xml as part xcvu095-ffva2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu110:part0:1.4 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu110\1.4\board.xml as part xcvu190-flgc2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.0 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu118\2.0\board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.3 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu118\2.3\board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.4 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu118\2.4\board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu128:part0:1.0 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu128\production\1.0\board.xml as part xcvu37p-fsvh2892-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu129:part0:1.0 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu129\production\1.0\board.xml as part xcvu29p-fsga2577-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu1525:part0:1.3 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vcu1525\1.3\board.xml as part xcvu9p-fsgd2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280:part0:1.0 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek280\production\1.0\board.xml as part xcve2802-vsvh1760-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280:part0:1.1 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek280\production\1.1\board.xml as part xcve2802-vsvh1760-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280:part0:1.2 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek280\production\1.2\board.xml as part xcve2802-vsvh1760-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek385:part0:1.0 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek385\1.0\board.xml as part xc2ve3858-ssva2112-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek385:part0:1.1 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek385\1.1\board.xml as part xc2ve3858-ssva2112-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek385_1:part0:1.0 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vek385_2\1.0\board.xml as part xc2ve3858-ssva2112-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_rfsoc:part0:1.0 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vermeo_t1_rfsoc\1.0\board.xml as part xczu21dr-ffvd1156-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158:part0:1.0 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vhk158\production\1.0\board.xml as part xcvh1582-vsva3697-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158:part0:1.1 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vhk158\production\1.1\board.xml as part xcvh1582-vsva3697-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158:part0:1.2 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vhk158\production\1.2\board.xml as part xcvh1582-vsva3697-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:2.2 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vmk180\production\2.2\board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.0 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vmk180\production\3.0\board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.1 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vmk180\production\3.1\board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.2 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vmk180\production\3.2\board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.3 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vmk180\production\3.3\board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_newl:part0:1.0 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vmk180_newl\production\1.0\board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_newl:part0:1.1 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vmk180_newl\production\1.1\board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120:part0:1.0 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vpk120\production\1.0\board.xml as part xcvp1202-vsva2785-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120:part0:1.1 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vpk120\production\1.1\board.xml as part xcvp1202-vsva2785-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120:part0:1.2 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vpk120\production\1.2\board.xml as part xcvp1202-vsva2785-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180:part0:1.0 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vpk180\production\1.0\board.xml as part xcvp1802-lsvc4072-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180:part0:1.1 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vpk180\production\1.1\board.xml as part xcvp1802-lsvc4072-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180:part0:1.2 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vpk180\production\1.2\board.xml as part xcvp1802-lsvc4072-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vrk160:part0:1.0 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vrk160\1.0\board.xml as part xcvr1602-vsva2488-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vrk160:part0:1.1 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vrk160\1.1\board.xml as part xcvr1602-vsva2488-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.2 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu111\1.2\board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.3 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu111\1.3\board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.4 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu111\1.4\board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1275:part0:1.0 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu1275\1.0\board.xml as part xczu29dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1285:part0:1.0 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu1285\1.0\board.xml as part xczu39dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208:part0:2.0 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu208\production\2.0\board.xml as part xczu48dr-fsvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu208ld\production\2.0\board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216:part0:2.0 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu216\production\2.0\board.xml as part xczu49dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu216ld\production\2.0\board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu670\2.0\board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at F:/vivado2025/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu670ld\1.0\board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Project 1-5713] Board part '' set for the project  is not found. BoardPart property will be unset. Please select board from latest repo build 
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'F:/vivado2025/2025.2/Vivado/data/ip'.
+# puts "EES_VIVADO_STAGE SRC_ADD"
+EES_VIVADO_STAGE SRC_ADD
+# foreach f {yolo_csr_pkg.sv yolo_axi_lite_slave.sv yolo_reg_file.sv \
+#            yolo_desc_walker.sv yolo_result_ring.sv \
+#            yolo_desc_table.sv yolo_buf_table.sv yolo_quant_table.sv \
+#            yolo_lut_table.sv yolo_ring_table.sv \
+#            yolo_control_subsystem.v} {
+#     if {[llength [get_files -quiet -of [get_filesets sources_1] [file tail $f]]] == 0} {
+#         add_files -fileset sources_1 [file join $rtl $f]
+#         puts "SRC_ADD added  $f"
+#     } else {
+#         puts "SRC_ADD present $f"
+#     }
+# }
+SRC_ADD present yolo_csr_pkg.sv
+SRC_ADD present yolo_axi_lite_slave.sv
+SRC_ADD present yolo_reg_file.sv
+SRC_ADD present yolo_desc_walker.sv
+SRC_ADD present yolo_result_ring.sv
+SRC_ADD present yolo_desc_table.sv
+SRC_ADD present yolo_buf_table.sv
+SRC_ADD present yolo_quant_table.sv
+SRC_ADD present yolo_lut_table.sv
+SRC_ADD present yolo_ring_table.sv
+SRC_ADD present yolo_control_subsystem.v
+# foreach ip {yolo_desc_bram yolo_buf_bram yolo_quant_bram \
+#             yolo_lut_bram yolo_ring_bram} {
+#     if {[llength [get_files -quiet ${ip}.xci]] == 0} {
+#         add_files -fileset sources_1 [file join $rtl ip $ip $ip.xci]
+#         puts "SRC_ADD added  $ip.xci"
+#     } else {
+#         puts "SRC_ADD present $ip.xci"
+#     }
+# }
+SRC_ADD present yolo_desc_bram.xci
+SRC_ADD present yolo_buf_bram.xci
+SRC_ADD present yolo_quant_bram.xci
+SRC_ADD present yolo_lut_bram.xci
+SRC_ADD present yolo_ring_bram.xci
+# update_compile_order -fileset sources_1
+# puts "EES_VIVADO_STAGE PS_CFG"
+EES_VIVADO_STAGE PS_CFG
+# open_bd_design E:/competition/2_fpga/3_yolo_zynq/proj/axi_test/axi_test.srcs/sources_1/bd/display_test/display_test.bd
+Reading block design file <E:/competition/2_fpga/3_yolo_zynq/proj/axi_test/axi_test.srcs/sources_1/bd/display_test/display_test.bd>...
+Adding component instance block -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0
+Adding component instance block -- xilinx.com:ip:axi_interconnect:2.1 - axi_ic0
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding component instance block -- xilinx.com:module_ref:yolo_control_subsystem:1.0 - u_yolo_csr
+Successfully read diagram <display_test> from block design file <E:/competition/2_fpga/3_yolo_zynq/proj/axi_test/axi_test.srcs/sources_1/bd/display_test/display_test.bd>
+# set ps [get_bd_cells processing_system7_0]
+# set_property -dict [list \
+#     CONFIG.PCW_USE_M_AXI_GP0 {1} \
+#     CONFIG.PCW_EN_CLK0_PORT {1} \
+#     CONFIG.PCW_EN_RST0_PORT {1} \
+# ] $ps
+# if {[catch {set f0 [get_property CONFIG.PCW_FCLK0_PERIPHERAL_FREQMHZ $ps]} emsg]} {
+#     puts "PS_CFG FCLK0 freq param absent (PS7 default 100 MHz assumed)"
+# } else {
+#     puts "PS_CFG FCLK0 freq = $f0 MHz"
+# }
+PS_CFG FCLK0 freq =  MHz
+# puts "EES_VIVADO_STAGE CELLS"
+EES_VIVADO_STAGE CELLS
+# if {[llength [get_bd_cells -quiet axi_ic0]] == 0} {
+#     create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 axi_ic0
+# }
+# set_property -dict [list CONFIG.NUM_SI {1} CONFIG.NUM_MI {1}] \
+#     [get_bd_cells axi_ic0]
+# if {[llength [get_bd_cells -quiet u_yolo_csr]] == 0} {
+#     create_bd_cell -type module -reference yolo_control_subsystem u_yolo_csr
+# }
+# if {[llength [get_bd_cells -quiet rst_sys]] == 0} {
+#     create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_sys
+#     # FCLK_RESET0_N is active low
+#     set_property CONFIG.C_EXT_RESET_HIGH {0} [get_bd_cells rst_sys]
+# }
+CRITICAL WARNING: [BD 41-737] Cannot set the parameter C_EXT_RESET_HIGH on /rst_sys. It is read-only.
+# if {[llength [get_bd_cells -quiet vcc_rst]] == 0} {
+#     create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 vcc_rst
+#     set_property CONFIG.CONST_VAL {1} [get_bd_cells vcc_rst]
+# }
+INFO: [BD 5-1043] It is recommended to use inline hdl version xilinx.com:inline_hdl:ilconstant:1.0 for the IP type xilinx.com:ip:xlconstant:1.1 for improved performance and reduced disk space. IPs with VLNV xilinx.com:ip:xlconstant:1.1 will not be supported from release 2025.2. More information on inline hdl IP is available in UG994 
+# puts "EES_VIVADO_STAGE WIRING"
+EES_VIVADO_STAGE WIRING
+# if {[llength [net_on axi_ic0/S00_ACLK]] == 0} {
+#     connect_bd_net [get_bd_pins $ps/FCLK_CLK0] \
+#         [get_bd_pins axi_ic0/ACLK] \
+#         [get_bd_pins axi_ic0/S00_ACLK] \
+#         [get_bd_pins axi_ic0/M00_ACLK] \
+#         [get_bd_pins u_yolo_csr/s_axi_aclk] \
+#         [get_bd_pins $ps/M_AXI_GP0_ACLK]
+# }
+# if {[llength [net_on rst_sys/slowest_sync_clk]] == 0} {
+#     connect_bd_net [get_bd_pins $ps/FCLK_CLK0] \
+#         [get_bd_pins rst_sys/slowest_sync_clk]
+# }
+# foreach pin {axi_ic0/ARESETN axi_ic0/S00_ARESETN axi_ic0/M00_ARESETN \
+#              u_yolo_csr/s_axi_aresetn} {
+#     set n [net_on $pin]
+#     if {[llength $n] != 0} {
+#         delete_bd_objs $n
+#         puts "WIRING removed old reset net on $pin"
+#     }
+# }
+WIRING removed old reset net on axi_ic0/ARESETN
+# if {[llength [net_on rst_sys/ext_reset_in]] == 0} {
+#     connect_bd_net [get_bd_pins $ps/FCLK_RESET0_N] \
+#         [get_bd_pins rst_sys/ext_reset_in]
+# }
+# if {[llength [net_on axi_ic0/ARESETN]] == 0} {
+#     connect_bd_net [get_bd_pins rst_sys/peripheral_aresetn] \
+#         [get_bd_pins axi_ic0/ARESETN] \
+#         [get_bd_pins axi_ic0/S00_ARESETN] \
+#         [get_bd_pins axi_ic0/M00_ARESETN] \
+#         [get_bd_pins u_yolo_csr/s_axi_aresetn]
+# }
+# if {[llength [net_on rst_sys/dcm_locked]] == 0} {
+#     connect_bd_net [get_bd_pins vcc_rst/dout] [get_bd_pins rst_sys/dcm_locked]
+# }
+# if {[llength [inet_on axi_ic0/S00_AXI]] == 0} {
+#     connect_bd_intf_net [get_bd_intf_pins $ps/M_AXI_GP0] \
+#         [get_bd_intf_pins axi_ic0/S00_AXI]
+# }
+# if {[llength [inet_on axi_ic0/M00_AXI]] == 0} {
+#     connect_bd_intf_net [get_bd_intf_pins axi_ic0/M00_AXI] \
+#         [get_bd_intf_pins u_yolo_csr/s_axi]
+# }
+# puts "EES_VIVADO_STAGE ADDRESS"
+EES_VIVADO_STAGE ADDRESS
+# assign_bd_address
+INFO: [BD 41-3093] Triggering Legacy Auto Assign Algorithm
+# set segs [get_bd_addr_segs -of_objects [get_bd_cells u_yolo_csr]]
+# puts "ADDRESS inferred segs: $segs"
+ADDRESS inferred segs: /u_yolo_csr/s_axi/reg0
+# set_property range  64K        [get_bd_addr_segs processing_system7_0/Data/SEG_u_yolo_csr_reg0]
+# set_property offset 0x43C10000 [get_bd_addr_segs processing_system7_0/Data/SEG_u_yolo_csr_reg0]
+# puts "ADDRESS offset now: [get_property OFFSET [get_bd_addr_segs processing_system7_0/Data/SEG_u_yolo_csr_reg0]]"
+ADDRESS offset now: 0x43C10000
+# puts "EES_VIVADO_STAGE VALIDATE"
+EES_VIVADO_STAGE VALIDATE
+# validate_bd_design
+# save_bd_design
+Wrote  : <E:\competition\2_fpga\3_yolo_zynq\proj\axi_test\axi_test.srcs\sources_1\bd\display_test\display_test.bd> 
+# set_property top display_test_wrapper [get_filesets sources_1]
+# update_compile_order -fileset sources_1
+# close_project
+# puts "EES_VIVADO_STAGE BD_DONE"
+EES_VIVADO_STAGE BD_DONE
+# puts "EES_VIVADO_RESULT PASS"
+EES_VIVADO_RESULT PASS
+INFO: [Common 17-206] Exiting Vivado at Fri Sep 18 18:35:27 2026...
+
+

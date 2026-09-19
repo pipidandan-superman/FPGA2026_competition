@@ -1,0 +1,22 @@
+{
+ "name": "dma_wr",
+ "seed": 911,
+ "contract": "linear block write; bursts min(words,16,4KB-boundary); little-endian assembly (source byte k -> lane k); wstrb full except command tail; one outstanding AW; one B per burst; done after B-count aligns",
+ "gold_ref": "DDR-side: every strobed byte at address a == F(word(a))>>8*(a%8); per-command count + additive checksum mod 2^64 + written-once bijection walk (command-relative bitmap, overlap-safe)",
+ "f_word": "x=wa*K1; x^=x>>31; x*=K2; x^=x>>27 (mod 2^64); K1=9E3779B97F4A7C15 K2=BF58476D1CE4E5B9",
+ "coverage": {
+  "commands": 33,
+  "total_bytes": 210488,
+  "cross4k_commands": 7,
+  "max_bursts_one_cmd": 965,
+  "len_min": 8,
+  "len_max": 123456
+ },
+ "sha256": {
+  "n_cmds.hex": "a4aad4b23085bf018ba22d3e96b58ce68c3138ac592b2f4bf747988dc85d28ee",
+  "cmd_addr.hex": "795df7b214ac8f31531bcb432f500226b1c37a08b06eb2608d4ffc7c76b05e7e",
+  "cmd_len.hex": "150e6b10b7ffe6ddf706700d05d8d7501997c8e309207985b39b674790c40eae",
+  "g_count.hex": "150e6b10b7ffe6ddf706700d05d8d7501997c8e309207985b39b674790c40eae",
+  "g_sum64.hex": "49d9857512209eb9cf146ae8ee1e9bbc13a4901cf3f921bad7bc8072bb588400"
+ }
+}

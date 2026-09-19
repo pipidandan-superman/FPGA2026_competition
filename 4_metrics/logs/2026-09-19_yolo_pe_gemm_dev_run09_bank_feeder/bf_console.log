@@ -1,0 +1,56 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 12:08:14 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source sim_gemm_bankfeeder.tcl
+# set xil     {F:/vivado2025/2025.2/Vivado}
+# set xsimbin [file join $xil bin unwrapped win64.o]
+# set bank    {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv}
+# set feeder  {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_feeder.sv}
+# set tb      {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv}
+# set tiers   {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_gemm_bank_tiers.sv}
+# proc run_tool {args} {
+#     puts "% [join $args { }]"
+#     set rc [catch {exec {*}$args} out]
+#     puts $out
+#     if {$rc != 0} { error "TOOL_FAILED: [join $args { }]" }
+# }
+# puts "EES_VIVADO_STAGE COMPILE"
+EES_VIVADO_STAGE COMPILE
+# run_tool [file join $xsimbin xvlog.exe] -sv $bank $feeder $tb $tiers
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe -sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_feeder.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_gemm_bank_tiers.sv
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_bank
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_feeder.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_feeder
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_yolo_gemm_bankfeeder
+ERROR: [VRFC 10-3186] cannot index into non-array type logic for 'wgrp' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv:188]
+ERROR: [VRFC 10-3186] cannot index into non-array type logic for 'xgrp' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv:189]
+ERROR: [VRFC 10-3186] cannot index into non-array type logic for 'wgrp' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv:200]
+ERROR: [VRFC 10-3186] cannot index into non-array type logic for 'xgrp' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv:214]
+ERROR: [VRFC 10-3186] cannot index into non-array type logic for 'xgrp' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv:223]
+ERROR: [VRFC 10-3186] cannot index into non-array type logic for 'fstb' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv:255]
+ERROR: [VRFC 10-3186] cannot index into non-array type logic for 'wgrp' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv:256]
+ERROR: [VRFC 10-3186] cannot index into non-array type logic for 'fstb' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv:298]
+ERROR: [VRFC 10-3186] cannot index into non-array type logic for 'lstb' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv:299]
+ERROR: [VRFC 10-3186] cannot index into non-array type logic for 'fstb' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv:302]
+ERROR: [VRFC 10-3186] cannot index into non-array type logic for 'wgrp' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv:333]
+ERROR: [VRFC 10-3186] cannot index into non-array type logic for 'xgrp' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv:334]
+ERROR: [VRFC 10-8530] module 'tb_yolo_gemm_bankfeeder' is ignored due to previous errors [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv:37]
+child process exited abnormally
+TOOL_FAILED: F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe -sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_feeder.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_gemm_bank_tiers.sv
+    while executing
+"error "TOOL_FAILED: [join $args { }]" "
+    invoked from within
+"if {$rc != 0} { error "TOOL_FAILED: [join $args { }]" }"
+    (procedure "run_tool" line 5)
+    invoked from within
+"run_tool [file join $xsimbin xvlog.exe] -sv $bank $feeder $tb $tiers"
+    (file "sim_gemm_bankfeeder.tcl" line 22)
+INFO: [Common 17-206] Exiting Vivado at Sat Sep 19 12:08:16 2026...

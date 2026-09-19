@@ -1,0 +1,32 @@
+﻿[
+    {
+        "path":  "E:\\competition\\4_metrics\\logs\\2026-09-12_axilt_local_project_run01\\baseline.bd",
+        "size":  90315,
+        "modified":  "2026-09-11T09:58:34.8695422Z",
+        "sha256":  "48837DEB9CA6BC63AB680200438F153AB18FD5D080C916775AF7DEF1389639B1"
+    },
+    {
+        "path":  "E:\\competition\\4_metrics\\logs\\2026-09-12_axilt_local_project_run01\\baseline_hashes.json",
+        "size":  652,
+        "modified":  "2026-09-12T15:44:29.2763142Z",
+        "sha256":  "B0E98F5631E36C1BF16BB81964D3F4E3499D0FF75B70AF215E19A4604E0ABE6B"
+    },
+    {
+        "path":  "E:\\competition\\4_metrics\\logs\\2026-09-12_axilt_local_project_run01\\ps_config.tcl",
+        "size":  12603,
+        "modified":  "2026-09-12T15:44:29.3103320Z",
+        "sha256":  "D0A6803A164A45F267141FB6C80942700E8CD8906EC3B858BAC59B041A9581FF"
+    },
+    {
+        "path":  "E:\\competition\\4_metrics\\logs\\2026-09-12_axilt_local_project_run01\\rtl_simulation_gate.json",
+        "size":  765,
+        "modified":  "2026-09-12T15:44:29.2683147Z",
+        "sha256":  "8AECFC9FE4F18B254BEAF1DA4FF9E77BB4173D2E99A2F9DE2CD42AC1855132EB"
+    },
+    {
+        "path":  "E:\\competition\\4_metrics\\logs\\2026-09-12_axilt_local_project_run01\\run.tcl",
+        "size":  565,
+        "modified":  "2026-09-12T15:44:29.3193305Z",
+        "sha256":  "E41D5FC09A2B14A8DB7DF0F376EF40286B80810F932883E1CB4830A81E9E7863"
+    }
+]

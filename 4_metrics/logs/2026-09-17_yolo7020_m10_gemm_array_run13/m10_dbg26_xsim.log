@@ -1,0 +1,2122 @@
+#-----------------------------------------------------------
+# xsim v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Thu Sep 17 21:49:44 2026
+# Process ID         : 56124
+# Current directory  : E:/competition/2_fpga/3_yolo_zynq/sim/xsim
+# Command line       : xsim.exe -log m10_dbg26_xsim.log -mode tcl -source {xsim.dir/m10dbg26/xsim_script.tcl}
+# Log file           : E:/competition/2_fpga/3_yolo_zynq/sim/xsim/m10_dbg26_xsim.log
+# Journal file       : E:/competition/2_fpga/3_yolo_zynq/sim/xsim\xsim.jou
+# Running On         : HC-202510241838
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : AMD Ryzen 5 9600X 6-Core Processor             
+# CPU Frequency      : 3893 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 33410 MB
+# Swap memory        : 21474 MB
+# Total Virtual      : 54884 MB
+# Available Virtual  : 11591 MB
+#-----------------------------------------------------------
+source xsim.dir/m10dbg26/xsim_script.tcl
+# xsim {m10dbg26} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Block Memory Generator module tb_yolo_gemm_array.dut.u_wbuf.u_bank0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_gemm_array.dut.u_wbuf.u_bank1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_gemm_array.dut.u_xbuf.u_bank0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_gemm_array.dut.u_xbuf.u_bank1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+[tb] m10 stim=../stim/m10 layers=6 img_words=65621 total_out=438447 tiles=6883
+WARNING:  The value -1943132160.000000 ns of Delay Control Statement is negative. Considering twos complement. File:E:/competition/2_fpga/3_yolo_zynq/sim/tb_yolo_gemm_array.v :1804
+[xrg] t=2675000 START ih=7 iw=7 ow=7 ic=3 kh=3 kw=3 sh=1 sw=1 ph=1 pw=1 klen=27 nstart=x nlen=x first=0 xbase=00000250 | INPUTS n_start_i=0 n_len_i=8 | loader xl_n_r=0 cfg_n_total=49 cfg_n_tiles=7
+[xrg] t=2845000 PART pp=0 rem_p=8 vld=1 m=7 cap=7 oy=0 ox=0 pvt=0000
+[xrg] t=2855000 PART pp=1 rem_p=1 vld=1 m=1 cap=7 oy=1 ox=0 pvt=0001
+[xr2] t=2875000 ic=0 kh=0 p=0 pend=1 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=0 cv=0 cr=1 iqcnt=0
+[xrg] t=2885000 PUSH wp=0 g=00 p=1 lastcmd=1 later=0000 grpcmd=0 cnt=0 ic=0 kh=0 addr=00000248 len=16
+[xr2] t=2885000 ic=0 kh=0 p=1 pend=1 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=1 cr=1 iqcnt=0
+[d17C] t=2885000 addr=584 len=16 nT=0
+[xrg] t=2895000 PUSH wp=1 g=01 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=1 ic=0 kh=1 addr=00000248 len=16
+[xr2] t=2895000 ic=0 kh=1 p=0 pend=1 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=1 cr=1 iqcnt=1
+[d17C] t=2895000 addr=584 len=16 nT=0
+[xrg] t=2905000 PUSH wp=2 g=01 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=1 ic=0 kh=1 addr=00000250 len=16
+[xr2] t=2905000 ic=0 kh=1 p=1 pend=1 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=1 cr=1 iqcnt=2
+[d17C] t=2905000 addr=592 len=16 nT=0
+[xr2] t=2915000 ic=0 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=2925000 ic=0 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=2935000 ic=0 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=2945000 ic=0 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=2955000 ic=0 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=2965000 ic=0 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=2975000 ic=0 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=2985000 ic=0 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=2995000 ic=0 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3005000 ic=0 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3015000 ic=0 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3025000 ic=0 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xrg] t=3035000 POP rp=0 g=0 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=3035000 GRPSET cg=0 grp=00
+[xr2] t=3035000 ic=0 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3045000 ic=0 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=2
+[xr2] t=3055000 ic=0 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=2
+[d17W] t=3055000 nT=0 k=0 strb=11111111 data=0000000000000000
+[xrg] t=3065000 EMEND g=0 cnt=0 k=2
+[xr2] t=3065000 ic=0 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=2
+[d17W] t=3065000 nT=0 k=1 strb=11111111 data=8100000000000000
+[xr2] t=3075000 ic=0 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=2
+[d17W] t=3075000 nT=0 k=2 strb=11111111 data=1800000000000000
+[xrg] t=3085000 PUSH wp=3 g=10 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=2 ic=0 kh=2 addr=00000250 len=16
+[xr2] t=3085000 ic=0 kh=2 p=0 pend=1 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=1 cr=1 iqcnt=2
+[d17C] t=3085000 addr=592 len=16 nT=0
+[xrg] t=3095000 PUSH wp=4 g=10 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=2 ic=0 kh=2 addr=00000258 len=8
+[xr2] t=3095000 ic=0 kh=2 p=1 pend=1 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=1 cr=1 iqcnt=3
+[d17C] t=3095000 addr=600 len=8 nT=0
+[xr2] t=3105000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=4
+[xr2] t=3115000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=4
+[xr2] t=3125000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=4
+[xr2] t=3135000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=4
+[xr2] t=3145000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=4
+[xr2] t=3155000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=4
+[xr2] t=3165000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=4
+[xr2] t=3175000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=4
+[xr2] t=3185000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=4
+[xrg] t=3195000 POP rp=1 g=1 iqlast=0 set=0 iqcnt=4 widx=2
+[xr2] t=3195000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=4
+[xr2] t=3205000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3215000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3225000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3235000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3245000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3255000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3265000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3275000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3285000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3295000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3305000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3315000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3325000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3335000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xrg] t=3345000 POP rp=2 g=1 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=3345000 GRPSET cg=0 grp=00
+[xr2] t=3345000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3355000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=2
+[xr2] t=3365000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=2
+[d17W] t=3365000 nT=0 k=3 strb=11111111 data=004880ae66188100
+[xrg] t=3375000 EMEND g=1 cnt=1 k=5
+[xr2] t=3375000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=2
+[d17W] t=3375000 nT=0 k=4 strb=11111111 data=24604880ae661881
+[xr2] t=3385000 ic=0 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=2
+[d17W] t=3385000 nT=0 k=5 strb=11111111 data=5100604880ae6618
+[xr2] t=3395000 ic=1 kh=0 p=0 pend=1 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=0 cv=0 cr=1 iqcnt=2
+[xrg] t=3405000 PUSH wp=5 g=11 p=1 lastcmd=1 later=0000 grpcmd=0 cnt=3 ic=1 kh=0 addr=00000280 len=8
+[xr2] t=3405000 ic=1 kh=0 p=1 pend=1 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=1 cr=1 iqcnt=2
+[d17C] t=3405000 addr=640 len=8 nT=0
+[xr2] t=3415000 ic=1 kh=0 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3425000 ic=1 kh=0 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3435000 ic=1 kh=0 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=0 cr=1 iqcnt=3
+[xrg] t=3445000 POP rp=3 g=0 iqlast=0 set=0 iqcnt=3 widx=2
+[xr2] t=3445000 ic=1 kh=0 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3455000 ic=1 kh=0 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=0 cr=1 iqcnt=2
+[xr2] t=3465000 ic=1 kh=0 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=0 cr=1 iqcnt=2
+[xr2] t=3475000 ic=1 kh=0 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=0 cr=1 iqcnt=2
+[xr2] t=3485000 ic=1 kh=0 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=0 cr=1 iqcnt=2
+[xr2] t=3495000 ic=1 kh=0 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=0 cr=1 iqcnt=2
+[xr2] t=3505000 ic=1 kh=0 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=0 cr=1 iqcnt=2
+[xr2] t=3515000 ic=1 kh=0 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=0 cr=1 iqcnt=2
+[xr2] t=3525000 ic=1 kh=0 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=0 cr=1 iqcnt=2
+[xr2] t=3535000 ic=1 kh=0 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=0 cr=1 iqcnt=2
+[xr2] t=3545000 ic=1 kh=0 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=0 cr=1 iqcnt=2
+[xr2] t=3555000 ic=1 kh=0 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=0 cr=1 iqcnt=2
+[xr2] t=3565000 ic=1 kh=0 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=0 cr=1 iqcnt=2
+[xr2] t=3575000 ic=1 kh=0 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=0 cr=1 iqcnt=2
+[xr2] t=3585000 ic=1 kh=0 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=0 cr=1 iqcnt=2
+[xr2] t=3595000 ic=1 kh=0 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=0 cr=1 iqcnt=2
+[xr2] t=3605000 ic=1 kh=0 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=0 cr=1 iqcnt=2
+[xrg] t=3615000 POP rp=4 g=0 iqlast=1 set=1 iqcnt=2 widx=1
+[xrg] t=3615000 GRPSET cg=0 grp=00
+[xr2] t=3615000 ic=1 kh=0 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=0 cr=1 iqcnt=2
+[xr2] t=3625000 ic=1 kh=0 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=0 cr=1 iqcnt=1
+[xr2] t=3635000 ic=1 kh=0 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=0 cr=1 iqcnt=1
+[d17W] t=3635000 nT=0 k=6 strb=11111111 data=0087bfb580512400
+[xrg] t=3645000 EMEND g=0 cnt=2 k=8
+[xr2] t=3645000 ic=1 kh=0 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=0 cr=1 iqcnt=1
+[d17W] t=3645000 nT=0 k=7 strb=11111111 data=2a4c87bfb5805124
+[xr2] t=3655000 ic=1 kh=0 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=1 cv=0 cr=1 iqcnt=1
+[d17W] t=3655000 nT=0 k=8 strb=11111111 data=2f004c87bfb58051
+[xrg] t=3665000 PUSH wp=6 g=00 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=0 ic=1 kh=1 addr=00000280 len=16
+[xr2] t=3665000 ic=1 kh=1 p=0 pend=1 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=1 cr=1 iqcnt=1
+[d17C] t=3665000 addr=640 len=16 nT=0
+[xrg] t=3675000 PUSH wp=7 g=00 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=0 ic=1 kh=1 addr=00000280 len=16
+[xr2] t=3675000 ic=1 kh=1 p=1 pend=1 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=1 cr=1 iqcnt=2
+[d17C] t=3675000 addr=640 len=16 nT=0
+[xr2] t=3685000 ic=1 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3695000 ic=1 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3705000 ic=1 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3715000 ic=1 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3725000 ic=1 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3735000 ic=1 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xrg] t=3745000 POP rp=5 g=1 iqlast=1 set=1 iqcnt=3 widx=1
+[xrg] t=3745000 GRPSET cg=0 grp=00
+[xr2] t=3745000 ic=1 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3755000 ic=1 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=2
+[xr2] t=3765000 ic=1 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=2
+[d17W] t=3765000 nT=0 k=9 strb=11111111 data=0000000000000000
+[xrg] t=3775000 EMEND g=1 cnt=3 k=11
+[xr2] t=3775000 ic=1 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=2
+[d17W] t=3775000 nT=0 k=10 strb=11111111 data=7600000000000000
+[xr2] t=3785000 ic=1 kh=1 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=2
+[d17W] t=3785000 nT=0 k=11 strb=11111111 data=2100000000000000
+[xrg] t=3795000 PUSH wp=0 g=01 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=1 ic=1 kh=2 addr=00000280 len=16
+[xr2] t=3795000 ic=1 kh=2 p=0 pend=1 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=1 cr=1 iqcnt=2
+[d17C] t=3795000 addr=640 len=16 nT=0
+[xrg] t=3805000 PUSH wp=1 g=01 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=1 ic=1 kh=2 addr=00000288 len=16
+[xr2] t=3805000 ic=1 kh=2 p=1 pend=1 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=1 cr=1 iqcnt=3
+[d17C] t=3805000 addr=648 len=16 nT=0
+[xr2] t=3815000 ic=1 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=4
+[xr2] t=3825000 ic=1 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=4
+[xr2] t=3835000 ic=1 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=4
+[xr2] t=3845000 ic=1 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=4
+[xr2] t=3855000 ic=1 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=4
+[xr2] t=3865000 ic=1 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=4
+[xr2] t=3875000 ic=1 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=4
+[xr2] t=3885000 ic=1 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=4
+[xr2] t=3895000 ic=1 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=4
+[xrg] t=3905000 POP rp=6 g=0 iqlast=0 set=0 iqcnt=4 widx=2
+[xr2] t=3905000 ic=1 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=4
+[xr2] t=3915000 ic=1 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3925000 ic=1 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3935000 ic=1 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3945000 ic=1 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3955000 ic=1 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3965000 ic=1 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3975000 ic=1 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3985000 ic=1 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=3995000 ic=1 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=4005000 ic=1 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xrg] t=4015000 POP rp=7 g=0 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=4015000 GRPSET cg=0 grp=00
+[xr2] t=4015000 ic=1 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=3
+[xr2] t=4025000 ic=1 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=2
+[xr2] t=4035000 ic=1 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=2
+[d17W] t=4035000 nT=0 k=12 strb=11111111 data=00957f879c217600
+[xrg] t=4045000 EMEND g=0 cnt=0 k=14
+[xr2] t=4045000 ic=1 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=2
+[d17W] t=4045000 nT=0 k=13 strb=11111111 data=fca8957f879c2176
+[xr2] t=4055000 ic=1 kh=2 p=1 pend=0 pvt=0011 m=00000_00000_00001_00111 pc=0011 dmacur=1 cv=0 cr=1 iqcnt=2
+[d17W] t=4055000 nT=0 k=14 strb=11111111 data=b000a8957f879c21
+[xr2] t=4065000 ic=2 kh=0 p=0 pend=1 pvt=0011 m=00000_00000_00001_00111 pc=0010 dmacur=0 cv=0 cr=1 iqcnt=2
+[xrg] t=4075000 PUSH wp=2 g=10 p=1 lastcmd=1 later=0000 grpcmd=0 cnt=2 ic=2 kh=0 addr=000002b0 len=8
+[d17C] t=4075000 addr=688 len=8 nT=0
+[xrg] t=4155000 POP rp=0 g=1 iqlast=0 set=0 iqcnt=3 widx=2
+[xrg] t=4365000 POP rp=1 g=1 iqlast=1 set=1 iqcnt=2 widx=2
+[xrg] t=4365000 GRPSET cg=0 grp=00
+[d17W] t=4385000 nT=0 k=15 strb=11111111 data=00219062f5b0fc00
+[xrg] t=4395000 EMEND g=1 cnt=1 k=17
+[d17W] t=4395000 nT=0 k=16 strb=11111111 data=7604219062f5b0fc
+[d17W] t=4405000 nT=0 k=17 strb=11111111 data=7d0004219062f5b0
+[xrg] t=4415000 PUSH wp=3 g=11 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=3 ic=2 kh=1 addr=000002b0 len=16
+[d17C] t=4415000 addr=688 len=16 nT=0
+[xrg] t=4425000 PUSH wp=4 g=11 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=3 ic=2 kh=1 addr=000002b8 len=8
+[d17C] t=4425000 addr=696 len=8 nT=0
+[xrg] t=4465000 POP rp=2 g=0 iqlast=1 set=1 iqcnt=3 widx=1
+[xrg] t=4465000 GRPSET cg=0 grp=00
+[d17W] t=4485000 nT=0 k=18 strb=11111111 data=0000000000000000
+[xrg] t=4495000 EMEND g=0 cnt=2 k=20
+[d17W] t=4495000 nT=0 k=19 strb=11111111 data=0900000000000000
+[d17W] t=4505000 nT=0 k=20 strb=11111111 data=8000000000000000
+[xrg] t=4515000 PUSH wp=5 g=00 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=0 ic=2 kh=2 addr=000002b8 len=16
+[d17C] t=4515000 addr=696 len=16 nT=0
+[xrg] t=4525000 PUSH wp=6 g=00 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=0 ic=2 kh=2 addr=000002b8 len=16
+[d17C] t=4525000 addr=696 len=16 nT=0
+[xrg] t=4585000 POP rp=3 g=1 iqlast=0 set=0 iqcnt=4 widx=2
+[xrg] t=4675000 POP rp=4 g=1 iqlast=1 set=1 iqcnt=3 widx=1
+[xrg] t=4675000 GRPSET cg=0 grp=00
+[d17W] t=4695000 nT=0 k=21 strb=11111111 data=001174bcfa800900
+[xrg] t=4705000 EMEND g=1 cnt=3 k=23
+[d17W] t=4705000 nT=0 k=22 strb=11111111 data=355b1174bcfa8009
+[d17W] t=4715000 nT=0 k=23 strb=11111111 data=f3005b1174bcfa80
+[xrg] t=4795000 POP rp=5 g=0 iqlast=0 set=0 iqcnt=2 widx=2
+[xrg] t=4955000 POP rp=6 g=0 iqlast=1 set=1 iqcnt=1 widx=2
+[xrg] t=4955000 GRPSET cg=0 grp=00
+[d17W] t=4975000 nT=0 k=24 strb=11111111 data=00322a6f7ff33500
+[xrg] t=4985000 EMEND g=0 cnt=0 k=26
+[d17W] t=4985000 nT=0 k=25 strb=11111111 data=ed28322a6f7ff335
+[d17W] t=4995000 nT=0 k=26 strb=11111111 data=e00028322a6f7ff3
+[xl] t=5005000 st=3 n=0 tgt=0 start=0 done=0 err=0 ph=4 ed_d=1 ed_p=0 iq=0 cgact=1 cgc=0 wp=7 rp=7
+[d19C] t=5005000 acc_clr nT=0 kcnt=0
+[xl] t=5015000 st=3 n=0 tgt=0 start=0 done=1 err=0 ph=0 ed_d=0 ed_p=1 iq=0 cgact=1 cgc=0 wp=7 rp=7
+[d19C] t=5015000 acc_clr nT=0 kcnt=0
+[xl] t=5025000 st=1 n=1 tgt=0 start=0 done=0 err=0 ph=0 ed_d=0 ed_p=0 iq=0 cgact=1 cgc=0 wp=7 rp=7
+[d19C] t=5025000 acc_clr nT=0 kcnt=0
+[xl] t=5035000 st=2 n=1 tgt=0 start=0 done=0 err=0 ph=0 ed_d=0 ed_p=0 iq=0 cgact=1 cgc=0 wp=7 rp=7
+[d19C] t=5035000 acc_clr nT=0 kcnt=0
+[xrg] t=5045000 START ih=7 iw=7 ow=7 ic=3 kh=3 kw=3 sh=1 sw=1 ph=1 pw=1 klen=27 nstart=0 nlen=8 first=0 xbase=00000250 | INPUTS n_start_i=8 n_len_i=8 | loader xl_n_r=1 cfg_n_total=49 cfg_n_tiles=7
+[xl] t=5045000 st=3 n=1 tgt=1 start=1 done=0 err=0 ph=0 ed_d=0 ed_p=0 iq=0 cgact=1 cgc=0 wp=7 rp=7
+[d19C] t=5045000 acc_clr nT=0 kcnt=0
+[xl] t=5055000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=1 ed_d=0 ed_p=0 iq=0 cgact=1 cgc=0 wp=0 rp=0
+[d19C] t=5055000 acc_clr nT=0 kcnt=0
+[xl] t=5065000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=1 ed_d=0 ed_p=0 iq=0 cgact=1 cgc=0 wp=0 rp=0
+[d19C] t=5065000 acc_clr nT=0 kcnt=0
+[xl] t=5075000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=1 ed_d=0 ed_p=0 iq=0 cgact=1 cgc=0 wp=0 rp=0
+[d19C] t=5075000 acc_clr nT=0 kcnt=0
+[xl] t=5085000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=1 ed_d=0 ed_p=0 iq=0 cgact=1 cgc=0 wp=0 rp=0
+[d19C] t=5085000 acc_clr nT=0 kcnt=0
+[xl] t=5095000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=1 ed_d=0 ed_p=0 iq=0 cgact=1 cgc=0 wp=0 rp=0
+[d19C] t=5095000 acc_clr nT=0 kcnt=0
+[xl] t=5105000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=1 ed_d=0 ed_p=0 iq=0 cgact=1 cgc=0 wp=0 rp=0
+[d19C] t=5105000 acc_clr nT=0 kcnt=0
+[xl] t=5115000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=1 ed_d=0 ed_p=0 iq=0 cgact=1 cgc=0 wp=0 rp=0
+[d19C] t=5115000 acc_clr nT=0 kcnt=0
+[xl] t=5125000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=1 ed_d=0 ed_p=0 iq=0 cgact=1 cgc=0 wp=0 rp=0
+[d19C] t=5125000 acc_clr nT=0 kcnt=0
+[xl] t=5135000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=1 ed_d=0 ed_p=0 iq=0 cgact=1 cgc=0 wp=0 rp=0
+[d19C] t=5135000 acc_clr nT=0 kcnt=0
+[xl] t=5145000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=1 ed_d=0 ed_p=0 iq=0 cgact=1 cgc=0 wp=0 rp=0
+[d19C] t=5145000 acc_clr nT=0 kcnt=0
+[xl] t=5155000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=1 ed_d=0 ed_p=0 iq=0 cgact=1 cgc=0 wp=0 rp=0
+[d19C] t=5155000 acc_clr nT=0 kcnt=0
+[xl] t=5165000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=1 ed_d=0 ed_p=0 iq=0 cgact=1 cgc=0 wp=0 rp=0
+[d19C] t=5165000 acc_clr nT=0 kcnt=0
+[xl] t=5175000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=1 ed_d=0 ed_p=0 iq=0 cgact=1 cgc=0 wp=0 rp=0
+[d19C] t=5175000 acc_clr nT=0 kcnt=0
+[xl] t=5185000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=1 ed_d=0 ed_p=0 iq=0 cgact=1 cgc=0 wp=0 rp=0
+[d19C] t=5185000 acc_clr nT=0 kcnt=0
+[xl] t=5195000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=1 ed_d=0 ed_p=0 iq=0 cgact=1 cgc=0 wp=0 rp=0
+[d19C] t=5195000 acc_clr nT=0 kcnt=0
+[xl] t=5205000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=1 ed_d=0 ed_p=0 iq=0 cgact=1 cgc=0 wp=0 rp=0
+[d19C] t=5205000 acc_clr nT=0 kcnt=0
+[xrg] t=5215000 PART pp=0 rem_p=8 vld=1 m=6 cap=6 oy=1 ox=1 pvt=0000
+[xl] t=5215000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=2 ed_d=0 ed_p=0 iq=0 cgact=1 cgc=0 wp=0 rp=0
+[d19C] t=5215000 acc_clr nT=0 kcnt=0
+[xrg] t=5225000 PART pp=1 rem_p=2 vld=1 m=2 cap=7 oy=2 ox=0 pvt=0001
+[xl] t=5225000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=2 ed_d=0 ed_p=0 iq=0 cgact=1 cgc=0 wp=0 rp=0
+[d19C] t=5225000 acc_clr nT=0 kcnt=0
+[xl] t=5235000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=3 ed_d=0 ed_p=0 iq=0 cgact=1 cgc=0 wp=0 rp=0
+[d19C] t=5235000 acc_clr nT=0 kcnt=0
+[xrg] t=5245000 PUSH wp=0 g=00 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=0 ic=0 kh=0 addr=00000250 len=8
+[xl] t=5245000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=4 ed_d=0 ed_p=0 iq=0 cgact=1 cgc=0 wp=0 rp=0
+[d19C] t=5245000 acc_clr nT=0 kcnt=0
+[d17C] t=5245000 addr=592 len=8 nT=1
+[xrg] t=5255000 PUSH wp=1 g=00 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=0 ic=0 kh=0 addr=00000250 len=16
+[xl] t=5255000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=4 ed_d=0 ed_p=0 iq=1 cgact=1 cgc=0 wp=1 rp=0
+[d19C] t=5255000 acc_clr nT=0 kcnt=0
+[d17C] t=5255000 addr=592 len=16 nT=1
+[xrg] t=5265000 PUSH wp=2 g=01 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=1 ic=0 kh=1 addr=00000250 len=16
+[xl] t=5265000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=4 ed_d=0 ed_p=0 iq=2 cgact=1 cgc=1 wp=2 rp=0
+[d19C] t=5265000 acc_clr nT=0 kcnt=0
+[d17C] t=5265000 addr=592 len=16 nT=1
+[xrg] t=5275000 PUSH wp=3 g=01 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=1 ic=0 kh=1 addr=00000258 len=16
+[xl] t=5275000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=4 ed_d=0 ed_p=0 iq=3 cgact=1 cgc=1 wp=3 rp=0
+[d19C] t=5275000 acc_clr nT=0 kcnt=0
+[d17C] t=5275000 addr=600 len=16 nT=1
+[xl] t=5285000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=4 ed_d=0 ed_p=0 iq=4 cgact=1 cgc=1 wp=4 rp=0
+[d19C] t=5285000 acc_clr nT=0 kcnt=0
+[xl] t=5295000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=4 ed_d=0 ed_p=0 iq=4 cgact=1 cgc=1 wp=4 rp=0
+[d19C] t=5295000 acc_clr nT=0 kcnt=0
+[xl] t=5305000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=4 ed_d=0 ed_p=0 iq=4 cgact=1 cgc=1 wp=4 rp=0
+[d19C] t=5305000 acc_clr nT=0 kcnt=0
+[xl] t=5315000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=4 ed_d=0 ed_p=0 iq=4 cgact=1 cgc=1 wp=4 rp=0
+[d19C] t=5315000 acc_clr nT=0 kcnt=0
+[xl] t=5325000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=4 ed_d=0 ed_p=0 iq=4 cgact=1 cgc=1 wp=4 rp=0
+[d19C] t=5325000 acc_clr nT=0 kcnt=0
+[xl] t=5335000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=4 ed_d=0 ed_p=0 iq=4 cgact=1 cgc=1 wp=4 rp=0
+[d19C] t=5335000 acc_clr nT=0 kcnt=0
+[xl] t=5345000 st=3 n=1 tgt=1 start=0 done=0 err=0 ph=4 ed_d=0 ed_p=0 iq=4 cgact=1 cgc=1 wp=4 rp=0
+[d19C] t=5345000 acc_clr nT=0 kcnt=0
+[d19C] t=5355000 acc_clr nT=0 kcnt=0
+[d19C] t=5365000 acc_clr nT=0 kcnt=0
+[d19C] t=5375000 acc_clr nT=0 kcnt=0
+[d19C] t=5385000 acc_clr nT=0 kcnt=0
+[d19C] t=5395000 acc_clr nT=0 kcnt=0
+[d19C] t=5405000 acc_clr nT=0 kcnt=0
+[d19C] t=5415000 acc_clr nT=0 kcnt=0
+[d19C] t=5425000 acc_clr nT=0 kcnt=0
+[xrg] t=5435000 POP rp=0 g=0 iqlast=0 set=0 iqcnt=4 widx=1
+[d19C] t=5435000 acc_clr nT=0 kcnt=0
+[d19C] t=5445000 acc_clr nT=0 kcnt=0
+[d19C] t=5455000 acc_clr nT=0 kcnt=0
+[d19C] t=5465000 acc_clr nT=0 kcnt=0
+[d19C] t=5475000 acc_clr nT=0 kcnt=0
+[d19C] t=5485000 acc_clr nT=0 kcnt=0
+[d19C] t=5495000 acc_clr nT=0 kcnt=0
+[d19C] t=5505000 acc_clr nT=0 kcnt=0
+[d19C] t=5515000 acc_clr nT=0 kcnt=0
+[d19C] t=5525000 acc_clr nT=0 kcnt=0
+[d20] t=5535000 k=0 wv=0 e4=0 clr=1 X=0000000000000000 W=0000000000000000 ad0=0 ad8=0 aq0=0
+[d20] t=5545000 k=1 wv=0 e4=0 clr=0 X=0000000000000000 W=0000000000000000 ad0=0 ad8=0 aq0=0
+[d19] t=5555000 WV k=0 X=0000000000000000 W=d22eee8fc6e87d31 bk=0
+[d20] t=5555000 k=2 wv=1 e4=0 clr=0 X=0000000000000000 W=d22eee8fc6e87d31 ad0=0 ad8=0 aq0=0
+[d19] t=5565000 WV k=1 X=8100000000000000 W=8ea854726b9d8c98 bk=0
+[d20] t=5565000 k=3 wv=1 e4=0 clr=0 X=8100000000000000 W=8ea854726b9d8c98 ad0=0 ad8=0 aq0=0
+[d19] t=5575000 WV k=2 X=1800000000000000 W=98a2b52f79b0312b bk=0
+[d20] t=5575000 k=4 wv=1 e4=0 clr=0 X=1800000000000000 W=98a2b52f79b0312b ad0=0 ad8=0 aq0=0
+[d19] t=5585000 WV k=3 X=004880ae66188100 W=f414c0604a961409 bk=0
+[d20] t=5585000 k=5 wv=1 e4=1 clr=0 X=004880ae66188100 W=f414c0604a961409 ad0=0 ad8=0 aq0=0
+[d19] t=5595000 WV k=4 X=24604880ae661881 W=04d24ac215695985 bk=0
+[d20] t=5595000 k=6 wv=1 e4=1 clr=0 X=24604880ae661881 W=04d24ac215695985 ad0=0 ad8=0 aq0=0
+[d19] t=5605000 WV k=5 X=5100604880ae6618 W=46ac36d74ceb926a bk=0
+[d20] t=5605000 k=7 wv=1 e4=1 clr=0 X=5100604880ae6618 W=46ac36d74ceb926a ad0=0 ad8=0 aq0=0
+[d19] t=5615000 WV k=6 X=0087bfb580512400 W=b589c9366a2f359e bk=0
+[d20] t=5615000 k=8 wv=1 e4=1 clr=0 X=0087bfb580512400 W=b589c9366a2f359e ad0=0 ad8=0 aq0=0
+[xrg] t=5625000 POP rp=1 g=0 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=5625000 GRPSET cg=0 grp=00
+[d19] t=5625000 WV k=7 X=2a4c87bfb5805124 W=06eeee9a31480d7b bk=0
+[d20] t=5625000 k=9 wv=1 e4=1 clr=0 X=2a4c87bfb5805124 W=06eeee9a31480d7b ad0=15621 ad8=4294955993 aq0=0
+[d19] t=5635000 WV k=8 X=2f004c87bfb58051 W=c95799f44c229156 bk=0
+[d20] t=5635000 k=10 wv=1 e4=1 clr=0 X=2f004c87bfb58051 W=c95799f44c229156 ad0=2544 ad8=4294964656 aq0=15621
+[d19] t=5645000 WV k=9 X=0000000000000000 W=bcd8fe777037e959 bk=0
+[d20] t=5645000 k=11 wv=1 e4=1 clr=0 X=0000000000000000 W=bcd8fe777037e959 ad0=0 ad8=0 aq0=18165
+[d17W] t=5645000 nT=1 k=0 strb=11111111 data=24004880ae661881
+[xrg] t=5655000 EMEND g=0 cnt=0 k=2
+[d19] t=5655000 WV k=10 X=7600000000000000 W=1cb1ffb036e09def bk=0
+[d20] t=5655000 k=12 wv=1 e4=1 clr=0 X=7600000000000000 W=1cb1ffb036e09def ad0=4428 ad8=468 aq0=18165
+[d17W] t=5655000 nT=1 k=1 strb=11111111 data=5124604880ae6618
+[d19] t=5665000 WV k=11 X=2100000000000000 W=8656f64ce7e5bb3f bk=0
+[d17W] t=5665000 nT=1 k=2 strb=11111111 data=805100604880ae66
+[xrg] t=5675000 PUSH wp=4 g=10 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=2 ic=0 kh=2 addr=00000258 len=16
+[d19] t=5675000 WV k=12 X=00957f879c217600 W=09180e394d7aab62 bk=0
+[d17C] t=5675000 addr=600 len=16 nT=1
+[xrg] t=5685000 PUSH wp=5 g=10 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=2 ic=0 kh=2 addr=00000260 len=8
+[d19] t=5685000 WV k=13 X=fca8957f879c2176 W=616d342b4defc0e8 bk=0
+[d17C] t=5685000 addr=608 len=8 nT=1
+[d19] t=5695000 WV k=14 X=b000a8957f879c21 W=ef3559971c0978fa bk=0
+[d19] t=5705000 WV k=15 X=00219062f5b0fc00 W=9b572226a3368110 bk=0
+[d19] t=5715000 WV k=16 X=7604219062f5b0fc W=0b8618f0dc096407 bk=0
+[d19] t=5725000 WV k=17 X=7d0004219062f5b0 W=9eac4e06299bd395 bk=0
+[d19] t=5735000 WV k=18 X=0000000000000000 W=9da2579af1cf9c92 bk=0
+[d19] t=5745000 WV k=19 X=0900000000000000 W=0b891300f0b97d25 bk=0
+[d19] t=5755000 WV k=20 X=8000000000000000 W=7dcdbac649ba869b bk=0
+[xrg] t=5765000 POP rp=2 g=1 iqlast=0 set=0 iqcnt=4 widx=2
+[d19] t=5765000 WV k=21 X=001174bcfa800900 W=42702b49dca2b2c2 bk=0
+[d19] t=5775000 WV k=22 X=355b1174bcfa8009 W=21987a358c5fd2e9 bk=0
+[d19] t=5785000 WV k=23 X=f3005b1174bcfa80 W=e7e4077793c0855f bk=0
+[d19] t=5795000 WV k=24 X=00322a6f7ff33500 W=b986ee254475e80c bk=0
+[d19] t=5805000 WV k=25 X=ed28322a6f7ff335 W=6564eba43213e78a bk=0
+[d19] t=5815000 WV k=26 X=e00028322a6f7ff3 W=25f2199a60cec303 bk=0
+[d20] t=5835000 k=27 wv=0 e4=1 clr=0 X=e00028322a6f7ff3 W=25f2199a60cec303 ad0=4294961042 ad8=4294965971 aq0=22694
+[d20] t=5845000 k=27 wv=0 e4=1 clr=0 X=e00028322a6f7ff3 W=25f2199a60cec303 ad0=4294967257 ad8=793 aq0=16440
+[d14] SNAP t=5855000 occ=0 wr=0 ocT=0 nT=0 bank=0 L=16401,18436,4294897464,1509,4294961561,7530,4294962257,28659,4294959236,4294938932,32247,36942,4294910254,4294924246,7783,6732,8546,17104,3405,4294941084,4294959393,9046,6150,15899,28261,38867,26445,4294934331,4294939005,4294961186,4294941542,4294954788,4294952430,4294947721,4294951737,4294962007,15007,7422,4294949511,4294957401,4294951704,3935,4294957237,4294948417,25744,9200,13020,8884,40174,4294954615,4294926665,13298,4294959552,429495049242949579144294933890
+[d19C] t=5855000 acc_clr nT=0 kcnt=0
+[d20] t=5855000 k=0 wv=0 e4=0 clr=0 X=e00028322a6f7ff3 W=25f2199a60cec303 ad0=4294967257 ad8=793 aq0=16401
+[d19C] t=5865000 acc_clr nT=1 kcnt=0
+[d20] t=5865000 k=0 wv=0 e4=0 clr=1 X=e00028322a6f7ff3 W=25f2199a60cec303 ad0=4294967257 ad8=793 aq0=16401
+[d14] RQ t=5875000 rd=0 nb=0 idx=0 oc=0 nl=0 acc=16401 b=-16400 m=1073741824 s=31
+[d19C] t=5875000 acc_clr nT=1 kcnt=0
+[d20] t=5875000 k=0 wv=0 e4=0 clr=1 X=e00028322a6f7ff3 W=25f2199a60cec303 ad0=4294967257 ad8=793 aq0=0
+[d14] RQ t=5885000 rd=0 nb=0 idx=1 oc=0 nl=1 acc=18436 b=-16400 m=1073741824 s=31
+[d19C] t=5885000 acc_clr nT=1 kcnt=0
+[xrg] t=5895000 POP rp=3 g=1 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=5895000 GRPSET cg=0 grp=00
+[d14] RQ t=5895000 rd=0 nb=0 idx=2 oc=0 nl=2 acc=4294897464 b=-16400 m=1073741824 s=31
+[d19C] t=5895000 acc_clr nT=1 kcnt=0
+[d14] RQ t=5905000 rd=0 nb=0 idx=3 oc=0 nl=3 acc=1509 b=-16400 m=1073741824 s=31
+[d19C] t=5905000 acc_clr nT=1 kcnt=0
+[d14] RQ t=5915000 rd=0 nb=0 idx=4 oc=0 nl=4 acc=4294961561 b=-16400 m=1073741824 s=31
+[d19C] t=5915000 acc_clr nT=1 kcnt=0
+[d17W] t=5915000 nT=1 k=3 strb=11111111 data=2a0087bfb5805124
+[xrg] t=5925000 EMEND g=1 cnt=1 k=5
+[d14] RQ t=5925000 rd=0 nb=0 idx=5 oc=0 nl=5 acc=7530 b=-16400 m=1073741824 s=31
+[d19C] t=5925000 acc_clr nT=1 kcnt=0
+[d17W] t=5925000 nT=1 k=4 strb=11111111 data=2f2a4c87bfb58051
+[d14] RQ t=5935000 rd=0 nb=0 idx=6 oc=0 nl=6 acc=4294962257 b=-16400 m=1073741824 s=31
+[d19C] t=5935000 acc_clr nT=1 kcnt=0
+[d17W] t=5935000 nT=1 k=5 strb=11111111 data=bf2f004c87bfb580
+[xrg] t=5945000 PUSH wp=6 g=11 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=3 ic=1 kh=0 addr=00000280 len=16
+[d14] RQ t=5945000 rd=0 nb=0 idx=7 oc=0 nl=7 acc=28659 b=-16400 m=1073741824 s=31
+[d14] D8 t=5945000 ypre=0 act=1 addr=0
+[d19C] t=5945000 acc_clr nT=1 kcnt=0
+[d17C] t=5945000 addr=640 len=16 nT=1
+[xrg] t=5955000 PUSH wp=7 g=11 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=3 ic=1 kh=0 addr=00000280 len=16
+[d14] D8 t=5955000 ypre=127 act=1 addr=0
+[d19C] t=5955000 acc_clr nT=1 kcnt=0
+[d17C] t=5955000 addr=640 len=16 nT=1
+[d14] D8 t=5965000 ypre=-128 act=1 addr=0
+[d19C] t=5965000 acc_clr nT=1 kcnt=0
+[d14] D8 t=5975000 ypre=-128 act=1 addr=0
+[d19C] t=5975000 acc_clr nT=1 kcnt=0
+[d14] D8 t=5985000 ypre=-128 act=1 addr=0
+[d19C] t=5985000 acc_clr nT=1 kcnt=0
+[xrg] t=5995000 POP rp=4 g=0 iqlast=0 set=0 iqcnt=4 widx=2
+[d14] D8 t=5995000 ypre=-128 act=1 addr=0
+[d19C] t=5995000 acc_clr nT=1 kcnt=0
+[d14] D8 t=6005000 ypre=-128 act=1 addr=0
+[d19C] t=6005000 acc_clr nT=1 kcnt=0
+[d14] D8 t=6015000 ypre=127 act=1 addr=0
+[d19C] t=6015000 acc_clr nT=1 kcnt=0
+[d19C] t=6025000 acc_clr nT=1 kcnt=0
+[d19C] t=6035000 acc_clr nT=1 kcnt=0
+[d19C] t=6045000 acc_clr nT=1 kcnt=0
+[d19C] t=6055000 acc_clr nT=1 kcnt=0
+[d19C] t=6065000 acc_clr nT=1 kcnt=0
+[xrg] t=6075000 POP rp=5 g=0 iqlast=1 set=1 iqcnt=3 widx=1
+[xrg] t=6075000 GRPSET cg=0 grp=00
+[d19C] t=6075000 acc_clr nT=1 kcnt=0
+[d19C] t=6085000 acc_clr nT=1 kcnt=0
+[d19C] t=6095000 acc_clr nT=1 kcnt=0
+[d17W] t=6095000 nT=1 k=6 strb=11111111 data=f000aa7f74bf2f2a
+[xrg] t=6105000 EMEND g=0 cnt=2 k=8
+[d19C] t=6105000 acc_clr nT=1 kcnt=0
+[d17W] t=6105000 nT=1 k=7 strb=11111111 data=7df0b3aa7f74bf2f
+[d19C] t=6115000 acc_clr nT=1 kcnt=0
+[d17W] t=6115000 nT=1 k=8 strb=11111111 data=df7d00b3aa7f74bf
+[xrg] t=6125000 PUSH wp=0 g=00 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=0 ic=1 kh=1 addr=00000288 len=8
+[d19C] t=6125000 acc_clr nT=1 kcnt=0
+[d17C] t=6125000 addr=648 len=8 nT=1
+[xrg] t=6135000 PUSH wp=1 g=00 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=0 ic=1 kh=1 addr=00000288 len=16
+[d19C] t=6135000 acc_clr nT=1 kcnt=0
+[d17C] t=6135000 addr=648 len=16 nT=1
+[d19C] t=6145000 acc_clr nT=1 kcnt=0
+[d19C] t=6155000 acc_clr nT=1 kcnt=0
+[d19C] t=6165000 acc_clr nT=1 kcnt=0
+[d19C] t=6175000 acc_clr nT=1 kcnt=0
+[d19C] t=6185000 acc_clr nT=1 kcnt=0
+[d19C] t=6195000 acc_clr nT=1 kcnt=0
+[d14] RQ t=6205000 rd=0 nb=0 idx=8 oc=1 nl=0 acc=4294959236 b=57041 m=1073741824 s=31
+[d19C] t=6205000 acc_clr nT=1 kcnt=0
+[d14] RQ t=6215000 rd=0 nb=0 idx=9 oc=1 nl=1 acc=4294938932 b=57041 m=1073741824 s=31
+[d19C] t=6215000 acc_clr nT=1 kcnt=0
+[xrg] t=6225000 POP rp=6 g=1 iqlast=0 set=0 iqcnt=4 widx=2
+[d14] RQ t=6225000 rd=0 nb=0 idx=10 oc=1 nl=2 acc=32247 b=57041 m=1073741824 s=31
+[d19C] t=6225000 acc_clr nT=1 kcnt=0
+[d14] RQ t=6235000 rd=0 nb=0 idx=11 oc=1 nl=3 acc=36942 b=57041 m=1073741824 s=31
+[d19C] t=6235000 acc_clr nT=1 kcnt=0
+[d14] RQ t=6245000 rd=0 nb=0 idx=12 oc=1 nl=4 acc=4294910254 b=57041 m=1073741824 s=31
+[d19C] t=6245000 acc_clr nT=1 kcnt=0
+[d14] RQ t=6255000 rd=0 nb=0 idx=13 oc=1 nl=5 acc=4294924246 b=57041 m=1073741824 s=31
+[d19C] t=6255000 acc_clr nT=1 kcnt=0
+[d14] RQ t=6265000 rd=0 nb=0 idx=14 oc=1 nl=6 acc=7783 b=57041 m=1073741824 s=31
+[d19C] t=6265000 acc_clr nT=1 kcnt=0
+[d14] RQ t=6275000 rd=0 nb=0 idx=15 oc=1 nl=7 acc=6732 b=57041 m=1073741824 s=31
+[d14] D8 t=6275000 ypre=127 act=1 addr=49
+[d19C] t=6275000 acc_clr nT=1 kcnt=0
+[d14] D8 t=6285000 ypre=127 act=1 addr=49
+[d19C] t=6285000 acc_clr nT=1 kcnt=0
+[d14] D8 t=6295000 ypre=127 act=1 addr=49
+[d19C] t=6295000 acc_clr nT=1 kcnt=0
+[d14] D8 t=6305000 ypre=127 act=1 addr=49
+[d19C] t=6305000 acc_clr nT=1 kcnt=0
+[d14] D8 t=6315000 ypre=0 act=1 addr=49
+[d19C] t=6315000 acc_clr nT=1 kcnt=0
+[d14] D8 t=6325000 ypre=127 act=1 addr=49
+[d19C] t=6325000 acc_clr nT=1 kcnt=0
+[d14] D8 t=6335000 ypre=127 act=1 addr=49
+[d19C] t=6335000 acc_clr nT=1 kcnt=0
+[d14] D8 t=6345000 ypre=127 act=1 addr=49
+[d19C] t=6345000 acc_clr nT=1 kcnt=0
+[d19C] t=6355000 acc_clr nT=1 kcnt=0
+[xrg] t=6365000 POP rp=7 g=1 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=6365000 GRPSET cg=0 grp=00
+[d19C] t=6365000 acc_clr nT=1 kcnt=0
+[d19C] t=6375000 acc_clr nT=1 kcnt=0
+[d19C] t=6385000 acc_clr nT=1 kcnt=0
+[d17W] t=6385000 nT=1 k=9 strb=11111111 data=fc00957f879c2176
+[xrg] t=6395000 EMEND g=1 cnt=3 k=11
+[d19C] t=6395000 acc_clr nT=1 kcnt=0
+[d17W] t=6395000 nT=1 k=10 strb=11111111 data=b0fca8957f879c21
+[d19C] t=6405000 acc_clr nT=1 kcnt=0
+[d17W] t=6405000 nT=1 k=11 strb=11111111 data=f5b000a8957f879c
+[xrg] t=6415000 PUSH wp=2 g=01 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=1 ic=1 kh=2 addr=00000288 len=16
+[d19C] t=6415000 acc_clr nT=1 kcnt=0
+[d17C] t=6415000 addr=648 len=16 nT=1
+[xrg] t=6425000 PUSH wp=3 g=01 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=1 ic=1 kh=2 addr=00000290 len=16
+[d19C] t=6425000 acc_clr nT=1 kcnt=0
+[d17C] t=6425000 addr=656 len=16 nT=1
+[xrg] t=6435000 POP rp=0 g=0 iqlast=0 set=0 iqcnt=4 widx=1
+[d19C] t=6435000 acc_clr nT=1 kcnt=0
+[d19C] t=6445000 acc_clr nT=1 kcnt=0
+[d19C] t=6455000 acc_clr nT=1 kcnt=0
+[d19C] t=6465000 acc_clr nT=1 kcnt=0
+[d19C] t=6475000 acc_clr nT=1 kcnt=0
+[d19C] t=6485000 acc_clr nT=1 kcnt=0
+[d19C] t=6495000 acc_clr nT=1 kcnt=0
+[d19C] t=6505000 acc_clr nT=1 kcnt=0
+[d19C] t=6515000 acc_clr nT=1 kcnt=0
+[d19C] t=6525000 acc_clr nT=1 kcnt=0
+[d14] RQ t=6535000 rd=0 nb=0 idx=16 oc=2 nl=0 acc=8546 b=11348 m=1533063726 s=39
+[d19C] t=6535000 acc_clr nT=1 kcnt=0
+[d14] RQ t=6545000 rd=0 nb=0 idx=17 oc=2 nl=1 acc=17104 b=11348 m=1533063726 s=39
+[d19C] t=6545000 acc_clr nT=1 kcnt=0
+[d14] RQ t=6555000 rd=0 nb=0 idx=18 oc=2 nl=2 acc=3405 b=11348 m=1533063726 s=39
+[d19C] t=6555000 acc_clr nT=1 kcnt=0
+[d14] RQ t=6565000 rd=0 nb=0 idx=19 oc=2 nl=3 acc=4294941084 b=11348 m=1533063726 s=39
+[d19C] t=6565000 acc_clr nT=1 kcnt=0
+[d14] RQ t=6575000 rd=0 nb=0 idx=20 oc=2 nl=4 acc=4294959393 b=11348 m=1533063726 s=39
+[d19C] t=6575000 acc_clr nT=1 kcnt=0
+[d14] RQ t=6585000 rd=0 nb=0 idx=21 oc=2 nl=5 acc=9046 b=11348 m=1533063726 s=39
+[d19C] t=6585000 acc_clr nT=1 kcnt=0
+[xrg] t=6595000 POP rp=1 g=0 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=6595000 GRPSET cg=0 grp=00
+[d14] RQ t=6595000 rd=0 nb=0 idx=22 oc=2 nl=6 acc=6150 b=11348 m=1533063726 s=39
+[d19C] t=6595000 acc_clr nT=1 kcnt=0
+[d14] RQ t=6605000 rd=0 nb=0 idx=23 oc=2 nl=7 acc=15899 b=11348 m=1533063726 s=39
+[d14] D8 t=6605000 ypre=55 act=1 addr=98
+[d19C] t=6605000 acc_clr nT=1 kcnt=0
+[d14] D8 t=6615000 ypre=79 act=1 addr=98
+[d19C] t=6615000 acc_clr nT=1 kcnt=0
+[d17W] t=6615000 nT=1 k=12 strb=11111111 data=7600219062f5b0fc
+[xrg] t=6625000 EMEND g=0 cnt=0 k=14
+[d14] D8 t=6625000 ypre=41 act=1 addr=98
+[d19C] t=6625000 acc_clr nT=1 kcnt=0
+[d17W] t=6625000 nT=1 k=13 strb=11111111 data=7d7604219062f5b0
+[d14] D8 t=6635000 ypre=-41 act=1 addr=98
+[d19C] t=6635000 acc_clr nT=1 kcnt=0
+[d17W] t=6635000 nT=1 k=14 strb=11111111 data=f37d0004219062f5
+[xrg] t=6645000 PUSH wp=4 g=10 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=2 ic=2 kh=0 addr=000002b0 len=16
+[d14] D8 t=6645000 ypre=10 act=1 addr=98
+[d19C] t=6645000 acc_clr nT=1 kcnt=0
+[d17C] t=6645000 addr=688 len=16 nT=1
+[xrg] t=6655000 PUSH wp=5 g=10 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=2 ic=2 kh=0 addr=000002b8 len=8
+[d14] D8 t=6655000 ypre=57 act=1 addr=98
+[d19C] t=6655000 acc_clr nT=1 kcnt=0
+[d17C] t=6655000 addr=696 len=8 nT=1
+[d14] D8 t=6665000 ypre=49 act=1 addr=98
+[d19C] t=6665000 acc_clr nT=1 kcnt=0
+[d14] D8 t=6675000 ypre=76 act=1 addr=98
+[d19C] t=6675000 acc_clr nT=1 kcnt=0
+[d19C] t=6685000 acc_clr nT=1 kcnt=0
+[d19C] t=6695000 acc_clr nT=1 kcnt=0
+[d19C] t=6705000 acc_clr nT=1 kcnt=0
+[d19C] t=6715000 acc_clr nT=1 kcnt=0
+[d19C] t=6725000 acc_clr nT=1 kcnt=0
+[d19C] t=6735000 acc_clr nT=1 kcnt=0
+[d19C] t=6745000 acc_clr nT=1 kcnt=0
+[d19C] t=6755000 acc_clr nT=1 kcnt=0
+[d19C] t=6765000 acc_clr nT=1 kcnt=0
+[d19C] t=6775000 acc_clr nT=1 kcnt=0
+[d19C] t=6785000 acc_clr nT=1 kcnt=0
+[d19C] t=6795000 acc_clr nT=1 kcnt=0
+[xrg] t=6805000 POP rp=2 g=1 iqlast=0 set=0 iqcnt=4 widx=2
+[d19C] t=6805000 acc_clr nT=1 kcnt=0
+[d19C] t=6815000 acc_clr nT=1 kcnt=0
+[d19C] t=6825000 acc_clr nT=1 kcnt=0
+[d19C] t=6835000 acc_clr nT=1 kcnt=0
+[d19C] t=6845000 acc_clr nT=1 kcnt=0
+[d14] RQ t=6855000 rd=0 nb=0 idx=24 oc=3 nl=0 acc=28261 b=-38864 m=1073741824 s=31
+[d19C] t=6855000 acc_clr nT=1 kcnt=0
+[d14] RQ t=6865000 rd=0 nb=0 idx=25 oc=3 nl=1 acc=38867 b=-38864 m=1073741824 s=31
+[d19C] t=6865000 acc_clr nT=1 kcnt=0
+[d14] RQ t=6875000 rd=0 nb=0 idx=26 oc=3 nl=2 acc=26445 b=-38864 m=1073741824 s=31
+[d19C] t=6875000 acc_clr nT=1 kcnt=0
+[d14] RQ t=6885000 rd=0 nb=0 idx=27 oc=3 nl=3 acc=4294934331 b=-38864 m=1073741824 s=31
+[d19C] t=6885000 acc_clr nT=1 kcnt=0
+[d14] RQ t=6895000 rd=0 nb=0 idx=28 oc=3 nl=4 acc=4294939005 b=-38864 m=1073741824 s=31
+[d19C] t=6895000 acc_clr nT=1 kcnt=0
+[d14] RQ t=6905000 rd=0 nb=0 idx=29 oc=3 nl=5 acc=4294961186 b=-38864 m=1073741824 s=31
+[d19C] t=6905000 acc_clr nT=1 kcnt=0
+[d14] RQ t=6915000 rd=0 nb=0 idx=30 oc=3 nl=6 acc=4294941542 b=-38864 m=1073741824 s=31
+[d19C] t=6915000 acc_clr nT=1 kcnt=0
+[d14] RQ t=6925000 rd=0 nb=0 idx=31 oc=3 nl=7 acc=4294954788 b=-38864 m=1073741824 s=31
+[d14] D8 t=6925000 ypre=-128 act=1 addr=147
+[d19C] t=6925000 acc_clr nT=1 kcnt=0
+[d14] D8 t=6935000 ypre=2 act=1 addr=147
+[d19C] t=6935000 acc_clr nT=1 kcnt=0
+[d14] D8 t=6945000 ypre=-128 act=1 addr=147
+[d19C] t=6945000 acc_clr nT=1 kcnt=0
+[xrg] t=6955000 POP rp=3 g=1 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=6955000 GRPSET cg=0 grp=00
+[d14] D8 t=6955000 ypre=-128 act=1 addr=147
+[d19C] t=6955000 acc_clr nT=1 kcnt=0
+[d14] D8 t=6965000 ypre=-128 act=1 addr=147
+[d19C] t=6965000 acc_clr nT=1 kcnt=0
+[d14] D8 t=6975000 ypre=-128 act=1 addr=147
+[d19C] t=6975000 acc_clr nT=1 kcnt=0
+[d17W] t=6975000 nT=1 k=15 strb=11111111 data=32003e199bf37d76
+[xrg] t=6985000 EMEND g=1 cnt=1 k=17
+[d14] D8 t=6985000 ypre=-128 act=1 addr=147
+[d19C] t=6985000 acc_clr nT=1 kcnt=0
+[d17W] t=6985000 nT=1 k=16 strb=11111111 data=6732df3e199bf37d
+[d14] D8 t=6995000 ypre=-128 act=1 addr=147
+[d19C] t=6995000 acc_clr nT=1 kcnt=0
+[d17W] t=6995000 nT=1 k=17 strb=11111111 data=f36700df3e199bf3
+[xrg] t=7005000 PUSH wp=6 g=11 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=3 ic=2 kh=1 addr=000002b8 len=16
+[d19C] t=7005000 acc_clr nT=1 kcnt=0
+[d17C] t=7005000 addr=696 len=16 nT=1
+[xrg] t=7015000 PUSH wp=7 g=11 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=3 ic=2 kh=1 addr=000002b8 len=16
+[d19C] t=7015000 acc_clr nT=1 kcnt=0
+[d17C] t=7015000 addr=696 len=16 nT=1
+[d19C] t=7025000 acc_clr nT=1 kcnt=0
+[d19C] t=7035000 acc_clr nT=1 kcnt=0
+[d19C] t=7045000 acc_clr nT=1 kcnt=0
+[d19C] t=7055000 acc_clr nT=1 kcnt=0
+[d19C] t=7065000 acc_clr nT=1 kcnt=0
+[xrg] t=7075000 POP rp=4 g=0 iqlast=0 set=0 iqcnt=4 widx=2
+[d19C] t=7075000 acc_clr nT=1 kcnt=0
+[d19C] t=7085000 acc_clr nT=1 kcnt=0
+[d19C] t=7095000 acc_clr nT=1 kcnt=0
+[d19C] t=7105000 acc_clr nT=1 kcnt=0
+[d19C] t=7115000 acc_clr nT=1 kcnt=0
+[d19C] t=7125000 acc_clr nT=1 kcnt=0
+[d19C] t=7135000 acc_clr nT=1 kcnt=0
+[xrg] t=7145000 POP rp=5 g=0 iqlast=1 set=1 iqcnt=3 widx=1
+[xrg] t=7145000 GRPSET cg=0 grp=00
+[d19C] t=7145000 acc_clr nT=1 kcnt=0
+[d19C] t=7155000 acc_clr nT=1 kcnt=0
+[d19C] t=7165000 acc_clr nT=1 kcnt=0
+[d17W] t=7165000 nT=1 k=18 strb=11111111 data=35001174bcfa8009
+[xrg] t=7175000 EMEND g=0 cnt=2 k=20
+[d14] RQ t=7175000 rd=0 nb=0 idx=32 oc=4 nl=0 acc=4294952430 b=-7417 m=1073741824 s=31
+[d19C] t=7175000 acc_clr nT=1 kcnt=0
+[d17W] t=7175000 nT=1 k=19 strb=11111111 data=f3355b1174bcfa80
+[d14] RQ t=7185000 rd=0 nb=0 idx=33 oc=4 nl=1 acc=4294947721 b=-7417 m=1073741824 s=31
+[d19C] t=7185000 acc_clr nT=1 kcnt=0
+[d17W] t=7185000 nT=1 k=20 strb=11111111 data=7ff3005b1174bcfa
+[xrg] t=7195000 PUSH wp=0 g=00 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=0 ic=2 kh=2 addr=000002c0 len=8
+[d14] RQ t=7195000 rd=0 nb=0 idx=34 oc=4 nl=2 acc=4294951737 b=-7417 m=1073741824 s=31
+[d19C] t=7195000 acc_clr nT=1 kcnt=0
+[d17C] t=7195000 addr=704 len=8 nT=1
+[xrg] t=7205000 PUSH wp=1 g=00 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=0 ic=2 kh=2 addr=000002c0 len=16
+[d14] RQ t=7205000 rd=0 nb=0 idx=35 oc=4 nl=3 acc=4294962007 b=-7417 m=1073741824 s=31
+[d19C] t=7205000 acc_clr nT=1 kcnt=0
+[d17C] t=7205000 addr=704 len=16 nT=1
+[xrg] t=7215000 POP rp=6 g=1 iqlast=0 set=0 iqcnt=4 widx=2
+[d14] RQ t=7215000 rd=0 nb=0 idx=36 oc=4 nl=4 acc=15007 b=-7417 m=1073741824 s=31
+[d19C] t=7215000 acc_clr nT=1 kcnt=0
+[d14] RQ t=7225000 rd=0 nb=0 idx=37 oc=4 nl=5 acc=7422 b=-7417 m=1073741824 s=31
+[d19C] t=7225000 acc_clr nT=1 kcnt=0
+[d14] RQ t=7235000 rd=0 nb=0 idx=38 oc=4 nl=6 acc=4294949511 b=-7417 m=1073741824 s=31
+[d19C] t=7235000 acc_clr nT=1 kcnt=0
+[d14] RQ t=7245000 rd=0 nb=0 idx=39 oc=4 nl=7 acc=4294957401 b=-7417 m=1073741824 s=31
+[d14] D8 t=7245000 ypre=-128 act=1 addr=196
+[d19C] t=7245000 acc_clr nT=1 kcnt=0
+[d14] D8 t=7255000 ypre=-128 act=1 addr=196
+[d19C] t=7255000 acc_clr nT=1 kcnt=0
+[d14] D8 t=7265000 ypre=-128 act=1 addr=196
+[d19C] t=7265000 acc_clr nT=1 kcnt=0
+[d14] D8 t=7275000 ypre=-128 act=1 addr=196
+[d19C] t=7275000 acc_clr nT=1 kcnt=0
+[d14] D8 t=7285000 ypre=127 act=1 addr=196
+[d19C] t=7285000 acc_clr nT=1 kcnt=0
+[d14] D8 t=7295000 ypre=2 act=1 addr=196
+[d19C] t=7295000 acc_clr nT=1 kcnt=0
+[d14] D8 t=7305000 ypre=-128 act=1 addr=196
+[d19C] t=7305000 acc_clr nT=1 kcnt=0
+[d14] D8 t=7315000 ypre=-128 act=1 addr=196
+[d19C] t=7315000 acc_clr nT=1 kcnt=0
+[d19C] t=7325000 acc_clr nT=1 kcnt=0
+[xrg] t=7335000 POP rp=7 g=1 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=7335000 GRPSET cg=0 grp=00
+[d19C] t=7335000 acc_clr nT=1 kcnt=0
+[d19C] t=7345000 acc_clr nT=1 kcnt=0
+[d19C] t=7355000 acc_clr nT=1 kcnt=0
+[d17W] t=7355000 nT=1 k=21 strb=11111111 data=ed00322a6f7ff335
+[xrg] t=7365000 EMEND g=1 cnt=3 k=23
+[d19C] t=7365000 acc_clr nT=1 kcnt=0
+[d17W] t=7365000 nT=1 k=22 strb=11111111 data=e0ed28322a6f7ff3
+[d19C] t=7375000 acc_clr nT=1 kcnt=0
+[d17W] t=7375000 nT=1 k=23 strb=11111111 data=4de00028322a6f7f
+[d19C] t=7385000 acc_clr nT=1 kcnt=0
+[d19C] t=7395000 acc_clr nT=1 kcnt=0
+[d19C] t=7405000 acc_clr nT=1 kcnt=0
+[d19C] t=7415000 acc_clr nT=1 kcnt=0
+[xrg] t=7425000 POP rp=0 g=0 iqlast=0 set=0 iqcnt=2 widx=1
+[d19C] t=7425000 acc_clr nT=1 kcnt=0
+[d19C] t=7435000 acc_clr nT=1 kcnt=0
+[d19C] t=7445000 acc_clr nT=1 kcnt=0
+[d19C] t=7455000 acc_clr nT=1 kcnt=0
+[d19C] t=7465000 acc_clr nT=1 kcnt=0
+[d19C] t=7475000 acc_clr nT=1 kcnt=0
+[d19C] t=7485000 acc_clr nT=1 kcnt=0
+[d14] RQ t=7495000 rd=0 nb=0 idx=40 oc=5 nl=0 acc=4294951704 b=10879 m=-526473893 s=41
+[d19C] t=7495000 acc_clr nT=1 kcnt=0
+[d14] RQ t=7505000 rd=0 nb=0 idx=41 oc=5 nl=1 acc=3935 b=10879 m=-526473893 s=41
+[d19C] t=7505000 acc_clr nT=1 kcnt=0
+[d14] RQ t=7515000 rd=0 nb=0 idx=42 oc=5 nl=2 acc=4294957237 b=10879 m=-526473893 s=41
+[d19C] t=7515000 acc_clr nT=1 kcnt=0
+[d14] RQ t=7525000 rd=0 nb=0 idx=43 oc=5 nl=3 acc=4294948417 b=10879 m=-526473893 s=41
+[d19C] t=7525000 acc_clr nT=1 kcnt=0
+[d14] RQ t=7535000 rd=0 nb=0 idx=44 oc=5 nl=4 acc=25744 b=10879 m=-526473893 s=41
+[d19C] t=7535000 acc_clr nT=1 kcnt=0
+[d14] RQ t=7545000 rd=0 nb=0 idx=45 oc=5 nl=5 acc=9200 b=10879 m=-526473893 s=41
+[d19C] t=7545000 acc_clr nT=1 kcnt=0
+[d14] RQ t=7555000 rd=0 nb=0 idx=46 oc=5 nl=6 acc=13020 b=10879 m=-526473893 s=41
+[d19C] t=7555000 acc_clr nT=1 kcnt=0
+[d14] RQ t=7565000 rd=0 nb=0 idx=47 oc=5 nl=7 acc=8884 b=10879 m=-526473893 s=41
+[d14] D8 t=7565000 ypre=1 act=1 addr=245
+[d19C] t=7565000 acc_clr nT=1 kcnt=0
+[xrg] t=7575000 POP rp=1 g=0 iqlast=1 set=1 iqcnt=1 widx=2
+[xrg] t=7575000 GRPSET cg=0 grp=00
+[d14] D8 t=7575000 ypre=-4 act=1 addr=245
+[d19C] t=7575000 acc_clr nT=1 kcnt=0
+[d14] D8 t=7585000 ypre=0 act=1 addr=245
+[d19C] t=7585000 acc_clr nT=1 kcnt=0
+[d14] D8 t=7595000 ypre=2 act=1 addr=245
+[d19C] t=7595000 acc_clr nT=1 kcnt=0
+[d17W] t=7595000 nT=1 k=24 strb=11111111 data=14000846a04de0ed
+[xrg] t=7605000 EMEND g=0 cnt=0 k=26
+[d14] D8 t=7605000 ypre=-9 act=1 addr=245
+[d19C] t=7605000 acc_clr nT=1 kcnt=0
+[d17W] t=7605000 nT=1 k=25 strb=11111111 data=2a143c0846a04de0
+[d14] D8 t=7615000 ypre=-5 act=1 addr=245
+[d19C] t=7615000 acc_clr nT=1 kcnt=0
+[d17W] t=7615000 nT=1 k=26 strb=11111111 data=5c2a003c0846a04d
+[d14] D8 t=7625000 ypre=-6 act=1 addr=245
+[d19C] t=7625000 acc_clr nT=1 kcnt=0
+[d14] D8 t=7635000 ypre=-5 act=1 addr=245
+[d19C] t=7635000 acc_clr nT=1 kcnt=0
+[d19C] t=7645000 acc_clr nT=1 kcnt=0
+[d20] t=7645000 k=0 wv=0 e4=0 clr=1 X=e00028322a6f7ff3 W=25f2199a60cec303 ad0=4294967257 ad8=793 aq0=0
+[d20] t=7655000 k=0 wv=0 e4=0 clr=1 X=e00028322a6f7ff3 W=25f2199a60cec303 ad0=4294967257 ad8=793 aq0=0
+[xrg] t=7665000 START ih=7 iw=7 ow=7 ic=3 kh=3 kw=3 sh=1 sw=1 ph=1 pw=1 klen=27 nstart=8 nlen=8 first=0 xbase=00000250 | INPUTS n_start_i=16 n_len_i=8 | loader xl_n_r=2 cfg_n_total=49 cfg_n_tiles=7
+[d20] t=7665000 k=1 wv=0 e4=0 clr=0 X=0000000000000000 W=25f2199a60cec303 ad0=4294967257 ad8=793 aq0=0
+[d19] t=7675000 WV k=0 X=24004880ae661881 W=d22eee8fc6e87d31 bk=1
+[d20] t=7675000 k=2 wv=1 e4=0 clr=0 X=24004880ae661881 W=d22eee8fc6e87d31 ad0=4294967257 ad8=793 aq0=0
+[d19] t=7685000 WV k=1 X=5124604880ae6618 W=8ea854726b9d8c98 bk=1
+[d20] t=7685000 k=3 wv=1 e4=0 clr=0 X=5124604880ae6618 W=8ea854726b9d8c98 ad0=4294967257 ad8=793 aq0=0
+[d19] t=7695000 WV k=2 X=805100604880ae66 W=98a2b52f79b0312b bk=1
+[d20] t=7695000 k=4 wv=1 e4=0 clr=0 X=805100604880ae66 W=98a2b52f79b0312b ad0=0 ad8=0 aq0=0
+[d19] t=7705000 WV k=3 X=2a0087bfb5805124 W=f414c0604a961409 bk=1
+[d20] t=7705000 k=5 wv=1 e4=1 clr=0 X=2a0087bfb5805124 W=f414c0604a961409 ad0=4294961073 ad8=4294951421 aq0=0
+[d19] t=7715000 WV k=4 X=2f2a4c87bfb58051 W=04d24ac215695985 bk=1
+[d20] t=7715000 k=6 wv=1 e4=1 clr=0 X=2f2a4c87bfb58051 W=04d24ac215695985 ad0=4294964800 ad8=4294964512 aq0=4294961073
+[d19] t=7725000 WV k=5 X=bf2f004c87bfb580 W=46ac36d74ceb926a bk=1
+[d20] t=7725000 k=7 wv=1 e4=1 clr=0 X=bf2f004c87bfb580 W=46ac36d74ceb926a ad0=4386 ad8=4998 aq0=4294958577
+[d19] t=7735000 WV k=6 X=f000aa7f74bf2f2a W=b589c9366a2f359e bk=1
+[d20] t=7735000 k=8 wv=1 e4=1 clr=0 X=f000aa7f74bf2f2a W=b589c9366a2f359e ad0=324 ad8=720 aq0=4294962963
+[d19] t=7745000 WV k=7 X=7df0b3aa7f74bf2f W=06eeee9a31480d7b bk=1
+[d20] t=7745000 k=9 wv=1 e4=1 clr=0 X=7df0b3aa7f74bf2f W=06eeee9a31480d7b ad0=4294957333 ad8=7209 aq0=4294963287
+[d19] t=7755000 WV k=8 X=df7d00b3aa7f74bf W=c95799f44c229156 bk=1
+[d20] t=7755000 k=10 wv=1 e4=1 clr=0 X=df7d00b3aa7f74bf W=c95799f44c229156 ad0=4294953728 ad8=14080 aq0=4294953324
+[d19] t=7765000 WV k=9 X=fc00957f879c2176 W=bcd8fe777037e959 bk=1
+[d20] t=7765000 k=11 wv=1 e4=1 clr=0 X=fc00957f879c2176 W=bcd8fe777037e959 ad0=4294963180 ad8=2226 aq0=4294939756
+[d19] t=7775000 WV k=10 X=b0fca8957f879c21 W=1cb1ffb036e09def bk=1
+[d19] t=7785000 WV k=11 X=f5b000a8957f879c W=8656f64ce7e5bb3f bk=1
+[d19] t=7795000 WV k=12 X=7600219062f5b0fc W=09180e394d7aab62 bk=1
+[d19] t=7805000 WV k=13 X=7d7604219062f5b0 W=616d342b4defc0e8 bk=1
+[d19] t=7815000 WV k=14 X=f37d0004219062f5 W=ef3559971c0978fa bk=1
+[d14] RQ t=7825000 rd=0 nb=0 idx=48 oc=6 nl=0 acc=40174 b=-512466 m=2147483647 s=36
+[d19] t=7825000 WV k=15 X=32003e199bf37d76 W=9b572226a3368110 bk=1
+[xrg] t=7835000 PART pp=0 rem_p=8 vld=1 m=5 cap=5 oy=2 ox=2 pvt=0000
+[d14] RQ t=7835000 rd=0 nb=0 idx=49 oc=6 nl=1 acc=4294954615 b=-512466 m=2147483647 s=36
+[d19] t=7835000 WV k=16 X=6732df3e199bf37d W=0b8618f0dc096407 bk=1
+[xrg] t=7845000 PART pp=1 rem_p=3 vld=1 m=3 cap=7 oy=3 ox=0 pvt=0001
+[d14] RQ t=7845000 rd=0 nb=0 idx=50 oc=6 nl=2 acc=4294926665 b=-512466 m=2147483647 s=36
+[d19] t=7845000 WV k=17 X=f36700df3e199bf3 W=9eac4e06299bd395 bk=1
+[d14] RQ t=7855000 rd=0 nb=0 idx=51 oc=6 nl=3 acc=13298 b=-512466 m=2147483647 s=36
+[d19] t=7855000 WV k=18 X=35001174bcfa8009 W=9da2579af1cf9c92 bk=1
+[xrg] t=7865000 PUSH wp=0 g=00 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=0 ic=0 kh=0 addr=00000258 len=8
+[d14] RQ t=7865000 rd=0 nb=0 idx=52 oc=6 nl=4 acc=4294959552 b=-512466 m=2147483647 s=36
+[d19] t=7865000 WV k=19 X=f3355b1174bcfa80 W=0b891300f0b97d25 bk=1
+[d17C] t=7865000 addr=600 len=8 nT=2
+[xrg] t=7875000 PUSH wp=1 g=00 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=0 ic=0 kh=0 addr=00000258 len=16
+[d14] RQ t=7875000 rd=0 nb=0 idx=53 oc=6 nl=5 acc=4294950492 b=-512466 m=2147483647 s=36
+[d19] t=7875000 WV k=20 X=7ff3005b1174bcfa W=7dcdbac649ba869b bk=1
+[d17C] t=7875000 addr=600 len=16 nT=2
+[xrg] t=7885000 PUSH wp=2 g=01 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=1 ic=0 kh=1 addr=00000258 len=16
+[d14] RQ t=7885000 rd=0 nb=0 idx=54 oc=6 nl=6 acc=4294957914 b=-512466 m=2147483647 s=36
+[d19] t=7885000 WV k=21 X=ed00322a6f7ff335 W=42702b49dca2b2c2 bk=1
+[d17C] t=7885000 addr=600 len=16 nT=2
+[xrg] t=7895000 PUSH wp=3 g=01 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=1 ic=0 kh=1 addr=00000260 len=16
+[d14] RQ t=7895000 rd=0 nb=0 idx=55 oc=6 nl=7 acc=4294933890 b=-512466 m=2147483647 s=36
+[d14] D8 t=7895000 ypre=-128 act=1 addr=294
+[d19] t=7895000 WV k=22 X=e0ed28322a6f7ff3 W=21987a358c5fd2e9 bk=1
+[d17C] t=7895000 addr=608 len=16 nT=2
+[d14] D8 t=7905000 ypre=-128 act=1 addr=294
+[d19] t=7905000 WV k=23 X=4de00028322a6f7f W=e7e4077793c0855f bk=1
+[d14] D8 t=7915000 ypre=-128 act=1 addr=294
+[d19] t=7915000 WV k=24 X=14000846a04de0ed W=b986ee254475e80c bk=1
+[d14] D8 t=7925000 ypre=-128 act=1 addr=294
+[d19] t=7925000 WV k=25 X=2a143c0846a04de0 W=6564eba43213e78a bk=1
+[d14] D8 t=7935000 ypre=-128 act=1 addr=294
+[d19] t=7935000 WV k=26 X=5c2a003c0846a04d W=25f2199a60cec303 bk=1
+[d20] t=7935000 k=27 wv=1 e4=1 clr=0 X=5c2a003c0846a04d W=25f2199a60cec303 ad0=12065 ad8=4294951675 aq0=4294937113
+[d14] D8 t=7945000 ypre=-128 act=1 addr=294
+[d20] t=7945000 k=27 wv=0 e4=1 clr=0 X=5c2a003c0846a04d W=25f2199a60cec303 ad0=4294967068 ad8=456 aq0=4294949178
+[d14] D8 t=7955000 ypre=-128 act=1 addr=294
+[d20] t=7955000 k=27 wv=0 e4=1 clr=0 X=5c2a003c0846a04d W=25f2199a60cec303 ad0=3776 ad8=800 aq0=4294948950
+[d14] D8 t=7965000 ypre=-128 act=1 addr=294
+[d20] t=7965000 k=27 wv=0 e4=1 clr=0 X=5c2a003c0846a04d W=25f2199a60cec303 ad0=231 ad8=4294962599 aq0=4294952726
+[d14] SNAP t=7975000 occ=0 wr=1 ocT=0 nT=1 bank=0 L=4294952957,13904,28028,4294952956,4294929323,4294935725,4294954845,4294954460,4294950088,5086,4294896384,46976,4294930908,4294963126,7966,4294930379,8795,13493,15980,4294960310,4294939468,4294965106,4294950897,11854,5175,4294920022,4294912877,4294953629,31209,4294930073,52543,14109,39622,60900,4294961195,4294933656,42344,4294955042,4294946630,4294956539,1795,4294959628,4294960562,4294953743,16260,37374,17312,17766,4294933247,49897,69310,4294933540,4294890211,164854294958608     11263
+[d19C] t=7975000 acc_clr nT=1 kcnt=0
+[d20] t=7975000 k=0 wv=0 e4=0 clr=0 X=5c2a003c0846a04d W=25f2199a60cec303 ad0=231 ad8=4294962599 aq0=4294952957
+[d19C] t=7985000 acc_clr nT=2 kcnt=0
+[d20] t=7985000 k=0 wv=0 e4=0 clr=1 X=5c2a003c0846a04d W=25f2199a60cec303 ad0=231 ad8=4294962599 aq0=4294952957
+[d19C] t=7995000 acc_clr nT=2 kcnt=0
+[d19C] t=8005000 acc_clr nT=2 kcnt=0
+[xrg] t=8015000 POP rp=0 g=0 iqlast=0 set=0 iqcnt=4 widx=1
+[d19C] t=8015000 acc_clr nT=2 kcnt=0
+[d19C] t=8025000 acc_clr nT=2 kcnt=0
+[d19C] t=8035000 acc_clr nT=2 kcnt=0
+[d19C] t=8045000 acc_clr nT=2 kcnt=0
+[d19C] t=8055000 acc_clr nT=2 kcnt=0
+[d19C] t=8065000 acc_clr nT=2 kcnt=0
+[d19C] t=8075000 acc_clr nT=2 kcnt=0
+[d19C] t=8085000 acc_clr nT=2 kcnt=0
+[d19C] t=8095000 acc_clr nT=2 kcnt=0
+[d19C] t=8105000 acc_clr nT=2 kcnt=0
+[d19C] t=8115000 acc_clr nT=2 kcnt=0
+[d19C] t=8125000 acc_clr nT=2 kcnt=0
+[d19C] t=8135000 acc_clr nT=2 kcnt=0
+[d19C] t=8145000 acc_clr nT=2 kcnt=0
+[xrg] t=8155000 POP rp=1 g=0 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=8155000 GRPSET cg=0 grp=00
+[d19C] t=8155000 acc_clr nT=2 kcnt=0
+[d14] RQ t=8165000 rd=1 nb=8 idx=0 oc=0 nl=0 acc=4294952957 b=-16400 m=1073741824 s=31
+[d19C] t=8165000 acc_clr nT=2 kcnt=0
+[d14] RQ t=8175000 rd=1 nb=8 idx=1 oc=0 nl=1 acc=13904 b=-16400 m=1073741824 s=31
+[d19C] t=8175000 acc_clr nT=2 kcnt=0
+[d17W] t=8175000 nT=2 k=0 strb=11111111 data=2f2a0087bfb58051
+[xrg] t=8185000 EMEND g=0 cnt=0 k=2
+[d14] RQ t=8185000 rd=1 nb=8 idx=2 oc=0 nl=2 acc=28028 b=-16400 m=1073741824 s=31
+[d19C] t=8185000 acc_clr nT=2 kcnt=0
+[d17W] t=8185000 nT=2 k=1 strb=11111111 data=bf2f2a4c87bfb580
+[d14] RQ t=8195000 rd=1 nb=8 idx=3 oc=0 nl=3 acc=4294952956 b=-16400 m=1073741824 s=31
+[d19C] t=8195000 acc_clr nT=2 kcnt=0
+[d17W] t=8195000 nT=2 k=2 strb=11111111 data=74bf2f004c87bfb5
+[xrg] t=8205000 PUSH wp=4 g=10 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=2 ic=0 kh=2 addr=00000260 len=16
+[d14] RQ t=8205000 rd=1 nb=8 idx=4 oc=0 nl=4 acc=4294929323 b=-16400 m=1073741824 s=31
+[d17C] t=8205000 addr=608 len=16 nT=2
+[xrg] t=8215000 PUSH wp=5 g=10 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=2 ic=0 kh=2 addr=00000268 len=8
+[d14] RQ t=8215000 rd=1 nb=8 idx=5 oc=0 nl=5 acc=4294935725 b=-16400 m=1073741824 s=31
+[d17C] t=8215000 addr=616 len=8 nT=2
+[d14] RQ t=8225000 rd=1 nb=8 idx=6 oc=0 nl=6 acc=4294954845 b=-16400 m=1073741824 s=31
+[d14] RQ t=8235000 rd=1 nb=8 idx=7 oc=0 nl=7 acc=4294954460 b=-16400 m=1073741824 s=31
+[d14] D8 t=8235000 ypre=-128 act=1 addr=8
+[d14] D8 t=8245000 ypre=-128 act=1 addr=8
+[d14] D8 t=8255000 ypre=127 act=1 addr=8
+[d14] D8 t=8265000 ypre=-128 act=1 addr=8
+[d14] D8 t=8275000 ypre=-128 act=1 addr=8
+[xrg] t=8285000 POP rp=2 g=1 iqlast=0 set=0 iqcnt=4 widx=2
+[d14] D8 t=8285000 ypre=-128 act=1 addr=8
+[d14] D8 t=8295000 ypre=-128 act=1 addr=8
+[d14] D8 t=8305000 ypre=-128 act=1 addr=8
+[xrg] t=8385000 POP rp=3 g=1 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=8385000 GRPSET cg=0 grp=00
+[d17W] t=8405000 nT=2 k=3 strb=11111111 data=7df000aa7f74bf2f
+[xrg] t=8415000 EMEND g=1 cnt=1 k=5
+[d17W] t=8415000 nT=2 k=4 strb=11111111 data=df7df0b3aa7f74bf
+[d17W] t=8425000 nT=2 k=5 strb=11111111 data=eadf7d00b3aa7f74
+[xrg] t=8435000 PUSH wp=6 g=11 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=3 ic=1 kh=0 addr=00000288 len=8
+[d17C] t=8435000 addr=648 len=8 nT=2
+[xrg] t=8445000 PUSH wp=7 g=11 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=3 ic=1 kh=0 addr=00000288 len=16
+[d17C] t=8445000 addr=648 len=16 nT=2
+[d14] RQ t=8485000 rd=1 nb=8 idx=8 oc=1 nl=0 acc=4294950088 b=57041 m=1073741824 s=31
+[d14] RQ t=8495000 rd=1 nb=8 idx=9 oc=1 nl=1 acc=5086 b=57041 m=1073741824 s=31
+[xrg] t=8505000 POP rp=4 g=0 iqlast=0 set=0 iqcnt=4 widx=2
+[d14] RQ t=8505000 rd=1 nb=8 idx=10 oc=1 nl=2 acc=4294896384 b=57041 m=1073741824 s=31
+[d14] RQ t=8515000 rd=1 nb=8 idx=11 oc=1 nl=3 acc=46976 b=57041 m=1073741824 s=31
+[d14] RQ t=8525000 rd=1 nb=8 idx=12 oc=1 nl=4 acc=4294930908 b=57041 m=1073741824 s=31
+[d14] RQ t=8535000 rd=1 nb=8 idx=13 oc=1 nl=5 acc=4294963126 b=57041 m=1073741824 s=31
+[d14] RQ t=8545000 rd=1 nb=8 idx=14 oc=1 nl=6 acc=7966 b=57041 m=1073741824 s=31
+[d14] RQ t=8555000 rd=1 nb=8 idx=15 oc=1 nl=7 acc=4294930379 b=57041 m=1073741824 s=31
+[d14] D8 t=8555000 ypre=127 act=1 addr=57
+[d14] D8 t=8565000 ypre=127 act=1 addr=57
+[d14] D8 t=8575000 ypre=-128 act=1 addr=57
+[d14] D8 t=8585000 ypre=127 act=1 addr=57
+[d14] D8 t=8595000 ypre=127 act=1 addr=57
+[d14] D8 t=8605000 ypre=127 act=1 addr=57
+[xrg] t=8615000 POP rp=5 g=0 iqlast=1 set=1 iqcnt=3 widx=1
+[xrg] t=8615000 GRPSET cg=0 grp=00
+[d14] D8 t=8615000 ypre=127 act=1 addr=57
+[d14] D8 t=8625000 ypre=127 act=1 addr=57
+[d17W] t=8635000 nT=2 k=6 strb=11111111 data=8080007bd1eadf7d
+[xrg] t=8645000 EMEND g=0 cnt=2 k=8
+[d17W] t=8645000 nT=2 k=7 strb=11111111 data=da80800f7bd1eadf
+[d17W] t=8655000 nT=2 k=8 strb=11111111 data=62da80000f7bd1ea
+[xrg] t=8665000 PUSH wp=0 g=00 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=0 ic=1 kh=1 addr=00000290 len=8
+[d17C] t=8665000 addr=656 len=8 nT=2
+[xrg] t=8675000 PUSH wp=1 g=00 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=0 ic=1 kh=1 addr=00000290 len=16
+[d17C] t=8675000 addr=656 len=16 nT=2
+[xrg] t=8725000 POP rp=6 g=1 iqlast=0 set=0 iqcnt=4 widx=1
+[d14] RQ t=8825000 rd=1 nb=8 idx=16 oc=2 nl=0 acc=8795 b=11348 m=1533063726 s=39
+[d14] RQ t=8835000 rd=1 nb=8 idx=17 oc=2 nl=1 acc=13493 b=11348 m=1533063726 s=39
+[d14] RQ t=8845000 rd=1 nb=8 idx=18 oc=2 nl=2 acc=15980 b=11348 m=1533063726 s=39
+[d14] RQ t=8855000 rd=1 nb=8 idx=19 oc=2 nl=3 acc=4294960310 b=11348 m=1533063726 s=39
+[xrg] t=8865000 POP rp=7 g=1 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=8865000 GRPSET cg=0 grp=00
+[d14] RQ t=8865000 rd=1 nb=8 idx=20 oc=2 nl=4 acc=4294939468 b=11348 m=1533063726 s=39
+[d14] RQ t=8875000 rd=1 nb=8 idx=21 oc=2 nl=5 acc=4294965106 b=11348 m=1533063726 s=39
+[d14] RQ t=8885000 rd=1 nb=8 idx=22 oc=2 nl=6 acc=4294950897 b=11348 m=1533063726 s=39
+[d17W] t=8885000 nT=2 k=9 strb=11111111 data=7d7600219062f5b0
+[xrg] t=8895000 EMEND g=1 cnt=3 k=11
+[d14] RQ t=8895000 rd=1 nb=8 idx=23 oc=2 nl=7 acc=11854 b=11348 m=1533063726 s=39
+[d14] D8 t=8895000 ypre=56 act=1 addr=106
+[d17W] t=8895000 nT=2 k=10 strb=11111111 data=f37d7604219062f5
+[d14] D8 t=8905000 ypre=69 act=1 addr=106
+[d17W] t=8905000 nT=2 k=11 strb=11111111 data=9bf37d0004219062
+[xrg] t=8915000 PUSH wp=2 g=01 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=1 ic=1 kh=2 addr=00000290 len=16
+[d14] D8 t=8915000 ypre=76 act=1 addr=106
+[d17C] t=8915000 addr=656 len=16 nT=2
+[xrg] t=8925000 PUSH wp=3 g=01 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=1 ic=1 kh=2 addr=00000298 len=16
+[d14] D8 t=8925000 ypre=12 act=1 addr=106
+[d17C] t=8925000 addr=664 len=16 nT=2
+[d14] D8 t=8935000 ypre=-46 act=1 addr=106
+[d14] D8 t=8945000 ypre=26 act=1 addr=106
+[xrg] t=8955000 POP rp=0 g=0 iqlast=0 set=0 iqcnt=4 widx=1
+[d14] D8 t=8955000 ypre=-14 act=1 addr=106
+[d14] D8 t=8965000 ypre=65 act=1 addr=106
+[xrg] t=9085000 POP rp=1 g=0 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=9085000 GRPSET cg=0 grp=00
+[d17W] t=9105000 nT=2 k=12 strb=11111111 data=6732003e199bf37d
+[xrg] t=9115000 EMEND g=0 cnt=0 k=14
+[d17W] t=9115000 nT=2 k=13 strb=11111111 data=f36732df3e199bf3
+[d17W] t=9125000 nT=2 k=14 strb=11111111 data=7cf36700df3e199b
+[xrg] t=9135000 PUSH wp=4 g=10 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=2 ic=2 kh=0 addr=000002b8 len=16
+[d17C] t=9135000 addr=696 len=16 nT=2
+[xrg] t=9145000 PUSH wp=5 g=10 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=2 ic=2 kh=0 addr=000002b8 len=16
+[d17C] t=9145000 addr=696 len=16 nT=2
+[d14] RQ t=9165000 rd=1 nb=8 idx=24 oc=3 nl=0 acc=5175 b=-38864 m=1073741824 s=31
+[d14] RQ t=9175000 rd=1 nb=8 idx=25 oc=3 nl=1 acc=4294920022 b=-38864 m=1073741824 s=31
+[d14] RQ t=9185000 rd=1 nb=8 idx=26 oc=3 nl=2 acc=4294912877 b=-38864 m=1073741824 s=31
+[d14] RQ t=9195000 rd=1 nb=8 idx=27 oc=3 nl=3 acc=4294953629 b=-38864 m=1073741824 s=31
+[xrg] t=9205000 POP rp=2 g=1 iqlast=0 set=0 iqcnt=4 widx=2
+[d14] RQ t=9205000 rd=1 nb=8 idx=28 oc=3 nl=4 acc=31209 b=-38864 m=1073741824 s=31
+[d14] RQ t=9215000 rd=1 nb=8 idx=29 oc=3 nl=5 acc=4294930073 b=-38864 m=1073741824 s=31
+[d14] RQ t=9225000 rd=1 nb=8 idx=30 oc=3 nl=6 acc=52543 b=-38864 m=1073741824 s=31
+[d14] RQ t=9235000 rd=1 nb=8 idx=31 oc=3 nl=7 acc=14109 b=-38864 m=1073741824 s=31
+[d14] D8 t=9235000 ypre=-128 act=1 addr=155
+[d14] D8 t=9245000 ypre=-128 act=1 addr=155
+[d14] D8 t=9255000 ypre=-128 act=1 addr=155
+[d14] D8 t=9265000 ypre=-128 act=1 addr=155
+[xrg] t=9275000 POP rp=3 g=1 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=9275000 GRPSET cg=0 grp=00
+[d14] D8 t=9275000 ypre=-128 act=1 addr=155
+[d14] D8 t=9285000 ypre=-128 act=1 addr=155
+[d14] D8 t=9295000 ypre=127 act=1 addr=155
+[d17W] t=9295000 nT=2 k=15 strb=11111111 data=ddbb003da37cf367
+[xrg] t=9305000 EMEND g=1 cnt=1 k=17
+[d14] D8 t=9305000 ypre=-128 act=1 addr=155
+[d17W] t=9305000 nT=2 k=16 strb=11111111 data=25ddbb7f3da37cf3
+[d17W] t=9315000 nT=2 k=17 strb=11111111 data=3f25dd007f3da37c
+[xrg] t=9325000 PUSH wp=6 g=11 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=3 ic=2 kh=1 addr=000002c0 len=8
+[d17C] t=9325000 addr=704 len=8 nT=2
+[xrg] t=9335000 PUSH wp=7 g=11 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=3 ic=2 kh=1 addr=000002c0 len=16
+[d17C] t=9335000 addr=704 len=16 nT=2
+[xrg] t=9395000 POP rp=4 g=0 iqlast=0 set=0 iqcnt=4 widx=2
+[d14] RQ t=9485000 rd=1 nb=8 idx=32 oc=4 nl=0 acc=39622 b=-7417 m=1073741824 s=31
+[d14] RQ t=9495000 rd=1 nb=8 idx=33 oc=4 nl=1 acc=60900 b=-7417 m=1073741824 s=31
+[d14] RQ t=9505000 rd=1 nb=8 idx=34 oc=4 nl=2 acc=4294961195 b=-7417 m=1073741824 s=31
+[d14] RQ t=9515000 rd=1 nb=8 idx=35 oc=4 nl=3 acc=4294933656 b=-7417 m=1073741824 s=31
+[xrg] t=9525000 POP rp=5 g=0 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=9525000 GRPSET cg=0 grp=00
+[d14] RQ t=9525000 rd=1 nb=8 idx=36 oc=4 nl=4 acc=42344 b=-7417 m=1073741824 s=31
+[d14] RQ t=9535000 rd=1 nb=8 idx=37 oc=4 nl=5 acc=4294955042 b=-7417 m=1073741824 s=31
+[d14] RQ t=9545000 rd=1 nb=8 idx=38 oc=4 nl=6 acc=4294946630 b=-7417 m=1073741824 s=31
+[d17W] t=9545000 nT=2 k=18 strb=11111111 data=e0ed00322a6f7ff3
+[xrg] t=9555000 EMEND g=0 cnt=2 k=20
+[d14] RQ t=9555000 rd=1 nb=8 idx=39 oc=4 nl=7 acc=4294956539 b=-7417 m=1073741824 s=31
+[d14] D8 t=9555000 ypre=127 act=1 addr=204
+[d17W] t=9555000 nT=2 k=19 strb=11111111 data=4de0ed28322a6f7f
+[d14] D8 t=9565000 ypre=127 act=1 addr=204
+[d17W] t=9565000 nT=2 k=20 strb=11111111 data=a04de00028322a6f
+[xrg] t=9575000 PUSH wp=0 g=00 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=0 ic=2 kh=2 addr=000002c8 len=8
+[d14] D8 t=9575000 ypre=-128 act=1 addr=204
+[d17C] t=9575000 addr=712 len=8 nT=2
+[xrg] t=9585000 PUSH wp=1 g=00 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=0 ic=2 kh=2 addr=000002c8 len=16
+[d14] D8 t=9585000 ypre=-128 act=1 addr=204
+[d17C] t=9585000 addr=712 len=16 nT=2
+[d14] D8 t=9595000 ypre=127 act=1 addr=204
+[d14] D8 t=9605000 ypre=-128 act=1 addr=204
+[d14] D8 t=9615000 ypre=-128 act=1 addr=204
+[d14] D8 t=9625000 ypre=-128 act=1 addr=204
+[xrg] t=9655000 POP rp=6 g=1 iqlast=0 set=0 iqcnt=4 widx=1
+[d14] RQ t=9815000 rd=1 nb=8 idx=40 oc=5 nl=0 acc=1795 b=10879 m=-526473893 s=41
+[d14] RQ t=9825000 rd=1 nb=8 idx=41 oc=5 nl=1 acc=4294959628 b=10879 m=-526473893 s=41
+[xrg] t=9835000 POP rp=7 g=1 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=9835000 GRPSET cg=0 grp=00
+[d14] RQ t=9835000 rd=1 nb=8 idx=42 oc=5 nl=2 acc=4294960562 b=10879 m=-526473893 s=41
+[d14] RQ t=9845000 rd=1 nb=8 idx=43 oc=5 nl=3 acc=4294953743 b=10879 m=-526473893 s=41
+[d14] RQ t=9855000 rd=1 nb=8 idx=44 oc=5 nl=4 acc=16260 b=10879 m=-526473893 s=41
+[d17W] t=9855000 nT=2 k=21 strb=11111111 data=2a14000846a04de0
+[xrg] t=9865000 EMEND g=1 cnt=3 k=23
+[d14] RQ t=9865000 rd=1 nb=8 idx=45 oc=5 nl=5 acc=37374 b=10879 m=-526473893 s=41
+[d17W] t=9865000 nT=2 k=22 strb=11111111 data=5c2a143c0846a04d
+[d14] RQ t=9875000 rd=1 nb=8 idx=46 oc=5 nl=6 acc=17312 b=10879 m=-526473893 s=41
+[d17W] t=9875000 nT=2 k=23 strb=11111111 data=ef5c2a003c0846a0
+[d14] RQ t=9885000 rd=1 nb=8 idx=47 oc=5 nl=7 acc=17766 b=10879 m=-526473893 s=41
+[d14] D8 t=9885000 ypre=-3 act=1 addr=253
+[d14] D8 t=9895000 ypre=-1 act=1 addr=253
+[d14] D8 t=9905000 ypre=-1 act=1 addr=253
+[d14] D8 t=9915000 ypre=1 act=1 addr=253
+[d14] D8 t=9925000 ypre=-6 act=1 addr=253
+[d14] D8 t=9935000 ypre=-12 act=1 addr=253
+[xrg] t=9945000 POP rp=0 g=0 iqlast=0 set=0 iqcnt=2 widx=1
+[d14] D8 t=9945000 ypre=-7 act=1 addr=253
+[d14] D8 t=9955000 ypre=-7 act=1 addr=253
+[xrg] t=10055000 POP rp=1 g=0 iqlast=1 set=1 iqcnt=1 widx=2
+[xrg] t=10055000 GRPSET cg=0 grp=00
+[d17W] t=10075000 nT=2 k=24 strb=11111111 data=20c0005c47ef5c2a
+[xrg] t=10085000 EMEND g=0 cnt=0 k=26
+[d17W] t=10085000 nT=2 k=25 strb=11111111 data=7f20c07d5c47ef5c
+[d17W] t=10095000 nT=2 k=26 strb=11111111 data=b87f20007d5c47ef
+[d14] RQ t=10135000 rd=1 nb=8 idx=48 oc=6 nl=0 acc=4294933247 b=-512466 m=2147483647 s=36
+[xrg] t=10145000 START ih=7 iw=7 ow=7 ic=3 kh=3 kw=3 sh=1 sw=1 ph=1 pw=1 klen=27 nstart=16 nlen=8 first=0 xbase=00000250 | INPUTS n_start_i=24 n_len_i=8 | loader xl_n_r=3 cfg_n_total=49 cfg_n_tiles=7
+[d14] RQ t=10145000 rd=1 nb=8 idx=49 oc=6 nl=1 acc=49897 b=-512466 m=2147483647 s=36
+[d14] RQ t=10155000 rd=1 nb=8 idx=50 oc=6 nl=2 acc=69310 b=-512466 m=2147483647 s=36
+[d14] RQ t=10165000 rd=1 nb=8 idx=51 oc=6 nl=3 acc=4294933540 b=-512466 m=2147483647 s=36
+[d14] RQ t=10175000 rd=1 nb=8 idx=52 oc=6 nl=4 acc=4294890211 b=-512466 m=2147483647 s=36
+[d14] RQ t=10185000 rd=1 nb=8 idx=53 oc=6 nl=5 acc=16485 b=-512466 m=2147483647 s=36
+[d14] RQ t=10195000 rd=1 nb=8 idx=54 oc=6 nl=6 acc=4294958608 b=-512466 m=2147483647 s=36
+[d14] RQ t=10205000 rd=1 nb=8 idx=55 oc=6 nl=7 acc=11263 b=-512466 m=2147483647 s=36
+[d14] D8 t=10205000 ypre=-128 act=1 addr=302
+[d14] D8 t=10215000 ypre=-128 act=1 addr=302
+[d14] D8 t=10225000 ypre=-128 act=1 addr=302
+[d14] D8 t=10235000 ypre=-128 act=1 addr=302
+[d14] D8 t=10245000 ypre=-128 act=1 addr=302
+[d14] D8 t=10255000 ypre=-128 act=1 addr=302
+[d14] D8 t=10265000 ypre=-128 act=1 addr=302
+[d14] D8 t=10275000 ypre=-128 act=1 addr=302
+[xrg] t=10315000 PART pp=0 rem_p=8 vld=1 m=4 cap=4 oy=3 ox=3 pvt=0000
+[xrg] t=10325000 PART pp=1 rem_p=4 vld=1 m=4 cap=7 oy=4 ox=0 pvt=0001
+[xrg] t=10345000 PUSH wp=0 g=00 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=0 ic=0 kh=0 addr=00000260 len=8
+[d17C] t=10345000 addr=608 len=8 nT=3
+[xrg] t=10355000 PUSH wp=1 g=00 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=0 ic=0 kh=0 addr=00000260 len=16
+[d17C] t=10355000 addr=608 len=16 nT=3
+[xrg] t=10365000 PUSH wp=2 g=01 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=1 ic=0 kh=1 addr=00000260 len=16
+[d17C] t=10365000 addr=608 len=16 nT=3
+[xrg] t=10375000 PUSH wp=3 g=01 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=1 ic=0 kh=1 addr=00000268 len=16
+[d17C] t=10375000 addr=616 len=16 nT=3
+[d14] SNAP t=10455000 occ=0 wr=0 ocT=0 nT=2 bank=0 L=4294960171,4294956336,4294926169,4294965517,4294944011,7139,4294936442,35716,4294946044,4294961868,4294944729,4294951239,4294933419,4294940716,4294917805,40143,13854,5822,14117,4294923849,30318,4294937330,4294945925,8813,4294965256,4294962015,4294960785,23447,20710,5317,12073,17512,4294955070,4294915335,4294956983,4294945463,20543,20283,4294967218,14049,4294957025,23431,15952,4294947899,14030,33827,36817,1448,4294952043,4294897112,31522,4294959261,4294914497,4294958070     12215     13560
+[d14] RQ t=10475000 rd=0 nb=16 idx=0 oc=0 nl=0 acc=4294960171 b=-16400 m=1073741824 s=31
+[d14] RQ t=10485000 rd=0 nb=16 idx=1 oc=0 nl=1 acc=4294956336 b=-16400 m=1073741824 s=31
+[d14] RQ t=10495000 rd=0 nb=16 idx=2 oc=0 nl=2 acc=4294926169 b=-16400 m=1073741824 s=31
+[d14] RQ t=10505000 rd=0 nb=16 idx=3 oc=0 nl=3 acc=4294965517 b=-16400 m=1073741824 s=31
+[xrg] t=10515000 POP rp=0 g=0 iqlast=0 set=0 iqcnt=4 widx=1
+[d14] RQ t=10515000 rd=0 nb=16 idx=4 oc=0 nl=4 acc=4294944011 b=-16400 m=1073741824 s=31
+[d14] RQ t=10525000 rd=0 nb=16 idx=5 oc=0 nl=5 acc=7139 b=-16400 m=1073741824 s=31
+[d14] RQ t=10535000 rd=0 nb=16 idx=6 oc=0 nl=6 acc=4294936442 b=-16400 m=1073741824 s=31
+[d14] RQ t=10545000 rd=0 nb=16 idx=7 oc=0 nl=7 acc=35716 b=-16400 m=1073741824 s=31
+[d14] D8 t=10545000 ypre=-128 act=1 addr=16
+[d14] D8 t=10555000 ypre=-128 act=1 addr=16
+[d14] D8 t=10565000 ypre=-128 act=1 addr=16
+[d14] D8 t=10575000 ypre=-128 act=1 addr=16
+[d14] D8 t=10585000 ypre=-128 act=1 addr=16
+[d14] D8 t=10595000 ypre=-128 act=1 addr=16
+[d14] D8 t=10605000 ypre=-128 act=1 addr=16
+[d14] D8 t=10615000 ypre=127 act=1 addr=16
+[xrg] t=10635000 POP rp=1 g=0 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=10635000 GRPSET cg=0 grp=00
+[d17W] t=10655000 nT=3 k=0 strb=11111111 data=df7df000aa7f74bf
+[xrg] t=10665000 EMEND g=0 cnt=0 k=2
+[d17W] t=10665000 nT=3 k=1 strb=11111111 data=eadf7df0b3aa7f74
+[d17W] t=10675000 nT=3 k=2 strb=11111111 data=d1eadf7d00b3aa7f
+[xrg] t=10685000 PUSH wp=4 g=10 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=2 ic=0 kh=2 addr=00000268 len=16
+[d17C] t=10685000 addr=616 len=16 nT=3
+[xrg] t=10695000 PUSH wp=5 g=10 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=2 ic=0 kh=2 addr=00000270 len=8
+[d17C] t=10695000 addr=624 len=8 nT=3
+[d14] RQ t=10785000 rd=0 nb=16 idx=8 oc=1 nl=0 acc=4294946044 b=57041 m=1073741824 s=31
+[d14] RQ t=10795000 rd=0 nb=16 idx=9 oc=1 nl=1 acc=4294961868 b=57041 m=1073741824 s=31
+[d14] RQ t=10805000 rd=0 nb=16 idx=10 oc=1 nl=2 acc=4294944729 b=57041 m=1073741824 s=31
+[xrg] t=10815000 POP rp=2 g=1 iqlast=0 set=0 iqcnt=4 widx=2
+[d14] RQ t=10815000 rd=0 nb=16 idx=11 oc=1 nl=3 acc=4294951239 b=57041 m=1073741824 s=31
+[d14] RQ t=10825000 rd=0 nb=16 idx=12 oc=1 nl=4 acc=4294933419 b=57041 m=1073741824 s=31
+[d14] RQ t=10835000 rd=0 nb=16 idx=13 oc=1 nl=5 acc=4294940716 b=57041 m=1073741824 s=31
+[d14] RQ t=10845000 rd=0 nb=16 idx=14 oc=1 nl=6 acc=4294917805 b=57041 m=1073741824 s=31
+[d14] RQ t=10855000 rd=0 nb=16 idx=15 oc=1 nl=7 acc=40143 b=57041 m=1073741824 s=31
+[d14] D8 t=10855000 ypre=127 act=1 addr=65
+[d14] D8 t=10865000 ypre=127 act=1 addr=65
+[d14] D8 t=10875000 ypre=127 act=1 addr=65
+[d14] D8 t=10885000 ypre=127 act=1 addr=65
+[d14] D8 t=10895000 ypre=127 act=1 addr=65
+[d14] D8 t=10905000 ypre=127 act=1 addr=65
+[d14] D8 t=10915000 ypre=127 act=1 addr=65
+[d14] D8 t=10925000 ypre=127 act=1 addr=65
+[xrg] t=10955000 POP rp=3 g=1 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=10955000 GRPSET cg=0 grp=00
+[d17W] t=10975000 nT=3 k=3 strb=11111111 data=da8080007bd1eadf
+[xrg] t=10985000 EMEND g=1 cnt=1 k=5
+[d17W] t=10985000 nT=3 k=4 strb=11111111 data=62da80800f7bd1ea
+[d17W] t=10995000 nT=3 k=5 strb=11111111 data=1662da80000f7bd1
+[xrg] t=11005000 PUSH wp=6 g=11 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=3 ic=1 kh=0 addr=00000290 len=8
+[d17C] t=11005000 addr=656 len=8 nT=3
+[xrg] t=11015000 PUSH wp=7 g=11 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=3 ic=1 kh=0 addr=00000290 len=16
+[d17C] t=11015000 addr=656 len=16 nT=3
+[xrg] t=11125000 POP rp=4 g=0 iqlast=0 set=0 iqcnt=4 widx=2
+[d14] RQ t=11125000 rd=0 nb=16 idx=16 oc=2 nl=0 acc=13854 b=11348 m=1533063726 s=39
+[d14] RQ t=11135000 rd=0 nb=16 idx=17 oc=2 nl=1 acc=5822 b=11348 m=1533063726 s=39
+[d14] RQ t=11145000 rd=0 nb=16 idx=18 oc=2 nl=2 acc=14117 b=11348 m=1533063726 s=39
+[d14] RQ t=11155000 rd=0 nb=16 idx=19 oc=2 nl=3 acc=4294923849 b=11348 m=1533063726 s=39
+[d14] RQ t=11165000 rd=0 nb=16 idx=20 oc=2 nl=4 acc=30318 b=11348 m=1533063726 s=39
+[d14] RQ t=11175000 rd=0 nb=16 idx=21 oc=2 nl=5 acc=4294937330 b=11348 m=1533063726 s=39
+[d14] RQ t=11185000 rd=0 nb=16 idx=22 oc=2 nl=6 acc=4294945925 b=11348 m=1533063726 s=39
+[d14] RQ t=11195000 rd=0 nb=16 idx=23 oc=2 nl=7 acc=8813 b=11348 m=1533063726 s=39
+[d14] D8 t=11195000 ypre=70 act=1 addr=114
+[d14] D8 t=11205000 ypre=48 act=1 addr=114
+[d14] D8 t=11215000 ypre=71 act=1 addr=114
+[xrg] t=11225000 POP rp=5 g=0 iqlast=1 set=1 iqcnt=3 widx=1
+[xrg] t=11225000 GRPSET cg=0 grp=00
+[d14] D8 t=11225000 ypre=-90 act=1 addr=114
+[d14] D8 t=11235000 ypre=116 act=1 addr=114
+[d14] D8 t=11245000 ypre=-52 act=1 addr=114
+[d17W] t=11245000 nT=3 k=6 strb=11111111 data=39478700231662da
+[xrg] t=11255000 EMEND g=0 cnt=2 k=8
+[d14] D8 t=11255000 ypre=-28 act=1 addr=114
+[d17W] t=11255000 nT=3 k=7 strb=11111111 data=ff39478769231662
+[d14] D8 t=11265000 ypre=56 act=1 addr=114
+[d17W] t=11265000 nT=3 k=8 strb=11111111 data=88ff394700692316
+[xrg] t=11275000 PUSH wp=0 g=00 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=0 ic=1 kh=1 addr=00000298 len=8
+[d17C] t=11275000 addr=664 len=8 nT=3
+[xrg] t=11285000 PUSH wp=1 g=00 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=0 ic=1 kh=1 addr=00000298 len=16
+[d17C] t=11285000 addr=664 len=16 nT=3
+[xrg] t=11395000 POP rp=6 g=1 iqlast=0 set=0 iqcnt=4 widx=1
+[d14] RQ t=11455000 rd=0 nb=16 idx=24 oc=3 nl=0 acc=4294965256 b=-38864 m=1073741824 s=31
+[d14] RQ t=11465000 rd=0 nb=16 idx=25 oc=3 nl=1 acc=4294962015 b=-38864 m=1073741824 s=31
+[d14] RQ t=11475000 rd=0 nb=16 idx=26 oc=3 nl=2 acc=4294960785 b=-38864 m=1073741824 s=31
+[d14] RQ t=11485000 rd=0 nb=16 idx=27 oc=3 nl=3 acc=23447 b=-38864 m=1073741824 s=31
+[d14] RQ t=11495000 rd=0 nb=16 idx=28 oc=3 nl=4 acc=20710 b=-38864 m=1073741824 s=31
+[d14] RQ t=11505000 rd=0 nb=16 idx=29 oc=3 nl=5 acc=5317 b=-38864 m=1073741824 s=31
+[d14] RQ t=11515000 rd=0 nb=16 idx=30 oc=3 nl=6 acc=12073 b=-38864 m=1073741824 s=31
+[d14] RQ t=11525000 rd=0 nb=16 idx=31 oc=3 nl=7 acc=17512 b=-38864 m=1073741824 s=31
+[d14] D8 t=11525000 ypre=-128 act=1 addr=163
+[xrg] t=11535000 POP rp=7 g=1 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=11535000 GRPSET cg=0 grp=00
+[d14] D8 t=11535000 ypre=-128 act=1 addr=163
+[d14] D8 t=11545000 ypre=-128 act=1 addr=163
+[d14] D8 t=11555000 ypre=-128 act=1 addr=163
+[d17W] t=11555000 nT=3 k=9 strb=11111111 data=f36732003e199bf3
+[xrg] t=11565000 EMEND g=1 cnt=3 k=11
+[d14] D8 t=11565000 ypre=-128 act=1 addr=163
+[d17W] t=11565000 nT=3 k=10 strb=11111111 data=7cf36732df3e199b
+[d14] D8 t=11575000 ypre=-128 act=1 addr=163
+[d17W] t=11575000 nT=3 k=11 strb=11111111 data=a37cf36700df3e19
+[xrg] t=11585000 PUSH wp=2 g=01 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=1 ic=1 kh=2 addr=00000298 len=16
+[d14] D8 t=11585000 ypre=-128 act=1 addr=163
+[d17C] t=11585000 addr=664 len=16 nT=3
+[xrg] t=11595000 PUSH wp=3 g=01 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=1 ic=1 kh=2 addr=000002a0 len=16
+[d14] D8 t=11595000 ypre=-128 act=1 addr=163
+[d17C] t=11595000 addr=672 len=16 nT=3
+[xrg] t=11645000 POP rp=0 g=0 iqlast=0 set=0 iqcnt=4 widx=1
+[d14] RQ t=11765000 rd=0 nb=16 idx=32 oc=4 nl=0 acc=4294955070 b=-7417 m=1073741824 s=31
+[d14] RQ t=11775000 rd=0 nb=16 idx=33 oc=4 nl=1 acc=4294915335 b=-7417 m=1073741824 s=31
+[xrg] t=11785000 POP rp=1 g=0 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=11785000 GRPSET cg=0 grp=00
+[d14] RQ t=11785000 rd=0 nb=16 idx=34 oc=4 nl=2 acc=4294956983 b=-7417 m=1073741824 s=31
+[d14] RQ t=11795000 rd=0 nb=16 idx=35 oc=4 nl=3 acc=4294945463 b=-7417 m=1073741824 s=31
+[d14] RQ t=11805000 rd=0 nb=16 idx=36 oc=4 nl=4 acc=20543 b=-7417 m=1073741824 s=31
+[d17W] t=11805000 nT=3 k=12 strb=11111111 data=25ddbb003da37cf3
+[xrg] t=11815000 EMEND g=0 cnt=0 k=14
+[d14] RQ t=11815000 rd=0 nb=16 idx=37 oc=4 nl=5 acc=20283 b=-7417 m=1073741824 s=31
+[d17W] t=11815000 nT=3 k=13 strb=11111111 data=3f25ddbb7f3da37c
+[d14] RQ t=11825000 rd=0 nb=16 idx=38 oc=4 nl=6 acc=4294967218 b=-7417 m=1073741824 s=31
+[d17W] t=11825000 nT=3 k=14 strb=11111111 data=863f25dd007f3da3
+[xrg] t=11835000 PUSH wp=4 g=10 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=2 ic=2 kh=0 addr=000002c0 len=8
+[d14] RQ t=11835000 rd=0 nb=16 idx=39 oc=4 nl=7 acc=14049 b=-7417 m=1073741824 s=31
+[d14] D8 t=11835000 ypre=-128 act=1 addr=212
+[d17C] t=11835000 addr=704 len=8 nT=3
+[xrg] t=11845000 PUSH wp=5 g=10 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=2 ic=2 kh=0 addr=000002c0 len=16
+[d14] D8 t=11845000 ypre=-128 act=1 addr=212
+[d17C] t=11845000 addr=704 len=16 nT=3
+[d14] D8 t=11855000 ypre=-128 act=1 addr=212
+[d14] D8 t=11865000 ypre=-128 act=1 addr=212
+[d14] D8 t=11875000 ypre=127 act=1 addr=212
+[d14] D8 t=11885000 ypre=127 act=1 addr=212
+[d14] D8 t=11895000 ypre=-128 act=1 addr=212
+[d14] D8 t=11905000 ypre=127 act=1 addr=212
+[xrg] t=11925000 POP rp=2 g=1 iqlast=0 set=0 iqcnt=4 widx=2
+[xrg] t=12055000 POP rp=3 g=1 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=12055000 GRPSET cg=0 grp=00
+[d17W] t=12075000 nT=3 k=15 strb=11111111 data=7fc25c00d8863f25
+[xrg] t=12085000 EMEND g=1 cnt=1 k=17
+[d14] RQ t=12085000 rd=0 nb=16 idx=40 oc=5 nl=0 acc=4294957025 b=10879 m=-526473893 s=41
+[d17W] t=12085000 nT=3 k=16 strb=11111111 data=1c7fc25ccbd8863f
+[d14] RQ t=12095000 rd=0 nb=16 idx=41 oc=5 nl=1 acc=23431 b=10879 m=-526473893 s=41
+[d17W] t=12095000 nT=3 k=17 strb=11111111 data=af1c7fc200cbd886
+[xrg] t=12105000 PUSH wp=6 g=11 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=3 ic=2 kh=1 addr=000002c8 len=8
+[d14] RQ t=12105000 rd=0 nb=16 idx=42 oc=5 nl=2 acc=15952 b=10879 m=-526473893 s=41
+[d17C] t=12105000 addr=712 len=8 nT=3
+[xrg] t=12115000 PUSH wp=7 g=11 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=3 ic=2 kh=1 addr=000002c8 len=16
+[d14] RQ t=12115000 rd=0 nb=16 idx=43 oc=5 nl=3 acc=4294947899 b=10879 m=-526473893 s=41
+[d17C] t=12115000 addr=712 len=16 nT=3
+[xrg] t=12125000 POP rp=4 g=0 iqlast=0 set=0 iqcnt=4 widx=1
+[d14] RQ t=12125000 rd=0 nb=16 idx=44 oc=5 nl=4 acc=14030 b=10879 m=-526473893 s=41
+[d14] RQ t=12135000 rd=0 nb=16 idx=45 oc=5 nl=5 acc=33827 b=10879 m=-526473893 s=41
+[d14] RQ t=12145000 rd=0 nb=16 idx=46 oc=5 nl=6 acc=36817 b=10879 m=-526473893 s=41
+[d14] RQ t=12155000 rd=0 nb=16 idx=47 oc=5 nl=7 acc=1448 b=10879 m=-526473893 s=41
+[d14] D8 t=12155000 ypre=0 act=1 addr=261
+[d14] D8 t=12165000 ypre=-8 act=1 addr=261
+[d14] D8 t=12175000 ypre=-6 act=1 addr=261
+[d14] D8 t=12185000 ypre=2 act=1 addr=261
+[d14] D8 t=12195000 ypre=-6 act=1 addr=261
+[d14] D8 t=12205000 ypre=-11 act=1 addr=261
+[d14] D8 t=12215000 ypre=-11 act=1 addr=261
+[d14] D8 t=12225000 ypre=-3 act=1 addr=261
+[xrg] t=12255000 POP rp=5 g=0 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=12255000 GRPSET cg=0 grp=00
+[d17W] t=12275000 nT=3 k=18 strb=11111111 data=5c2a14000846a04d
+[xrg] t=12285000 EMEND g=0 cnt=2 k=20
+[d17W] t=12285000 nT=3 k=19 strb=11111111 data=ef5c2a143c0846a0
+[d17W] t=12295000 nT=3 k=20 strb=11111111 data=47ef5c2a003c0846
+[xrg] t=12305000 PUSH wp=0 g=00 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=0 ic=2 kh=2 addr=000002d0 len=8
+[d17C] t=12305000 addr=720 len=8 nT=3
+[xrg] t=12315000 PUSH wp=1 g=00 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=0 ic=2 kh=2 addr=000002d0 len=16
+[d17C] t=12315000 addr=720 len=16 nT=3
+[d14] RQ t=12405000 rd=0 nb=16 idx=48 oc=6 nl=0 acc=4294952043 b=-512466 m=2147483647 s=36
+[d14] RQ t=12415000 rd=0 nb=16 idx=49 oc=6 nl=1 acc=4294897112 b=-512466 m=2147483647 s=36
+[d14] RQ t=12425000 rd=0 nb=16 idx=50 oc=6 nl=2 acc=31522 b=-512466 m=2147483647 s=36
+[xrg] t=12435000 POP rp=6 g=1 iqlast=0 set=0 iqcnt=4 widx=1
+[d14] RQ t=12435000 rd=0 nb=16 idx=51 oc=6 nl=3 acc=4294959261 b=-512466 m=2147483647 s=36
+[d14] RQ t=12445000 rd=0 nb=16 idx=52 oc=6 nl=4 acc=4294914497 b=-512466 m=2147483647 s=36
+[d14] RQ t=12455000 rd=0 nb=16 idx=53 oc=6 nl=5 acc=4294958070 b=-512466 m=2147483647 s=36
+[d14] RQ t=12465000 rd=0 nb=16 idx=54 oc=6 nl=6 acc=12215 b=-512466 m=2147483647 s=36
+[d14] RQ t=12475000 rd=0 nb=16 idx=55 oc=6 nl=7 acc=13560 b=-512466 m=2147483647 s=36
+[d14] D8 t=12475000 ypre=-128 act=1 addr=310
+[d14] D8 t=12485000 ypre=-128 act=1 addr=310
+[d14] D8 t=12495000 ypre=-128 act=1 addr=310
+[d14] D8 t=12505000 ypre=-128 act=1 addr=310
+[d14] D8 t=12515000 ypre=-128 act=1 addr=310
+[d14] D8 t=12525000 ypre=-128 act=1 addr=310
+[d14] D8 t=12535000 ypre=-128 act=1 addr=310
+[d14] D8 t=12545000 ypre=-128 act=1 addr=310
+[xrg] t=12555000 POP rp=7 g=1 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=12555000 GRPSET cg=0 grp=00
+[d17W] t=12575000 nT=3 k=21 strb=11111111 data=7f20c0005c47ef5c
+[xrg] t=12585000 EMEND g=1 cnt=3 k=23
+[d17W] t=12585000 nT=3 k=22 strb=11111111 data=b87f20c07d5c47ef
+[d17W] t=12595000 nT=3 k=23 strb=11111111 data=d3b87f20007d5c47
+[xrg] t=12685000 POP rp=0 g=0 iqlast=0 set=0 iqcnt=2 widx=1
+[xrg] t=12815000 POP rp=1 g=0 iqlast=1 set=1 iqcnt=1 widx=2
+[xrg] t=12815000 GRPSET cg=0 grp=00
+[d17W] t=12835000 nT=3 k=24 strb=11111111 data=30e9d80033d3b87f
+[xrg] t=12845000 EMEND g=0 cnt=0 k=26
+[d17W] t=12845000 nT=3 k=25 strb=11111111 data=6730e9d88733d3b8
+[d17W] t=12855000 nT=3 k=26 strb=11111111 data=b96730e9008733d3
+[xrg] t=12905000 START ih=7 iw=7 ow=7 ic=3 kh=3 kw=3 sh=1 sw=1 ph=1 pw=1 klen=27 nstart=24 nlen=8 first=0 xbase=00000250 | INPUTS n_start_i=32 n_len_i=8 | loader xl_n_r=4 cfg_n_total=49 cfg_n_tiles=7
+[xrg] t=13075000 PART pp=0 rem_p=8 vld=1 m=3 cap=3 oy=4 ox=4 pvt=0000
+[xrg] t=13085000 PART pp=1 rem_p=5 vld=1 m=5 cap=7 oy=5 ox=0 pvt=0001
+[xrg] t=13105000 PUSH wp=0 g=00 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=0 ic=0 kh=0 addr=00000268 len=8
+[d17C] t=13105000 addr=616 len=8 nT=4
+[xrg] t=13115000 PUSH wp=1 g=00 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=0 ic=0 kh=0 addr=00000268 len=16
+[d17C] t=13115000 addr=616 len=16 nT=4
+[xrg] t=13125000 PUSH wp=2 g=01 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=1 ic=0 kh=1 addr=00000268 len=16
+[d17C] t=13125000 addr=616 len=16 nT=4
+[xrg] t=13135000 PUSH wp=3 g=01 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=1 ic=0 kh=1 addr=00000270 len=16
+[d17C] t=13135000 addr=624 len=16 nT=4
+[d14] SNAP t=13215000 occ=0 wr=1 ocT=0 nT=3 bank=0 L=10064,41557,4294952532,28190,20882,11776,15018,4294904266,4294907111,4294930053,17806,4294956376,151,4294884618,27072,4294927787,4294966680,4294966386,11401,16784,4294933299,4294927141,9658,21531,12344,4294955088,4294936584,18813,4294958212,4294952172,5317,1731,55067,6250,4294918606,46826,35423,4294957699,4294925367,4294949427,4294956266,12700,14587,11903,4294914768,21959,36143,9097,4294964473,3807,16383,4294955341,1729,429494968342949348024294964427
+[d14] RQ t=13235000 rd=1 nb=24 idx=0 oc=0 nl=0 acc=10064 b=-16400 m=1073741824 s=31
+[d14] RQ t=13245000 rd=1 nb=24 idx=1 oc=0 nl=1 acc=41557 b=-16400 m=1073741824 s=31
+[d14] RQ t=13255000 rd=1 nb=24 idx=2 oc=0 nl=2 acc=4294952532 b=-16400 m=1073741824 s=31
+[d14] RQ t=13265000 rd=1 nb=24 idx=3 oc=0 nl=3 acc=28190 b=-16400 m=1073741824 s=31
+[d14] RQ t=13275000 rd=1 nb=24 idx=4 oc=0 nl=4 acc=20882 b=-16400 m=1073741824 s=31
+[d14] RQ t=13285000 rd=1 nb=24 idx=5 oc=0 nl=5 acc=11776 b=-16400 m=1073741824 s=31
+[xrg] t=13295000 POP rp=0 g=0 iqlast=0 set=0 iqcnt=4 widx=1
+[d14] RQ t=13295000 rd=1 nb=24 idx=6 oc=0 nl=6 acc=15018 b=-16400 m=1073741824 s=31
+[d14] RQ t=13305000 rd=1 nb=24 idx=7 oc=0 nl=7 acc=4294904266 b=-16400 m=1073741824 s=31
+[d14] D8 t=13305000 ypre=-128 act=1 addr=24
+[d14] D8 t=13315000 ypre=127 act=1 addr=24
+[d14] D8 t=13325000 ypre=-128 act=1 addr=24
+[d14] D8 t=13335000 ypre=127 act=1 addr=24
+[d14] D8 t=13345000 ypre=127 act=1 addr=24
+[d14] D8 t=13355000 ypre=-128 act=1 addr=24
+[d14] D8 t=13365000 ypre=-128 act=1 addr=24
+[d14] D8 t=13375000 ypre=-128 act=1 addr=24
+[xrg] t=13445000 POP rp=1 g=0 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=13445000 GRPSET cg=0 grp=00
+[d17W] t=13465000 nT=4 k=0 strb=11111111 data=62da8080007bd1ea
+[xrg] t=13475000 EMEND g=0 cnt=0 k=2
+[d17W] t=13475000 nT=4 k=1 strb=11111111 data=1662da80800f7bd1
+[d17W] t=13485000 nT=4 k=2 strb=11111111 data=231662da80000f7b
+[xrg] t=13495000 PUSH wp=4 g=10 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=2 ic=0 kh=2 addr=00000270 len=16
+[d17C] t=13495000 addr=624 len=16 nT=4
+[xrg] t=13505000 PUSH wp=5 g=10 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=2 ic=0 kh=2 addr=00000278 len=8
+[d17C] t=13505000 addr=632 len=8 nT=4
+[d14] RQ t=13565000 rd=1 nb=24 idx=8 oc=1 nl=0 acc=4294907111 b=57041 m=1073741824 s=31
+[d14] RQ t=13575000 rd=1 nb=24 idx=9 oc=1 nl=1 acc=4294930053 b=57041 m=1073741824 s=31
+[xrg] t=13585000 POP rp=2 g=1 iqlast=0 set=0 iqcnt=4 widx=2
+[d14] RQ t=13585000 rd=1 nb=24 idx=10 oc=1 nl=2 acc=17806 b=57041 m=1073741824 s=31
+[d14] RQ t=13595000 rd=1 nb=24 idx=11 oc=1 nl=3 acc=4294956376 b=57041 m=1073741824 s=31
+[d14] RQ t=13605000 rd=1 nb=24 idx=12 oc=1 nl=4 acc=151 b=57041 m=1073741824 s=31
+[d14] RQ t=13615000 rd=1 nb=24 idx=13 oc=1 nl=5 acc=4294884618 b=57041 m=1073741824 s=31
+[d14] RQ t=13625000 rd=1 nb=24 idx=14 oc=1 nl=6 acc=27072 b=57041 m=1073741824 s=31
+[d14] RQ t=13635000 rd=1 nb=24 idx=15 oc=1 nl=7 acc=4294927787 b=57041 m=1073741824 s=31
+[d14] D8 t=13635000 ypre=-128 act=1 addr=73
+[d14] D8 t=13645000 ypre=127 act=1 addr=73
+[d14] D8 t=13655000 ypre=127 act=1 addr=73
+[d14] D8 t=13665000 ypre=127 act=1 addr=73
+[d14] D8 t=13675000 ypre=127 act=1 addr=73
+[d14] D8 t=13685000 ypre=-128 act=1 addr=73
+[d14] D8 t=13695000 ypre=127 act=1 addr=73
+[d14] D8 t=13705000 ypre=127 act=1 addr=73
+[xrg] t=13815000 POP rp=3 g=1 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=13815000 GRPSET cg=0 grp=00
+[d17W] t=13835000 nT=4 k=3 strb=11111111 data=ff39478700231662
+[xrg] t=13845000 EMEND g=1 cnt=1 k=5
+[d17W] t=13845000 nT=4 k=4 strb=11111111 data=88ff394787692316
+[d17W] t=13855000 nT=4 k=5 strb=11111111 data=0088ff3947006923
+[xrg] t=13865000 PUSH wp=6 g=11 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=3 ic=1 kh=0 addr=00000298 len=8
+[d17C] t=13865000 addr=664 len=8 nT=4
+[xrg] t=13875000 PUSH wp=7 g=11 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=3 ic=1 kh=0 addr=00000298 len=16
+[d14] RQ t=13875000 rd=1 nb=24 idx=16 oc=2 nl=0 acc=4294966680 b=11348 m=1533063726 s=39
+[d17C] t=13875000 addr=664 len=16 nT=4
+[d14] RQ t=13885000 rd=1 nb=24 idx=17 oc=2 nl=1 acc=4294966386 b=11348 m=1533063726 s=39
+[d14] RQ t=13895000 rd=1 nb=24 idx=18 oc=2 nl=2 acc=11401 b=11348 m=1533063726 s=39
+[xrg] t=13905000 POP rp=4 g=0 iqlast=0 set=0 iqcnt=4 widx=2
+[d14] RQ t=13905000 rd=1 nb=24 idx=19 oc=2 nl=3 acc=16784 b=11348 m=1533063726 s=39
+[d14] RQ t=13915000 rd=1 nb=24 idx=20 oc=2 nl=4 acc=4294933299 b=11348 m=1533063726 s=39
+[d14] RQ t=13925000 rd=1 nb=24 idx=21 oc=2 nl=5 acc=4294927141 b=11348 m=1533063726 s=39
+[d14] RQ t=13935000 rd=1 nb=24 idx=22 oc=2 nl=6 acc=9658 b=11348 m=1533063726 s=39
+[d14] RQ t=13945000 rd=1 nb=24 idx=23 oc=2 nl=7 acc=21531 b=11348 m=1533063726 s=39
+[d14] D8 t=13945000 ypre=30 act=1 addr=122
+[d14] D8 t=13955000 ypre=29 act=1 addr=122
+[d14] D8 t=13965000 ypre=63 act=1 addr=122
+[d14] D8 t=13975000 ypre=78 act=1 addr=122
+[d14] D8 t=13985000 ypre=-63 act=1 addr=122
+[d14] D8 t=13995000 ypre=-80 act=1 addr=122
+[d14] D8 t=14005000 ypre=59 act=1 addr=122
+[d14] D8 t=14015000 ypre=92 act=1 addr=122
+[xrg] t=14025000 POP rp=5 g=0 iqlast=1 set=1 iqcnt=3 widx=1
+[xrg] t=14025000 GRPSET cg=0 grp=00
+[d17W] t=14045000 nT=4 k=6 strb=11111111 data=be1653d4000088ff
+[xrg] t=14055000 EMEND g=0 cnt=2 k=8
+[d17W] t=14055000 nT=4 k=7 strb=11111111 data=41be1653d4ea0088
+[d17W] t=14065000 nT=4 k=8 strb=11111111 data=aa41be165300ea00
+[xrg] t=14075000 PUSH wp=0 g=00 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=0 ic=1 kh=1 addr=000002a0 len=8
+[d17C] t=14075000 addr=672 len=8 nT=4
+[xrg] t=14085000 PUSH wp=1 g=00 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=0 ic=1 kh=1 addr=000002a0 len=16
+[d17C] t=14085000 addr=672 len=16 nT=4
+[xrg] t=14105000 POP rp=6 g=1 iqlast=0 set=0 iqcnt=4 widx=1
+[d14] RQ t=14205000 rd=1 nb=24 idx=24 oc=3 nl=0 acc=12344 b=-38864 m=1073741824 s=31
+[d14] RQ t=14215000 rd=1 nb=24 idx=25 oc=3 nl=1 acc=4294955088 b=-38864 m=1073741824 s=31
+[d14] RQ t=14225000 rd=1 nb=24 idx=26 oc=3 nl=2 acc=4294936584 b=-38864 m=1073741824 s=31
+[xrg] t=14235000 POP rp=7 g=1 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=14235000 GRPSET cg=0 grp=00
+[d14] RQ t=14235000 rd=1 nb=24 idx=27 oc=3 nl=3 acc=18813 b=-38864 m=1073741824 s=31
+[d14] RQ t=14245000 rd=1 nb=24 idx=28 oc=3 nl=4 acc=4294958212 b=-38864 m=1073741824 s=31
+[d14] RQ t=14255000 rd=1 nb=24 idx=29 oc=3 nl=5 acc=4294952172 b=-38864 m=1073741824 s=31
+[d17W] t=14255000 nT=4 k=9 strb=11111111 data=3f25ddbb003da37c
+[xrg] t=14265000 EMEND g=1 cnt=3 k=11
+[d14] RQ t=14265000 rd=1 nb=24 idx=30 oc=3 nl=6 acc=5317 b=-38864 m=1073741824 s=31
+[d17W] t=14265000 nT=4 k=10 strb=11111111 data=863f25ddbb7f3da3
+[d14] RQ t=14275000 rd=1 nb=24 idx=31 oc=3 nl=7 acc=1731 b=-38864 m=1073741824 s=31
+[d14] D8 t=14275000 ypre=-128 act=1 addr=171
+[d17W] t=14275000 nT=4 k=11 strb=11111111 data=d8863f25dd007f3d
+[xrg] t=14285000 PUSH wp=2 g=01 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=1 ic=1 kh=2 addr=000002a0 len=16
+[d14] D8 t=14285000 ypre=-128 act=1 addr=171
+[d17C] t=14285000 addr=672 len=16 nT=4
+[xrg] t=14295000 PUSH wp=3 g=01 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=1 ic=1 kh=2 addr=000002a8 len=16
+[d14] D8 t=14295000 ypre=-128 act=1 addr=171
+[d17C] t=14295000 addr=680 len=16 nT=4
+[d14] D8 t=14305000 ypre=-128 act=1 addr=171
+[d14] D8 t=14315000 ypre=-128 act=1 addr=171
+[d14] D8 t=14325000 ypre=-128 act=1 addr=171
+[d14] D8 t=14335000 ypre=-128 act=1 addr=171
+[d14] D8 t=14345000 ypre=-128 act=1 addr=171
+[xrg] t=14405000 POP rp=0 g=0 iqlast=0 set=0 iqcnt=4 widx=1
+[d14] RQ t=14525000 rd=1 nb=24 idx=32 oc=4 nl=0 acc=55067 b=-7417 m=1073741824 s=31
+[xrg] t=14535000 POP rp=1 g=0 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=14535000 GRPSET cg=0 grp=00
+[d14] RQ t=14535000 rd=1 nb=24 idx=33 oc=4 nl=1 acc=6250 b=-7417 m=1073741824 s=31
+[d14] RQ t=14545000 rd=1 nb=24 idx=34 oc=4 nl=2 acc=4294918606 b=-7417 m=1073741824 s=31
+[d14] RQ t=14555000 rd=1 nb=24 idx=35 oc=4 nl=3 acc=46826 b=-7417 m=1073741824 s=31
+[d17W] t=14555000 nT=4 k=12 strb=11111111 data=1c7fc25c00d8863f
+[xrg] t=14565000 EMEND g=0 cnt=0 k=14
+[d14] RQ t=14565000 rd=1 nb=24 idx=36 oc=4 nl=4 acc=35423 b=-7417 m=1073741824 s=31
+[d17W] t=14565000 nT=4 k=13 strb=11111111 data=af1c7fc25ccbd886
+[d14] RQ t=14575000 rd=1 nb=24 idx=37 oc=4 nl=5 acc=4294957699 b=-7417 m=1073741824 s=31
+[d17W] t=14575000 nT=4 k=14 strb=11111111 data=8baf1c7fc200cbd8
+[xrg] t=14585000 PUSH wp=4 g=10 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=2 ic=2 kh=0 addr=000002c8 len=8
+[d14] RQ t=14585000 rd=1 nb=24 idx=38 oc=4 nl=6 acc=4294925367 b=-7417 m=1073741824 s=31
+[d17C] t=14585000 addr=712 len=8 nT=4
+[xrg] t=14595000 PUSH wp=5 g=10 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=2 ic=2 kh=0 addr=000002c8 len=16
+[d14] RQ t=14595000 rd=1 nb=24 idx=39 oc=4 nl=7 acc=4294949427 b=-7417 m=1073741824 s=31
+[d14] D8 t=14595000 ypre=127 act=1 addr=220
+[d17C] t=14595000 addr=712 len=16 nT=4
+[d14] D8 t=14605000 ypre=-128 act=1 addr=220
+[d14] D8 t=14615000 ypre=-128 act=1 addr=220
+[d14] D8 t=14625000 ypre=127 act=1 addr=220
+[xrg] t=14635000 POP rp=2 g=1 iqlast=0 set=0 iqcnt=4 widx=2
+[d14] D8 t=14635000 ypre=127 act=1 addr=220
+[d14] D8 t=14645000 ypre=-128 act=1 addr=220
+[d14] D8 t=14655000 ypre=-128 act=1 addr=220
+[d14] D8 t=14665000 ypre=-128 act=1 addr=220
+[xrg] t=14805000 POP rp=3 g=1 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=14805000 GRPSET cg=0 grp=00
+[d17W] t=14825000 nT=4 k=15 strb=11111111 data=3384485a008baf1c
+[xrg] t=14835000 EMEND g=1 cnt=1 k=17
+[d17W] t=14835000 nT=4 k=16 strb=11111111 data=fa3384485a3d8baf
+[d17W] t=14845000 nT=4 k=17 strb=11111111 data=fafa338448003d8b
+[xrg] t=14855000 PUSH wp=6 g=11 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=3 ic=2 kh=1 addr=000002d0 len=8
+[d14] RQ t=14855000 rd=1 nb=24 idx=40 oc=5 nl=0 acc=4294956266 b=10879 m=-526473893 s=41
+[d17C] t=14855000 addr=720 len=8 nT=4
+[xrg] t=14865000 PUSH wp=7 g=11 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=3 ic=2 kh=1 addr=000002d0 len=16
+[xrg] t=14865000 POP rp=4 g=0 iqlast=0 set=0 iqcnt=3 widx=1
+[d14] RQ t=14865000 rd=1 nb=24 idx=41 oc=5 nl=1 acc=12700 b=10879 m=-526473893 s=41
+[d17C] t=14865000 addr=720 len=16 nT=4
+[d14] RQ t=14875000 rd=1 nb=24 idx=42 oc=5 nl=2 acc=14587 b=10879 m=-526473893 s=41
+[d14] RQ t=14885000 rd=1 nb=24 idx=43 oc=5 nl=3 acc=11903 b=10879 m=-526473893 s=41
+[d14] RQ t=14895000 rd=1 nb=24 idx=44 oc=5 nl=4 acc=4294914768 b=10879 m=-526473893 s=41
+[d14] RQ t=14905000 rd=1 nb=24 idx=45 oc=5 nl=5 acc=21959 b=10879 m=-526473893 s=41
+[d14] RQ t=14915000 rd=1 nb=24 idx=46 oc=5 nl=6 acc=36143 b=10879 m=-526473893 s=41
+[d14] RQ t=14925000 rd=1 nb=24 idx=47 oc=5 nl=7 acc=9097 b=10879 m=-526473893 s=41
+[d14] D8 t=14925000 ypre=0 act=1 addr=269
+[d14] D8 t=14935000 ypre=-6 act=1 addr=269
+[d14] D8 t=14945000 ypre=-6 act=1 addr=269
+[d14] D8 t=14955000 ypre=-5 act=1 addr=269
+[d14] D8 t=14965000 ypre=10 act=1 addr=269
+[d14] D8 t=14975000 ypre=-8 act=1 addr=269
+[xrg] t=14985000 POP rp=5 g=0 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=14985000 GRPSET cg=0 grp=00
+[d14] D8 t=14985000 ypre=-11 act=1 addr=269
+[d14] D8 t=14995000 ypre=-5 act=1 addr=269
+[d17W] t=15005000 nT=4 k=18 strb=11111111 data=b87f20c0005c47ef
+[xrg] t=15015000 EMEND g=0 cnt=2 k=20
+[d17W] t=15015000 nT=4 k=19 strb=11111111 data=d3b87f20c07d5c47
+[d17W] t=15025000 nT=4 k=20 strb=11111111 data=33d3b87f20007d5c
+[xrg] t=15035000 PUSH wp=0 g=00 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=0 ic=2 kh=2 addr=000002d8 len=8
+[d17C] t=15035000 addr=728 len=8 nT=4
+[xrg] t=15045000 PUSH wp=1 g=00 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=0 ic=2 kh=2 addr=000002d8 len=16
+[d17C] t=15045000 addr=728 len=16 nT=4
+[xrg] t=15155000 POP rp=6 g=1 iqlast=0 set=0 iqcnt=4 widx=1
+[d14] RQ t=15185000 rd=1 nb=24 idx=48 oc=6 nl=0 acc=4294964473 b=-512466 m=2147483647 s=36
+[d14] RQ t=15195000 rd=1 nb=24 idx=49 oc=6 nl=1 acc=3807 b=-512466 m=2147483647 s=36
+[d14] RQ t=15205000 rd=1 nb=24 idx=50 oc=6 nl=2 acc=16383 b=-512466 m=2147483647 s=36
+[d14] RQ t=15215000 rd=1 nb=24 idx=51 oc=6 nl=3 acc=4294955341 b=-512466 m=2147483647 s=36
+[d14] RQ t=15225000 rd=1 nb=24 idx=52 oc=6 nl=4 acc=1729 b=-512466 m=2147483647 s=36
+[d14] RQ t=15235000 rd=1 nb=24 idx=53 oc=6 nl=5 acc=4294949683 b=-512466 m=2147483647 s=36
+[d14] RQ t=15245000 rd=1 nb=24 idx=54 oc=6 nl=6 acc=4294934802 b=-512466 m=2147483647 s=36
+[d14] RQ t=15255000 rd=1 nb=24 idx=55 oc=6 nl=7 acc=4294964427 b=-512466 m=2147483647 s=36
+[d14] D8 t=15255000 ypre=-128 act=1 addr=318
+[d14] D8 t=15265000 ypre=-128 act=1 addr=318
+[xrg] t=15275000 POP rp=7 g=1 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=15275000 GRPSET cg=0 grp=00
+[d14] D8 t=15275000 ypre=-128 act=1 addr=318
+[d14] D8 t=15285000 ypre=-128 act=1 addr=318
+[d14] D8 t=15295000 ypre=-128 act=1 addr=318
+[d17W] t=15295000 nT=4 k=21 strb=11111111 data=6730e9d80033d3b8
+[xrg] t=15305000 EMEND g=1 cnt=3 k=23
+[d14] D8 t=15305000 ypre=-128 act=1 addr=318
+[d17W] t=15305000 nT=4 k=22 strb=11111111 data=b96730e9d88733d3
+[d14] D8 t=15315000 ypre=-128 act=1 addr=318
+[d17W] t=15315000 nT=4 k=23 strb=11111111 data=ddb96730e9008733
+[d14] D8 t=15325000 ypre=-128 act=1 addr=318
+[xrg] t=15375000 POP rp=0 g=0 iqlast=0 set=0 iqcnt=2 widx=1
+[xrg] t=15475000 POP rp=1 g=0 iqlast=1 set=1 iqcnt=1 widx=2
+[xrg] t=15475000 GRPSET cg=0 grp=00
+[d17W] t=15495000 nT=4 k=24 strb=11111111 data=00c8d68000ddb967
+[xrg] t=15505000 EMEND g=0 cnt=0 k=26
+[d17W] t=15505000 nT=4 k=25 strb=11111111 data=ee00c8d680acddb9
+[d17W] t=15515000 nT=4 k=26 strb=11111111 data=17ee00c8d600acdd
+[xrg] t=15565000 START ih=7 iw=7 ow=7 ic=3 kh=3 kw=3 sh=1 sw=1 ph=1 pw=1 klen=27 nstart=32 nlen=8 first=0 xbase=00000250 | INPUTS n_start_i=40 n_len_i=8 | loader xl_n_r=5 cfg_n_total=49 cfg_n_tiles=7
+[xrg] t=15735000 PART pp=0 rem_p=8 vld=1 m=2 cap=2 oy=5 ox=5 pvt=0000
+[xrg] t=15745000 PART pp=1 rem_p=6 vld=1 m=6 cap=7 oy=6 ox=0 pvt=0001
+[xrg] t=15765000 PUSH wp=0 g=00 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=0 ic=0 kh=0 addr=00000270 len=8
+[d17C] t=15765000 addr=624 len=8 nT=5
+[xrg] t=15775000 PUSH wp=1 g=00 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=0 ic=0 kh=0 addr=00000270 len=16
+[d17C] t=15775000 addr=624 len=16 nT=5
+[xrg] t=15785000 PUSH wp=2 g=01 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=1 ic=0 kh=1 addr=00000270 len=16
+[d17C] t=15785000 addr=624 len=16 nT=5
+[xrg] t=15795000 PUSH wp=3 g=01 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=1 ic=0 kh=1 addr=00000278 len=16
+[d17C] t=15795000 addr=632 len=16 nT=5
+[d14] SNAP t=15875000 occ=0 wr=0 ocT=0 nT=4 bank=0 L=49583,4294925221,4294959252,30114,45996,4294962030,4294920326,33023,2794,4294938624,48122,4294947713,6875,4294959362,4294946224,4294964185,9023,4294904318,4294922770,2583,47806,4294939958,2490,4294949095,20893,4483,15642,4294947403,4294926062,4294966507,28669,4294959772,61478,4294946199,4294935678,9140,4294929664,40399,25503,21161,4294918038,17845,4294966393,4294953869,4294964466,22057,11517,4294940328,4294939487,4294932490,4294921712,21642,28979,42949478724294941360     26277
+[d14] RQ t=15895000 rd=0 nb=32 idx=0 oc=0 nl=0 acc=49583 b=-16400 m=1073741824 s=31
+[xrg] t=15905000 POP rp=0 g=0 iqlast=0 set=0 iqcnt=4 widx=1
+[d14] RQ t=15905000 rd=0 nb=32 idx=1 oc=0 nl=1 acc=4294925221 b=-16400 m=1073741824 s=31
+[d14] RQ t=15915000 rd=0 nb=32 idx=2 oc=0 nl=2 acc=4294959252 b=-16400 m=1073741824 s=31
+[d14] RQ t=15925000 rd=0 nb=32 idx=3 oc=0 nl=3 acc=30114 b=-16400 m=1073741824 s=31
+[d14] RQ t=15935000 rd=0 nb=32 idx=4 oc=0 nl=4 acc=45996 b=-16400 m=1073741824 s=31
+[d14] RQ t=15945000 rd=0 nb=32 idx=5 oc=0 nl=5 acc=4294962030 b=-16400 m=1073741824 s=31
+[d14] RQ t=15955000 rd=0 nb=32 idx=6 oc=0 nl=6 acc=4294920326 b=-16400 m=1073741824 s=31
+[d14] RQ t=15965000 rd=0 nb=32 idx=7 oc=0 nl=7 acc=33023 b=-16400 m=1073741824 s=31
+[d14] D8 t=15965000 ypre=127 act=1 addr=32
+[d14] D8 t=15975000 ypre=-128 act=1 addr=32
+[d14] D8 t=15985000 ypre=-128 act=1 addr=32
+[d14] D8 t=15995000 ypre=127 act=1 addr=32
+[d14] D8 t=16005000 ypre=127 act=1 addr=32
+[d14] D8 t=16015000 ypre=-128 act=1 addr=32
+[d14] D8 t=16025000 ypre=-128 act=1 addr=32
+[xrg] t=16035000 POP rp=1 g=0 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=16035000 GRPSET cg=0 grp=00
+[d14] D8 t=16035000 ypre=127 act=1 addr=32
+[d17W] t=16055000 nT=5 k=0 strb=11111111 data=88ff394787002316
+[xrg] t=16065000 EMEND g=0 cnt=0 k=2
+[d17W] t=16065000 nT=5 k=1 strb=11111111 data=0088ff3947876923
+[d17W] t=16075000 nT=5 k=2 strb=11111111 data=ea0088ff39470069
+[xrg] t=16085000 PUSH wp=4 g=10 p=0 lastcmd=1 later=0000 grpcmd=0 cnt=2 ic=0 kh=2 addr=00000278 len=16
+[d17C] t=16085000 addr=632 len=16 nT=5
+[xrg] t=16155000 POP rp=2 g=1 iqlast=0 set=0 iqcnt=3 widx=2
+[d14] RQ t=16195000 rd=0 nb=32 idx=8 oc=1 nl=0 acc=2794 b=57041 m=1073741824 s=31
+[d14] RQ t=16205000 rd=0 nb=32 idx=9 oc=1 nl=1 acc=4294938624 b=57041 m=1073741824 s=31
+[d14] RQ t=16215000 rd=0 nb=32 idx=10 oc=1 nl=2 acc=48122 b=57041 m=1073741824 s=31
+[d14] RQ t=16225000 rd=0 nb=32 idx=11 oc=1 nl=3 acc=4294947713 b=57041 m=1073741824 s=31
+[d14] RQ t=16235000 rd=0 nb=32 idx=12 oc=1 nl=4 acc=6875 b=57041 m=1073741824 s=31
+[d14] RQ t=16245000 rd=0 nb=32 idx=13 oc=1 nl=5 acc=4294959362 b=57041 m=1073741824 s=31
+[d14] RQ t=16255000 rd=0 nb=32 idx=14 oc=1 nl=6 acc=4294946224 b=57041 m=1073741824 s=31
+[d14] RQ t=16265000 rd=0 nb=32 idx=15 oc=1 nl=7 acc=4294964185 b=57041 m=1073741824 s=31
+[d14] D8 t=16265000 ypre=127 act=1 addr=81
+[d14] D8 t=16275000 ypre=127 act=1 addr=81
+[xrg] t=16285000 POP rp=3 g=1 iqlast=1 set=1 iqcnt=2 widx=2
+[xrg] t=16285000 GRPSET cg=0 grp=00
+[d14] D8 t=16285000 ypre=127 act=1 addr=81
+[d14] D8 t=16295000 ypre=127 act=1 addr=81
+[d14] D8 t=16305000 ypre=127 act=1 addr=81
+[d17W] t=16305000 nT=5 k=3 strb=11111111 data=41be1653d4000088
+[xrg] t=16315000 EMEND g=1 cnt=1 k=5
+[d14] D8 t=16315000 ypre=127 act=1 addr=81
+[d17W] t=16315000 nT=5 k=4 strb=11111111 data=aa41be1653d4ea00
+[d14] D8 t=16325000 ypre=127 act=1 addr=81
+[d17W] t=16325000 nT=5 k=5 strb=11111111 data=32aa41be165300ea
+[xrg] t=16335000 PUSH wp=5 g=11 p=0 lastcmd=0 later=0001 grpcmd=0 cnt=3 ic=1 kh=0 addr=000002a0 len=8
+[d14] D8 t=16335000 ypre=127 act=1 addr=81
+[d17C] t=16335000 addr=672 len=8 nT=5
+[xrg] t=16345000 PUSH wp=6 g=11 p=1 lastcmd=1 later=0000 grpcmd=1 cnt=3 ic=1 kh=0 addr=000002a0 len=16
+[d17C] t=16345000 addr=672 len=16 nT=5
+[xrg] t=16355000 POP rp=4 g=0 iqlast=1 set=1 iqcnt=3 widx=2
+[xrg] t=16355000 GRPSET cg=0 grp=00
+[d17W] t=16375000 nT=5 k=6 strb=11111111 data=000000000000aa41
+[xrg] t=16385000 EMEND g=0 cnt=2 k=8
+[d17W] t=16385000 nT=5 k=7 strb=11111111 data=00000000000032aa
+[d17W] t=16395000 nT=5 k=8 strb=11111111 data=0000000000000032
+[d17C] t=16405000 addr=680 len=8 nT=5
+[d17C] t=16415000 addr=680 len=16 nT=5
+[d14] RQ t=16505000 rd=0 nb=32 idx=16 oc=2 nl=0 acc=9023 b=11348 m=1533063726 s=39
+[d14] RQ t=16515000 rd=0 nb=32 idx=17 oc=2 nl=1 acc=4294904318 b=11348 m=1533063726 s=39
+[d14] RQ t=16525000 rd=0 nb=32 idx=18 oc=2 nl=2 acc=4294922770 b=11348 m=1533063726 s=39
+[d14] RQ t=16535000 rd=0 nb=32 idx=19 oc=2 nl=3 acc=2583 b=11348 m=1533063726 s=39
+[d14] RQ t=16545000 rd=0 nb=32 idx=20 oc=2 nl=4 acc=47806 b=11348 m=1533063726 s=39
+[d14] RQ t=16555000 rd=0 nb=32 idx=21 oc=2 nl=5 acc=4294939958 b=11348 m=1533063726 s=39
+[d14] RQ t=16565000 rd=0 nb=32 idx=22 oc=2 nl=6 acc=2490 b=11348 m=1533063726 s=39
+[d14] RQ t=16575000 rd=0 nb=32 idx=23 oc=2 nl=7 acc=4294949095 b=11348 m=1533063726 s=39
+[d14] D8 t=16575000 ypre=57 act=1 addr=130
+[d14] D8 t=16585000 ypre=-128 act=1 addr=130
+[d14] D8 t=16595000 ypre=-93 act=1 addr=130
+[d14] D8 t=16605000 ypre=39 act=1 addr=130
+[d14] D8 t=16615000 ypre=127 act=1 addr=130
+[d14] D8 t=16625000 ypre=-45 act=1 addr=130
+[d14] D8 t=16635000 ypre=39 act=1 addr=130
+[d14] D8 t=16645000 ypre=-19 act=1 addr=130
+[d17W] t=16655000 nT=5 k=9 strb=11111111 data=af1c7fc25c00d886
+[d17W] t=16665000 nT=5 k=10 strb=11111111 data=8baf1c7fc25ccbd8
+[d17W] t=16675000 nT=5 k=11 strb=11111111 data=3d8baf1c7fc200cb
+[d17C] t=16685000 addr=680 len=16 nT=5
+[d14] RQ t=16845000 rd=0 nb=32 idx=24 oc=3 nl=0 acc=20893 b=-38864 m=1073741824 s=31
+[d14] RQ t=16855000 rd=0 nb=32 idx=25 oc=3 nl=1 acc=4483 b=-38864 m=1073741824 s=31
+[d14] RQ t=16865000 rd=0 nb=32 idx=26 oc=3 nl=2 acc=15642 b=-38864 m=1073741824 s=31
+[d14] RQ t=16875000 rd=0 nb=32 idx=27 oc=3 nl=3 acc=4294947403 b=-38864 m=1073741824 s=31
+[d14] RQ t=16885000 rd=0 nb=32 idx=28 oc=3 nl=4 acc=4294926062 b=-38864 m=1073741824 s=31
+[d14] RQ t=16895000 rd=0 nb=32 idx=29 oc=3 nl=5 acc=4294966507 b=-38864 m=1073741824 s=31
+[d14] RQ t=16905000 rd=0 nb=32 idx=30 oc=3 nl=6 acc=28669 b=-38864 m=1073741824 s=31
+[d14] RQ t=16915000 rd=0 nb=32 idx=31 oc=3 nl=7 acc=4294959772 b=-38864 m=1073741824 s=31
+[d14] D8 t=16915000 ypre=-128 act=1 addr=179
+[d14] D8 t=16925000 ypre=-128 act=1 addr=179
+[d17W] t=16925000 nT=5 k=12 strb=11111111 data=fa3384485a008baf
+[d14] D8 t=16935000 ypre=-128 act=1 addr=179
+[d17W] t=16935000 nT=5 k=13 strb=11111111 data=fafa3384485a3d8b
+[d14] D8 t=16945000 ypre=-128 act=1 addr=179
+[d17W] t=16945000 nT=5 k=14 strb=11111111 data=24fafa338448003d
+[d14] D8 t=16955000 ypre=-128 act=1 addr=179
+[d17C] t=16955000 addr=720 len=8 nT=5
+[d14] D8 t=16965000 ypre=-128 act=1 addr=179
+[d17C] t=16965000 addr=720 len=16 nT=5
+[d14] D8 t=16975000 ypre=-128 act=1 addr=179
+[d14] D8 t=16985000 ypre=-128 act=1 addr=179
+[d17W] t=17045000 nT=5 k=15 strb=11111111 data=000000000000fafa
+[d17W] t=17055000 nT=5 k=16 strb=11111111 data=00000000000024fa
+[d17W] t=17065000 nT=5 k=17 strb=11111111 data=0000000000000024
+[d17C] t=17075000 addr=728 len=8 nT=5
+[d17C] t=17085000 addr=728 len=16 nT=5
+[d14] RQ t=17155000 rd=0 nb=32 idx=32 oc=4 nl=0 acc=61478 b=-7417 m=1073741824 s=31
+[d14] RQ t=17165000 rd=0 nb=32 idx=33 oc=4 nl=1 acc=4294946199 b=-7417 m=1073741824 s=31
+[d14] RQ t=17175000 rd=0 nb=32 idx=34 oc=4 nl=2 acc=4294935678 b=-7417 m=1073741824 s=31
+[d14] RQ t=17185000 rd=0 nb=32 idx=35 oc=4 nl=3 acc=9140 b=-7417 m=1073741824 s=31
+[d14] RQ t=17195000 rd=0 nb=32 idx=36 oc=4 nl=4 acc=4294929664 b=-7417 m=1073741824 s=31
+[d14] RQ t=17205000 rd=0 nb=32 idx=37 oc=4 nl=5 acc=40399 b=-7417 m=1073741824 s=31
+[d14] RQ t=17215000 rd=0 nb=32 idx=38 oc=4 nl=6 acc=25503 b=-7417 m=1073741824 s=31
+[d14] RQ t=17225000 rd=0 nb=32 idx=39 oc=4 nl=7 acc=21161 b=-7417 m=1073741824 s=31
+[d14] D8 t=17225000 ypre=127 act=1 addr=228
+[d14] D8 t=17235000 ypre=-128 act=1 addr=228
+[d14] D8 t=17245000 ypre=-128 act=1 addr=228
+[d17W] t=17245000 nT=5 k=18 strb=11111111 data=b96730e9d80033d3
+[d14] D8 t=17255000 ypre=127 act=1 addr=228
+[d17W] t=17255000 nT=5 k=19 strb=11111111 data=ddb96730e9d88733
+[d14] D8 t=17265000 ypre=-128 act=1 addr=228
+[d17W] t=17265000 nT=5 k=20 strb=11111111 data=acddb96730e90087
+[d14] D8 t=17275000 ypre=127 act=1 addr=228
+[d17C] t=17275000 addr=736 len=8 nT=5
+[d14] D8 t=17285000 ypre=127 act=1 addr=228
+[d14] D8 t=17295000 ypre=127 act=1 addr=228
+[d17W] t=17455000 nT=5 k=21 strb=11111111 data=ee00c8d68000ddb9
+[d17W] t=17465000 nT=5 k=22 strb=11111111 data=17ee00c8d680acdd
+[d14] RQ t=17475000 rd=0 nb=32 idx=40 oc=5 nl=0 acc=4294918038 b=10879 m=-526473893 s=41
+[d17W] t=17475000 nT=5 k=23 strb=11111111 data=3717ee00c8d600ac
+[d14] RQ t=17485000 rd=0 nb=32 idx=41 oc=5 nl=1 acc=17845 b=10879 m=-526473893 s=41
+[d14] RQ t=17495000 rd=0 nb=32 idx=42 oc=5 nl=2 acc=4294966393 b=10879 m=-526473893 s=41
+[d14] RQ t=17505000 rd=0 nb=32 idx=43 oc=5 nl=3 acc=4294953869 b=10879 m=-526473893 s=41
+[d14] RQ t=17515000 rd=0 nb=32 idx=44 oc=5 nl=4 acc=4294964466 b=10879 m=-526473893 s=41
+[d14] RQ t=17525000 rd=0 nb=32 idx=45 oc=5 nl=5 acc=22057 b=10879 m=-526473893 s=41
+[d14] RQ t=17535000 rd=0 nb=32 idx=46 oc=5 nl=6 acc=11517 b=10879 m=-526473893 s=41
+[d17W] t=17535000 nT=5 k=24 strb=11111111 data=00000000000017ee
+[d14] RQ t=17545000 rd=0 nb=32 idx=47 oc=5 nl=7 acc=4294940328 b=10879 m=-526473893 s=41
+[d14] D8 t=17545000 ypre=9 act=1 addr=277
+[d17W] t=17545000 nT=5 k=25 strb=11111111 data=0000000000003717
+[d14] D8 t=17555000 ypre=-7 act=1 addr=277
+[d17W] t=17555000 nT=5 k=26 strb=11111111 data=0000000000000037
+[d14] D8 t=17565000 ypre=-2 act=1 addr=277
+[d14] D8 t=17575000 ypre=1 act=1 addr=277
+[d14] D8 t=17585000 ypre=-2 act=1 addr=277
+[d14] D8 t=17595000 ypre=-8 act=1 addr=277
+[d14] D8 t=17605000 ypre=-5 act=1 addr=277
+[d14] D8 t=17615000 ypre=4 act=1 addr=277
+[d17C] t=17795000 addr=632 len=8 nT=6
+[d17C] t=17805000 addr=632 len=16 nT=6
+[d14] RQ t=17815000 rd=0 nb=32 idx=48 oc=6 nl=0 acc=4294939487 b=-512466 m=2147483647 s=36
+[d14] RQ t=17825000 rd=0 nb=32 idx=49 oc=6 nl=1 acc=4294932490 b=-512466 m=2147483647 s=36
+[d14] RQ t=17835000 rd=0 nb=32 idx=50 oc=6 nl=2 acc=4294921712 b=-512466 m=2147483647 s=36
+[d14] RQ t=17845000 rd=0 nb=32 idx=51 oc=6 nl=3 acc=21642 b=-512466 m=2147483647 s=36
+[d14] RQ t=17855000 rd=0 nb=32 idx=52 oc=6 nl=4 acc=28979 b=-512466 m=2147483647 s=36
+[d14] RQ t=17865000 rd=0 nb=32 idx=53 oc=6 nl=5 acc=4294947872 b=-512466 m=2147483647 s=36
+[d14] RQ t=17875000 rd=0 nb=32 idx=54 oc=6 nl=6 acc=4294941360 b=-512466 m=2147483647 s=36
+[d14] RQ t=17885000 rd=0 nb=32 idx=55 oc=6 nl=7 acc=26277 b=-512466 m=2147483647 s=36
+[d14] D8 t=17885000 ypre=-128 act=1 addr=326
+[d14] D8 t=17895000 ypre=-128 act=1 addr=326
+[d14] D8 t=17905000 ypre=-128 act=1 addr=326
+[d14] SNAP t=17915000 occ=0 wr=1 ocT=0 nT=5 bank=0 L=4294943706,4294947743,21582,8227,4294957457,12791,4294955875,28411,70909,4294954637,11379,4294933009,9535,18548,21591,4294960369,4294962651,4294942632,4294960058,28346,4294947185,4294958948,40354,4294964503,4294964611,6174,34879,54510,15190,4294962944,4294946060,4294949045,4294929666,4294945143,4294929954,44042,4294943379,4294954104,4294944395,40589,4294961594,1535,4294949589,4294955588,4294945512,14587,3418,4294967214,4294948271,24545,20473,4294954803,4294949919,4294948393     10677     25618
+[d14] D8 t=17915000 ypre=-128 act=1 addr=326
+[d14] D8 t=17925000 ypre=-128 act=1 addr=326
+[d14] D8 t=17935000 ypre=-128 act=1 addr=326
+[d14] D8 t=17945000 ypre=-128 act=1 addr=326
+[d14] D8 t=17955000 ypre=-128 act=1 addr=326
+[d17W] t=17985000 nT=6 k=0 strb=00000001 data=0000000000000000
+[d17W] t=17995000 nT=6 k=1 strb=00000001 data=00000000000000ea
+[d17W] t=18005000 nT=6 k=2 strb=00000001 data=0000000000000000
+[d17W] t=18125000 nT=6 k=3 strb=00000001 data=00000000000000aa
+[d14] RQ t=18135000 rd=1 nb=40 idx=0 oc=0 nl=0 acc=4294943706 b=-16400 m=1073741824 s=31
+[d17W] t=18135000 nT=6 k=4 strb=00000001 data=0000000000000032
+[d14] RQ t=18145000 rd=1 nb=40 idx=1 oc=0 nl=1 acc=4294947743 b=-16400 m=1073741824 s=31
+[d17W] t=18145000 nT=6 k=5 strb=00000001 data=0000000000000000
+[d14] RQ t=18155000 rd=1 nb=40 idx=2 oc=0 nl=2 acc=21582 b=-16400 m=1073741824 s=31
+[d17W] t=18155000 nT=6 k=6 strb=00000001 data=0000000000000000
+[d17C] t=18155000 addr=680 len=8 nT=6
+[d14] RQ t=18165000 rd=1 nb=40 idx=3 oc=0 nl=3 acc=8227 b=-16400 m=1073741824 s=31
+[d17W] t=18165000 nT=6 k=7 strb=00000001 data=0000000000000000
+[d14] RQ t=18175000 rd=1 nb=40 idx=4 oc=0 nl=4 acc=4294957457 b=-16400 m=1073741824 s=31
+[d17W] t=18175000 nT=6 k=8 strb=00000001 data=0000000000000000
+[d14] RQ t=18185000 rd=1 nb=40 idx=5 oc=0 nl=5 acc=12791 b=-16400 m=1073741824 s=31
+[d17C] t=18185000 addr=688 len=8 nT=6
+[d14] RQ t=18195000 rd=1 nb=40 idx=6 oc=0 nl=6 acc=4294955875 b=-16400 m=1073741824 s=31
+[d14] RQ t=18205000 rd=1 nb=40 idx=7 oc=0 nl=7 acc=28411 b=-16400 m=1073741824 s=31
+[d14] D8 t=18205000 ypre=-128 act=1 addr=40
+[d14] D8 t=18215000 ypre=-128 act=1 addr=40
+[d14] D8 t=18225000 ypre=127 act=1 addr=40
+[d14] D8 t=18235000 ypre=-128 act=1 addr=40
+[d14] D8 t=18245000 ypre=-128 act=1 addr=40
+[d14] D8 t=18255000 ypre=-128 act=1 addr=40
+[d14] D8 t=18265000 ypre=-128 act=1 addr=40
+[d14] D8 t=18275000 ypre=127 act=1 addr=40
+[d17W] t=18335000 nT=6 k=9 strb=00000001 data=000000000000008b
+[d17W] t=18345000 nT=6 k=10 strb=00000001 data=000000000000003d
+[d17W] t=18355000 nT=6 k=11 strb=00000001 data=0000000000000000
+[d14] RQ t=18435000 rd=1 nb=40 idx=8 oc=1 nl=0 acc=70909 b=57041 m=1073741824 s=31
+[d14] RQ t=18445000 rd=1 nb=40 idx=9 oc=1 nl=1 acc=4294954637 b=57041 m=1073741824 s=31
+[d17W] t=18445000 nT=6 k=12 strb=00000001 data=00000000000000fa
+[d14] RQ t=18455000 rd=1 nb=40 idx=10 oc=1 nl=2 acc=11379 b=57041 m=1073741824 s=31
+[d17W] t=18455000 nT=6 k=13 strb=00000001 data=0000000000000024
+[d14] RQ t=18465000 rd=1 nb=40 idx=11 oc=1 nl=3 acc=4294933009 b=57041 m=1073741824 s=31
+[d17W] t=18465000 nT=6 k=14 strb=00000001 data=0000000000000000
+[d14] RQ t=18475000 rd=1 nb=40 idx=12 oc=1 nl=4 acc=9535 b=57041 m=1073741824 s=31
+[d17W] t=18475000 nT=6 k=15 strb=00000001 data=0000000000000000
+[d17C] t=18475000 addr=728 len=8 nT=6
+[d14] RQ t=18485000 rd=1 nb=40 idx=13 oc=1 nl=5 acc=18548 b=57041 m=1073741824 s=31
+[d17W] t=18485000 nT=6 k=16 strb=00000001 data=0000000000000000
+[d14] RQ t=18495000 rd=1 nb=40 idx=14 oc=1 nl=6 acc=21591 b=57041 m=1073741824 s=31
+[d17W] t=18495000 nT=6 k=17 strb=00000001 data=0000000000000000
+[d14] RQ t=18505000 rd=1 nb=40 idx=15 oc=1 nl=7 acc=4294960369 b=57041 m=1073741824 s=31
+[d14] D8 t=18505000 ypre=127 act=1 addr=89
+[d17C] t=18505000 addr=736 len=8 nT=6
+[d14] D8 t=18515000 ypre=127 act=1 addr=89
+[d14] D8 t=18525000 ypre=127 act=1 addr=89
+[d14] D8 t=18535000 ypre=127 act=1 addr=89
+[d14] D8 t=18545000 ypre=127 act=1 addr=89
+[d14] D8 t=18555000 ypre=127 act=1 addr=89
+[d14] D8 t=18565000 ypre=127 act=1 addr=89
+[d14] D8 t=18575000 ypre=127 act=1 addr=89
+[d17W] t=18615000 nT=6 k=18 strb=00000001 data=00000000000000dd
+[d17W] t=18625000 nT=6 k=19 strb=00000001 data=00000000000000ac
+[d17W] t=18635000 nT=6 k=20 strb=00000001 data=0000000000000000
+[d17W] t=18695000 nT=6 k=21 strb=00000001 data=0000000000000017
+[d17W] t=18705000 nT=6 k=22 strb=00000001 data=0000000000000037
+[d17W] t=18715000 nT=6 k=23 strb=00000001 data=0000000000000000
+[d17W] t=18725000 nT=6 k=24 strb=00000001 data=0000000000000000
+[d17W] t=18735000 nT=6 k=25 strb=00000001 data=0000000000000000
+[d17W] t=18745000 nT=6 k=26 strb=00000001 data=0000000000000000
+[d14] RQ t=18755000 rd=1 nb=40 idx=16 oc=2 nl=0 acc=4294962651 b=11348 m=1533063726 s=39
+[d14] RQ t=18765000 rd=1 nb=40 idx=17 oc=2 nl=1 acc=4294942632 b=11348 m=1533063726 s=39
+[d14] RQ t=18775000 rd=1 nb=40 idx=18 oc=2 nl=2 acc=4294960058 b=11348 m=1533063726 s=39
+[d14] RQ t=18785000 rd=1 nb=40 idx=19 oc=2 nl=3 acc=28346 b=11348 m=1533063726 s=39
+[d14] RQ t=18795000 rd=1 nb=40 idx=20 oc=2 nl=4 acc=4294947185 b=11348 m=1533063726 s=39
+[d14] RQ t=18805000 rd=1 nb=40 idx=21 oc=2 nl=5 acc=4294958948 b=11348 m=1533063726 s=39
+[d14] RQ t=18815000 rd=1 nb=40 idx=22 oc=2 nl=6 acc=40354 b=11348 m=1533063726 s=39
+[d14] RQ t=18825000 rd=1 nb=40 idx=23 oc=2 nl=7 acc=4294964503 b=11348 m=1533063726 s=39
+[d14] D8 t=18825000 ypre=19 act=1 addr=138
+[d14] D8 t=18835000 ypre=-37 act=1 addr=138
+[d14] D8 t=18845000 ypre=11 act=1 addr=138
+[d14] D8 t=18855000 ypre=111 act=1 addr=138
+[d14] D8 t=18865000 ypre=-24 act=1 addr=138
+[d14] D8 t=18875000 ypre=8 act=1 addr=138
+[d14] D8 t=18885000 ypre=127 act=1 addr=138
+[d14] D8 t=18895000 ypre=24 act=1 addr=138
+[d14] RQ t=19075000 rd=1 nb=40 idx=24 oc=3 nl=0 acc=4294964611 b=-38864 m=1073741824 s=31
+[d14] RQ t=19085000 rd=1 nb=40 idx=25 oc=3 nl=1 acc=6174 b=-38864 m=1073741824 s=31
+[d14] RQ t=19095000 rd=1 nb=40 idx=26 oc=3 nl=2 acc=34879 b=-38864 m=1073741824 s=31
+[d14] SNAP t=19105000 occ=1 wr=0 ocT=0 nT=6 bank=0 L=4294947809,4294925221,4294959252,30114,45996,4294962030,4294920326,33023,4294956112,4294938624,48122,4294947713,6875,4294959362,4294946224,4294964185,17555,4294904318,4294922770,2583,47806,4294939958,2490,4294949095,4294946789,4483,15642,4294947403,4294926062,4294966507,28669,4294959772,4294943999,4294946199,4294935678,9140,4294929664,40399,25503,21161,12375,17845,4294966393,4294953869,4294964466,22057,11517,4294940328,11699,4294932490,4294921712,21642,28979,42949478724294941360     26277
+[d14] RQ t=19105000 rd=1 nb=40 idx=27 oc=3 nl=3 acc=54510 b=-38864 m=1073741824 s=31
+[d14] RQ t=19115000 rd=1 nb=40 idx=28 oc=3 nl=4 acc=15190 b=-38864 m=1073741824 s=31
+[d14] RQ t=19125000 rd=1 nb=40 idx=29 oc=3 nl=5 acc=4294962944 b=-38864 m=1073741824 s=31
+[d14] RQ t=19135000 rd=1 nb=40 idx=30 oc=3 nl=6 acc=4294946060 b=-38864 m=1073741824 s=31
+[d14] RQ t=19145000 rd=1 nb=40 idx=31 oc=3 nl=7 acc=4294949045 b=-38864 m=1073741824 s=31
+[d14] D8 t=19145000 ypre=-128 act=1 addr=187
+[d14] D8 t=19155000 ypre=-128 act=1 addr=187
+[d14] D8 t=19165000 ypre=-128 act=1 addr=187
+[d14] D8 t=19175000 ypre=127 act=1 addr=187
+[d14] D8 t=19185000 ypre=-128 act=1 addr=187
+[d14] D8 t=19195000 ypre=-128 act=1 addr=187
+[d14] D8 t=19205000 ypre=-128 act=1 addr=187
+[d14] D8 t=19215000 ypre=-128 act=1 addr=187
+[d14] RQ t=19395000 rd=1 nb=40 idx=32 oc=4 nl=0 acc=4294929666 b=-7417 m=1073741824 s=31
+[d14] RQ t=19405000 rd=1 nb=40 idx=33 oc=4 nl=1 acc=4294945143 b=-7417 m=1073741824 s=31
+[d14] RQ t=19415000 rd=1 nb=40 idx=34 oc=4 nl=2 acc=4294929954 b=-7417 m=1073741824 s=31
+[d14] RQ t=19425000 rd=1 nb=40 idx=35 oc=4 nl=3 acc=44042 b=-7417 m=1073741824 s=31
+[d14] RQ t=19435000 rd=1 nb=40 idx=36 oc=4 nl=4 acc=4294943379 b=-7417 m=1073741824 s=31
+[d14] RQ t=19445000 rd=1 nb=40 idx=37 oc=4 nl=5 acc=4294954104 b=-7417 m=1073741824 s=31
+[d14] RQ t=19455000 rd=1 nb=40 idx=38 oc=4 nl=6 acc=4294944395 b=-7417 m=1073741824 s=31
+[d14] RQ t=19465000 rd=1 nb=40 idx=39 oc=4 nl=7 acc=40589 b=-7417 m=1073741824 s=31
+[d14] D8 t=19465000 ypre=-128 act=1 addr=236
+[d14] D8 t=19475000 ypre=-128 act=1 addr=236
+[d14] D8 t=19485000 ypre=-128 act=1 addr=236
+[d14] D8 t=19495000 ypre=127 act=1 addr=236
+[d14] D8 t=19505000 ypre=-128 act=1 addr=236
+[d14] D8 t=19515000 ypre=-128 act=1 addr=236
+[d14] D8 t=19525000 ypre=-128 act=1 addr=236
+[d14] D8 t=19535000 ypre=127 act=1 addr=236
+[d14] RQ t=19705000 rd=1 nb=40 idx=40 oc=5 nl=0 acc=4294961594 b=10879 m=-526473893 s=41
+[d14] RQ t=19715000 rd=1 nb=40 idx=41 oc=5 nl=1 acc=1535 b=10879 m=-526473893 s=41
+[d14] RQ t=19725000 rd=1 nb=40 idx=42 oc=5 nl=2 acc=4294949589 b=10879 m=-526473893 s=41
+[d14] RQ t=19735000 rd=1 nb=40 idx=43 oc=5 nl=3 acc=4294955588 b=10879 m=-526473893 s=41
+[d14] RQ t=19745000 rd=1 nb=40 idx=44 oc=5 nl=4 acc=4294945512 b=10879 m=-526473893 s=41
+[d14] RQ t=19755000 rd=1 nb=40 idx=45 oc=5 nl=5 acc=14587 b=10879 m=-526473893 s=41
+[d14] RQ t=19765000 rd=1 nb=40 idx=46 oc=5 nl=6 acc=3418 b=10879 m=-526473893 s=41
+[d14] RQ t=19775000 rd=1 nb=40 idx=47 oc=5 nl=7 acc=4294967214 b=10879 m=-526473893 s=41
+[d14] D8 t=19775000 ypre=-1 act=1 addr=285
+[d14] D8 t=19785000 ypre=-3 act=1 addr=285
+[d14] D8 t=19795000 ypre=2 act=1 addr=285
+[d14] D8 t=19805000 ypre=0 act=1 addr=285
+[d14] D8 t=19815000 ypre=3 act=1 addr=285
+[d14] D8 t=19825000 ypre=-6 act=1 addr=285
+[d14] D8 t=19835000 ypre=-3 act=1 addr=285
+[d14] D8 t=19845000 ypre=-3 act=1 addr=285
+[d14] RQ t=20025000 rd=1 nb=40 idx=48 oc=6 nl=0 acc=4294948271 b=-512466 m=2147483647 s=36
+[d14] RQ t=20035000 rd=1 nb=40 idx=49 oc=6 nl=1 acc=24545 b=-512466 m=2147483647 s=36
+[d14] RQ t=20045000 rd=1 nb=40 idx=50 oc=6 nl=2 acc=20473 b=-512466 m=2147483647 s=36
+[d14] RQ t=20055000 rd=1 nb=40 idx=51 oc=6 nl=3 acc=4294954803 b=-512466 m=2147483647 s=36
+[d14] RQ t=20065000 rd=1 nb=40 idx=52 oc=6 nl=4 acc=4294949919 b=-512466 m=2147483647 s=36
+[d14] RQ t=20075000 rd=1 nb=40 idx=53 oc=6 nl=5 acc=4294948393 b=-512466 m=2147483647 s=36
+[d14] RQ t=20085000 rd=1 nb=40 idx=54 oc=6 nl=6 acc=10677 b=-512466 m=2147483647 s=36
+[d14] RQ t=20095000 rd=1 nb=40 idx=55 oc=6 nl=7 acc=25618 b=-512466 m=2147483647 s=36
+[d14] D8 t=20095000 ypre=-128 act=1 addr=334
+[d14] D8 t=20105000 ypre=-128 act=1 addr=334
+[d14] D8 t=20115000 ypre=-128 act=1 addr=334
+[d14] D8 t=20125000 ypre=-128 act=1 addr=334
+[d14] D8 t=20135000 ypre=-128 act=1 addr=334
+[d14] D8 t=20145000 ypre=-128 act=1 addr=334
+[d14] D8 t=20155000 ypre=-128 act=1 addr=334
+[d14] D8 t=20165000 ypre=-128 act=1 addr=334
+[d14] RQ t=20345000 rd=0 nb=48 idx=0 oc=0 nl=0 acc=4294947809 b=-16400 m=1073741824 s=31
+[d14] D8 t=20415000 ypre=-128 act=1 addr=48
+[d14] RQ t=20585000 rd=0 nb=48 idx=1 oc=1 nl=0 acc=4294956112 b=57041 m=1073741824 s=31
+[d14] D8 t=20655000 ypre=127 act=1 addr=97
+[d14] RQ t=20745000 rd=0 nb=48 idx=2 oc=2 nl=0 acc=17555 b=11348 m=1533063726 s=39
+[d14] D8 t=20815000 ypre=81 act=1 addr=146
+[d14] RQ t=20915000 rd=0 nb=48 idx=3 oc=3 nl=0 acc=4294946789 b=-38864 m=1073741824 s=31
+[d14] D8 t=20985000 ypre=-128 act=1 addr=195
+[d14] RQ t=21105000 rd=0 nb=48 idx=4 oc=4 nl=0 acc=4294943999 b=-7417 m=1073741824 s=31
+[d14] D8 t=21175000 ypre=-128 act=1 addr=244
+[d14] RQ t=21275000 rd=0 nb=48 idx=5 oc=5 nl=0 acc=12375 b=10879 m=-526473893 s=41
+[d14] D8 t=21345000 ypre=-6 act=1 addr=293
+[d14] RQ t=21445000 rd=0 nb=48 idx=6 oc=6 nl=0 acc=11699 b=-512466 m=2147483647 s=36
+[d14] D8 t=21515000 ypre=-128 act=1 addr=342
+[tb] layer 0 done @t=21606000 (oc=7 n=49 k=27)
+[d17] tile 0 mismatched bytes=0/216
+[d17] tile 1 mismatched bytes=0/216
+[d17] tile 2 mismatched bytes=0/216
+[d17] tile 3 mismatched bytes=0/216
+[d17] tile 4 mismatched bytes=0/216
+[d17] tile 5 mismatched bytes=0/216
+[d17] tile 6 mismatched bytes=0/216
+[d19] WBAD t=0 k=0 got=d22eee8fc6e87d31 exp=002eee8fc6e87d31
+[d19] WBAD t=0 k=1 got=8ea854726b9d8c98 exp=00a854726b9d8c98
+[d19] WBAD t=0 k=2 got=98a2b52f79b0312b exp=00a2b52f79b0312b
+[d19] WBAD t=0 k=3 got=f414c0604a961409 exp=0014c0604a961409
+[d19] WBAD t=0 k=4 got=04d24ac215695985 exp=00d24ac215695985
+[d19] WBAD t=0 k=5 got=46ac36d74ceb926a exp=00ac36d74ceb926a
+[d19] WBAD t=0 k=6 got=b589c9366a2f359e exp=0089c9366a2f359e
+[d19] WBAD t=0 k=7 got=06eeee9a31480d7b exp=00eeee9a31480d7b
+[d19] WBAD t=0 k=8 got=c95799f44c229156 exp=005799f44c229156
+[d19] WBAD t=0 k=9 got=bcd8fe777037e959 exp=00d8fe777037e959
+[d19] WBAD t=0 k=10 got=1cb1ffb036e09def exp=00b1ffb036e09def
+[d19] WBAD t=0 k=11 got=8656f64ce7e5bb3f exp=0056f64ce7e5bb3f
+[d19] WBAD t=0 k=12 got=09180e394d7aab62 exp=00180e394d7aab62
+[d19] WBAD t=0 k=13 got=616d342b4defc0e8 exp=006d342b4defc0e8
+[d19] WBAD t=0 k=14 got=ef3559971c0978fa exp=003559971c0978fa
+[d19] WBAD t=0 k=15 got=9b572226a3368110 exp=00572226a3368110
+[d19] WBAD t=0 k=16 got=0b8618f0dc096407 exp=008618f0dc096407
+[d19] WBAD t=0 k=17 got=9eac4e06299bd395 exp=00ac4e06299bd395
+[d19] WBAD t=0 k=18 got=9da2579af1cf9c92 exp=00a2579af1cf9c92
+[d19] WBAD t=0 k=19 got=0b891300f0b97d25 exp=00891300f0b97d25
+[d19] WBAD t=0 k=20 got=7dcdbac649ba869b exp=00cdbac649ba869b
+[d19] WBAD t=0 k=21 got=42702b49dca2b2c2 exp=00702b49dca2b2c2
+[d19] WBAD t=0 k=22 got=21987a358c5fd2e9 exp=00987a358c5fd2e9
+[d19] WBAD t=0 k=23 got=e7e4077793c0855f exp=00e4077793c0855f
+[d19] consumed-op diff: xbad=0 wbad=189 miss=0 / 189
+[d16] t=6 oc=0 j=1 dut=-42075 ref=10657 d=-52732
+[d16] t=6 oc=0 j=2 dut=-8044 ref=7314 d=-15358
+[d16] t=6 oc=0 j=3 dut=30114 ref=13218 d=16896
+[d16] t=6 oc=0 j=4 dut=45996 ref=6434 d=39562
+[d16] t=6 oc=0 j=5 dut=-5266 ref=-12418 d=7152
+[d16] t=6 oc=0 j=6 dut=-46970 ref=13391 d=-60361
+[d16] t=6 oc=0 j=7 dut=33023 ref=-11055 d=44078
+[d16] t=6 oc=1 j=1 dut=-28672 ref=-15583 d=-13089
+[d16] t=6 oc=1 j=2 dut=48122 ref=-310 d=48432
+[d16] t=6 oc=1 j=3 dut=-19583 ref=8890 d=-28473
+[d16] t=6 oc=1 j=4 dut=6875 ref=19604 d=-12729
+[d16] t=6 oc=1 j=5 dut=-7934 ref=-25225 d=17291
+[d16] t=6 oc=1 j=6 dut=-21072 ref=16764 d=-37836
+[d16] t=6 oc=1 j=7 dut=-3111 ref=-15401 d=12290
+[d16] t=6 oc=2 j=1 dut=-62978 ref=4920 d=-67898
+[d16] t=6 oc=2 j=2 dut=-44526 ref=10247 d=-54773
+[d16] t=6 oc=2 j=3 dut=2583 ref=13695 d=-11112
+[d16] t=6 oc=2 j=4 dut=47806 ref=-3480 d=51286
+[d16] t=6 oc=2 j=5 dut=-27338 ref=4856 d=-32194
+[d16] t=6 oc=2 j=6 dut=2490 ref=-2757 d=5247
+[d16] t=6 oc=2 j=7 dut=-18201 ref=-9400 d=-8801
+[d16] t=6 oc=3 j=1 dut=4483 ref=7377 d=-2894
+[d16] t=6 oc=3 j=2 dut=15642 ref=29667 d=-14025
+[d16] t=6 oc=3 j=3 dut=-19893 ref=-8827 d=-11066
+[d16] t=6 oc=3 j=4 dut=-41234 ref=-11931 d=-29303
+[d16] t=6 oc=3 j=5 dut=-789 ref=7882 d=-8671
+[d16] t=6 oc=3 j=6 dut=28669 ref=-4901 d=33570
+[d16] t=6 oc=3 j=7 dut=-7524 ref=10385 d=-17909
+[d16] t=6 oc=4 j=1 dut=-21097 ref=-407 d=-20690
+[d16] t=6 oc=4 j=2 dut=-31618 ref=27298 d=-58916
+[d16] t=6 oc=4 j=3 dut=9140 ref=16675 d=-7535
+[d16] t=6 oc=4 j=4 dut=-37632 ref=-19491 d=-18141
+[d16] t=6 oc=4 j=5 dut=40399 ref=15585 d=24814
+[d16] t=6 oc=4 j=6 dut=25503 ref=-13651 d=39154
+[d16] t=6 oc=4 j=7 dut=21161 ref=9478 d=11683
+[d16] t=6 oc=5 j=1 dut=17845 ref=-10223 d=28068
+[d16] t=6 oc=5 j=2 dut=-903 ref=-912 d=9
+[d16] t=6 oc=5 j=3 dut=-13427 ref=56 d=-13483
+[d16] t=6 oc=5 j=4 dut=-2830 ref=-14170 d=11340
+[d16] t=6 oc=5 j=5 dut=22057 ref=11110 d=10947
+[d16] t=6 oc=5 j=6 dut=11517 ref=-17465 d=28982
+[d16] t=6 oc=5 j=7 dut=-26968 ref=8770 d=-35738
+[d16] t=6 oc=6 j=1 dut=-34806 ref=12526 d=-47332
+[d16] t=6 oc=6 j=2 dut=-45584 ref=-11462 d=-34122
+[d16] t=6 oc=6 j=3 dut=21642 ref=30000 d=-8358
+[d16] t=6 oc=6 j=4 dut=28979 ref=7307 d=21672
+[d16] t=6 oc=6 j=5 dut=-19424 ref=-1785 d=-17639
+[d16] t=6 oc=6 j=6 dut=-25936 ref=5818 d=-31754
+[d16] t=6 oc=6 j=7 dut=26277 ref=-19667 d=45944
+[d18] mid=40 sg=0 match=287/287
+[d18] mid=40 sg=1 match=287/287
+[d18] model scan done (>=75% only)
+[d16] delta table done
+[tb] heartbeat t=10000000000 cur_layer=1 ywr=253167 ctrl=4 wldr=0 xldr=3 occ=2 seg=1 wb_rdy=1 xb_rdy=1 wv=11 xv=11 woc=1/0 xn=1975/1976 ct=0/1976
+[tb]   xrg: phase=4 cg=10 ic=2 kh=0 part=0 cnt=2 iq=7/5 cv/cr=01 arv=0 ardy=1 rvld=0 rrdy=1 cfc=1 sfc=1 done=0 err=0
+[tb]   xrg2: adv=1 grpcmd=1 emcnt=1 emg=1 grprd=00 pl_last=0 iqcnt=2 iqlast=1 widx=0 emk=15 emkw=0 grplast=1 lastgrp=0
+[tb] layer 1 done @t=16183116000 (oc=16 n=25600 k=27)
+[tb] layer 2 done @t=16585206000 (oc=16 n=25 k=576)
+blk_mem_gen_v8_4_12 collision detected at time: 16592855000, Instance: tb_yolo_gemm_array.dut.u_wbuf.u_bank1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst, A write address: 2, B  read address: 2
+blk_mem_gen_v8_4_12 collision detected at time: 16592875000, Instance: tb_yolo_gemm_array.dut.u_wbuf.u_bank1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst, A write address: 3, B  read address: 3
+blk_mem_gen_v8_4_12 collision detected at time: 16674885000, Instance: tb_yolo_gemm_array.dut.u_xbuf.u_bank0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst, A write address: 4, B  read address: 4
+blk_mem_gen_v8_4_12 collision detected at time: 16674895000, Instance: tb_yolo_gemm_array.dut.u_xbuf.u_bank0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst, A write address: 5, B  read address: 5
+[tb] layer 3 done @t=16745106000 (oc=9 n=256 k=64)
+blk_mem_gen_v8_4_12 collision detected at time: 16777375000, Instance: tb_yolo_gemm_array.dut.u_wbuf.u_bank0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst, A write address: 3, B  read address: 3
+[tb] heartbeat t=20000000000 cur_layer=4 ywr=418343 ctrl=2 wldr=2 xldr=3 occ=0 seg=0 wb_rdy=1 xb_rdy=1 wv=11 xv=11 woc=2/1 xn=38/39 ct=1/39
+[tb]   xrg: phase=4 cg=11 ic=1 kh=0 part=0 cnt=3 iq=3/2 cv/cr=11 arv=0 ardy=0 rvld=1 rrdy=1 cfc=0 sfc=1 done=0 err=0
+[tb]   xrg2: adv=0 grpcmd=0 emcnt=2 emg=0 grprd=00 pl_last=0 iqcnt=1 iqlast=1 widx=0 emk=6 emkw=0 grplast=1 lastgrp=0
+[tb] heartbeat t=30000000000 cur_layer=4 ywr=436135 ctrl=1 wldr=0 xldr=3 occ=0 seg=0 wb_rdy=1 xb_rdy=0 wv=11 xv=11 woc=6/7 xn=16/15 ct=7/17
+[tb]   xrg: phase=4 cg=10 ic=30 kh=1 part=1 cnt=3 iq=0/5 cv/cr=01 arv=0 ardy=0 rvld=0 rrdy=1 cfc=0 sfc=3 done=0 err=0
+[tb]   xrg2: adv=1 grpcmd=1 emcnt=2 emg=0 grprd=00 pl_last=1 iqcnt=3 iqlast=1 widx=0 emk=270 emkw=0 grplast=1 lastgrp=0
+[tb] layer 4 done @t=31195516000 (oc=64 n=400 k=576)
+blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+blk_mem_gen_v8_4_12 WARNING: Address 900 is outside range for B Read
+[tb] layer 5 done @t=31928266000 (oc=8 n=25 k=2304)
+[dbg13] layer 0 mode=0 oc=7 n=49 errors=0 hist_eq=1
+[dbg13] L0 win i=60 dut=127 gold=127
+[dbg13] L0 win i=61 dut=127 gold=127
+[dbg13] L0 win i=62 dut=127 gold=127
+[dbg13] L0 win i=63 dut=127 gold=127
+[dbg13] L0 win i=64 dut=127 gold=127
+[dbg13] L0 win i=65 dut=127 gold=127
+[dbg13] L0 win i=66 dut=127 gold=127
+[dbg13] L0 win i=67 dut=127 gold=127
+[dbg13] L0 win i=68 dut=127 gold=127
+[dbg13] L0 win i=69 dut=127 gold=127
+[dbg13] L0 win i=70 dut=127 gold=127
+[dbg13] L0 win i=71 dut=127 gold=127
+[dbg13] L0 win i=72 dut=127 gold=127
+[dbg13] L0 win i=73 dut=0 gold=0
+[dbg13] L0 win i=74 dut=127 gold=127
+[dbg13] L0 win i=75 dut=127 gold=127
+[dbg13] L0 win i=76 dut=127 gold=127
+[dbg13] L0 win i=77 dut=127 gold=127
+[dbg13] L0 win i=78 dut=0 gold=0
+[dbg13] L0 win i=79 dut=127 gold=127
+[dbg13] L0 win i=80 dut=127 gold=127
+[dbg13] L0 win i=81 dut=127 gold=127
+[dbg13] L0 win i=82 dut=127 gold=127
+[dbg13] L0 win i=83 dut=127 gold=127
+[dbg13] L0 win i=84 dut=127 gold=127
+[dbg13] L0 win i=85 dut=127 gold=127
+[dbg13] L0 win i=86 dut=127 gold=127
+[dbg13] L0 win i=87 dut=127 gold=127
+[dbg13] L0 win i=88 dut=127 gold=127
+[dbg13] L0 win i=89 dut=127 gold=127
+[dbg13] L0 win i=90 dut=127 gold=127
+[dbg13] L0 win i=91 dut=127 gold=127
+[dbg13] L0 win i=92 dut=127 gold=127
+[dbg13] L0 win i=93 dut=127 gold=127
+[dbg13] L0 win i=94 dut=127 gold=127
+[dbg13] L0 win i=95 dut=127 gold=127
+[dbg13] L0 win i=96 dut=127 gold=127
+[dbg13] L0 win i=97 dut=127 gold=127
+[dbg13] L0 win i=98 dut=55 gold=55
+[dbg13] L0 win i=99 dut=79 gold=79
+[dbg13] L0 win i=100 dut=41 gold=41
+[dbg13] layer 1 mode=1 oc=16 n=25600 errors=0 hist_eq=1
+[dbg13] layer 2 mode=0 oc=16 n=25 errors=0 hist_eq=1
+[dbg13] layer 3 mode=0 oc=9 n=256 errors=0 hist_eq=1
+[dbg13] layer 4 mode=2 oc=64 n=400 errors=0 hist_eq=1
+[dbg13] layer 5 mode=0 oc=8 n=25 errors=0 hist_eq=1
+[d22] snaps=2 beats n48=576 n49=576 tailbeats=128 ypr=112 ylo=112 | window writes: xbuf=10278 wbuf=2304
+[d22] tile n48 acc-vs-products mismatches=0/64
+[d22]   t=n48 oc=56 b=20602 m=1572239989 s=42
+[d22]   t=n48 oc=57 b=-3860 m=1374481617 s=40
+[d22]   t=n48 oc=58 b=8752 m=1394284317 s=40
+[d22]   t=n48 oc=59 b=40183 m=1777649021 s=41
+[d22]   t=n48 oc=60 b=37843 m=1238851833 s=40
+[d22]   t=n48 oc=61 b=-12106 m=1605965697 s=41
+[d22]   t=n48 oc=62 b=-18905 m=1131494636 s=40
+[d22]   t=n48 oc=63 b=-11307 m=1420512348 s=40
+[d22] tile n49 acc-vs-products mismatches=0/64
+[d22]   t=n49 oc=56 b=20602 m=1572239989 s=42
+[d22]   t=n49 oc=57 b=-3860 m=1374481617 s=40
+[d22]   t=n49 oc=58 b=8752 m=1394284317 s=40
+[d22]   t=n49 oc=59 b=40183 m=1777649021 s=41
+[d22]   t=n49 oc=60 b=37843 m=1238851833 s=40
+[d22]   t=n49 oc=61 b=-12106 m=1605965697 s=41
+[d22]   t=n49 oc=62 b=-18905 m=1131494636 s=40
+[d22]   t=n49 oc=63 b=-11307 m=1420512348 s=40
+[d22] RQ slot=1 idx=0 oc=56 n=392 acc=-31433 b=20602 m=1572239989 s=42 ref=252 dut=254
+[d22] RQ slot=1 idx=1 oc=56 n=393 acc=-25826 b=20602 m=1572239989 s=42 ref=254 dut=255
+[d22] RQ slot=1 idx=2 oc=56 n=394 acc=-23161 b=20602 m=1572239989 s=42 ref=255 dut=254
+[d22] RQ slot=1 idx=3 oc=56 n=395 acc=-25157 b=20602 m=1572239989 s=42 ref=254 dut=0
+[d22] RQ slot=1 idx=4 oc=56 n=396 acc=-19547 b=20602 m=1572239989 s=42 ref=0 dut=255
+[d22] RQ slot=1 idx=5 oc=56 n=397 acc=-23684 b=20602 m=1572239989 s=42 ref=255 dut=0
+[d22] RQ slot=1 idx=6 oc=56 n=398 acc=-20115 b=20602 m=1572239989 s=42 ref=0 dut=3
+[d22] RQ slot=1 idx=7 oc=56 n=399 acc=-12629 b=20602 m=1572239989 s=42 ref=3 dut=240
+[d22] RQ slot=1 idx=10 oc=57 n=394 acc=-8334 b=-3860 m=1374481617 s=40 ref=241 dut=240
+[d22] RQ slot=1 idx=12 oc=57 n=396 acc=-9246 b=-3860 m=1374481617 s=40 ref=240 dut=245
+[d22] RQ slot=1 idx=13 oc=57 n=397 acc=-9273 b=-3860 m=1374481617 s=40 ref=240 dut=253
+[d22] RQ slot=1 idx=14 oc=57 n=398 acc=-5214 b=-3860 m=1374481617 s=40 ref=245 dut=12
+[d22] RQ slot=1 idx=15 oc=57 n=399 acc=1731 b=-3860 m=1374481617 s=40 ref=253 dut=9
+[d22] RQ slot=1 idx=16 oc=58 n=392 acc=-186 b=8752 m=1394284317 s=40 ref=11 dut=7
+[d22] RQ slot=1 idx=17 oc=58 n=393 acc=578 b=8752 m=1394284317 s=40 ref=12 dut=10
+[d22] RQ slot=1 idx=18 oc=58 n=394 acc=-1710 b=8752 m=1394284317 s=40 ref=9 dut=15
+[d22] RQ slot=1 idx=19 oc=58 n=395 acc=-3612 b=8752 m=1394284317 s=40 ref=7 dut=18
+[d22] RQ slot=1 idx=20 oc=58 n=396 acc=-615 b=8752 m=1394284317 s=40 ref=10 dut=11
+[d22] RQ slot=1 idx=21 oc=58 n=397 acc=2854 b=8752 m=1394284317 s=40 ref=15 dut=236
+[d22] RQ slot=1 idx=22 oc=58 n=398 acc=5260 b=8752 m=1394284317 s=40 ref=18 dut=237
+[d22] RQ slot=1 idx=23 oc=58 n=399 acc=-66 b=8752 m=1394284317 s=40 ref=11 dut=235
+[d22] RQ slot=1 idx=24 oc=59 n=392 acc=-68183 b=40183 m=1777649021 s=41 ref=233 dut=236
+[d22] RQ slot=1 idx=25 oc=59 n=393 acc=-64542 b=40183 m=1777649021 s=41 ref=236 dut=235
+[d22] RQ slot=1 idx=27 oc=59 n=395 acc=-66284 b=40183 m=1777649021 s=41 ref=235 dut=236
+[d22] requant mismatches=108/128
+[d22] CHAIN slot=1 oc=56 n=392 acc=-31433 b=20602 m=1572239989 s=42 yref=254 yexp2=253
+[d22] CHAIN slot=1 oc=56 n=393 acc=-25826 b=20602 m=1572239989 s=42 yref=255 yexp2=252
+[d22] CHAIN slot=1 oc=56 n=394 acc=-23161 b=20602 m=1572239989 s=42 yref=255 yexp2=0
+[d22] CHAIN slot=1 oc=56 n=395 acc=-25157 b=20602 m=1572239989 s=42 yref=255 yexp2=254
+[d22] CHAIN slot=1 oc=56 n=396 acc=-19547 b=20602 m=1572239989 s=42 yref=0 yexp2=4
+[d22] CHAIN slot=1 oc=56 n=397 acc=-23684 b=20602 m=1572239989 s=42 yref=255 yexp2=1
+[d22] CHAIN slot=1 oc=56 n=398 acc=-20115 b=20602 m=1572239989 s=42 yref=0 yexp2=3
+[d22] CHAIN slot=1 oc=56 n=399 acc=-12629 b=20602 m=1572239989 s=42 yref=2 yexp2=22
+[d22] CHAIN slot=1 oc=57 n=394 acc=-8334 b=-3860 m=1374481617 s=40 yref=251 yexp2=250
+[d22] CHAIN slot=1 oc=57 n=395 acc=-9305 b=-3860 m=1374481617 s=40 yref=250 yexp2=254
+[d22] CHAIN slot=1 oc=57 n=396 acc=-9246 b=-3860 m=1374481617 s=40 yref=250 yexp2=252
+[d22] CHAIN slot=1 oc=57 n=397 acc=-9273 b=-3860 m=1374481617 s=40 yref=250 yexp2=252
+[d22] CHAIN slot=1 oc=57 n=398 acc=-5214 b=-3860 m=1374481617 s=40 yref=251 yexp2=252
+[d22] CHAIN slot=1 oc=57 n=399 acc=1731 b=-3860 m=1374481617 s=40 yref=254 yexp2=1
+[d22] CHAIN slot=1 oc=58 n=392 acc=-186 b=8752 m=1394284317 s=40 yref=9 yexp2=8
+[d22] CHAIN slot=1 oc=58 n=393 acc=578 b=8752 m=1394284317 s=40 yref=10 yexp2=35
+[d22] CHAIN slot=1 oc=58 n=394 acc=-1710 b=8752 m=1394284317 s=40 yref=7 yexp2=5
+[d22] chain mismatches (vs DUT lut out AND vs yexp2)=151/128
+[d23] L4 geom ih=40 iw=40 ow=20 ic=64 kh=3 kw=3 sh=2 sw=2 ph=1 pw=1 xbase=378648 snap=1
+[d23] X vs golden (byte law, full region): mismatches=0/9216
+[d23] W tile48-vs-t49 capture diffs=0/4608
+[d24] t=31192975 slot=0 oc=56 n=392 yp=-21 l4=250 l5=253 accC=-33304 accS=-33304 dacc=0 yd=253 yexp2=253
+[d24] t=31192985 slot=0 oc=56 n=393 yp=-4 l4=254 l5=254 accC=-41562 accS=-41562 dacc=0 yd=252 yexp2=252
+[d24] t=31192995 slot=0 oc=56 n=394 yp=-9 l4=252 l5=252 accC=-19716 accS=-19716 dacc=0 yd=0 yexp2=0
+[d24] t=31193005 slot=0 oc=56 n=395 yp=-9 l4=252 l5=252 accC=-32026 accS=-32026 dacc=0 yd=254 yexp2=254
+[d24] t=31193015 slot=0 oc=56 n=396 yp=-9 l4=252 l5=252 accC=-7785 accS=-7785 dacc=0 yd=4 yexp2=4
+[d24] t=31193025 slot=0 oc=56 n=397 yp=1 l4=1 l5=1 accC=-15002 accS=-15002 dacc=0 yd=1 yexp2=1
+[d24] t=31193035 slot=0 oc=56 n=398 yp=31 l4=35 l5=44 accC=-9613 accS=-9613 dacc=0 yd=3 yexp2=3
+[d24] t=31193045 slot=0 oc=56 n=399 yp=7 l4=5 l5=7 accC=41631 accS=41631 dacc=0 yd=22 yexp2=22
+[d24] t=31193275 slot=0 oc=57 n=392 yp=7 l4=5 l5=7 accC=-7396 accS=-7396 dacc=0 yd=251 yexp2=251
+[d24] t=31193285 slot=0 oc=57 n=393 yp=-11 l4=251 l5=252 accC=-10579 accS=-10579 dacc=0 yd=250 yexp2=250
+[d24] t=31193295 slot=0 oc=57 n=394 yp=-3 l4=254 l5=254 accC=-12850 accS=-12850 dacc=0 yd=250 yexp2=250
+[d24] t=31193305 slot=0 oc=57 n=395 yp=3 l4=2 l5=3 accC=262 accS=262 dacc=0 yd=254 yexp2=254
+[d24] t=31193315 slot=0 oc=57 n=396 yp=0 l4=0 l5=0 accC=-3635 accS=-3635 dacc=0 yd=252 yexp2=252
+[d24] t=31193325 slot=0 oc=57 n=397 yp=-12 l4=251 l5=252 accC=-3128 accS=-3128 dacc=0 yd=252 yexp2=252
+[d24] t=31193335 slot=0 oc=57 n=398 yp=-19 l4=250 l5=252 accC=-3646 accS=-3646 dacc=0 yd=252 yexp2=252
+[d24] t=31193345 slot=0 oc=57 n=399 yp=-23 l4=250 l5=253 accC=4542 accS=4542 dacc=0 yd=1 yexp2=1
+[d24] t=31193605 slot=0 oc=58 n=392 yp=-16 l4=250 l5=252 accC=-872 accS=-872 dacc=0 yd=8 yexp2=8
+[d24] t=31193615 slot=0 oc=58 n=393 yp=-10 l4=252 l5=252 accC=15928 accS=15928 dacc=0 yd=35 yexp2=35
+[d24] t=31193625 slot=0 oc=58 n=394 yp=-13 l4=251 l5=252 accC=-3270 accS=-3270 dacc=0 yd=5 yexp2=5
+[d24] t=31193635 slot=0 oc=58 n=395 yp=-18 l4=250 l5=252 accC=-3245 accS=-3245 dacc=0 yd=5 yexp2=5
+[d24] t=31193645 slot=0 oc=58 n=396 yp=17 l4=16 l5=21 accC=-17226 accS=-17226 dacc=0 yd=251 yexp2=251
+[d24] t=31193655 slot=0 oc=58 n=397 yp=20 l4=20 l5=26 accC=-10951 accS=-10951 dacc=0 yd=254 yexp2=254
+[d24] t=31193665 slot=0 oc=58 n=398 yp=15 l4=14 l5=18 accC=-6195 accS=-6195 dacc=0 yd=2 yexp2=2
+[d24] t=31193675 slot=0 oc=58 n=399 yp=12 l4=10 l5=14 accC=-8538 accS=-8538 dacc=0 yd=0 yexp2=0
+[d24] t=31193925 slot=0 oc=59 n=392 yp=12 l4=10 l5=14 accC=-57564 accS=-57564 dacc=0 yd=251 yexp2=251
+[d24] t=31193935 slot=0 oc=59 n=393 yp=11 l4=9 l5=12 accC=-55049 accS=-55049 dacc=0 yd=251 yexp2=251
+[d24] t=31193945 slot=0 oc=59 n=394 yp=-5 l4=253 l5=253 accC=-63801 accS=-63801 dacc=0 yd=250 yexp2=250
+[d24] t=31193955 slot=0 oc=59 n=395 yp=-30 l4=251 l5=254 accC=-69123 accS=-69123 dacc=0 yd=250 yexp2=250
+[d24] t=31193965 slot=0 oc=59 n=396 yp=-28 l4=251 l5=254 accC=-60320 accS=-60320 dacc=0 yd=250 yexp2=250
+[d24] t=31193975 slot=0 oc=59 n=397 yp=-30 l4=251 l5=254 accC=-53029 accS=-53029 dacc=0 yd=252 yexp2=252
+[d24] t=31193985 slot=0 oc=59 n=398 yp=-20 l4=250 l5=252 accC=-56281 accS=-56281 dacc=0 yd=251 yexp2=251
+[d24] t=31193995 slot=0 oc=59 n=399 yp=-21 l4=250 l5=253 accC=-63064 accS=-63064 dacc=0 yd=250 yexp2=250
+[d24] t=31194225 slot=0 oc=60 n=392 yp=-34 l4=251 l5=254 accC=-25062 accS=-25062 dacc=0 yd=13 yexp2=13
+[d24] t=31194235 slot=0 oc=60 n=393 yp=-22 l4=250 l5=253 accC=-22409 accS=-22409 dacc=0 yd=16 yexp2=16
+[d24] t=31194245 slot=0 oc=60 n=394 yp=-31 l4=251 l5=254 accC=-20088 accS=-20088 dacc=0 yd=20 yexp2=20
+[d24] t=31194255 slot=0 oc=60 n=395 yp=-24 l4=250 l5=253 accC=-24218 accS=-24218 dacc=0 yd=14 yexp2=14
+[d24] t=31194265 slot=0 oc=60 n=396 yp=-15 l4=251 l5=252 accC=-27102 accS=-27102 dacc=0 yd=10 yexp2=10
+[d24] t=31194275 slot=0 oc=60 n=397 yp=-16 l4=250 l5=252 accC=-27596 accS=-27596 dacc=0 yd=10 yexp2=10
+[d24] t=31194285 slot=0 oc=60 n=398 yp=-6 l4=253 l5=253 accC=-28018 accS=-28018 dacc=0 yd=9 yexp2=9
+[d24] t=31194295 slot=0 oc=60 n=399 yp=-19 l4=250 l5=252 accC=-42070 accS=-42070 dacc=0 yd=253 yexp2=253
+[d24] t=31194545 slot=0 oc=61 n=392 yp=-36 l4=252 l5=255 accC=-34078 accS=-34078 dacc=0 yd=251 yexp2=251
+[d24] t=31194555 slot=0 oc=61 n=393 yp=25 l4=26 l5=34 accC=-28642 accS=-28642 dacc=0 yd=251 yexp2=251
+[d24] t=31194565 slot=0 oc=61 n=394 yp=32 l4=36 l5=46 accC=-25960 accS=-25960 dacc=0 yd=251 yexp2=251
+[d24] t=31194575 slot=0 oc=61 n=395 yp=32 l4=36 l5=46 accC=-28988 accS=-28988 dacc=0 yd=251 yexp2=251
+[d24] t=31194585 slot=0 oc=61 n=396 yp=15 l4=14 l5=18 accC=-15565 accS=-15565 dacc=0 yd=250 yexp2=250
+[d24] t=31194595 slot=0 oc=61 n=397 yp=30 l4=33 l5=43 accC=-16957 accS=-16957 dacc=0 yd=250 yexp2=250
+[d24] t=31194605 slot=0 oc=61 n=398 yp=25 l4=26 l5=34 accC=-34017 accS=-34017 dacc=0 yd=251 yexp2=251
+[d24] t=31194615 slot=0 oc=61 n=399 yp=11 l4=9 l5=12 accC=-18519 accS=-18519 dacc=0 yd=250 yexp2=250
+[d24] t=31194875 slot=0 oc=62 n=392 yp=x l4=x l5=x accC=-3772 accS=-3772 dacc=0 yd=250 yexp2=250
+[d24] t=31194885 slot=0 oc=62 n=393 yp=x l4=x l5=x accC=-11273 accS=-11273 dacc=0 yd=251 yexp2=251
+[d24] t=31194895 slot=0 oc=62 n=394 yp=x l4=x l5=x accC=-4840 accS=-4840 dacc=0 yd=250 yexp2=250
+[d24] t=31194905 slot=0 oc=62 n=395 yp=x l4=x l5=x accC=3930 accS=3930 dacc=0 yd=251 yexp2=251
+[d24] t=31194915 slot=0 oc=62 n=396 yp=x l4=x l5=x accC=3730 accS=3730 dacc=0 yd=250 yexp2=250
+[d24] t=31194925 slot=0 oc=62 n=397 yp=x l4=x l5=x accC=12942 accS=12942 dacc=0 yd=253 yexp2=253
+[d24] t=31194935 slot=0 oc=62 n=398 yp=x l4=x l5=x accC=434 accS=434 dacc=0 yd=250 yexp2=250
+[d24] t=31194945 slot=0 oc=62 n=399 yp=x l4=x l5=x accC=-15817 accS=-15817 dacc=0 yd=252 yexp2=252
+[d24] t=31195205 slot=0 oc=63 n=392 yp=x l4=x l5=x accC=35076 accS=35076 dacc=0 yd=35 yexp2=35
+[d24] t=31195215 slot=0 oc=63 n=393 yp=x l4=x l5=x accC=30995 accS=30995 dacc=0 yd=26 yexp2=26
+[d24] t=31195225 slot=0 oc=63 n=394 yp=x l4=x l5=x accC=36061 accS=36061 dacc=0 yd=36 yexp2=36
+[d24] t=31195235 slot=0 oc=63 n=395 yp=x l4=x l5=x accC=36296 accS=36296 dacc=0 yd=36 yexp2=36
+[d24] t=31195245 slot=0 oc=63 n=396 yp=x l4=x l5=x accC=23202 accS=23202 dacc=0 yd=14 yexp2=14
+[d24] t=31195255 slot=0 oc=63 n=397 yp=x l4=x l5=x accC=34561 accS=34561 dacc=0 yd=33 yexp2=33
+[d24] t=31195265 slot=0 oc=63 n=398 yp=x l4=x l5=x accC=30480 accS=30480 dacc=0 yd=26 yexp2=26
+[d24] t=31195275 slot=0 oc=63 n=399 yp=x l4=x l5=x accC=19467 accS=19467 dacc=0 yd=9 yexp2=9
+[d24] tile-49 tail beats=64 (dacc!=0: 0, lut-vs-yd wdiff: 46, yd-vs-yexp2 err: 0)
+[d24] yd attribution: lut4[idx]=2 lut5[idx]=3 bypass=1 other=42 (of 48 valid)
+TB_GEMM_ARRAY_PASS layers=6 compared=438447 dut_wr=438447 gold_wr=3247 ldone=6 adone=1 snap=6883 occ2=1607157 ost_w=2 ost_x=2
+$finish called at time : 35810380 ns : File "E:/competition/2_fpga/3_yolo_zynq/sim/tb_yolo_gemm_array.v" Line 1142
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:08:11 . Memory (MB): peak = 229.520 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 37428 KB (Peak: 37428 KB), Simulation CPU Usage: 479921 ms
+INFO: [Common 17-206] Exiting xsim at Thu Sep 17 21:57:57 2026...

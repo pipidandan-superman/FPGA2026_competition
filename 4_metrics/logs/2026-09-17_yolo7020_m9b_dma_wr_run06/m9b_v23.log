@@ -1,0 +1,19 @@
+# vsim +STIM=../stim/dma_wr +WDT_MS=120000 -do {run -all; quit -f} -l m9b_v23.log -c -novopt work23b.tb_yolo_dma_wr 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_it7/work23b.tb_yolo_dma_wr
+# Loading work23b.tb_yolo_dma_wr
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim_it7/work23b.yolo_dma_wr
+# Loading work23b.yolo_dma_wr
+# run -all 
+# [tb] dma_wr stim=../stim/dma_wr cmds=45
+# TB_DMA_WR_PASS bytes=410255 fed=410255 cmds=45 aws=3240 (stall-tolerant, 4KB-split, B-drain, bijection+checksummed)
+# ** Note: $finish    : ../tb_yolo_dma_wr.v(495)
+#    Time: 12244230 ns  Iteration: 1  Instance: /tb_yolo_dma_wr

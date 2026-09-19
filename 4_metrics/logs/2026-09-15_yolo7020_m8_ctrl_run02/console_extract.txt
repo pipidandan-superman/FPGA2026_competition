@@ -1,0 +1,16 @@
+# console extract: M8 ctrl V1.1 gate rerun (run02), first green run
+# source: sim_ctrl_run1.log (lines 10-19, unedited in place)
+# Read: ../stim/ctrl
+# Loading work.tb_yolo_ctrl
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.yolo_ctrl
+# Loading work.yolo_ctrl
+# run -all
+# [tb] ctrl stim=../stim/ctrl cycles=699590
+# TB_CTRL_PASS compared=699590 cycles (15 outputs/cycle) ldone=23 alldone=1
+# ** Note: $finish    : ../tb_yolo_ctrl.v(218)
+#    Time: 6995930 ns  Iteration: 1  Instance: /tb_yolo_ctrl
+#
+# vecgen coverage (python ctrl_vecgen.py, seed 808, all asserts passed):
+# [stim] ctrl: 699590 cycles (layers=23 tiles=2271 k_beats=115672 rq_beats=577057 bank_toggles=2248 tile_wait_cycles=4498), manifest written
+#
+# PASS token: TB_CTRL_PASS

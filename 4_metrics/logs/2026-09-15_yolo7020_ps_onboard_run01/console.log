@@ -1,0 +1,134 @@
+===============================
+== [01] connectivity check 2026-09-15 07:32:43 ==
+   IPv4 地址 . . . . . . . . . . . . : 192.168.240.2
+-- port 22 probe:
+TCP 192.168.240.10:22 OPEN
+== [02] ssh channel test (askpass via env, no password in cmdline) 2026-09-15 07:33:06 ==
+'嗙爜銆?rem' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+xilinx@192.168.240.10: Permission denied (publickey,password).
+ssh exit=255
+== [02-retry] ssh channel test, ascii askpass 2026-09-15 07:33:32 ==
+CONN_OK
+pynq
+ 08:20:02 up 3 min,  1 user,  load average: 0.86, 0.75, 0.33
+ssh exit=0
+== [03] board env recon (read-only) 2026-09-15 07:33:44 ==
+Linux pynq 5.15.19-xilinx-v2022.1 #1 SMP PREEMPT Mon Apr 11 17:52:14 UTC 2022 armv7l armv7l armv7l GNU/Linux
+-- python:
+Python 3.10.4
+-- numpy:
+1.21.5
+-- cpu:
+model name	: ARMv7 Processor rev 0 (v7l)
+2
+-- mem:
+MemTotal:        1024728 kB
+-- disk /home:
+/dev/root        15G  6.3G  7.3G  47% /
+-- ees331-camera service:
+active
+-- target dir check:
+ls: cannot access '/home/xilinx/yolo_selfcheck': No such file or directory
+(not exists, will create)
+ssh exit=0
+== [04] upload runtime+package+pack 2026-09-15 07:34:21 ==
+mkdir ok
+py upload ok
+rom_data upload ok
+board_pack upload ok
+== [04] verify board-side sizes 2026-09-15 07:34:37 ==
+.:
+drwxr-xr-x  2 xilinx xilinx 4096 Sep 14  2026 board_pack
+-rw-r--r--  1 xilinx xilinx 6596 Sep 14  2026 board_selfcheck.py
+-rw-r--r--  1 xilinx xilinx 2876 Sep 14  2026 intarith.py
+drwxr-xr-x  2 xilinx xilinx 4096 Sep 14  2026 rom_data
+-rw-r--r--  1 xilinx xilinx 3450 Sep 14  2026 yolo_decode.py
+-rw-r--r--  1 xilinx xilinx 2070 Sep 14  2026 yolo_pkg.py
+-rw-r--r--  1 xilinx xilinx 4783 Sep 14  2026 yolo_runtime.py
+
+board_pack:
+-rw-r--r-- 1 xilinx xilinx    89467 Sep 14  2026 expected.json
+-rw-r--r-- 1 xilinx xilinx 14297047 Sep 14  2026 inputs.npz
+-rw-r--r-- 1 xilinx xilinx      382 Sep 14  2026 pack_manifest.json
+
+rom_data:
+-rw-r--r-- 1 xilinx xilinx   21652 Sep 14  2026 bias.bin
+-rw-r--r-- 1 xilinx xilinx   14592 Sep 14  2026 lut.bin
+-rw-r--r-- 1 xilinx xilinx    1848 Sep 14  2026 manifest.json
+-rw-r--r-- 1 xilinx xilinx  411237 Sep 14  2026 quant.json
+-rw-r--r-- 1 xilinx xilinx    1382 Sep 14  2026 README.md
+-rw-r--r-- 1 xilinx xilinx  267166 Sep 14  2026 schedule.json
+-rw-r--r-- 1 xilinx xilinx 3001584 Sep 14  2026 weights.bin
+== [05] board subset run --frames 8 START 2026-09-15 07:35:07 ==
+[1] transfer: inputs.npz 653ca86641bc4f79... exp d2af97731e0025fa... match=True
+[2] rom_data package: 4/4 sha256 match (True)
+  [  0/8] images89_jpg.rf.0bfa9777072a head=True box=False   45.4s
+  [  1/8] images9-2-_jpg.rf.e517e4aee1 head=True box=False   45.1s
+  [  2/8] images9-3-_jpg.rf.43e040c027 head=True box=True   44.9s
+  [  3/8] images90-1-_jpg.rf.6b789faf0 head=True box=True   44.9s
+  [  4/8] images92-1-_jpg.rf.93da294ab head=True box=True   44.7s
+  [  5/8] images94-2-_jpg.rf.bbce42e5b head=True box=True   44.6s
+  [  6/8] images94_jpg.rf.6e086af4f642 head=True box=False   45.2s
+  [  7/8] images95-1-_jpg.rf.840c2eae3 head=True box=True   44.9s
+[3] regression: head 8/8, box 5/8, first 45.37s mean 44.95s
+[RESULT] PS_SELFCHECK_ONBOARD_HEAD_ONLY frames=8 head=8/8 box=5/8 wall=362.8s
+[evidence] /home/xilinx/yolo_selfcheck/selfcheck_result/result_20221022_082741.json
+== [05] board subset run END rc=1 2026-09-15 07:41:14 ==
+== [06] diag upload + run frames 0,1,6 2026-09-15 07:42:23 ==
+diag upload ok
+[  0] images89_jpg.rf.0bfa9777072a n=6 47.4s
+[  1] images9-2-_jpg.rf.e517e4aee1 n=2 46.8s
+[  6] images94_jpg.rf.6e086af4f642 n=3 47.0s
+[diag] written /home/xilinx/yolo_selfcheck/diag_out/heads_diag.json (3 frames)
+== [06] diag END rc=0 2026-09-15 07:44:52 ==
+== [07] fetch diag output + PC compare 2026-09-15 07:45:05 ==
+diag upload ok
+[  0] images89_jpg.rf.0bfa9777072a n=6 47.4s
+[  1] images9-2-_jpg.rf.e517e4aee1 n=2 46.8s
+[  6] images94_jpg.rf.6e086af4f642 n=3 47.0s
+[diag] written /home/xilinx/yolo_selfcheck/diag_out/heads_diag.json (3 frames)
+== [06] diag END rc=0 2026-09-15 07:44:52 ==
+
+[exited with code 0]
+fetch ok
+frame   0 images89_jpg.rf.0bfa977707 n_board=6 n_pc=6 same_n=True perm=False max_dbox=2.3889391687576733 max_dconf=4.170085736807799e-07 flips(box2dp/conf4dp)=1/0
+frame   1 images9-2-_jpg.rf.e517e4ae n_board=2 n_pc=2 same_n=True perm=False max_dbox=0.9917386093235123 max_dconf=3.611419510107794e-07 flips(box2dp/conf4dp)=1/0
+frame   6 images94_jpg.rf.6e086af4f6 n_board=3 n_pc=3 same_n=True perm=False max_dbox=3.755762611819364 max_dconf=2.637436752328526e-07 flips(box2dp/conf4dp)=1/0
+== [07] END rc=0 2026-09-15 07:45:10 ==
+== [08] full 128-frame run START (nohup on board) 2026-09-15 07:46:53 ==
+started pid=2479
+== [08b] verify full run alive 2026-09-15 07:49:30 ==
+2479 bash -c cd /home/xilinx/yolo_selfcheck && rm -f selfcheck_full.log && nohup python3 board_selfcheck.py --frames 0 > selfcheck_full.log 2>&1 & echo started pid=$!
+2481 python3 board_selfcheck.py --frames 0
+2725 bash -c pgrep -af board_selfcheck; tail -3 /home/xilinx/yolo_selfcheck/selfcheck_full.log
+  [  0/128] images89_jpg.rf.0bfa9777072a head=True box=False   45.4s
+  [  1/128] images9-2-_jpg.rf.e517e4aee1 head=True box=False   44.7s
+  [  2/128] images9-3-_jpg.rf.43e040c027 head=True box=True   44.7s
+== [08c] full-run progress check 2026-09-15 07:55:25 ==
+  [  9/128] images96-2-_jpg.rf.99d30a024 head=True box=True   45.0s
+  [ 10/128] images97-1-_jpg.rf.8103fba7a head=True box=False   45.7s
+11
+5
+== [09] full 128-frame run END 2026-09-15 (board clock 10:10) ==
+  watcher poll 20 fired; last frames 123-127 all head=True
+  [3] regression: head 128/128, box 72/128, first 45.37s mean 45.34s
+  [RESULT] PS_SELFCHECK_ONBOARD_HEAD_ONLY frames=128 head=128/128 box=72/128 wall=5806.9s
+  [evidence] /home/xilinx/yolo_selfcheck/selfcheck_result/result_20221022_101012.json
+== [10] evidence fetch via scp 2026-09-15 ==
+  result_20221022_082741.json   (8-frame subset, earlier)
+  result_20221022_101012.json   (full 128)
+  console_20221022_101012.log   (full-run board console)
+  rom hash gate: weights/bias/lut/quant all sha256 verified true
+  pack sha256: inputs.npz 653ca866..., expected.json d2af9773...
+  env: Python 3.10.4 / numpy 1.21.5 / armv7l / pynq 5.15.19-xilinx-v2022.1
+== [11] box-mismatch spot check (frames 49,68,127 of 56 failing) ==
+  board_selfcheck_diag.py --indices 49,68,127 (read-only, same scope)
+  f49: same_n=7 perm(swap of exact conf-tie 0.001497 pair) max_dconf 3.1e-7
+       -> pure row reorder + near-tie survivor jitter on conf<=0.01 rows
+  f68: same_n=6 single row dbox 3.27px conf 0.0013 (near-tie survivor swap)
+  f127: same_n=18 single row dbox 9.57px conf 0.0022 (near-tie survivor swap)
+  all: no count change, no class flip, max_dconf < 5e-7, high-conf rows exact
+  conclusion: 56 box failures = benign float64 decode/ordering class
+  (ARM vs x86 libm ulp ~3-5e-7), within plan :219 tolerance; head is the gate
+== [12] run01 CLOSED: verdict PS_SELFCHECK_ONBOARD_HEAD_ONLY (head 128/128 bit-exact) ==

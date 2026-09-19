@@ -1,0 +1,52 @@
+# M3 wbuf gate — console extract
+# (raw transcripts: sim_wbuf.log = accepted run3; sim_wbuf_run1_goldenbug.log = run1)
+
+# 1) stimulus generation (final; seed 303)
+$ python wbuf_vecgen.py
+[stim] wbuf: 98239 ops (rd=7752 par=384 ilv=0 same-cyc=3412 hold=23), manifest written
+# (generator-internal asserts: reads>=5000, each param field>=100,
+#  same-cycle wr/rd>=200, both banks depth-2304 verified, idle>=16,
+#  all golden ed < 2^128 -- guard added after run1)
+
+# 2) compile (unchanged across all runs; RTL/TB V1.0)
+$ vlog -work work ../../rtl/yolo_wbuf.v ../tb_yolo_wbuf.v
+# -- Compiling module yolo_wbuf
+# -- Compiling module tb_yolo_wbuf
+
+# 3) simulate — run 1: golden key-space collision (raw: sim_wbuf_run1_goldenbug.log)
+$ vsim -c -novopt +STIM=../stim/wbuf +WDT_MS=1000 -do "run -all; quit -f" work.tb_yolo_wbuf
+# [tb] wbuf stim=../stim/wbuf ops=97205
+# ** Warning: (vsim-PLI-3406) Too many digits (36) in data on line 482 of file "../stim/wbuf/edout_i128.hex". (Max is 32.)
+# [tb] first mismatch @op=481 op_type=5 dout=306797218187641522383018159971828767229(exp x) dv=1(exp 1) pd=0(exp 0) pv=0(exp 0)
+# TB_WBUF_FAIL errors=96724 first_op=481
+# (root cause: python Model stored params at banks[(row, sel)] -- same key space as
+#  data (row, k) for k=1/2/3; r0 param writes overwrote data bytes and rd() packed
+#  32-bit params into the 128-bit golden => 144/151-bit values, vsim-PLI-3406,
+#  readmemh skipped lines => mem_ed x from op 481. Fixed: separate pars dict +
+#  generation-time assert 0 <= ed < 2^128. RTL/TB untouched.)
+
+# 4) simulate — run 2: stimulus read out-of-bounds (log overwritten by run 3;
+#    RTL/TB again untouched)
+$ vsim -c -novopt +STIM=../stim/wbuf +WDT_MS=1000 -do "run -all; quit -f" work.tb_yolo_wbuf
+# [tb] wbuf stim=../stim/wbuf ops=97205
+# [tb] first mismatch @op=1264 op_type=7 dout=x(exp 0) dv=1(exp 1) pd=33(exp 33) pv=0(exp 0)
+# TB_WBUF_FAIL errors=46341 first_op=1264
+# (root cause: r1 interleave read loop used the CURRENT round klen=576 while
+#  reading tile_r0 (27 deep) from bank0 -> read unwritten addresses (RTL x vs
+#  golden 0). Fixed: read side clamped to prev round klen. Regenerated stim:
+#  98239 ops, all edout lines <= 32 hex digits verified.)
+
+# 5) simulate — run 3 (accepted; raw: sim_wbuf.log)
+$ vsim -c -novopt +STIM=../stim/wbuf +WDT_MS=1000 -do "run -all; quit -f" \
+       -l .../sim_wbuf.log work.tb_yolo_wbuf
+# [tb] wbuf stim=../stim/wbuf ops=98239
+# TB_WBUF_PASS compared=98239 ops (dout+vld+pdata+pvld)
+# ** Note: $finish    : ../tb_yolo_wbuf.v(193)
+#    Time: 982420 ns  Iteration: 1  Instance: /tb_yolo_wbuf
+
+GATE RESULT: TB_WBUF_PASS — 98239/98239 ops, four-tuple compare every cycle
+(dout/dout_vld/pdata/pdata_vld), RTL yolo_wbuf.v V1.0 unmodified across all
+three runs.
+
+# 6) stimulus integrity
+$ sha256sum *.hex stim_manifest.json -> stim_sha256.txt (14 files)

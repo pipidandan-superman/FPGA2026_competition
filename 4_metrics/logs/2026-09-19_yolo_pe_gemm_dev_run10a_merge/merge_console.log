@@ -1,0 +1,183 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 12:44:33 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source sim_gemm_merge.tcl
+# set xil   {F:/vivado2025/2025.2/Vivado}
+# set xsimbin [file join $xil bin unwrapped win64.o]
+# set ref  {E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v}
+# set core {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv}
+# set acc  {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv}
+# set mac  {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_mac_cell.sv}
+# set tail {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_tail.sv}
+# set arr  {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv}
+# set bank {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv}
+# set fed  {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_feeder.sv}
+# set tb   {E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_merge.sv}
+# proc run_tool {args} {
+#     puts "% [join $args { }]"
+#     set rc [catch {exec {*}$args} out]
+#     puts $out
+#     if {$rc != 0} { error "TOOL_FAILED: [join $args { }]" }
+# }
+# puts "EES_VIVADO_STAGE COMPILE"
+EES_VIVADO_STAGE COMPILE
+# run_tool [file join $xsimbin xvlog.exe] $ref
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v" into library work
+INFO: [VRFC 10-311] analyzing module yolo_pe_pack
+# run_tool [file join $xsimbin xvlog.exe] -sv $bank $fed $core $acc $mac $tail $arr $tb
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe -sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_feeder.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_mac_cell.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_tail.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_merge.sv
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_bank
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_feeder.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_feeder
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_pe_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_acc_dual
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_mac_cell.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_mac_cell
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_tail.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_tail
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_array
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_merge.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_yolo_gemm_merge
+INFO: [VRFC 10-311] analyzing module tb_gemm_merge_4x4
+INFO: [VRFC 10-311] analyzing module tb_gemm_merge_8x16
+# run_tool [file join $xsimbin xvlog.exe] \
+#     {F:/vivado2025/2025.2/data/verilog/src/glbl.v}
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe F:/vivado2025/2025.2/data/verilog/src/glbl.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/vivado2025/2025.2/data/verilog/src/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+# puts "EES_VIVADO_STAGE ELABORATE"
+EES_VIVADO_STAGE ELABORATE
+# run_tool [file join $xsimbin xelab.exe] -debug off -timescale {1ns/1ps} \
+#     -L unisims_ver -L unisim -s tb_mrg4 tb_gemm_merge_4x4 glbl
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -L unisims_ver -L unisim -s tb_mrg4 tb_gemm_merge_4x4 glbl
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -L unisims_ver -L unisim -s tb_mrg4 tb_gemm_merge_4x4 glbl 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.yolo_gemm_bank(P_TO=4,P_TN=4,P_K...
+Compiling module work.yolo_gemm_feeder(P_TO=4,P_TN=4)
+Compiling module unisims_ver.DSP48E1(ADREG=0,ALUMODEREG=0,CAR...
+Compiling module work.yolo_pe_pack_default
+Compiling module work.yolo_pe_core
+Compiling module work.yolo_acc_dual
+Compiling module work.yolo_mac_cell
+Compiling module work.yolo_gemm_tail_default
+Compiling module work.yolo_gemm_array_default
+Compiling module work.tb_yolo_gemm_merge_default
+Compiling module work.tb_gemm_merge_4x4
+Compiling module work.glbl
+Built simulation snapshot tb_mrg4
+# run_tool [file join $xsimbin xelab.exe] -debug off -timescale {1ns/1ps} \
+#     -L unisims_ver -L unisim -s tb_mrg8 tb_gemm_merge_8x16 glbl
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -L unisims_ver -L unisim -s tb_mrg8 tb_gemm_merge_8x16 glbl
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -L unisims_ver -L unisim -s tb_mrg8 tb_gemm_merge_8x16 glbl 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.yolo_gemm_bank(P_KC=1152)
+Compiling module work.yolo_gemm_feeder
+Compiling module unisims_ver.DSP48E1(ADREG=0,ALUMODEREG=0,CAR...
+Compiling module work.yolo_pe_pack_default
+Compiling module work.yolo_pe_core
+Compiling module work.yolo_acc_dual
+Compiling module work.yolo_mac_cell
+Compiling module work.yolo_gemm_tail_default
+Compiling module work.yolo_gemm_array(P_TO=8,P_TN=16)
+Compiling module work.tb_yolo_gemm_merge(P_TO=8,P_TN=1...
+Compiling module work.tb_gemm_merge_8x16
+Compiling module work.glbl
+Built simulation snapshot tb_mrg8
+# puts "EES_VIVADO_STAGE SIMULATE_4X4"
+EES_VIVADO_STAGE SIMULATE_4X4
+# run_tool [file join $xsimbin xsim.exe] tb_mrg4 -runall
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_mrg4 -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 12:44:42 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_mrg4/xsim_script.tcl
+# xsim {tb_mrg4} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+EES_ARR_INFO G1_K_SWEEP done (4x4)
+EES_ARR_INFO G2_BLOCKING done
+EES_ARR_INFO G3_IRREG done
+EES_ARR_INFO G4_MASK_TAILS done
+EES_ARR_INFO G5 done
+EES_ARR_INFO G6_RST_MID done
+EES_ARR_INFO G7_BACKTOBACK done
+EES_ARR_INFO G8_FIRSTLAYER done
+EES_ARR_INFO G9_RANDOM done (40 tiles)
+EES_SUMMARY checks=846 errors=0 proto_err=0
+EES_ARR_INFO config=4x4 tiles started=62 done=60 aborted=2 y=846
+EES_ARR_INFO blocks_fed=72 blk_done=12 ld_done=74 KC=1152
+EES_VIVADO_RESULT PASS
+$finish called at time : 1061130 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_merge.sv" Line 664
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep 19 12:44:46 2026...
+# puts "EES_VIVADO_STAGE SIMULATE_8X16"
+EES_VIVADO_STAGE SIMULATE_8X16
+# run_tool [file join $xsimbin xsim.exe] tb_mrg8 -runall
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_mrg8 -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 12:44:47 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_mrg8/xsim_script.tcl
+# xsim {tb_mrg8} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+EES_ARR_INFO G1_K_SWEEP done (8x16)
+EES_ARR_INFO G2_BLOCKING done
+EES_ARR_INFO G3_IRREG done
+EES_ARR_INFO G4_MASK_TAILS done
+EES_ARR_INFO G5 done
+EES_ARR_INFO G6_RST_MID done
+EES_ARR_INFO G7_BACKTOBACK done
+EES_ARR_INFO G8_FIRSTLAYER done
+EES_ARR_INFO G9_RANDOM done (15 tiles)
+EES_SUMMARY checks=4250 errors=0 proto_err=0
+EES_ARR_INFO config=8x16 tiles started=37 done=35 aborted=2 y=4250
+EES_ARR_INFO blocks_fed=47 blk_done=12 ld_done=49 KC=1152
+EES_VIVADO_RESULT PASS
+$finish called at time : 925550 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_merge.sv" Line 664
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:21 . Memory (MB): peak = 221.426 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 23268 KB (Peak: 23268 KB), Simulation CPU Usage: 20765 ms
+INFO: [Common 17-206] Exiting xsim at Sat Sep 19 12:45:09 2026...
+INFO: [Common 17-206] Exiting Vivado at Sat Sep 19 12:45:09 2026...

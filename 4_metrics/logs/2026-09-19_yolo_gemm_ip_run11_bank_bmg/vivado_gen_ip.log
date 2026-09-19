@@ -1,0 +1,110 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Sat Sep 19 13:18:47 2026
+# Process ID         : 18000
+# Current directory  : E:/competition/4_metrics/logs/2026-09-19_yolo_gemm_ip_run11_bank_bmg
+# Command line       : vivado.exe -mode batch -source gen_gemm_ip.tcl -notrace -nojournal -log vivado_gen_ip.log -journal vivado_gen_ip.jou
+# Log file           : E:/competition/4_metrics/logs/2026-09-19_yolo_gemm_ip_run11_bank_bmg/vivado_gen_ip.log
+# Journal file       : 
+# Running On         : HC-202510241838
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : AMD Ryzen 5 9600X 6-Core Processor             
+# CPU Frequency      : 3893 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 33410 MB
+# Swap memory        : 21474 MB
+# Total Virtual      : 54884 MB
+# Available Virtual  : 18988 MB
+#-----------------------------------------------------------
+source gen_gemm_ip.tcl -notrace
+EES_IP_STAGE CREATE gemm_bm_w_g0 (True_Dual_Port_RAM)
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'F:/vivado2025/2025.2/Vivado/data/ip'.
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'gemm_bm_w_g0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'gemm_bm_w_g0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'gemm_bm_w_g0'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'gemm_bm_w_g0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'gemm_bm_w_g0'...
+EES_IP_CFG gemm_bm_w_g0 Memory_Type=True_Dual_Port_RAM
+EES_IP_CFG gemm_bm_w_g0 Write_Width_A=64
+EES_IP_CFG gemm_bm_w_g0 Write_Depth_A=1024
+EES_IP_CFG gemm_bm_w_g0 Write_Width_B=64
+EES_IP_CFG gemm_bm_w_g0 Read_Width_B=64
+EES_IP_CFG gemm_bm_w_g0 Use_Byte_Write_Enable=true
+EES_IP_CFG gemm_bm_w_g0 Byte_Size=8
+EES_IP_CFG gemm_bm_w_g0 Register_PortA_Output_of_Memory_Primitives=false
+EES_IP_CFG gemm_bm_w_g0 Register_PortB_Output_of_Memory_Primitives=false
+EES_IP_STAGE DONE gemm_bm_w_g0
+EES_IP_STAGE CREATE gemm_bm_w_g1 (True_Dual_Port_RAM)
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'gemm_bm_w_g1'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'gemm_bm_w_g1'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'gemm_bm_w_g1'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'gemm_bm_w_g1'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'gemm_bm_w_g1'...
+EES_IP_CFG gemm_bm_w_g1 Memory_Type=True_Dual_Port_RAM
+EES_IP_CFG gemm_bm_w_g1 Write_Width_A=64
+EES_IP_CFG gemm_bm_w_g1 Write_Depth_A=1024
+EES_IP_CFG gemm_bm_w_g1 Write_Width_B=64
+EES_IP_CFG gemm_bm_w_g1 Read_Width_B=64
+EES_IP_CFG gemm_bm_w_g1 Use_Byte_Write_Enable=true
+EES_IP_CFG gemm_bm_w_g1 Byte_Size=8
+EES_IP_CFG gemm_bm_w_g1 Register_PortA_Output_of_Memory_Primitives=false
+EES_IP_CFG gemm_bm_w_g1 Register_PortB_Output_of_Memory_Primitives=false
+EES_IP_STAGE DONE gemm_bm_w_g1
+EES_IP_STAGE CREATE gemm_bm_x_g0 (True_Dual_Port_RAM)
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'gemm_bm_x_g0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'gemm_bm_x_g0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'gemm_bm_x_g0'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'gemm_bm_x_g0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'gemm_bm_x_g0'...
+EES_IP_CFG gemm_bm_x_g0 Memory_Type=True_Dual_Port_RAM
+EES_IP_CFG gemm_bm_x_g0 Write_Width_A=128
+EES_IP_CFG gemm_bm_x_g0 Write_Depth_A=1024
+EES_IP_CFG gemm_bm_x_g0 Write_Width_B=128
+EES_IP_CFG gemm_bm_x_g0 Read_Width_B=128
+EES_IP_CFG gemm_bm_x_g0 Use_Byte_Write_Enable=true
+EES_IP_CFG gemm_bm_x_g0 Byte_Size=8
+EES_IP_CFG gemm_bm_x_g0 Register_PortA_Output_of_Memory_Primitives=false
+EES_IP_CFG gemm_bm_x_g0 Register_PortB_Output_of_Memory_Primitives=false
+EES_IP_STAGE DONE gemm_bm_x_g0
+EES_IP_STAGE CREATE gemm_bm_x_g1 (True_Dual_Port_RAM)
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'gemm_bm_x_g1'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'gemm_bm_x_g1'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'gemm_bm_x_g1'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'gemm_bm_x_g1'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'gemm_bm_x_g1'...
+EES_IP_CFG gemm_bm_x_g1 Memory_Type=True_Dual_Port_RAM
+EES_IP_CFG gemm_bm_x_g1 Write_Width_A=128
+EES_IP_CFG gemm_bm_x_g1 Write_Depth_A=1024
+EES_IP_CFG gemm_bm_x_g1 Write_Width_B=128
+EES_IP_CFG gemm_bm_x_g1 Read_Width_B=128
+EES_IP_CFG gemm_bm_x_g1 Use_Byte_Write_Enable=true
+EES_IP_CFG gemm_bm_x_g1 Byte_Size=8
+EES_IP_CFG gemm_bm_x_g1 Register_PortA_Output_of_Memory_Primitives=false
+EES_IP_CFG gemm_bm_x_g1 Register_PortB_Output_of_Memory_Primitives=false
+EES_IP_STAGE DONE gemm_bm_x_g1
+EES_IP_STAGE CREATE gemm_bm_lut (Simple_Dual_Port_RAM)
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'gemm_bm_lut'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'gemm_bm_lut'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'gemm_bm_lut'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'gemm_bm_lut'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'gemm_bm_lut'...
+EES_IP_CFG gemm_bm_lut Memory_Type=Simple_Dual_Port_RAM
+EES_IP_CFG gemm_bm_lut Write_Width_A=8
+EES_IP_CFG gemm_bm_lut Write_Depth_A=256
+EES_IP_CFG gemm_bm_lut Write_Width_B=8
+EES_IP_CFG gemm_bm_lut Read_Width_B=8
+EES_IP_CFG gemm_bm_lut Use_Byte_Write_Enable=false
+EES_IP_CFG gemm_bm_lut Byte_Size=9
+EES_IP_CFG gemm_bm_lut Register_PortA_Output_of_Memory_Primitives=false
+EES_IP_CFG gemm_bm_lut Register_PortB_Output_of_Memory_Primitives=false
+EES_IP_STAGE DONE gemm_bm_lut
+EES_IP_STAGE LISTING
+EES_IP_RESULT DONE
+INFO: [Common 17-206] Exiting Vivado at Sat Sep 19 13:18:55 2026...

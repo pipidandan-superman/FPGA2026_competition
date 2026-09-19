@@ -1,0 +1,236 @@
+SIZE 256: MAC=647049216 max_activation=262144 raw_head=95424
+SIZE 320: MAC=1011014400 max_activation=409600 raw_head=149100
+SIZE 416: MAC=1708614336 max_activation=692224 raw_head=251979
+SIZE 640: MAC=4044057600 max_activation=1638400 raw_head=596400
+{
+  "result": "MODEL_STATIC_PROFILE_PASS",
+  "python": "E:\\competition\\4_metrics\\logs\\2026-09-12_model_env_run01\\venv\\Scripts\\python.exe",
+  "versions": {
+    "torch": "2.10.0+cpu",
+    "ultralytics": "8.4.142",
+    "onnx": "1.20.1",
+    "onnxruntime": "1.23.2"
+  },
+  "model_sha256": {
+    "best.pt": "68db7cacbdd6d9c9a583e1c50a9f5934a3a6b78675b215ec86717827be8bfc79",
+    "best.onnx": "ac45c457be282ea1d9db819180930b062436ecc834219c3418ff06e9e6bbbf0f"
+  },
+  "parameters_all": 3012213,
+  "classes": {
+    "0": "Down",
+    "1": "Left",
+    "2": "Right",
+    "3": "Stop",
+    "4": "Thumbs Down",
+    "5": "Thumbs up",
+    "6": "Up"
+  },
+  "strides": [
+    8.0,
+    16.0,
+    32.0
+  ],
+  "nc": 7,
+  "reg_max": 16,
+  "raw_head_channels": 71,
+  "notes": [
+    "Synthetic forward shapes and exact dense MAC counts, not accuracy or hardware performance.",
+    "MAC convention: one multiply-accumulate; ops=2*MAC; non-convolution ops excluded.",
+    "FP32 graph activation elements interpreted as hypothetical INT8 byte capacities only.",
+    "320/416/256 are PyTorch shape trials, not modified existing fixed-640 ONNX.",
+    "Traffic estimates exclude tiling reloads, padding, nonconv traffic and bus overhead."
+  ],
+  "onnx": {
+    "opsets": [
+      {
+        "domain": "",
+        "version": 18
+      }
+    ],
+    "node_count": 233,
+    "ops": {
+      "Conv": 64,
+      "Sigmoid": 58,
+      "Mul": 58,
+      "Split": 8,
+      "Add": 8,
+      "Concat": 17,
+      "MaxPool": 3,
+      "Resize": 2,
+      "Reshape": 8,
+      "Transpose": 1,
+      "Softmax": 1,
+      "Slice": 2,
+      "Sub": 2,
+      "Div": 1
+    },
+    "initializer_elements": 3049043,
+    "initializer_bytes": 12196272,
+    "conv_macs": 4044595200,
+    "logical_live_peak_elements_no_fusion": 4915200,
+    "known_shapes": 242
+  },
+  "synthetic_format_check": {
+    "max_abs": 0.00067138671875,
+    "mean_abs": 6.2996709857543465e-06,
+    "allclose_rtol1e-3_atol1e-3": true,
+    "finite": true
+  },
+  "quantization": "NOT_RUN_NO_CALIBRATION_DATA_AUDIT",
+  "hardware": "NOT_RUN",
+  "script_sha256": "21a623b58f69665e30dcf3ad90efc8c18abc44a09e1165097a1f620c153faac5",
+  "profiles": {
+    "256": {
+      "input_size": 256,
+      "output_shape": [
+        1,
+        11,
+        1344
+      ],
+      "conv_calls": 64,
+      "network_conv_calls": 63,
+      "conv_macs": 647135232,
+      "network_conv_macs": 647049216,
+      "conv_weight_elements": 3001584,
+      "max_single_conv_output_int8_bytes": 262144,
+      "max_im2col_int8_bytes": 589824,
+      "naive_conv_input_output_int8_bytes": 5428416,
+      "raw_head_int8_bytes": 95424,
+      "max_k": 2304,
+      "array_cycle_models": {
+        "8x8": {
+          "ideal_tiled_cycles": 10111488,
+          "isolated_systolic_wave_cycles": 10609328,
+          "tiled_utilization": 0.9998670818775635,
+          "wave_utilization": 0.9529485750652633
+        },
+        "8x16": {
+          "ideal_tiled_cycles": 5055744,
+          "isolated_systolic_wave_cycles": 5446904,
+          "tiled_utilization": 0.9998670818775635,
+          "wave_utilization": 0.9280633548893096
+        },
+        "16x8": {
+          "ideal_tiled_cycles": 5061120,
+          "isolated_systolic_wave_cycles": 5454128,
+          "tiled_utilization": 0.9988050075872534,
+          "wave_utilization": 0.9268341337056996
+        }
+      }
+    },
+    "320": {
+      "input_size": 320,
+      "output_shape": [
+        1,
+        11,
+        2100
+      ],
+      "conv_calls": 64,
+      "network_conv_calls": 63,
+      "conv_macs": 1011148800,
+      "network_conv_macs": 1011014400,
+      "conv_weight_elements": 3001584,
+      "max_single_conv_output_int8_bytes": 409600,
+      "max_im2col_int8_bytes": 921600,
+      "naive_conv_input_output_int8_bytes": 8481900,
+      "raw_head_int8_bytes": 149100,
+      "max_k": 2304,
+      "array_cycle_models": {
+        "8x8": {
+          "ideal_tiled_cycles": 15919808,
+          "isolated_systolic_wave_cycles": 16699986,
+          "tiled_utilization": 0.9922921180958967,
+          "wave_utilization": 0.945934924735865
+        },
+        "8x16": {
+          "ideal_tiled_cycles": 8080512,
+          "isolated_systolic_wave_cycles": 8697128,
+          "tiled_utilization": 0.9774813774176686,
+          "wave_utilization": 0.908179113840799
+        },
+        "16x8": {
+          "ideal_tiled_cycles": 7968320,
+          "isolated_systolic_wave_cycles": 8584210,
+          "tiled_utilization": 0.9912440765431108,
+          "wave_utilization": 0.9201254396152937
+        }
+      }
+    },
+    "416": {
+      "input_size": 416,
+      "output_shape": [
+        1,
+        11,
+        3549
+      ],
+      "conv_calls": 64,
+      "network_conv_calls": 63,
+      "conv_macs": 1708841472,
+      "network_conv_macs": 1708614336,
+      "conv_weight_elements": 3001584,
+      "max_single_conv_output_int8_bytes": 692224,
+      "max_im2col_int8_bytes": 1557504,
+      "naive_conv_input_output_int8_bytes": 14334411,
+      "raw_head_int8_bytes": 251979,
+      "max_k": 2304,
+      "array_cycle_models": {
+        "8x8": {
+          "ideal_tiled_cycles": 26961920,
+          "isolated_systolic_wave_cycles": 28282134,
+          "tiled_utilization": 0.9901779621035891,
+          "wave_utilization": 0.9439563153190632
+        },
+        "8x16": {
+          "ideal_tiled_cycles": 13531168,
+          "isolated_systolic_wave_cycles": 14570954,
+          "tiled_utilization": 0.9865038627855334,
+          "wave_utilization": 0.9161067628104516
+        },
+        "16x8": {
+          "ideal_tiled_cycles": 13495200,
+          "isolated_systolic_wave_cycles": 14537406,
+          "tiled_utilization": 0.9891331362262138,
+          "wave_utilization": 0.9182208641624234
+        }
+      }
+    },
+    "640": {
+      "input_size": 640,
+      "output_shape": [
+        1,
+        11,
+        8400
+      ],
+      "conv_calls": 64,
+      "network_conv_calls": 63,
+      "conv_macs": 4044595200,
+      "network_conv_macs": 4044057600,
+      "conv_weight_elements": 3001584,
+      "max_single_conv_output_int8_bytes": 1638400,
+      "max_im2col_int8_bytes": 3686400,
+      "naive_conv_input_output_int8_bytes": 33927600,
+      "raw_head_int8_bytes": 596400,
+      "max_k": 2304,
+      "array_cycle_models": {
+        "8x8": {
+          "ideal_tiled_cycles": 63196800,
+          "isolated_systolic_wave_cycles": 66308300,
+          "tiled_utilization": 0.9998670818775635,
+          "wave_utilization": 0.9529485750652633
+        },
+        "8x16": {
+          "ideal_tiled_cycles": 31598400,
+          "isolated_systolic_wave_cycles": 34043150,
+          "tiled_utilization": 0.9998670818775635,
+          "wave_utilization": 0.9280633548893096
+        },
+        "16x8": {
+          "ideal_tiled_cycles": 31632000,
+          "isolated_systolic_wave_cycles": 34088300,
+          "tiled_utilization": 0.9988050075872534,
+          "wave_utilization": 0.9268341337056996
+        }
+      }
+    }
+  }
+}

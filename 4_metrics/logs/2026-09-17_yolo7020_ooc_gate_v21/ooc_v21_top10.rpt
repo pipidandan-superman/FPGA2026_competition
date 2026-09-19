@@ -1,0 +1,49 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Thu Sep 17 02:15:38 2026
+| Host         : HC-202510241838 running 64-bit major release  (build 9200)
+| Command      : report_timing -max_paths 10 -path_type summary -file E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate/ooc_v21_top10.rpt
+| Design       : yolo_engine_top
+| Device       : 7z020-clg484
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Startpoint                     Endpoint                       Slack(ns)     
+----------------------------------------------------------------------------
+u_array/u_requant/prod_c_w__2/CLK
+                               u_array/u_requant/sticky_r_reg/D
+                                                              -0.713        
+u_array/u_dma_wr/words_r_reg[22]/C
+                               u_array/u_dma_wr/bnd_r_reg[8]/D
+                                                              -0.634        
+u_array/u_dma_wr/words_r_reg[22]/C
+                               u_array/u_dma_wr/bnd_r_reg[9]/D
+                                                              -0.621        
+u_array/u_dma_wr/words_r_reg[22]/C
+                               u_array/u_dma_wr/bnd_r_reg[2]/D
+                                                              -0.601        
+u_array/u_requant/sticky_r_reg/C
+                               u_array/u_requant/y_pre_o_reg[1]_rep__1/D
+                                                              -0.563        
+u_array/u_requant/sticky_r_reg/C
+                               u_array/u_requant/y_pre_o_reg[1]_rep__0/D
+                                                              -0.561        
+u_array/u_dma_wr/words_r_reg[22]/C
+                               u_array/u_dma_wr/bnd_r_reg[7]/D
+                                                              -0.497        
+u_array/u_dma_wr/words_r_reg[22]/C
+                               u_array/u_dma_wr/bnd_r_reg[3]/D
+                                                              -0.495        
+u_array/u_requant/sticky_r_reg/C
+                               u_array/u_requant/y_pre_o_reg[1]/D
+                                                              -0.474        
+u_array/u_requant/sticky_r_reg/C
+                               u_array/u_requant/y_pre_o_reg[2]/D
+                                                              -0.474        
+
+
+

@@ -1,0 +1,47 @@
+m255
+K3
+13
+cModel Technology
+Z0 dE:\competition\2_fpga\parallel_task\4_metrics\logs\2026-09-19_yolo_ppu_xfer_run01\msim
+vtb_yolo_ppu_xfer
+Z1 DXx6 sv_std 3 std 0 22 F[19LRNL:5;XmIFh[XOPn1
+Z2 I`zhgVGHaPPn0;MFKe=Jhz1
+Z3 V;A96C95Y3M:4T4?55Y`Hc0
+S1
+Z4 dE:\competition\2_fpga\parallel_task\4_metrics\logs\2026-09-19_yolo_ppu_xfer_run01\msim
+Z5 w1789750472
+Z6 8E:/competition/2_fpga/parallel_task/sim_ppu/tb_yolo_ppu_xfer.sv
+Z7 FE:/competition/2_fpga/parallel_task/sim_ppu/tb_yolo_ppu_xfer.sv
+L0 40
+Z8 OL;L;10.1c;51
+r1
+31
+Z9 !s108 1789750593.126000
+Z10 !s107 E:/competition/2_fpga/parallel_task/sim_ppu/tb_yolo_ppu_xfer.sv|E:/competition/2_fpga/parallel_task/rtl_ppu/yolo_ppu_xfer.sv|
+Z11 !s90 -novopt|-work|work|E:/competition/2_fpga/parallel_task/rtl_ppu/yolo_ppu_xfer.sv|E:/competition/2_fpga/parallel_task/sim_ppu/tb_yolo_ppu_xfer.sv|
+Z12 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!i10b 1
+Z13 !s100 5`g`T7JiYNVRUPEe:YOS91
+Z14 !s105 tb_yolo_ppu_xfer_sv_unit
+!s85 0
+vyolo_ppu_xfer
+R1
+!i10b 1
+!s100 kMjQ]gQ^N]Z3jaahXO7@C2
+I9jB_>Hi8[DU8;n7nnC2Ni3
+Z15 V7f8lozzdAMX6kb]4g36N@3
+Z16 !s105 yolo_ppu_xfer_sv_unit
+S1
+R4
+w1789750653
+Z17 8E:/competition/2_fpga/parallel_task/rtl_ppu/yolo_ppu_xfer.sv
+Z18 FE:/competition/2_fpga/parallel_task/rtl_ppu/yolo_ppu_xfer.sv
+L0 35
+R8
+r1
+!s85 0
+31
+!s108 1789750662.309000
+!s107 E:/competition/2_fpga/parallel_task/rtl_ppu/yolo_ppu_xfer.sv|
+!s90 -novopt|-work|work|E:/competition/2_fpga/parallel_task/rtl_ppu/yolo_ppu_xfer.sv|
+R12

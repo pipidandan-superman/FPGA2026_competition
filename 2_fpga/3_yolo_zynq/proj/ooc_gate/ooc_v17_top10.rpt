@@ -1,0 +1,49 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Wed Sep 16 23:48:48 2026
+| Host         : HC-202510241838 running 64-bit major release  (build 9200)
+| Command      : report_timing -max_paths 10 -path_type summary -file E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate/ooc_v17_top10.rpt
+| Design       : yolo_engine_top
+| Device       : 7z020-clg484
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Startpoint                     Endpoint                       Slack(ns)     
+----------------------------------------------------------------------------
+u_array/u_addrgen/oy_sh_r_reg[0]/C
+                               u_array/u_addrgen/row_off_r_reg[24]/D
+                                                              -1.463        
+u_array/u_addrgen/oy_sh_r_reg[0]/C
+                               u_array/u_addrgen/row_off_r_reg[13]/D
+                                                              -1.460        
+u_array/u_addrgen/oy_sh_r_reg[0]/C
+                               u_array/u_addrgen/row_off_r_reg[25]/D
+                                                              -1.423        
+u_array/u_addrgen/oy_sh_r_reg[0]/C
+                               u_array/u_addrgen/row_off_r_reg[12]/D
+                                                              -1.415        
+u_array/u_addrgen/oy_sh_r_reg[0]/C
+                               u_array/u_addrgen/row_off_r_reg[4]/D
+                                                              -1.405        
+u_array/u_addrgen/oy_sh_r_reg[0]/C
+                               u_array/u_addrgen/row_off_r_reg[29]/D
+                                                              -1.403        
+u_array/u_addrgen/oy_sh_r_reg[0]/C
+                               u_array/u_addrgen/row_off_r_reg[10]/D
+                                                              -1.402        
+u_array/u_addrgen/oy_sh_r_reg[0]/C
+                               u_array/u_addrgen/row_off_r_reg[28]/D
+                                                              -1.400        
+u_array/u_addrgen/oy_sh_r_reg[0]/C
+                               u_array/u_addrgen/row_off_r_reg[9]/D
+                                                              -1.397        
+u_array/u_addrgen/oy_sh_r_reg[0]/C
+                               u_array/u_addrgen/row_off_r_reg[27]/D
+                                                              -1.381        
+
+
+

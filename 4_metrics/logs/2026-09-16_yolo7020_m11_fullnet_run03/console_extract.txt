@@ -1,0 +1,34 @@
+# console_extract —— M11 门 run03（全网 63 conv 回归，V1.2a 承接，2026-09-16）
+
+源：sim_m11_full_run03.log / m11_run03_smoke2.log / m11_run03_smoke.log
+（原始 transcript，未编辑）
+
+```
+# 门（sim_m11_full_run03.log 末段，63 conv 全部 acc_err=0，无一例外）：
+# [tb] m11 stim=../stim/m11 img_words=1665001 prog_words=2178 maxconv=63
+# [tb] conv 0/63 task=0 done @t=23272790000 oc=16 n=25600 k=27 acc_err=0
+# [tb] conv 31/63 task=60 done @t=651563610000 oc=64 n=1600 k=192 acc_err=0
+# [tb] conv 62/63 task=102 done @t=1356447170000 oc=7 n=100 k=64 acc_err=0
+# [tb] heads dumped 149100 bytes -> head_dump.bin
+# TB_FULLNET_PASS convs=63 psops=65 compared=3553900 dut_wr=3553900 head_bytes=149100 ldone=63 adone=1
+# ** Note: $finish    : ../tb_yolo_fullnet.v(824)
+#    Time: 1356447340 ns
+
+# headcheck（headcheck.out，对 run04 frame0）：
+# M11_HEADCHK_PASS sha256=9ce70525fc1732cde640bfa654919dd28504422aa9791a2875225ae6ad6aa6ad bytes=149100
+
+# 烟测通过（m11_run03_smoke2.log 末行）：
+# TB_FULLNET_SMOKE convs=2 psops=0 compared=614400 dut_wr=614400 head_bytes=0 ldone=2 adone=1
+
+# 失败链（m11_run03_smoke.log，TB 散写 BFM 逐 lane NBA 同字互踩）：
+# [tb] first diff conv=0 i=0 dut=226 gold=87
+# [tb] conv 0/2 task=0 done @t=23272790000 oc=16 n=25600 k=27 acc_err=357407
+# [tb] conv 1/2 task=1 done @t=64874890000 oc=32 n=6400 k=144 acc_err=554495
+# TB_FULLNET_FAIL err=554495 dbl=0 unwritten=0 yaxi=0 dut_wr=614400(exp 614400) convs=2(exp 2) psops=0 head_bytes=0 ldone=2 adone=1 first=(c0,i0)
+```
+
+PASS token: TB_FULLNET_PASS / M11_HEADCHK_PASS
+同一性：与 run02（阵列 V1.0 观测口时代）七项计数逐项同数；
+head sha256 == run04 frame0 == run02 headcheck。
+激励零漂移：stim 6 hex + m11_vecgen.py + m11_headcheck.py 与 run01
+sha256 记录程序化比对全 SAME（见 stim_sha256.txt）。

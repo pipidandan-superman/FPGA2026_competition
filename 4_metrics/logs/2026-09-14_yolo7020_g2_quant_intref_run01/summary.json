@@ -1,0 +1,15 @@
+{
+  "result": "G2_QUANT_INTREF_PASS",
+  "status": {
+    "rne_unit": "PASS",
+    "int64_oracle_conv": "PASS",
+    "calibration": "PASS (420 imgs, 191 tensors, p99.99 clip on 191/191, median shrink 0.580, 25s)",
+    "graph_build": "PASS (63 QConv nodes)",
+    "scale_refit": "PASS (2 iters x 128 calib imgs, 73 sites, final median ratio 0.9589)",
+    "int_vs_fp_layers": "PASS (worst cosine 0.9305 @ model.22.cv3.1.1, 165 checks)",
+    "package_export": "PASS (63 nodes, w3001584B b86608B l14592B)",
+    "eval": "PASS (valid drop +0.0176; plan gate <=0.02)",
+    "golden": "PASS (5 deep + 128 regression frames, 86s)"
+  },
+  "valid_drop_map50": 0.017626057056285727
+}

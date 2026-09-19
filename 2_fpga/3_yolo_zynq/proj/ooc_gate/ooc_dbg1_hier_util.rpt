@@ -1,0 +1,41 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Wed Sep 16 13:22:13 2026
+| Host         : HC-202510241838 running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -hierarchical_depth 4 -file E:/competition/2_fpga/3_yolo_zynq/proj/ooc_gate/ooc_dbg1_hier_util.rpt
+| Design       : yolo_engine_top
+| Device       : xc7z020clg484-1
+| Speed File   : -1
+| Design State : Synthesized
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++---------------------+-----------------+------------+------------+---------+------+-------+--------+--------+------------+
+|       Instance      |      Module     | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs  | RAMB36 | RAMB18 | DSP Blocks |
++---------------------+-----------------+------------+------------+---------+------+-------+--------+--------+------------+
+| yolo_engine_top     |           (top) |      37214 |      23278 |   13936 |    0 | 13852 |      0 |      0 |        238 |
+|   (yolo_engine_top) |           (top) |         57 |         57 |       0 |    0 |     0 |      0 |      0 |          0 |
+|   u_array           | yolo_gemm_array |      36728 |      22792 |   13936 |    0 | 13412 |      0 |      0 |        238 |
+|     (u_array)       | yolo_gemm_array |        103 |        103 |       0 |    0 |  1971 |      0 |      0 |          1 |
+|     u_acc           |        yolo_acc |      14018 |      14018 |       0 |    0 |  8192 |      0 |      0 |          0 |
+|     u_addrgen       |    yolo_addrgen |       2604 |       2604 |       0 |    0 |   383 |      0 |      0 |          5 |
+|     u_ctrl          |       yolo_ctrl |        963 |        963 |       0 |    0 |   124 |      0 |      0 |          0 |
+|     u_dma           |        yolo_dma |        318 |        318 |       0 |    0 |   160 |      0 |      0 |          0 |
+|     u_dma_wr        |     yolo_dma_wr |        289 |        289 |       0 |    0 |   207 |      0 |      0 |          0 |
+|     u_lut           |   yolo_silu_lut |        570 |        570 |       0 |    0 |  2057 |      0 |      0 |          0 |
+|     u_requant       |    yolo_requant |        852 |        852 |       0 |    0 |    23 |      0 |      0 |          4 |
+|     u_wbuf          |       yolo_wbuf |        505 |        393 |     112 |    0 |    34 |      0 |      0 |          0 |
+|     u_xbuf          |       yolo_xbuf |      16392 |       2568 |   13824 |    0 |   261 |      0 |      0 |          0 |
+|   u_csr             |        yolo_csr |        429 |        429 |       0 |    0 |   440 |      0 |      0 |          0 |
++---------------------+-----------------+------------+------------+---------+------+-------+--------+--------+------------+
+
+

@@ -1,0 +1,257 @@
+{
+  "status": "ANALYTICAL_BUDGET_ONLY",
+  "resources": {
+    "LUT": {
+      "device": 53200,
+      "baseline": 5093,
+      "new_design_budget": [
+        18000,
+        28000
+      ],
+      "integrated_budget": [
+        23093,
+        33093
+      ],
+      "integrated_percent": [
+        43.4078947368421,
+        62.204887218045116
+      ]
+    },
+    "FF": {
+      "device": 106400,
+      "baseline": 7850,
+      "new_design_budget": [
+        14000,
+        24000
+      ],
+      "integrated_budget": [
+        21850,
+        31850
+      ],
+      "integrated_percent": [
+        20.535714285714285,
+        29.93421052631579
+      ]
+    },
+    "BRAM36": {
+      "device": 140,
+      "baseline": 20.5,
+      "new_design_budget": [
+        72,
+        88
+      ],
+      "integrated_budget": [
+        92.5,
+        108.5
+      ],
+      "integrated_percent": [
+        66.07142857142857,
+        77.5
+      ]
+    },
+    "DSP": {
+      "device": 220,
+      "baseline": 9,
+      "new_design_budget": [
+        136,
+        152
+      ],
+      "integrated_budget": [
+        145,
+        161
+      ],
+      "integrated_percent": [
+        65.9090909090909,
+        73.18181818181819
+      ]
+    }
+  },
+  "interpretation": "Efficiency is compute delivery only; traffic is naive conv input/output plus one weight read, excludes nonconv and tile reloads. max and sum are illustrative overlap cases, not bounds on actual inference. PS, preprocessing and scheduling not included.",
+  "reference_cases": [
+    {
+      "size": 256,
+      "mac_lanes": 128,
+      "clock_mhz": 100,
+      "compute_efficiency_assumed": 0.4,
+      "ddr_MBps_assumed": 250,
+      "conv_ideal_ms": 50.55072,
+      "conv_efficiency_ms": 126.37679999999999,
+      "reference_traffic_MB": 8.43,
+      "reference_memory_ms": 33.72,
+      "perfect_overlap_reference_ms": 126.37679999999999,
+      "no_overlap_reference_ms": 160.09679999999997
+    },
+    {
+      "size": 256,
+      "mac_lanes": 128,
+      "clock_mhz": 100,
+      "compute_efficiency_assumed": 0.6,
+      "ddr_MBps_assumed": 250,
+      "conv_ideal_ms": 50.55072,
+      "conv_efficiency_ms": 84.2512,
+      "reference_traffic_MB": 8.43,
+      "reference_memory_ms": 33.72,
+      "perfect_overlap_reference_ms": 84.2512,
+      "no_overlap_reference_ms": 117.9712
+    },
+    {
+      "size": 256,
+      "mac_lanes": 128,
+      "clock_mhz": 100,
+      "compute_efficiency_assumed": 0.8,
+      "ddr_MBps_assumed": 250,
+      "conv_ideal_ms": 50.55072,
+      "conv_efficiency_ms": 63.188399999999994,
+      "reference_traffic_MB": 8.43,
+      "reference_memory_ms": 33.72,
+      "perfect_overlap_reference_ms": 63.188399999999994,
+      "no_overlap_reference_ms": 96.90839999999999
+    },
+    {
+      "size": 320,
+      "mac_lanes": 128,
+      "clock_mhz": 100,
+      "compute_efficiency_assumed": 0.4,
+      "ddr_MBps_assumed": 250,
+      "conv_ideal_ms": 78.9855,
+      "conv_efficiency_ms": 197.46375,
+      "reference_traffic_MB": 11.483484,
+      "reference_memory_ms": 45.933936,
+      "perfect_overlap_reference_ms": 197.46375,
+      "no_overlap_reference_ms": 243.397686
+    },
+    {
+      "size": 320,
+      "mac_lanes": 128,
+      "clock_mhz": 100,
+      "compute_efficiency_assumed": 0.6,
+      "ddr_MBps_assumed": 250,
+      "conv_ideal_ms": 78.9855,
+      "conv_efficiency_ms": 131.64249999999998,
+      "reference_traffic_MB": 11.483484,
+      "reference_memory_ms": 45.933936,
+      "perfect_overlap_reference_ms": 131.64249999999998,
+      "no_overlap_reference_ms": 177.576436
+    },
+    {
+      "size": 320,
+      "mac_lanes": 128,
+      "clock_mhz": 100,
+      "compute_efficiency_assumed": 0.8,
+      "ddr_MBps_assumed": 250,
+      "conv_ideal_ms": 78.9855,
+      "conv_efficiency_ms": 98.731875,
+      "reference_traffic_MB": 11.483484,
+      "reference_memory_ms": 45.933936,
+      "perfect_overlap_reference_ms": 98.731875,
+      "no_overlap_reference_ms": 144.66581100000002
+    },
+    {
+      "size": 416,
+      "mac_lanes": 128,
+      "clock_mhz": 100,
+      "compute_efficiency_assumed": 0.4,
+      "ddr_MBps_assumed": 250,
+      "conv_ideal_ms": 133.48549500000001,
+      "conv_efficiency_ms": 333.7137375,
+      "reference_traffic_MB": 17.335995,
+      "reference_memory_ms": 69.34398,
+      "perfect_overlap_reference_ms": 333.7137375,
+      "no_overlap_reference_ms": 403.05771749999997
+    },
+    {
+      "size": 416,
+      "mac_lanes": 128,
+      "clock_mhz": 100,
+      "compute_efficiency_assumed": 0.6,
+      "ddr_MBps_assumed": 250,
+      "conv_ideal_ms": 133.48549500000001,
+      "conv_efficiency_ms": 222.47582500000001,
+      "reference_traffic_MB": 17.335995,
+      "reference_memory_ms": 69.34398,
+      "perfect_overlap_reference_ms": 222.47582500000001,
+      "no_overlap_reference_ms": 291.81980500000003
+    },
+    {
+      "size": 416,
+      "mac_lanes": 128,
+      "clock_mhz": 100,
+      "compute_efficiency_assumed": 0.8,
+      "ddr_MBps_assumed": 250,
+      "conv_ideal_ms": 133.48549500000001,
+      "conv_efficiency_ms": 166.85686875,
+      "reference_traffic_MB": 17.335995,
+      "reference_memory_ms": 69.34398,
+      "perfect_overlap_reference_ms": 166.85686875,
+      "no_overlap_reference_ms": 236.20084875
+    },
+    {
+      "size": 640,
+      "mac_lanes": 128,
+      "clock_mhz": 100,
+      "compute_efficiency_assumed": 0.4,
+      "ddr_MBps_assumed": 250,
+      "conv_ideal_ms": 315.942,
+      "conv_efficiency_ms": 789.855,
+      "reference_traffic_MB": 36.929184,
+      "reference_memory_ms": 147.716736,
+      "perfect_overlap_reference_ms": 789.855,
+      "no_overlap_reference_ms": 937.571736
+    },
+    {
+      "size": 640,
+      "mac_lanes": 128,
+      "clock_mhz": 100,
+      "compute_efficiency_assumed": 0.6,
+      "ddr_MBps_assumed": 250,
+      "conv_ideal_ms": 315.942,
+      "conv_efficiency_ms": 526.5699999999999,
+      "reference_traffic_MB": 36.929184,
+      "reference_memory_ms": 147.716736,
+      "perfect_overlap_reference_ms": 526.5699999999999,
+      "no_overlap_reference_ms": 674.286736
+    },
+    {
+      "size": 640,
+      "mac_lanes": 128,
+      "clock_mhz": 100,
+      "compute_efficiency_assumed": 0.8,
+      "ddr_MBps_assumed": 250,
+      "conv_ideal_ms": 315.942,
+      "conv_efficiency_ms": 394.9275,
+      "reference_traffic_MB": 36.929184,
+      "reference_memory_ms": 147.716736,
+      "perfect_overlap_reference_ms": 394.9275,
+      "no_overlap_reference_ms": 542.644236
+    }
+  ],
+  "head_conv_share": {
+    "256": {
+      "macs": 237318144,
+      "fraction": 0.36676985016237157
+    },
+    "320": {
+      "macs": 370809600,
+      "fraction": 0.36676985016237157
+    },
+    "416": {
+      "macs": 626668224,
+      "fraction": 0.36676985016237157
+    },
+    "640": {
+      "macs": 1483238400,
+      "fraction": 0.36676985016237157
+    }
+  },
+  "baseline_evidence": [
+    {
+      "path": "E:\\competition\\4_metrics\\logs\\2026-09-13_action_v1_main_build_run03\\utilization.rpt",
+      "sha256": "5058b6b326b2fc558706a7a2d869e92c336ca2183ad88039d8bd6069eb075bb8"
+    },
+    {
+      "path": "E:\\competition\\2_fpga\\0_diaplay_test\\release\\action_v1_uart_run02\\release_manifest.json",
+      "sha256": "30a0592947059799df485c2bf00965f9575866a48e2f5c6ac913dfdc3546c7f4"
+    }
+  ],
+  "script_sha256": "368084820cc8255e19bc5d5ecc99d80d3b08421b05104a13f8c3d8ed9ba8e1e2"
+}

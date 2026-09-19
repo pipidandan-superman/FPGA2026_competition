@@ -1,0 +1,146 @@
+# vsim +STIM=../stim/m10 +WDT_MS=60000 -do {run -all; quit -f} -l E:/competition/2_fpga/3_yolo_zynq/sim/msim/sim_m10_dbg2.log -c -novopt work.tb_yolo_gemm_array 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.tb_yolo_gemm_array
+# Loading work.tb_yolo_gemm_array
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.yolo_gemm_array
+# Loading work.yolo_gemm_array
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.yolo_ctrl
+# Loading work.yolo_ctrl
+# Loading work.yolo_dma
+# Loading work.yolo_addrgen
+# Loading work.yolo_wbuf
+# Loading work.yolo_xbuf
+# Loading work.yolo_acc
+# Loading work.yolo_requant
+# Loading work.yolo_silu_lut
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.yolo_conv_core
+# Loading work.yolo_conv_core
+# Loading work.yolo_pe_pack
+# run -all 
+# [tb] m10 stim=../stim/m10 layers=6 img_words=65621 total_out=438447
+# [tb] ERROR double DUT write L=0 addr=49
+# [dbg-rq] t=28726000 idx=0 oct=0 nt=6 ntail=1 ocloc=0 nloc=0 yaddr=48
+# [dbg-rq] t=28736000 idx=1 oct=0 nt=6 ntail=1 ocloc=1 nloc=0 yaddr=97
+# [dbg-rq] t=28746000 idx=2 oct=0 nt=6 ntail=1 ocloc=1 nloc=1 yaddr=98
+# [dbg-rq] t=28756000 idx=3 oct=0 nt=6 ntail=1 ocloc=1 nloc=2 yaddr=99
+# [dbg-rq] t=28766000 idx=4 oct=0 nt=6 ntail=1 ocloc=1 nloc=3 yaddr=100
+# [dbg-rq] t=28776000 idx=5 oct=0 nt=6 ntail=1 ocloc=1 nloc=4 yaddr=101
+# [dbg-rq] t=28786000 idx=6 oct=0 nt=6 ntail=1 ocloc=1 nloc=5 yaddr=102
+# [tb] layer 0 done @t=28786000 (oc=7 n=49 k=27)
+# [dbg-ar] t=31475000 addr=000003e8 len=3
+# [dbg-ar] t=31815000 addr=00000408 len=3
+# [dbg-ar] t=32165000 addr=00000428 len=3
+# [dbg-ar] t=32505000 addr=00000448 len=3
+# [dbg-ar] t=32855000 addr=00000468 len=3
+# [dbg-ar] t=33195000 addr=00000488 len=3
+# [dbg-ar] t=33535000 addr=000004a8 len=3
+# [dbg-ar] t=33885000 addr=000004c8 len=3
+# [dbg-ar] t=34225000 addr=000005e8 len=3
+# [dbg-ar] t=34605000 addr=00000628 len=3
+# [dbg-ar] t=34995000 addr=00000668 len=0
+# [dbg-ar] t=35175000 addr=000004e8 len=3
+# [dbg-ar] t=35515000 addr=00000508 len=3
+# [dbg-ar] t=35865000 addr=00000528 len=3
+# [dbg-ar] t=36185000 addr=00000548 len=3
+# [dbg-ar] t=36505000 addr=00000568 len=3
+# [dbg-ar] t=36855000 addr=00000588 len=3
+# [dbg-ar] t=37195000 addr=000005a8 len=3
+# [dbg-ar] t=37515000 addr=000005c8 len=3
+# [dbg-ar] t=37855000 addr=00000608 len=3
+# [dbg-ar] t=38235000 addr=00000648 len=3
+# [dbg-ar] t=38635000 addr=00000670 len=0
+# [dbg-ar] t=38805000 addr=000003e8 len=3
+# [dbg-ar] t=39145000 addr=00000408 len=3
+# [dbg-ar] t=39465000 addr=00000428 len=3
+# [dbg-ar] t=39795000 addr=00000448 len=3
+# [dbg-ar] t=40125000 addr=00000468 len=3
+# [dbg-ar] t=40465000 addr=00000488 len=3
+# [dbg-ar] t=40805000 addr=000004a8 len=3
+# [dbg-ar] t=41155000 addr=000004c8 len=3
+# [dbg-ar] t=41505000 addr=000005e8 len=3
+# [dbg-ar] t=41895000 addr=00000628 len=3
+# [dbg-ar] t=42295000 addr=00000668 len=0
+# [dbg-ar] t=42475000 addr=000004e8 len=3
+# [dbg-ar] t=42815000 addr=00000508 len=3
+# [dbg-ar] t=43155000 addr=00000528 len=3
+# [dbg-ar] t=43495000 addr=00000548 len=3
+# [dbg-ar] t=43815000 addr=00000568 len=3
+# [dbg-ar] t=44145000 addr=00000588 len=3
+# [dbg-ar] t=44485000 addr=000005a8 len=3
+# [dbg-ar] t=44825000 addr=000005c8 len=3
+# [dbg-ar] t=45175000 addr=00000608 len=3
+# [dbg-ar] t=45575000 addr=00000648 len=3
+# [dbg-ar] t=45945000 addr=00000670 len=0
+# [dbg-ar] t=46095000 addr=000003e8 len=3
+# [dbg-ar] t=46445000 addr=00000408 len=3
+# [dbg-ar] t=46765000 addr=00000428 len=3
+# [dbg-ar] t=47095000 addr=00000448 len=3
+# [tb] heartbeat t=10000000000 cur_layer=1 ywr=175767
+# [tb] heartbeat t=20000000000 cur_layer=1 ywr=351831
+# [tb] layer 1 done @t=23300476000 (oc=16 n=25600 k=27)
+# [dbg-rq] t=23642166000 idx=0 oct=0 nt=3 ntail=1 ocloc=0 nloc=0 yaddr=24
+# [dbg-rq] t=23642176000 idx=1 oct=0 nt=3 ntail=1 ocloc=1 nloc=0 yaddr=49
+# [dbg-rq] t=23642186000 idx=2 oct=0 nt=3 ntail=1 ocloc=1 nloc=1 yaddr=50
+# [dbg-rq] t=23642196000 idx=3 oct=0 nt=3 ntail=1 ocloc=1 nloc=2 yaddr=51
+# [dbg-rq] t=23642206000 idx=4 oct=0 nt=3 ntail=1 ocloc=1 nloc=3 yaddr=52
+# [dbg-rq] t=23642216000 idx=5 oct=0 nt=3 ntail=1 ocloc=1 nloc=4 yaddr=53
+# [dbg-rq] t=23642226000 idx=6 oct=0 nt=3 ntail=1 ocloc=1 nloc=5 yaddr=54
+# [dbg-rq] t=23642236000 idx=7 oct=0 nt=3 ntail=1 ocloc=1 nloc=6 yaddr=55
+# [dbg-rq] t=23689726000 idx=0 oct=1 nt=3 ntail=1 ocloc=0 nloc=0 yaddr=224
+# [dbg-rq] t=23689736000 idx=1 oct=1 nt=3 ntail=1 ocloc=1 nloc=0 yaddr=249
+# [dbg-rq] t=23689746000 idx=2 oct=1 nt=3 ntail=1 ocloc=1 nloc=1 yaddr=250
+# [dbg-rq] t=23689756000 idx=3 oct=1 nt=3 ntail=1 ocloc=1 nloc=2 yaddr=251
+# [dbg-rq] t=23689766000 idx=4 oct=1 nt=3 ntail=1 ocloc=1 nloc=3 yaddr=252
+# [dbg-rq] t=23689776000 idx=5 oct=1 nt=3 ntail=1 ocloc=1 nloc=4 yaddr=253
+# [dbg-rq] t=23689786000 idx=6 oct=1 nt=3 ntail=1 ocloc=1 nloc=5 yaddr=254
+# [dbg-rq] t=23689796000 idx=7 oct=1 nt=3 ntail=1 ocloc=1 nloc=6 yaddr=255
+# [tb] layer 2 done @t=23689796000 (oc=16 n=25 k=576)
+# [tb] layer 3 done @t=24115586000 (oc=9 n=256 k=64)
+# [tb] heartbeat t=30000000000 cur_layer=4 ywr=420519
+# [dbg-l1] t=35061755000 ldr=2 loc=6 ln=28 cmdi=0 cmdw=1 rdy0=0 rdy1=0 prdy=1 ctrl=2 oct=5 nt=28 kcnt=487 rqcnt=0 arv=0 rstate=1 busy=1
+# [dbg-l1] t=35389435000 ldr=2 loc=4 ln=29 cmdi=10 cmdw=1 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=4 nt=29 kcnt=0 rqcnt=0 arv=0 rstate=0 busy=1
+# [dbg-l1] t=35717115000 ldr=2 loc=3 ln=30 cmdi=7 cmdw=1 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=3 nt=30 kcnt=0 rqcnt=0 arv=0 rstate=2 busy=1
+# [dbg-l1] t=36044795000 ldr=2 loc=2 ln=31 cmdi=6 cmdw=1 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=2 nt=31 kcnt=0 rqcnt=0 arv=0 rstate=2 busy=1
+# [dbg-l1] t=36372475000 ldr=2 loc=1 ln=32 cmdi=5 cmdw=1 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=1 nt=32 kcnt=0 rqcnt=0 arv=0 rstate=2 busy=1
+# [dbg-l1] t=36700155000 ldr=2 loc=0 ln=33 cmdi=4 cmdw=1 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=0 nt=33 kcnt=0 rqcnt=0 arv=0 rstate=3 busy=1
+# [dbg-l1] t=37027835000 ldr=2 loc=7 ln=33 cmdi=3 cmdw=1 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=7 nt=33 kcnt=0 rqcnt=0 arv=0 rstate=2 busy=1
+# [dbg-l1] t=37355515000 ldr=2 loc=6 ln=34 cmdi=2 cmdw=1 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=6 nt=34 kcnt=0 rqcnt=0 arv=0 rstate=2 busy=1
+# [dbg-l1] t=37683195000 ldr=2 loc=5 ln=35 cmdi=1 cmdw=1 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=5 nt=35 kcnt=0 rqcnt=0 arv=0 rstate=1 busy=1
+# [dbg-l1] t=38010875000 ldr=2 loc=4 ln=36 cmdi=0 cmdw=1 rdy0=0 rdy1=0 prdy=1 ctrl=2 oct=3 nt=36 kcnt=546 rqcnt=0 arv=0 rstate=2 busy=1
+# [dbg-l1] t=38338555000 ldr=2 loc=3 ln=37 cmdi=0 cmdw=1 rdy0=0 rdy1=0 prdy=1 ctrl=2 oct=2 nt=37 kcnt=14 rqcnt=0 arv=0 rstate=2 busy=1
+# [dbg-l1] t=38666235000 ldr=2 loc=1 ln=38 cmdi=7 cmdw=1 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=1 nt=38 kcnt=0 rqcnt=0 arv=0 rstate=2 busy=1
+# [dbg-l1] t=38993915000 ldr=2 loc=0 ln=39 cmdi=6 cmdw=1 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=0 nt=39 kcnt=0 rqcnt=0 arv=0 rstate=2 busy=1
+# [dbg-l1] t=39321595000 ldr=2 loc=7 ln=39 cmdi=5 cmdw=1 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=7 nt=39 kcnt=0 rqcnt=0 arv=0 rstate=2 busy=1
+# [dbg-l1] t=39649275000 ldr=2 loc=6 ln=40 cmdi=4 cmdw=1 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=6 nt=40 kcnt=0 rqcnt=0 arv=0 rstate=2 busy=1
+# [dbg-l1] t=39976955000 ldr=2 loc=5 ln=41 cmdi=3 cmdw=1 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=5 nt=41 kcnt=0 rqcnt=0 arv=0 rstate=2 busy=1
+# [tb] heartbeat t=40000000000 cur_layer=4 ywr=433959
+# [dbg-l1] t=40304635000 ldr=2 loc=4 ln=42 cmdi=2 cmdw=1 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=4 nt=42 kcnt=0 rqcnt=0 arv=0 rstate=2 busy=1
+# [dbg-l1] t=40632315000 ldr=2 loc=3 ln=43 cmdi=1 cmdw=1 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=3 nt=43 kcnt=0 rqcnt=0 arv=0 rstate=2 busy=1
+# [dbg-l1] t=40959995000 ldr=2 loc=2 ln=44 cmdi=1 cmdw=1 rdy0=0 rdy1=0 prdy=1 ctrl=3 oct=1 nt=44 kcnt=576 rqcnt=9 arv=0 rstate=2 busy=1
+# [dbg-l1] t=41287675000 ldr=2 loc=1 ln=45 cmdi=0 cmdw=1 rdy0=0 rdy1=0 prdy=1 ctrl=2 oct=0 nt=45 kcnt=89 rqcnt=0 arv=0 rstate=2 busy=1
+# [dbg-l1] t=41615355000 ldr=2 loc=7 ln=45 cmdi=7 cmdw=1 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=7 nt=45 kcnt=0 rqcnt=0 arv=0 rstate=2 busy=1
+# [dbg-l1] t=41943035000 ldr=2 loc=6 ln=46 cmdi=6 cmdw=1 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=6 nt=46 kcnt=0 rqcnt=0 arv=0 rstate=2 busy=1
+# [dbg-l1] t=42270715000 ldr=2 loc=5 ln=47 cmdi=5 cmdw=1 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=5 nt=47 kcnt=0 rqcnt=0 arv=0 rstate=2 busy=1
+# [dbg-l1] t=42598395000 ldr=2 loc=4 ln=48 cmdi=4 cmdw=1 rdy0=0 rdy1=0 prdy=0 ctrl=1 oct=4 nt=48 kcnt=0 rqcnt=0 arv=0 rstate=2 busy=1
+# [tb] layer 4 done @t=43147736000 (oc=64 n=400 k=576)
+# [dbg-rq] t=43917106000 idx=0 oct=0 nt=3 ntail=1 ocloc=0 nloc=0 yaddr=24
+# [dbg-rq] t=43917116000 idx=1 oct=0 nt=3 ntail=1 ocloc=1 nloc=0 yaddr=49
+# [dbg-rq] t=43917126000 idx=2 oct=0 nt=3 ntail=1 ocloc=1 nloc=1 yaddr=50
+# [dbg-rq] t=43917136000 idx=3 oct=0 nt=3 ntail=1 ocloc=1 nloc=2 yaddr=51
+# [dbg-rq] t=43917146000 idx=4 oct=0 nt=3 ntail=1 ocloc=1 nloc=3 yaddr=52
+# [dbg-rq] t=43917156000 idx=5 oct=0 nt=3 ntail=1 ocloc=1 nloc=4 yaddr=53
+# [dbg-rq] t=43917166000 idx=6 oct=0 nt=3 ntail=1 ocloc=1 nloc=5 yaddr=54
+# [dbg-rq] t=43917176000 idx=7 oct=0 nt=3 ntail=1 ocloc=1 nloc=6 yaddr=55
+# [tb] layer 5 done @t=43917176000 (oc=8 n=25 k=2304)
+# [tb] first diff L=0 i=0 dut=0 gold=x
+# TB_GEMM_ARRAY_FAIL err=328879 dbl=328608 gdbl=0 unwritten=328608 dut_wr=438447(exp 438447) gold_wr=3247 ldone=6 adone=1
+# ** Note: $finish    : ../tb_yolo_gemm_array.v(644)
+#    Time: 47762600 ns  Iteration: 1  Instance: /tb_yolo_gemm_array

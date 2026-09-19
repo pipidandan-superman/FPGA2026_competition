@@ -1,0 +1,1275 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 12:48:47 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source syn_gemm_core_ooc.tcl -notrace
+EES_SYNTH_STAGE READ_SOURCES
+EES_SYNTH_STAGE BEGIN_KC576 (KC=576, period=10.000ns)
+Command: synth_design -top yolo_gemm_core -part xc7z020clg484-1 -mode out_of_context -generic {P_TO=8 P_TN=16 P_KC=576}
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 49684
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1090.367 ; gain = 537.219
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'yolo_gemm_core' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_core.sv:28]
+	Parameter P_TO bound to: 8 - type: integer 
+	Parameter P_TN bound to: 16 - type: integer 
+	Parameter P_KC bound to: 576 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'yolo_gemm_bank' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv:42]
+	Parameter P_TO bound to: 8 - type: integer 
+	Parameter P_TN bound to: 16 - type: integer 
+	Parameter P_KC bound to: 576 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'yolo_gemm_bank' (0#1) [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv:42]
+INFO: [Synth 8-6157] synthesizing module 'yolo_gemm_feeder' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_feeder.sv:45]
+	Parameter P_TO bound to: 8 - type: integer 
+	Parameter P_TN bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'yolo_gemm_feeder' (0#1) [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_feeder.sv:45]
+INFO: [Synth 8-6157] synthesizing module 'yolo_gemm_array' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv:71]
+	Parameter P_TO bound to: 8 - type: integer 
+	Parameter P_TN bound to: 16 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'yolo_mac_cell' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_mac_cell.sv:47]
+INFO: [Synth 8-6157] synthesizing module 'yolo_pe_core' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv:45]
+INFO: [Synth 8-6157] synthesizing module 'yolo_pe_pack' [E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v:96]
+INFO: [Synth 8-6157] synthesizing module 'DSP48E1' [F:/vivado2025/2025.2/Vivado/scripts/rt/data/unisim_comp.v:48135]
+	Parameter ACASCREG bound to: 1 - type: integer 
+	Parameter ADREG bound to: 0 - type: integer 
+	Parameter ALUMODEREG bound to: 0 - type: integer 
+	Parameter AREG bound to: 1 - type: integer 
+	Parameter A_INPUT bound to: DIRECT - type: string 
+	Parameter BCASCREG bound to: 1 - type: integer 
+	Parameter BREG bound to: 1 - type: integer 
+	Parameter B_INPUT bound to: DIRECT - type: string 
+	Parameter CARRYINREG bound to: 0 - type: integer 
+	Parameter CARRYINSELREG bound to: 0 - type: integer 
+	Parameter CREG bound to: 1 - type: integer 
+	Parameter DREG bound to: 1 - type: integer 
+	Parameter INMODEREG bound to: 0 - type: integer 
+	Parameter MREG bound to: 1 - type: integer 
+	Parameter OPMODEREG bound to: 0 - type: integer 
+	Parameter PREG bound to: 1 - type: integer 
+	Parameter USE_DPORT bound to: FALSE - type: string 
+	Parameter USE_MULT bound to: MULTIPLY - type: string 
+	Parameter USE_PATTERN_DETECT bound to: NO_PATDET - type: string 
+	Parameter USE_SIMD bound to: ONE48 - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'DSP48E1' (0#1) [F:/vivado2025/2025.2/Vivado/scripts/rt/data/unisim_comp.v:48135]
+INFO: [Synth 8-6155] done synthesizing module 'yolo_pe_pack' (0#1) [E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v:96]
+INFO: [Synth 8-6155] done synthesizing module 'yolo_pe_core' (0#1) [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv:45]
+INFO: [Synth 8-6157] synthesizing module 'yolo_acc_dual' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv:47]
+INFO: [Synth 8-6155] done synthesizing module 'yolo_acc_dual' (0#1) [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv:47]
+INFO: [Synth 8-6155] done synthesizing module 'yolo_mac_cell' (0#1) [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_mac_cell.sv:47]
+INFO: [Synth 8-6157] synthesizing module 'yolo_gemm_tail' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_tail.sv:47]
+	Parameter R bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'yolo_gemm_tail' (0#1) [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_tail.sv:47]
+INFO: [Synth 8-6155] done synthesizing module 'yolo_gemm_array' (0#1) [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv:71]
+INFO: [Synth 8-6155] done synthesizing module 'yolo_gemm_core' (0#1) [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_core.sv:28]
+WARNING: [Synth 8-7129] Port w_raddr_i[12] in module yolo_gemm_bank is either unconnected or has no load
+WARNING: [Synth 8-7129] Port w_raddr_i[11] in module yolo_gemm_bank is either unconnected or has no load
+WARNING: [Synth 8-7129] Port w_raddr_i[10] in module yolo_gemm_bank is either unconnected or has no load
+WARNING: [Synth 8-7129] Port x_raddr_i[12] in module yolo_gemm_bank is either unconnected or has no load
+WARNING: [Synth 8-7129] Port x_raddr_i[11] in module yolo_gemm_bank is either unconnected or has no load
+WARNING: [Synth 8-7129] Port x_raddr_i[10] in module yolo_gemm_bank is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1241.113 ; gain = 687.965
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1241.113 ; gain = 687.965
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1241.113 ; gain = 687.965
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'yolo_gemm_array'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  S_IDLE |                              000 |                              000
+                 S_ISSUE |                              101 |                              010
+                 S_DRAIN |                              011 |                              011
+                  S_TAIL |                              010 |                              100
+                 S_TAILW |                              001 |                              101
+                  S_WAIT |                              100 |                              001
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'yolo_gemm_array'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1241.113 ; gain = 687.965
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   64 Bit       Adders := 2     
+	   2 Input   33 Bit       Adders := 1     
+	   3 Input   17 Bit       Adders := 64    
+	   2 Input   17 Bit       Adders := 64    
+	   2 Input   14 Bit       Adders := 2     
+	   2 Input   13 Bit       Adders := 5     
+	 113 Input    9 Bit       Adders := 1     
+	   2 Input    9 Bit       Adders := 4     
+	   2 Input    8 Bit       Adders := 1     
+	   2 Input    6 Bit       Adders := 1     
+	  16 Input    5 Bit       Adders := 1     
++---Registers : 
+	              128 Bit    Registers := 3     
+	               64 Bit    Registers := 5     
+	               33 Bit    Registers := 1     
+	               32 Bit    Registers := 1     
+	               16 Bit    Registers := 1     
+	               13 Bit    Registers := 8     
+	                9 Bit    Registers := 4     
+	                8 Bit    Registers := 195   
+	                7 Bit    Registers := 2     
+	                6 Bit    Registers := 2     
+	                4 Bit    Registers := 3     
+	                3 Bit    Registers := 3     
+	                2 Bit    Registers := 197   
+	                1 Bit    Registers := 667   
++---Multipliers : 
+	              32x33  Multipliers := 1     
++---RAMs : 
+	              72K Bit	(576 X 128 bit)          RAMs := 2     
+	              36K Bit	(576 X 64 bit)          RAMs := 2     
+	               2K Bit	(256 X 8 bit)          RAMs := 1     
++---Muxes : 
+	   2 Input  128 Bit        Muxes := 113   
+	   7 Input  128 Bit        Muxes := 2     
+	   2 Input   72 Bit        Muxes := 2     
+	   2 Input   64 Bit        Muxes := 49    
+	   6 Input   64 Bit        Muxes := 2     
+	   5 Input   13 Bit        Muxes := 2     
+	   2 Input   13 Bit        Muxes := 4     
+	   2 Input    9 Bit        Muxes := 1     
+	   5 Input    9 Bit        Muxes := 2     
+	   2 Input    8 Bit        Muxes := 5     
+	   2 Input    3 Bit        Muxes := 15    
+	   3 Input    3 Bit        Muxes := 2     
+	   6 Input    3 Bit        Muxes := 4     
+	   2 Input    2 Bit        Muxes := 13    
+	   4 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 272   
+	   5 Input    1 Bit        Muxes := 8     
+	   6 Input    1 Bit        Muxes := 1     
+	   7 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+DSP Report: Generating DSP p_0_out, operation Mode is: A2*B2.
+DSP Report: register sum_r_reg[0] is absorbed into DSP p_0_out.
+DSP Report: register p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: Generating DSP prod_r_reg[0], operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register sum_r_reg[0] is absorbed into DSP prod_r_reg[0].
+DSP Report: register prod_r_reg[0] is absorbed into DSP prod_r_reg[0].
+DSP Report: operator p_0_out is absorbed into DSP prod_r_reg[0].
+DSP Report: operator p_0_out is absorbed into DSP prod_r_reg[0].
+DSP Report: Generating DSP p_0_out, operation Mode is: A2*B2.
+DSP Report: register p_0_out is absorbed into DSP p_0_out.
+DSP Report: register p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: Generating DSP prod_r_reg[0], operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register prod_r_reg[0] is absorbed into DSP prod_r_reg[0].
+DSP Report: register prod_r_reg[0] is absorbed into DSP prod_r_reg[0].
+DSP Report: operator p_0_out is absorbed into DSP prod_r_reg[0].
+DSP Report: operator p_0_out is absorbed into DSP prod_r_reg[0].
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1656.512 ; gain = 1103.363
+---------------------------------------------------------------------------------
+ Sort Area is yolo_gemm_array__GB3 p_0_out_0 : 0 0 : 2737 4966 : Used 1 time 0
+ Sort Area is yolo_gemm_array__GB3 p_0_out_0 : 0 1 : 2229 4966 : Used 1 time 0
+ Sort Area is yolo_gemm_array__GB3 p_0_out_3 : 0 0 : 2338 4350 : Used 1 time 0
+ Sort Area is yolo_gemm_array__GB3 p_0_out_3 : 0 1 : 2012 4350 : Used 1 time 0
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping Report (see note below)
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|u_bank      | wm0_reg    | 576 x 64(READ_FIRST)   | W |   | 576 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|u_bank      | wm1_reg    | 576 x 64(READ_FIRST)   | W |   | 576 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|u_bank      | xm0_reg    | 576 x 128(READ_FIRST)  | W |   | 576 x 128(WRITE_FIRST) |   | R | Port A and B     | 0      | 4      | 
+|u_bank      | xm1_reg    | 576 x 128(READ_FIRST)  | W |   | 576 x 128(WRITE_FIRST) |   | R | Port A and B     | 0      | 4      | 
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++---------------+----------------+-----------+----------------------+--------------+
+|Module Name    | RTL Object     | Inference | Size (Depth x Width) | Primitives   | 
++---------------+----------------+-----------+----------------------+--------------+
+|yolo_gemm_core | u_tail/lut_reg | Implied   | 256 x 8              | RAM64M x 12  | 
+|yolo_gemm_core | pb_reg         | Implied   | 8 x 32               | RAM32M x 6   | 
+|yolo_gemm_core | pm_reg         | Implied   | 8 x 32               | RAM32M x 6   | 
+|yolo_gemm_core | ps_reg         | Implied   | 8 x 6                | RAM32M x 1   | 
++---------------+----------------+-----------+----------------------+--------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++---------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name    | DSP Mapping     | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++---------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|yolo_gemm_tail | A2*B2           | 18     | 16     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|yolo_gemm_tail | (PCIN>>17)+A2*B | 16     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|yolo_gemm_tail | A2*B2           | 18     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|yolo_gemm_tail | (PCIN>>17)+A2*B | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 1    | 
++---------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1656.512 ; gain = 1103.363
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|u_bank      | wm0_reg    | 576 x 64(READ_FIRST)   | W |   | 576 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|u_bank      | wm1_reg    | 576 x 64(READ_FIRST)   | W |   | 576 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|u_bank      | xm0_reg    | 576 x 128(READ_FIRST)  | W |   | 576 x 128(WRITE_FIRST) |   | R | Port A and B     | 0      | 4      | 
+|u_bank      | xm1_reg    | 576 x 128(READ_FIRST)  | W |   | 576 x 128(WRITE_FIRST) |   | R | Port A and B     | 0      | 4      | 
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+
+Distributed RAM: Final Mapping Report
++---------------+----------------+-----------+----------------------+--------------+
+|Module Name    | RTL Object     | Inference | Size (Depth x Width) | Primitives   | 
++---------------+----------------+-----------+----------------------+--------------+
+|yolo_gemm_core | u_tail/lut_reg | Implied   | 256 x 8              | RAM64M x 12  | 
+|yolo_gemm_core | pb_reg         | Implied   | 8 x 32               | RAM32M x 6   | 
+|yolo_gemm_core | pm_reg         | Implied   | 8 x 32               | RAM32M x 6   | 
+|yolo_gemm_core | ps_reg         | Implied   | 8 x 6                | RAM32M x 1   | 
++---------------+----------------+-----------+----------------------+--------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance u_bank/wm0_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bank/wm0_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bank/wm1_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bank/wm1_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bank/xm0_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bank/xm0_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bank/xm0_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bank/xm0_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bank/xm1_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bank/xm1_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bank/xm1_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bank/xm1_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1656.512 ; gain = 1103.363
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1736.598 ; gain = 1183.449
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1736.598 ; gain = 1183.449
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1736.598 ; gain = 1183.449
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1736.598 ; gain = 1183.449
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1755.934 ; gain = 1202.785
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1755.934 ; gain = 1202.785
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++---------------+--------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name    | RTL Name           | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++---------------+--------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|yolo_gemm_core | u_array/yr3_reg[2] | 3      | 3     | NO           | NO                 | YES               | 3      | 0       | 
+|yolo_gemm_core | u_array/yn3_reg[3] | 3      | 4     | NO           | NO                 | YES               | 4      | 0       | 
++---------------+--------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++-----------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name      | DSP Mapping       | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++-----------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|yolo_pe_pack_251 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_248 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_245 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_242 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_239 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_236 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_233 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_230 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_227 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_224 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_221 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_218 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_215 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_212 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_209 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_206 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_203 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_200 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_197 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_194 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_191 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_188 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_185 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_182 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_179 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_176 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_173 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_170 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_167 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_164 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_161 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_158 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_155 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_152 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_149 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_146 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_143 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_140 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_137 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_134 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_131 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_128 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_125 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_122 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_119 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_116 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_113 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_110 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_107 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_104 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_101 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_98  | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_95  | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_92  | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_89  | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_86  | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_83  | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_80  | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_77  | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_74  | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_71  | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_68  | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_65  | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack     | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_gemm_tail   | A'*B'             | 17     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|yolo_gemm_tail   | (PCIN>>17+A'*B')' | 30     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|yolo_gemm_tail   | A'*B'             | 17     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|yolo_gemm_tail   | (PCIN>>17+A*B')'  | 0      | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
++-----------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |CARRY4   |  1657|
+|2     |DSP48E1  |    68|
+|3     |LUT1     |    41|
+|4     |LUT2     |  1118|
+|5     |LUT3     |  4597|
+|6     |LUT4     |   538|
+|7     |LUT5     |   108|
+|8     |LUT6     |  1596|
+|9     |MUXF7    |   547|
+|10    |MUXF8    |   257|
+|11    |RAM32M   |    12|
+|12    |RAM64M   |    12|
+|13    |RAMB36E1 |    12|
+|14    |SRL16E   |     7|
+|15    |FDCE     |   192|
+|16    |FDRE     |  4909|
++------+---------+------+
+
+Report Instance Areas: 
++------+-----------------------------+------------------+------+
+|      |Instance                     |Module            |Cells |
++------+-----------------------------+------------------+------+
+|1     |top                          |                  | 15671|
+|2     |  u_array                    |yolo_gemm_array   | 14731|
+|3     |    \grow[0].gcol[0].u_cell  |yolo_mac_cell     |   165|
+|4     |      u_acc                  |yolo_acc_dual_249 |    64|
+|5     |      u_pe                   |yolo_pe_core_250  |   101|
+|6     |        u_pack               |yolo_pe_pack_251  |   101|
+|7     |    \grow[0].gcol[1].u_cell  |yolo_mac_cell_0   |   296|
+|8     |      u_acc                  |yolo_acc_dual_246 |   161|
+|9     |      u_pe                   |yolo_pe_core_247  |   120|
+|10    |        u_pack               |yolo_pe_pack_248  |   101|
+|11    |    \grow[0].gcol[2].u_cell  |yolo_mac_cell_1   |   245|
+|12    |      u_acc                  |yolo_acc_dual_243 |    64|
+|13    |      u_pe                   |yolo_pe_core_244  |   181|
+|14    |        u_pack               |yolo_pe_pack_245  |   181|
+|15    |    \grow[0].gcol[3].u_cell  |yolo_mac_cell_2   |   197|
+|16    |      u_acc                  |yolo_acc_dual_240 |    96|
+|17    |      u_pe                   |yolo_pe_core_241  |   101|
+|18    |        u_pack               |yolo_pe_pack_242  |   101|
+|19    |    \grow[0].gcol[4].u_cell  |yolo_mac_cell_3   |   165|
+|20    |      u_acc                  |yolo_acc_dual_237 |    64|
+|21    |      u_pe                   |yolo_pe_core_238  |   101|
+|22    |        u_pack               |yolo_pe_pack_239  |   101|
+|23    |    \grow[0].gcol[5].u_cell  |yolo_mac_cell_4   |   229|
+|24    |      u_acc                  |yolo_acc_dual_234 |   128|
+|25    |      u_pe                   |yolo_pe_core_235  |   101|
+|26    |        u_pack               |yolo_pe_pack_236  |   101|
+|27    |    \grow[0].gcol[6].u_cell  |yolo_mac_cell_5   |   165|
+|28    |      u_acc                  |yolo_acc_dual_231 |    64|
+|29    |      u_pe                   |yolo_pe_core_232  |   101|
+|30    |        u_pack               |yolo_pe_pack_233  |   101|
+|31    |    \grow[0].gcol[7].u_cell  |yolo_mac_cell_6   |   197|
+|32    |      u_acc                  |yolo_acc_dual_228 |    96|
+|33    |      u_pe                   |yolo_pe_core_229  |   101|
+|34    |        u_pack               |yolo_pe_pack_230  |   101|
+|35    |    \grow[1].gcol[0].u_cell  |yolo_mac_cell_7   |   165|
+|36    |      u_acc                  |yolo_acc_dual_225 |    64|
+|37    |      u_pe                   |yolo_pe_core_226  |   101|
+|38    |        u_pack               |yolo_pe_pack_227  |   101|
+|39    |    \grow[1].gcol[1].u_cell  |yolo_mac_cell_8   |   293|
+|40    |      u_acc                  |yolo_acc_dual_222 |   161|
+|41    |      u_pe                   |yolo_pe_core_223  |   118|
+|42    |        u_pack               |yolo_pe_pack_224  |   101|
+|43    |    \grow[1].gcol[2].u_cell  |yolo_mac_cell_9   |   245|
+|44    |      u_acc                  |yolo_acc_dual_219 |    64|
+|45    |      u_pe                   |yolo_pe_core_220  |   181|
+|46    |        u_pack               |yolo_pe_pack_221  |   181|
+|47    |    \grow[1].gcol[3].u_cell  |yolo_mac_cell_10  |   197|
+|48    |      u_acc                  |yolo_acc_dual_216 |    96|
+|49    |      u_pe                   |yolo_pe_core_217  |   101|
+|50    |        u_pack               |yolo_pe_pack_218  |   101|
+|51    |    \grow[1].gcol[4].u_cell  |yolo_mac_cell_11  |   165|
+|52    |      u_acc                  |yolo_acc_dual_213 |    64|
+|53    |      u_pe                   |yolo_pe_core_214  |   101|
+|54    |        u_pack               |yolo_pe_pack_215  |   101|
+|55    |    \grow[1].gcol[5].u_cell  |yolo_mac_cell_12  |   229|
+|56    |      u_acc                  |yolo_acc_dual_210 |   128|
+|57    |      u_pe                   |yolo_pe_core_211  |   101|
+|58    |        u_pack               |yolo_pe_pack_212  |   101|
+|59    |    \grow[1].gcol[6].u_cell  |yolo_mac_cell_13  |   165|
+|60    |      u_acc                  |yolo_acc_dual_207 |    64|
+|61    |      u_pe                   |yolo_pe_core_208  |   101|
+|62    |        u_pack               |yolo_pe_pack_209  |   101|
+|63    |    \grow[1].gcol[7].u_cell  |yolo_mac_cell_14  |   197|
+|64    |      u_acc                  |yolo_acc_dual_204 |    96|
+|65    |      u_pe                   |yolo_pe_core_205  |   101|
+|66    |        u_pack               |yolo_pe_pack_206  |   101|
+|67    |    \grow[2].gcol[0].u_cell  |yolo_mac_cell_15  |   165|
+|68    |      u_acc                  |yolo_acc_dual_201 |    64|
+|69    |      u_pe                   |yolo_pe_core_202  |   101|
+|70    |        u_pack               |yolo_pe_pack_203  |   101|
+|71    |    \grow[2].gcol[1].u_cell  |yolo_mac_cell_16  |   297|
+|72    |      u_acc                  |yolo_acc_dual_198 |   163|
+|73    |      u_pe                   |yolo_pe_core_199  |   120|
+|74    |        u_pack               |yolo_pe_pack_200  |   101|
+|75    |    \grow[2].gcol[2].u_cell  |yolo_mac_cell_17  |   245|
+|76    |      u_acc                  |yolo_acc_dual_195 |    64|
+|77    |      u_pe                   |yolo_pe_core_196  |   181|
+|78    |        u_pack               |yolo_pe_pack_197  |   181|
+|79    |    \grow[2].gcol[3].u_cell  |yolo_mac_cell_18  |   203|
+|80    |      u_acc                  |yolo_acc_dual_192 |    96|
+|81    |      u_pe                   |yolo_pe_core_193  |   107|
+|82    |        u_pack               |yolo_pe_pack_194  |   101|
+|83    |    \grow[2].gcol[4].u_cell  |yolo_mac_cell_19  |   171|
+|84    |      u_acc                  |yolo_acc_dual_189 |    64|
+|85    |      u_pe                   |yolo_pe_core_190  |   107|
+|86    |        u_pack               |yolo_pe_pack_191  |   101|
+|87    |    \grow[2].gcol[5].u_cell  |yolo_mac_cell_20  |   235|
+|88    |      u_acc                  |yolo_acc_dual_186 |   128|
+|89    |      u_pe                   |yolo_pe_core_187  |   107|
+|90    |        u_pack               |yolo_pe_pack_188  |   101|
+|91    |    \grow[2].gcol[6].u_cell  |yolo_mac_cell_21  |   173|
+|92    |      u_acc                  |yolo_acc_dual_183 |    64|
+|93    |      u_pe                   |yolo_pe_core_184  |   109|
+|94    |        u_pack               |yolo_pe_pack_185  |   101|
+|95    |    \grow[2].gcol[7].u_cell  |yolo_mac_cell_22  |   197|
+|96    |      u_acc                  |yolo_acc_dual_180 |    96|
+|97    |      u_pe                   |yolo_pe_core_181  |   101|
+|98    |        u_pack               |yolo_pe_pack_182  |   101|
+|99    |    \grow[3].gcol[0].u_cell  |yolo_mac_cell_23  |   165|
+|100   |      u_acc                  |yolo_acc_dual_177 |    64|
+|101   |      u_pe                   |yolo_pe_core_178  |   101|
+|102   |        u_pack               |yolo_pe_pack_179  |   101|
+|103   |    \grow[3].gcol[1].u_cell  |yolo_mac_cell_24  |   333|
+|104   |      u_acc                  |yolo_acc_dual_174 |   225|
+|105   |      u_pe                   |yolo_pe_core_175  |   101|
+|106   |        u_pack               |yolo_pe_pack_176  |   101|
+|107   |    \grow[3].gcol[2].u_cell  |yolo_mac_cell_25  |   269|
+|108   |      u_acc                  |yolo_acc_dual_171 |    65|
+|109   |      u_pe                   |yolo_pe_core_172  |   200|
+|110   |        u_pack               |yolo_pe_pack_173  |   181|
+|111   |    \grow[3].gcol[3].u_cell  |yolo_mac_cell_26  |   197|
+|112   |      u_acc                  |yolo_acc_dual_168 |    96|
+|113   |      u_pe                   |yolo_pe_core_169  |   101|
+|114   |        u_pack               |yolo_pe_pack_170  |   101|
+|115   |    \grow[3].gcol[4].u_cell  |yolo_mac_cell_27  |   165|
+|116   |      u_acc                  |yolo_acc_dual_165 |    64|
+|117   |      u_pe                   |yolo_pe_core_166  |   101|
+|118   |        u_pack               |yolo_pe_pack_167  |   101|
+|119   |    \grow[3].gcol[5].u_cell  |yolo_mac_cell_28  |   229|
+|120   |      u_acc                  |yolo_acc_dual_162 |   128|
+|121   |      u_pe                   |yolo_pe_core_163  |   101|
+|122   |        u_pack               |yolo_pe_pack_164  |   101|
+|123   |    \grow[3].gcol[6].u_cell  |yolo_mac_cell_29  |   165|
+|124   |      u_acc                  |yolo_acc_dual_159 |    64|
+|125   |      u_pe                   |yolo_pe_core_160  |   101|
+|126   |        u_pack               |yolo_pe_pack_161  |   101|
+|127   |    \grow[3].gcol[7].u_cell  |yolo_mac_cell_30  |   197|
+|128   |      u_acc                  |yolo_acc_dual_156 |    96|
+|129   |      u_pe                   |yolo_pe_core_157  |   101|
+|130   |        u_pack               |yolo_pe_pack_158  |   101|
+|131   |    \grow[4].gcol[0].u_cell  |yolo_mac_cell_31  |   165|
+|132   |      u_acc                  |yolo_acc_dual_153 |    64|
+|133   |      u_pe                   |yolo_pe_core_154  |   101|
+|134   |        u_pack               |yolo_pe_pack_155  |   101|
+|135   |    \grow[4].gcol[1].u_cell  |yolo_mac_cell_32  |   268|
+|136   |      u_acc                  |yolo_acc_dual_150 |   160|
+|137   |      u_pe                   |yolo_pe_core_151  |   101|
+|138   |        u_pack               |yolo_pe_pack_152  |   101|
+|139   |    \grow[4].gcol[2].u_cell  |yolo_mac_cell_33  |   269|
+|140   |      u_acc                  |yolo_acc_dual_147 |    65|
+|141   |      u_pe                   |yolo_pe_core_148  |   200|
+|142   |        u_pack               |yolo_pe_pack_149  |   181|
+|143   |    \grow[4].gcol[3].u_cell  |yolo_mac_cell_34  |   197|
+|144   |      u_acc                  |yolo_acc_dual_144 |    96|
+|145   |      u_pe                   |yolo_pe_core_145  |   101|
+|146   |        u_pack               |yolo_pe_pack_146  |   101|
+|147   |    \grow[4].gcol[4].u_cell  |yolo_mac_cell_35  |   165|
+|148   |      u_acc                  |yolo_acc_dual_141 |    64|
+|149   |      u_pe                   |yolo_pe_core_142  |   101|
+|150   |        u_pack               |yolo_pe_pack_143  |   101|
+|151   |    \grow[4].gcol[5].u_cell  |yolo_mac_cell_36  |   229|
+|152   |      u_acc                  |yolo_acc_dual_138 |   128|
+|153   |      u_pe                   |yolo_pe_core_139  |   101|
+|154   |        u_pack               |yolo_pe_pack_140  |   101|
+|155   |    \grow[4].gcol[6].u_cell  |yolo_mac_cell_37  |   165|
+|156   |      u_acc                  |yolo_acc_dual_135 |    64|
+|157   |      u_pe                   |yolo_pe_core_136  |   101|
+|158   |        u_pack               |yolo_pe_pack_137  |   101|
+|159   |    \grow[4].gcol[7].u_cell  |yolo_mac_cell_38  |   197|
+|160   |      u_acc                  |yolo_acc_dual_132 |    96|
+|161   |      u_pe                   |yolo_pe_core_133  |   101|
+|162   |        u_pack               |yolo_pe_pack_134  |   101|
+|163   |    \grow[5].gcol[0].u_cell  |yolo_mac_cell_39  |   171|
+|164   |      u_acc                  |yolo_acc_dual_129 |    64|
+|165   |      u_pe                   |yolo_pe_core_130  |   107|
+|166   |        u_pack               |yolo_pe_pack_131  |   101|
+|167   |    \grow[5].gcol[1].u_cell  |yolo_mac_cell_40  |   348|
+|168   |      u_acc                  |yolo_acc_dual_126 |   160|
+|169   |      u_pe                   |yolo_pe_core_127  |   181|
+|170   |        u_pack               |yolo_pe_pack_128  |   181|
+|171   |    \grow[5].gcol[2].u_cell  |yolo_mac_cell_41  |   190|
+|172   |      u_acc                  |yolo_acc_dual_123 |    66|
+|173   |      u_pe                   |yolo_pe_core_124  |   120|
+|174   |        u_pack               |yolo_pe_pack_125  |   101|
+|175   |    \grow[5].gcol[3].u_cell  |yolo_mac_cell_42  |   197|
+|176   |      u_acc                  |yolo_acc_dual_120 |    96|
+|177   |      u_pe                   |yolo_pe_core_121  |   101|
+|178   |        u_pack               |yolo_pe_pack_122  |   101|
+|179   |    \grow[5].gcol[4].u_cell  |yolo_mac_cell_43  |   165|
+|180   |      u_acc                  |yolo_acc_dual_117 |    64|
+|181   |      u_pe                   |yolo_pe_core_118  |   101|
+|182   |        u_pack               |yolo_pe_pack_119  |   101|
+|183   |    \grow[5].gcol[5].u_cell  |yolo_mac_cell_44  |   229|
+|184   |      u_acc                  |yolo_acc_dual_114 |   128|
+|185   |      u_pe                   |yolo_pe_core_115  |   101|
+|186   |        u_pack               |yolo_pe_pack_116  |   101|
+|187   |    \grow[5].gcol[6].u_cell  |yolo_mac_cell_45  |   165|
+|188   |      u_acc                  |yolo_acc_dual_111 |    64|
+|189   |      u_pe                   |yolo_pe_core_112  |   101|
+|190   |        u_pack               |yolo_pe_pack_113  |   101|
+|191   |    \grow[5].gcol[7].u_cell  |yolo_mac_cell_46  |   197|
+|192   |      u_acc                  |yolo_acc_dual_108 |    96|
+|193   |      u_pe                   |yolo_pe_core_109  |   101|
+|194   |        u_pack               |yolo_pe_pack_110  |   101|
+|195   |    \grow[6].gcol[0].u_cell  |yolo_mac_cell_47  |   198|
+|196   |      u_acc                  |yolo_acc_dual_105 |    64|
+|197   |      u_pe                   |yolo_pe_core_106  |   120|
+|198   |        u_pack               |yolo_pe_pack_107  |   101|
+|199   |    \grow[6].gcol[1].u_cell  |yolo_mac_cell_48  |   263|
+|200   |      u_acc                  |yolo_acc_dual_102 |   162|
+|201   |      u_pe                   |yolo_pe_core_103  |   101|
+|202   |        u_pack               |yolo_pe_pack_104  |   101|
+|203   |    \grow[6].gcol[2].u_cell  |yolo_mac_cell_49  |   251|
+|204   |      u_acc                  |yolo_acc_dual_99  |    64|
+|205   |      u_pe                   |yolo_pe_core_100  |   187|
+|206   |        u_pack               |yolo_pe_pack_101  |   181|
+|207   |    \grow[6].gcol[3].u_cell  |yolo_mac_cell_50  |   197|
+|208   |      u_acc                  |yolo_acc_dual_96  |    96|
+|209   |      u_pe                   |yolo_pe_core_97   |   101|
+|210   |        u_pack               |yolo_pe_pack_98   |   101|
+|211   |    \grow[6].gcol[4].u_cell  |yolo_mac_cell_51  |   165|
+|212   |      u_acc                  |yolo_acc_dual_93  |    64|
+|213   |      u_pe                   |yolo_pe_core_94   |   101|
+|214   |        u_pack               |yolo_pe_pack_95   |   101|
+|215   |    \grow[6].gcol[5].u_cell  |yolo_mac_cell_52  |   229|
+|216   |      u_acc                  |yolo_acc_dual_90  |   128|
+|217   |      u_pe                   |yolo_pe_core_91   |   101|
+|218   |        u_pack               |yolo_pe_pack_92   |   101|
+|219   |    \grow[6].gcol[6].u_cell  |yolo_mac_cell_53  |   165|
+|220   |      u_acc                  |yolo_acc_dual_87  |    64|
+|221   |      u_pe                   |yolo_pe_core_88   |   101|
+|222   |        u_pack               |yolo_pe_pack_89   |   101|
+|223   |    \grow[6].gcol[7].u_cell  |yolo_mac_cell_54  |   197|
+|224   |      u_acc                  |yolo_acc_dual_84  |    96|
+|225   |      u_pe                   |yolo_pe_core_85   |   101|
+|226   |        u_pack               |yolo_pe_pack_86   |   101|
+|227   |    \grow[7].gcol[0].u_cell  |yolo_mac_cell_55  |   165|
+|228   |      u_acc                  |yolo_acc_dual_81  |    64|
+|229   |      u_pe                   |yolo_pe_core_82   |   101|
+|230   |        u_pack               |yolo_pe_pack_83   |   101|
+|231   |    \grow[7].gcol[1].u_cell  |yolo_mac_cell_56  |   306|
+|232   |      u_acc                  |yolo_acc_dual_78  |   192|
+|233   |      u_pe                   |yolo_pe_core_79   |   107|
+|234   |        u_pack               |yolo_pe_pack_80   |   101|
+|235   |    \grow[7].gcol[2].u_cell  |yolo_mac_cell_57  |   272|
+|236   |      u_acc                  |yolo_acc_dual_75  |    66|
+|237   |      u_pe                   |yolo_pe_core_76   |   202|
+|238   |        u_pack               |yolo_pe_pack_77   |   181|
+|239   |    \grow[7].gcol[3].u_cell  |yolo_mac_cell_58  |   197|
+|240   |      u_acc                  |yolo_acc_dual_72  |    96|
+|241   |      u_pe                   |yolo_pe_core_73   |   101|
+|242   |        u_pack               |yolo_pe_pack_74   |   101|
+|243   |    \grow[7].gcol[4].u_cell  |yolo_mac_cell_59  |   165|
+|244   |      u_acc                  |yolo_acc_dual_69  |    64|
+|245   |      u_pe                   |yolo_pe_core_70   |   101|
+|246   |        u_pack               |yolo_pe_pack_71   |   101|
+|247   |    \grow[7].gcol[5].u_cell  |yolo_mac_cell_60  |   229|
+|248   |      u_acc                  |yolo_acc_dual_66  |   128|
+|249   |      u_pe                   |yolo_pe_core_67   |   101|
+|250   |        u_pack               |yolo_pe_pack_68   |   101|
+|251   |    \grow[7].gcol[6].u_cell  |yolo_mac_cell_61  |   165|
+|252   |      u_acc                  |yolo_acc_dual_63  |    64|
+|253   |      u_pe                   |yolo_pe_core_64   |   101|
+|254   |        u_pack               |yolo_pe_pack_65   |   101|
+|255   |    \grow[7].gcol[7].u_cell  |yolo_mac_cell_62  |   217|
+|256   |      u_acc                  |yolo_acc_dual     |    96|
+|257   |      u_pe                   |yolo_pe_core      |   121|
+|258   |        u_pack               |yolo_pe_pack      |   101|
+|259   |    u_tail                   |yolo_gemm_tail    |   883|
+|260   |  u_bank                     |yolo_gemm_bank    |   265|
+|261   |  u_feeder                   |yolo_gemm_feeder  |   667|
++------+-----------------------------+------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1755.934 ; gain = 1202.785
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 6 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1755.934 ; gain = 1202.785
+Synthesis Optimization Complete : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1755.934 ; gain = 1202.785
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.327 . Memory (MB): peak = 1792.508 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 2565 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1921.043 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 24 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 12 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 12 instances
+
+Synth Design complete | Checksum: 381e11a4
+INFO: [Common 17-83] Releasing license: Synthesis
+46 Infos, 6 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 1921.043 ; gain = 1372.895
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Timing 38-242] The property HD.CLK_SRC of clock port "clk_i" is not set. In out-of-context mode, this prevents timing estimation for clock delay/skew
+Resolution: Set the HD.CLK_SRC property of the out-of-context port to the location of the clock buffer instance in the top-level design
+report_timing_summary: Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 1921.043 ; gain = 0.000
+EES_SYNTH_RESULT KC576 WNS=-6.383 WHS=0.235 KC=576 period=10.000ns
+WARNING: [Vivado 12-180] No cells matched 'get_cells -hierarchical -filter {PRIMITIVE_GROUP == DSP && REF_NAME =~ DSP48E1*}'.
+EES_SYNTH_RESULT KC576 DSP48E1=0
+WARNING: [Vivado 12-180] No cells matched 'get_cells -hierarchical -filter {REF_NAME =~ RAMB18*}'.
+EES_SYNTH_RESULT KC576 BRAM36=12 BRAM18=0 (判据�?12)
+WARNING: [Vivado 12-180] No cells matched 'get_cells -hierarchical -filter {IS_SEQUENTIAL && PRIMITIVE_GROUP == REGISTER}'.
+EES_SYNTH_RESULT KC576 FF_cells=0
+EES_SYNTH_STAGE END_KC576
+EES_SYNTH_STAGE BEGIN_KC1024 (KC=1024, period=10.000ns)
+Command: synth_design -top yolo_gemm_core -part xc7z020clg484-1 -mode out_of_context -generic {P_TO=8 P_TN=16 P_KC=1024}
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1921.043 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'yolo_gemm_core' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_core.sv:28]
+	Parameter P_TO bound to: 8 - type: integer 
+	Parameter P_TN bound to: 16 - type: integer 
+	Parameter P_KC bound to: 1024 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'yolo_gemm_bank' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv:42]
+	Parameter P_TO bound to: 8 - type: integer 
+	Parameter P_TN bound to: 16 - type: integer 
+	Parameter P_KC bound to: 1024 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'yolo_gemm_bank' (0#1) [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv:42]
+INFO: [Synth 8-6157] synthesizing module 'yolo_gemm_feeder' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_feeder.sv:45]
+	Parameter P_TO bound to: 8 - type: integer 
+	Parameter P_TN bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'yolo_gemm_feeder' (0#1) [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_feeder.sv:45]
+INFO: [Synth 8-6157] synthesizing module 'yolo_gemm_array' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv:71]
+	Parameter P_TO bound to: 8 - type: integer 
+	Parameter P_TN bound to: 16 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'yolo_mac_cell' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_mac_cell.sv:47]
+INFO: [Synth 8-6157] synthesizing module 'yolo_pe_core' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv:45]
+INFO: [Synth 8-6157] synthesizing module 'yolo_pe_pack' [E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v:96]
+INFO: [Synth 8-6157] synthesizing module 'DSP48E1' [F:/vivado2025/2025.2/Vivado/scripts/rt/data/unisim_comp.v:48135]
+	Parameter ACASCREG bound to: 1 - type: integer 
+	Parameter ADREG bound to: 0 - type: integer 
+	Parameter ALUMODEREG bound to: 0 - type: integer 
+	Parameter AREG bound to: 1 - type: integer 
+	Parameter A_INPUT bound to: DIRECT - type: string 
+	Parameter BCASCREG bound to: 1 - type: integer 
+	Parameter BREG bound to: 1 - type: integer 
+	Parameter B_INPUT bound to: DIRECT - type: string 
+	Parameter CARRYINREG bound to: 0 - type: integer 
+	Parameter CARRYINSELREG bound to: 0 - type: integer 
+	Parameter CREG bound to: 1 - type: integer 
+	Parameter DREG bound to: 1 - type: integer 
+	Parameter INMODEREG bound to: 0 - type: integer 
+	Parameter MREG bound to: 1 - type: integer 
+	Parameter OPMODEREG bound to: 0 - type: integer 
+	Parameter PREG bound to: 1 - type: integer 
+	Parameter USE_DPORT bound to: FALSE - type: string 
+	Parameter USE_MULT bound to: MULTIPLY - type: string 
+	Parameter USE_PATTERN_DETECT bound to: NO_PATDET - type: string 
+	Parameter USE_SIMD bound to: ONE48 - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'DSP48E1' (0#1) [F:/vivado2025/2025.2/Vivado/scripts/rt/data/unisim_comp.v:48135]
+INFO: [Synth 8-6155] done synthesizing module 'yolo_pe_pack' (0#1) [E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v:96]
+INFO: [Synth 8-6155] done synthesizing module 'yolo_pe_core' (0#1) [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv:45]
+INFO: [Synth 8-6157] synthesizing module 'yolo_acc_dual' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv:47]
+INFO: [Synth 8-6155] done synthesizing module 'yolo_acc_dual' (0#1) [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv:47]
+INFO: [Synth 8-6155] done synthesizing module 'yolo_mac_cell' (0#1) [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_mac_cell.sv:47]
+INFO: [Synth 8-6157] synthesizing module 'yolo_gemm_tail' [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_tail.sv:47]
+	Parameter R bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'yolo_gemm_tail' (0#1) [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_tail.sv:47]
+INFO: [Synth 8-6155] done synthesizing module 'yolo_gemm_array' (0#1) [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv:71]
+INFO: [Synth 8-6155] done synthesizing module 'yolo_gemm_core' (0#1) [E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_core.sv:28]
+WARNING: [Synth 8-7129] Port w_raddr_i[12] in module yolo_gemm_bank is either unconnected or has no load
+WARNING: [Synth 8-7129] Port w_raddr_i[11] in module yolo_gemm_bank is either unconnected or has no load
+WARNING: [Synth 8-7129] Port w_raddr_i[10] in module yolo_gemm_bank is either unconnected or has no load
+WARNING: [Synth 8-7129] Port x_raddr_i[12] in module yolo_gemm_bank is either unconnected or has no load
+WARNING: [Synth 8-7129] Port x_raddr_i[11] in module yolo_gemm_bank is either unconnected or has no load
+WARNING: [Synth 8-7129] Port x_raddr_i[10] in module yolo_gemm_bank is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1921.043 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1921.043 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1921.043 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'yolo_gemm_array'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  S_IDLE |                              000 |                              000
+                 S_ISSUE |                              101 |                              010
+                 S_DRAIN |                              011 |                              011
+                  S_TAIL |                              010 |                              100
+                 S_TAILW |                              001 |                              101
+                  S_WAIT |                              100 |                              001
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'yolo_gemm_array'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1921.043 ; gain = 0.000
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   64 Bit       Adders := 2     
+	   2 Input   33 Bit       Adders := 1     
+	   3 Input   17 Bit       Adders := 64    
+	   2 Input   17 Bit       Adders := 64    
+	   2 Input   14 Bit       Adders := 2     
+	   2 Input   13 Bit       Adders := 5     
+	 113 Input    9 Bit       Adders := 1     
+	   2 Input    9 Bit       Adders := 4     
+	   2 Input    8 Bit       Adders := 1     
+	   2 Input    6 Bit       Adders := 1     
+	  16 Input    5 Bit       Adders := 1     
++---Registers : 
+	              128 Bit    Registers := 3     
+	               64 Bit    Registers := 5     
+	               33 Bit    Registers := 1     
+	               32 Bit    Registers := 1     
+	               16 Bit    Registers := 1     
+	               13 Bit    Registers := 8     
+	                9 Bit    Registers := 4     
+	                8 Bit    Registers := 195   
+	                7 Bit    Registers := 2     
+	                6 Bit    Registers := 2     
+	                4 Bit    Registers := 3     
+	                3 Bit    Registers := 3     
+	                2 Bit    Registers := 197   
+	                1 Bit    Registers := 667   
++---Multipliers : 
+	              32x33  Multipliers := 1     
++---RAMs : 
+	             128K Bit	(1024 X 128 bit)          RAMs := 2     
+	              64K Bit	(1024 X 64 bit)          RAMs := 2     
+	               2K Bit	(256 X 8 bit)          RAMs := 1     
++---Muxes : 
+	   2 Input  128 Bit        Muxes := 113   
+	   7 Input  128 Bit        Muxes := 2     
+	   2 Input   72 Bit        Muxes := 2     
+	   2 Input   64 Bit        Muxes := 49    
+	   6 Input   64 Bit        Muxes := 2     
+	   5 Input   13 Bit        Muxes := 2     
+	   2 Input   13 Bit        Muxes := 4     
+	   2 Input    9 Bit        Muxes := 1     
+	   5 Input    9 Bit        Muxes := 2     
+	   2 Input    8 Bit        Muxes := 5     
+	   2 Input    3 Bit        Muxes := 15    
+	   3 Input    3 Bit        Muxes := 2     
+	   6 Input    3 Bit        Muxes := 4     
+	   2 Input    2 Bit        Muxes := 13    
+	   4 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 272   
+	   5 Input    1 Bit        Muxes := 8     
+	   6 Input    1 Bit        Muxes := 1     
+	   7 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+DSP Report: Generating DSP p_0_out, operation Mode is: A2*B2.
+DSP Report: register sum_r_reg[0] is absorbed into DSP p_0_out.
+DSP Report: register p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: Generating DSP prod_r_reg[0], operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register sum_r_reg[0] is absorbed into DSP prod_r_reg[0].
+DSP Report: register prod_r_reg[0] is absorbed into DSP prod_r_reg[0].
+DSP Report: operator p_0_out is absorbed into DSP prod_r_reg[0].
+DSP Report: operator p_0_out is absorbed into DSP prod_r_reg[0].
+DSP Report: Generating DSP p_0_out, operation Mode is: A2*B2.
+DSP Report: register p_0_out is absorbed into DSP p_0_out.
+DSP Report: register p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: Generating DSP prod_r_reg[0], operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register prod_r_reg[0] is absorbed into DSP prod_r_reg[0].
+DSP Report: register prod_r_reg[0] is absorbed into DSP prod_r_reg[0].
+DSP Report: operator p_0_out is absorbed into DSP prod_r_reg[0].
+DSP Report: operator p_0_out is absorbed into DSP prod_r_reg[0].
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1921.043 ; gain = 0.000
+---------------------------------------------------------------------------------
+ Sort Area is yolo_gemm_array__GB3 p_0_out_0 : 0 0 : 2737 4966 : Used 1 time 0
+ Sort Area is yolo_gemm_array__GB3 p_0_out_0 : 0 1 : 2229 4966 : Used 1 time 0
+ Sort Area is yolo_gemm_array__GB3 p_0_out_3 : 0 0 : 2338 4350 : Used 1 time 0
+ Sort Area is yolo_gemm_array__GB3 p_0_out_3 : 0 1 : 2012 4350 : Used 1 time 0
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping Report (see note below)
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|u_bank      | wm0_reg    | 1 K x 64(READ_FIRST)   | W |   | 1 K x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|u_bank      | wm1_reg    | 1 K x 64(READ_FIRST)   | W |   | 1 K x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|u_bank      | xm0_reg    | 1 K x 128(READ_FIRST)  | W |   | 1 K x 128(WRITE_FIRST) |   | R | Port A and B     | 0      | 4      | 
+|u_bank      | xm1_reg    | 1 K x 128(READ_FIRST)  | W |   | 1 K x 128(WRITE_FIRST) |   | R | Port A and B     | 0      | 4      | 
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++---------------+----------------+-----------+----------------------+--------------+
+|Module Name    | RTL Object     | Inference | Size (Depth x Width) | Primitives   | 
++---------------+----------------+-----------+----------------------+--------------+
+|yolo_gemm_core | u_tail/lut_reg | Implied   | 256 x 8              | RAM64M x 12  | 
+|yolo_gemm_core | pb_reg         | Implied   | 8 x 32               | RAM32M x 6   | 
+|yolo_gemm_core | pm_reg         | Implied   | 8 x 32               | RAM32M x 6   | 
+|yolo_gemm_core | ps_reg         | Implied   | 8 x 6                | RAM32M x 1   | 
++---------------+----------------+-----------+----------------------+--------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++---------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name    | DSP Mapping     | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++---------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|yolo_gemm_tail | A2*B2           | 18     | 16     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|yolo_gemm_tail | (PCIN>>17)+A2*B | 16     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|yolo_gemm_tail | A2*B2           | 18     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|yolo_gemm_tail | (PCIN>>17)+A2*B | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 1    | 
++---------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1921.043 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|u_bank      | wm0_reg    | 1 K x 64(READ_FIRST)   | W |   | 1 K x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|u_bank      | wm1_reg    | 1 K x 64(READ_FIRST)   | W |   | 1 K x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|u_bank      | xm0_reg    | 1 K x 128(READ_FIRST)  | W |   | 1 K x 128(WRITE_FIRST) |   | R | Port A and B     | 0      | 4      | 
+|u_bank      | xm1_reg    | 1 K x 128(READ_FIRST)  | W |   | 1 K x 128(WRITE_FIRST) |   | R | Port A and B     | 0      | 4      | 
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+
+Distributed RAM: Final Mapping Report
++---------------+----------------+-----------+----------------------+--------------+
+|Module Name    | RTL Object     | Inference | Size (Depth x Width) | Primitives   | 
++---------------+----------------+-----------+----------------------+--------------+
+|yolo_gemm_core | u_tail/lut_reg | Implied   | 256 x 8              | RAM64M x 12  | 
+|yolo_gemm_core | pb_reg         | Implied   | 8 x 32               | RAM32M x 6   | 
+|yolo_gemm_core | pm_reg         | Implied   | 8 x 32               | RAM32M x 6   | 
+|yolo_gemm_core | ps_reg         | Implied   | 8 x 6                | RAM32M x 1   | 
++---------------+----------------+-----------+----------------------+--------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance u_bank/wm0_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bank/wm0_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bank/wm1_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bank/wm1_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bank/xm0_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bank/xm0_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bank/xm0_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bank/xm0_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bank/xm1_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bank/xm1_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bank/xm1_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bank/xm1_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 1921.043 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1921.043 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1921.043 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1921.043 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1921.043 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1921.043 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1921.043 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++---------------+--------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name    | RTL Name           | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++---------------+--------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|yolo_gemm_core | u_array/yr3_reg[2] | 3      | 3     | NO           | NO                 | YES               | 3      | 0       | 
+|yolo_gemm_core | u_array/yn3_reg[3] | 3      | 4     | NO           | NO                 | YES               | 4      | 0       | 
++---------------+--------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++-----------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name      | DSP Mapping       | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++-----------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|yolo_pe_pack_251 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_248 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_245 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_242 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_239 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_236 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_233 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_230 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_227 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_224 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_221 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_218 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_215 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_212 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_209 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_206 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_203 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_200 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_197 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_194 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_191 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_188 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_185 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_182 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_179 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_176 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_173 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_170 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_167 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_164 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_161 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_158 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_155 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_152 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_149 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_146 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_143 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_140 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_137 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_134 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_131 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_128 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_125 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_122 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_119 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_116 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_113 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_110 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_107 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_104 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_101 | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_98  | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_95  | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_92  | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_89  | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_86  | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_83  | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_80  | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_77  | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_74  | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_71  | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_68  | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack_65  | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_pe_pack     | ((A'*B')')'       | 25     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|yolo_gemm_tail   | A'*B'             | 17     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|yolo_gemm_tail   | (PCIN>>17+A'*B')' | 30     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|yolo_gemm_tail   | A'*B'             | 17     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|yolo_gemm_tail   | (PCIN>>17+A*B')'  | 0      | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
++-----------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |CARRY4   |  1657|
+|2     |DSP48E1  |    68|
+|3     |LUT1     |    41|
+|4     |LUT2     |  1118|
+|5     |LUT3     |  4597|
+|6     |LUT4     |   538|
+|7     |LUT5     |   108|
+|8     |LUT6     |  1596|
+|9     |MUXF7    |   547|
+|10    |MUXF8    |   257|
+|11    |RAM32M   |    12|
+|12    |RAM64M   |    12|
+|13    |RAMB36E1 |    12|
+|14    |SRL16E   |     7|
+|15    |FDCE     |   192|
+|16    |FDRE     |  4909|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1921.043 ; gain = 0.000
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 6 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1921.043 ; gain = 0.000
+Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1921.043 ; gain = 0.000
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.327 . Memory (MB): peak = 1921.043 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 2565 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1953.816 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 24 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 12 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 12 instances
+
+Synth Design complete | Checksum: 381e11a4
+INFO: [Common 17-83] Releasing license: Synthesis
+92 Infos, 16 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1953.816 ; gain = 32.773
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Timing 38-242] The property HD.CLK_SRC of clock port "clk_i" is not set. In out-of-context mode, this prevents timing estimation for clock delay/skew
+Resolution: Set the HD.CLK_SRC property of the out-of-context port to the location of the clock buffer instance in the top-level design
+report_timing_summary: Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 1953.816 ; gain = 0.000
+EES_SYNTH_RESULT KC1024 WNS=-6.383 WHS=0.235 KC=1024 period=10.000ns
+WARNING: [Vivado 12-180] No cells matched 'get_cells -hierarchical -filter {PRIMITIVE_GROUP == DSP && REF_NAME =~ DSP48E1*}'.
+EES_SYNTH_RESULT KC1024 DSP48E1=0
+WARNING: [Vivado 12-180] No cells matched 'get_cells -hierarchical -filter {REF_NAME =~ RAMB18*}'.
+EES_SYNTH_RESULT KC1024 BRAM36=12 BRAM18=0 (判据�?12)
+WARNING: [Vivado 12-180] No cells matched 'get_cells -hierarchical -filter {IS_SEQUENTIAL && PRIMITIVE_GROUP == REGISTER}'.
+EES_SYNTH_RESULT KC1024 FF_cells=0
+EES_SYNTH_STAGE END_KC1024
+EES_VIVADO_RESULT DONE
+INFO: [Common 17-206] Exiting Vivado at Sat Sep 19 12:50:10 2026...

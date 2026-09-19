@@ -1,0 +1,30 @@
+{
+ "name": "addrgen",
+ "seed": 707,
+ "contract": "k=ic*(KH*KW)+kh*KW+kw; ih=oy*SH+kh-PH; CHW addr; pad bypass with -128 (first) / 0; 1 beat/cycle",
+ "gold_ref": "formula reference per golden_extract.py contract + real-tensor data closure (golden00/02)",
+ "cfg_layout": "['ih', 'iw', 'ow', 'ic', 'kh', 'kw', 'sh', 'sw', 'ph', 'pw', 'k_len'] + n_start + n_len + first (= 14 words per tile)",
+ "coverage": {
+  "n_cases": 8,
+  "n_tiles": 145,
+  "n_beats": 67918,
+  "pad": 2846,
+  "nopad": 65072,
+  "pad_neg128": 1822,
+  "pad_zero": 1024,
+  "ic_rollovers": 835,
+  "ox_wraps": 18,
+  "oy_incs": 141,
+  "real_beats": 30240
+ },
+ "sha256": {
+  "n_tiles.hex": "06b622cf83badc7763b152593f79f2617dbb7338e62122c01d3c504e22f63144",
+  "cfg_u16.hex": "e31141c241bb04297beab58e3ea9b431c269d2fb2106520089f3884a41caf265",
+  "cnt_u32.hex": "36c2954986f8bb70500ffb6acd6f4550601a9fbc5f909e7a7a31fb25ce8a65c6",
+  "xaddr_u32.hex": "023412d50061afb5f4d575ff329cdbf4a8fc6c1bc1bd3e9eca10c0fd3daf53a6",
+  "pad.hex": "b58eab92a4f96d9cc07327c14e2061bece5aa636d15e84fa8fda23f11bc2ef04",
+  "padval_i8.hex": "4d02166b40df17ac2263215c6059e13db871d068eeacac0965c071d457a49971",
+  "k_u16.hex": "75db32109aecfaa42643d9095a1e3b5320c39b2e3f23b6b3dbcb9fba2f29e436",
+  "nloc_u16.hex": "ce75bd17d5f8ee29ecee691e3c51f521637fc7650a27f3e381be686eb297657f"
+ }
+}

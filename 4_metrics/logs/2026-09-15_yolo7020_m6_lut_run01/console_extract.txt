@@ -1,0 +1,28 @@
+# M6 SiLU LUT gate — console extract (raw transcript: sim_lut.log)
+# 1) stimulus generation (real x2 / identity / random / extreme tables)
+$ python lut_vecgen.py
+[stim] lutmod: 2680 ops (w=1280 r=1400 hold=84 act0=141), tables=['real00', 'real02', 'identity', 'random', 'extreme'], manifest written
+
+# 2) compile
+$ vlog -work work ../../rtl/yolo_silu_lut.v ../tb_yolo_silu_lut.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module yolo_silu_lut
+-- Compiling module tb_yolo_silu_lut
+Top level modules:
+	tb_yolo_silu_lut
+
+# 3) simulate (raw: sim_lut.log)
+$ vsim -c -novopt +STIM=../stim/lutmod +WDT_MS=200 \
+       -do "run -all; quit -f" -l .../sim_lut.log work.tb_yolo_silu_lut
+# [tb] lutmod stim=../stim/lutmod ops=2680
+# TB_LUT_PASS compared=1400 reads (y+vld)
+# ** Note: $finish    : ../tb_yolo_silu_lut.v(141)
+#    Time: 26830 ns  Iteration: 1  Instance: /tb_yolo_silu_lut
+
+GATE RESULT: TB_LUT_PASS — 1400/1400 read compares (5 tables x 256-index
+full walk + revisit/bypass/hold mix; y golden + vld==en), zero mismatches,
+first-run green.
+
+# 4) stimulus integrity
+$ sha256sum *.hex stim_manifest.json -> stim_sha256.txt (14 files,
+   includes per-table snapshots lut_<tag>_i8.hex for audit)

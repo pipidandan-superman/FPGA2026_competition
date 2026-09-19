@@ -1,0 +1,9 @@
+{
+  "result_marker": "DOC_MANUAL_WRITE_PASS",
+  "outputs_exist": true,
+  "fpga_tree_modified": false,
+  "rtl_simulated": false,
+  "synthesis_run": false,
+  "board_run": false,
+  "checked_at": "2026-09-18T19:46:17"
+}

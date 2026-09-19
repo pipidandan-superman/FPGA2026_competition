@@ -1,0 +1,53 @@
+[
+  {
+    "sample": 0,
+    "image": "images89_jpg.rf.0bfa9777072aa98975eea6599bd81f0f.jpg",
+    "file": "golden/golden_00_images89_jpg.npz",
+    "sha256": "704443e543718c36ec6dcb5c61f1b0e7228df2deb8f7ee3589044d8904147898",
+    "nodes": 66,
+    "classes_present": [
+      2,
+      2
+    ]
+  },
+  {
+    "sample": 1,
+    "image": "images9-2-_jpg.rf.e517e4aee1cb3c38391c9abbd6c12c4e.jpg",
+    "file": "golden/golden_01_images9-2-_j.npz",
+    "sha256": "9a70932f0166e4b7244500d9b9328140f892f58aef8b16f763ff42cf26d00365",
+    "nodes": 66,
+    "classes_present": [
+      1
+    ]
+  },
+  {
+    "sample": 2,
+    "image": "images9-3-_jpg.rf.43e040c027f3bdfdb0ab39b8333f9fb2.jpg",
+    "file": "golden/golden_02_images9-3-_j.npz",
+    "sha256": "72240b2cb5903fda6b1b9f16335efe9de5ea42146d764fe700127c623df15bb1",
+    "nodes": 66,
+    "classes_present": [
+      0
+    ]
+  },
+  {
+    "sample": 3,
+    "image": "images90-1-_jpg.rf.6b789faf06306a74d0882bfb4316f004.jpg",
+    "file": "golden/golden_03_images90-1-_.npz",
+    "sha256": "0c9153884dbcf5aea50c63fe4e4cc29e93ed312f41337c5eeaa98df2e41c6154",
+    "nodes": 66,
+    "classes_present": [
+      6
+    ]
+  },
+  {
+    "sample": 4,
+    "image": "images92-1-_jpg.rf.93da294ab268178fdb33304fdaf5ae32.jpg",
+    "file": "golden/golden_04_images92-1-_.npz",
+    "sha256": "7819a2b395744c34a31808e8224b570164dd6fa6e698b6d08ac85b5eb6034643",
+    "nodes": 66,
+    "classes_present": [
+      6
+    ]
+  }
+]

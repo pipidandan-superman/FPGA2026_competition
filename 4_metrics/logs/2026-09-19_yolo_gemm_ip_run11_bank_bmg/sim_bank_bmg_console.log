@@ -1,0 +1,164 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 13:42:57 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source sim_bank_bmg.tcl -notrace
+EES_VIVADO_STAGE COMPILE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_w_g0/sim/gemm_bm_w_g0.v E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_w_g1/sim/gemm_bm_w_g1.v E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_x_g0/sim/gemm_bm_x_g0.v E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_x_g1/sim/gemm_bm_x_g1.v E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_lut/sim/gemm_bm_lut.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_w_g0/sim/gemm_bm_w_g0.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_w_g0
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_w_g1/sim/gemm_bm_w_g1.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_w_g1
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_x_g0/sim/gemm_bm_x_g0.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_x_g0
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_x_g1/sim/gemm_bm_x_g1.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_x_g1
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_lut/sim/gemm_bm_lut.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_lut
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe -sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bank_bmg.sv
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_bank
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bank_bmg.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_yolo_gemm_bank_bmg
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe F:/vivado2025/2025.2/data/verilog/src/glbl.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/vivado2025/2025.2/data/verilog/src/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+EES_VIVADO_STAGE ELABORATE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -L blk_mem_gen_v8_4_12 -L unisims_ver -L unisim -s tb_bank_bmg tb_yolo_gemm_bank_bmg glbl
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -L blk_mem_gen_v8_4_12 -L unisims_ver -L unisim -s tb_bank_bmg tb_yolo_gemm_bank_bmg glbl 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_w_g0
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_w_g1
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_x_g0
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_x_g1
+Compiling module work.yolo_gemm_bank
+Compiling module work.tb_yolo_gemm_bank_bmg
+Compiling module work.glbl
+Built simulation snapshot tb_bank_bmg
+EES_VIVADO_STAGE SIMULATE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_bank_bmg -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 13:43:02 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_bank_bmg/xsim_script.tcl
+# xsim {tb_bank_bmg} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Block Memory Generator module tb_yolo_gemm_bank_bmg.dut.u_w_g0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_gemm_bank_bmg.dut.u_w_g1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_gemm_bank_bmg.dut.u_x_g0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_gemm_bank_bmg.dut.u_x_g1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+TB_PHASE A directed
+[90000] DBG blk_end w=1 x=0 grp=00 sent=1
+[230000] DBG blk_end w=0 x=1 grp=11 sent=2
+[390000] DBG blk_end w=1 x=1 grp=00 sent=3
+[520000] DBG blk_end w=3 x=0 grp=11 sent=4
+[590000] DBG blk_end w=3 x=0 grp=11 sent=5
+[46880000] DBG blk_end w=1024 x=1024 grp=00 sent=6
+[103130000] DBG blk_end w=1023 x=1023 grp=11 sent=7
+[113700000] DBG blk_end w=5 x=4 grp=01 sent=8
+[113860000] DBG-A7 rd_busy=1 x_rgrp=0 w_rgrp=0
+[113876000] DBG-A7 beat isx=0 hi=0 first=1 last=0 wgrp=1 xgrp=1 ready=1 guard=0
+[113886000] DBG-A7 beat isx=0 hi=0 first=0 last=0 wgrp=1 xgrp=1 ready=1 guard=0
+[113896000] DBG-A7 beat isx=0 hi=0 first=0 last=0 wgrp=1 xgrp=1 ready=1 guard=0
+[113916000] DBG-A7 beat isx=0 hi=0 first=0 last=0 wgrp=1 xgrp=1 ready=1 guard=0
+[113926000] DBG-A7 beat isx=0 hi=0 first=0 last=0 wgrp=1 xgrp=1 ready=1 guard=0
+[113936000] DBG-A7 beat isx=0 hi=0 first=0 last=0 wgrp=1 xgrp=1 ready=1 guard=0
+[113946000] DBG-A7 beat isx=1 hi=0 first=0 last=0 wgrp=1 xgrp=1 ready=1 guard=0
+[113955000] DBG-A7 x_wr grp=1 xk_cnt=0 pend=1
+[113956000] DBG-A7 beat isx=1 hi=1 first=0 last=0 wgrp=1 xgrp=1 ready=1 guard=0
+[113986000] DBG-A7 beat isx=1 hi=0 first=0 last=0 wgrp=1 xgrp=1 ready=1 guard=0
+[114025000] DBG-A7 x_wr grp=1 xk_cnt=1 pend=1
+[114026000] DBG-A7 beat isx=1 hi=1 first=0 last=0 wgrp=1 xgrp=1 ready=1 guard=0
+[114036000] DBG-A7 beat isx=1 hi=0 first=0 last=0 wgrp=1 xgrp=1 ready=1 guard=0
+[114045000] DBG-A7 x_wr grp=1 xk_cnt=2 pend=1
+[114046000] DBG-A7 beat isx=1 hi=1 first=0 last=0 wgrp=1 xgrp=1 ready=1 guard=0
+[114086000] DBG-A7 beat isx=1 hi=0 first=0 last=0 wgrp=1 xgrp=1 ready=1 guard=0
+[114095000] DBG-A7 x_wr grp=1 xk_cnt=3 pend=1
+[114096000] DBG-A7 beat isx=1 hi=1 first=0 last=0 wgrp=1 xgrp=1 ready=1 guard=0
+[114106000] DBG-A7 beat isx=1 hi=0 first=0 last=0 wgrp=1 xgrp=1 ready=1 guard=0
+[114115000] DBG-A7 x_wr grp=1 xk_cnt=4 pend=1
+[114116000] DBG-A7 beat isx=1 hi=1 first=0 last=1 wgrp=1 xgrp=1 ready=1 guard=0
+[114120000] DBG blk_end w=6 x=5 grp=11 sent=9
+[114125000] DBG-A7 ld_done w_len=6 x_len=5
+[114460000] DBG-A7 rd_busy=0 x_rgrp=0 w_rgrp=0
+[114520000] DBG-A7 rd_busy=1 x_rgrp=1 w_rgrp=1
+[114600000] DBG-A7 rd_busy=0 x_rgrp=1 w_rgrp=1
+TB_PHASE B random
+[114820000] DBG blk_end w=6 x=2 grp=00 sent=10
+[115150000] DBG blk_end w=0 x=5 grp=10 sent=11
+[116110000] DBG blk_end w=21 x=19 grp=11 sent=12
+[116820000] DBG blk_end w=17 x=3 grp=01 sent=13
+[117580000] DBG blk_end w=12 x=11 grp=10 sent=14
+[118100000] DBG blk_end w=5 x=6 grp=00 sent=15
+[119090000] DBG blk_end w=12 x=19 grp=10 sent=16
+[119850000] DBG blk_end w=5 x=13 grp=00 sent=17
+[120570000] DBG blk_end w=9 x=10 grp=01 sent=18
+[121350000] DBG blk_end w=14 x=13 grp=10 sent=19
+[121870000] DBG blk_end w=1 x=7 grp=00 sent=20
+[122970000] DBG blk_end w=22 x=19 grp=01 sent=21
+[124150000] DBG blk_end w=11 x=20 grp=01 sent=22
+[125370000] DBG blk_end w=20 x=20 grp=11 sent=23
+[126580000] DBG blk_end w=16 x=20 grp=00 sent=24
+[127850000] DBG blk_end w=21 x=23 grp=11 sent=25
+[129160000] DBG blk_end w=20 x=19 grp=10 sent=26
+[130300000] DBG blk_end w=19 x=21 grp=01 sent=27
+[131310000] DBG blk_end w=13 x=13 grp=10 sent=28
+[132340000] DBG blk_end w=8 x=21 grp=11 sent=29
+[133090000] DBG blk_end w=13 x=5 grp=10 sent=30
+[134220000] DBG blk_end w=16 x=16 grp=00 sent=31
+[135380000] DBG blk_end w=14 x=22 grp=11 sent=32
+[136410000] DBG blk_end w=5 x=17 grp=00 sent=33
+[136700000] DBG blk_end w=1 x=0 grp=01 sent=34
+[137310000] DBG blk_end w=11 x=12 grp=10 sent=35
+[138080000] DBG blk_end w=21 x=11 grp=11 sent=36
+[138670000] DBG blk_end w=2 x=7 grp=00 sent=37
+[139730000] DBG blk_end w=7 x=24 grp=11 sent=38
+[140850000] DBG blk_end w=4 x=20 grp=10 sent=39
+[141890000] DBG blk_end w=12 x=14 grp=11 sent=40
+[142920000] DBG blk_end w=12 x=13 grp=00 sent=41
+[143740000] DBG blk_end w=8 x=17 grp=11 sent=42
+[144880000] DBG blk_end w=9 x=23 grp=00 sent=43
+[145950000] DBG blk_end w=5 x=21 grp=10 sent=44
+[146840000] DBG blk_end w=15 x=9 grp=00 sent=45
+[147120000] DBG blk_end w=1 x=0 grp=11 sent=46
+[148050000] DBG blk_end w=6 x=23 grp=10 sent=47
+[149640000] DBG blk_end w=14 x=24 grp=00 sent=48
+[150730000] DBG blk_end w=12 x=15 grp=00 sent=49
+TB_BANK_BMG PASS checks=5585 errors=0 blocks=49
+$finish called at time : 151040 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bank_bmg.sv" Line 586
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep 19 13:43:03 2026...
+INFO: [Common 17-206] Exiting Vivado at Sat Sep 19 13:43:03 2026...

@@ -1,0 +1,33 @@
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Wed Sep 16 14:26:42 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/snap_m10/xsim_script.tcl
+# xsim {snap_m10} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Block Memory Generator module tb_yolo_gemm_array.dut.u_xbuf.u_bank0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_gemm_array.dut.u_xbuf.u_bank1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+[tb] m10 stim=../stim/m10 layers=6 img_words=65621 total_out=438447
+WARNING:  The value -1943132160.000000 ns of Delay Control Statement is negative. Considering twos complement. File:E:/competition/2_fpga/3_yolo_zynq/sim/tb_yolo_gemm_array.v :810
+[tb] layer 0 done @t=29486000 (oc=7 n=49 k=27)
+[tb] heartbeat t=10000000000 cur_layer=1 ywr=175767
+[tb] heartbeat t=20000000000 cur_layer=1 ywr=351791
+[tb] layer 1 done @t=23301846000 (oc=16 n=25600 k=27)
+[tb] layer 2 done @t=23692036000 (oc=16 n=25 k=576)
+[tb] layer 3 done @t=24118196000 (oc=9 n=256 k=64)
+[tb] heartbeat t=30000000000 cur_layer=4 ywr=420519
+[tb] heartbeat t=40000000000 cur_layer=4 ywr=433959
+[tb] layer 4 done @t=43151806000 (oc=64 n=400 k=576)
+[tb] layer 5 done @t=43921896000 (oc=8 n=25 k=2304)
+TB_GEMM_ARRAY_PASS layers=6 compared=438447 dut_wr=438447 gold_wr=3247 ldone=6 adone=1
+$finish called at time : 47766670 ns : File "E:/competition/2_fpga/3_yolo_zynq/sim/tb_yolo_gemm_array.v" Line 802
+run: Time (s): cpu = 00:00:01 ; elapsed = 00:10:04 . Memory (MB): peak = 219.836 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 32444 KB (Peak: 32444 KB), Simulation CPU Usage: 598015 ms
+INFO: [Common 17-206] Exiting xsim at Wed Sep 16 14:36:48 2026...

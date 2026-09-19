@@ -1,5 +1,47 @@
 # 小月文刀队｜AMD 具身智能赛道
 
+> 全项目进度总览（软件/硬件两部分）：[progress.md](progress.md)。本 README 只保留最近动态，历史细节见 [HANDOFF.md](HANDOFF.md) 与 `7_logs/`。
+
+## 2026-09-19（深夜·续）YOLOv8 主线 P0 收官：P0-A 冻结 + P0-B 板级验证 PASS
+
+**主线决策**：M13 `yolo_a2` 弃主线（全网执行器约 90% 失败，留参考/诊断），唯一主线 = `axi_gemm_test`（PS7 100 MHz + GEMM V2.2 + CSR + AXI DMA + PPU）。**P0-A** 离线冻结（104-task schedule 合同 + 工程/BD/RTL/ROM/bit/HWH 全哈希，`1_docs/yolo_v8_mainline_baseline_20260919.md`）；**P0-B 板级 run02 全门 PASS**（run01 在线性阻塞 fail-closed 留档；用户再上电后一轮收官）：在线性/身份（新 boot_id）→ 所有权（相机服务 failed 终态、/dev/dri 无持有者，空洞放行）→ 基线 Overlay CK1-CK5（download+operating+zocl 锁 1→2 新鲜 UUID；GEMM_ID 0x20260919/CSR_ID 0x594F4C32）→ CK_F 真 100.000 MHz（raw 0x00200500）→ B1+B2 smoke（复用 run25 驱动，全部 gate 值与 run23/24/25 **逐位相同**，`BOARD_FREQ100_PASS`，wop=3462/rb_ok=416/db_ok=9 双零错）→ 恢复性（驱动退出后 `/dev/mem` 三读全中 `P0B_POSTCHECK_PASS`）。**板上现挂 P0 基线 = 100 MHz GEMM+CSR+DMA 三从机 overlay**（板上目录 `~/p0b_run02/`）。下一步 P1/B3 真实 Conv0 的 DMA→GEMM→DDR→G0 golden——桥接合同 4 决策点待用户授权。证据：`4_metrics/logs/2026-09-19_yolov8_p0_board_validation_run02/`、`7_logs/2026-09-19/13`。
+
+## 2026-09-19（深夜）run25 频率门收官：FCLK0 50→100 MHz 全绿（BOARD_FREQ100_PASS）
+
+**硬件线（上板·频率门）**：用户 GUI 改 PS7 FCLK0=100 MHz 重生成比特流上板，同种子重验——CK_F 实测真 **100.000 MHz**（raw 0xF8000170=0x00200500=IO_PLL 1000÷5÷2），S1/S2/S3+DB1-DB7 全部 gate 值与 run23/24 **逐位相同**（双零错、总账 wop=3462/rb_ok=416/db_ok=9）→ **无频率耦合缺陷**；板上现挂 **100 MHz 三从机基线**。过程三次尝试留档：attempt-1 我方布局记忆错+信 pynq 报告 → 假 FAIL；attempt-2"修复"写被硬件拒写 bits[3:0] → 裁定 **pynq ZYNQ_CLK_FIELDS=硬件真值**（DIV0[13:8]/DIV1[25:20]/SRCSEL[5:4]），restore_clk.py 复位后 v3 判据全绿。板卡事实入 ees331 画像：晶振 **33.3333 MHz** ⇒ pynq 3.0.1 所有 MHz 报告 **1.5× 高**（报 150=真 100、报 75=真 50），门控一律 raw SLCR+PLL FBDIV。勘误：run23/24 下载后寄存器正确值=0x00400500=真 50.00 MHz（此前分析文本 0x00140500 为算术误写，非观测），**B1/B2 回溯完整性成立**。下一步 **B3 DMA+GEMM 大 KC（桥接立项+授权待用户）**。工程关键文件已随 `cd81d41` 入库（.xpr/BD/17 XCI/impl 报告；bit 与证据同 sha 不重复），**100MHz 复现与 50MHz 回退锚全自包含于用户分支**。证据：`4_metrics/logs/2026-09-19_yolo_gemm_freq_run25_fclk100/`、`7_logs/2026-09-19/12`。
+
+## 2026-09-19（晚）PE/GEMM 上板线：B1+B2 板级双收官（BOARD_B1_PASS / BOARD_B2_PASS）
+
+**硬件线（手册重设计·上板）**：晨间 G2 计划批准后白班连收两链——**IP 硬指标重做 run11–16**（数据通路全真 IP：DSP48E1 打包 + BMG/SDP LUT，例化逐端口对 .veo；OOC 资源判据精确命中 BRAM36=12+RAMB18=1、DSP=68）+ **WNS A+B 收敛 run17–20**（tail V2.2 并行逐位判决 RNE，纯 OR 树无宽进位链，**100MHz WNS+1.392**）。**B1 三门**：run21 顶层门（`yolo_gemm_top.v` V1.0，544 checks 两轮一致）+ run22/22b BD 比特流（u_yolo_gemm @0x43C00000/64K，WNS+4.954 @50MHz、DSP=68 与 OOC 对账无黑盒）+ **run23 板级 BOARD_B1_PASS**（288/288 回读零错，2464 次 GP0 写零挂死）。**B2 run24 板级 BOARD_B2_PASS**：用户 GUI 加 axi_dma 7.1 回环直连+HP0、零仿真直接上板（官方 IP）——GEMM 回归与 run23 逐值相同 + DMA 4096/137/1/1000/8192 全对拍/连发/软复位恢复/交叉存活性全绿；**HP 口启用不碍 overlay 实证；板上新基线=GEMM+CSR+DMA 三从机共存**。overlay skill 同批修正三条通用方法论并按用户原则"skill=通用方法论"四层归位（IP/工程细节出 skill），同步 `.claude/skills/` 与 `6_skill/`。Git：白班两链 11b3b7b/8fca71b，B1=af407c0，B2 批本批推送（main 不动）。下一步 **B3 DMA+GEMM 大 KC（需桥接设计立项+授权）→ B4 全联**。证据：`4_metrics/logs/2026-09-19_yolo_gemm_{ip_run11..20,b1_run2{1,2,3},b2_run24}_*/`、`7_logs/2026-09-19/07–11`。
+
+## 2026-09-19 PPU 非线性算子并行线：七门全绿收官 + 迁移入库
+
+**硬件线（隔夜并行批）**：与 PE/GEMM 线并行的图算子线（用户隔夜授权防撞暂存，晨间有序迁移主树并入主日志根）——P0 手册+ABI 事实核验 **28/28** → P1 oracle 全图回放对软件 golden **5×53=265 位级 0 失配** → **P2a–e 五算子核 RTL 门全 PASS**：requant 11043 / upsample2 643001 / maxpool5 13962（含 pad 物化≡有效位掩码双模型交叉）/ add 12679（int64 不逐路饱和→int32 合同截断）/ xfer 2842（恒等捷径≡全量 requant 等价钉死）；期望三源独立 + posedge 镜像延迟记分板 + rst 在飞击杀复检 + 反退化配额断言（平局/饱和/死通道/s 全 63 档）。RTL 每算子一夹 `2_fpga/3_yolo_zynq/rtl/PPU/` + TB `rtl/PPU/tb/`，vecgen+oracle 平铺 `sim/`，手册 `1_docs/yolo_ppu_design_manual_20260918.md`；证据 7 run 目录入 `4_metrics/logs/`，日志并入 `7_logs/2026-09-19/06`。已推 `codex/full/pipidandan-superman`（fa26666）。下一步：P3 经用户决策撤销独立门（schedule.json 邻接反查=25 引擎任务 64% 输入直连 conv、引擎间仅 9 处缓冲级邻接，手册 §7 撤销注记），walker/描述符译码并入 GEMM 线 G4 共定合同，41 任务回放留作 P4/G5 bring-up 二分调试工具；PPU 线仿真阶段收官，P4/G5 双线汇合待协调。
+
+## 2026-09-19 PE/GEMM 手册线：仿真门全链收官 + 综合评估 + 板测计划
+
+**硬件线（手册重设计）**：G0 oracle → ① PE（140909）→ ② 双累加器（169025）→ MAC（164044）→ ③a 共享尾（713）→ **③b/④ 广播外积阵列三档 4×4/8×16/16×16 全 PASS**（run06 V1.1：846/4250/6881 checks 0 err；K=1..2304 分块续累/掩码/stall/rst/背靠背/首层/随机全过；TAILW 死锁修复=y 拍计数判定，dbg 复现在案）。**run07 OOC 综合评估**给出 G2 立项证据：③ 档功能缓冲映射 294912×2 寄存器，物理不可容纳 → G2 W/X 真 bank 为上板唯一路径；板测计划成文（晨验=基线回归+证据评审+G2 决策，无板上操作）。补录 09-18 晚：**CSR 控制子系统板级 L1-L4 闭环**（ACK 竞争+幻影尾两 bug 板级收口，板上挂 186154c5 修复版基线）+ **v1.4 Overlay 热重载正典化**（连热重载全绿免断电+用户回环自验）。RTL：`2_fpga/3_yolo_zynq/rtl/GEMM/`；证据：`4_metrics/logs/2026-09-18_yolo_pe_gemm_dev_run01..06/` + `2026-09-19_..._run07_syntheval/`。
+
+## 2026-09-17/18 yolo7020：A2/B0 收口 → 板级位流 PASS → M13 三跑三冻结 → run04 v1.4 Overlay 路线待跑
+
+**硬件线（G3）**：A2 loader V2 三件套收口（M10 门复绿同基线数；层边界 LUT 预载双洞竞态修复=tail_idle_w 全排空契约；冻结 gemm_array V2.0c 等）→ **M11 run05 全网双绿承证**（TB_FULLNET_PASS 七项 + head sha==run04 冻结）→ M12 OOC：v28@150MHz FAIL(−8.750) 守"板后优化"决策改 **v28b60@60MHz first-light PASS(+0.806)** → **板级 BD 构建 PASS（run8 wns+0.954，yolo_a2.bit/xsa 解出；八跑剥洋葱坑全记录）**。
+
+**M13 板测**：板端驱动 PC 自测双绿（pl_m11.py PL_M11_PASS 全七项）后三跑上板——run01(0x30000000)/run02(0x08000000 证据驱动全空窗口) **均 2–10 分钟内板硬失联**（ping/串口死、无 panic）；**run03（run9c 修正 BD + 原始驱动 + 全净窗口，用户指定重试）~1min 同签名硬冻 → "BD 错误设计"假设否定**；fclk0 实测 50MHz（嫌疑排除）；v1.4 佐证 PL 交叉开关只暴露低 512MB。根因排序①/dev/mem RAM 别名 mmap 13MB 直写机制（头号）②HP 互连挂死。**用户指令：后续加载一律走 v1.4 PL Reloader 机制** → **run04 三件套已备待上电**（`pl_m11_pynq.py` = Overlay/zocl 加载 + CMA allocate 写 + 无缓存别名读 + MMIO；bit+hwh 配对 `pynq/r9c_overlay/`）；JTAG/Vitis 裸机保持备选（工程已建，挂死现场可 xsct 读 PC）。
+
+**run9 BD 修正批（09-18）**：用户 GUI 检出并手工修三处（DDR/FIXED_IO make external→100 条 IOSTANDARD 警告根因、PS 勾选 IRQ_F2P、60MHz 疑问=有意 first-light 决策）；批处理侧 `write_bd_tcl` 收编用户权威 BD 为正典 `yolo_sys_bd.tcl`（**IRQ_F2P 引脚物化机制=ps7 全配置一次性 set_property -dict 灌入**，手工逐对 set 得 41-721 disabled），XDC 删 create_clock 消 18-1056，三连 re-apply FREQ_HZ=60M（GUI 保存会丢 module_ref 接口属性）。重跑 **run9c PASS（wns+0.623，CRITICAL WARNING 总数=0，三类警告全清零）**，yolo_a2.xsa/bit 已更新。证据：[run09](4_metrics/logs/2026-09-18_yolo7020_board_build_run09/README.md)。
+
+## 2026-09-16 yolo7020：G3 M12 A1 承接批五门全绿（Y 真 AXI 写主 + CSR/engine）
+
+**硬件线（G3）**：M12 拆 A1/A2/B 三段后的 A1 批（纯 RTL+仿真，授权"先跑a"）单日五门全绿——M8 run03（ctrl V1.2 回归）· M9b run01–03（dma_wr Y 真 AXI4 写主 + V1.2 非对齐起始）· M10 run03（阵列 V1.2a 换 Y 真 AXI 写主，六项与 run01 同数）· M11 run03（全网 63 conv 回归，七项与 run02 同数 + head sha 复命中）· **CSR/engine run01 首跑过**（`yolo_csr.v` AXI-Lite 从 @0x43C1_0000 + `yolo_engine_top.v` 组装，PS 真控制路径成为门断言对象；寄存器图入 `hw_contract/address_map.md` 三处同步）。RTL 数值路径改动的 §5 全链重跑义务已履行；证据 6 个 run 目录四件套（`4_metrics/logs/2026-09-16_yolo7020_*`）。**下一步**：A2 loader V2 三件套（已授权）→ B 段 OOC（待用户确认）。
+
+## 2026-09-15 yolo7020：量化合同板上位级闭环 + G3 卷积引擎 M0–M11 全绿
+
+**软件线**：G2 真 RNE 合同 run04（valid drop −0.0092）为部署源，部署包落位 `2_fpga/3_yolo_zynq/rom_data/`（哈希核对）；PS numpy 运行时离线 128/128 帧位级一致；随后在真实 ARM PS 上全量自检 **128/128 帧 head 位级一致**（box 差异全部为良性 libm ulp 类），45.34s/帧未优化。证据：[run04](4_metrics/logs/2026-09-15_yolo7020_g2_quant_rne_run04/) · [PS 运行时](4_metrics/logs/2026-09-15_yolo7020_ps_runtime_run01/) · [板上自检](4_metrics/logs/2026-09-15_yolo7020_ps_onboard_run01/REPORT.md)。
+
+**硬件线（G3）**：架构基线冻结（[GEMM PE 阵列](1_docs/doc/yolo7020_gemm_pe_architecture_2026-09-15.md)，SIM-8×8/BASE-8×16/PROD-16×16 三实例 + M0–M13 逐模块门）后，单日完成 12 个门全部通过：conv0 标量核 409600/409600 → M0 参数化通用核 11/11（含"合成激励反退化+真实数据回归"假绿教训）→ M1 DSP48E1 双 int8 打包 2^24 穷举 0 败 → M2–M9 单元门全绿 → **M10 阵列集成**（6 层流 438,447 格零差异，揪出 4 个 RTL 缺陷并履行全链重跑义务）→ **M11 全网端到端**（1 帧全 63 卷积 **3,553,900 格逐位零误差** + head sha256 == run04 frame0；65 个 PS 微操作按 intarith 语义执行；k1×1 几何首次覆盖）。RTL 共 12 个 `.v`/`.sv` 文件 + 13 个测试台 + 15 个激励生成/检查脚本，全部 Verilog-2001，每个门独立 run 目录四件套留证（`4_metrics/logs/2026-09-15_yolo7020_m0..m11_*`）。
+
+**边界**：M12（OOC 综合/Vivado）与 M13（板卡整合）未启动，需单独授权；OOC 时序落地前不对外承诺帧率；`2_fpga/0_diaplay_test` 冻结基线未动。本批 RTL/仿真/证据/文档已上传个人分支 `codex/full/pipidandan-superman`（PR 待队友审核）。
+
 ## 2026-09-13 PL重加载v1.4与动作LED复现
 
 当前唯一PL重加载交付为`8_tools/EES331_PL_Reloader_v1.4/`；旧v1.0～v1.3不再发布。固定动作BIT/HWH经v1.4完成两轮A→C上板成功，第二轮发生在用户确认断电重启之后；Stop、Up、Down、Thumbs Up、Thumbs Down均已由用户确认对应LED4/7/1/6/5。当前结论是2/2成功样本，不是长期冷启动稳定性保证。
@@ -106,7 +148,7 @@ PC与板载MLT-BT05已通过短时双向通信：未配对GATT保持61.703秒，
 | FPGA vs. CPU 加速比 | ≥ 5× |
 | AI PC ↔ FPGA RTT | ≤ 5 ms |
 
-详细指标与测量方式见 `1_docs/设计方案_具身智能视觉分拣.md` 第 5 节。
+详细指标与测量方式见 `1_docs/赛题方向/设计方案_具身智能视觉分拣.md` 第 5 节。
 
 ## 现有工程基础
 
@@ -164,7 +206,7 @@ hdmi_out_adv7511_v1_0
 ```text
 competition/
 ├─ README.md
-├─ 1_docs/      # 设计方案、架构、接口、硬件说明与赛题文档
+├─ 1_docs/      # 分类索引见 1_docs/README.md：doc/赛题方向/datasheets/figures/legacy/第三方资料(仅本地)
 ├─ 2_fpga/      # RTL/HLS、构建脚本、.bit/.xsa/.hwh、综合实现报告
 ├─ 3_host/      # 模型、上位机应用、部署脚本与清单
 ├─ 4_metrics/   # metrics.csv、原始日志、测试脚本、截图/波形证据
@@ -178,7 +220,7 @@ competition/
 ## 当前状态
 
 - AMD 具身智能赛道已确定，应用场景已冻结为**视觉识别与自动分拣**；
-- 设计方案已固化至 `1_docs/设计方案_具身智能视觉分拣.md`；
+- 设计方案已固化至 `1_docs/赛题方向/设计方案_具身智能视觉分拣.md`；
 - HDMI ADV7511 RTL、实现、时序和板级显示已完成；
 - PS UART 板级通信已验证；
 - 2026-09-07 冻结 OV5640 → VDMA → DDR → VDMA → HDMI 可视化显示基线；

@@ -1,0 +1,42 @@
+== G3 conv0 RTL sim evidence 2026-09-15 ==
+
+-- [1] smoke after both sign fixes (500 px) --
+# [tb] stim=../stim/conv0_golden00 partial=500
+# TB_CONV0_PASS compared=500/409600 (stim=../stim/conv0_golden00)
+
+-- [2] cleaned-TB smoke re-verify (500 px) --
+# TB_CONV0_PASS compared=500/409600 (stim=../stim/conv0_golden00)
+
+-- [3] FULL golden00 --
+# [tb] stim=../stim/conv0_golden00 partial=0
+# TB_CONV0_PASS compared=409600/409600 (stim=../stim/conv0_golden00)
+
+-- [4] FULL golden02 --
+# [tb] stim=../stim/conv0_golden02 partial=0
+# TB_CONV0_PASS compared=409600/409600 (stim=../stim/conv0_golden02)
+
+-- [5] root-cause evidence: poisoned sum_b/prod (dbg2, t=346ns) --
+# vsim +STIM=../stim/conv0_golden00 +PARTIAL=500 -do {run 346 ns; examine -radix signed sim:/tb_yolo_conv0/dut/acc; examine -radix signed sim:/tb_yolo_conv0/dut/bias_rdata; examine -radix signed sim:/tb_yolo_conv0/dut/m_rdata; examine -radix signed sim:/tb_yolo_conv0/dut/shift_rdata; examine -radix signed sim:/tb_yolo_conv0/dut/sum_b; examine -radix signed sim:/tb_yolo_conv0/dut/prod; quit -f} -l dbg2.log -c -novopt work.tb_yolo_conv0 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+#  examine -radix signed sim:/tb_yolo_conv0/dut/acc 
+# 0
+#  examine -radix signed sim:/tb_yolo_conv0/dut/bias_rdata 
+# 4209
+#  examine -radix signed sim:/tb_yolo_conv0/dut/m_rdata 
+# 1840478927
+#  examine -radix signed sim:/tb_yolo_conv0/dut/shift_rdata 
+# 41
+#  examine -radix signed sim:/tb_yolo_conv0/dut/sum_b 
+# 4294939393
+#  examine -radix signed sim:/tb_yolo_conv0/dut/prod 
+# 7904745445558671311
+
+-- [6] intermediate 163-error state (sum_b fixed, pad not yet) --
+# [tb] stim=../stim/conv0_golden00 partial=500
+# [tb] first mismatch @oc=0 oy=0 ox=0 (lin=0) got=0 exp=87
+# TB_CONV0_FAIL compared=500/409600 errors=163 first_lin=0 got=0 exp=87
+
+-- [7] first smoke with both bugs (421 errors) --
+# [tb] stim=../stim/conv0_golden00 partial=500
+# [tb] first mismatch @oc=0 oy=0 ox=0 (lin=0) got=127 exp=87
+# TB_CONV0_FAIL compared=500/409600 errors=421 first_lin=0 got=127 exp=87

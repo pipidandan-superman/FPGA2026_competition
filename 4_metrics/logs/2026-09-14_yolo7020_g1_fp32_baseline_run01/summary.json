@@ -1,0 +1,26 @@
+{
+  "result": "G1_FP32_BASELINE_PASS",
+  "status": {
+    "weights_manifest": "PASS",
+    "local_dataset_config": "PASS",
+    "dataset_manifests": "PASS",
+    "calibration_list": "PASS (420 images, +0 background)",
+    "preprocess_reference": "PASS",
+    "fp32_baseline": "PASS"
+  },
+  "size_loss": {
+    "FP32_640_vs_FP32_416": {
+      "valid_map50_drop": -0.0154,
+      "valid_map_drop": 0.016
+    },
+    "FP32_640_vs_FP32_320": {
+      "valid_map50_drop": -0.0278,
+      "valid_map_drop": 0.0026
+    }
+  },
+  "sizes": [
+    640,
+    416,
+    320
+  ]
+}

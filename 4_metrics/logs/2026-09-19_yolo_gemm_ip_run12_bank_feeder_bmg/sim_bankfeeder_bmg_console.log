@@ -1,0 +1,257 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 13:45:50 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source sim_bankfeeder_bmg.tcl -notrace
+EES_VIVADO_STAGE COMPILE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_w_g0/sim/gemm_bm_w_g0.v E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_w_g1/sim/gemm_bm_w_g1.v E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_x_g0/sim/gemm_bm_x_g0.v E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_x_g1/sim/gemm_bm_x_g1.v E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_lut/sim/gemm_bm_lut.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_w_g0/sim/gemm_bm_w_g0.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_w_g0
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_w_g1/sim/gemm_bm_w_g1.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_w_g1
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_x_g0/sim/gemm_bm_x_g0.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_x_g0
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_x_g1/sim/gemm_bm_x_g1.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_x_g1
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_lut/sim/gemm_bm_lut.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_lut
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe -sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_feeder.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder_bmg.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_gemm_bank_tiers_bmg.sv
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_bank
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_feeder.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_feeder
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder_bmg.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_yolo_gemm_bankfeeder_bmg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_gemm_bank_tiers_bmg.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_gemm_bank_8x16_kc8
+INFO: [VRFC 10-311] analyzing module tb_gemm_bank_8x16_kc64
+INFO: [VRFC 10-311] analyzing module tb_gemm_bank_8x16_kc576
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe F:/vivado2025/2025.2/data/verilog/src/glbl.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/vivado2025/2025.2/data/verilog/src/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+EES_VIVADO_STAGE ELABORATE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -L blk_mem_gen_v8_4_12 -L unisims_ver -L unisim -s tb_bmg1 tb_gemm_bank_8x16_kc8
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -L blk_mem_gen_v8_4_12 -L unisims_ver -L unisim -s tb_bmg1 tb_gemm_bank_8x16_kc8 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_w_g0
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_w_g1
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_x_g0
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_x_g1
+Compiling module work.yolo_gemm_bank
+Compiling module work.yolo_gemm_feeder
+Compiling module work.tb_yolo_gemm_bankfeeder_bmg(P_KC...
+Compiling module work.tb_gemm_bank_8x16_kc8
+Built simulation snapshot tb_bmg1
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -L blk_mem_gen_v8_4_12 -L unisims_ver -L unisim -s tb_bmg2 tb_gemm_bank_8x16_kc64
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -L blk_mem_gen_v8_4_12 -L unisims_ver -L unisim -s tb_bmg2 tb_gemm_bank_8x16_kc64 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_w_g0
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_w_g1
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_x_g0
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_x_g1
+Compiling module work.yolo_gemm_bank
+Compiling module work.yolo_gemm_feeder
+Compiling module work.tb_yolo_gemm_bankfeeder_bmg_defa...
+Compiling module work.tb_gemm_bank_8x16_kc64
+Built simulation snapshot tb_bmg2
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -L blk_mem_gen_v8_4_12 -L unisims_ver -L unisim -s tb_bmg3 tb_gemm_bank_8x16_kc576
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -L blk_mem_gen_v8_4_12 -L unisims_ver -L unisim -s tb_bmg3 tb_gemm_bank_8x16_kc576 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_w_g0
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_w_g1
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_x_g0
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_x_g1
+Compiling module work.yolo_gemm_bank
+Compiling module work.yolo_gemm_feeder
+Compiling module work.tb_yolo_gemm_bankfeeder_bmg(P_KC...
+Compiling module work.tb_gemm_bank_8x16_kc576
+Built simulation snapshot tb_bmg3
+EES_VIVADO_STAGE SIMULATE_8X16_KC8
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_bmg1 -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 13:45:58 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_bmg1/xsim_script.tcl
+# xsim {tb_bmg1} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Block Memory Generator module tb_gemm_bank_8x16_kc8.u_tier.u_bank.u_w_g0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_gemm_bank_8x16_kc8.u_tier.u_bank.u_w_g1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_gemm_bank_8x16_kc8.u_tier.u_bank.u_x_g0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_gemm_bank_8x16_kc8.u_tier.u_bank.u_x_g1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+EES_STAGE R1_BASIC config=8x16 KC=8
+EES_STAGE_R1 checks=14 errors=0
+EES_STAGE R2_PINGPONG config=8x16 KC=8
+EES_STAGE_R2 checks=31 errors=0
+EES_STAGE R3_TIMING config=8x16 KC=8
+EES_STAGE_R3 checks=52 errors=0
+EES_STAGE R4_JITTER config=8x16 KC=8
+EES_STAGE_R4 checks=84 errors=0
+EES_STAGE R5_INDEPGP config=8x16 KC=8
+EES_STAGE_R5 checks=108 errors=0
+EES_STAGE R6_LANEWE config=8x16 KC=8
+EES_STAGE_R6 checks=114 errors=0
+EES_STAGE R7_OFFBY1 config=8x16 KC=8
+EES_STAGE_R7 checks=142 errors=0
+EES_STAGE R8_DISCIPLINE config=8x16 KC=8
+EES_STAGE_R8 checks=150 errors=0
+EES_SUMMARY checks=150 errors=0 config=8x16 KC=8 jobs=25 words=150 ld_done=27
+EES_VIVADO_RESULT PASS
+$finish called at time : 13650 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder_bmg.sv" Line 581
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep 19 13:46:00 2026...
+EES_VIVADO_STAGE SIMULATE_8X16_KC64
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_bmg2 -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 13:46:00 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_bmg2/xsim_script.tcl
+# xsim {tb_bmg2} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Block Memory Generator module tb_gemm_bank_8x16_kc64.u_tier.u_bank.u_w_g0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_gemm_bank_8x16_kc64.u_tier.u_bank.u_w_g1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_gemm_bank_8x16_kc64.u_tier.u_bank.u_x_g0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_gemm_bank_8x16_kc64.u_tier.u_bank.u_x_g1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+EES_STAGE R1_BASIC config=8x16 KC=64
+EES_STAGE_R1 checks=14 errors=0
+EES_STAGE R2_PINGPONG config=8x16 KC=64
+EES_STAGE_R2 checks=31 errors=0
+EES_STAGE R3_TIMING config=8x16 KC=64
+EES_STAGE_R3 checks=52 errors=0
+EES_STAGE R4_JITTER config=8x16 KC=64
+EES_STAGE_R4 checks=92 errors=0
+EES_STAGE R5_INDEPGP config=8x16 KC=64
+EES_STAGE_R5 checks=116 errors=0
+EES_STAGE R6_LANEWE config=8x16 KC=64
+EES_STAGE_R6 checks=122 errors=0
+EES_STAGE R7_OFFBY1 config=8x16 KC=64
+EES_STAGE_R7 checks=262 errors=0
+EES_STAGE R8_DISCIPLINE config=8x16 KC=64
+EES_STAGE_R8 checks=271 errors=0
+EES_SUMMARY checks=271 errors=0 config=8x16 KC=64 jobs=25 words=271 ld_done=27
+EES_VIVADO_RESULT PASS
+$finish called at time : 22200 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder_bmg.sv" Line 581
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep 19 13:46:02 2026...
+EES_VIVADO_STAGE SIMULATE_8X16_KC576
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_bmg3 -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 13:46:02 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_bmg3/xsim_script.tcl
+# xsim {tb_bmg3} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Block Memory Generator module tb_gemm_bank_8x16_kc576.u_tier.u_bank.u_w_g0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_gemm_bank_8x16_kc576.u_tier.u_bank.u_w_g1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_gemm_bank_8x16_kc576.u_tier.u_bank.u_x_g0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_gemm_bank_8x16_kc576.u_tier.u_bank.u_x_g1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+EES_STAGE R1_BASIC config=8x16 KC=576
+EES_STAGE_R1 checks=14 errors=0
+EES_STAGE R2_PINGPONG config=8x16 KC=576
+EES_STAGE_R2 checks=31 errors=0
+EES_STAGE R3_TIMING config=8x16 KC=576
+EES_STAGE_R3 checks=52 errors=0
+EES_STAGE R4_JITTER config=8x16 KC=576
+EES_STAGE_R4 checks=92 errors=0
+EES_STAGE R5_INDEPGP config=8x16 KC=576
+EES_STAGE_R5 checks=116 errors=0
+EES_STAGE R6_LANEWE config=8x16 KC=576
+EES_STAGE_R6 checks=122 errors=0
+EES_STAGE R7_OFFBY1 config=8x16 KC=576
+EES_STAGE_R7 checks=1286 errors=0
+EES_STAGE R8_DISCIPLINE config=8x16 KC=576
+EES_STAGE_R8 checks=1295 errors=0
+EES_SUMMARY checks=1295 errors=0 config=8x16 KC=576 jobs=25 words=1295 ld_done=27
+EES_VIVADO_RESULT PASS
+$finish called at time : 93880 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_bankfeeder_bmg.sv" Line 581
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep 19 13:46:04 2026...
+INFO: [Common 17-206] Exiting Vivado at Sat Sep 19 13:46:04 2026...

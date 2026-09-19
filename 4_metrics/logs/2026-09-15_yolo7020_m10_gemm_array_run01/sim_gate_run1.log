@@ -1,0 +1,39 @@
+# vsim +STIM=../stim/m10 +WDT_MS=900000 -do {run -all; quit -f} -l E:/competition/4_metrics/logs/2026-09-15_yolo7020_m10_gemm_array_run01/sim_gate_run1.log -c -novopt work.tb_yolo_gemm_array 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.tb_yolo_gemm_array
+# Loading work.tb_yolo_gemm_array
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.yolo_gemm_array
+# Loading work.yolo_gemm_array
+# Loading work.yolo_ctrl
+# Loading work.yolo_dma
+# Loading work.yolo_addrgen
+# Loading work.yolo_wbuf
+# Loading work.yolo_xbuf
+# Loading work.yolo_acc
+# Loading work.yolo_requant
+# Loading work.yolo_silu_lut
+# Loading work.yolo_conv_core
+# Loading work.yolo_pe_pack
+# run -all 
+# [tb] m10 stim=../stim/m10 layers=6 img_words=65621 total_out=438447
+# [tb] layer 0 done @t=28786000 (oc=7 n=49 k=27)
+# [tb] heartbeat t=10000000000 cur_layer=1 ywr=175767
+# [tb] heartbeat t=20000000000 cur_layer=1 ywr=351831
+# [tb] layer 1 done @t=23300476000 (oc=16 n=25600 k=27)
+# [tb] layer 2 done @t=23689796000 (oc=16 n=25 k=576)
+# [tb] layer 3 done @t=24115586000 (oc=9 n=256 k=64)
+# [tb] heartbeat t=30000000000 cur_layer=4 ywr=420519
+# [tb] heartbeat t=40000000000 cur_layer=4 ywr=433959
+# [tb] layer 4 done @t=43147736000 (oc=64 n=400 k=576)
+# [tb] layer 5 done @t=43917176000 (oc=8 n=25 k=2304)
+# TB_GEMM_ARRAY_PASS layers=6 compared=438447 dut_wr=438447 gold_wr=3247 ldone=6 adone=1
+# ** Note: $finish    : ../tb_yolo_gemm_array.v(655)
+#    Time: 47762600 ns  Iteration: 1  Instance: /tb_yolo_gemm_array

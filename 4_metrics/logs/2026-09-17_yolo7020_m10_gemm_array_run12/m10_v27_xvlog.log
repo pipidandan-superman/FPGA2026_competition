@@ -1,0 +1,45 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_gemm_array.v" into library work_m10v27
+INFO: [VRFC 10-311] analyzing module yolo_gemm_array
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_ctrl.v" into library work_m10v27
+INFO: [VRFC 10-311] analyzing module yolo_ctrl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_dma.v" into library work_m10v27
+INFO: [VRFC 10-311] analyzing module yolo_dma
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_addrgen.v" into library work_m10v27
+INFO: [VRFC 10-311] analyzing module yolo_addrgen
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_wbuf.v" into library work_m10v27
+INFO: [VRFC 10-311] analyzing module yolo_wbuf
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_xbuf.v" into library work_m10v27
+INFO: [VRFC 10-311] analyzing module yolo_xbuf
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v" into library work_m10v27
+INFO: [VRFC 10-311] analyzing module yolo_pe_pack
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_acc.v" into library work_m10v27
+INFO: [VRFC 10-311] analyzing module yolo_acc
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_requant.v" into library work_m10v27
+INFO: [VRFC 10-311] analyzing module yolo_requant
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_silu_lut.v" into library work_m10v27
+INFO: [VRFC 10-311] analyzing module yolo_silu_lut
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_dma_wr.v" into library work_m10v27
+INFO: [VRFC 10-311] analyzing module yolo_dma_wr
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_conv_core.v" into library work_m10v27
+INFO: [VRFC 10-311] analyzing module yolo_conv_core
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/ip/yolo_xbuf_bmg/sim/yolo_xbuf_bmg.v" into library work_m10v27
+INFO: [VRFC 10-311] analyzing module yolo_xbuf_bmg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/ip/yolo_xbuf_bmg/simulation/blk_mem_gen_v8_4.v" into library work_m10v27
+INFO: [VRFC 10-311] analyzing module STATE_LOGIC_v8_4
+INFO: [VRFC 10-311] analyzing module beh_vlog_muxf7_v8_4
+INFO: [VRFC 10-311] analyzing module beh_vlog_ff_clr_v8_4
+INFO: [VRFC 10-311] analyzing module beh_vlog_ff_pre_v8_4
+INFO: [VRFC 10-311] analyzing module beh_vlog_ff_ce_clr_v8_4
+INFO: [VRFC 10-311] analyzing module write_netlist_v8_4
+INFO: [VRFC 10-311] analyzing module read_netlist_v8_4
+INFO: [VRFC 10-311] analyzing module blk_mem_axi_write_wrapper_beh_v8_4
+INFO: [VRFC 10-311] analyzing module blk_mem_axi_read_wrapper_beh_v8_4
+INFO: [VRFC 10-311] analyzing module blk_mem_axi_regs_fwd_v8_4
+INFO: [VRFC 10-311] analyzing module blk_mem_gen_v8_4_12_output_stage
+INFO: [VRFC 10-311] analyzing module blk_mem_gen_v8_4_12_softecc_output_reg_stage
+INFO: [VRFC 10-311] analyzing module blk_mem_gen_v8_4_12_mem_module
+INFO: [VRFC 10-311] analyzing module blk_mem_gen_v8_4_12
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/sim/tb_yolo_gemm_array.v" into library work_m10v27
+INFO: [VRFC 10-311] analyzing module tb_yolo_gemm_array
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/vivado2025/2025.2/data/verilog/src/glbl.v" into library work_m10v27
+INFO: [VRFC 10-311] analyzing module glbl

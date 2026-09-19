@@ -1,0 +1,25 @@
+Reading D:/work/modelsim/tcl/vsim/pref.tcl 
+
+# 10.1c
+
+# vsim +STIM=../stim/conv0_golden00 +PARTIAL=500 -do {run -all; quit -f} -l smoke.log -c -novopt work.tb_yolo_conv0 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.tb_yolo_conv0
+# Loading sv_std.std
+# Loading work.tb_yolo_conv0
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work.yolo_conv0_core
+# Loading work.yolo_conv0_core
+# run -all 
+# [tb] stim=../stim/conv0_golden00 partial=500
+# [tb] first mismatch @oc=0 oy=0 ox=0 (lin=0) got=127 exp=87
+# TB_CONV0_FAIL compared=500/409600 errors=421 first_lin=0 got=127 exp=87
+# ** Note: $finish    : E:/competition/2_fpga/3_yolo_zynq/sim/tb_yolo_conv0.sv(108)
+#    Time: 145075 ns  Iteration: 1  Instance: /tb_yolo_conv0

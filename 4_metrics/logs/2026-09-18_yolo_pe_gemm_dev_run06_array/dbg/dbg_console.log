@@ -1,0 +1,444 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 00:02:15 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source dbg.tcl -notrace
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v" into library work
+INFO: [VRFC 10-311] analyzing module yolo_pe_pack
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe -sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_mac_cell.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_tail.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_dbg_arr.sv
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_pe_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_acc_dual
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_mac_cell.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_mac_cell
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_tail.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_tail
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_array
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_dbg_arr.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_dbg_arr
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe F:/vivado2025/2025.2/data/verilog/src/glbl.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/vivado2025/2025.2/data/verilog/src/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -L unisims_ver -L unisim -s tb_dbg tb_dbg_arr glbl
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -L unisims_ver -L unisim -s tb_dbg tb_dbg_arr glbl 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.DSP48E1(ADREG=0,ALUMODEREG=0,CAR...
+Compiling module work.yolo_pe_pack_default
+Compiling module work.yolo_pe_core
+Compiling module work.yolo_acc_dual
+Compiling module work.yolo_mac_cell
+Compiling module work.yolo_gemm_tail_default
+Compiling module work.yolo_gemm_array_default
+Compiling module work.tb_dbg_arr
+Compiling module work.glbl
+Built simulation snapshot tb_dbg
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_dbg -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 00:02:18 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_dbg/xsim_script.tcl
+# xsim {tb_dbg} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+[1000000] c=101 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1010000] c=102 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1020000] c=103 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1030000] c=104 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1040000] c=105 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1050000] c=106 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1060000] c=107 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1070000] c=108 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1080000] c=109 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1090000] c=110 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1100000] c=111 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1110000] c=112 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1120000] c=113 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1130000] c=114 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1140000] c=115 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1150000] c=116 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1160000] c=117 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1170000] c=118 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1180000] c=119 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1190000] c=120 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1200000] c=121 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1210000] c=122 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1220000] c=123 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1230000] c=124 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1240000] c=125 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1250000] c=126 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1260000] c=127 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1270000] c=128 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1280000] c=129 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1290000] c=130 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1300000] c=131 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1310000] c=132 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1320000] c=133 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1330000] c=134 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1340000] c=135 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1350000] c=136 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1360000] c=137 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1370000] c=138 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1380000] c=139 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1390000] c=140 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1400000] c=141 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1410000] c=142 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1420000] c=143 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1430000] c=144 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1440000] c=145 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1450000] c=146 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1460000] c=147 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1470000] c=148 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1480000] c=149 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1490000] c=150 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1500000] c=151 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1510000] c=152 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1520000] c=153 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1530000] c=154 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1540000] c=155 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1550000] c=156 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1560000] c=157 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1570000] c=158 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1580000] c=159 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1590000] c=160 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1600000] c=161 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1610000] c=162 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1620000] c=163 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1630000] c=164 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1640000] c=165 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1650000] c=166 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1660000] c=167 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1670000] c=168 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1680000] c=169 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1690000] c=170 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1700000] c=171 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1710000] c=172 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1720000] c=173 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1730000] c=174 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1740000] c=175 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1750000] c=176 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1760000] c=177 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1770000] c=178 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1780000] c=179 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1790000] c=180 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1800000] c=181 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1810000] c=182 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1820000] c=183 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1830000] c=184 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1840000] c=185 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1850000] c=186 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1860000] c=187 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1870000] c=188 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1880000] c=189 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1890000] c=190 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1900000] c=191 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1910000] c=192 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1920000] c=193 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1930000] c=194 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1940000] c=195 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1950000] c=196 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1960000] c=197 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1970000] c=198 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1980000] c=199 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[1990000] c=200 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2000000] c=201 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2010000] c=202 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2020000] c=203 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2030000] c=204 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2040000] c=205 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2050000] c=206 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2060000] c=207 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2070000] c=208 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2080000] c=209 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2090000] c=210 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2100000] c=211 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2110000] c=212 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2120000] c=213 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2130000] c=214 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2140000] c=215 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2150000] c=216 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2160000] c=217 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2170000] c=218 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2180000] c=219 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2190000] c=220 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2200000] c=221 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2210000] c=222 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2220000] c=223 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2230000] c=224 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2240000] c=225 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2250000] c=226 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2260000] c=227 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2270000] c=228 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2280000] c=229 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2290000] c=230 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2300000] c=231 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2310000] c=232 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2320000] c=233 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2330000] c=234 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2340000] c=235 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2350000] c=236 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2360000] c=237 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2370000] c=238 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2380000] c=239 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2390000] c=240 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2400000] c=241 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2410000] c=242 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2420000] c=243 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2430000] c=244 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2440000] c=245 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2450000] c=246 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2460000] c=247 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2470000] c=248 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2480000] c=249 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2490000] c=250 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2500000] c=251 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2510000] c=252 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2520000] c=253 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2530000] c=254 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2540000] c=255 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2550000] c=256 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2560000] c=257 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2570000] c=258 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2580000] c=259 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2590000] c=260 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2600000] c=261 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2610000] c=262 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2620000] c=263 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2630000] c=264 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2640000] c=265 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2650000] c=266 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2660000] c=267 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2670000] c=268 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2680000] c=269 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2690000] c=270 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2700000] c=271 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2710000] c=272 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2720000] c=273 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2730000] c=274 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2740000] c=275 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2750000] c=276 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2760000] c=277 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2770000] c=278 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2780000] c=279 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2790000] c=280 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2800000] c=281 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2810000] c=282 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2820000] c=283 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2830000] c=284 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2840000] c=285 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2850000] c=286 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2860000] c=287 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2870000] c=288 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2880000] c=289 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2890000] c=290 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2900000] c=291 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2910000] c=292 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2920000] c=293 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2930000] c=294 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2940000] c=295 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2950000] c=296 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2960000] c=297 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2970000] c=298 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2980000] c=299 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[2990000] c=300 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3000000] c=301 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3010000] c=302 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3020000] c=303 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3030000] c=304 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3040000] c=305 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3050000] c=306 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3060000] c=307 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3070000] c=308 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3080000] c=309 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3090000] c=310 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3100000] c=311 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3110000] c=312 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3120000] c=313 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3130000] c=314 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3140000] c=315 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3150000] c=316 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3160000] c=317 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3170000] c=318 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3180000] c=319 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3190000] c=320 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3200000] c=321 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3210000] c=322 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3220000] c=323 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3230000] c=324 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3240000] c=325 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3250000] c=326 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3260000] c=327 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3270000] c=328 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3280000] c=329 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3290000] c=330 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3300000] c=331 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3310000] c=332 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3320000] c=333 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3330000] c=334 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3340000] c=335 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3350000] c=336 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3360000] c=337 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3370000] c=338 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3380000] c=339 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3390000] c=340 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3400000] c=341 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3410000] c=342 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3420000] c=343 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3430000] c=344 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3440000] c=345 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3450000] c=346 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3460000] c=347 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3470000] c=348 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3480000] c=349 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3490000] c=350 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3500000] c=351 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3510000] c=352 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3520000] c=353 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3530000] c=354 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3540000] c=355 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3550000] c=356 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3560000] c=357 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3570000] c=358 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3580000] c=359 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3590000] c=360 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3600000] c=361 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3610000] c=362 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3620000] c=363 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3630000] c=364 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3640000] c=365 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3650000] c=366 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3660000] c=367 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3670000] c=368 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3680000] c=369 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3690000] c=370 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3700000] c=371 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3710000] c=372 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3720000] c=373 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3730000] c=374 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[3740000] c=375 st=0 kcnt=x dcnt=x ti=x fc=x nvc=x cells_done=x row_done=0000 rvl=xxxx nml=xxxx blkdone=0 tdone=0 yv=0
+[4020000] c=403 st=3 kcnt=27 dcnt=0 ti=0 fc=0 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4030000] c=404 st=3 kcnt=27 dcnt=1 ti=0 fc=0 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4040000] c=405 st=3 kcnt=27 dcnt=2 ti=0 fc=0 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4050000] c=406 st=3 kcnt=27 dcnt=3 ti=0 fc=0 nvc=12 cells_done=1 row_done=0111 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4060000] c=407 st=4 kcnt=27 dcnt=4 ti=0 fc=0 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4070000] c=408 st=4 kcnt=27 dcnt=4 ti=1 fc=1 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4080000] c=409 st=4 kcnt=27 dcnt=4 ti=2 fc=2 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4090000] c=410 st=4 kcnt=27 dcnt=4 ti=3 fc=3 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=1
+[4100000] c=411 st=4 kcnt=27 dcnt=4 ti=4 fc=4 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=1
+[4110000] c=412 st=4 kcnt=27 dcnt=4 ti=5 fc=5 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=1
+[4120000] c=413 st=4 kcnt=27 dcnt=4 ti=6 fc=6 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=1
+[4130000] c=414 st=4 kcnt=27 dcnt=4 ti=7 fc=7 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=1
+[4140000] c=415 st=4 kcnt=27 dcnt=4 ti=8 fc=8 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=1
+[4150000] c=416 st=4 kcnt=27 dcnt=4 ti=9 fc=9 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=1
+[4160000] c=417 st=4 kcnt=27 dcnt=4 ti=10 fc=10 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=1
+[4170000] c=418 st=4 kcnt=27 dcnt=4 ti=11 fc=11 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=1
+[4180000] c=419 st=4 kcnt=27 dcnt=4 ti=12 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=1
+[4190000] c=420 st=4 kcnt=27 dcnt=4 ti=13 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=1
+[4200000] c=421 st=4 kcnt=27 dcnt=4 ti=14 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=1
+[4210000] c=422 st=4 kcnt=27 dcnt=4 ti=15 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4220000] c=423 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4230000] c=424 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4240000] c=425 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4250000] c=426 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4260000] c=427 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4270000] c=428 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4280000] c=429 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4290000] c=430 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4300000] c=431 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4310000] c=432 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4320000] c=433 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4330000] c=434 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4340000] c=435 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4350000] c=436 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4360000] c=437 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4370000] c=438 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4380000] c=439 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4390000] c=440 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4400000] c=441 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4410000] c=442 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4420000] c=443 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4430000] c=444 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4440000] c=445 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4450000] c=446 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4460000] c=447 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4470000] c=448 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4480000] c=449 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4490000] c=450 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4500000] c=451 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4510000] c=452 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4520000] c=453 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4530000] c=454 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4540000] c=455 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4550000] c=456 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4560000] c=457 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4570000] c=458 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4580000] c=459 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4590000] c=460 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4600000] c=461 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4610000] c=462 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4620000] c=463 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4630000] c=464 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4640000] c=465 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4650000] c=466 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4660000] c=467 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4670000] c=468 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4680000] c=469 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4690000] c=470 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4700000] c=471 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4710000] c=472 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4720000] c=473 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4730000] c=474 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4740000] c=475 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4750000] c=476 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4760000] c=477 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4770000] c=478 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4780000] c=479 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4790000] c=480 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4800000] c=481 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4810000] c=482 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4820000] c=483 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4830000] c=484 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4840000] c=485 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4850000] c=486 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4860000] c=487 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4870000] c=488 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4880000] c=489 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4890000] c=490 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4900000] c=491 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4910000] c=492 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4920000] c=493 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4930000] c=494 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4940000] c=495 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4950000] c=496 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4960000] c=497 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4970000] c=498 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4980000] c=499 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[4990000] c=500 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+[5000000] c=501 st=5 kcnt=27 dcnt=4 ti=16 fc=12 nvc=12 cells_done=0 row_done=0000 rvl=0111 nml=1111 blkdone=0 tdone=0 yv=0
+DBG_STOP
+$finish called at time : 5 us : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_dbg_arr.sv" Line 39
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep 19 00:02:20 2026...
+INFO: [Common 17-206] Exiting Vivado at Sat Sep 19 00:02:20 2026...

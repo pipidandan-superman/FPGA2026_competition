@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_xrowgen.v" into library work
+INFO: [VRFC 10-311] analyzing module yolo_xrowgen
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/sim/tb_yolo_xrowgen.v" into library work
+INFO: [VRFC 10-311] analyzing module tb_yolo_xrowgen

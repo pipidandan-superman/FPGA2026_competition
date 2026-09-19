@@ -1,0 +1,13 @@
+[sudo] password for xilinx: == PLL_CTRL raw (FBDIV=[18:12]) ==
+ARM  off=0x100 raw=0x00028000 FBDIV=40 -> 1333.33 MHz (ref 33.3333)
+DDR  off=0x104 raw=0x00020000 FBDIV=32 -> 1066.67 MHz (ref 33.3333)
+IO   off=0x108 raw=0x0001E000 FBDIV=30 -> 1000.00 MHz (ref 33.3333)
+
+== CPU + FPGA clk ctrl raw (UG585: srcsel[25:20] div1[13:8] div0[4:0]) ==
+ARM_CLK_CTRL 0x120 raw=0x1F000200  div[13:8]=2 src[5:4]=0
+FPGA0_CLK_CTRL 0x170 raw=0x00200500  src=ARM div0=0 div1=5 -> true=266.67 MHz
+FPGA1_CLK_CTRL 0x180 raw=0x00100F00  src=IO div0=0 div1=15 -> true=66.67 MHz
+FPGA2_CLK_CTRL 0x190 raw=0x00100F00  src=IO div0=0 div1=15 -> true=66.67 MHz
+FPGA3_CLK_CTRL 0x1A0 raw=0x00100F00  src=IO div0=0 div1=15 -> true=66.67 MHz
+
+(FPGA0 = post pynq-write state this session; FPGA1-3 = untouched boot residual)

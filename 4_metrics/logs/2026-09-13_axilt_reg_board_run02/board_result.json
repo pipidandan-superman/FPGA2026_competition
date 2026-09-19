@@ -1,0 +1,9 @@
+{
+  "stage": "REG_BOARD",
+  "state": "REGISTER_TEST_PASS",
+  "completed": 1000,
+  "reloads": 3,
+  "recovery": "SERVICE_ACTIVE_VIDEO_CHECK_PENDING",
+  "bram": "NOT_STARTED",
+  "marker": "AXILT_REG_BOARD_TEST_PASS"
+}

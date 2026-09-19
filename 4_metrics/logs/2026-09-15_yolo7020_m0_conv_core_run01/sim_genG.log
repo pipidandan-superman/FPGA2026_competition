@@ -1,0 +1,18 @@
+# vsim +STIM=../stim/genG_k64_1x1_rand +CASE=genG +WDT_MS=60 -do {run -all; quit -f} -l E:/competition/4_metrics/logs/2026-09-15_yolo7020_m0_conv_core_run01/sim_genG.log -c -novopt -gSW=1 -gSH=1 -gIC=64 -gPW=0 -gIW=8 -gPH=0 -gIH=8 -gOC=2 -gKW=1 -gKH=1 -gHAS_ACT=1 -gPAD_VAL=0 work.tb_yolo_conv_core 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading work.tb_yolo_conv_core
+# Loading work.yolo_conv_core
+# run -all 
+# [tb] case=genG IC=64 OC=2 KH=1 KW=1 IH=8 IW=8 SH=1 SW=1 PH=0 PW=0 PAD=0 ACT=1 KP=64 OH=8 OW=8 NY=128
+# [tb] stim=../stim/genG_k64_1x1_rand wdt_ms=60
+# TB_CONVGEN_PASS case=genG compared=128/128
+# ** Note: $finish    : ../tb_yolo_conv_core.v(241)
+#    Time: 84555 ns  Iteration: 1  Instance: /tb_yolo_conv_core

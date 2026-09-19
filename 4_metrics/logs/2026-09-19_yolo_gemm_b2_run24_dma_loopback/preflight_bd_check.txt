@@ -1,0 +1,67 @@
+# run24 B2 预检（PC 侧，纯文件级，2026-09-19 18:26）
+
+被测件：proj/axi_gemm_test impl_1（用户 GUI 完成 DMA 添加+接线+比特流，
+本预检未开 Vivado、未碰 .xpr）。
+
+## 1. 构建产物
+
+| 件 | 值 |
+|---|---|
+| display_test_wrapper.bit | 4,045,696 B，2026-09-19 17:59，sha256 `6d91f2b5b17ffca3a88ef27892c9d5037ad2c0acf4b9e370337fd816b3fbee89` |
+| display_test_wrapper.hwh | 325,120 B（hw_handoff 17:54，BD 定稿先于实现），sha256 `0b35ee8f7a752bc1261cd2bb41c3d9758b0ca1604454e6b379bb8968b51ec77d` |
+| 时序 | WNS +6.087 / WHS +0.016 / TNS 0 / 全约束满足（50MHz FCLK0） |
+| DRC | routed 0 违例 |
+| 资源 | BRAM36=24（B1 基线 21 + DMA SF/FIFO）、DSP=68（与 run16/20/22 精确对账不变） |
+
+## 2. BD 地址表（.srcs/.../display_test.bd JSON，addressing 树）
+
+| 段 | 偏移 | 范围 |
+|---|---|---|
+| SEG_axi_dma_0_Reg | **0x40400000** | 64K |
+| SEG_u_yolo_csr_reg0 | 0x43C10000 | 64K（原样） |
+| SEG_u_yolo_gemm_reg0 | 0x43C00000 | 64K（原样） |
+| axi_dma_0/Data_MM2S → HP0_DDR_LOWOCM | 0x00000000 | 1G |
+| axi_dma_0/Data_S2MM → HP0_DDR_LOWOCM | 0x00000000 | 1G |
+
+## 3. 连线（interface_nets 逐条）
+
+- `axi_dma_0/M_AXIS_MM2S ↔ axi_dma_0/S_AXIS_S2MM`（回环直连）
+- `axi_dma_0/M_AXI_MM2S → axi_mem_intercon/S00_AXI`，
+  `M_AXI_S2MM → S01_AXI`，`axi_mem_intercon/M00_AXI → processing_system7_0/S_AXI_HP0`
+- `axi_ic0/M02_AXI → axi_dma_0/S_AXI_LITE`（ic0 NUM_MI=3；M00/M01 csr/gemm 原样）
+- 中断 mm2s/s2mm_introut 未接 IRQ_F2P（轮询模式，DRC 0 违例无碍）
+
+## 4. axi_dma_0 配置（.xci JSON model_parameters，权威）
+
+INCLUDE_MM2S=1 INCLUDE_S2MM=1 **INCLUDE_SG=0** MICRO_DMA=0 MULTI_CHANNEL=0
+PRMRY_IS_ACLK_ASYNC=0 **流宽 64/64（M_AXIS_MM2S/S_AXIS_S2MM_TDATA_WIDTH）**
+**存储映射宽 64/64** SG_LENGTH_WIDTH=20（1MB 上限） DRE=0/0（仅对齐）
+S_AXI_LITE_ADDR_WIDTH=10。
+（用户未勾 Single AXI4 Data Interface：双 M_AXI 经自动化生成的
+axi_mem_intercon 合一进 HP0，与单口方案等效。）
+
+## 5. DMA 寄存器模型（.xci memory_maps/S_AXI_LITE，驱动逐字转录源）
+
+- MM2S_DMACR 0x00：RS[0] Reset[2] Keyhole[3] Cyclic[4] IOC_IrqEn[12]
+  Dly_IrqEn[13] Err_IrqEn[14] IRQThreshold[23:16] IRQDelay[31:24]；reset 0x10002
+- MM2S_DMASR 0x04：Halted[0] Idle[1] SGIncld[3] DMAIntErr[4] DMASlvErr[5]
+  DMADecErr[6] SG*Err[8:10] IOC_Irq[12] Dly_Irq[13] Err_Irq[14]
+  IRQThresholdSts[23:16]；reset 0x10000
+- MM2S_SA 0x18 / MM2S_SA_MSB 0x1C / MM2S_LENGTH 0x28
+- S2MM_DMACR 0x30 / S2MM_DMASR 0x34 / S2MM_DA 0x48 / S2MM_DA_MSB 0x4C /
+  S2MM_LENGTH 0x58（字段与 MM2S 对称）
+
+## 6. HWH 预检
+
+axi_dma_0 出现 171 处、0x40400000 命中 2 处（CK1 运行时以 ip_dict
+phys_addr 判）。
+
+## 7. 驱动
+
+`pl_b2_loopback.py`（py_compile 过）：路径 A = run23 S1/S2/S3+soft_rst 逐字
+复用（种子 0x5119/0x2240/0x3396）；路径 B = DB1-DB7 回环门（详见文件头）。
+DB7 交叉存活性 = DMA 复位后恢复传输 + GEMM 全幅 S1 新种子(0x7E11)重跑。
+
+## 8. 上板判据（用户在场）
+
+CK1-CK5 加载/身份 + CK6-CK9 回归 + DB1-DB7 回环 → **BOARD_B2_PASS**。

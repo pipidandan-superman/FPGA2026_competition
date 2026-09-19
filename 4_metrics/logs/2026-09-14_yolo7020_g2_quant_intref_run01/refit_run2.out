@@ -1,0 +1,18 @@
+[1] unit tests PASS (RNE 14 hand cases + dyadic oracle exact)
+[2] calibrated 420 images -> 191 tensor scales (p99.99 clip: 191/191 nodes, median shrink 0.580)
+[3] built 63 QConv nodes
+E:\competition\4_metrics\logs\2026-09-14_yolo7020_g2_quant_intref_run01\intref_yolov8.py:49: RuntimeWarning: overflow encountered in scalar negative
+  q = q + np.where(twice > full, 1, 0) + np.where(twice < -full, -1, 0)
+E:\competition\4_metrics\logs\2026-09-14_yolo7020_g2_quant_intref_run01\intref_yolov8.py:50: RuntimeWarning: overflow encountered in scalar negative
+  tie = (twice == full) | (twice == -full)
+[3b] refit iter 0/6: scale/old median 0.9519 range [0.8394, 1.0143] (84s)
+[3b] refit iter 1/6: scale/old median 0.9589 range [0.8350, 1.0190] (84s)
+[3b] refit iter 2/6: scale/old median 0.9685 range [0.8377, 1.0524] (84s)
+[3b] refit iter 3/6: scale/old median 0.9635 range [0.8572, 1.0107] (84s)
+[3b] refit iter 4/6: scale/old median 0.9562 range [0.8852, 1.0055] (84s)
+[3b] refit iter 5/6: scale/old median 0.9592 range [0.8862, 1.0094] (84s)
+[4] layer cosine: worst=0.8749 @ model.8.cv1 over 165 checks
+[5] exported: 63 nodes
+[6] valid: FP mAP50=0.8939 INT8 mAP50=0.8596 drop=+0.0344
+[6] test: FP mAP50=0.7255 INT8 mAP50=0.6430 drop=+0.0824
+# FINAL: {"result": "G2_ACCURACY_GATE_SOFT_FAIL", "status": {"rne_unit": "PASS", "int64_oracle_conv": "PASS", "calibration": "PASS (420 imgs, 191 tensors, p99.99 clip on 191/191, median shrink 0.580, 25s)", "graph_build": "PASS (63 QConv nodes)", "scale_refit": "PASS (6 iters x 128 calib imgs, 73 sites, final median ratio 0.9592)", "int_vs_fp_layers": "PASS (worst cosine 0.8749 @ model.8.cv1, 165 checks)", "package_export": "PASS (63 nodes, w3001584B b86608B l14592B)", "eval": "PASS (valid drop +0.0344; plan gate <=0.02)", "golden": "PASS (5 deep + 128 regression frames, 88s)"}, "valid_drop_map50": 0.034374231479064155}

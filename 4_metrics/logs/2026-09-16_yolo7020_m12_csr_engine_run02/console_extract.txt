@@ -1,0 +1,17 @@
+== console_extract: M12 CSR/engine 门 rerun run02（xsim，源语 DSP + BMG IP）==
+
+-- 编译 --
+xvlog: 13 个引擎 RTL + conv_core(TB 黄金) + ip/yolo_xbuf_bmg/sim 包装
+       + tb_yolo_engine_top.v + glbl.v（独立目录 sim/xsim_eng，0 error）
+xelab: tb_yolo_engine_top glbl -s snap_eng -L blk_mem_gen_v8_4_12
+       -L unisim -L unisims_ver -timescale 1ns/1ps → Built snap_eng
+
+-- 运行 --
+TB_CSR_ENGINE_PASS layers=6 compared=438447 dut_wr=438447 gold_wr=3247
+                    ldone=6 adone=1 csr=0
+（与 run01 七项计数逐一相同：layers/compared/dut_wr/gold_wr/ldone/
+  adone/csr；csr=0 = AXI-Lite 协议/读回/IRQ 零错）
+
+-- 激励零漂移 --
+stim/m10 与 run01 同集（22 hex + manifest；本日 M10 run04 已做逐一
+哈希比对零失配，同文件集）；tb_yolo_engine_top.v 未改。

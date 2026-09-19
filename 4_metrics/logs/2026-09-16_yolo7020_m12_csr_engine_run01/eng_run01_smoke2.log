@@ -1,0 +1,32 @@
+# vsim +STIM=../stim/m10 +MAXLAYER=1 +WDT_MS=600000 -do {run -all; quit -f} -l eng_run01_smoke2.log -c -novopt work_eng.tb_yolo_engine_top 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Refreshing E:/competition/2_fpga/3_yolo_zynq/sim/msim/work_eng.tb_yolo_engine_top
+# Loading work_eng.tb_yolo_engine_top
+# Loading work_eng.yolo_engine_top
+# Loading work_eng.yolo_csr
+# Loading work_eng.yolo_gemm_array
+# Loading work_eng.yolo_ctrl
+# Loading work_eng.yolo_dma
+# Loading work_eng.yolo_addrgen
+# Loading work_eng.yolo_wbuf
+# Loading work_eng.yolo_xbuf
+# Loading work_eng.yolo_acc
+# Loading work_eng.yolo_requant
+# Loading work_eng.yolo_silu_lut
+# Loading work_eng.yolo_dma_wr
+# Loading work_eng.yolo_conv_core
+# Loading work_eng.yolo_pe_pack
+# run -all 
+# [tb] engine stim=../stim/m10 layers=6 img_words=65621 total_out=438447
+# [tb] layer 0 done @t=35890000 (oc=7 n=49 k=27)
+# TB_CSR_ENGINE_SMOKE layers=1 compared=343 dut_wr=343 gold_wr=343 ldone=1 csr=0
+# ** Note: $finish    : ../tb_yolo_engine_top.v(975)
+#    Time: 108740 ns  Iteration: 1  Instance: /tb_yolo_engine_top
