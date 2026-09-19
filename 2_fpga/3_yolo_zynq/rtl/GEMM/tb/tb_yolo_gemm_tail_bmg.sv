@@ -5,12 +5,13 @@
  * Module Name   : tb_yolo_gemm_tail_bmg
  * Description   : run13 共享尾独立门仿真（BMG IP 重做第三门）。
  *
- *   DUT: rtl/GEMM/yolo_gemm_tail.sv V2.0（GEMM 手册 §8 全链：
+ *   DUT: rtl/GEMM/yolo_gemm_tail.sv V2.1（GEMM 手册 §8 全链：
  *   sum 33 位 → prod 64 位 → RNE(ties-to-even, s=0 直通) → INT8 饱和
- *   → LUT addr=sat+128 / 线性旁路；D→D+4 四级流水——SiLU LUT 为 BMG
- *   IP 实例（gemm_bm_lut SDP 8x256，读延迟 1），stage3 组合地址直驱
- *   BMG 读口、BMG 内部寄存器即第 3 级，edge4 寄存 y）。
- *   相对 run05 TB 的唯一功能变更：延迟硬查 3 → 4。
+ *   → LUT addr=sat+128 / 线性旁路；D→D+5 五级流水——SiLU LUT 为 BMG
+ *   IP 实例（gemm_bm_lut SDP 8x256，读延迟 1），stage3 RNE（magic-add
+ *   等价式）寄存 qn、stage4 饱和/地址直驱 BMG 读口（BMG 内部寄存器
+ *   即第 4 级），edge5 寄存 y。run16 WNS 决策 A+B 后重演。
+ *   相对 run05 TB 的唯一功能变更：延迟硬查 3 → 5。
  *
  *   期望值来源（GEMM 手册 §14：更宽独立 oracle，永不取自被测公式）：
  *   - tail_model()：TB 独立实现——截断除法 + floor 修正 + RNE，
@@ -137,9 +138,9 @@ module tb_yolo_gemm_tail_bmg;
                     end else begin
                         checks = checks + 1;
                     end
-                    if ((cyc - dtags[rp]) != 4) begin
+                    if ((cyc - dtags[rp]) != 5) begin
                         lat_err = lat_err + 1;
-                        $display("EES_TAIL_ERR [%0t] latency cyc-tag=%0d want 4",
+                        $display("EES_TAIL_ERR [%0t] latency cyc-tag=%0d want 5",
                                  $time, cyc - dtags[rp]);
                     end
                     if (y_last !== exp_last[rp]) begin

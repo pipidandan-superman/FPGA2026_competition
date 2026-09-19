@@ -1,0 +1,222 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 14:28:26 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source sim_gemm_array_v22.tcl -notrace
+EES_VIVADO_STAGE COMPILE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v" into library work
+INFO: [VRFC 10-311] analyzing module yolo_pe_pack
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_lut/sim/gemm_bm_lut.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_lut/sim/gemm_bm_lut.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_lut
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe -sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_mac_cell.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_tail.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_array_bmg.sv
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_pe_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_acc_dual
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_mac_cell.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_mac_cell
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_tail.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_tail
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_array
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_array_bmg.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_yolo_gemm_array_bmg
+INFO: [VRFC 10-311] analyzing module tb_gemm_array_4x4_bmg
+INFO: [VRFC 10-311] analyzing module tb_gemm_array_8x16_bmg
+INFO: [VRFC 10-311] analyzing module tb_gemm_array_16x16_bmg
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe F:/vivado2025/2025.2/data/verilog/src/glbl.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/vivado2025/2025.2/data/verilog/src/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+EES_VIVADO_STAGE ELABORATE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -L blk_mem_gen_v8_4_12 -L unisims_ver -L unisim -s tb_arr4_bmg tb_gemm_array_4x4_bmg glbl
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -L blk_mem_gen_v8_4_12 -L unisims_ver -L unisim -s tb_arr4_bmg tb_gemm_array_4x4_bmg glbl 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.DSP48E1(ADREG=0,ALUMODEREG=0,CAR...
+Compiling module work.yolo_pe_pack_default
+Compiling module work.yolo_pe_core
+Compiling module work.yolo_acc_dual
+Compiling module work.yolo_mac_cell
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_lut
+Compiling module work.yolo_gemm_tail_default
+Compiling module work.yolo_gemm_array_default
+Compiling module work.tb_yolo_gemm_array_bmg_default
+Compiling module work.tb_gemm_array_4x4_bmg
+Compiling module work.glbl
+Built simulation snapshot tb_arr4_bmg
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -L blk_mem_gen_v8_4_12 -L unisims_ver -L unisim -s tb_arr8_bmg tb_gemm_array_8x16_bmg glbl
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -L blk_mem_gen_v8_4_12 -L unisims_ver -L unisim -s tb_arr8_bmg tb_gemm_array_8x16_bmg glbl 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.DSP48E1(ADREG=0,ALUMODEREG=0,CAR...
+Compiling module work.yolo_pe_pack_default
+Compiling module work.yolo_pe_core
+Compiling module work.yolo_acc_dual
+Compiling module work.yolo_mac_cell
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_lut
+Compiling module work.yolo_gemm_tail_default
+Compiling module work.yolo_gemm_array(P_TO=8,P_TN=16)
+Compiling module work.tb_yolo_gemm_array_bmg(P_TO=8,P_...
+Compiling module work.tb_gemm_array_8x16_bmg
+Compiling module work.glbl
+Built simulation snapshot tb_arr8_bmg
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -L blk_mem_gen_v8_4_12 -L unisims_ver -L unisim -s tb_arr16_bmg tb_gemm_array_16x16_bmg glbl
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -L blk_mem_gen_v8_4_12 -L unisims_ver -L unisim -s tb_arr16_bmg tb_gemm_array_16x16_bmg glbl 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.DSP48E1(ADREG=0,ALUMODEREG=0,CAR...
+Compiling module work.yolo_pe_pack_default
+Compiling module work.yolo_pe_core
+Compiling module work.yolo_acc_dual
+Compiling module work.yolo_mac_cell
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_lut
+Compiling module work.yolo_gemm_tail_default
+Compiling module work.yolo_gemm_array(P_TO=16,P_TN=16)
+Compiling module work.tb_yolo_gemm_array_bmg(P_TO=16,P...
+Compiling module work.tb_gemm_array_16x16_bmg
+Compiling module work.glbl
+Built simulation snapshot tb_arr16_bmg
+EES_VIVADO_STAGE SIMULATE_4X4
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_arr4_bmg -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 14:28:44 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_arr4_bmg/xsim_script.tcl
+# xsim {tb_arr4_bmg} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Block Memory Generator module tb_gemm_array_4x4_bmg.u.dut.u_tail.lane[0].u_lut_bmg.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+EES_ARR_INFO G1_K_SWEEP done (4x4)
+EES_ARR_INFO G2_BLOCKING done
+EES_ARR_INFO G3_IRREG done
+EES_ARR_INFO G4_MASK_TAILS done
+EES_ARR_INFO G5_JITTER done
+EES_ARR_INFO G6_RST_MID done
+EES_ARR_INFO G7_BACKTOBACK done
+EES_ARR_INFO G8_FIRSTLAYER done
+EES_ARR_INFO G9_RANDOM done (40 tiles)
+EES_SUMMARY checks=846 errors=0 proto_err=0
+EES_ARR_INFO config=4x4 tiles started=62 done=60 aborted=2 y=846
+EES_ARR_INFO blocks_fed=72 blk_done=12
+EES_VIVADO_RESULT PASS
+$finish called at time : 157420 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_array_bmg.sv" Line 543
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep 19 14:28:48 2026...
+EES_VIVADO_STAGE SIMULATE_8X16
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_arr8_bmg -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 14:28:48 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_arr8_bmg/xsim_script.tcl
+# xsim {tb_arr8_bmg} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Block Memory Generator module tb_gemm_array_8x16_bmg.u.dut.u_tail.lane[0].u_lut_bmg.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+EES_ARR_INFO G1_K_SWEEP done (8x16)
+EES_ARR_INFO G2_BLOCKING done
+EES_ARR_INFO G3_IRREG done
+EES_ARR_INFO G4_MASK_TAILS done
+EES_ARR_INFO G5_JITTER done
+EES_ARR_INFO G6_RST_MID done
+EES_ARR_INFO G7_BACKTOBACK done
+EES_ARR_INFO G8_FIRSTLAYER done
+EES_ARR_INFO G9_RANDOM done (15 tiles)
+EES_SUMMARY checks=4250 errors=0 proto_err=0
+EES_ARR_INFO config=8x16 tiles started=37 done=35 aborted=2 y=4250
+EES_ARR_INFO blocks_fed=47 blk_done=12
+EES_VIVADO_RESULT PASS
+$finish called at time : 166240 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_array_bmg.sv" Line 543
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:19 . Memory (MB): peak = 222.332 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 23204 KB (Peak: 23204 KB), Simulation CPU Usage: 18952 ms
+INFO: [Common 17-206] Exiting xsim at Sat Sep 19 14:29:09 2026...
+EES_VIVADO_STAGE SIMULATE_16X16
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_arr16_bmg -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 14:29:10 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_arr16_bmg/xsim_script.tcl
+# xsim {tb_arr16_bmg} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Block Memory Generator module tb_gemm_array_16x16_bmg.u.dut.u_tail.lane[0].u_lut_bmg.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+EES_ARR_INFO G1_K_SWEEP done (16x16)
+EES_ARR_INFO G2_BLOCKING done
+EES_ARR_INFO G3_IRREG done
+EES_ARR_INFO G4_MASK_TAILS done
+EES_ARR_INFO G5_JITTER done
+EES_ARR_INFO G6_RST_MID done
+EES_ARR_INFO G7_BACKTOBACK done
+EES_ARR_INFO G8_FIRSTLAYER done
+EES_ARR_INFO G9_RANDOM done (8 tiles)
+EES_SUMMARY checks=6881 errors=0 proto_err=0
+EES_ARR_INFO config=16x16 tiles started=30 done=28 aborted=2 y=6881
+EES_ARR_INFO blocks_fed=40 blk_done=12
+EES_VIVADO_RESULT PASS
+$finish called at time : 169010 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_array_bmg.sv" Line 543
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:36 . Memory (MB): peak = 224.730 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 34704 KB (Peak: 34704 KB), Simulation CPU Usage: 35514 ms
+INFO: [Common 17-206] Exiting xsim at Sat Sep 19 14:29:48 2026...
+INFO: [Common 17-206] Exiting Vivado at Sat Sep 19 14:29:48 2026...

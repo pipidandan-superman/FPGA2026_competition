@@ -71,6 +71,10 @@
  *     presenting y_row/y_col one beat EARLY against y_valid/y_o.
  *     Mirror deepened to 4 stages (yr4/yn4) -- the only change; gate
  *     evidence run14.
+ *   - V2.2 (2026-09-19) by LSL : tail V2.1 (run16 WNS decision A+B,
+ *     user authorized) deepened D+4 -> D+5 (RNE and sat/addr split).
+ *     Mirror deepened to 5 stages (yr5/yn5) -- the only change; gate
+ *     evidence run18.
  ************************************************************************/
 
 module yolo_gemm_array #(
@@ -290,15 +294,16 @@ module yolo_gemm_array #(
     assign tail_feed_v = (state == S_TAIL) && el_valid;
     wire       tail_in_last = tail_feed_v && (fc == n_valid_cnt - 9'd1);
 
-    // 坐标四拍对齐（捕获于喂拍，与尾 valid 同相呈现——尾 V2.0 D+4）
-    reg [$clog2(P_TO)-1:0] yr1, yr2, yr3, yr4;
-    reg [$clog2(P_TN)-1:0] yn1, yn2, yn3, yn4;
+    // 坐标五拍对齐（捕获于喂拍，与尾 valid 同相呈现——尾 V2.1 D+5）
+    reg [$clog2(P_TO)-1:0] yr1, yr2, yr3, yr4, yr5;
+    reg [$clog2(P_TN)-1:0] yn1, yn2, yn3, yn4, yn5;
     always @(posedge clk_i) begin
         yr1 <= ti_r[$clog2(P_TO)-1:0];
         yn1 <= ti_n[$clog2(P_TN)-1:0];
         yr2 <= yr1; yn2 <= yn1;
         yr3 <= yr2; yn3 <= yn2;
         yr4 <= yr3; yn4 <= yn3;
+        yr5 <= yr4; yn5 <= yn4;
     end
 
     // ---- 共享尾（每阵列一个，§8 全链）----
@@ -329,8 +334,8 @@ module yolo_gemm_array #(
 
     assign y_valid_o = tail_y_valid;
     assign y_o       = tail_y;
-    assign y_row_o   = yr4;
-    assign y_col_o   = yn4;
+    assign y_row_o   = yr5;
+    assign y_col_o   = yn5;
     assign blk_done_o  = blk_done_r;
     assign tile_done_o = tile_done_r;
     assign busy_o      = (state != S_IDLE);
