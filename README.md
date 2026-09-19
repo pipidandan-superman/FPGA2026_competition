@@ -2,6 +2,10 @@
 
 > 全项目进度总览（软件/硬件两部分）：[progress.md](progress.md)。本 README 只保留最近动态，历史细节见 [HANDOFF.md](HANDOFF.md) 与 `7_logs/`。
 
+## 2026-09-19（晚）PE/GEMM 上板线：B1+B2 板级双收官（BOARD_B1_PASS / BOARD_B2_PASS）
+
+**硬件线（手册重设计·上板）**：晨间 G2 计划批准后白班连收两链——**IP 硬指标重做 run11–16**（数据通路全真 IP：DSP48E1 打包 + BMG/SDP LUT，例化逐端口对 .veo；OOC 资源判据精确命中 BRAM36=12+RAMB18=1、DSP=68）+ **WNS A+B 收敛 run17–20**（tail V2.2 并行逐位判决 RNE，纯 OR 树无宽进位链，**100MHz WNS+1.392**）。**B1 三门**：run21 顶层门（`yolo_gemm_top.v` V1.0，544 checks 两轮一致）+ run22/22b BD 比特流（u_yolo_gemm @0x43C00000/64K，WNS+4.954 @50MHz、DSP=68 与 OOC 对账无黑盒）+ **run23 板级 BOARD_B1_PASS**（288/288 回读零错，2464 次 GP0 写零挂死）。**B2 run24 板级 BOARD_B2_PASS**：用户 GUI 加 axi_dma 7.1 回环直连+HP0、零仿真直接上板（官方 IP）——GEMM 回归与 run23 逐值相同 + DMA 4096/137/1/1000/8192 全对拍/连发/软复位恢复/交叉存活性全绿；**HP 口启用不碍 overlay 实证；板上新基线=GEMM+CSR+DMA 三从机共存**。overlay skill 同批修正三条通用方法论并按用户原则"skill=通用方法论"四层归位（IP/工程细节出 skill），同步 `.claude/skills/` 与 `6_skill/`。Git：白班两链 11b3b7b/8fca71b，B1=af407c0，B2 批本批推送（main 不动）。下一步 **B3 DMA+GEMM 大 KC（需桥接设计立项+授权）→ B4 全联**。证据：`4_metrics/logs/2026-09-19_yolo_gemm_{ip_run11..20,b1_run2{1,2,3},b2_run24}_*/`、`7_logs/2026-09-19/07–11`。
+
 ## 2026-09-19 PPU 非线性算子并行线：七门全绿收官 + 迁移入库
 
 **硬件线（隔夜并行批）**：与 PE/GEMM 线并行的图算子线（用户隔夜授权防撞暂存，晨间有序迁移主树并入主日志根）——P0 手册+ABI 事实核验 **28/28** → P1 oracle 全图回放对软件 golden **5×53=265 位级 0 失配** → **P2a–e 五算子核 RTL 门全 PASS**：requant 11043 / upsample2 643001 / maxpool5 13962（含 pad 物化≡有效位掩码双模型交叉）/ add 12679（int64 不逐路饱和→int32 合同截断）/ xfer 2842（恒等捷径≡全量 requant 等价钉死）；期望三源独立 + posedge 镜像延迟记分板 + rst 在飞击杀复检 + 反退化配额断言（平局/饱和/死通道/s 全 63 档）。RTL 每算子一夹 `2_fpga/3_yolo_zynq/rtl/PPU/` + TB `rtl/PPU/tb/`，vecgen+oracle 平铺 `sim/`，手册 `1_docs/yolo_ppu_design_manual_20260918.md`；证据 7 run 目录入 `4_metrics/logs/`，日志并入 `7_logs/2026-09-19/06`。已推 `codex/full/pipidandan-superman`（fa26666）。下一步：P3 经用户决策撤销独立门（schedule.json 邻接反查=25 引擎任务 64% 输入直连 conv、引擎间仅 9 处缓冲级邻接，手册 §7 撤销注记），walker/描述符译码并入 GEMM 线 G4 共定合同，41 任务回放留作 P4/G5 bring-up 二分调试工具；PPU 线仿真阶段收官，P4/G5 双线汇合待协调。

@@ -1,5 +1,14 @@
 # EES-331 项目交接
 
+## 2026-09-19（晚）PE/GEMM 上板线 B1+B2 板级双收官 + overlay skill 通用性修正与同步
+
+- **背景**：晨间 G2 架构收敛与执行计划批准（8×16 基线、Kc=576/1024、双组 TDP PPRAM 禁 FIFO；`1_docs/yolo_gemm_g2g4g7_execution_plan_20260919.md`）后，白班连推两条链（证据 `7_logs/2026-09-19/07–09`，git 11b3b7b/8fca71b）：**IP 硬指标重做链 run11–16**（用户硬指标=数据通路全真 IP、DSP48E1 primitive 合规、例化逐端口对 .veo；六门 PASS，OOC 资源判据精确命中 BRAM36=12+RAMB18=1、DSP=68）+ **WNS A+B 收敛链 run17–20**（tail V2.2 并行逐位判决 `ru=prod[s−1]&(rem|prod[s])` 纯 OR 树无宽进位链，**100MHz WNS+1.392** TNS/THS=0）。本批承接 B1/B2 上板与收尾。
+- **B1（GEMM 顶层上板）三门收官**：run21 顶层门（`rtl/GEMM/yolo_gemm_top.v` V1.0=AXI-Lite 寄存器文件+core V1.1+ycap 坐标捕获，544 checks 两轮一致；关键语义=tile 边界取 y 流对齐的 tile_done 脉冲，y_count 双寄存器）；run22/22b BD+比特流（工程 `proj/axi_gemm_test`，M01 u_yolo_gemm @0x43C00000/64K 与 u_yolo_csr 共存；WNS+4.954 @50MHz、DSP=68 与 OOC 对账无黑盒、DRC0；22b 修复 GUI 会话互斥踩掉的 .xpr，reset_run 全链重建终态逐位同值）；run23 板级 **BOARD_B1_PASS**（一跑全绿：S1/S2/S3=TB 正典序列+Python 独立 oracle，**288/288 回读零错**（y_count 128/32/128、幻影槽保旧 0x25、STATUS 0x28/0x38 自洽），2464 次 GP0 写零挂死——M13 写毒在本架构确证不存在）。
+- **B2（PS-DMA 回环）run24 板级收官 BOARD_B2_PASS**：分工=用户 GUI 加 axi_dma 7.1（SG 关/64b 流+映射双宽/SG_LENGTH_WIDTH=20/仅对齐）M_AXIS_MM2S→S_AXIS_S2MM 直连回环 + M_AXI 经 axi_mem_intercon→PS7 HP0，我纯文件预检+板测（**零仿真，官方 IP，用户决策**）。预检全绿（时序 WNS+6.087/DRC0/DSP68 不变；地址表 DMA=0x40400000/64K；连线/配置/寄存器模型从 .xci memory_maps 逐字转录，零猜测）；上板一跑全绿：A 路 GEMM 回归与 run23 **逐值相同**（BD 加 M02+HP0 未波及），B 路 4096/137/1/1000/8192 全对拍（1B 部分拍）+连发×3+软复位恢复（DMACR 回 0x10002 与 XCI 复位值逐位一致）+交叉存活性（DMA 复位后 GEMM 新种子 S1 重跑 128/128）；总账 wop=3462 rb_ok=416 rb_bad=0 db_ok=9 db_bad=0。**板级结论：HP 口启用不构成 overlay 障碍（fpga_manager 只写 PL）实证；CMA(allocate)+HP 非一致口免 cache 维护成立；板上新基线=GEMM+CSR+DMA 三从机共存**。
+- **overlay skill 修正（用户指令，经二次纠正按通用性归位）**：SKILL.md 增三条**通用方法论**（预检等终态，active≠终态；PS-PL 口使能（GP/HP/ACP/IRQ）是 FSBL 侧配置不碍 overlay；寄存器模型从 IP 生成元数据（XCI memory maps）转录不凭记忆）；ees331.md 仅更新相机条目过时事实（相机已接回，~70s 真帧后 failed 终态+dmesg 显式 unlock+client-exit）；**IP/工程特定内容不进 skill**（用户原则：skill 是通用 overlay 方法论，不针对某 IP/工程）——AXI DMA 驱动纪律归 PG021+驱动文件头 docstring（pl_b2_loopback.py），地址表/连线/run 证据归 4_metrics/7_logs；四层归位原则沉淀记忆 skill-generality-principle。已同步四路径（主树 `.claude/skills/` 与 `6_skill/`、worktree 同名两份，sha256 逐字节核对全同）。
+- **Git**：B1 已推 `af407c0`（86ae8a7 RTL/BD feat + bb13563 证据 19 文件含 add -f 大文件 sha 申报 + merge origin/main——MODEL.md 冲突双保留：v2 骨架+我方 Zynq 部署节移出折叠块附 09-19 更新行）；本批推送 = run24 证据（add -f 申报 bit 4,045,696B sha256=6d91f2b5…、hwh 325,120B sha256=0b35ee8f…、board_run24.log）+ 7_logs 10/11 + 根文档三件 + skill 四路径同步。main 不动。
+- **下一步**：B3 DMA+GEMM 大 KC（需桥接设计立项：MM2S 流→GEMM 装载口握手协议，用户单独授权）→ B4 全联；板上动作用户在场。板上现挂 run24 三从机基线。
+
 ## 2026-09-19（隔夜并行批）PPU 非线性算子线七门全绿 + 迁移入库
 
 - **背景**：用户隔夜授权并行线（防撞暂存区 `2_fpga/parallel_task`，全产物隔离、迁移待各线收口后用户主导），与 PE/GEMM 线并行开发 YOLOv8n 图算子（requant/upsample2/maxpool5/add/xfer；view 零拷贝无 RTL）；09-19 晨用户指令有序迁移主树、日志并入主根、推送个人分支。
