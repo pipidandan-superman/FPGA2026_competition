@@ -2,6 +2,10 @@
 
 > 全项目进度总览（软件/硬件两部分）：[progress.md](progress.md)。本 README 只保留最近动态，历史细节见 [HANDOFF.md](HANDOFF.md) 与 `7_logs/`。
 
+## 2026-09-19（深夜·续）YOLOv8 主线 P0 收官：P0-A 冻结 + P0-B 板级验证 PASS
+
+**主线决策**：M13 `yolo_a2` 弃主线（全网执行器约 90% 失败，留参考/诊断），唯一主线 = `axi_gemm_test`（PS7 100 MHz + GEMM V2.2 + CSR + AXI DMA + PPU）。**P0-A** 离线冻结（104-task schedule 合同 + 工程/BD/RTL/ROM/bit/HWH 全哈希，`1_docs/yolo_v8_mainline_baseline_20260919.md`）；**P0-B 板级 run02 全门 PASS**（run01 在线性阻塞 fail-closed 留档；用户再上电后一轮收官）：在线性/身份（新 boot_id）→ 所有权（相机服务 failed 终态、/dev/dri 无持有者，空洞放行）→ 基线 Overlay CK1-CK5（download+operating+zocl 锁 1→2 新鲜 UUID；GEMM_ID 0x20260919/CSR_ID 0x594F4C32）→ CK_F 真 100.000 MHz（raw 0x00200500）→ B1+B2 smoke（复用 run25 驱动，全部 gate 值与 run23/24/25 **逐位相同**，`BOARD_FREQ100_PASS`，wop=3462/rb_ok=416/db_ok=9 双零错）→ 恢复性（驱动退出后 `/dev/mem` 三读全中 `P0B_POSTCHECK_PASS`）。**板上现挂 P0 基线 = 100 MHz GEMM+CSR+DMA 三从机 overlay**（板上目录 `~/p0b_run02/`）。下一步 P1/B3 真实 Conv0 的 DMA→GEMM→DDR→G0 golden——桥接合同 4 决策点待用户授权。证据：`4_metrics/logs/2026-09-19_yolov8_p0_board_validation_run02/`、`7_logs/2026-09-19/13`。
+
 ## 2026-09-19（深夜）run25 频率门收官：FCLK0 50→100 MHz 全绿（BOARD_FREQ100_PASS）
 
 **硬件线（上板·频率门）**：用户 GUI 改 PS7 FCLK0=100 MHz 重生成比特流上板，同种子重验——CK_F 实测真 **100.000 MHz**（raw 0xF8000170=0x00200500=IO_PLL 1000÷5÷2），S1/S2/S3+DB1-DB7 全部 gate 值与 run23/24 **逐位相同**（双零错、总账 wop=3462/rb_ok=416/db_ok=9）→ **无频率耦合缺陷**；板上现挂 **100 MHz 三从机基线**。过程三次尝试留档：attempt-1 我方布局记忆错+信 pynq 报告 → 假 FAIL；attempt-2"修复"写被硬件拒写 bits[3:0] → 裁定 **pynq ZYNQ_CLK_FIELDS=硬件真值**（DIV0[13:8]/DIV1[25:20]/SRCSEL[5:4]），restore_clk.py 复位后 v3 判据全绿。板卡事实入 ees331 画像：晶振 **33.3333 MHz** ⇒ pynq 3.0.1 所有 MHz 报告 **1.5× 高**（报 150=真 100、报 75=真 50），门控一律 raw SLCR+PLL FBDIV。勘误：run23/24 下载后寄存器正确值=0x00400500=真 50.00 MHz（此前分析文本 0x00140500 为算术误写，非观测），**B1/B2 回溯完整性成立**。下一步 **B3 DMA+GEMM 大 KC（桥接立项+授权待用户）**。工程关键文件已随 `cd81d41` 入库（.xpr/BD/17 XCI/impl 报告；bit 与证据同 sha 不重复），**100MHz 复现与 50MHz 回退锚全自包含于用户分支**。证据：`4_metrics/logs/2026-09-19_yolo_gemm_freq_run25_fclk100/`、`7_logs/2026-09-19/12`。

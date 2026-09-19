@@ -1,0 +1,44 @@
+{
+  "schema": "yolov8-p0-board-validation-v1",
+  "date": "2026-09-19",
+  "run": "2026-09-19_yolov8_p0_board_validation_run02",
+  "p0_status": "P0_B_PASS",
+  "p0_overall": "P0_COMPLETE (P0-A offline freeze + P0-B board validation)",
+  "user_power_confirmation": true,
+  "board": {
+    "candidate": "192.168.240.10",
+    "host_board_nic": "192.168.240.2/24",
+    "hostname": "pynq",
+    "kernel": "5.15.19-xilinx-v2022.1 armv7l",
+    "boot_id": "1daced01-23ab-459b-88e2-16f583698faf",
+    "arp_mac": "46-2e-60-16-ac-3f"
+  },
+  "gates": {
+    "liveness": "PASS (ping 0% loss, ARP dynamic, SSH login)",
+    "identity": "PASS",
+    "ownership": "VACUOUS (camera service failed-terminal, camera.py gone, no /dev/dri holder, dmesg unlocked ref=0 + client exit)",
+    "overlay_download": "PASS (download returned, fpga0=operating, zocl lock 1->2 fresh uuid 9eead4e7)",
+    "overlay_identity": "PASS (GEMM_ID 0x20260919, CSR_ID 0x594F4C32, CSR_VER 0x0300)",
+    "freq": "PASS (raw 0xF8000170=0x00200500, true 100.000 MHz, pynq report 150.0 informational)",
+    "b1_gemm_smoke": "PASS (S1 128/0 y_count=128 STATUS 0x28; S2 +32 stale 25; S3 +128 STATUS 0x38; soft_rst clean)",
+    "b2_dma_smoke": "PASS (DB1-DB7, sweep 137/1/1000/8192, b2b x3, reset 0x10002, recovery + S1 rerun 416)",
+    "restoration_final_state": "PASS (P0B_POSTCHECK_PASS after driver exit: /dev/mem GEMM_ID/CSR_ID/0x00200500; getty active; camera untouched; ping 0%)"
+  },
+  "verdict_line": "CKz BOARD_FREQ100_PASS",
+  "totals": {"wop": 3462, "rop": 863, "rb_ok": 416, "rb_bad": 0, "db_ok": 9, "db_bad": 0},
+  "board_mutation": {
+    "overlay_download": true,
+    "mmio_write": true,
+    "ddr_or_cma_write": true,
+    "workload_stop": false,
+    "camera_service_touched": false
+  },
+  "baseline": {
+    "bit_sha256": "0E0AE18571394CF017FCD145115B87F01966865D18D12686B1CFC032A7020BA0",
+    "hwh_sha256": "8016AC63ECBE544D82277EBCCEBAD203868101A854B3B55F4A0C5D500C28019F",
+    "driver_sha256": "F151E4898C0FD0A2A5A4293915E4A185F93E1AEC4F9472B6C9346EBA357D990B",
+    "postcheck_sha256": "8C7678CC979562C37CF86BF05A17CDEC0E33D87DD83415A95E1CB473CAA3C3EC"
+  },
+  "board_final_state": "P0 baseline (100 MHz GEMM+CSR+DMA three-slave) mounted; board dir ~/p0b_run02/",
+  "next_action": "P1/B3 real Conv0 DMA->GEMM->DDR->G0 golden; B3 bridge contract pending user authorization"
+}

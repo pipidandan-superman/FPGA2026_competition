@@ -1,5 +1,27 @@
 # EES-331 项目交接
 
+## 2026-09-19 P0 主线收敛收官：P0-A 冻结 + P0-B 板级验证 PASS（当前起点）
+
+- 用户裁定：M13 `yolo_a2` 全网执行器约 90% 失败，仅保留参考/诊断资料；不再把
+  M13 作为后续 YOLOv8 主线。
+- 唯一主线：`2_fpga/3_yolo_zynq/proj/axi_gemm_test/` + GEMM V2.2 + CSR + AXI
+  DMA + PPU 图算子；当前 100 MHz 三从机 bit/HWH 是基础平台。
+- **P0-A 离线架构收敛与哈希冻结完成**：`1_docs/yolo_v8_mainline_baseline_20260919.md`、
+  `4_metrics/logs/2026-09-19_yolov8_p0_mainline_convergence_run01/`。
+- **P0-B 板级基线验证 run02 全门 PASS ⇒ P0 整体收官**
+  （`4_metrics/logs/2026-09-19_yolov8_p0_board_validation_run02/`，`7_logs/2026-09-19/13`）：
+  在线性/身份（新 boot_id）→ 所有权（相机服务终态、/dev/dri 无持有者，空洞放行）→
+  基线 Overlay 身份（复用 run25 驱动 CK1-CK5：download+operating+zocl 锁 1→2 新鲜
+  UUID；GEMM_ID 0x20260919/CSR_ID 0x594F4C32/VER 0x0300）→ CK_F 真 100.000 MHz
+  （raw 0x00200500）→ B1 smoke（S1/S2/S3+soft_rst 与 run23/24/25 逐位相同）→
+  B2 smoke（DB1-DB7 全绿，wop=3462 rb_ok=416 db_ok=9 双零错 → BOARD_FREQ100_PASS）
+  → 恢复性（驱动退出后 /dev/mem 三读全中 P0B_POSTCHECK_PASS，getty 活、相机服务
+  未触碰）。run01 为在线性阻塞 fail-closed 留档，本轮同方法复测即恢复，判定无谎报。
+- **板上现挂 P0 基线**：100 MHz GEMM+CSR+DMA 三从机 overlay（板上目录 `~/p0b_run02/`）。
+- 下一步 = P1/B3 真实 Conv0 的 DMA→GEMM→DDR→G0 golden；B3 桥接合同 4 决策点
+  仍待用户授权。任何 Overlay 下载、CMA/DDR 写入或其他板上物理操作前先通知用户
+  并确认已上电。
+
 ## 2026-09-19（深夜）run25 频率门收官 BOARD_FREQ100_PASS（FCLK0 50→100 MHz）
 
 - **背景**：用户在 Vivado GUI 将 PS7 FCLK0 改 100 MHz、重生成比特流并上板通电，按 overlay skill 七步正典单独验证（用户已决策：频率门与 B3 分开）。期望纪律：同种子 ⇒ 所有 gate 值必须与 run23/24 位相同，偏差即频率耦合缺陷。
