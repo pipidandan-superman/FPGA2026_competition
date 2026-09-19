@@ -1,0 +1,27 @@
+restore_clk.py ORIGINAL execution output
+(transcribed from the session ssh terminal, 2026-09-19 ~19:55 local, run
+under `sudo /usr/local/share/pynq-venv/bin/python3 restore_clk.py`; the
+board copy was sha-verified identical to local restore_clk.py before the
+run. Re-running the script now is idempotent but would NOT reproduce the
+before= value below, hence this transcription of the original event):
+
+[sudo] password for xilinx: restore FPGA0_CLK_CTRL: before=0x00000200 wrote=0x00200500 readback=0x00200500
+layout DIV0[13:8]=5 DIV1[25:20]=2 SRCSEL[5:4]=0 IO_PLL=1000.00 -> true=100.000 MHz
+RESTORED_100MHZ_OK
+
+Context: attempt-2's erroneous "repair" write (0x00000205, based on a
+wrong register-layout belief) was refused by hardware in bits [3:0],
+leaving 0x00000200 = div0=2, div1=0 -> undefined fabric clock. This
+restore wrote the pynq-intent value 0x00200500 (IO_PLL, div0=5, div1=2 =
+true 100 MHz) directly via raw /dev/mem; readback confirmed.
+
+probe_clk2.py FIRST observation (run between attempt-1 and attempt-2,
+same transcription basis; the archived board_run25-era re-run is in
+probe_clk2_output.txt with identical raw values):
+
+  ARM  off=0x100 raw=0x00028000 FBDIV=40 -> 1333.33 MHz (ref 33.3333)
+  DDR  off=0x104 raw=0x00020000 FBDIV=32 -> 1066.67 MHz
+  IO   off=0x108 raw=0x0001E000 FBDIV=30 -> 1000.00 MHz
+  ARM_CLK_CTRL 0x120 raw=0x1F000200
+  FPGA0_CLK_CTRL 0x170 raw=0x00200500   (post attempt-1 download)
+  FPGA1-3_CLK_CTRL raw=0x00100F00       (untouched boot residual)

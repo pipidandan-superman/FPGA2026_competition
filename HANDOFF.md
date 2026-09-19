@@ -1,5 +1,15 @@
 # EES-331 项目交接
 
+## 2026-09-19（深夜）run25 频率门收官 BOARD_FREQ100_PASS（FCLK0 50→100 MHz）
+
+- **背景**：用户在 Vivado GUI 将 PS7 FCLK0 改 100 MHz、重生成比特流并上板通电，按 overlay skill 七步正典单独验证（用户已决策：频率门与 B3 分开）。期望纪律：同种子 ⇒ 所有 gate 值必须与 run23/24 位相同，偏差即频率耦合缺陷。
+- **终态（attempt-3 一跑全绿）**：CK_F 真 **100.000 MHz**（raw `0xF8000170=0x00200500` = IO_PLL 1000÷5÷2，verify-only 零 SLCR 写）；S1/S2/S3 + DB1-DB7 全部值与 run23/24 **逐位相同**（y_count 128/32/128、幻影槽 0x25、STATUS 0x28/0x38、DMASR 0x1002、wop=3462/rb_ok=416/db_ok=9 双零错）→ `BOARD_FREQ100_PASS`，**无频率耦合缺陷**。预检 WNS+0.405 @10ns、DRC 0、DSP 68。板上现挂 **100 MHz 版 GEMM+CSR+DMA 三从机基线**。
+- **CK_F 三次尝试 + 自我修正（全留档）**：attempt-1 假 FAIL（我凭记忆的寄存器布局解码错 + 信 pynq 150 报告——时钟本来就是真 100）；probe_clk2.py（raw /dev/mem）钉死板卡常数：晶振 **33.3333 MHz**、IO PLL FBDIV=30→1000 MHz；此间误判 pynq 布局为 bug → attempt-2"修复"写被**硬件拒写 bits[3:0]**（wrote=0x205 readback=0x200）→ 裁定反转：**pynq ZYNQ_CLK_FIELDS=硬件真值**（DIV0[13:8]/DIV1[25:20]/SRCSEL[5:4]，bits[3:0] 保留写忽略）；restore_clk.py 恢复 0x00200500；驱动 v3 全绿。**pynq 3.0.1 唯一真缺陷 = 参考时钟模型（50 vs 33.333 ⇒ 所有 MHz 报告 1.5× 高：报 150=真 100、报 75=真 50）**，门控一律 raw SLCR + PLL FBDIV 推真值。
+- **勘误入档**：run23/24 下载后寄存器值曾在我方分析文本中误写 0x00140500（重构算术错误，非观测）；正确值 = **0x00400500 = IO÷5÷4 = 真 50.00 MHz**（干净 RMW 模型 + attempt-1 实测类比证实）——**B1/B2 回溯完整性成立，依据修正**。
+- **归位**：33.333 晶振 / 1.5× 报告偏置 / 0xF8000170 布局与 bits[3:0] 写忽略 = 板卡固有事实，入 ees331 板卡画像（不进 skill，四层归位原则）。
+- **Git**：本批推送 run25 证据（add -f 申报 bit/hwh/log + sha）+ 7_logs/12 + 根文档三件 + ees331 画像。main 不动。
+- **下一步**：B3 DMA+GEMM 大 KC（桥接设计立项 + 4 授权决策点待用户）→ B4 全联；板上动作用户在场。
+
 ## 2026-09-19（晚）PE/GEMM 上板线 B1+B2 板级双收官 + overlay skill 通用性修正与同步
 
 - **背景**：晨间 G2 架构收敛与执行计划批准（8×16 基线、Kc=576/1024、双组 TDP PPRAM 禁 FIFO；`1_docs/yolo_gemm_g2g4g7_execution_plan_20260919.md`）后，白班连推两条链（证据 `7_logs/2026-09-19/07–09`，git 11b3b7b/8fca71b）：**IP 硬指标重做链 run11–16**（用户硬指标=数据通路全真 IP、DSP48E1 primitive 合规、例化逐端口对 .veo；六门 PASS，OOC 资源判据精确命中 BRAM36=12+RAMB18=1、DSP=68）+ **WNS A+B 收敛链 run17–20**（tail V2.2 并行逐位判决 `ru=prod[s−1]&(rem|prod[s])` 纯 OR 树无宽进位链，**100MHz WNS+1.392** TNS/THS=0）。本批承接 B1/B2 上板与收尾。

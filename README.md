@@ -2,6 +2,10 @@
 
 > 全项目进度总览（软件/硬件两部分）：[progress.md](progress.md)。本 README 只保留最近动态，历史细节见 [HANDOFF.md](HANDOFF.md) 与 `7_logs/`。
 
+## 2026-09-19（深夜）run25 频率门收官：FCLK0 50→100 MHz 全绿（BOARD_FREQ100_PASS）
+
+**硬件线（上板·频率门）**：用户 GUI 改 PS7 FCLK0=100 MHz 重生成比特流上板，同种子重验——CK_F 实测真 **100.000 MHz**（raw 0xF8000170=0x00200500=IO_PLL 1000÷5÷2），S1/S2/S3+DB1-DB7 全部 gate 值与 run23/24 **逐位相同**（双零错、总账 wop=3462/rb_ok=416/db_ok=9）→ **无频率耦合缺陷**；板上现挂 **100 MHz 三从机基线**。过程三次尝试留档：attempt-1 我方布局记忆错+信 pynq 报告 → 假 FAIL；attempt-2"修复"写被硬件拒写 bits[3:0] → 裁定 **pynq ZYNQ_CLK_FIELDS=硬件真值**（DIV0[13:8]/DIV1[25:20]/SRCSEL[5:4]），restore_clk.py 复位后 v3 判据全绿。板卡事实入 ees331 画像：晶振 **33.3333 MHz** ⇒ pynq 3.0.1 所有 MHz 报告 **1.5× 高**（报 150=真 100、报 75=真 50），门控一律 raw SLCR+PLL FBDIV。勘误：run23/24 下载后寄存器正确值=0x00400500=真 50.00 MHz（此前分析文本 0x00140500 为算术误写，非观测），**B1/B2 回溯完整性成立**。下一步 **B3 DMA+GEMM 大 KC（桥接立项+授权待用户）**。证据：`4_metrics/logs/2026-09-19_yolo_gemm_freq_run25_fclk100/`、`7_logs/2026-09-19/12`。
+
 ## 2026-09-19（晚）PE/GEMM 上板线：B1+B2 板级双收官（BOARD_B1_PASS / BOARD_B2_PASS）
 
 **硬件线（手册重设计·上板）**：晨间 G2 计划批准后白班连收两链——**IP 硬指标重做 run11–16**（数据通路全真 IP：DSP48E1 打包 + BMG/SDP LUT，例化逐端口对 .veo；OOC 资源判据精确命中 BRAM36=12+RAMB18=1、DSP=68）+ **WNS A+B 收敛 run17–20**（tail V2.2 并行逐位判决 RNE，纯 OR 树无宽进位链，**100MHz WNS+1.392**）。**B1 三门**：run21 顶层门（`yolo_gemm_top.v` V1.0，544 checks 两轮一致）+ run22/22b BD 比特流（u_yolo_gemm @0x43C00000/64K，WNS+4.954 @50MHz、DSP=68 与 OOC 对账无黑盒）+ **run23 板级 BOARD_B1_PASS**（288/288 回读零错，2464 次 GP0 写零挂死）。**B2 run24 板级 BOARD_B2_PASS**：用户 GUI 加 axi_dma 7.1 回环直连+HP0、零仿真直接上板（官方 IP）——GEMM 回归与 run23 逐值相同 + DMA 4096/137/1/1000/8192 全对拍/连发/软复位恢复/交叉存活性全绿；**HP 口启用不碍 overlay 实证；板上新基线=GEMM+CSR+DMA 三从机共存**。overlay skill 同批修正三条通用方法论并按用户原则"skill=通用方法论"四层归位（IP/工程细节出 skill），同步 `.claude/skills/` 与 `6_skill/`。Git：白班两链 11b3b7b/8fca71b，B1=af407c0，B2 批本批推送（main 不动）。下一步 **B3 DMA+GEMM 大 KC（需桥接设计立项+授权）→ B4 全联**。证据：`4_metrics/logs/2026-09-19_yolo_gemm_{ip_run11..20,b1_run2{1,2,3},b2_run24}_*/`、`7_logs/2026-09-19/07–11`。
