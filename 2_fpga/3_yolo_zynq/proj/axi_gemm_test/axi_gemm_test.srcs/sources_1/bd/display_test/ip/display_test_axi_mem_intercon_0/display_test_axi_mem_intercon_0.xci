@@ -1,15 +1,15 @@
 {
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
-    "xci_name": "display_test_axi_ic0_0",
-    "cell_name": "axi_ic0",
+    "xci_name": "display_test_axi_mem_intercon_0",
+    "cell_name": "axi_mem_intercon",
     "component_reference": "xilinx.com:ip:axi_interconnect:2.1",
     "ip_revision": "38",
-    "gen_directory": "../../../../../../axi_gemm_test.gen/sources_1/bd/display_test/ip/display_test_axi_ic0_0",
+    "gen_directory": "../../../../../../axi_gemm_test.gen/sources_1/bd/display_test/ip/display_test_axi_mem_intercon_0",
     "parameters": {
       "component_parameters": {
-        "NUM_SI": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "NUM_MI": [ { "value": "3", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "NUM_SI": [ { "value": "2", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "NUM_MI": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "STRATEGY": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "ENABLE_ADVANCED_OPTIONS": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "ENABLE_PROTOCOL_CHECKERS": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
@@ -322,7 +322,7 @@
         "S13_ARB_PRIORITY": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "S14_ARB_PRIORITY": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "S15_ARB_PRIORITY": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "Component_Name": [ { "value": "display_test_axi_ic0_0", "resolve_type": "user", "usage": "all" } ]
+        "Component_Name": [ { "value": "display_test_axi_mem_intercon_0", "resolve_type": "user", "usage": "all" } ]
       },
       "project_parameters": {
         "ARCHITECTURE": [ { "value": "zynq", "resolve_type": "generated", "usage": "all" } ],
@@ -341,7 +341,7 @@
         "IPCONTEXT": [ { "value": "IP_Integrator_AppCore" } ],
         "IPREVISION": [ { "value": "38" } ],
         "MANAGED": [ { "value": "TRUE" } ],
-        "OUTPUTDIR": [ { "value": "../../../../../../axi_gemm_test.gen/sources_1/bd/display_test/ip/display_test_axi_ic0_0" } ],
+        "OUTPUTDIR": [ { "value": "../../../../../../axi_gemm_test.gen/sources_1/bd/display_test/ip/display_test_axi_mem_intercon_0" } ],
         "SELECTEDSIMMODEL": [ { "value": "" } ],
         "SHAREDDIR": [ { "value": "../../ipshared" } ],
         "SWVERSION": [ { "value": "2025.2" } ],
@@ -349,5 +349,5 @@
       }
     }
   },
-  "checksum": "154239cd"
+  "checksum": "0cf0e7e7"
 }
