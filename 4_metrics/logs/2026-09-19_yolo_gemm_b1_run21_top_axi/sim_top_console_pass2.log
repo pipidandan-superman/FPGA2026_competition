@@ -1,0 +1,213 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 15:40:39 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source sim_gemm_top_axi.tcl -notrace
+EES_VIVADO_STAGE COMPILE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/yolo_pe_pack.v" into library work
+INFO: [VRFC 10-311] analyzing module yolo_pe_pack
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_w_g0/sim/gemm_bm_w_g0.v E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_w_g1/sim/gemm_bm_w_g1.v E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_x_g0/sim/gemm_bm_x_g0.v E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_x_g1/sim/gemm_bm_x_g1.v E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_lut/sim/gemm_bm_lut.v E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_ycap/sim/gemm_bm_ycap.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_w_g0/sim/gemm_bm_w_g0.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_w_g0
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_w_g1/sim/gemm_bm_w_g1.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_w_g1
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_x_g0/sim/gemm_bm_x_g0.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_x_g0
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_x_g1/sim/gemm_bm_x_g1.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_x_g1
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_lut/sim/gemm_bm_lut.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_lut
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/ip/gemm_bm_ycap/sim/gemm_bm_ycap.v" into library work
+INFO: [VRFC 10-311] analyzing module gemm_bm_ycap
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe -sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_mac_cell.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_tail.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_feeder.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_core.sv E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_top_axi.sv
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_pe_core.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_pe_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_acc_dual.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_acc_dual
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_mac_cell.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_mac_cell
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_tail.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_tail
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_array.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_array
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_bank.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_bank
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_feeder.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_feeder
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_core.sv" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_top_axi.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_yolo_gemm_top_axi
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_top.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/yolo_gemm_top.v" into library work
+INFO: [VRFC 10-311] analyzing module yolo_gemm_top
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xvlog.exe F:/vivado2025/2025.2/data/verilog/src/glbl.v
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/vivado2025/2025.2/data/verilog/src/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+EES_VIVADO_STAGE ELABORATE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe -debug off -timescale 1ns/1ps -L blk_mem_gen_v8_4_12 -L unisims_ver -L unisim -s tb_top_axi tb_yolo_gemm_top_axi glbl
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: F:\vivado2025\2025.2\Vivado\bin\unwrapped\win64.o\xelab.exe -debug off -timescale 1ns/1ps -L blk_mem_gen_v8_4_12 -L unisims_ver -L unisim -s tb_top_axi tb_yolo_gemm_top_axi glbl 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_w_g0
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_w_g1
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_x_g0
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_x_g1
+Compiling module work.yolo_gemm_bank
+Compiling module work.yolo_gemm_feeder
+Compiling module unisims_ver.DSP48E1(ADREG=0,ALUMODEREG=0,CAR...
+Compiling module work.yolo_pe_pack_default
+Compiling module work.yolo_pe_core
+Compiling module work.yolo_acc_dual
+Compiling module work.yolo_mac_cell
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_lut
+Compiling module work.yolo_gemm_tail_default
+Compiling module work.yolo_gemm_array(P_TO=8,P_TN=16)
+Compiling module work.yolo_gemm_core
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_output_stage...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_softecc_outp...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12_mem_module(C...
+Compiling module blk_mem_gen_v8_4_12.blk_mem_gen_v8_4_12(C_FAMILY="zy...
+Compiling module work.gemm_bm_ycap
+Compiling module work.yolo_gemm_top
+Compiling module work.tb_yolo_gemm_top_axi
+Compiling module work.glbl
+Built simulation snapshot tb_top_axi
+EES_VIVADO_STAGE SIMULATE
+% F:/vivado2025/2025.2/Vivado/bin/unwrapped/win64.o/xsim.exe tb_top_axi -runall
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Sat Sep 19 15:40:47 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_top_axi/xsim_script.tcl
+# xsim {tb_top_axi} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+Block Memory Generator module tb_yolo_gemm_top_axi.u_dut.u_core.u_bank.u_w_g0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_gemm_top_axi.u_dut.u_core.u_bank.u_w_g1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_gemm_top_axi.u_dut.u_core.u_bank.u_x_g0.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_gemm_top_axi.u_dut.u_core.u_bank.u_x_g1.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_gemm_top_axi.u_dut.u_core.u_array.u_tail.lane[0].u_lut_bmg.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tb_yolo_gemm_top_axi.u_dut.u_ycap.inst.native_mem_module.blk_mem_gen_v8_4_12_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+EES_TOP_STAGE S1 full 8x16 K=64 act=1
+EES_HB wop=64 cyc=275 t=2750000
+EES_HB wop=128 cyc=531 t=5310000
+EES_HB wop=192 cyc=787 t=7870000
+EES_HB wop=256 cyc=1043 t=10430000
+EES_HB wop=320 cyc=1299 t=12990000
+EES_HB wop=384 cyc=1555 t=15550000
+EES_HB wop=448 cyc=1811 t=18110000
+EES_HB wop=512 cyc=2067 t=20670000
+EES_HB wop=576 cyc=2323 t=23230000
+EES_HB wop=640 cyc=2579 t=25790000
+EES_HB wop=704 cyc=2835 t=28350000
+EES_HB wop=768 cyc=3091 t=30910000
+EES_HB wop=832 cyc=3347 t=33470000
+EES_HB wop=896 cyc=3958 t=39580000
+EES_HB wop=960 cyc=4534 t=45340000
+EES_TOP_STAGE S1 done checks=128 rb=128 errs=0
+EES_TOP_STAGE S2 masked 0x5A/0x0F0F K=40 act=0
+EES_HB wop=1024 cyc=4988 t=49880000
+EES_HB wop=1088 cyc=5244 t=52440000
+EES_HB wop=1152 cyc=5500 t=55000000
+EES_HB wop=1216 cyc=5756 t=57560000
+EES_HB wop=1280 cyc=6012 t=60120000
+EES_HB wop=1344 cyc=6268 t=62680000
+EES_HB wop=1408 cyc=6776 t=67760000
+EES_TOP_STAGE S2 done checks=160 rb=161 errs=0
+EES_TOP_STAGE S3 two-block K=96 ping-pong
+EES_HB wop=1472 cyc=7145 t=71450000
+EES_HB wop=1536 cyc=7401 t=74010000
+EES_HB wop=1600 cyc=7657 t=76570000
+EES_HB wop=1664 cyc=7913 t=79130000
+EES_HB wop=1728 cyc=8169 t=81690000
+EES_HB wop=1792 cyc=8425 t=84250000
+EES_HB wop=1856 cyc=8681 t=86810000
+EES_HB wop=1920 cyc=8946 t=89460000
+EES_HB wop=1984 cyc=9202 t=92020000
+EES_HB wop=2048 cyc=9458 t=94580000
+EES_HB wop=2112 cyc=9714 t=97140000
+EES_HB wop=2176 cyc=9970 t=99700000
+EES_HB wop=2240 cyc=10226 t=102260000
+EES_HB wop=2304 cyc=10482 t=104820000
+blk_mem_gen_v8_4_12 collision detected at time: 106745000, Instance: tb_yolo_gemm_top_axi.u_dut.u_ycap.inst.native_mem_module.blk_mem_gen_v8_4_12_inst, A write address: 0, B  read address: 0
+EES_HB wop=2368 cyc=11107 t=111070000
+EES_HB wop=2432 cyc=11683 t=116830000
+EES_TOP_STAGE S3 done checks=288 rb=289 errs=0
+EES_TOP_STAGE S4 two-tile queue + error injection + cleanup
+EES_HB wop=2496 cyc=12102 t=121020000
+EES_HB wop=2560 cyc=12358 t=123580000
+EES_HB wop=2624 cyc=12614 t=126140000
+EES_HB wop=2688 cyc=12870 t=128700000
+EES_HB wop=2752 cyc=13126 t=131260000
+EES_HB wop=2816 cyc=13382 t=133820000
+EES_HB wop=2880 cyc=13638 t=136380000
+EES_HB wop=2944 cyc=13894 t=138940000
+EES_HB wop=3008 cyc=14150 t=141500000
+EES_HB wop=3072 cyc=14406 t=144060000
+EES_HB wop=3136 cyc=14662 t=146620000
+EES_HB wop=3200 cyc=14918 t=149180000
+EES_HB wop=3264 cyc=15174 t=151740000
+EES_HB wop=3328 cyc=15430 t=154300000
+EES_HB wop=3392 cyc=15686 t=156860000
+EES_HB wop=3456 cyc=15942 t=159420000
+EES_HB wop=3520 cyc=16198 t=161980000
+EES_HB wop=3584 cyc=16454 t=164540000
+EES_HB wop=3648 cyc=16710 t=167100000
+EES_HB wop=3712 cyc=16966 t=169660000
+EES_HB wop=3776 cyc=17222 t=172220000
+EES_HB wop=3840 cyc=17478 t=174780000
+EES_HB wop=3904 cyc=17734 t=177340000
+EES_HB wop=3968 cyc=17990 t=179900000
+EES_HB wop=4032 cyc=18246 t=182460000
+EES_HB wop=4096 cyc=18502 t=185020000
+EES_HB wop=4160 cyc=18758 t=187580000
+EES_HB wop=4224 cyc=19014 t=190140000
+blk_mem_gen_v8_4_12 collision detected at time: 193655000, Instance: tb_yolo_gemm_top_axi.u_dut.u_ycap.inst.native_mem_module.blk_mem_gen_v8_4_12_inst, A write address: 7f, B  read address: 7f
+blk_mem_gen_v8_4_12 collision detected at time: 196995000, Instance: tb_yolo_gemm_top_axi.u_dut.u_ycap.inst.native_mem_module.blk_mem_gen_v8_4_12_inst, A write address: 7f, B  read address: 7f
+EES_HB wop=4288 cyc=20195 t=201950000
+EES_HB wop=4352 cyc=20771 t=207710000
+EES_TOP_STAGE S4 done checks=544 rb=417 errs=0
+EES_TOP_INFO tiles=5/5 y=544
+EES_SUMMARY checks=544 rb_checks=417 errors=0 PASS
+EES_VIVADO_RESULT PASS
+$finish called at time : 208970 ns : File "E:/competition/2_fpga/3_yolo_zynq/rtl/GEMM/tb/tb_yolo_gemm_top_axi.sv" Line 691
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Sep 19 15:40:50 2026...
+EES_VIVADO_RESULT DONE
+INFO: [Common 17-206] Exiting Vivado at Sat Sep 19 15:40:50 2026...
